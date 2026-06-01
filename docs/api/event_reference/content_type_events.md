@@ -1,9 +1,9 @@
 ---
-description: Events that are triggered when working with Content Types.
+description: Events that are triggered when working with content types.
 page_type: reference
 ---
 
-# Content Type events
+# Content type events
 
 | Event | Dispatched by | Properties |
 |---|---|---|
@@ -20,7 +20,7 @@ page_type: reference
 |`BeforeDeleteContentTypeEvent`|`ContentTypeService::deleteContentType`|`ContentType $contentType`|
 |`DeleteContentTypeEvent`|`ContentTypeService::deleteContentType`|`ContentType $contentType`|
 
-## Content Type groups
+## Content type groups
 
 | Event | Dispatched by | Properties |
 |---|---|---|
@@ -31,7 +31,7 @@ page_type: reference
 |`BeforeDeleteContentTypeGroupEvent`|`ContentTypeService::deleteContentTypeGroup`|`ContentTypeGroup $contentTypeGroup`|
 |`DeleteContentTypeGroupEvent`|`ContentTypeService::deleteContentTypeGroup`|`ContentTypeGroup $contentTypeGroup`|
 
-## Content Type translations
+## Content type translations
 
 | Event | Dispatched by | Properties |
 |---|---|---|

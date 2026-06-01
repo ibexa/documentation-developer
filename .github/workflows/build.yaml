@@ -1,62 +1,100 @@
-name: 'Build & test documentation'
+name: "Build & test documentation"
 
 on:
     push:
         branches:
             - master
-            - '[0-9]+.[0-9]+'
+            - "[0-9]+.[0-9]+"
     pull_request: ~
 
 jobs:
     build:
         permissions:
-          # Give the default GITHUB_TOKEN write permission to commit and push the
-          # added or changed files to the repository.
-          contents: write
+            # Give the default GITHUB_TOKEN write permission to commit and push the
+            # added or changed files to the repository.
+            contents: write
 
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                python-version: [3.8]
+                python-version: [3.13]
 
         steps:
-            -   uses: actions/checkout@v3
-            -   name: Set up Python ${{ matrix.python-version }}
-                uses: actions/setup-python@v3
-                with:
-                    python-version: ${{ matrix.python-version }}
-            -   name: Install php-cs-fixer
-                run: composer require friendsofphp/php-cs-fixer --dev
-            -   name: Run PHP CS Fixer
-                run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
-            -   name: Commit changes
-                uses: stefanzweifel/git-auto-commit-action@v4
-                with:
-                    commit_message: PHP CS Fixes
-            -   name: Install dependencies
-                run: |
-                    python -m pip install --upgrade pip
-                    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            -   name: Run build
-                run: |
-                    mkdocs build --strict
+            - uses: actions/checkout@v4
+
+            - name: Set up Python ${{ matrix.python-version }}
+              uses: actions/setup-python@v3
+              with:
+                  python-version: ${{ matrix.python-version }}
+
+            - uses: "ramsey/composer-install@v3"
+              with:
+                  working-directory: "tools/php-cs-fixer"
+                  dependency-versions: highest
+
+            - name: Run PHP CS Fixer
+              run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
+
+            - name: Run Prettier
+              run: |
+                    yarn install
+                    yarn prettier-test --write
+                    rm -rf node_modules 
+                    rm yarn.lock
+
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: PHP & JS CS Fixes
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+            - name: Run build
+              run: |
+                  mkdocs build --strict
+
+            - name: Verify that there are no variables in generated HTML
+              run: |
+                    # Check for raw MkDocs variables in the generated HTML
+                    if grep -Erl "\[\[=.*=\]\]" site > /dev/null; then
+                        echo "Raw variables detected in the following files:"
+                        grep -Erl "\[\[=.*=\]\]" site
+                        exit 1
+                    fi
+
+    markdownlint:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'pull_request'
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Run markdownlint
+              uses: DavidAnson/markdownlint-cli2-action@v20
+              with:
+                  globs: "docs/**/*.md"
 
     vale-check:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
 
         steps:
-            -   uses: actions/checkout@v3
-            -   name: Get Vale.sh configs
-                env:
-                    TOKEN: ${{ secrets.EZROBOT_PAT }}
-                run: |
-                    curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
-                    unzip vale.zip
-                    rm vale.zip
-                    mv vale-styles-main/* vale-styles-main/.vale.ini .
-            -   name: Run Vale.sh
-                uses: errata-ai/vale-action@reviewdog
-                with:
+            - uses: actions/checkout@v4
+
+            - name: Get Vale.sh configs
+              env:
+                  TOKEN: ${{ secrets.EZROBOT_PAT }}
+              run: |
+                  curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
+                  unzip vale.zip
+                  rm vale.zip
+                  mv vale-styles-main/* vale-styles-main/.vale.ini .
+
+            - name: Run Vale.sh
+              uses: vale-cli/vale-action@v2
+              with:
                   reporter: github-check
                   filter_mode: added

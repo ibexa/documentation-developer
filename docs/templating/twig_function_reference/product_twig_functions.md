@@ -7,12 +7,11 @@ page_type: reference
 
 ### `ibexa_get_product`
 
-The `ibexa_get_product()` filter gets the selected product
-based on either a product object or a Content item object that contains a product.
+The `ibexa_get_product()` filter gets the selected product based on either a product object or a content item object that contains a product.
 
 #### Examples
 
-``` hmml+twig
+``` html+twig
 {{ (product|ibexa_get_product).code }}
 {{ (content|ibexa_get_product).code }}
 ```
@@ -20,6 +19,10 @@ based on either a product object or a Content item object that contains a produc
 ### `ibexa_format_product_attribute`
 
 The `ibexa_format_product_attribute` filter formats the attribute value to a readable, translated form.
+Rendering is performed by using Twig templates with named blocks, defined in a configurable list.
+
+You can customize this behavior by adding templates or by listening to the [`ProductAttributeRenderEvent`](product_catalog_events.md#attribute-rendering).
+For more information, see [Customize product attribute templates](customize_product_attribute_templates.md).
 
 #### Examples
 
@@ -108,11 +111,43 @@ The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a p
 
 ### `ibexa_format_price`
 
-The `ibexa_format_price` filter formats the price value by placing currency code 
-either on the left or on the right of the numerical value.
+The `ibexa_format_price` filter formats the price value by placing currency code either on the left or on the right of the numerical value.
+
+#### Examples
 
 ``` html+twig
-{% for product.price in product.attributes %}
-    {{ product.price.getMoney()|ibexa_format_price }}
+{{ order.getValue().getTotalGross()|ibexa_format_price }}
+
+{{ ibexa_get_original_price(discount_product)|ibexa_format_price ?: '-' }}
+```
+
+### `ibexa_is_pim_local`
+
+The `ibexa_is_pim_local` is a helper Twig function that enables changing the behavior of templates depending on the source of product data.
+
+#### Examples
+
+``` html+twig
+{% if ibexa_is_pim_local() == true %}
+    <div class="conditional-content">
+        <button type="button">Modify product data</button>
+    </div>
+{% endif %}
+```
+
+### `ibexa_product_catalog_group_attributes`
+
+The `ibexa_product_catalog_group_attributes` filter groups product attributes based on the [attribute group]([[= user_doc =]]/product_catalog/work_with_product_attributes/#create-attribute-groups) they belong to.
+
+#### Example
+
+``` html+twig
+{% for group, attributes in product.attributes | ibexa_product_catalog_group_attributes %}
+    <ul>{{ group.name | capitalize }}
+        {% for attribute in attributes %}
+            {% set attribute_definition = attribute.attributeDefinition %}
+            <li>{{ attribute_definition.name }} : {{ attribute | ibexa_format_product_attribute }}</li>
+        {% endfor %}
+    </ul>
 {% endfor %}
 ```

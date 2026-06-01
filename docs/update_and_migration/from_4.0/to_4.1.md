@@ -4,17 +4,19 @@ description: Update your installation to the latest v4.1 version from v4.0.
 
 # Update from v4.0.x to v4.1
 
-This update procedure applies if you are using v4.0.0.
+This update procedure applies if you're using v4.0.0.
 
 Go through the following steps to update to v4.1.
+
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
 !!! note
 
     During the update process you can encounter the following error:
 
-    `Failed to create closure from callable: class 'Ibexa\Bundle\Commerce\Eshop\Twig\SilvercommonExtension' does not have a method 'getNavigation'`
+    `Failed to create closure from callable: class 'Ibexa\Bundle\Commerce\Eshop\Twig\SilvercommonExtension' doesn't have a method 'getNavigation'`
 
-    You can ignore this error, it does not require any action on your part.
+    You can ignore this error, it doesn't require any action on your part.
 
 ## Update the app to latest version of v4.0
 
@@ -23,7 +25,7 @@ First, update your application to the latest version of v4.0: v4.0.8.
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
-If you are using earlier v4.x versions, and you have not done it before,
+If you're using earlier v4.x versions, and you haven't done it before,
 you have to update your Flex server.
 
 To do it, in your `composer.json`, check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
@@ -117,7 +119,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you are using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
+If you're using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Update the app to latest version of v4.1
 
@@ -179,7 +181,7 @@ To use the legacy solution, in the `config/packages` folder,
 in YAML files with shop configuration, under the `parameters` key, 
 make sure that the `ibexa.commerce.site_access.config.eshop.default.catalog_data_provider` parameter is set to `ez5`.
   
-To use the new product catalog, since the new solution does not support the old 
+To use the new product catalog, since the new solution doesn't support the old 
 price engine out of the box, in your price engine configuration, 
 you must update the following parameters by providing the 
 `Ibexa\\ProductCatalog\\Bridge\\PriceProvider` value in the `ibexa_setting` table, 

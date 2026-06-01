@@ -15,38 +15,38 @@
 
 The new Link manager enables you to manage all links to external websites that are embedded in the whole site,
 whether in Rich Text or in URL Field.
-You can edit a link in the manager and it will be updated automatically in all Content items.
+You can edit a link in the manager and it's updated automatically in all content items.
 
 ![Link Manager](link_manager.png)
 
 ### Copying subtrees in the back office
 
-Following [EZP-27759](https://issues.ibexa.co/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
+You can now copy a content item with all of its sub-items in the back office.
 
-The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
+The maximum number of content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
 
 ![Copy subtree option in the menu](copy_subtree_button.png)
 
 ### REST API improvements
 
-- [EZP-27752](https://issues.ibexa.co/browse/EZP-27752) adds a REST endpoint for deleting a translation from all versions of a Content item.
-- [EZP-28253](https://issues.ibexa.co/browse/EZP-28253) adds a `fieldTypeIdentifier` field to the REST response for Version, which provides the Field Type.
+- Added a REST endpoint for deleting a translation from all versions of a content item.
+- Added s a `fieldTypeIdentifier` field to the REST response for Version, which provides the field type.
 
 ### ezplatform-http-cache extensibility
 
-[EZEE-1780](https://issues.ibexa.co/browse/EZEE-1780) makes ezplatform-http-cache extensible in third party bundles.
+Made ezplatform-http-cache extensible in third party bundles.
 
 ### Fastly
 
-Following [EZEE-1781](https://issues.ibexa.co/browse/EZEE-1781) you can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
+You can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
 
 ## Full list of new features, improvements and bug fixes since v1.12.0
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0) | [List of changes for final for eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0) |
-| [List of changes for rc1 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
-| [List of changes for beta2 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
+| [List of changes for final of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0) | [List of changes for final for eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0) |
+| [List of changes for rc1 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
+| [List of changes for beta2 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
 
 ### Installation
 

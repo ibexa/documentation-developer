@@ -2,14 +2,12 @@
 edition: experience
 ---
 
-# Form Field Type
+# Form field type
 
-The Form Field Type stores a Form consisting of one or more form fields.
+The Form field type stores a Form consisting of one or more form fields.
 
 | Name   | Internal name |
 |--------|---------------|
-| `Form` | `ezform`      |
+| `Form` | `ibexa_form`  |
 
-
-
-See [Forms](forms.md) for more information about working with Forms.
+For more information about working with Forms, see [Forms](work_with_forms.md).

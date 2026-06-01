@@ -1,3 +1,7 @@
+---
+description: CreatedAtRange Search Criterion
+---
+
 # CreatedAtRange Criterion
 
 The `CreatedAtRange` Search Criterion searches for products based on the date range when they were created.

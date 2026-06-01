@@ -1,0 +1,11 @@
+ibexa_fieldtype_page:
+    react_blocks:
+        calculator:
+            name: Calculator
+            category: Demo
+            thumbnail: /bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#calendar
+            component: Calculator
+            attributes:
+                a:
+                    type: integer
+                b: integer

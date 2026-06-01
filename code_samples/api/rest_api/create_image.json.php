@@ -89,13 +89,13 @@ try {
 
 if (201 !== $responseCode = $response->getStatusCode()) {
     try {
-        $response = $response->toArray(false);
-        if (array_key_exists('ErrorMessage', $response)) {
-            echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-            echo "\t{$response['ErrorMessage']['errorDescription']}\n";
+        $responseArray = $response->toArray(false);
+        if (array_key_exists('ErrorMessage', $responseArray)) {
+            echo "Server error: {$responseArray['ErrorMessage']['errorCode']} {$responseArray['ErrorMessage']['errorMessage']}\n";
+            echo "\t{$responseArray['ErrorMessage']['errorDescription']}\n";
             exit(4);
         }
-    } catch (HttpException\DecodingExceptionInterface $exception) {
+    } catch (HttpException\DecodingExceptionInterface) {
     }
     $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
@@ -125,13 +125,13 @@ try {
 
 if (204 !== $responseCode = $response->getStatusCode()) {
     try {
-        $response = $response->toArray(false);
-        if (array_key_exists('ErrorMessage', $response)) {
-            echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-            echo "\t{$response['ErrorMessage']['errorDescription']}\n";
+        $responseArray = $response->toArray(false);
+        if (array_key_exists('ErrorMessage', $responseArray)) {
+            echo "Server error: {$responseArray['ErrorMessage']['errorCode']} {$responseArray['ErrorMessage']['errorMessage']}\n";
+            echo "\t{$responseArray['ErrorMessage']['errorDescription']}\n";
             exit(8);
         }
-    } catch (HttpException\DecodingExceptionInterface $exception) {
+    } catch (HttpException\DecodingExceptionInterface) {
     }
     $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
@@ -139,6 +139,6 @@ if (204 !== $responseCode = $response->getStatusCode()) {
     exit(9);
 }
 
-echo "Success: Image Content item created with ID $contentId and published.\n";
+echo "Success: Image content item created with ID $contentId and published.\n";
 
 exit(0);

@@ -2,7 +2,7 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     toolbars:
                         paragraph:
                             buttons:

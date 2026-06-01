@@ -7,17 +7,17 @@ edition: commerce
 
 To get payments and manage them, use the `Ibexa\Contracts\Payment\PaymentServiceInterface` interface.
 
-By default, UUID is used to generate payment identifiers. 
+By default, UUID is used to generate payment identifiers.
 You can change that by providing a custom payment identifier in `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` or `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct`.
 
-## Get single payment 
+## Get single payment
 
 ### Get single payment by ID
 
 To access a single payment by using its numerical ID, use the `PaymentServiceInterface::getPayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 60, 64) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 49, 52, remove_indent=True) =]]
 ```
 
 ### Get single payment by identifier
@@ -25,42 +25,41 @@ To access a single payment by using its numerical ID, use the `PaymentServiceInt
 To access a single payment by using its string identifier, use the `PaymentServiceInterface::getPaymentByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 66, 70) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 55, 56, remove_indent=True) =]]
 ```
 
 ## Get multiple payments
 
-To fetch multiple payments, use the `PaymentServiceInterface::findPayments` method. 
+To fetch multiple payments, use the `PaymentServiceInterface::findPayments` method.
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 72, 88) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 64, 79, remove_indent=True) =]]
 ```
 
 ## Create payment
 
-To create a payment, use the `PaymentServiceInterface::createPayment` method and provide it with 
-the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
+To create a payment, use the `PaymentServiceInterface::createPayment` method and provide it with the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 94, 94) =]]
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 101, 104) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 82, 95, remove_indent=True) =]]
 ```
 
 ## Update payment
 
-You can update payment information after the payment is created. 
-You could do it to support a scenario when, for example, an online payment failed, has been processed by using other means, and its status has to be updated in the system. 
+You can update payment information after the payment is created.
+You could do it to support a scenario when, for example, an online payment failed, has been processed by using other means, and its status has to be updated in the system.
 The `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct` object takes the following arguments: `transition`, `identifier`, and `context`.
 To update payment information, use the `PaymentServiceInterface::updatePayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 106, 112) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 98, 103, remove_indent=True) =]]
 ```
 
 ## Delete payment
 
 To delete a payment from the system, use the `PaymentServiceInterface::deletePayment` method:
+
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 114, 114) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 106, 106, remove_indent=True) =]]
 ```

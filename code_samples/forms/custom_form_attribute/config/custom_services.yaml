@@ -3,7 +3,7 @@
             $fieldIdentifier: checkbox_with_richtext_description
             $formType: 'App\FormBuilder\Form\Type\CheckboxWithRichtextDescriptionType'
         tags:
-            - { name: ibexa.form_builder.field_mapper }
+            - { name: ibexa.form_builder.field.mapper }
 
     ibexa.form_builder.attribute_form_type_mapper.richtext_description:
         class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
@@ -18,4 +18,4 @@
             $typeIdentifier: 'checkbox_with_richtext_description'
             $twig: '@twig'
         tags:
-            - { name: ibexa.form_builder.field_submission_converter }
+            - { name: ibexa.form_builder.field.submission.converter }

@@ -4,35 +4,50 @@ description: Using the PHP API you can browse taxonomy entries, get their inform
 
 # Taxonomy API
 
-To manage taxonomies, use `Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface`.
+To manage taxonomies, use [`TaxonomyServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html).
 
 ## Getting taxonomy entries
 
-To get a single taxonomy entry, you can use `TaxonomyServiceInterface::loadEntryById()`
-and provide it with the numerical entry ID, or pass entry identifier and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
+To get a single taxonomy entry, you can use `TaxonomyServiceInterface::loadEntryById()`,
+and provide it with the numerical entry ID.
+Or pass entry identifier (with optionally a taxonomy identifier),
+and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 43, 46) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 35, 37, remove_indent=True) =]]
 ```
 
-You can also get a taxonomy entry from the ID of its underlying Content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
+!!! note
+
+    A taxonomy entry identifier is unique per taxonomy. If you have [several taxonomies](taxonomy.md#customize-taxonomy-structure), you can increase code readability by always passing the taxonomy identifier even when it's the default one. The default taxonomy is `tags` if it exists, else the first configured taxonomy (see `\Ibexa\Taxonomy\Service\TaxonomyConfiguration::getDefaultTaxonomyName` for details).
+    ``` php
+    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'tags');
+    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'events');
+    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'devices');
+    ```
+
+You can also get a taxonomy entry from the ID of its underlying content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
 
 To get the root (main) entry of a given taxonomy, use `TaxonomyServiceInterface::loadRootEntry()`
 and provide it with the taxonomy name.
 
 To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries()`, provide it with the taxonomy identifier,
-and optionally specify the limit of results and their offset. The default limit is 30.
+and optionally specify the limit of results and their offset.
+The default taxonomy identifier is given by `TaxonomyConfiguration::getDefaultTaxonomyName` and is `'tags'` on a fresh installation.
+The default limit is 30.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 41, 42) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 33, 33, remove_indent=True) =]]
 ```
 
-To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`, 
+To see how many entries is there, use `TaxonomyServiceInterface::countAllEntries()` with optionally a taxonomy identifier.
+
+To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`,
 provide it with the entry object, and optionally specify the limit of results and their offset.
 The default limit is 30:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 48, 53) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 40, 44, remove_indent=True) =]]
 ```
 
 ## Managing taxonomy entries
@@ -41,7 +56,7 @@ You can move a taxonomy entry to a different parent by using `TaxonomyServiceInt
 Provide the method with two objects: the entry that you want to move and the new parent entry:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 54, 58) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 46, 49, remove_indent=True) =]]
 ```
 
 You can also move a taxonomy entry by passing its target sibling entry to `TaxonomyServiceInterface::moveEntry()`.
@@ -49,5 +64,22 @@ The method takes as parameters the entry you want to move, the future sibling,
 and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSITION_NEXT` or `TaxonomyServiceInterface::MOVE_POSITION_PREV`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 59, 61) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 51, 52, remove_indent=True) =]]
 ```
+
+!!! note
+
+    Taxonomy entry management functions triggers events you can listen to.
+    For more information, see [Taxonomy events](taxonomy_events.md).
+
+## Search
+
+You can search for content based on its taxonomy entry assignments by using the standard [`SearchService`](search_api.md) with taxonomy-specific Search Criteria:
+
+| Criterion | Description |
+|---|---|
+| [TaxonomyEntryId](taxonomy_entry_id.md) | Find content assigned to a specific taxonomy entry |
+| [TaxonomyNoEntries](taxonomy_no_entries.md) | Find content that has no entries assigned from a given taxonomy |
+| [TaxonomySubtree](taxonomy_subtree.md) | Find content assigned to a taxonomy entry or any of its descendants |
+
+You can also use the [TaxonomyEntryId Aggregation](taxonomyentryid_aggregation.md) to count content items per taxonomy entry.

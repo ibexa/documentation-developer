@@ -2,9 +2,10 @@
 
 {% block content %}
 <div class="page-not-found">
-    <img src="{{ base_url }}{% if base_url|last != '/' %}/{% endif %}images/404.png" alt="Not found" />
     <h1>Page not found.</h1>
-    <a href="/">Back to front page</a>
+    <img src="{{ base_url }}{% if base_url|last != '/' %}/{% endif %}images/404.png" alt="" />
+    {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
+    <p>This link might be out-of-date. Go to the <a href="{{ site_url }}">main documentation page</a> or <a id="search-link"href="{{ site_url }}search_results/?sq=&p=1">use the search</a> to find what you are looking for.</p>
 </div>
 {% endblock %}
 

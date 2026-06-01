@@ -9,18 +9,18 @@ You can use the following matchers to [match content views](template_configurati
 
 | Identifier | Matches |
 |------|------|
-| [`Id\Content`](#idcontent) | ID number of the Content item. |
-| [`Id\ContentType`](#idcontenttype) | ID number of the Content Type that the Content item belongs to. |
-| [`Identifier\ContentType`](#identifiercontenttype) | Identifier of the Content Type that the Content item belongs to. |
-| [`Id\ContentTypeGroup`](#idcontenttypegroup) | ID number of the group containing the Content Type that the Content item belongs to. |
+| [`Id\Content`](#idcontent) | ID number of the content item. |
+| [`Id\ContentType`](#idcontenttype) | ID number of the content type that the content item belongs to. |
+| [`Identifier\ContentType`](#identifiercontenttype) | Identifier of the content type that the content item belongs to. |
+| [`Id\ContentTypeGroup`](#idcontenttypegroup) | ID number of the group containing the content type that the content item belongs to. |
 | [`Id\Location`](#idlocation) | ID number of a Location. |
 | [`Id\LocationRemote`](#idlocationremote) | Remote ID number of a Location. |
-| [`Id\ParentContentType`](#idparentcontenttype) | ID number of the parent Content Type. |
-| [`Identifier\ParentContentType`](#identifierparentcontenttype) | Identifier of the parent Content Type. |
+| [`Id\ParentContentType`](#idparentcontenttype) | ID number of the parent content type. |
+| [`Identifier\ParentContentType`](#identifierparentcontenttype) | Identifier of the parent content type. |
 | [`Id\ParentLocation`](#idparentlocation) | ID number of the parent Location. |
-| [`Id\Remote`](#idremote) | Remote ID of a Content item. |
-| [`Id\Section`](#idsection) | ID number of the Section that the Content item belongs to. |
-| [`Identifier\Section`](#identifiersection) | Identifier of the Section that the Content item belongs to. |
+| [`Id\Remote`](#idremote) | Remote ID of a content item. |
+| [`Id\Section`](#idsection) | ID number of the Section that the content item belongs to. |
+| [`Identifier\Section`](#identifiersection) | Identifier of the Section that the content item belongs to. |
 | [`Depth`](#depth) | Depth of the Location. The depth of a top level Location is 1. |
 | [`UrlAlias`](#urlalias) | Virtual URL of the Location. |
 | [Product attribute value](#product-attribute-value) | Value of product attributes. |
@@ -29,14 +29,21 @@ You can use the following matchers to [match content views](template_configurati
 | [Product availability](#product-availability) | Product availability. |
 | [Product](#product) | Whether the object is a product. |
 | [Product catalog root](#product-catalog-root) | Whether the Location is the root of a product catalog. |
+| [Taxonomy entry ID](#taxonomy-entry-id) | ID of taxonomy entry. |
+| [Taxonomy entry identifier](#taxonomy-entry-identifier) | Identifier of taxonomy entry. |
+| [Taxonomy entry level](#taxonomy-entry-level) | Level of taxonomy entry. |
+| [Taxonomy type](#taxonomy-type) | Taxonomy type. |
+
 
 !!! tip
+
+    Each matcher has a scalar value or an array of scalar values. When an array is passed, it matches on one of its values.
 
     You can also create [custom view matchers](create_custom_view_matcher.md).
 
 ## Id\Content
 
-Matches the ID number of a Content item.
+Matches the ID number of a content item.
 
 ``` yaml
 match:
@@ -45,7 +52,7 @@ match:
 
 ## Id\ContentType
 
-Matches the ID number of a Content Type that the Content item belongs to.
+Matches the ID number of a content type that the content item belongs to.
 
 ``` yaml
 match:
@@ -54,7 +61,7 @@ match:
 
 ## Identifier\ContentType
 
-Matches the identifier of the Content Type that the Content item belongs to.
+Matches the identifier of the content type that the content item belongs to.
 
 ``` yaml
 match:
@@ -63,7 +70,7 @@ match:
 
 ## Id\ContentTypeGroup
 
-Matches the ID number of the Content Type Group that the Content item belongs to.
+Matches the ID number of the content type Group that the content item belongs to.
 
 ``` yaml
 match:
@@ -72,7 +79,8 @@ match:
 
 ## Id\Location
 
-Matches the ID number of a Location. In the case of a Content item, matched against the main Location.
+Matches the ID number of a location.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -81,7 +89,8 @@ match:
 
 ## Id\LocationRemote
 
-Matches the Remote ID number of a Location. In the case of a Content item, matched against the main Location.
+Matches the Remote ID number of a location.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -90,7 +99,8 @@ match:
 
 ## Id\ParentContentType
 
-Matches the ID number of the parent Content Type. In the case of a Content item, matched against the main Location.
+Matches the ID number of the parent content type.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -99,7 +109,8 @@ match:
 
 ## Identifier\ParentContentType
 
-Matches the identifier of the parent Content Type. In the case of a Content item, matched against the main Location.
+Matches the identifier of the parent content type.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -108,7 +119,8 @@ match:
 
 ## Id\ParentLocation
 
-Matches the ID number of the parent Location. In the case of a Content item, matched against the main Location.
+Matches the ID number of the parent location.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -117,7 +129,7 @@ match:
 
 ## Id\Remote
 
-Matches the remote ID number of a Content item.
+Matches the remote ID number of a content item.
 
 ``` yaml
 match:
@@ -126,7 +138,7 @@ match:
 
 ## Id\Section
 
-Matches the ID number of the Section that the Content item belongs to.
+Matches the ID number of the section that the content item belongs to.
 
 ``` yaml
 match:
@@ -135,7 +147,7 @@ match:
 
 ## Identifier\Section
 
-Matches the identifier of the Section that the Content item belongs to.
+Matches the identifier of the section that the content item belongs to.
 
 ``` yaml
 match:
@@ -144,7 +156,8 @@ match:
 
 ## Depth
 
-Matches the depth of the Location. The depth of a top level Location is 1.
+Matches the depth of the location.
+The depth of a top level location is 1.
 
 ``` yaml
 match:
@@ -153,8 +166,8 @@ match:
 
 ## UrlAlias
 
-Matches the virtual URL of the Location.
-Matches when the URL alias of the Location starts with the value passed.
+Matches the virtual URL of the location.
+Matches when the URL alias of the location starts with the value passed.
 
 ``` yaml
 match:
@@ -209,9 +222,46 @@ match:
 
 ## Product catalog root
 
-`Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation` matches depending on whether the Location is the root of a product catalog.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation` matches depending on whether the location is the root of a product catalog.
 
 ``` yaml
 match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation': true
+```
+
+## Taxonomy entry ID
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id` matches based on an ID of the taxonomy entry.
+
+``` yaml
+match:
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id': [1, 2, 3]'
+```
+
+## Taxonomy entry identifier
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Identifier` matches based on an identifier of the taxonomy entry.
+
+``` yaml
+match:
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Identifier': ['spring', 'events', 'devices']
+```
+
+## Taxonomy entry level
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level` matches based on a level of the taxonomy entry.
+With this matcher, you can apply view rules based on a selection of taxonomy entry levels, by using the following logical operators: `<` , `>` , `<=`, `>=`, `=`.
+
+``` yaml
+match:
+    '@@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level': '> 2'
+```
+
+## Taxonomy type
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy` matches based on a type of taxonomy that the taxonomy entry belongs to.
+
+``` yaml
+match:
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy': 'product_category'
 ```

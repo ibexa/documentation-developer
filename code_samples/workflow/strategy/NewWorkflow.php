@@ -11,7 +11,7 @@ use Ibexa\Contracts\Checkout\Workflow\WorkflowStrategyInterface;
 
 final class NewWorkflow implements WorkflowStrategyInterface
 {
-    private const IDENTIFIER = 'new_workflow';
+    private const string IDENTIFIER = 'new_workflow';
 
     public function getWorkflow(CartInterface $cart): WorkflowInterface
     {

@@ -1,10 +1,12 @@
 ---
-description: Use different formats to render dates and times in the Back Office and website front.
+description: Use different formats to render dates and times in the back office and website front.
 ---
 
 # Formatting date and time
 
-## Using Twig filters and PHP services
+Two methods exist that allow you to specify how the date and time should be formatted.
+
+## With Twig filters and PHP services
 
 You can format date and time by using the following services:
 
@@ -15,7 +17,7 @@ You can format date and time by using the following services:
 - `@ibexa.user.settings.full_date_format.formatter`
 - `@ibexa.user.settings.full_time_format.formatter`
 
-To use them, create an `src\Service\MyService.php` file containing:
+To use them, create an `src/Service/MyService.php` file containing:
 
 ``` php
 <?php
@@ -54,16 +56,16 @@ class MyService
 Then, add the following to `config/services.yaml`:
 
 ``` yaml
-services:    
+services:
     App\Service\MyService:
         arguments:
             $shortDateTimeFormatter: '@ibexa.user.settings.short_datetime_format.formatter'
 ```
 
-## Using User settings menu
+## Within User settings menu
 
-Users can set their preferred date and time formats in the User settings menu.
-This format is used throughout the Back Office.
+Users can set their preferred date and time formats in the user settings menu.
+This format is used throughout the back office.
 
 You can set the list of available formats under the `ibexa.system.<scope>.user_preferences` [configuration key](configuration.md#configuration-files):
 
@@ -104,6 +106,8 @@ ibexa:
 ## Allowed formats
 
 The following subset of the [ICU date and time formats](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classSimpleDateFormat.html#details) is allowed:
+
+<!-- vale Ibexa.Spellcheck = NO -->
 
 |Symbol|Meaning|
 |---|---|

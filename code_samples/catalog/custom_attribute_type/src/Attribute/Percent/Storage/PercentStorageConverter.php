@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace App\Attribute\Percent\Storage;
 
 use Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface;
-use Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Boolean\StorageSchema;
 use Webmozart\Assert\Assert;
 
 final class PercentStorageConverter implements StorageConverterInterface
 {
     public function fromPersistence(array $data)
     {
-        $value = $data[StorageSchema::COLUMN_VALUE];
+        $value = $data['value'];
         Assert::nullOrNumeric($value);
 
         return $value;
@@ -23,7 +22,7 @@ final class PercentStorageConverter implements StorageConverterInterface
         Assert::nullOrNumeric($value);
 
         return [
-            StorageSchema::COLUMN_VALUE => $value,
+            'value' => $value,
         ];
     }
 }

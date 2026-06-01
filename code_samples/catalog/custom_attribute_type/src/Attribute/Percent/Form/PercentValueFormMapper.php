@@ -34,9 +34,7 @@ final class PercentValueFormMapper implements ValueFormMapperInterface
         ];
 
         if ($assignment->isRequired()) {
-            $options['constraints'] = [
-                new Assert\NotBlank(),
-            ];
+            $options['constraints'][] = new Assert\NotBlank();
         }
 
         $builder->add($name, PercentType::class, $options);

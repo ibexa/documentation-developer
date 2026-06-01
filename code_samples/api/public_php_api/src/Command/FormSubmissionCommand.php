@@ -6,28 +6,23 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:form-submission'
+)]
 final class FormSubmissionCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private FormSubmissionServiceInterface $formSubmissionService;
-
-    private ContentService $contentService;
-
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, FormSubmissionServiceInterface $formSubmissionService, ContentService $contentService)
-    {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->formSubmissionService = $formSubmissionService;
-        $this->contentService = $contentService;
-
-        parent::__construct('doc:form-submission');
+    public function __construct(
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly FormSubmissionServiceInterface $formSubmissionService,
+        private readonly ContentService $contentService
+    ) {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -40,9 +35,9 @@ final class FormSubmissionCommand extends Command
 
         $formValue = $content->getFieldValue('form', 'eng-GB')->getFormValue();
         $data = [
-            ['identifier' => 'single_line', 'name' => 'Line', 'value' => 'The name'],
-            ['identifier' => 'number', 'name' => 'Number', 'value' => 123],
-            ['identifier' => 'checkbox', 'name' => 'Checkbox', 'value' => 0],
+            ['id' => 7, 'identifier' => 'single_line', 'name' => 'Line', 'value' => 'The name'],
+            ['id' => 8, 'identifier' => 'number', 'name' => 'Number', 'value' => 123],
+            ['id' => 9, 'identifier' => 'checkbox', 'name' => 'Checkbox', 'value' => 0],
         ];
 
         $this->formSubmissionService->create(
@@ -58,7 +53,7 @@ final class FormSubmissionCommand extends Command
         foreach ($submissions as $sub) {
             $output->write($sub->getId() . '. submitted on ');
             $output->write($sub->getCreated()->format('Y-m-d H:i:s') . ' by ');
-            $output->writeln($this->userService->loadUser($sub->getUserId())->getName());
+            $output->writeln((string) $this->userService->loadUser($sub->getUserId())->getName());
             foreach ($sub->getValues() as $value) {
                 $output->writeln('- ' . $value->getIdentifier() . ': ' . $value->getDisplayValue());
             }

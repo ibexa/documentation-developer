@@ -1,29 +1,29 @@
 ibexa_fieldtype_page:
     blocks:
         event:
-            name: Event Block
-            category: Custom
-            thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
+            name: event_block.name
+            category: custom_category.name
+            thumbnail: /bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#calendar
             configuration_template: '@ibexadesign/blocks/event/config.html.twig'
             views:
                 default:
                     template: '@ibexadesign/blocks/event/template.html.twig'
-                    name: Default view
+                    name: event_block.view.default
                     priority: -255
                 featured:
                     template: '@ibexadesign/blocks/event/featured_template.html.twig'
-                    name: Featured view
+                    name: event_block.view.featured
                     priority: 50
             attributes:
                 name:
                     type: text
-                    name: Event name
+                    name: event_block.name.name
                     validators:
                         not_blank:
-                            message: Please provide a name   
+                            message: validators.message.event_block.name.validator.not_blank
                 category:
                     type: select
-                    name: Select a category
+                    name: event_block.category.name
                     value: visual
                     options:
                         multiple: true
@@ -33,7 +33,26 @@ ibexa_fieldtype_page:
                             'Sports': sports
                 event:
                     type: embed
-                    name: Event
+                    name: event_block.event.name
+                    options:
+                        udw_config_name: block_event_embed
                     validators:
                         not_blank:
-                            message: Please select an event
+                            message: validators.message.event_block.embed.validator.not_blank
+                        content_type:
+                            message: validators.message.event_block.embed.validator.content_type
+                            options:
+                                types: ['event']
+                        regexp:
+                            message: validators.message.event_block.embed.validator.content_item
+                            options:
+                                pattern: '/[0-9]+/'
+
+ibexa:
+    system:
+        default:
+            universal_discovery_widget_module:
+                configuration:
+                    block_event_embed:
+                        multiple: false
+                        allowed_content_types: ['event']

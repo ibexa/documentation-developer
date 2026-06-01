@@ -8,15 +8,16 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyBlockListener implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             BlockRenderEvents::getBlockPreRenderEventName('event') => 'onBlockPreRender',
         ];
     }
 
-    public function onBlockPreRender(PreRenderEvent $event)
+    public function onBlockPreRender(PreRenderEvent $event): void
     {
+        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
 
         $parameters = $event->getRenderRequest()->getParameters();

@@ -4,17 +4,17 @@ description: Use GraphQL operations to create, update, and delete content.
 
 # GraphQL operations
 
-Operations on content in GraphQL are performed using [mutations](https://graphql.org/learn/queries/#mutations).
-They include creating, updating, and deleting Content items.
+Operations on content in GraphQL are performed by using [mutations](https://graphql.org/learn/mutations/).
+They include creating, updating, and deleting content items.
 
-The schema contains two mutations per Content Type, e.g. `createFolder` and `updateFolder`.
+The schema contains two mutations per content type, for example, `createFolder`, and `updateFolder`.
 You can also make use of the generic `deleteContent` and `uploadFiles` mutations.
 
 ## Creating content
 
 Create a new Folder as a child of Location `2` with:
 
-```
+```graphql
 mutation createFolder {
   createFolder(
     language: eng_GB
@@ -30,7 +30,7 @@ mutation createFolder {
 
 Response:
 
-```
+```json
 {
   "data": {
     "createFolder": {
@@ -42,9 +42,9 @@ Response:
 
 ## Updating content
 
-Modify the name of a Folder Content item with:
+Modify the name of a Folder content item with:
 
-```
+```graphql
 mutation updateFolder {
   updateFolder(
     language: eng_GB
@@ -60,7 +60,7 @@ mutation updateFolder {
 
 Response:
 
-```
+```json
 {
   "data": {
     "updateFolder": {
@@ -70,13 +70,13 @@ Response:
 }
 ```
 
-Note that the input for updating a Content item is the same as when creating it, but all fields are optional.
+The input for updating a content item is the same as when creating it, but all fields are optional.
 
 ## Deleting content
 
-You can delete any Content item by providing its `contentId` (or its GraphQL opaque ID under `id`):
+You can delete any content item by providing its `contentId` (or its GraphQL opaque ID under `id`):
 
-```
+```graphql
 mutation deleteBlogPost {
   deleteContent(contentId: 64) {
     id
@@ -87,7 +87,7 @@ mutation deleteBlogPost {
 
 Response:
 
-```
+```json
 {
   "data": {
     "deleteContent": {
@@ -102,12 +102,12 @@ Response:
 
 !!! note
 
-    Uploading binary files is not possible through GraphiQL.
+    Uploading binary files isn't possible through GraphiQL.
     You can use alternative third-party clients such as [Altair GraphQL](https://altairgraphql.dev/).
 
-Uploading files makes use of dedicated mutations per Content Type, for example:
+Uploading files makes use of dedicated mutations per content type, for example:
 
-```
+```graphql
 mutation CreateImage($file: FileUpload!) {
   createImage(
     parentLocationId: 51,
@@ -153,15 +153,15 @@ curl -v -X POST \
 
 !!! note "Authentication"
 
-    Note that the example above requires you to set your authentication cookie in the `$AUTH_COOKIE` variable.
-    See [Authentication](graphql.md#authentication) for more information.
+    The example above requires you to set your authentication cookie in the `$AUTH_COOKIE` variable.
+    For more information, see [Authentication](graphql.md#authentication).
 
 ### Uploading multiple files
 
 You can upload multiple files with one operation in a similar way by using the `uploadFiles` mutation.
 Here the files are provided in a `$files` variable and listed under `map` in the cURL request.
 
-```
+```graphql
 mutation UploadMultipleFiles($files: [FileUpload]!) {
   uploadFiles(
     locationId: 51,

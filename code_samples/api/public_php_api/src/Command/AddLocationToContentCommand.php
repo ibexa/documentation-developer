@@ -6,47 +6,43 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:add_location',
+    description: 'Add a Location to content item and hides it.'
+)]
 class AddLocationToContentCommand extends Command
 {
-    private ContentService $contentService;
-
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:add_location');
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Add a Location to Content item and hides it.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = $input->getArgument('parentLocationId');
-        $contentId = $input->getArgument('contentId');
+        $parentLocationId = (int) $input->getArgument('parentLocationId');
+        $contentId = (int) $input->getArgument('contentId');
 
         $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
 
@@ -56,7 +52,7 @@ class AddLocationToContentCommand extends Command
         $contentInfo = $this->contentService->loadContentInfo($contentId);
         $newLocation = $this->locationService->createLocation($contentInfo, $locationCreateStruct);
 
-        $output->writeln('Added hidden location ' . $newLocation->id . ' to Content item: ' . $contentInfo->name);
+        $output->writeln('Added hidden location ' . $newLocation->id . ' to content item: ' . $contentInfo->name);
 
         return self::SUCCESS;
     }

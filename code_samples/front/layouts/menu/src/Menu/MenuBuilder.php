@@ -3,17 +3,15 @@
 namespace App\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 
 class MenuBuilder
 {
-    private $factory;
-
-    public function __construct(FactoryInterface $factory)
+    public function __construct(private readonly FactoryInterface $factory)
     {
-        $this->factory = $factory;
     }
 
-    public function buildMenu()
+    public function buildMenu(): ItemInterface
     {
         $menu = $this->factory->createItem('root');
 

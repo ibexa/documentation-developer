@@ -13,7 +13,8 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
     /**
      * @return string|null
      */
-    public function getParent()
+    #[\Override]
+    public function getParent(): ?string
     {
         return CheckboxType::class;
     }
@@ -21,7 +22,8 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'checkbox_with_richtext_description';
     }
@@ -38,7 +40,9 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
     {
         // pass the Dom object of the richtext doc to the template
         $dom = new \DOMDocument();
-        $dom->loadXML($options['richtext_description']);
+        if (!empty($options['richtext_description'])) {
+            $dom->loadXML($options['richtext_description']);
+        }
         $view->vars['richtextDescription'] = $dom;
     }
 }

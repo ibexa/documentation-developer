@@ -5,7 +5,6 @@ knpu_oauth2_client:
             type: google
             client_id: '%env(OAUTH_GOOGLE_CLIENT_ID)%'
             client_secret: '%env(OAUTH_GOOGLE_CLIENT_SECRET)%'
-            # Redirect route:
             redirect_route: ibexa.oauth2.check
             redirect_params:
                 identifier: google

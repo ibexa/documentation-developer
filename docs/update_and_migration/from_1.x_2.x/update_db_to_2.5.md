@@ -14,7 +14,7 @@ Before you start this procedure, make sure you have completed the previous step,
 
 !!! note
 
-    If you are starting from version v2.2 or later, skip to the relevant section.
+    If you're starting from version v2.2 or later, skip to the relevant section.
 
 ### A. Update to v2.2
 
@@ -54,9 +54,9 @@ doctrine:
 
 Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
-#### Migrate Landing Pages
+#### Migrate landing pages
 
-To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
+To update to v2.2 with existing landing pages, you need to use a dedicated script.
 The script is contained in the `ezplatform-page-migration` bundle and **works since version v2.2.2**.
 To use the script:
 
@@ -66,32 +66,32 @@ To use the script:
 
 !!! tip
 
-    This script uses the layout defined in your Landing Page.
+    This script uses the layout defined in your landing page.
     To migrate successfully, you need to copy your zone configuration
     from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
-    Otherwise the script will encounter errors.
+    Otherwise the script encounters errors.
 
 You can remove the bundle after the migration is complete.
 
-The `ezplatform:page:migrate` command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
+The `ezplatform:page:migrate` command migrates landing pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
 The operation is transactional and rolls back in case of errors.
 
 !!! caution "Avoid exception when migrating from eZ Publish"
 
-    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
+    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception occurs when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of landing pages. 
     
     To avoid this exception, you must first [remove all internal drafts before you migrate](migrating_from_ez_publish.md#migration_exception). 
 
 ##### Block migration
 
-In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
-The Places block has been removed from the clean installation and will only be available in the demo out of the box.
+In v2.2 Page Builder doesn't offer all blocks that landing page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
+The Places block has been removed from the clean installation and is only available in the demo out of the box.
 If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
-Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks is not supported. 
+Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported. 
 
 If there are missing block definitions, such as Form Block or Schedule Block,
-you have an option to continue, but migrated Landing Pages will come without those blocks.
+you have an option to continue, but migrated landing pages come without those blocks.
 
 !!! tip
 
@@ -112,17 +112,17 @@ See [documentation](render_page.md#render-a-layout) for an example on usage of t
 
 ###### Migrate custom blocks
 
-Landing Page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+Landing page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
 In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](page_blocks.md#block-events).
-Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
+Typically, what you previously would do in `getTemplateParameters()`, you now do in the `onBlockPreRender()` event handler.
 
 The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](create_custom_page_block.md) for your custom blocks.
 
-For more information about how custom blocks are implemented in Page Builder, have a look at [Creating custom Page blocks](create_custom_page_block.md) for your custom blocks.
+For more information about how custom blocks are implemented in Page Builder, see [Creating custom Page blocks](create_custom_page_block.md) for your custom blocks.
 
-For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
+For the migration of blocks from landing page to Page Builder, you need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
-`convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
+`convert()` parses XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
 Below is an example of a simple converter for a custom block:
 
@@ -139,10 +139,10 @@ This converter is only needed when running the `ezplatform:page:migrate` script 
 
 ###### Page migration example
 
-Below is an example how to migrate a Landing Page Layout and Block to new Page Builder. The code is based on the Random block 
+Below is an example how to migrate a landing page Layout and Block to new Page Builder. The code is based on the Random block 
 defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
-??? tip "Landing Page code"
+??? tip "Landing page code"
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
@@ -668,7 +668,7 @@ In an Enterprise installation, to create the *Forms* container under the content
 php bin/console ezplatform:form-builder:create-forms-container
 ```
 
-You can also specify Content Type, Field values and language code of the container, for example:
+You can also specify content type, Field values and language code of the container, for example:
 
 ``` bash
 php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
@@ -677,10 +677,10 @@ php bin/console ezplatform:form-builder:create-forms-container --content-type cu
 You also need to run a script to add database tables for the Form Builder.
 You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
 
-!!! caution "Form (ezform) Field Type"
+!!! caution "Form (ezform) field type"
 
-    After the update, in order to create forms, you have to add a new Content Type (for example, named "Form") that contains `Form` Field (this Content Type can contain other fields
-    as well). After that you can use forms inside Landing Pages via Embed block.
+    After the update, to create forms, you have to add a new content type (for example, named "Form") that contains `Form` field (this content type can contain other fields
+    as well). After that you can use forms inside landing pages via Embed block.
 
 ### C. Update to v2.4
 
@@ -693,15 +693,14 @@ to add database tables for the Editorial Workflow.
 
 The built-in Forms folder is located in the Form Section in versions 2.4+.
 
-If you are updating your Enterprise installation, you need to add this Section manually and move the folder to it.
+If you're updating your Enterprise installation, you need to add this Section manually and move the folder to it.
 
-To allow anonymous users to access Forms, you also need to add the `content/read` Policy
-with the *Form* Section to the Anonymous User.
+To allow anonymous users to access Forms, you also need to add the `content/read` policy with the *Form* Section to the Anonymous User.
 
-#### Changes to Custom tags
+#### Changes to custom tags
 
-v2.4 changed the way of configuring custom tags. They are no longer configured under the `ezpublish` key,
-but one level higher in the YAML structure:
+v2.4 changed the way of configuring custom tags.
+They're no longer configured under the `ezpublish` key, but one level higher in the YAML structure:
 
 ``` yaml
 ezpublish:
@@ -776,15 +775,15 @@ php bin/console ezplatform:reindex
 
 The introduction of [support for PostgreSQL](databases.md#using-postgresql) includes a change in the way database schema is generated.
 
-It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+It's now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
-If you are updating your application according to the usual procedure, no additional actions are required.
-However, if you do not update your meta-repository, you need to take two additional steps:
+If you're updating your application according to the usual procedure, no additional actions are required.
+However, if you don't update your meta-repository, you need to take two additional steps:
 
 - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
 - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/2.5/app/config/config.yml#L33) configuration
 
-#### Changes to Matrix Field Type
+#### Changes to Matrix field type
 
 To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
 
@@ -794,7 +793,7 @@ bin/console ezplatform:migrate:legacy_matrix
 
 #### Required manual cache clearing if using Redis
 
-If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+If you're using Redis as your persistence cache storage you should always clear it manually after an upgrade.
 You can do it in two ways, by using `redis-cli` and executing the following command:
 
 ```bash
@@ -832,8 +831,8 @@ CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, vers
 
 ##### Powered-By header
 
-In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
-It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
+To promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
+It's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:
 ``` yaml
@@ -854,7 +853,7 @@ ezplatform_support_tools:
 
 #### Updating to v2.5.18
 
-To update to v2.5.18, if you are using MySQL, additionally run the following update SQL command:
+To update to v2.5.18, if you're using MySQL, additionally run the following update SQL command:
 
 ``` sql
 ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
@@ -941,12 +940,12 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
     ```
 
     Clear the cache and refresh the page. The dropdown should now be active.
-    Select any option in the dropdown and save the Content Type.
+    Select any option in the dropdown and save the content type.
 
-    You should now be able to remove the Field definition from the Content Type.
+    You should now be able to remove the field definition from the content type.
 
     Afterwards, you can remove the configuration above from `ezplatform.yml`.
 
 ## Update to v3.3
 
-It is strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).
+It's strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).

@@ -1,21 +1,20 @@
-# Matrix Field Type
+# Matrix field type
 
-This Field represents and handles a table of rows and columns of data.
+This field represents and handles a table of rows and columns of data.
 
-| Name     | Internal name | Expected input |
-|----------|---------------|----------------|
-| `Matrix` | `ezmatrix`    | `array`        |
+| Name     | Internal name  | Expected input |
+|----------|----------------|----------------|
+| `Matrix` | `ibexa_matrix` | `array`        |
 
-The Matrix Field Type is available via the Matrix Bundle
-provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
+The Matrix field type is available via the Matrix Bundle provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
-|Type|Description|Example|
-|------|------|------|
-|`array`|array of `Ibexa\FieldTypeMatrix\FieldType\Value\Row` objects which contain column data|see below|
+| Type    | Description                                                                            | Example   |
+|---------|----------------------------------------------------------------------------------------|-----------|
+| `array` | array of `Ibexa\FieldTypeMatrix\FieldType\Value\Row` objects which contain column data | see below |
 
 Example of input:
 
@@ -27,9 +26,9 @@ new FieldType\Value([
 ]);
 ```
 
-### Value Object
+### Value object
 
-`Ibexa\FieldTypeMatrix\FieldType\Value` offers the following properties:
+`Ibexa\FieldTypeMatrix\FieldType\Value` offers the following properties:
 
 |Property|Type|Description|
 |------|------|------|
@@ -37,13 +36,15 @@ new FieldType\Value([
 
 ### Validation
 
-The minimum number of rows is set on Content Type level for each Field.
+The minimum number of rows is set on content type level for each field.
 
-Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
+Validation checks for empty rows.
+A row is considered empty if it contains only empty cells (or cells containing only spaces).
+Empty rows are removed.
 
-If, after removing empty rows, the number of rows does not fulfill the configured `Minimum number of rows`, the Field will not validate.
+If, after removing empty rows, the number of rows doesn't fulfill the configured `Minimum number of rows`, the field doesn't validate.
 
-For example, the following input will not validate if `Minimum number of rows` is set to 3, because the second row is empty:
+For example, the following input doesn't validate if `Minimum number of rows` is set to 3, because the second row is empty:
 
 ```php
 new FieldType\Value([
@@ -53,20 +54,20 @@ new FieldType\Value([
 ]);
 ```
 
-## GraphQL Field Type operations
+## GraphQL field type operations
 
-To get a Field of the Matrix Field Type with GraphQL, you will need to specify a Content ID, a Content Type, and a Field Type.
+To get a field of the Matrix field type with GraphQL, you need to specify a content ID, a content type, and a field type.
 
-The types that are returned are named after the Type and the Field:
+The types that are returned are named after the Type and the field:
 
 - `{TypeIdentifier}{FieldIdentifier}Row`
 
-The example below shows a GraphQL query for a Recipe Content item (belonging to a Content Type with a Matrix Field added), that has two Fields:
+The example below shows a GraphQL query for a Recipe content item (belonging to a content type with a Matrix field added), that has two fields:
 
-- `name`: `ezstring`
-- `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
+- `name`: `ibexa_string`
+- `ingredients`: `ibexa_matrix` with two columns: `ingredient` and `quantity`
 
-```
+```graphql
 {
   content {
     recipe(id: 123) {
@@ -80,9 +81,9 @@ The example below shows a GraphQL query for a Recipe Content item (belonging to 
 }
 ```
 
-The Type returned for the Matrix Field exposes columns defined in the Field definition:
+The Type returned for the Matrix field exposes columns defined in the field definition:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -104,11 +105,12 @@ The Type returned for the Matrix Field exposes columns defined in the Field defi
 }
 ```
 
-### Query for the Field Type and Field definition's details
+### Query for the field type and field definition's details
 
-With this query you can inspect details of specific Content Type. In case of a Matrix Field, you can ask for the list of columns, their names and identifiers.
+With this query you can inspect details of specific content type.
+In case of a Matrix field, you can ask for the list of columns, their names, and identifiers.
 
-```
+```graphql
 {
   content {
     _types {
@@ -128,7 +130,7 @@ With this query you can inspect details of specific Content Type. In case of a M
 }
 ```
 
-The response will list the exposed Field Type settings:
+The response lists the exposed field type settings:
 
 - minimumRows
 - columns
@@ -137,7 +139,7 @@ The response will list the exposed Field Type settings:
 
 Example response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -167,17 +169,17 @@ Example response:
 
 ### Mutation
 
-To create a Matrix Field Type you need to define Field Type and Field definition identifiers.
-The types that are used for input are named after the Type and the Field:
+To create a Matrix field type you need to define field type and field definition identifiers.
+The types that are used for input are named after the Type and the field:
 
-- `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
+- `{TypeIdentifier}{FieldIdentifier}RowInput`, for example, `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
 
-The example below shows how to create a Recipe Content item (belonging to a Content Type with a Matrix Field Type added) that has two Fields:
+The example below shows how to create a Recipe content item (belonging to a content type with a Matrix field type added) that has two fields:
 
 - `name`: `"Cake Ingredient List"`
-- `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
+- `ingredients`: `ibexa_matrix` with two columns: `ingredient` and `quantity`
 
-```
+```graphql
  mutation AddRecipe {
   createRecipe(
     language: eng_GB
@@ -195,9 +197,9 @@ The example below shows how to create a Recipe Content item (belonging to a Cont
 }
 ```
 
-The response will confirm creation of the new Recipe Field:
+The response confirms creation of the new Recipe field:
 
-```
+```json
 {
   "data": {
     "createRecipe": {
@@ -205,5 +207,4 @@ The response will confirm creation of the new Recipe Field:
     }
   }
 }
-
 ```

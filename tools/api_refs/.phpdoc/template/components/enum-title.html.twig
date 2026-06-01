@@ -1,0 +1,21 @@
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
+
+{% embed 'components/content-header.html.twig' with {
+    anchor: node.name,
+    anchor_link: '#' ~ node.name,
+    fqcn,
+    add_edition: true,
+} %}
+    {% block name %}
+        {{ node.name }}
+    {% endblock %}
+    {% block subheader %}
+        <div class="content-header__subheader">
+            Enum
+            {%- if node.backedType -%}
+                : {{ node.backedType }}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endembed %}

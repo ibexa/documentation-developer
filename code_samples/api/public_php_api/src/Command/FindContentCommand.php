@@ -5,31 +5,32 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:find_content',
+    description: 'Lists content belonging to the provided content type.'
+)]
 class FindContentCommand extends Command
 {
-    private SearchService $searchService;
-
-    public function __construct(SearchService $searchService)
+    public function __construct(private readonly SearchService $searchService)
     {
-        $this->searchService = $searchService;
-        parent::__construct('doc:find_content');
+        parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Lists content belonging to the provided Content Type.')
             ->setDefinition([
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content Type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
 

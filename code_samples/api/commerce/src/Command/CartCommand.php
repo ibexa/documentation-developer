@@ -4,50 +4,40 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Cart\Value\CartCreateStruct;
 use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
 use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Cart\Value\EntryAddStruct;
 use Ibexa\Contracts\Cart\Value\EntryUpdateStruct;
+use Ibexa\Contracts\Checkout\Reorder\ReorderService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
-use Ibexa\Core\Repository\Permission\PermissionResolver;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:cart'
+)]
 final class CartCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private CartServiceInterface $cartService;
-
-    private CurrencyServiceInterface $currencyService;
-
-    private ProductServiceInterface $productService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        CartServiceInterface $cartService,
-        CurrencyServiceInterface $currencyService,
-        ProductServiceInterface $productService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly CartServiceInterface $cartService,
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly ProductServiceInterface $productService,
+        private readonly OrderServiceInterface $orderService,
+        private readonly ReorderService $reorderService,
+        private readonly CartResolverInterface $cartResolver
     ) {
-        $this->cartService = $cartService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->currencyService = $currencyService;
-        $this->productService = $productService;
-
-        parent::__construct('doc:cart');
-    }
-
-    public function configure(): void
-    {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -64,7 +54,7 @@ final class CartCommand extends Command
         $cartsList = $this->cartService->findCarts($cartQuery);
 
         $cartsList->getCarts(); // array of CartInterface objects
-        $cartsList->getTotalCount(); // number of returned carts
+        $cartsList->getTotalCount(); // number of matching carts regardless of the limit
 
         foreach ($cartsList as $cart) {
             $output->writeln($cart->getIdentifier() . ': ' . $cart->getName());
@@ -134,9 +124,8 @@ final class CartCommand extends Command
         // Delete a cart permanently
         $this->cartService->deleteCart($cart);
 
-        return self::SUCCESS;
-
         // Get the order with items that should be reordered
+        $orderIdentifier = '2e897b31-0d7a-46d3-ba45-4eb65fe02790';
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
         // Get the cart to merge
@@ -148,5 +137,7 @@ final class CartCommand extends Command
 
         // Merge the carts into the target cart and delete the merged carts
         $reorderCart = $this->cartService->mergeCarts($reorderCart, true, $existingCart);
+
+        return self::SUCCESS;
     }
 }

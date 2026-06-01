@@ -1,0 +1,7 @@
+role.policy.custom_module: 'Custom module'
+role.policy.custom_module.all_functions: 'Custom module / All functions'
+role.policy.custom_module.custom_function_1: 'Custom module / Function #1'
+role.policy.custom_module.custom_function_2: 'Custom module / Function #2'
+role.policy.form: 'Forms'
+role.policy.form.all_functions: 'Forms / All functions'
+role.policy.form.read_submissions: 'Forms / Read submissions'

@@ -1,0 +1,7 @@
+ibexa:
+    system:
+        admin_group:
+            admin_ui_forms:
+                content_edit:
+                    form_templates:
+                        - { template: '@ibexadesign/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig', priority: -10 }

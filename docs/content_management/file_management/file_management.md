@@ -15,7 +15,7 @@ $fileContent = $this->ioService->getFileContents($file);
 
 ## Handling binary files
 
-[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](imagefield.md) Field Types.
+[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](imagefield.md) field types.
 
 ### Native IO handler
 
@@ -36,7 +36,7 @@ ibexa:
                 binarydata_handler: nfs
 ```
 
-The adapter is the *driver* used by Flysystem v2 to read/write files. Adapters are declared using `oneup_flysystem`. 
+The adapter is the *driver* used by Flysystem v2 to read/write files. Adapters are declared using `oneup_flysystem`.
 Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem v2 adapter, labeled `default` as well.
 
 ``` yaml
@@ -81,8 +81,7 @@ Default values:
 
 !!! note
 
-    As SiteAccess configuration Flysystem's v2 native Local NFS adapter is not supported, the following
-    configuration should be used:
+    As SiteAccess configuration Flysystem's v2 native Local NFS adapter isn't supported, the following configuration should be used:
 
     ``` yaml
     oneup_flysystem:
@@ -95,14 +94,16 @@ Default values:
 
 ### Native Flysystem v2 handler
 
-[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem v2 can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+[[= product_name =]] uses it as the default way to read and write content in form of binary files.
+Flysystem v2 can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 [league/flysystem](https://flysystem.thephpleague.com/docs/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 #### Handler options
 
 ##### Adapter
 
-To be able to rely on dynamic SiteAccess-aware paths, you need to use Ibexa custom `nfs_adapter`. A basic configuration might look like the following:
+To be able to rely on dynamic SiteAccess-aware paths, you need to use [[= product_name_base =]] custom `nfs_adapter`.
+A basic configuration might look like the following:
 
 ``` yaml
 oneup_flysystem:
@@ -112,7 +113,7 @@ oneup_flysystem:
                 service: ibexa.io.nfs.adapter.site_access_aware
 ```
 
-To learn how to configure other adapters, see the [bundle's online documentation](https://github.com/1up-lab/OneupFlysystemBundle/blob/main/doc/index.md#step3-configure-your-filesystems). 
+To learn how to configure other adapters, see the [bundle's online documentation](https://github.com/1up-lab/OneupFlysystemBundle/blob/main/doc/index.md#step3-configure-your-filesystems).
 
 !!! note
 
@@ -121,4 +122,6 @@ To learn how to configure other adapters, see the [bundle's online documentation
 ### DFS Cluster handler
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
-This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
+This is faster than accessing the remote NFS or S3 instance to read metadata.
+
+For more information, see [Clustering](clustering.md).

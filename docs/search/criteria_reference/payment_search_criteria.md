@@ -6,9 +6,9 @@ page_type: reference
 
 # Payment Search Criteria reference
 
-Payment Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Payment Search.
+Payment Search Criteria are only supported by [Payment Search (`PaymentServiceInterface::findPayments`)](payment_api.md#get-multiple-payments).
 
-With these Criteria you can filter payments by their payment identifier, payment creation date, payment status, payment method, order, and so on.
+With these Criteria you can filter payments by their payment identifier, payment creation date, payment status, payment method, order, and more.
 
 ## Payment Search Criteria
 

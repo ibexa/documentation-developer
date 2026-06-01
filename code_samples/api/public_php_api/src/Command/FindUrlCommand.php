@@ -8,33 +8,26 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
 use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:find_url',
+    description: 'Finds all valid URLs in the provided Section.'
+)]
 class FindUrlCommand extends Command
 {
-    private URLService $urlService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(URLService $URLService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->urlService = $URLService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:find_url');
+    public function __construct(
+        private readonly URLService $urlService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
-    protected function configure()
-    {
-        $this
-            ->setDescription('Finds all valid URLs in the provided Section.');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -56,7 +49,7 @@ class FindUrlCommand extends Command
         $results = $this->urlService->findUrls($query);
 
         foreach ($results->items as $result) {
-            $output->writeln($result->url);
+            $output->writeln($result->getUrl());
         }
 
         return self::SUCCESS;

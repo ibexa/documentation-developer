@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="getting_started/install_on_ibexa_cloud/">
+            <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
                 </div>
@@ -71,26 +71,43 @@
             </a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="notification" id="tile2">
+    <div class="row notifications">
+        <div class="col-12 col-lg-6">
+            <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.5</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. You can now update your application to the latest version.</div>
+                    <h2>The latest Ibexa DXP is v5.0 LTS</h2>
+                    <div>The latest v5.0 LTS release is [[= latest_tag_5_0 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.4/update_from_4.4/">Update your application</a>
+                    <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-image.png" alt="The latest release" />
+                    <img src="images/notification-latest-release.svg" alt="The latest release" />
                 </div>
             </div>
         </div>
+        <div class="col-12 col-lg-6">
+            <div class="notification notification--lts-update" id="tile3">
+                <div class="notification__content">
+                    <h2>The newest LTS Update is MCP Servers</h2>
+                    <div>Set up MCP servers to help AI agents interact with Ibexa DXP.</div>
+                </div>
+                <div class="notification__cta">
+                    <a href="ai/mcp/mcp_guide/">Learn more about this LTS Update</a>
+                    <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <div class="accordion">
                 <details>
                     <summary>
-                        <h2>Notable changes in v4.5</h2>
+                        <h2>Notable changes in v5.0</h2>
                         <div class="accordion__toggler">
                             <svg><use xlink:href="images/icons.svg#toggler" /></svg>
                         </div>
@@ -98,16 +115,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#collaboration">Collaboration</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#ai-actions">AI Actions</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#discounts">Discounts</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attribute for product catalog</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for product catalog</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#developer-experience">Developer experience improvements</a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,7 +144,7 @@
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
                                 <li><a href="api/php_api/php_api/">PHP API</a></li>
-                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
+                                <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
                                 <li><a href="search/search_api/">Search API</a></li>
                             </ul>
                         </div>
@@ -168,15 +185,16 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="pim/pim/">
+                        <a href="product_catalog/product_catalog/">
                             <svg><use xlink:href="images/icons.svg#product" /></svg>
-                            Product
+                            Product catalog
                         </a>
                     </h3>
                     <ul>
-                        <li><a href="pim/pim_configuration/">PIM configuration</a></li>
-                        <li><a href="pim/catalogs/">Catalogs</a></li>
-                        <li><a href="pim/prices/">Prices</a></li>
+                        <li><a href="product_catalog/product_catalog_configuration/">Product catalog configuration</a></li>
+                        <li><a href="product_catalog/quable/quable/">Quable PIM Integration</a></li>
+                        <li><a href="product_catalog/catalogs/">Catalogs</a></li>
+                        <li><a href="product_catalog/prices/">Prices</a></li>
                     </ul>
                 </div>
             </div>

@@ -4,18 +4,19 @@ description: Add a custom tab displaying selected data to the content browser.
 
 # Add browser tab
 
-The Universal Discovery Widget (UDW) is a separate React module. By default, it contains two tabs: Browse and Bookmarks.
+The Universal Discovery Widget (UDW) is a separate React module.
+By default, it contains two tabs: Browse and Bookmarks.
 
 ![UDW default tabs](udw_tabs.png)
 
-Follow the instructions below to create and add a new tab called **Images** which displays all Content items of the type 'Image'.
+Follow the instructions below to create and add a new tab called **Images** which displays all content items of the type 'Image'.
 
 ## Create tab
 
 First, in `assets/js/image-tab/`, add an `image.tab.module.js` file.
 
 ``` js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0,14) =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0, 14) =]]
 ```
 
 Next, add the tab to the configuration in the same file.
@@ -26,10 +27,10 @@ Each tab definition is an object containing the following properties:
 |id|string|Tab ID, for example, `image`.|
 |component|element|React component that represents the contents of a tab.|
 |label|string|Label text, for example, `Images`.|
-|icon|string|Path to the icon, for example, `/bundles/ibexaadminui/img/ibexa-icons.svg#image`.|
+|icon|string|Path to the icon, for example, `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square`.|
 
 ```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14,29) =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14, 29) =]]
 ```
 
 The module governs the creation of the new tab.
@@ -106,9 +107,9 @@ Ensure that the new tab is styled by adding the following files to `assets/css/`
 [[= include_file('code_samples/back_office/udw/assets/css/image.css') =]]
 ```
 
-### Add css to webpack
+### Add CSS to webpack
 
-Finally, add css in `webpack.config.js`:
+Finally, add CSS in `webpack.config.js`:
 
 ```js
 ibexaConfigManager.add({
@@ -119,13 +120,14 @@ ibexaConfigManager.add({
 ```
 
 ## Check results
-    
-In the Back Office go to **Content** -> **Dashboard**. On the top right, click the **Create content** button.
-In the UDW a new **Images** tab appears, listing all images from the Repository.
+
+In the back office go to **Content** -> **Dashboard**.
+On the top right, click the **Create content** button.
+In the UDW a new **Images** tab appears, listing all images from the repository.
 
 ![Image tab in UDW](udw_image_tab.png)
 
 !!! tip
 
-    If you cannot see the results or encounter an error, clear the cache and reload the application. 
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
     Remember, after any change of css/js files you should always run `yarn encore dev` in the terminal.

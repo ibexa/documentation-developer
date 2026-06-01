@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Handler | PHP API Reference (Ibexa Documentation)</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The Object State Handler interface provides managing of object states and groups." />
+        
+    <base href="../">
+    <link rel="icon" href="images/favicon.png"/>
+            <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    
+
+    <script>
+        window.symfonyVersion = '7.4';
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
+            }
+        });
+    </script>
+</head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+    <div class="popover popover--copied">Copied!</div>
+
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+
+    <header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="">
+        
+<a href="../php_api/"
+   title="PHP API Reference"
+   aria-label="PHP API Reference"
+   class="md-header__button md-logo"
+>
+    <img src="./images/ibexa-dxp-logo.png">
+</a>
+        <div class="md-header__switcher push">
+    <div class="md-flex__ellipsis md-header__title switcher docs-switcher" data-md-component="title">
+        <div class="switcher__selected-item" tab-index="-1">
+            <div class="switcher__label" title="Developer Documentation">Developer Documentation</div>
+        </div>
+        <div class="switcher__list">
+            <dl>
+                <strong>
+                    <dd>
+                        <a href="/" title="Developer Documentation">Developer Documentation</a>
+                    </dd>
+                </strong>
+                <dd>
+                    <a href="/projects/userguide" title="User Documentation">User Documentation</a>
+                </dd>
+                <dd>
+                    <a href="/projects/connect" title="Connect Documentation">Connect Documentation</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+        <div class="md-header__switcher">
+    <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
+        <div class="rst-other-versions switcher__list"></div>
+    </div>
+</div>
+        <div class="md-search" data-md-component="search" role="dialog">
+    <label class="md-search__overlay" for="__search"></label>
+    <div class="md-search__inner phpdocumentor-search" role="search" data-search-form>
+        <form class="md-search__form" name="search" >
+            <span class="algolia-autocomplete algolia-autocomplete-left">
+                <input
+                    type="search"
+                    id="search_input"
+                    class="md-search__input phpdocumentor-field phpdocumentor-search__field"
+                    name="query"
+                    aria-label="Search"
+                    placeholder="Search"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    autocomplete="off"
+                    spellcheck="false"
+                    data-md-component="search-query"
+                    data-md-state="active"
+                    required
+                >
+                <label class="md-search__icon md-icon" for="__search">
+                    <img src="images/search.svg" alt="search">
+                </label>
+                <span
+    class="ds-dropdown-menu ds-with-1 phpdocumentor-search-results phpdocumentor-search-results--hidden"
+    role="listbox"
+    data-search-results
+>
+    <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+    <div class="ds-dataset-1">
+        <ul class="ds-suggestions phpdocumentor-search-results__entries">
+        </ul>
+    </div>
+</span>
+            </span>
+        </form>
+    </div>
+</div>
+        <div class="md-header__source">
+                                                            <a href="https://github.com/ibexa/core/blob/main/src/contracts/Persistence/Content/ObjectState/Handler.php" title="" class="source-github">
+        <div class="md-source__icon md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+        </div>
+        View on GitHub
+    </a>
+</div>
+    </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+                
+<div class="main_nav" id="nav-container">
+    <div class="nav-loading-wrapper" style="padding: 2rem; text-align: center; color: #666;">
+        <p>Loading navigation...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    var navPath = document.baseURI + '/index.html';
+    var cached = sessionStorage.getItem('phpdoc-nav');
+    var navContainer = document.getElementById('nav-container');
+
+    function loadNav(html) {
+        // Use innerHTML to replace content while keeping the nav-container div
+        navContainer.innerHTML = html;
+
+        // Restore scroll position if saved
+        var scrollWrap = navContainer.querySelector('.md-sidebar__scrollwrap');
+        if (scrollWrap) {
+            var scrollPos = sessionStorage.getItem('nav-scroll');
+            if (scrollPos) {
+                scrollWrap.scrollTop = parseInt(scrollPos, 10);
+            }
+
+            // Save scroll position on scroll
+            scrollWrap.addEventListener('scroll', function() {
+                sessionStorage.setItem('nav-scroll', scrollWrap.scrollTop);
+            });
+        }
+
+        // Highlight current page in navigation
+        activeMenu(window, window.document);
+    }
+
+    if (cached) {
+        // Use cached navigation
+        loadNav(cached);
+    } else {
+        // Fetch navigation
+        fetch(navPath)
+            .then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.text();
+            })
+            .then(function(html) {
+                parser = new DOMParser();
+                doc = parser.parseFromString(html, 'text/html');
+                nav = doc.querySelector('.main_nav_content');
+                sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
+                loadNav(nav.outerHTML);
+            })
+            .catch(function(err) {
+                console.error('Navigation load failed:', err);
+                navContainer.innerHTML = '<div class="main_nav_content"><div style="padding: 1rem; color: #c00;">Navigation failed to load. <a href="index.html">Go to index</a></div></div><div class="main_nav__resize-handler"></div>';
+            })
+        ;
+    }
+})();
+</script>
+
+<noscript>
+    <div class="main_nav">
+        <div class="main_nav_content">
+            <div class="site-header" id="site-name">
+                <a href=".">PHP API Reference</a>
+            </div>
+            <div style="padding: 1rem; background: #ffe; border: 1px solid #cc0;">
+                <p><strong>JavaScript is disabled.</strong></p>
+                <p>Navigation requires JavaScript. Please enable it or go to <a href="namespaces/ibexa-contracts.html"><code>Ibexa\\Contracts</code></a> to navigate.</p>
+            </div>
+        </div>
+        <div class="main_nav__resize-handler"></div>
+    </div>
+</noscript>
+
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+                        <div>
+                                
+<ul class="breadcrumbs">
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa.html">Ibexa</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts.html">Contracts</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-core.html">Core</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-core-persistence.html">Persistence</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-core-persistence-content.html">Content</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-core-persistence-content-objectstate.html">ObjectState</a>
+            &gt;
+        </li>
+        <li class="breadcrumb-item breadcrumb-item-current">
+        <span>
+            Handler
+        </span>
+    </li>
+</ul>
+    
+<div class="content-header">
+            <div class="pills">
+                    
+                    
+                        </div>
+        <h1 id="Handler">
+        Handler            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Persistence\Content\ObjectState\Handler" data-copy-value="Ibexa\Contracts\Core\Persistence\Content\ObjectState\Handler">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 13">13</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+            <div class="content-header__subheader">Interface</div>
+
+                </div>
+        <p>The Object State Handler interface provides managing of object states and groups.</p>
+
+
+
+                    
+
+    
+    
+
+
+
+
+    
+    
+    <h2 id="methods">
+        Methods<a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#methods" title="Permanent link">¶</a>
+</h2>
+
+            <div class="content-header">
+        <h3 id="method_create">
+                <img src="./images/public.svg" alt="public" title="public" />create()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_create" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 93">93</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Creates a new object state in the given group.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>The new state gets the last priority.
+Note: in current kernel: If it is the first state all content objects will
+set to this state.</p>
+
+    </section>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $input
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_createGroup">
+                <img src="./images/public.svg" alt="public" title="public" />createGroup()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_createGroup" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 22">22</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Creates a new object state group.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">createGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $input
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_delete">
+                <img src="./images/public.svg" alt="public" title="public" />delete()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_delete" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 142">142</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Deletes a object state. The state of the content objects is reset to the
+first object state in the group.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $stateId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+                    
+    
+                <div class="content-header">
+        <h3 id="method_deleteGroup">
+                <img src="./images/public.svg" alt="public" title="public" />deleteGroup()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_deleteGroup" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 80">80</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Deletes a object state group including all states and links to content.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">deleteGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+                    
+    
+                <div class="content-header">
+        <h3 id="method_getContentCount">
+                <img src="./images/public.svg" alt="public" title="public" />getContentCount()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_getContentCount" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 174">174</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns the number of objects which are in this state.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getContentCount</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $stateId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">int</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getContentState">
+                <img src="./images/public.svg" alt="public" title="public" />getContentState()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_getContentState" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 165">165</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Gets the object-state of object identified by $contentId.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getContentState</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateGroupId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>The $state is the id of the state within one group.</p>
+
+    </section>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $contentId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $stateGroupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_load">
+                <img src="./images/public.svg" alt="public" title="public" />load()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_load" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 104">104</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Loads an object state.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $stateId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_load_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>if the state was not found</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_loadAllGroups">
+                <img src="./images/public.svg" alt="public" title="public" />loadAllGroups()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadAllGroups" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 54">54</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Loads all object state groups.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadAllGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a>&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $offset
+                    </td>
+                    <td>
+                        int
+                    </td>
+                    <td>
+                                                                                    0
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $limit
+                    </td>
+                    <td>
+                        int
+                    </td>
+                    <td>
+                                                                                    -1
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a>&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_loadByIdentifier">
+                <img src="./images/public.svg" alt="public" title="public" />loadByIdentifier()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadByIdentifier" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 116">116</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Loads an object state by identifier and group it belongs to.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadByIdentifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$identifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $identifier
+                    </td>
+                    <td>
+                        string
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadByIdentifier_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>if the state was not found</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_loadGroup">
+                <img src="./images/public.svg" alt="public" title="public" />loadGroup()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroup" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 33">33</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Loads a object state group.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroup_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>if the group was not found</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_loadGroupByIdentifier">
+                <img src="./images/public.svg" alt="public" title="public" />loadGroupByIdentifier()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroupByIdentifier" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 44">44</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Loads a object state group by identifier.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadGroupByIdentifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$identifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $identifier
+                    </td>
+                    <td>
+                        string
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroupByIdentifier_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>if the group was not found</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_loadObjectStates">
+                <img src="./images/public.svg" alt="public" title="public" />loadObjectStates()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadObjectStates" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 63">63</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>This method returns the ordered list of object states of a group.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadObjectStates</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a>&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a>&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setContentState">
+                <img src="./images/public.svg" alt="public" title="public" />setContentState()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_setContentState" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 153">153</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Sets the object-state of a state group to $stateId for the given content.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setContentState</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $contentId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $stateId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">bool</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setPriority">
+                <img src="./images/public.svg" alt="public" title="public" />setPriority()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_setPriority" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 134">134</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Changes the priority of the state.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setPriority</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $stateId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $priority
+                    </td>
+                    <td>
+                        int
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+                    
+    
+                <div class="content-header">
+        <h3 id="method_update">
+                <img src="./images/public.svg" alt="public" title="public" />update()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_update" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 126">126</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Updates an object state.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">update</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stateId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $stateId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $input
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_updateGroup">
+                <img src="./images/public.svg" alt="public" title="public" />updateGroup()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_updateGroup" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Persistence/Content/ObjectState/Handler.php">Handler.php</abbr>
+                :
+        <span title="at line 73">73</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Updates an object state group.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">updateGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groupId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $groupId
+                    </td>
+                    <td>
+                        mixed
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $input
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-InputStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\InputStruct">InputStruct</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
+                        
+    
+                                </div>
+                    </article>
+                </div>
+
+                                    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                <nav class="md-nav md-nav--secondary" aria-label="">
+                                            
+            <label class="md-nav__title" for="__toc" title="Handler">
+            Handler
+        </label>
+    
+    <ul class="md-nav__list">
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_create" title="create" class="md-nav__link">
+                                    create()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_createGroup" title="createGroup" class="md-nav__link">
+                                    createGroup()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_delete" title="delete" class="md-nav__link">
+                                    delete()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_deleteGroup" title="deleteGroup" class="md-nav__link">
+                                    deleteGroup()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_getContentCount" title="getContentCount" class="md-nav__link">
+                                    getContentCount()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_getContentState" title="getContentState" class="md-nav__link">
+                                    getContentState()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_load" title="load" class="md-nav__link">
+                                    load()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadAllGroups" title="loadAllGroups" class="md-nav__link">
+                                    loadAllGroups()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadByIdentifier" title="loadByIdentifier" class="md-nav__link">
+                                    loadByIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroup" title="loadGroup" class="md-nav__link">
+                                    loadGroup()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroupByIdentifier" title="loadGroupByIdentifier" class="md-nav__link">
+                                    loadGroupByIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadObjectStates" title="loadObjectStates" class="md-nav__link">
+                                    loadObjectStates()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_setContentState" title="setContentState" class="md-nav__link">
+                                    setContentState()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_setPriority" title="setPriority" class="md-nav__link">
+                                    setPriority()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_update" title="update" class="md-nav__link">
+                                    update()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_updateGroup" title="updateGroup" class="md-nav__link">
+                                    updateGroup()
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
+            </li>
+            </ul>
+
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </main>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
+    <script src="js/docs.switcher.js"></script>
+    <script src="js/toc.js"></script>
+    <script src="js/search_custom.js"></script>
+    <script src="js/copy_to_clipboard.js"></script>
+    <script src="js/version_switcher_custom.js"></script>
+    <script src="js/external-links.js"></script>
+</body>
+</html>

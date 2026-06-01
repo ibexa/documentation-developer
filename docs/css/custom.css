@@ -152,32 +152,41 @@ body {
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
     color: var(--ibexa-dusk-black);
     line-height: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .md-typeset h1 {
     margin: 0 0 1rem;
-    font-size: 34px;
+    font-size: 24px;
+    line-height: 34px;
 }
 
 .md-typeset h2 {
-    font-size: 28px;
+    font-size: 20px;
+    line-height: 27px;
 }
 
 .md-typeset h3 {
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 .md-typeset h4 {
-    font-size: 22px;
+    font-size: 16;
+    line-height: 19px;
 }
 
 .md-typeset h5 {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 18px;
     text-transform: none;
 }
 
 .md-typeset h6 {
-    font-size: 16px;
+    font-size: 12px;
+    line-height: 18px;
 }
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
@@ -379,6 +388,10 @@ ul li li li {
     background-color: var(--table-header);
 }
 
+.md-typeset table td.compare {
+    border: 0.05rem solid var(--md-typeset-table-color)
+}
+
 .md-nav__link[data-md-state=blur] {
     color: rgb(19, 28, 38);
 }
@@ -506,38 +519,40 @@ a.external:not(.card):after {
     height: 4px;
 }
 
-.md-typeset .tabbed-labels>label:hover {
+.md-typeset .tabbed-labels > label:hover {
   color: var(--ibexa-dusk-black);
   border-bottom: 2px solid var(--ibexa-dusk-black);
 }
 
-div.pills {
-    float: right;
+.md-typeset .tabbed-set > input:first-child:checked ~ .tabbed-labels > :first-child,
+.md-typeset .tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > :nth-child(2),
+.md-typeset .tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > :nth-child(3),
+.md-typeset .tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > :nth-child(4),
+.md-typeset .tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > :nth-child(5),
+.md-typeset .tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > :nth-child(6),
+.md-typeset .tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > :nth-child(7),
+.md-typeset .tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > :nth-child(8),
+.md-typeset .tabbed-set > input:nth-child(9):checked ~ .tabbed-labels > :nth-child(9),
+.md-typeset .tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > :nth-child(10),
+.md-typeset .tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > :nth-child(11),
+.md-typeset .tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > :nth-child(12),
+.md-typeset .tabbed-set > input:nth-child(13):checked ~ .tabbed-labels > :nth-child(13),
+.md-typeset .tabbed-set > input:nth-child(14):checked ~ .tabbed-labels > :nth-child(14),
+.md-typeset .tabbed-set > input:nth-child(15):checked ~ .tabbed-labels > :nth-child(15),
+.md-typeset .tabbed-set > input:nth-child(16):checked ~ .tabbed-labels > :nth-child(16),
+.md-typeset .tabbed-set > input:nth-child(17):checked ~ .tabbed-labels > :nth-child(17),
+.md-typeset .tabbed-set > input:nth-child(18):checked ~ .tabbed-labels > :nth-child(18),
+.md-typeset .tabbed-set > input:nth-child(19):checked ~ .tabbed-labels > :nth-child(19),
+.md-typeset .tabbed-set > input:nth-child(20):checked ~ .tabbed-labels > :nth-child(20) {
+    color: var(--md-accent-fg-color);
 }
 
-.pill {
-    background-color: var(--ibexa-jazzberry);
-    border-radius: 2.18px;
-    padding: 3px 8px;
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 500;
+.js .md-typeset .tabbed-labels:before {
+    background: var(--md-accent-fg-color);
 }
 
-.experience-pill::after {
-    content: "Experience";
-}
-
-.experience-pill {
-    background-color: var(--ibexa-orange);
-}
-
-.commerce-pill::after {
-    content: "Commerce";
-}
-
-.commerce-pill {
-    background-color: var(--ibexa-jazzberry);
+.md-typeset .tabbed-labels--linked > label > a {
+    padding: 0;
 }
 
 .md-clipboard:focus, .md-clipboard:hover {
@@ -627,5 +642,10 @@ div.path {
     color: var(--ibexa-dusk-black);
 }
 
+#older-versions {
+    cursor: pointer;
+}
 
-
+[hidden] {
+    display: none !important;
+}

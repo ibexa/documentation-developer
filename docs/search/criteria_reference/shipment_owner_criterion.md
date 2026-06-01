@@ -1,5 +1,5 @@
 ---
-description: Shipment Owner Criterion
+description: Shipment Owner Search Criterion
 edition: commerce
 ---
 

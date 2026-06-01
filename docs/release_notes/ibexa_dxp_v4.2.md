@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches PIM with catalogs, product variants and product assets.
+description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches the product catalog with catalogs, product variants and product assets.
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -24,9 +24,9 @@ your shipping information and view your past orders.
 You can invite members to your company, activate or deactivate their accounts,
 assign them specific roles and limitations, such as a buyer, or sales representative, and group them into teams.
 
-![Customer Portal Back Office](4.2_customer_portal.png)
+![Customer Portal back office](4.2_customer_portal.png)
 
-For more information, see [Back Office company management documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/manage_users).
+For more information, see [back office company management documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/manage_users).
 
 On their personal accounts in Customer Portal, members of your organisation can view their order history,
 other members of their team and information regarding their company, for example, billing addresses.
@@ -40,7 +40,7 @@ For more information, see [Customer Portal documentation](https://doc.ibexa.co/p
 
 #### Inviting users
 
-You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/latest/users/user_management/#inviting-users) in the frontend as customers or in the Back Office as members of your team.
+You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/latest/users/user_management/#inviting-users) in the frontend as customers or in the back office as members of your team.
 
 ![Inviting members of your team](4.2_invite_users.png)
 
@@ -67,7 +67,7 @@ The system automatically generates variants for the attribute values you select.
 
 ![Generating product variants](4.2_product_variants_generate.png)
 
-You can set prices, including custom pricing, as well as availability and stock for each variant separately.
+You can set prices, including custom pricing, availability, and stock for each variant separately.
 
 ### Product assets
 
@@ -79,12 +79,16 @@ Assets are grouped into collections based on attribute values
 
 ### Product completeness
 
-The new product completeness tab, in product view, lists all the parts of a product you can configure:
-attributes, assets, prices, availability, and so on.
-You can use it to get a quick overview of missing parts in the product configuration
-and to instantly move to the proper screen to fill the gaps.
+The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, and availability.
+You can use it to get a quick overview of missing parts in the product configuration and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](4.2_product_completeness.png)
+
+!!! note "No impact on availability"
+
+    Product completeness helps ensure that product data is complete.
+    It does not impact product availability or visibility on the storefront.
+    As long as a product meets availability and stock requirements, it can be published and made available for purchase regardless of its completeness score.
 
 ### Product categories
 
@@ -97,19 +101,19 @@ For more information, see [Product categories](https://doc.ibexa.co/projects/use
 
 ### Cross-content type (CCT) recommendations
 
-If a recommendation scenario has more than one Content Type configured, with cross-content type (CCT) parameter in the request,
-you can now get recommendations for all these Content Types.
+If a recommendation scenario has more than one content type configured, with cross-content type (CCT) parameter in the request,
+you can now get recommendations for all these content types.
 
-### Taxonomy Field Type
+### Taxonomy field type
 
-Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
-so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same Content Type.
+Taxonomy is now [configured with a field type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
+so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same content type.
 
-### Address Field Type
+### Address field type
 
-With the [new Address Field Type](https://doc.ibexa.co/en/latest/content_management/field_types/field_type_reference/addressfield), you can now customize address Fields and configure them per country.
+With the [new Address field type](https://doc.ibexa.co/en/latest/content_management/field_types/field_type_reference/addressfield), you can now customize address Fields and configure them per country.
 
-![Address Field Type](4.2_address_field_type.png)
+![Address field type](4.2_address_field_type.png)
 
 ### Repeatable migration steps
 
@@ -187,7 +191,7 @@ If a Page block has multiple attributes, you can now group them with the [`neste
 
 ### Search in URL wildcards
 
-You can now search through the **URL wildcards** table in the Back Office.
+You can now search through the **URL wildcards** table in the back office.
 
 ### Product price events
 
@@ -201,7 +205,7 @@ Data migration now supports `attribute` and `attribute_group` types when generat
 
 #### Hide and reveal content actions
 
-You can now hide and reveal Content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
+You can now hide and reveal content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
 
 ### Fastly shielding
 
@@ -219,17 +223,16 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 
 ## Full changelog
 
-| Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
+| [[= product_name_content =]] | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Content v4.2](https://github.com/ibexa/content/releases/tag/v4.2.0) | [Ibexa Experience v4.2](https://github.com/ibexa/experience/releases/tag/v4.2.0) | [Ibexa Commerce v4.2](https://github.com/ibexa/commerce/releases/tag/v4.2.0)|
+| [[[= product_name_content =]] v4.2](https://github.com/ibexa/content/releases/tag/v4.2.0) | [[[= product_name_exp =]] v4.2](https://github.com/ibexa/experience/releases/tag/v4.2.0) | [[[= product_name_com =]] v4.2](https://github.com/ibexa/commerce/releases/tag/v4.2.0)|
 
 ## v4.2.1
 
-### Ibexa CDP
+### [[= product_name_cdp =]]
 
 [[= product_name_base =]] Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
-You can use them to build segments that will allow you to create personalized customer
-experience for your brand.
+You can use them to build segments that allow you to create personalized customer experience for your brand.
 
 This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
 [[= product_name_cdp =]] is also compatible with [[= product_name_base =]] v3.3.
@@ -251,8 +254,18 @@ Thanks to splitting SQL upgrade files into separate product editions, the produc
 
 ### Event layer for TaxonomyService
 
-Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
+Now, events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
 
-### Protected Segment Groups
+### Protected segment groups
 
-You can now set existing Segment Groups as protected and make them unable to be modified through the user interface.
+You can now set existing [segment groups](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) as protected, and prevent them from being modified through the user interface.
+It's intended to stop users from breaking data integrity of segments/segment groups maintained by other features or external system integrations, such as [Customer Portal](https://doc.ibexa.co/en/latest/customer_management/customer_portal/) and [CDP](https://doc.ibexa.co/en/latest/cdp/cdp/).
+
+To do it, in your configuration, add the following key for each segment group that you intend to protect:
+
+`ibexa.system.default.segmentation.segment_groups.list.<segment_group_name>.protected`
+
+When you change a value of the setting to `true`, users are no longer able to:
+
+- remove the segment group or change its name or identifier
+- add/remove/modify segments that belong to the segment group

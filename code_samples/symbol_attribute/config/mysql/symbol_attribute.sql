@@ -1,0 +1,2 @@
+CREATE TABLE ibexa_product_specification_attribute_symbol (id INT NOT NULL, value VARCHAR(160) DEFAULT NULL, INDEX ibexa_product_specification_attribute_symbol_value_idx (value), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+ALTER TABLE ibexa_product_specification_attribute_symbol ADD CONSTRAINT ibexa_product_specification_attribute_symbol_fk FOREIGN KEY (id) REFERENCES ibexa_product_specification_attribute (id) ON UPDATE CASCADE ON DELETE CASCADE

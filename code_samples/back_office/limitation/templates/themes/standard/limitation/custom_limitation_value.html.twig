@@ -1,0 +1,5 @@
+{# templates/themes/standard/limitation/custom_limitation_value.html.twig #}
+{% block ibexa_limitation_customlimitation_value %}
+    {% set is_set = values | first %}
+    <span style="color: {{ is_set ? 'green' : 'red' }};">{{ is_set ? 'Yes' : 'No' }}</span>
+{% endblock %}

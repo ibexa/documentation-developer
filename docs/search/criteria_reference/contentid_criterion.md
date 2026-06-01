@@ -1,7 +1,10 @@
+---
+description: ContentId Search Criterion
+---
+
 # ContentId Criterion
 
-The [`ContentId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ContentId.php)
-searches for content by its ID.
+The [`ContentId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentId.html) searches for content by its ID.
 
 ## Arguments
 
@@ -22,7 +25,7 @@ $query->query = new Criterion\ContentId([62, 64]);
     ```xml
     <Query>
         <Filter>
-            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
+            <ContentIdCriterion>1,52</ContentIdCriterion>
         </Filter>
     </Query>
     ```
@@ -32,7 +35,7 @@ $query->query = new Criterion\ContentId([62, 64]);
     ```json
     "Query": {
         "Filter": {
-            "ContentIdCriterion": [69, 72]
+            "ContentIdCriterion": "1,52"
         }
     }
     ```

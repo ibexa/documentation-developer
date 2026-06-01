@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class CustomShippingMethodOptionsType extends AbstractType implements TranslationContainerInterface
 {
+    #[\Override]
     public function getBlockPrefix(): string
     {
         return 'ibexa_shipping_method_custom';

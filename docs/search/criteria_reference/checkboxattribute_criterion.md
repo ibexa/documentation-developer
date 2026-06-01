@@ -1,3 +1,7 @@
+---
+description: CheckboxAttribute Search Criterion
+---
+
 # CheckboxAttribute Criterion
 
 The `CheckboxAttribute` Search Criterion searches for products by the value of their checkbox attribute.

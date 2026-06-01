@@ -8,14 +8,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyMenuSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ConfigureMenuEvent::MAIN_MENU => ['onMainMenuConfigure', 0],
         ];
     }
 
-    public function onMainMenuConfigure(ConfigureMenuEvent $event)
+    public function onMainMenuConfigure(ConfigureMenuEvent $event): void
     {
         $menu = $event->getMenu();
 
@@ -45,6 +45,6 @@ class MyMenuSubscriber implements EventSubscriberInterface
         $menu->removeChild('main__bookmarks');
 
         $menu->getChild('main__admin')
-            ->setExtra('icon_path', '/bundles/ibexaicons/img/all-icons.svg#notice');
+            ->setExtra('icon_path', '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#alert-error');
     }
 }

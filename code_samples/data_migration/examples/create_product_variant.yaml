@@ -1,0 +1,29 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: hat
+        mainTranslation: eng-GB
+    location:
+        parentLocationId: 60
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Top hat 58cm'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: top_hat__58
+                attributes:
+                    size: 58
+                is_virtual: false
+
+-   type: product_variant
+    mode: create
+    base_product_code: top_hat__58
+    variants:
+        -   code: top_hat__58__white
+            attributes:
+                color: white
+        -   code: top_hat__58__black
+            attributes:
+                color: black

@@ -1,16 +1,37 @@
 ---
-description: The REST API covers objects in the Ibexa DXP Repository with regular and custom HTTP methods, such as GET or PUBLISH, as well as HTTP headers.
+description: The REST API covers objects in the Ibexa DXP Repository with regular and custom HTTP methods, such as GET or PUBLISH, and HTTP headers.
 ---
 
 # REST API usage
 
-The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol,
-following a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
+The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation by using the HTTP protocol, following a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (like content, users or search).
-Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](php_api.md) can also be done using the REST API.
+Every interaction with the repository than you can do from back office or by using the [Public PHP API](php_api.md) can also be done with the REST API.
 
-The REST API uses HTTP methods (such as `GET` and `PUBLISH`), as well as HTTP headers to specify the type of request.
+The REST API uses HTTP methods (such as `GET` and `PUBLISH`), and HTTP headers to specify the type of request.
+
+## OpenAPI support
+
+The REST API is built on top of [API Platform](https://api-platform.com/docs/symfony/) and meets the [OpenAPI](https://www.openapis.org/) standard.
+
+You can download the OpenAPI specification in:
+
+- [YAML format](/api/rest_api/rest_api_reference/openapi.yaml)
+- [JSON format](/api/rest_api/rest_api_reference/openapi.json)
+
+You can also generate one for your project by running one of the commands below:
+
+``` bash
+php bin/console ibexa:openapi --output=openapi.json # JSON output
+php bin/console ibexa:openapi --yaml --output=openapi.yaml # YAML output
+```
+
+Use the specification file with [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
+
+!!! note
+
+    In [Symfony's `dev` environment](environments.md), you can access a REST API reference generated for your project by visiting the `/api/ibexa/v2/doc` route in the browser.
 
 ## URIs
 
@@ -30,7 +51,7 @@ If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](res
 URI parameters (query string) can be used on some resources.
 They usually serve as options or filters for the requested resource.
 
-As an example, the request below would paginate the results and return the first 5 relations for version 3 of the Content item 59:
+As an example, the request below would paginate the results and return the first 5 relations for version 3 of the content item 59:
 
 ```http
 GET /content/objects/59/versions/3/relations?limit=5 HTTP/1.1
@@ -51,14 +72,14 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1 HTTP/1.1
 The `/` root route is answered by a reference list with the main resource routes and media-types.
 It's presented in XML by default, but you can also switch to JSON output.
 
-```shell
+```bash
 curl https://api.example.com/api/ibexa/v2/
 curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 ```
 
 ### Country list
 
-Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
+Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). You can use it when presenting a country options list from any application.
 
 This country list's URI is `/services/countries`.
 
@@ -66,7 +87,7 @@ The ISO-3166 country codes can be represented as:
 
 - two-letter code (alpha-2) — recommended as the general purpose code
 - three-letter code (alpha-3) — related to the country name
-- three-digit numeric code (numeric-3) — useful if you need to avoid using Latin script
+- three-digit numeric code (numeric-3) — use it if you need to avoid using Latin script
 
 For details, see the [ISO-3166 glossary](https://www.iso.org/glossary-for-iso-3166.html).
 

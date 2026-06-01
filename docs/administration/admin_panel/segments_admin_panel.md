@@ -1,18 +1,19 @@
 ---
-description: You can use Segments to display specific content to specific Users.
+description: You can use segments to display specific content to specific users.
+edition: experience
 ---
 
 # Segments
 
-You can use Segments to display specific content to specific [Users](users.md).
-They are used out of the box in the Targeting and Dynamic targeting blocks in the Page.
+You can use segments to display specific content to specific [users](users.md).
+They're used out of the box in the Targeting and Dynamic targeting blocks in the page.
 
-Segments are collected in Segment Groups:
+You can collect segments in segment groups:
 
-![Segment Groups](admin_panel_segment_groups.png)
+![Segment groups](admin_panel_segment_groups.png)
 
-Each Segment Group can contain Segments that you can target content for.
+Each segment group can contain segments that you can target content for.
 
 ![Segment](admin_panel_segment.png)
 
-You can assign Users to Segments [through the API](segment_api.md#assigning-users).
+You can assign users to segments [through the API](segment_api.md#assigning-users).

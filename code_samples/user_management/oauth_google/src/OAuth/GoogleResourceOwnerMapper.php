@@ -6,6 +6,7 @@ namespace App\OAuth;
 
 use Ibexa\Contracts\Core\Repository\LanguageResolver;
 use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService;
 use Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
@@ -16,33 +17,17 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMapper
 {
-    private const PROVIDER_PREFIX = 'google:';
-
-    /** @var \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService */
-    private \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService $userService;
-
-    /** @var \Ibexa\Contracts\Core\Repository\LanguageResolver */
-    private \Ibexa\Contracts\Core\Repository\LanguageResolver $languageResolver;
-
-    /** @var string|null */
-    private ?string $contentTypeIdentifier;
-
-    /** @var string|null */
-    private ?string $parentGroupRemoteId;
+    private const string PROVIDER_PREFIX = 'google:';
 
     public function __construct(
         Repository $repository,
-        OAuth2UserService $userService,
-        LanguageResolver $languageResolver,
-        ?string $contentTypeIdentifier = null,
-        ?string $parentGroupRemoteId = null
+        private readonly OAuth2UserService $oauthUserService,
+        private readonly LanguageResolver $languageResolver,
+        private readonly UserService $userService,
+        private readonly ?string $contentTypeIdentifier = null,
+        private readonly ?string $parentGroupRemoteId = null
     ) {
         parent::__construct($repository);
-
-        $this->userService = $userService;
-        $this->languageResolver = $languageResolver;
-        $this->contentTypeIdentifier = $contentTypeIdentifier;
-        $this->parentGroupRemoteId = $parentGroupRemoteId;
     }
 
     /**
@@ -51,8 +36,8 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
     protected function loadUser(
         ResourceOwnerInterface $resourceOwner,
         UserProviderInterface $userProvider
-    ): ?UserInterface {
-        return $userProvider->loadUserByUsername($this->getUsername($resourceOwner));
+    ): UserInterface {
+        return $userProvider->loadUserByIdentifier($this->getUsername($resourceOwner));
     }
 
     /**
@@ -61,8 +46,8 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
     protected function createUser(
         ResourceOwnerInterface $resourceOwner,
         UserProviderInterface $userProvider
-    ): ?UserInterface {
-        $userCreateStruct = $this->userService->newOAuth2UserCreateStruct(
+    ): UserInterface {
+        $userCreateStruct = $this->oauthUserService->newOAuth2UserCreateStruct(
             $this->getUsername($resourceOwner),
             $resourceOwner->getEmail(),
             $this->getMainLanguageCode(),
@@ -79,7 +64,7 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
 
         $this->userService->createUser($userCreateStruct, $parentGroups);
 
-        return $userProvider->loadUserByUsername($this->getUsername($resourceOwner));
+        return $userProvider->loadUserByIdentifier($this->getUsername($resourceOwner));
     }
 
     private function getOAuth2UserContentType(Repository $repository): ?ContentType

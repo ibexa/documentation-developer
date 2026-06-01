@@ -1,0 +1,30 @@
+---
+description: Discover various Ibexa DXP features.
+page_type: landing_page
+month_change: false
+---
+
+# Product guides
+
+[[= product_name =]] product editions come with a variety of features.
+Discover the primary ones with the help of product guides. Condensed content allows you to quickly learn about their availability, capabilities, and benefits.
+
+[[= cards([
+    "users/user_management_guide",
+    "content_management/content_management_guide",
+    "discounts/discounts_guide",
+    "content_management/rich_text/online_editor_guide",
+    "content_management/pages/page_builder_guide",
+    "content_management/forms/form_builder_guide",
+    "content_management/collaborative_editing/collaborative_editing_guide",
+    "customer_management/customer_portal",
+    "personalization/personalization_guide",
+    "product_catalog/product_catalog_guide",
+    "product_catalog/quable/quable_guide",
+    "commerce/shopping_list/shopping_list_guide",
+    "ibexa_cloud/ibexa_cloud_guide",
+    "cdp/cdp_guide",
+    "recommendations/raptor_integration/raptor_connector_guide",
+    "ai/ai_actions/ai_actions_guide",
+    "ai/mcp/mcp_guide",
+], columns=4) =]]

@@ -2,34 +2,27 @@
 
 namespace App\Tab\Dashboard\Everyone;
 
-use Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
+use Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper;
 use Ibexa\Contracts\AdminUi\Tab\AbstractTab;
 use Ibexa\Contracts\AdminUi\Tab\OrderedTabInterface;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 {
-    protected $pagerContentToDataMapper;
-
-    protected $searchService;
-
     public function __construct(
         Environment $twig,
         TranslatorInterface $translator,
-        PagerContentToDataMapper $pagerContentToDataMapper,
-        SearchService $searchService
+        protected PagerLocationToDataMapper $pagerLocationToDataMapper,
+        protected SearchService $searchService
     ) {
         parent::__construct($twig, $translator);
-
-        $this->pagerContentToDataMapper = $pagerContentToDataMapper;
-        $this->searchService = $searchService;
     }
 
     public function getIdentifier(): string
@@ -60,7 +53,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         ]);
 
         $pager = new Pagerfanta(
-            new ContentSearchAdapter(
+            new LocationSearchAdapter(
                 $query,
                 $this->searchService
             )
@@ -69,7 +62,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         $pager->setCurrentPage($page);
 
         return $this->twig->render('@ibexadesign/ui/dashboard/tab/all_content.html.twig', [
-            'data' => $this->pagerContentToDataMapper->map($pager),
+            'data' => $this->pagerLocationToDataMapper->map($pager, true),
         ]);
     }
 }

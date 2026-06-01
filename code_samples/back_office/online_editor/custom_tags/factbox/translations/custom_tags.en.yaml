@@ -1,3 +1,3 @@
-ezrichtext.custom_tags.factbox.label: 'Factbox'
-ezrichtext.custom_tags.factbox.attributes.name.label: 'Name'
-ezrichtext.custom_tags.factbox.attributes.style.label: 'Style'
+ibexa_richtext.custom_tags.factbox.label: 'Factbox'
+ibexa_richtext.custom_tags.factbox.attributes.name.label: 'Name'
+ibexa_richtext.custom_tags.factbox.attributes.style.label: 'Style'

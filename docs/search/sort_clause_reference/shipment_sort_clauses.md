@@ -7,9 +7,9 @@ page_type: reference
 
 # Shipment Sort Clauses
 
-Shipment Sort Clauses are part of [Sort Clauses](sort_clause_reference.md) and they are supported only by Shipment Search.
+Shipment Sort Clauses are only supported by [Shipment Search (`ShipmentService::findShipments`)](shipment_api.md#get-multiple-shipments).
 
-By using Sort Clauses you can filter shipments by specific attributes, for example: creation date, status, and so on.
+By using Sort Clauses you can sort shipments by specific attributes, for example, creation date or status.
 
 | Sort Clause | Sorting based on |
 |-----|-----|

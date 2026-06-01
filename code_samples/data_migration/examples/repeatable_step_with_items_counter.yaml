@@ -1,0 +1,20 @@
+-   type: repeatable
+    mode: create
+    iteration_counter_name: index
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: folder
+                mainTranslation: eng-GB
+                remoteId: 'migration_folder_###XXX index XXX###'
+            location:
+                parentLocationId: 2
+            fields:
+                -   fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: '###XXX title XXX###'
+    items:
+        - { title: 'Getting Started' }
+        - { title: 'Advanced Configuration' }
+        - { title: 'API Reference' }

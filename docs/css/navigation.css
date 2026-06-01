@@ -56,12 +56,21 @@
 .md-nav--secondary {
     padding-left: 10px;
     padding-bottom: 10px;
+    margin-bottom: 0;
     padding-top: 7rem;
+    height: calc(100vh - 138px);
 }
 
-.md-nav--secondary>ul {
+.md-nav--secondary .md-nav__title {
+    position: relative;
+}
+
+.md-nav--secondary > ul {
     border-left: 1px solid var(--mid-grey);
     margin-left: 0.4rem;
+}
+
+[dir=ltr] .md-nav--secondary ul.md-nav__list {
     padding-left: 0;
 }
 
@@ -113,7 +122,12 @@
 /* End Page TOC */
 
 /* Main nav */
-.md-nav--primary .md-nav__link {
+[dir=ltr] .md-nav--primary .md-nav__list {
+    padding-left: 0;
+}
+
+[dir=ltr] .md-nav--primary .md-nav__item > .md-nav__link {
+    margin-right: 0;
     font-size: 16px;
 }
 
@@ -281,6 +295,8 @@
     padding: 1rem 0.8rem;
     border-bottom: 1px solid var(--mid-grey);
     background: white;
+    display: flex;
+    align-items: center;
 }
 
 .push {

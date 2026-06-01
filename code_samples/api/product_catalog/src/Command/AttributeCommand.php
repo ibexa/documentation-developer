@@ -9,37 +9,26 @@ use Ibexa\Contracts\ProductCatalog\AttributeGroupServiceInterface;
 use Ibexa\Contracts\ProductCatalog\AttributeTypeServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeGroupServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:attributes'
+)]
 final class AttributeCommand extends Command
 {
-    private AttributeGroupServiceInterface $attributeGroupService;
-
-    private LocalAttributeGroupServiceInterface $localAttributeGroupService;
-
-    private AttributeDefinitionServiceInterface $attributeDefinitionService;
-
-    private LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService;
-
-    private AttributeTypeServiceInterface $attributeTypeService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService, AttributeDefinitionServiceInterface $attributeDefinitionService, AttributeGroupServiceInterface $attributeGroupService, LocalAttributeGroupServiceInterface $localAttributeGroupService, AttributeTypeServiceInterface $attributeTypeService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->localAttributeGroupService = $localAttributeGroupService;
-        $this->attributeGroupService = $attributeGroupService;
-        $this->attributeTypeService = $attributeTypeService;
-        $this->attributeDefinitionService = $attributeDefinitionService;
-        $this->localAttributeDefinitionService = $localAttributeDefinitionService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
-        parent::__construct('doc:attributes');
+    public function __construct(
+        private readonly LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService,
+        private readonly AttributeDefinitionServiceInterface $attributeDefinitionService,
+        private readonly AttributeGroupServiceInterface $attributeGroupService,
+        private readonly LocalAttributeGroupServiceInterface $localAttributeGroupService,
+        private readonly AttributeTypeServiceInterface $attributeTypeService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     public function configure(): void

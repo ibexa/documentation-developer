@@ -1,10 +1,12 @@
 ---
 description: Page blocks can contain multiple attributes, of both built-in and custom types.
+month_change: false
+edition: experience
 ---
 
 # Page block attributes
 
-A block has attributes that the editor fills in when adding th block to a Page.
+A block has attributes that the editor fills in when adding the block to a Page.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -13,7 +15,7 @@ Each block can have the following properties:
 | Attribute    | Description                                                                                                  |
 |--------------|--------------------------------------------------------------------------------------------------------------|
 | `type`       | Attribute type.                                                                                              |
-| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. |
+| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. Translatable using the `ibexa_page_builder_block_config` translation domain. |
 | `value`      | (Optional) The default value for the attribute.                                                              |
 | `category`   | (Optional) The tab where the attribute is displayed in the block edit modal.                                 |
 | `validators` | (Optional) [Validators](page_block_validators.md) checking the attribute value.                              |
@@ -30,14 +32,16 @@ The following attribute types are available:
 |`url`|URL|-|
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
-|`embed`|Embedded Content item|-|
-|`select`|Drop-down with options to select|`choices` lists the available options</br>`multiple`, when set to true, allows selecting more than one option.
-|`multiple`|Checkbox(es)|`choices` lists the available options.|
-|`radio`|Radio buttons|`choices` lists the available options.|
-|`locationlist`|Location selection|-|
-|`contenttypelist`|List of Content Types|-|
+|`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
+|`checkbox`|Checkbox|Selects available option if `value: true`.|
+|`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
+|`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
+|`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`contenttypelist`|List of content types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **Add field group** button.|
+|`nested_attribute`|Defines a group of attributes in a block.|<ul><li>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes</li><li>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button</li></ul>|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
 
@@ -47,6 +51,10 @@ attributes:
     second_field: string
     third_field: integer
 ```
+
+The `embed`, `embedvideo`, and `locationlist` attribute types use the Universal Discovery Widget (UDW).
+When creating a block with these types you can use the `udw_config_name` option to configure the UDW behavior.
+See the [custom block example](create_custom_page_block.md#configure-block) to learn more.
 
 ## Custom attribute types
 
@@ -64,11 +72,11 @@ for example `AbstractType` for any custom type or `IntegerType` for numeric type
 
 To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` file:
 
-``` php hl_lines="5 6 15"
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
+``` php hl_lines="5 6 17"
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
-Note that the attribute uses `AbstractType` (line 5) and `TextType` (line 6).
+The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
 Adding `getBlockPrefix` (line 15) returns a unique prefix key for a custom template of the attribute.
 
 ### Mapper
@@ -90,7 +98,7 @@ To use a custom mapper, create a class that inherits from `Ibexa\Contracts\Field
 for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
 
 ``` php
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
 ```
 
 Then, add a new service definition for your mapper to `config/services.yaml`:
@@ -125,24 +133,24 @@ Now, you can create a block containing your custom attribute:
 
 The `nested_attribute` attribute is used when you want to create a group of attributes.
 
-First, make sure you have configured the attributes you want to use in the group. 
+First, make sure you have configured the attributes you want to use in the group.
 
 Next, provide the configuration. See the example:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,23) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0, 16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19, 23) =]]
 ```
 
 To set validation for each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,19) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9, 19) =]]
 ```
 
 Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9, 16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19, 26) =]]
 ```
 
 !!! caution "Moving attributes between groups"
@@ -170,9 +178,9 @@ ibexa_fieldtype_page:
                                 class: 'class1 class2'
 ```
 
-- `help` - defines a help message which is rendered below the field.
-- `help_attr` - sets the HTML attributes for the element which displays the help message.
-- `help_html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
+- `help.text` - defines a help message which is rendered below the field (maps to [`help`]([[= symfony_doc =]]/reference/forms/types/form.html#help))
+- `help.attr` - sets the HTML attributes for the element which displays the help message (maps to [`help_attr`]([[= symfony_doc =]]/reference/forms/types/form.html#help-attr))
+- `help.html` - enable (default) / disable (set to `true`) escaping the contents of the `help.text` option when rendering in the template (maps to [`help_html`]([[= symfony_doc =]]/reference/forms/types/form.html#help-html))
 
 ### Help message in nested attributes
 

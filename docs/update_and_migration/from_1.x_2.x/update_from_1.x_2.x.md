@@ -6,7 +6,7 @@ latest_tag: '2.5.30'
 
 # From 1.13 and 2.x
 
-This update procedure applies if you are using:
+This update procedure applies if you're using:
 
 - v1.13
 - v2.x

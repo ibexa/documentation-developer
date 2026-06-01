@@ -12,15 +12,11 @@ use Ibexa\Migration\ValueObject\Step\StepInterface;
 
 final class ReplaceNameStepExecutor extends AbstractStepExecutor
 {
-    private ContentService $contentService;
-
-    public function __construct(
-        ContentService $contentService
-    ) {
-        $this->contentService = $contentService;
+    public function __construct(private readonly ContentService $contentService)
+    {
     }
 
-    protected function doHandle(StepInterface $step): void
+    protected function doHandle(StepInterface $step)
     {
         assert($step instanceof ReplaceNameStep);
 
@@ -30,7 +26,7 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
             $struct = $this->contentService->newContentUpdateStruct();
 
             foreach ($contentItem->getFields() as $field) {
-                if ($field->fieldTypeIdentifier !== 'ezstring') {
+                if ($field->fieldTypeIdentifier !== 'ibexa_string') {
                     continue;
                 }
 
@@ -38,7 +34,7 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
                     continue;
                 }
 
-                if (str_contains($field->value, 'Company Name')) {
+                if (str_contains((string) $field->value, 'Company Name')) {
                     $newValue = str_replace('Company Name', $step->getReplacement(), $field->value);
                     $struct->setField($field->fieldDefIdentifier, new Value($newValue));
                 }
@@ -48,10 +44,12 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
                 $content = $this->contentService->createContentDraft($contentItem->contentInfo);
                 $content = $this->contentService->updateContent($content->getVersionInfo(), $struct);
                 $this->contentService->publishVersion($content->getVersionInfo());
-            } catch (\Throwable $e) {
+            } catch (\Throwable) {
                 // Ignore
             }
         }
+
+        return null;
     }
 
     public function canHandle(StepInterface $step): bool

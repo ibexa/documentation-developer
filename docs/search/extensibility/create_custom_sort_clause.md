@@ -10,21 +10,11 @@ To create a custom Sort Clause, do the following.
 
 First, add a `ScoreSortClause.php` file with the Sort Clause class:
 
-=== "Solr"
-
-    ``` php
-    --8<--
-    code_samples/search/solr/src/Query/SortClause/Solr/ScoreSortClause.php
-    --8<--
-    ```
-
-=== "Elasticsearch"
-
-    ``` php
-    --8<--
-    code_samples/search/elasticsearch/src/Query/SortClause/Elasticsearch/ScoreSortClause.php
-    --8<--
-    ```
+``` php
+--8<--
+code_samples/search/custom/src/Query/SortClause/ScoreSortClause.php
+--8<--
+```
 
 ## Create Sort Clause visitor
 
@@ -34,7 +24,7 @@ Then, add a `ScoreVisitor` class that implements `SortClauseVisitor`:
 
     ``` php
     --8<--
-    code_samples/search/solr/src/Query/SortClause/Solr/ScoreVisitor.php
+    code_samples/search/custom/src/Query/SortClause/Solr/ScoreVisitor.php
     --8<--
     ```
 
@@ -42,7 +32,7 @@ Then, add a `ScoreVisitor` class that implements `SortClauseVisitor`:
 
     ``` php
     --8<--
-    code_samples/search/elasticsearch/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
+    code_samples/search/custom/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
     --8<--
     ```
 
@@ -58,15 +48,13 @@ To choose the search type, use either `content` or `location` in the tag when re
 === "Solr"
 
     ``` yaml
-    --8<--
-    code_samples/search/solr/config/sort_clause_services.yaml
-    --8<--
+    services:
+    [[= include_file('code_samples/search/custom/config/sort_clause_services.yaml', 1, 5) =]]
     ```
 
 === "Elasticsearch"
 
     ``` yaml
-    --8<--
-    code_samples/search/elasticsearch/config/sort_clause_services.yaml
-    --8<--
+    services:
+    [[= include_file('code_samples/search/custom/config/sort_clause_services.yaml', 6, 10) =]]
     ```

@@ -1,0 +1,13 @@
+CREATE TABLE ibexa_action_configuration (id SERIAL NOT NULL, identifier VARCHAR(64) NOT NULL, type VARCHAR(32) NOT NULL, enabled BOOLEAN NOT NULL, action_type_options JSON DEFAULT NULL, action_handler_options JSON DEFAULT NULL, action_handler_identifier VARCHAR(64) DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id));
+CREATE INDEX ibexa_action_configuration_identifier_idx ON ibexa_action_configuration (identifier);
+CREATE INDEX ibexa_action_configuration_enabled_idx ON ibexa_action_configuration (enabled);
+CREATE UNIQUE INDEX ibexa_action_configuration_identifier_uc ON ibexa_action_configuration (identifier);
+COMMENT ON COLUMN ibexa_action_configuration.created_at IS '(DC2Type:datetime_immutable)';
+COMMENT ON COLUMN ibexa_action_configuration.updated_at IS '(DC2Type:datetime_immutable)';
+CREATE TABLE ibexa_action_configuration_ml (id SERIAL NOT NULL, action_configuration_id INT NOT NULL, language_id BIGINT NOT NULL, name VARCHAR(190) NOT NULL, description TEXT DEFAULT NULL, PRIMARY KEY(id));
+CREATE INDEX ibexa_action_configuration_ml_name_idx ON ibexa_action_configuration_ml (name);
+CREATE INDEX ibexa_action_configuration_ml_language_idx ON ibexa_action_configuration_ml (language_id);
+CREATE INDEX ibexa_action_configuration_ml_action_configuration_idx ON ibexa_action_configuration_ml (action_configuration_id);
+CREATE UNIQUE INDEX ibexa_action_configuration_ml_uidx ON ibexa_action_configuration_ml (action_configuration_id, language_id);
+ALTER TABLE ibexa_action_configuration_ml ADD CONSTRAINT ibexa_action_configuration_ml_to_language_fk FOREIGN KEY (language_id) REFERENCES ezcontent_language (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE ibexa_action_configuration_ml ADD CONSTRAINT ibexa_action_configuration_ml_to_action_configuration_fk FOREIGN KEY (action_configuration_id) REFERENCES ibexa_action_configuration (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;

@@ -6,24 +6,24 @@ namespace App\Notification;
 
 use Ibexa\Contracts\Core\Repository\Values\Notification\Notification;
 use Ibexa\Core\Notification\Renderer\NotificationRenderer;
+use Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
-class MyRenderer implements NotificationRenderer
+class MyRenderer implements NotificationRenderer, TypedNotificationRendererInterface
 {
-    protected $twig;
-
-    protected $router;
-
-    public function __construct(Environment $twig, RouterInterface $router)
-    {
-        $this->twig = $twig;
-        $this->router = $router;
+    public function __construct(
+        protected Environment $twig,
+        protected RouterInterface $router
+    ) {
     }
 
     public function render(Notification $notification): string
     {
-        return $this->twig->render('@ibexadesign/notification.html.twig', ['notification' => $notification]);
+        return $this->twig->render('@ibexadesign/notification.html.twig', [
+            'notification' => $notification,
+            'template_to_extend' => $templateToExtend,
+        ]);
     }
 
     public function generateUrl(Notification $notification): ?string
@@ -33,5 +33,15 @@ class MyRenderer implements NotificationRenderer
         }
 
         return null;
+    }
+
+    public function getTypeLabel(): string
+    {
+        return /** @Desc("Workflow stage changed") */
+            $this->translator->trans(
+                'workflow.notification.stage_change.label',
+                [],
+                'ibexa_workflow'
+            );
     }
 }
