@@ -199,23 +199,23 @@ To use Composer to instantly create a project in the current folder with all the
         ``` bash
         composer create-project --no-install ibexa/headless-skeleton .
         composer config audit.ignore --json '{
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -225,23 +225,23 @@ To use Composer to instantly create a project in the current folder with all the
         ``` bash
         composer create-project --no-install ibexa/experience-skeleton .
         composer config audit.ignore --json '{
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -251,23 +251,23 @@ To use Composer to instantly create a project in the current folder with all the
         ``` bash
         composer create-project --no-install ibexa/commerce-skeleton .
         composer config audit.ignore --json '{
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -281,26 +281,26 @@ To use Composer to instantly create a project in the current folder with all the
         ``` bash
         composer create-project --no-install ibexa/headless-skeleton .
         composer config audit.ignore --json '{
-            "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -310,26 +310,26 @@ To use Composer to instantly create a project in the current folder with all the
         ``` bash
         composer create-project --no-install ibexa/experience-skeleton .
         composer config audit.ignore --json '{
-            "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -339,26 +339,26 @@ To use Composer to instantly create a project in the current folder with all the
         ``` bash
         composer create-project --no-install ibexa/commerce-skeleton .
         composer config audit.ignore --json '{
-            "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
