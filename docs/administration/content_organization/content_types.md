@@ -87,7 +87,7 @@ If no pattern is provided, the system automatically uses the first field.
         - `fistname`: "" (empty)
         - `lastname`: "*Doe*"
         - `nickname`: "" (empty)
-        - Generated content name: " *Doe*"
+        - Generated content name: " *Doe*" (notice the space before the last name, which is included literally in the pattern)
 
     **Notice that the group in parenthesis is always final, it's used even if outputing an empty string and any other piped optional patern after it is always ignored.**
 
