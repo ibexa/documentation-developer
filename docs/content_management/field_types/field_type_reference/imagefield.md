@@ -25,15 +25,8 @@ The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\V
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI.|
 |`imageId`|string|`240-1480`|A special image ID, used by REST.|
 |`inputUri`|string|`var/storage/images/test/199-2-eng-GB/image.png`|Input image file URI.|
-|`width`*|int|`null`|Original image width in pixels. For more details see Caution note below.|
-|`height`*|int|`null`|Original image height in pixels. For more details see Caution note below.|
-
-!!! caution
-
-    Properties marked with an asterisk are currently unsupported.
-    They're available but their value is always `null`.
-
-    Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
+|`width`|int|`null`|Original image width in pixels.|
+|`height`|int|`null`|Original image height in pixels.|
 
 ### Settings
 
@@ -46,8 +39,8 @@ They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with th
 
 | Property       | Type     | Example  | Description|
 |----------------|----------|----------|------------|
-| `width`*       | int      | `null`    | The variation's width in pixels. For more details see Caution note below.|
-| `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
+| `width`       | int      | `null`    | The variation's width in pixels.|
+| `height`      | int      | `null`    | The variation's height in pixels.|
 | `name`         | string   | `medium` | The variation's identifier, name of the image variation.|
 | `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value is `null`.|
 | `fileSize`     | int      |`31010` |Size (in byte) of current variation.|
@@ -56,13 +49,6 @@ They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with th
 | `dirPath`      | string   |`var/storage/images/test/199-2-eng-GB`|The path to the file.|
 | `uri`          | string   |`var/storage/images/test/199-2-eng-GB/apple.png`| The variation's URI. Complete path with a name of image file.|
 | `lastModified` | DateTime |``"2017-08-282 12:20 Europe/Berlin"``| When the variation was last modified.|
-
-!!! caution
-
-    Properties marked with an asterisk are currently unsupported.
-    They're available but their value is always `null`.
-
-    Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 
 ### Field Definition options
 
@@ -226,7 +212,7 @@ In addition, image data can be provided using the `data` property, with the imag
 
 #### Creating an Image field
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentCreate>
     <!-- [...metadata...] -->

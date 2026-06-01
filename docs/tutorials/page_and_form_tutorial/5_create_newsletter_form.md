@@ -77,7 +77,7 @@ Create a `form_field.html.twig` file in `templates/fields/`:
 ```
 
 Next, assign the template to the page.
-In `config/packages/views.yaml`, at the same level as `pagelayout`, add:
+In `config/packages/views.yaml`, at the same level as `page_layout`, add:
 
 ``` yaml
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/views.yaml', 7, 9) =]]
@@ -125,7 +125,7 @@ To see details about a submission, click the view icon.
 
 ![Collect Form Submissions](enterprise_tut_form_collect_sub.png "Collect Form Submissions")
 
-For more information, see [viewing form results](https://doc.ibexa.co/projects/userguide/en/latest/content_management/work_with_forms/#view-results).
+For more information, see [viewing form results]([[= user_doc =]]/content_management/work_with_forms/#view-results).
 
 ## Congratulations!
 

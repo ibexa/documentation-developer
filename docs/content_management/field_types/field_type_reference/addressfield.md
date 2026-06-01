@@ -1,3 +1,8 @@
+---
+edition: experience
+---
+
+
 # Address field type
 
 This field represents and handles address fields.
@@ -88,7 +93,7 @@ By default, each field is a simple text input with a label made of field identif
 To change the type of field, you need to listen to a specific event.
 For each field below events are dispatched (in order):
 
-```
+```yaml
 ibexa.address.field.{FIELD_IDENTIFIER}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
@@ -96,7 +101,7 @@ ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
 
 #### Example
 
-```
+```yaml
 ibexa.address.field.tax_number
 ibexa.address.field.tax_number.billing_address
 ibexa.address.field.tax_number.billing_address.DE
@@ -104,7 +109,7 @@ ibexa.address.field.tax_number.billing_address.DE
 
 #### Example event listener
 
-An event listener can also provide validation by using either one of [constraints provided by Symfony](https://symfony.com/doc/current/validation.html#supported-constraints),
+An event listener can also provide validation by using either one of [constraints provided by Symfony]([[= symfony_doc =]]/validation.html#supported-constraints),
 or a custom constraint.
 
 ```php

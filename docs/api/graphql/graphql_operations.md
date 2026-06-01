@@ -4,7 +4,7 @@ description: Use GraphQL operations to create, update, and delete content.
 
 # GraphQL operations
 
-Operations on content in GraphQL are performed by using [mutations](https://graphql.org/learn/queries/#mutations).
+Operations on content in GraphQL are performed by using [mutations](https://graphql.org/learn/mutations/).
 They include creating, updating, and deleting content items.
 
 The schema contains two mutations per content type, for example, `createFolder`, and `updateFolder`.
@@ -14,7 +14,7 @@ You can also make use of the generic `deleteContent` and `uploadFiles` mutations
 
 Create a new Folder as a child of Location `2` with:
 
-```
+```graphql
 mutation createFolder {
   createFolder(
     language: eng_GB
@@ -30,7 +30,7 @@ mutation createFolder {
 
 Response:
 
-```
+```json
 {
   "data": {
     "createFolder": {
@@ -44,7 +44,7 @@ Response:
 
 Modify the name of a Folder content item with:
 
-```
+```graphql
 mutation updateFolder {
   updateFolder(
     language: eng_GB
@@ -60,7 +60,7 @@ mutation updateFolder {
 
 Response:
 
-```
+```json
 {
   "data": {
     "updateFolder": {
@@ -76,7 +76,7 @@ The input for updating a content item is the same as when creating it, but all f
 
 You can delete any content item by providing its `contentId` (or its GraphQL opaque ID under `id`):
 
-```
+```graphql
 mutation deleteBlogPost {
   deleteContent(contentId: 64) {
     id
@@ -87,7 +87,7 @@ mutation deleteBlogPost {
 
 Response:
 
-```
+```json
 {
   "data": {
     "deleteContent": {
@@ -107,7 +107,7 @@ Response:
 
 Uploading files makes use of dedicated mutations per content type, for example:
 
-```
+```graphql
 mutation CreateImage($file: FileUpload!) {
   createImage(
     parentLocationId: 51,
@@ -161,7 +161,7 @@ curl -v -X POST \
 You can upload multiple files with one operation in a similar way by using the `uploadFiles` mutation.
 Here the files are provided in a `$files` variable and listed under `map` in the cURL request.
 
-```
+```graphql
 mutation UploadMultipleFiles($files: [FileUpload]!) {
   uploadFiles(
     locationId: 51,

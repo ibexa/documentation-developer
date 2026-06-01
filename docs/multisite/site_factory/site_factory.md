@@ -1,4 +1,5 @@
 ---
+month_change: true
 description: Site Factory allows creating multiple sites (SiteAccesses) from the back office.
 edition: experience
 ---
@@ -60,14 +61,13 @@ ibexa:
             '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
-`ibexadesign` defines templates for your sites, so add them before continuing.
-Next, add the configuration for `ibexadesign` on the same level as `ibexa`:
+Next, add the [design engine](design_engine.md) configuration for new specific designs and their theme lists:
 
 ``` yaml
 ibexa_design_engine:
     design_list:
-        example_1: [example_1_template]
-        example_2: [example_2_template]
+        example_1: [example_1_theme]
+        example_2: [example_2_theme]
 ```
 
 Finally, configure designs for empty SiteAccess groups:
@@ -90,11 +90,11 @@ ibexa_site_factory:
     templates:
         site1:
             siteaccess_group: example_site_factory_group_1
-            name: example_site_1
+            name: Example site 1
             thumbnail: /path/to/image/example-thumbnail_1.png
         site2:
             siteaccess_group: example_site_factory_group_2
-            name: example_site_2
+            name: Example site 2
             thumbnail: /path/to/image/example-thumbnail_2.png
 ```
 
@@ -182,7 +182,7 @@ Set the below policies to allow users to:
 
 For full documentation on how permissions work and how to set them up, see [the permissions section](permissions.md).
 
-To learn how to use Site Factory, see [User Documentation]([[= user_doc =]]/site_organization/site_factory/).
+To learn how to use Site Factory, see [User Documentation]([[= user_doc =]]/website_organization/work_with_sites/).
 
 ## Disable Site Factory
 

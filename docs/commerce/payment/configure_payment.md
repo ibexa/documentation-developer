@@ -19,7 +19,7 @@ Each transition represents a separate payment step.
 ### Default payment workflow configuration
 
 The default payment workflow is called `ibexa_payment`.
-To see the default workflow configuration, in your project directory, go to: `vendor/Ibexa/payment/src/bundle/Resources/config/prepend.yaml`.
+To see the default workflow configuration, in your project directory, go to: `vendor/ibexa/payment/src/bundle/Resources/config/prepend.yaml`.
 
 You can replace the default workflow configuration with a custom one if needed.
 
@@ -50,5 +50,5 @@ so that the system can identify which of your workflows handles the payment proc
 
 ## Configure payment methods
 
-You can define payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method/).
+You can define payment methods [in the UI]([[= user_doc =]]/commerce/payment/work_with_payment_methods/).
 There is only one default payment method type available: `offline`, but you can configure more by [integrating with Payum](payum_integration.md), or [add custom ones](extend_payment.md).

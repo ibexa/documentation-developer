@@ -27,7 +27,7 @@ For full description of the interface, see [content tree](https://doc.ibexa.co/p
 
 ### Webpack Encore
 
-This release introduces [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore)
+This release introduces [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 as the preferred tool for asset management.
 This leads to [changes in requirements](#requirements-changes).
 
@@ -66,7 +66,7 @@ bin/console ezplatform:migrate:legacy_matrix
 The new [ezplatform-user](https://github.com/ezsystems/ezplatform-user) bundle now centralizes
 all features related to user management, such as user accounts, registering, or changing passwords.
 
-!!! dxp
+!!! DXP
 
     ### Workflow improvements
 

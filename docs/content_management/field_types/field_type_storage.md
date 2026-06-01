@@ -65,7 +65,7 @@ Just like a Type, a Legacy Converter needs to be registered and tagged in the [s
 
 #### Registering a converter
 
-The registration of a `Converter` currently works through the `$config` parameter of [`Ibexa\Core\Persistence\Legacy\Handler`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Handler.php).
+The registration of a `Converter` currently works through the `$config` parameter of [`Ibexa\Core\Persistence\Legacy\Handler`](https://github.com/ibexa/core/blob/4.6/src/lib/Persistence/Legacy/Handler.php).
 
 Those converters also need to be correctly exposed as services and tagged with `ibexa.field_type.storage.legacy.converter`:
 
@@ -84,7 +84,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
+    Converter configuration for built-in field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/4.6/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
 ## Storing data externally
 
@@ -154,7 +154,7 @@ services:
 
 The configuration requires providing the `ibexa.field_type.storage.external.handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see Gateway-based storage](#gateway-based-storage).
 
-External storage configuration for basic field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
+External storage configuration for basic field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/4.6/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
 Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-data-externally)).
 
@@ -176,13 +176,13 @@ In this case it's recommended to either create base implementation which each ga
 
 !!! tip
 
-    Gateway configuration for built-in field types is located in [`core/src/lib/Resources/settings/storage_engines/`](https://github.com/ibexa/core/tree/main/src/lib/Resources/settings/storage_engines).
+    Gateway configuration for built-in field types is located in [`core/src/lib/Resources/settings/storage_engines/`](https://github.com/ibexa/core/tree/4.6/src/lib/Resources/settings/storage_engines).
 
 ## Storing field type settings externally
 
 Just like in the case of data, storing [field type settings](type_and_value.md#field-type-settings) in content item tables may prove insufficient.
 It's not a problem if your setting specifies, for example, the allowed number of characters in a text field.
-However, the field type may represent a more complex object, for example, it may consist of two or more other fields, such as the name, SKU, and price, and there can be a set of default values instead of just one.
+However, the field type may represent a more complex object, for example, it may consist of two or more other fields, such as the name, product code (SKU), and price, and there can be a set of default values instead of just one.
 Once you add validation rules for these field values, then it becomes an issue.
 
 You can overcome this obstacle:

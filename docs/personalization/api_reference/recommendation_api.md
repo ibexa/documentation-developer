@@ -6,7 +6,7 @@ month_change: false
 # Recommendation API
 
 Recommendations are retrieved from the Personalization server with RESTful requests that rely on the HTTP GET method.
-The result can a list of item IDs that can then be used to call the underlying CMS or shop system and postload the necessary information for the rendering process.
+The result is a list of item IDs that can then be used to call the underlying CMS or shop system and load the necessary information for the rendering process.
 
 For more information about Personalization, see [Introduction](personalization.md) and [Basic integration](recommendation_integration.md).
 
@@ -51,7 +51,7 @@ You can use the following parameters to customize a request:
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |`numrecs`|20|Defines a number of recommendations to be delivered. The lower this value, the shorter the response time. The default value is 10. |1 to 50|
-|`contextitems`|10,13,14, or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations]([[= user_doc =]]/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
+|`contextitems`|10,13,14, or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations]([[= user_doc =]]/personalization/recommendation_models/). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
 |`outputtypeid`|1|Required for scenarios that are defined with multiple output item types, otherwise optional. By default it's the first/lowest output type enabled in the scenario config.|numeric|
 |`crosscontenttype`| |Used instead of `outputtypeid`, if set to true, displays recommendations for all output types defined in the scenario. | boolean|
 |`jsonpCallback`|"myCallback"|Function or method name (used for JSONP request only). It can be a function ("callme"), or a method ("obj.callme"). The default value is "jsonpCallback".|legal JavaScript function call|
@@ -59,6 +59,7 @@ You can use the following parameters to customize a request:
 |`categorypath`|`/Women/Shirts`|Category path for fetching recommendations. The format is the same as the category path used in event tracking. Add this parameter multiple times to get recommendations from multiple categories. The order of recommendations from different categories is defined by the calculated relevance. The default value is `%2F`, which stands for an entire website.|string[/string]* |
 |`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the Personalization server from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
 |`recommendCategory`| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field `category`. Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as `Sport/Football` and `America/USA`. Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the `Sport/Cricket` category, it must open with the "field" template. If clicked in the `America/Canada` category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
+|`usetimeslot`| |If set to true, configured time-slots are active. As a result, recommendations are calculated for specific time frames and they have priority over the recommendations from the main model in the hours for which time slots are configured. Time slots must be enabled by and configured [[= product_name_base =]] Team.|true|
 
 ##### Submodel parameters
 
@@ -69,7 +70,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
-|`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
+|`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, CSV list|
 
 !!! note "Multiple submodels in recommendations"
 
@@ -94,11 +95,11 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 
 If you have configured segments, you can use them in the recommendation model. Pass the following parameter to request recommendations for a specific segment or segment group.
 
-Parameter|Example|Description|Value|
+|Parameter|Example|Description|Value|
 |---|---|---|---|
 |`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
 
-For more information, see [Segments]([[= user_doc =]]/personalization/segment_management).
+For more information, see [Segments]([[= user_doc =]]/personalization/segment_management/).
 
 ## Responses
 
@@ -111,7 +112,7 @@ For more information, see inline comments below.
 !!! note "Previewing recommendations"
 
     You can preview the actual responses that come from the Personalization server and how they're rendered in the user interface.
-    For more information, see [Previewing scenario results]([[= user_doc =]]/personalization/previewing_scenario).
+    For more information, see [Previewing scenario results]([[= user_doc =]]/personalization/preview_scenario_results/).
 
 For more information about integrating recommendations in the web page, see [Best practices](recommendation_integration.md).
 
@@ -243,7 +244,7 @@ The following HTTP response codes are used by the recommendation controller:
 |400 Bad Request</br>414 Request-URI Too Long|Wrong request formatting. See response body for more information.|
 |401 Unauthorized|Invalid authentication credentials.|
 |403 Forbidden|Access denied.|
-|404 Not Found|The requested element was't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
+|404 Not Found|The requested element wasn't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
 |409 Conflict|The requested combination of models and recommendation parameters can't return recommendations. This could happen, for example, if you request personalized recommendations for a user who has no history.|
 |500 Internal Server Error|Unspecified error. Contact [[= product_name_base =]] support if this error is recurring.|
 

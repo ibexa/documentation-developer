@@ -45,7 +45,7 @@ assetMetadata:
     description: 'Asset metadata object. Depending on the provider, it can contain different parameters.'
     properties:
         alternativeText:
-            type: datetime
+            type: string
             description: 'Alternative text for the image asset'
         width:
             type: integer
@@ -664,7 +664,7 @@ ContentTypeInfoListWrapper:
     description: 'JSON object with only a ContentTypeInfoList property.'
     type: object
     properties:
-        ContentTypeList: ContentTypeInfoList
+        ContentTypeInfoList: ContentTypeInfoList
 
 ContentTypeInfoList:
     description: 'List of content type information.'
@@ -686,6 +686,7 @@ ContentTypeList:
     properties:
         ContentType:
             type: ContentType[]
+            description: 'Array of ContentType objects.'
 
 ContentTypeUpdateStruct:
     description: 'This class is used for updating a content type.'
@@ -1388,7 +1389,7 @@ LocationList:
 
 LocationQuery:
     description: 'This class is used to perform a Location query.'
-    type: object
+    type: Query
 
 LocationUpdateWrapper:
     description: 'JSON object with only a LocationUpdate property.'
@@ -2147,6 +2148,44 @@ Session:
             description: 'User.'
             type: BaseObject
 
+SegmentGroupCreate:
+    description: 'This class represents a new segment group to create.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment group.'
+            type: string
+            required: true
+        name:
+            description: 'A name for the segment group.'
+            type: string
+            required: true
+
+SegmentGroupCreateWrapper:
+    description: 'JSON object with only a SegmentGroupCreate property.'
+    type: object
+    properties:
+        SegmentGroupCreate: SegmentGroupCreate
+
+SegmentGroupUpdate:
+    description: 'This class represents an update to an existing segment group.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment group.'
+            type: string
+            required: true
+        name:
+            description: 'A new name for the segment group.'
+            type: string
+            required: true
+
+SegmentGroupUpdateWrapper:
+    description: 'JSON object with only a SegmentGroupUpdate property.'
+    type: object
+    properties:
+        SegmentGroupUpdate: SegmentGroupUpdate
+
 SegmentGroupListWrapper:
     description: 'JSON object with only a SegmentGroupList property.'
     type: object
@@ -2169,9 +2208,15 @@ SegmentGroup:
     description: 'This class represents a segment group.'
     type: BaseObject
     properties:
-        id: integer
-        identifier: string
-        name: string
+        id:
+            description: 'A unique numeric identifier of the segment group.'
+            type: integer
+        identifier:
+            description: 'A unique string identifier of the segment group.'
+            type: string
+        name:
+            description: 'A name of the segment group.'
+            type: string
 
 SegmentListWrapper:
     description: 'JSON object with only a SegmentList property.'
@@ -2195,10 +2240,110 @@ Segment:
     description: 'This class represents a segment.'
     type: BaseObject
     properties:
+        id:
+            description: 'A unique numeric identifier of the segment.'
+            type: integer
+        identifier:
+            description: 'A unique string identifier of the segment.'
+            type: string
+        name:
+            description: 'A name of the segment.'
+            type: string
+        SegmentGroup:
+            description: 'A reference to the segment group to which this segment belongs.'
+            type: object
+            properties:
+                _media-type:
+                    description: 'Media type of the segment group resource.'
+                    type: string
+                _href:
+                    description: 'A URL reference to the segment group resource.'
+                    type: string
+
+SegmentCreate:
+    description: 'This class represents a new segment to create.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment.'
+            type: string
+            required: true
+        name:
+            description: 'A name for the segment.'
+            type: string
+            required: true
+        group:
+            description: 'A string identifier of a segment group to which the segment belongs.'
+            type: string
+            required: true
+
+SegmentCreateWrapper:
+    description: 'JSON object with only a SegmentCreate property.'
+    type: object
+    properties:
+        SegmentCreate: SegmentCreate
+
+SegmentUpdate:
+    description: 'This class represents an update to an existing segment.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment.'
+            type: string
+            required: true
+        name:
+            description: 'A new name for the segment.'
+            type: string
+            required: true
+        group:
+            description: 'A string identifier of a segment group to which the segment belongs.'
+            type: string
+            required: true
+
+SegmentUpdateWrapper:
+    description: 'JSON object with only a SegmentUpdate property.'
+    type: object
+    properties:
+        SegmentCreate: SegmentUpdate
+
+UserSegmentList:
+    description: 'This class lists segment assignements.'
+    type: object
+    properties:
+        UserSegment:
+            type: UserSegment[]
+
+UserSegmentListWrapper:
+    description: 'JSON object with only a UserSegmentList property'
+    type: object
+    properties:
+        UserSegmentList: UserSegmentList
+
+UserSegment:
+    description: 'This class reprensents a segment assigned to a user'
+    type: object
+    properties:
         id: integer
         identifier: string
         name: string
-        SegmentGroup: SegmentGroup
+        SegmentGroup:
+            type: Ref
+        User:
+            type: Ref
+
+UserSegmentAssignInput:
+    description: 'This class represents a segment assignment input.'
+    type: object
+    properties:
+        segments:
+            type: array
+            items: string
+
+UserSegmentAssignInputWrapper:
+    description: 'JSON object with only a UserSegmentAssignInput property.'
+    type: object
+    properties:
+        UserSegmentAssignInput: UserSegmentAssignInput
 
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
@@ -3087,6 +3232,21 @@ ContentTypeUpdate:
         modificationDate:
             type: datetime
             required: false
+
+ContentTypeViewInputWrapper:
+    description: 'JSON object with only a ContentTypeViewInput property.'
+    type: object
+    properties:
+        ContentTypeViewInput: ContentTypeViewInput
+
+ContentTypeViewInput:
+    description: 'This class represents a content type view input.'
+    type: object
+    properties:
+        ContentTypeQuery:
+            type: object
+    xml:
+        name: ViewInput
 
 ViewInputWrapper:
     description: 'JSON object with only a ViewInput property.'
@@ -4366,6 +4526,10 @@ ProductTypeCreate:
         assigned_attributes:
             type: array
             items: ProductTypeAssignedAttribute
+        is_virtual:
+            type: boolean
+            required: false
+            description: 'Determines whether the product type is virtual (digital products) or physical. Defaults to false (physical).'
 
 ProductTypeUpdateWrapper:
     description: 'JSON object with only a ProductTypeUpdate property.'
@@ -5210,6 +5374,8 @@ OrderList:
     description: 'This class represents an orders list.'
     type: object
     properties:
+        count:
+            type: integer
         Order:
             type: Order[]
 
@@ -5975,63 +6141,395 @@ ActivityLog:
 
 GenerateAltTextWrapper:
     type: object
+    description: 'JSON object with only the GenerateAltText property.'
     properties:
         GenerateAltText:
             type: object
+            description: 'Object containing the input data for the GenerateAltText action type.'
             properties:
                 Image:
                     type: object
+                    description: 'Object representing the input image.'
                     properties:
                         base64:
                             type: string
-                            description: Base64 encoded image
+                            description: 'Base64 encoded image.'
                 RuntimeContext:
                     type: object
-                    description: Additional data passed to the action
+                    description: 'Additional data passed to the action'
 
 RefineTextWrapper:
     type: object
+    description: 'JSON object with only the RefineText property.'
     properties:
         RefineText:
             type: object
+            description: 'Encapsulates the text refinement response.'
             properties:
                 _media-type:
-                    string: type
+                    type: string
+                    description: 'Specifies the media type of the RefineText object.'
                 Text:
                     type: object
+                    description: 'Contains the refined text.'
                     properties:
                         _media_type: 
                             type: string
+                            description: 'Specifies the media type of the text content.'
                         text: 
                             type: string[]
+                            description: 'An array of text strings containing the refined text.'
 
 RefineTextInputWrapper:
     type: object
+    description: 'JSON object with only the RefineText property.'
     properties:
         RefineText:
             type: object
+            description: 'Object containing the text refinement input data.'
             properties:
                 Text:
                     type: object
+                    description: 'Contains the text content to be refined.'
                     properties:
                         text:
                             type: string
+                            description: 'The raw text that needs to be refined or processed.'
         RuntimeContext:
             type: object
             description: Additional data passed to the action
 
 AltTextWrapper:
     type: object
+    description: 'JSON object with only the AltText property.'
     properties:
         AltText:
             type: object
+            description: 'Encapsulates alternative text data.'
             properties:
                 _media-type:
-                    string: type
+                    type: string
+                    description: 'Specifies the media type of the AltText object.'
                 Text:
                     type: object
+                    description: 'Contains the generated alternative text.'
                     properties:
                         _media_type: 
                             type: string
+                            description: 'Specifies the media type of the text content.'
                         text: 
                             type: string[]
+                            description: 'An array of generated alternative text strings.'
+
+ActionTypeListWrapper:
+    type: object
+    description: 'JSON object with only the ActionTypeList property.'
+    properties:
+        ActionTypeList:
+            type: ActionTypeList
+            description: 'Object representing a list of Action Types.'
+
+ActionTypeList:
+    type: BaseObject
+    description: 'Object containing an ActionType property with all the Action Types.'
+    properties:
+        ActionType:
+            type: ActionType[]
+            description: 'Array of ActionType objects.'
+
+ActionType:
+    type: BaseObject
+    propeties:
+        identifier:
+            type: string
+            description: 'Unique identifier for the action type.'
+        name:
+            type: string
+            description: 'Human-readable name of the action type.'
+        inputIdentifier:
+            type: string
+            description: 'Specifies the expected input type of the action.'
+        outputIdentifier:
+            type: string
+            description: 'Specifies the expected output type of the action.'
+        options:
+            type: object
+            description: 'Additional configurable options that define the behavior of the action type.'
+
+ActionConfigurationListInput:
+    type: object
+    description: 'Input parameters for filtering and paginating a list of action configurations.'
+    properties:
+        query:
+            type: string
+            description: 'Search query to filter action configurations by name.'
+        action_type_identifier:
+            type: string
+            description: 'Identifier of the action type to filter configurations.'
+        enabled:
+            type: boolean
+            description: 'Filters action configurations based on their enabled status.'
+        limit:
+            type: integer
+            description: 'Maximum number of action configurations to return.'
+        page:
+            type: integer
+            description: 'Specifies the page number for paginated results.'
+
+ActionConfigurationListInputWrapper:
+    type: object
+    description: 'Wrapper object for ActionConfigurationListInput.'
+    properties:
+        ActionConfigurationListInput:
+            type: ActionConfigurationListInput
+            description: 'Object describing the criteria used to search for Action Configurations.'
+
+ActionConfigurationListWrapper:
+    type: object
+    description: 'Wrapper object for a list of action configurations.'
+    properties:
+        ActionConfigurationList:
+            type: ActionConfigurationList
+            description: 'List of action configurations.'
+
+ActionConfigurationList:
+    type: BaseObject
+    description: 'A collection of action configurations.'
+    properties:
+        ActionConfiguration:
+            type: ActionConfiguration[]
+            description: 'An array of action configurations, each defining a specific action and its settings.'
+
+ActionConfiguration:
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+            description: 'Unique identifier for the action configuration.'
+        name:
+            type: string
+            description: 'Human-readable name of the action configuration.'
+        description:
+            type: string
+            description: 'Description of the action configuration.'
+        enabled:
+            type: boolean
+            description: 'Indicates whether the action is enabled or disabled.'
+        ActionType:
+            type: ActionType
+            description: 'Defines the type of action being configured, including its input and output.'
+        actionTypeOptions:
+            type: object
+            description: 'Additional options specific to the action type, allowing customization of its behavior.'
+        actionHandlerIdentifier:
+            type: string
+            description: 'Identifier for the handler responsible for executing the action.'
+        ActionHandlerOptions:
+            type: object
+            description: 'Configuration options for the action handler, such as parameters controlling its execution.'
+        createdAt:
+            type: datetime
+            description: 'Timestamp indicating when the action configuration was created.'
+        updatedAt:
+            type: datetime
+            description: 'Timestamp indicating when the action configuration was last updated.'
+
+DiscountListWrapper:
+    type: object
+    description: 'Wrapper object for DiscountList.'
+    properties:
+        DiscountList:
+            type: object
+            description: 'Object containing a list of discounts.'
+            properties:
+                Discount:
+                    type: array
+                    items:
+                        type: object
+                        properties:
+                            identifier:
+                                type: string
+                                description: "Discount identifier."
+                            type:
+                                type: string
+                                description: "Discount type: cart or catalog."
+                            priority:
+                                type: integer
+                                description: "Discount priority."
+                            isEnabled:
+                                type: boolean
+                                description: "Indicates whether the discount is enabled."
+                            userId:
+                                type: integer
+                                description: "User ID of discount creator."
+                            rule:
+                                type: object
+                                description: "Describes how the discount is calculated: percentage or fixed."
+                                properties:
+                                    type:
+                                        type: string
+                                        description: "Discount type."
+                                    amount:
+                                        type: integer
+                                        description: "Discount amount."
+                            startDate:
+                                type: datetime
+                                description: "Defines when the discount starts."
+                            endDate:
+                                type: datetime
+                                description: "Defines when the discount starts."
+                            translations:
+                                type: array
+                                description: "Translations of discount data."
+                                items:
+                                    type: object
+                                    properties:
+                                        languageCode:
+                                            type: string
+                                        name:
+                                            type: string
+                                        description:
+                                            type: string
+                                        label:
+                                            type: string
+                                        labelDescription:
+                                            type: string
+                            conditions:
+                                type: array
+                                description: "List of discount conditions."
+                                items:
+                                    type: DiscountCondition
+                
+DiscountWrapper:
+    type: object
+    description: 'Wrapper object for Discount.'
+    properties:
+        Discount:
+            type: object
+            description: 'Object containing a list of discounts.'
+
+DiscountCreateWrapper:
+    type: object
+    description: 'Wrapper object for DiscountCreate.'
+    properties:
+        DiscountCreate:
+            type: object
+            description: 'Object containing a list of discounts.'
+            properties:
+                identifier:
+                    type: string
+                    description: "Discount identifier."
+                type:
+                    type: string
+                    description: "Discount type: cart or catalog."
+                priority:
+                    type: integer
+                    description: "Discount priority."
+                isEnabled:
+                    type: boolean
+                    description: "Indicates whether the discount is enabled."
+                userId:
+                    type: integer
+                    description: "User ID of discount creator."
+                rule:
+                    type: object
+                    description: "Describes how the discount is calculated: percentage or fixed."
+                    properties:
+                        type:
+                            type: string
+                            description: "Discount type."
+                        amount:
+                            type: integer
+                            description: "Discount amount."
+                startDate:
+                    type: datetime
+                    description: "Defines when the discount starts."
+                endDate:
+                    type: datetime
+                    description: "Defines when the discount starts."
+                translations:
+                    type: array
+                    description: "Translations of discount data."
+                    items:
+                        type: object
+                        properties:
+                            languageCode:
+                                type: string
+                            name:
+                                type: string
+                            description:
+                                type: string
+                            label:
+                                type: string
+                            labelDescription:
+                                type: string
+                conditions:
+                    type: array
+                    description: "List of discount conditions."
+                    items:
+                        type: DiscountCondition
+
+DiscountUpdateWrapper:
+    type: object
+    description: 'Wrapper object for DiscountUpdate.'
+    properties:
+        DiscountUpdate:
+            type: object
+            description: 'Object containing a list of discounts.'
+            properties:
+                identifier:
+                    type: string
+                    description: Identifier of the discount. Required.
+                conditions:
+                    type: array
+                    description: 'List of conditions.'
+                    items:
+                        type: DiscountCondition
+
+DiscountCodeWrapper:
+    type: object
+    description: 'Wrapper object for DiscountCode.'
+    properties:
+        DiscountCode:
+            type: object
+            description: 'Object containing data about the discount code.'
+            properties:
+                code:
+                    type: string
+                    description: 'Discount code'
+
+DiscountCondition:
+    type: object
+    description: 'Object representing a discount condition.'
+    properties:
+        class:
+            type: string
+            description: 'FCQN of a discount condition class.'
+        parameters:
+            type: array
+            description: 'Condition parameters.'
+            items:
+                type: object
+CollaborationSession:
+    type: object
+
+CollaborationSessionCreate:
+    type: object
+
+ContentSessionUpdate:
+    type: object
+
+Participant:
+    type: object
+
+ParticipantList:
+    type: object
+
+ParticipantUpdate:
+    type: object
+
+InvitationCreate:
+    type: object
+
+Invitation:
+    type: object

@@ -35,7 +35,7 @@ With a help of documentation and trainings, any developer familiar with Symfony 
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [[[= product_name_product_name_headless =]]](ibexa_headless.md#core-features) and [[[= product_name_exp =]]](ibexa_experience.md#core-features) editions.
+[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [[[= product_name_headless =]]](ibexa_headless.md#core-features) and [[[= product_name_exp =]]](ibexa_experience.md#core-features) editions.
 
 ## Capabilities and benefits
 
@@ -79,7 +79,7 @@ It contains default UI components and widgets that can be modified to [create a 
 
 Search becomes crucial when your product catalog is extensive.
 Products can be sorted according to a variety of criteria using faceted search.
-The value it brings makes it a vital component in merchandizing.
+The value it brings makes it a vital component in merchandising.
 You can set up your search engine using [[= product_name_com =]] to help clients find what they're looking for more easily, which could result in more purchases.
 
 #### Catalog management
@@ -90,7 +90,7 @@ You can set up your search engine using [[= product_name_com =]] to help clients
 
 Commerce allows you to send transactional emails - messages that [[= product_name_base =]] can send through the [Actito](https://www.actito.com/en-BE/) gateway to your end-users.
 These emails include notifications about changes in the status of various actions taken in relation to your commerce presence.
-With this feature you can also [create email campaigns](transactional_emails.md##create-email-campaigns) to engage users and increase sales.
+With this feature you can also [create email campaigns](transactional_emails.md#create-email-campaigns) to engage users and increase sales.
 
 ### Use cases
 

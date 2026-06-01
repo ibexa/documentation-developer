@@ -88,7 +88,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 ```
 
-Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) in XML or JSON.
+Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) in XML or JSON.
 
 ### Location header
 
@@ -124,7 +124,7 @@ cURL can follow those redirections. On CLI, there is the `--location` option (or
 In PHP, you can achieve the same effect with `CURLOPT_FOLLOWLOCATION`.
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
-```shell
+```bash
 curl --head --location --header "Accept: application/vnd.ibexa.api.Content+json" "https://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
 ```
 
@@ -149,7 +149,7 @@ The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
 
 To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
 
-For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
+For example, to allow the [JS test](testing_rest_api.md#js) to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
 
 To add several domains, filter on URIs, or change the default (like not allowing all the methods), refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration) to learn how to edit `config/packages/nelmio_cors.yaml`.
 
@@ -157,9 +157,9 @@ To add several domains, filter on URIs, or change the default (like not allowing
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
+For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 
-```shell
+```bash
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';
 ```
 

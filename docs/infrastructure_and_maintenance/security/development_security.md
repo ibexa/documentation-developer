@@ -45,21 +45,21 @@ logout:
     You can fully customize the routes and/or the controller used for login.
     However, remember to match `login_path`, `check_path` and `logout.path` from `security.yaml`.
 
-    See [security configuration reference]([[= symfony_doc =]]/reference/configuration/security.html) and [standard login form documentation]([[= symfony_doc =]]/security/form_login_setup.html).
+    See [security configuration reference]([[= symfony_doc =]]/reference/configuration/security.html) and [standard login form documentation]([[= symfony_doc =]]/security.html#form-login).
 
 ### Authentication using Symfony Security component
 
 Authentication is provided by the Symfony Security component.
 
-[Native and universal `form_login`]([[= symfony_doc =]]/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`.
+[Native and universal `form_login`]([[= symfony_doc =]]/security.html#form-login) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`.
 Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
 
 #### Security controller
 
 A `SecurityController` is used to manage all security-related actions and is thus used to display the login form.
-It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security/form_login_setup.html).
+It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security.html#form-login).
 
-The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/Security/login.html.twig).
+The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Resources/views/Security/login.html.twig).
 
 The layout used by default is `%ibexa.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
@@ -95,7 +95,7 @@ If you want to use this feature, you must at least extend the login template to 
 
 #### Login handlers / SSO
 
-Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
+Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (for example, [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), and more).
 
 See [Authenticating a user with multiple user provider](user_authentication.md#authenticate-user-with-multiple-user-providers) for more information.
@@ -145,3 +145,17 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 ```
+
+Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
+
+```bash
+php bin/console lexik:jwt:generate-keypair
+```
+
+The generated key pair will be stored in the `config/jwt`directory.
+
+!!! note "[[= product_name_cloud =]]"
+
+    To generate and store the tokens on [[= product_name_cloud =]], define the `config/jwt` directory as a volume in the `.platform.app.yaml` file. 
+    In 3-node cluster setups, ensure that the key pair is the same on all 3 servers. 
+    You can use a network share, or use a local mount and manually copy the key pair between the servers.

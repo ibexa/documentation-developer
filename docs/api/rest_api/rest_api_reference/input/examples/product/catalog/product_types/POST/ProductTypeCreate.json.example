@@ -83,6 +83,7 @@
                 "is_required": false,
                 "is_discriminator": true
             }
-        ]
+        ],
+        "is_virtual": false
     }
 }

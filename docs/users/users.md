@@ -6,7 +6,7 @@ page_type: landing_page
 # Users
 
 Users in [[= product_name =]] refer to all kinds of user accounts: administrators, editors, managers, or shop customers.
-All such user accounts have the same underlying mechanism and enable you to control access to te application, both the back office and the website front, by using the [permission system](permissions.md).
+All such user accounts have the same underlying mechanism and enable you to control access to the application, both the back office and the website front, by using the [permission system](permissions.md).
 
 ## Invite and manage users
 

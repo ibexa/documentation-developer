@@ -1,5 +1,6 @@
 ---
 description: Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
+month_change: false
 ---
 
 # Extend Online Editor
@@ -204,6 +205,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 <div class="note">{{ content }}</div>
 ```
 
+You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
 ``` css
 .note {
     display: block;
@@ -245,6 +247,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 <span class="highlight">{{ content }}</span>
 ```
 
+You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
 ``` css
 .highlight {
     background-color: #fcc672;
@@ -376,19 +379,21 @@ You can modify the order and visibility of buttons that are available in the Onl
 
 For each button you can set `priority`, which defines the order of buttons in the toolbar.
 
-For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
+For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/4.6/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
 ## Add CKEditor plugins
 
 Regular CKEditor plugins can be added to the Online Editor.
 This procedure is illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
-A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file.
+You can install a CKEditor plugin locally by using `yarn add ` or `npm install`, and deploy it by committing the `yarn.lock` file.
 A local installation looks like:
 
 ```bash
-yarn add @ckeditor/ckeditor5-special-characters
+yarn add @ckeditor/ckeditor5-special-characters@40.2.0
 ```
+
+Make sure to specify a version range compatible with the CKEditor's version used in [[= product_name =]].
 
 The CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array.
 For this purpose, create an `assets/js/richtext.ckeditor-plugins.js` to import the plugin elements and add them to the array using `ibexa.addConfig` :
@@ -443,7 +448,7 @@ ibexa:
 
 Build the assets and clear the cache by running `composer run-script auto-scripts`.
 
-For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/plugins.html).
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/framework/architecture/plugins.html).
 
 ## Change CKEditor configuration
 
@@ -462,3 +467,21 @@ ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: [
 ```
 
 ![CKEditor Special characters: Arrows category on top of the character filter](ckeditor-special-characters_arrows-on-top.png)
+
+You can also use custom functions to modify the plugin configuration.
+The following example adds two ways to add a non-breaking space character:
+
+```js
+function SpecialCharactersNbsp( editor ) {
+    // add non-breaking space to the SpecialCharacters plugin
+    editor.plugins.get( 'SpecialCharacters' ).addItems( 'Text', [
+        { title: 'Non-Breaking Space', character: '\u00a0' }
+    ] );
+    // add a keyboard shortcut
+    editor.keystrokes.set( 'Ctrl+space', ( key, stop ) => {
+        editor.execute( 'input', { text: '\u00a0' } );
+        stop();
+    } );
+}
+ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials, SpecialCharactersNbsp ], true);
+```

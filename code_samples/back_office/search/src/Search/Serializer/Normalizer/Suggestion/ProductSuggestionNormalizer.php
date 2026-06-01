@@ -15,7 +15,7 @@ class ProductSuggestionNormalizer implements
 {
     use NormalizerAwareTrait;
 
-    public function normalize($object, string $format = null, array $context = [])
+    public function normalize($object, ?string $format = null, array $context = [])
     {
         /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
         return [
@@ -27,7 +27,7 @@ class ProductSuggestionNormalizer implements
         ];
     }
 
-    public function supportsNormalization($data, string $format = null)
+    public function supportsNormalization($data, ?string $format = null)
     {
         return $data instanceof ProductSuggestion;
     }

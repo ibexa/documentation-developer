@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with segments.
+edition: experience
 page_type: reference
 ---
 

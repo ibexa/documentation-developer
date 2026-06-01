@@ -110,3 +110,15 @@ You can use this, for example, to [parametrize the display of products by using 
 ``` html+twig
 {{ ibexa_get_anonymous_user_id() }}
 ```
+
+### `ibexa_storefront_are_discounts_enabled()`
+
+This function detects if the [Discounts LTS Update](discounts_guide.md) is installed.
+
+``` html+twig
+{% if ibexa_storefront_are_discounts_enabled() %}
+    <div class="ibexa-store-maincart-item__subtotal-original-price-net ibexa-store-discount-price">
+        {{- product_price_original_subtotal -}}
+    </div>
+{% endif %}
+```

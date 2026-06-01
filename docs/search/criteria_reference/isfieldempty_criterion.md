@@ -4,7 +4,7 @@ description: IsFieldEmpty Search Criterion
 
 # IsFieldEmpty Criterion
 
-The [`IsFieldEmpty` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html) searches for content based on whether a specified field is empty or not.
+The [`IsFieldEmpty` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html) searches for content based on whether a specified field is empty or not.
 
 ## Arguments
 
@@ -17,6 +17,9 @@ or non-empty fields (`false`)
 The `IsFieldEmpty` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
 
 The Richtext field type (`ezrichtext`) isn't searchable in the Legacy search engine.
+
+The `IsFieldEmpty` criterion doesn't work for [Taxonomy entry assignment](taxonomyentryassignmentfield.md) fields.
+For this use case, use [`TaxonomyNoEntries`](taxonomy_no_entries.md) instead.
 
 ## Example
 

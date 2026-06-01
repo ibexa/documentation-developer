@@ -9,7 +9,7 @@ It's further enhanced in [[= product_name =]] with support for SiteAccess-aware
 
 !!! note
 
-    Use of Memcached, Redis (or experimentally PDO) as session handler is a requirement in a cluster setup, for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
+    Use of Memcached, Redis, Valkey, or experimentally PDO as session handler is a requirement in a cluster setup, for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
 
 ## Configuration
 
@@ -100,37 +100,39 @@ Alternatively if you need to configure Memcached servers dynamically:
 
 Optionally tweak [`php-memcached` session settings](https://www.php.net/manual/en/memcached.configuration.php) for things like session locking.
 
-##### Handling sessions with Redis
+##### Handling sessions with Redis and Valkey
 
-To set up [[= product_name =]] using the [Redis](https://pecl.php.net/package/redis) you need to:
+[[= product_name =]] supports storing sessions with [Redis](https://pecl.php.net/package/redis) or [Valkey](https://valkey.io/) data stores.
+
+To set it up, you need to:
 
 - [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
 - Set `%ibexa.session.handler_id%` to `~` _(null)_ in `config/packages/ibexa.yaml`
 
-Alternatively if you have needs to configure Redis servers dynamically:
+Alternatively if you have needs to configure the servers dynamically:
 
 - Set `%ibexa.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
-- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
+- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]] (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
+    For [[= product_name_cloud =]], this is already configured based on `.platform.app.yaml` config.
 
 If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
-- Sessions can't risk getting [randomly evicted](https://redis.io/docs/reference/eviction/#eviction-policies) when you run out of memory for cache.
-- You can't completely disable eviction either, as Redis then starts to refuse new entries once full, including new sessions.
-    - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
+- Sessions can't risk getting [randomly evicted](https://redis.io/docs/latest/develop/reference/eviction/#eviction-policies) when you run out of memory for cache.
+- You can't completely disable eviction either, as the data store then starts to refuse new entries once full, including new sessions.
+    - Either way, you should monitor your data store instances and make sure you have enough memory set aside for active sessions/cache items.
 
-If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/docs/management/persistence/) instance for sessions.
+If you want to make sure sessions survive data store or server restarts, consider setting up [persistent storage](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/) instance for sessions.
 
 ##### Alternative storing sessions in database by using PDO
 
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler, although it's not currently recommended from performance perspective.
 
-Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/session.html#session-database-pdo) for full documentation.
 
 ``` yaml
 framework:

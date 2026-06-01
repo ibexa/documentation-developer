@@ -1,9 +1,10 @@
 ---
 description: See the Form Builder product guide and learn how to create various forms to increase the functionality of your website.
 edition: experience
+month_change: false
 ---
 
-# Form Builder product guide 
+# Form Builder product guide
 
 ## What is Form Builder
 
@@ -35,6 +36,8 @@ E. Discard button
 
 ![Form Builder interface](img/form_builder_interface.png)
 
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/6TuwPfbDTXTo6SnYSiyW?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Form Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
+
 ### Form fields
 
 To create forms, you can use available form fields or create custom ones.
@@ -63,6 +66,8 @@ The available basic form fields are:
 Editors can use the created form anywhere on the website.
 Forms can be used in page blocks, embedded in the online editor or even used as a field relation.
 The same form can be placed at multiple locations on the website.
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/YayMqLkQ6QeCZFeVyQxp?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Build a form" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 To learn more, see [Work with forms]([[= user_doc =]]/content_management/work_with_forms/).
 
@@ -116,6 +121,12 @@ To do it, go to **Submissions** tab in the content item view:
 Here you can view the details of each submission or delete any of them.
 
 The **Download submissions** button enables you to download all the submissions in a .CSV (comma-separated value) file.
+
+!!! tip "Restricting access to form submissions"
+
+    By default, back office users with access to the form content item can access the form submissions.
+    
+    If your form submissions require stricter access control than the form itself, you can introduce a [dedicated policy that manages access to submission data](custom_policies.md#restrict-access-to-form-submissions).
 
 ## Benefits
 

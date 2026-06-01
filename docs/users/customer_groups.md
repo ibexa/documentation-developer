@@ -4,10 +4,12 @@ description: Assigning users to customer groups allows defining user-specific pr
 
 # Customer groups
 
-You can assign users to different custom groups to enable [custom pricing](prices.md).
+You can assign users to different customer groups to enable [custom pricing](prices.md).
 This enables you to give specific prices or price discounts (global or per product) to specific groups of users.
 
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
+
+By using the [Discounts LTS Update](discounts_guide.md), you can create even more complex rules that apply to only selected customer groups or to all customers.
 
 !!! tip
 

@@ -1,6 +1,6 @@
 ---
 description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
-month_change: false
+month_change: true
 ---
 
 # Reverse proxy
@@ -20,7 +20,7 @@ To use the Symfony reverse proxy, you must change your `public/index.php` front 
 
  require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
- return function (array $context) {
+ return static function (array $context) {
 -    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
 +    return new AppCache(new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']));
  };
@@ -47,14 +47,17 @@ Using a different proxy is highly recommended as they provide better performance
 
 For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your HTTP Cache.
 
-- [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
+- Varnish config can be found in `vendor/ibexa/http-cache/docs/varnish/vcl`:
+    - use [parameters.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_4_6 =]]/docs/varnish/vcl/parameters.vcl) for installation specific settings
+    - plus one of the `varnish*.vcl` corresponding to your Varnish version
+        - For example, [varnish7.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_4_6 =]]/docs/varnish/vcl/varnish7.vcl) when using Varnish 7
 - Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
     - `ez_main.vcl` as the **main** custom VCL
     - `ez_user_hash.vcl` as another custom VCL
     - `snippet_re_enable_shielding.vcl` as snippet
 
-The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
-If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli/#installing) with it to manage VCL files from the command line.
+The provided `.vcl` files work both with [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/) enabled and without it.
+If you decide to use Fastly VCL, consider using [Fastly CLI](https://www.fastly.com/documentation/reference/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
 !!! tip "Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6"
@@ -73,7 +76,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 ### Configure Symfony front controller
 
-You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html).
+You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy]([[= symfony_doc =]]/deployment/proxies.html).
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
 
@@ -84,7 +87,7 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP that uses `REMOTE_ADDR` value or similar"
 
-    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    On Upsun, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
 
     ```php
@@ -100,8 +103,8 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
 
 !!! tip
 
-    You don't have to set `trusted_proxies` when using Fastly on Platform.sh.
-    The Platform.sh router automatically changes the source IP of requests coming from Fastly, replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
+    You don't have to set `trusted_proxies` when using Fastly on Upsun.
+    The Upsun router automatically changes the source IP of requests coming from Fastly, replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
@@ -155,7 +158,7 @@ If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please 
 
 !!! note "Invalidating Varnish cache by using tokens"
 
-    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ibexa_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
 
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
@@ -199,7 +202,7 @@ For more information about configuring Captcha fields, see [Captcha field](work_
 ### Use Fastly as HttpCache proxy
 
 [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
-To learn how it works, see [Fastly documentation](https://docs.fastly.com/en/guides/using-fastlys-global-pop-network).
+To learn how it works, see [Fastly documentation](https://www.fastly.com/documentation/guides/getting-started/concepts/using-fastlys-global-pop-network).
 
 #### Configure Fastly in YML
 
@@ -223,7 +226,7 @@ ibexa:
 
 See the example below to configure Fastly with the `.env` file:
 
-```
+```bash
 HTTPCACHE_PURGE_TYPE="fastly"
 # Optional
 HTTPCACHE_PURGE_SERVER="https://api.fastly.com"
@@ -233,10 +236,10 @@ FASTLY_SERVICE_ID="ID"
 FASTLY_KEY="token"
 ```
 
-#### Configure Fastly on Platform.sh
+#### Configure Fastly on [[= product_name_cloud =]]
 
-If you use Platform.sh, it's recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
-In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must [disable Varnish](https://docs.platform.sh/guides/ibexa/fastly.html#remove-varnish-configuration).
+If you use Upsun, it's recommended to configure all environment variables through [Upsun variables](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
+In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must [disable Varnish](https://fixed.docs.upsun.com/guides/ibexa/fastly.html#remove-varnish-configuration).
 
 #### Get Fastly service ID and API token
 
@@ -244,7 +247,7 @@ To get the service ID, log in to https://www.fastly.com/.
 In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/en/guides/using-api-tokens).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/account-management/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples
@@ -272,9 +275,9 @@ fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 ```
 
-Example for Platform.sh:
+Example for Upsun:
 
-You can configure environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
+You can configure environment variables through [Upsun variables](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
 
 !!! tip
 

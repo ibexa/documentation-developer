@@ -22,7 +22,7 @@ The default fallback workflow is `ibexa_shipment`, which is prepended at bundle 
 
 The default payment workflow configuration is called `ibexa_shipment`, you can replace it with your custom workflow identifier if needed.
 
-To see the default workflow, in your project directory, navigate to the following file: `vendor/Ibexa/shipping/src/bundle/Resources/config/workflow.yaml`.
+To see the default workflow, in your project directory, navigate to the following file: `vendor/ibexa/shipping/src/bundle/Resources/config/workflow.yaml`.
 
 ### Custom shipment workflows
 
@@ -43,5 +43,5 @@ Reference it with `ibexa.repositories.<your_repository>.shipment.workflow: your_
 
 ## Configure shipping methods
 
-You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping/configure_shipping_method/).
+You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping_management/work_with_shipping_methods/).
 The following shipping method types are available by default: `flat rate` and `free`.

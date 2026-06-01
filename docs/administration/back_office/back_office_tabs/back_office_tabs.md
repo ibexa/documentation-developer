@@ -63,7 +63,7 @@ You can also influence tab display (for example, order tabs, remove, or modify t
 
 ## Tab groups
 
-You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Component/TabsComponent.php).
+You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/4.6/src/lib/Component/TabsComponent.php).
 
 To create a tab group, register it as a service:
 
@@ -71,7 +71,8 @@ To create a tab group, register it as a service:
 [[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 7, 13) =]]
 ```
 
-Tag the group with `ibexa.admin_ui.component`.
+Tag the group with `ibexa.twig.component`.
 `group` indicates where the group is rendered.
 
-For a list of possible rendering places, see [Injecting custom components](custom_components.md).
+To learn more about this mechanism, see [Twig Components](components.md).
+And for the groups available in the back office, see [custom components in the back office](custom_components.md).

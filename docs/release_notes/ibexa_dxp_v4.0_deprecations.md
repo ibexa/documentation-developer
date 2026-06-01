@@ -16,7 +16,7 @@ Namespaces in the product which referred to old product names now use the [[= pr
 
 All namespace changes are listed in the `ibexa/compatibility-layer` repository.
 
-Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/tree/main/src/bundle/Resources/mappings)
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/tree/4.6/src/bundle/Resources/mappings)
 for a full comparison of old and new bundle names and namespaces.
 
 !!! tip
@@ -90,7 +90,7 @@ Service names which referred to old product names now use the [[= product_name_b
 
 All service name changes are listed in the `ibexa/compatibility-layer` repository.
 
-Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/services-to-fqcn-map.php)
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/4.6/src/bundle/Resources/mappings/services-to-fqcn-map.php)
 for a full comparison of old and new names.
 
 ## Service tags
@@ -99,7 +99,7 @@ Service tag which referred to old product names now use the [[= product_name_bas
 
 All service tag changes are listed in the `ibexa/compatibility-layer` repository.
 
-Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/symfony-service-tag-name-map.php)
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/4.6/src/bundle/Resources/mappings/symfony-service-tag-name-map.php)
 for a full comparison of old and new service tags.
 
 ## CSS classes for back office

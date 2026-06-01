@@ -8,7 +8,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 !!! caution
 
-    Security is an ongoing process. After going live, you should pay attention to security advisories released via [your service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+    Security is an ongoing process. After going live, you should pay attention to security advisories released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
 
 ## [[= product_name =]]
 
@@ -144,6 +144,13 @@ Reduce your attack surface by exposing only what you must.
             - { path: ^/search, roles: ROLE_USER}
     ```
 
+### Limit access to Code blocks
+
+The [Code block]([[= user_doc =]]/content_management/block_reference/#code-block) in Page Builder is designed to accept any HTML, which includes embedded JavaScript.
+This means that editors who have access to Code blocks could add malicious JS including [cross site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting).
+As site administrator, be aware of this when giving editors access to the Page Builder features, and limit that access only to trusted editors.
+You can [limit access to specific blocks per content type]([[= user_doc =]]/content_management/configure_ct_field_settings/#default-configuration-of-pages) by defining which page blocks are available to editors.
+
 ## Symfony
 
 ### `APP_SECRET` and other secrets
@@ -152,20 +159,20 @@ Reduce your attack surface by exposing only what you must.
 This applies also to other secrets that may be in use, like the Varnish invalidate token, the JWT passphrase, and any other application-specific secrets.
 
 - Don't use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
-- The secret must be secured against unwanted access. Don't commit the value to a version control system. There are several ways of handling it, like with enviroment variables or files like `.env.local`. Files are considered more secure. If you store the secrets in files, make sure to add those files to `.gitignore` or similar, so they will never be committed to version control systems.
+- The secret must be secured against unwanted access. Don't commit the value to a version control system. There are several ways of handling it, like with environment variables or files like `.env.local`. Files are considered more secure. If you store the secrets in files, make sure to add those files to `.gitignore` or similar, so they will never be committed to version control systems.
 - The secret must be long enough. 32 characters is minimum, longer is better.
 
 !!! tip
 
     The following command generates a 64-character-long secure random value:
 
-    ```shell
+    ```bash
     php -r "print bin2hex(random_bytes(32));"
     ```
 
 !!! note
 
-    On [[= product_name_cloud =]], if `APP_SECRET` isn't set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
+    On [[= product_name_cloud =]], if `APP_SECRET` isn't set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://fixed.docs.upsun.com/guides/symfony/environment-variables.html#symfony-environment-variables)
 
 ### Symfony production mode
 
@@ -244,7 +251,7 @@ Removing them means that attackers can't attempt to force other users to use wea
 As of December 2024, TLS 1.3 is [supported by ca. 97% of global internet users](https://caniuse.com/tls1-3).
 If you need to support Internet Explorer or old versions of other browsers, you can disable TLS 1.1 and older, leaving 1.2 and 1.3 enabled.
 
-When using [[= product_name_cloud =]], you can [set the minimum TLS version in `.platform/routes.yaml`](https://docs.platform.sh/define-routes/https.html#enforce-tls-13).
+When using [[= product_name_cloud =]], you can [set the minimum TLS version in `.platform/routes.yaml`](https://fixed.docs.upsun.com/define-routes/https.html#enforce-tls-13).
 
 ### Enable HTTP Strict Transport Security (HSTS)
 
@@ -253,7 +260,7 @@ HSTS forces clients to always communicate with your site over HTTPS.
 Read the requirements and instructions at [hstspreload.org](https://hstspreload.org/) before you enable HSTS.
 Make sure to also include subdomains by means of the `includeSubDomains` setting.
 
-When using [[= product_name_cloud =]], you can [configure HSTS in `.platform/routes.yaml`](https://docs.platform.sh/define-routes/https.html#enable-http-strict-transport-security-hsts).
+When using [[= product_name_cloud =]], you can [configure HSTS in `.platform/routes.yaml`](https://fixed.docs.upsun.com/define-routes/https.html#enable-http-strict-transport-security-hsts).
 
 Beware if you are using a Varnish proxy:
 Your version of Varnish may not support HTTPS connections with your web server.
@@ -265,7 +272,7 @@ When using [[= product_name_cloud =]], this is handled automatically.
 ### Enable Domain Name System Security Extensions (DNSSEC)
 
 DNSSEC is a DNS feature that authenticates responses to DNS requests.
-It protects against DNS poisoning attacks, which is when an attacker manipulates the reponses to DNS requests with the goal of directing users to an IP address the attacker controls.
+It protects against DNS poisoning attacks, which is when an attacker manipulates the responses to DNS requests with the goal of directing users to an IP address the attacker controls.
 Enabling DNSSEC involves creating the DNSSEC records in your domain, activating DNSSEC with your domain registrar, and enabling DNSSEC signature validation on all DNS servers.
 [Read more on DNSSEC on ICANN's website](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
 

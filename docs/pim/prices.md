@@ -8,17 +8,18 @@ The price engine is responsible for calculating prices for products in the [cata
 
 ## Custom pricing
 
-You can set up different prices depending on [customer groups](customer_groups.md).
+You can set up basic price rules depending on [customer groups](customer_groups.md), or use the [Discounts LTS Update](discounts.md) for more control over the price reduction.
 
+Use the first option for basic use cases, for example to globally manage custom prices for your resellers.
 Each customer group can have a default price discount that applies to all products.
 
-You can also set different prices for specific products or product variants for different customer groups.
+With the Discounts feature, you can create time-limited offers that apply only to specified regions, currencies, products, customers, and more.
 
 ### Assign prices dynamically
 
 You could create a customer group resolver that provides custom price logic, for example, by retrieving user address from the customer profile, and assigning a customer group to the customer based on the address.
 
-Such resolver must implement the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface.
+Such resolver must implement the [`Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CustomerGroupResolverInterface.html) interface.
 
 You must then register it as a service with the `ibexa.product_catalog.customer_group.resolver` tag.
 

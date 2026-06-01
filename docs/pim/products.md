@@ -1,5 +1,6 @@
 ---
 description: Products in the PIM are characterized by attributes describing their characteristics. You can create product variants and add assets to each product and variant.
+month_change: false
 ---
 
 # Products
@@ -19,12 +20,12 @@ A product type can be, for example, a sofa, or a keyboard.
 Product types, like content types, define the global properties of products and fields a product consists of.
 A product type also defines the attributes that all products of this type can have.
 
-You can choose between two available types: `Physical` and `Virtual`:
+You can choose between two available types: `physical` and `virtual`:
 
-- `Physical` - tangible products with assigned stock.
+- `physical` - tangible products with assigned stock.
 They can use measurement attributes. They require shipment in the online purchase process.
 Examples: heaters, laptops, phones.
-- `Virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
+- `virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
 They don't require shipment in the online process. Examples: memberships, services, warranties.
 
 ## Product attributes
@@ -34,17 +35,25 @@ Typical product attribute examples are: length, weight, color, format, and more.
 
 The following attribute types are available:
 
-- Checkbox
-- Color
-- Float
-- Integer
-- Measurement
-- Selection
+- checkbox
+- color
+- [date and time](date_and_time.md)
+- float
+- integer
+- measurement
+- selection
 
 Product attributes are collected in groups.
 An example of an attribute group can be dimensions (length, width, height).
 
 You can assign both whole attribute groups or individual attributes to a product type.
+
+!!! note "Attribute translations"
+
+    Product attributes are not translatable.
+    Unlike content fields, product attribute values cannot differ between languages.
+
+    For the information that is intended to be displayed, consider using [TextLine](textlinefield.md) fields for short text, [RichText](richtextfield.md) fields for longer text that may require formatting, and product attributes for precise product properties or specifications.
 
 ## Product variants
 
@@ -77,13 +86,24 @@ You set product availability per variant or per base product:
 - if a product cannot have variants (has no attributes with the "Used for product variants" flag), you set availability per base product
 - if a product can have variants (even if no variants are configured yet), you set availability per variant.
 
-When a product is available, it can have numerical stock defined.
+When a product is set as available, it can have numerical stock defined.
 The stock can also be set to infinite (for example, in case of digital products).
 
-!!! note
+### Availability and computed availability
 
-    Availability doesn't automatically mean that a product can be ordered.
-    A product can be available, but have zero stock.
+Setting a product as available doesn't automatically mean that it can be ordered.
+For example, a product can be set as available, but have zero stock.
 
-    A product can only be ordered when it has either positive stock, or stock set to infinite.
+The product catalog distinguishes between two types of availability:
 
+- Availability as a value set per product or variant
+
+    Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability) or [PHP API](product_api.md#product-availability).
+
+- Computed availability
+
+    Computed availability represents whether the product can actually be ordered.
+    By default, a product can only be ordered when it's set as available and has either positive or infinite stock.
+
+You can implement a custom strategy to handle different selling scenarios, such as minimum order quantity, minimum stock quantity, or region-specific availability.
+For more information, see [Create custom availability strategy](create_custom_availability_strategy.md).

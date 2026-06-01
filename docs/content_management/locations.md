@@ -13,7 +13,7 @@ Every published content item has a location and, as a consequence, also a place 
 
 A content item receives a location only once it has been published.
 This means that a new unpublished draft doesn't have a location yet.
-You can find drats in the **Drafts** tab in the **Content** menu.
+You can find drafts in the **Drafts** tab in the **Content** menu.
 
 ![Drafts](content_management_drafts.png "Drafts")
 
@@ -75,7 +75,7 @@ It contains user group content items.
 
 ### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-**Forms** is the top level location that is intended for Forms created using the [Form Builder](https://doc.ibexa.co/projects/userguide/en/latest/content_management/work_with_forms/#create-forms).
+**Forms** is the top level location that is intended for Forms created using the [Form Builder]([[= user_doc =]]/content_management/work_with_forms/#create-forms).
 
 ![Forms](content_management_forms.png "Forms")
 

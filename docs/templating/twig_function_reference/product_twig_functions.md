@@ -11,7 +11,7 @@ The `ibexa_get_product()` filter gets the selected product based on either a pro
 
 #### Examples
 
-``` hmml+twig
+``` html+twig
 {{ (product|ibexa_get_product).code }}
 {{ (content|ibexa_get_product).code }}
 ```
@@ -112,9 +112,9 @@ The `ibexa_format_price` filter formats the price value by placing currency code
 #### Examples
 
 ``` html+twig
-{% for product.price in product.attributes %}
-    {{ product.price.getMoney()|ibexa_format_price }}
-{% endfor %}
+{{ order.getValue().getTotalGross()|ibexa_format_price }}
+
+{{ ibexa_get_original_price(discount_product)|ibexa_format_price ?: '-' }}
 ```
 
 ### `ibexa_is_pim_local`
@@ -129,4 +129,21 @@ The `ibexa_is_pim_local` is a helper Twig function that enables changing the beh
         <button type="button">Modify product data</button>
     </div>
 {% endif %}
+```
+
+### `ibexa_product_catalog_group_attributes`
+
+The `ibexa_product_catalog_group_attributes` filter groups product attributes based on the [attribute group]([[= user_doc =]]/pim/work_with_product_attributes/#create-attribute-groups) they belong to.
+
+#### Example
+
+``` html+twig
+{% for group, attributes in product.attributes | ibexa_product_catalog_group_attributes %}
+    <ul>{{ group.name | capitalize }}
+        {% for attribute in attributes %}
+            {% set attribute_definition = attribute.attributeDefinition %}
+            <li>{{ attribute_definition.name }} : {{ attribute | ibexa_format_product_attribute }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
 ```

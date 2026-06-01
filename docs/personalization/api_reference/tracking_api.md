@@ -13,7 +13,7 @@ The most popular user events are:
 - Login - When a user logs in on a website
 - Clickrecommended - When a user clicks a recommendation
 
-For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types) in User Documentation. 
+For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types/) in User Documentation. 
 Depending on the event type, some additional parameters, such as item price or user rating, must be provided.
 
 Importing historical user data can help you reduce the delay in delivery of high quality recommendations.

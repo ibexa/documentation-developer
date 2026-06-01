@@ -1,4 +1,5 @@
 ---
+month_change: true
 description: Configure custom icons to use for content types.
 ---
 
@@ -15,6 +16,8 @@ ibexa:
             content_type:
                 article:
                     thumbnail: /assets/images/custom_icon.svg#custom
+                category:
+                    thumbnail: /bundles/ibexaicons/img/all-icons.svg#folder
 ```
 
 Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after adding it.
@@ -23,13 +26,15 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
     To ensure proper display in the back office, all icons should have SVG format with `symbol`.
 
-If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
+Use the [scope](multisite_configuration.md#scope) if you want different icons for different SiteAccesses.
 
-To see more configuration options, see [icon sizes](other_twig_filters.md).
+To see more Admin UI's `streamlineicons` icons, see [the icon reference](icon_twig_functions.md#icons-reference).
 
 ### Access icons in Twig templates
 
-Content type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
+#### Content type icons
+
+Content type icons are accessible in Twig templates via the [`ibexa_content_type_icon()` function](icon_twig_functions.md#ibexa_content_type_icon).
 It requires content type identifier as an argument. The function returns the path to a content type icon.
 
 ```twig
@@ -37,6 +42,10 @@ It requires content type identifier as an argument. The function returns the pat
     <use xlink:href="{{ ibexa_content_type_icon(content.contentType.identifier) }}"></use>
 </svg>
 ```
+
+#### UI Icons
+
+User interface icons are accessible with [`ibexa_icon_path()` function](icon_twig_functions.md#ibexa_icon_path). The function returns a path from an icon identifier and an [icon set](#icon-sets) identifier arguments.
 
 ### Access icons in JavaScript
 
@@ -89,7 +98,9 @@ The following example from the `alert.js` file shows configuration for icons in 
 - `name` - the path is generated inside the component provided you use icon from the system
 - `extraClasses` - additional CSS classes, use to set for example, icon size.
 
-## Icon sets
+## Customize UI icons
+
+### Icon sets
 
 You can configure icon sets to be used per SiteAccess:
 
@@ -103,3 +114,11 @@ ibexa:
                     additional_icons: /assets/images/icons/additional_icons.svg
                 default_icon_set: my_icons
 ```
+
+The icon sets are used by [`ibexa_icon_path()` Twig function](icon_twig_functions.md#ibexa_icon_path).
+
+- If you change the `default_icon_set` from one SiteAccess to another, `ibexa_icon_path(icon)` without `set` argument targets icons from different set files
+- If you change the file path of an icon set from one SiteAccess to another, `ibexa_icon_path(icon, set)` with the same `set` argument targets icons from different set files
+
+The built-in default icon set is `streamlineicons` (corresponding to `/bundles/ibexaicons/img/all-icons.svg`).
+To see the icons available in this set, see [the icon reference](icon_twig_functions.md#icons-reference).

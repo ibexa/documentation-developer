@@ -4,7 +4,7 @@ description: ContentName Search Criterion
 
 # ContentName Criterion
 
-The [`ContentName` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ContentName.php) searches for content by its name.
+The [`ContentName` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentName.html) searches for content by its name.
 
 ## Arguments
 

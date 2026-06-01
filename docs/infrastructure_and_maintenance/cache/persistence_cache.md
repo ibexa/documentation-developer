@@ -40,7 +40,7 @@ For further details on which calls are cached or not, see details in the [Symfon
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
 - [[= product_name_base =]] tab: shows calls made to database back end, and if they're cached or not
 
-To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
+To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/4.6/src/lib/Persistence/Cache/Readme.md).
 
 ## Persistence cache configuration
 
@@ -121,12 +121,15 @@ parameters:
     The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
-### Redis
+### Redis/Valkey
 
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
-Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
+Redis is used via [Redis PECL extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
+
+[Valkey](https://valkey.io/), an alternative data structure store compatible with Redis, is also supported.
+To set it up with [[= product_name =]], follow the same steps as for Redis.
 
 #### Supported Adapters
 
@@ -134,7 +137,7 @@ There are two Redis adapters available out of the box that fit different needs.
 
 ##### `Symfony\Component\Cache\Adapter\RedisTagAwareAdapter`
 
-**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/reference/eviction/#eviction-policies):
+**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/latest/develop/reference/eviction/#eviction-policies):
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
 Use of LRU or LFU is recommended. it's also possible to use `noeviction`, but it's usually not practical.
 
@@ -156,7 +159,7 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a d
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For [[= product_name_cloud =]]: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Upsun service.
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:
@@ -187,28 +190,28 @@ See `.env`, `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.r
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
-- [Redis Cluster](https://redis.io/docs/management/scaling/)
+- [Redis Cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/)
     - Shards cache across several instances to be able to cache more than memory of one server allows
-    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
+    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
     - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.md#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.md#multiple-key-commands)
-- [Redis Sentinel](https://redis.io/docs/management/sentinel/)
+- [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, for example, minimum 3 servers), and handle failover
-    - [Slaves are asynchronously replicated](https://redis.io/docs/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (for example, HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
+    - [Slaves are asynchronously replicated](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+    - Typically used with a load balancer (for example, HAProxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
     - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis`
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
-- [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
+- [Google Cloud Memorystore](https://cloud.google.com/memorystore)
 
-###### [[= product_name_cloud =]] / Platform.sh usage
+###### [[= product_name_cloud =]] usage
 
 !!! note "[[= product_name_cloud =]]"
 
-    If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
-    Platform.sh Professional and lower versions offer Redis in single instance mode only.
+    If you use Upsun Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
+    Upsun Professional and lower versions offer Redis in single instance mode only.
 
 ### Memcached
 
@@ -234,7 +237,7 @@ Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you can find
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For [[= product_name_cloud =]]: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Upsun service.
 
 For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it results in config like this:

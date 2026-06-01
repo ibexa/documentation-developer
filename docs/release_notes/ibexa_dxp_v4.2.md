@@ -79,10 +79,16 @@ Assets are grouped into collections based on attribute values
 
 ### Product completeness
 
-The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, aor vailability.
+The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, and availability.
 You can use it to get a quick overview of missing parts in the product configuration and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](4.2_product_completeness.png)
+
+!!! note "No impact on availability"
+
+    Product completeness helps ensure that product data is complete.
+    It does not impact product availability or visibility on the storefront.
+    As long as a product meets availability and stock requirements, it can be published and made available for purchase regardless of its completeness score.
 
 ### Product categories
 

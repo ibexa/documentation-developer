@@ -15,7 +15,8 @@
     --mid-grey: rgb(201,201,208);
     --dark-grey: rgb(151,151,151);
     
-    
+    --color-warning-dark-01: rgb(211,130,43);
+    --color-primary-main: rgb(163,39,104);
     --caution-border: var(--ibexa-orange);
     --note-border: var(--mid-grey);
     --enterprise-border: var(--ibexa-jazzberry);
@@ -516,7 +517,6 @@ div.pills {
 }
 
 .pill {
-    background-color: var(--ibexa-jazzberry);
     border-radius: 2.18px;
     padding: 3px 8px;
     color: var(--white);
@@ -529,7 +529,8 @@ div.pills {
 }
 
 .experience-pill {
-    background-color: var(--ibexa-orange);
+    color: var(--color-warning-dark-01);
+    border: 1px solid var(--color-warning-dark-01);
 }
 
 .commerce-pill::after {
@@ -537,7 +538,8 @@ div.pills {
 }
 
 .commerce-pill {
-    background-color: var(--ibexa-jazzberry);
+    color: var(--color-primary-main);
+    border: 1px solid var(--color-primary-main);
 }
 
 .optional-pill::after {
@@ -545,7 +547,8 @@ div.pills {
 }
 
 .optional-pill {
-    background-color: var(--sherpa-blue);
+    color: var(--sherpa-blue);
+    border: 1px solid var(--sherpa-blue);
 }
 
 .md-clipboard:focus, .md-clipboard:hover {

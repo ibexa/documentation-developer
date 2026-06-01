@@ -1,0 +1,149 @@
+displayName: Discounts
+
+get:
+    displayName: List discounts
+    description: Returns a list of discounts.
+    headers:
+        Accept:
+            description: Specifies the expected response type. Only JSON is supported.
+            example: |
+                application/vnd.ibexa.api.DiscountList+json
+    responses:
+        200:
+            description: Discount list returned successfully.
+            body:
+                application/vnd.ibexa.api.DiscountList+json:
+                    type: DiscountListWrapper
+                    example: !include examples/discounts/DiscountList.json.example
+        400:
+            description: Error - the request is invalid.
+post:
+    displayName: Create discount
+    description: Create a discount using the provided input.
+    headers:
+        Accept:
+            description: Specifies the expected response type. Only JSON is supported.
+            example: |
+                application/vnd.ibexa.api.Discount+json
+        Content-Type:
+            description: Specifies the input type. Only JSON is supported.
+            example: |
+                application/vnd.ibexa.api.DiscountCreate+json
+    body:
+        application/vnd.ibexa.api.DiscountCreate+json:
+            type: DiscountCreateWrapper
+            example: !include examples/discounts/POST/DiscountCreate.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Discount+json:
+                    type: DiscountWrapper
+                    example: !include examples/discounts/POST/DiscountCreateResponse.json.example
+        400:
+            description: Error - the request is invalid.
+        401:
+            description: Error - the user is not authorized to execute an AI action.
+
+/{id}:
+    get:
+        displayName: Get discount by ID
+        description: Returns a discount with the specified numerical ID
+        headers:
+            Accept:
+                description: Only JSON is supported.
+                example: |
+                    application/vnd.ibexa.api.Discount+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Discount+json:
+                        type: DiscountWrapper
+                        example: !include examples/discounts/Discount.json.example
+        401:
+            description: Error - the user is not authorized to create a discount
+
+/{identifier}:
+    get:
+        displayName: Get discount by identifier
+        description: Returns a discount with the specified identifier
+        headers:
+            Accept:
+                description: Only JSON is supported.
+                example: |
+                    application/vnd.ibexa.api.Discount+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Discount+json:
+                        type: DiscountWrapper
+                        example: !include examples/discounts/Discount.json.example
+    
+    patch:
+        displayName: Update discount
+        description: Updates a discount using the provided input.
+        headers:
+            Accept:
+                description: Specifies the expected response type. Only JSON is supported.
+                example: |
+                    application/vnd.ibexa.api.Discount+json
+            Content-Type:
+                description: Specifies the input type. Only JSON is supported.
+                example: |
+                    application/vnd.ibexa.api.DiscountUpdate+json
+        body:
+            application/vnd.ibexa.api.DiscountUpdate+json:
+                type: DiscountUpdateWrapper
+                example: !include examples/discounts/identifier/PATCH/DiscountUpdate.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Discount+json:
+                        type: DiscountWrapper
+                        example: !include examples/discounts/identifier/PATCH/DiscountUpdateResponse.json.example
+            400:
+                description: Error - the request is invalid.
+            401:
+                description: Error - the user is not authorized to update the discount.
+            404:
+                description: Error - the specified discount was not found.
+
+    delete:
+        displayName: Delete discount
+        description: Deletes a discount
+        responses:
+            204:
+                description: Discount deleted successfully.
+            400:
+                description: Error - the request is invalid.
+            401:
+                description: Error - the user is not authorized to update the discount.
+            404:
+                description: Error - the specified discount was not found.
+
+    /enable:
+        post:
+            displayName: Enable discount
+            description: Enables a discount with the specified identifier.
+            responses:
+                204:
+                    description: Discount enabled successfully.
+            400:
+                description: Error - the request is invalid.
+            401:
+                description: Error - the user is not authorized to update the discount.
+            404:
+                description: Error - the specified discount was not found.
+
+    /disable:
+        post:
+            displayName: Disable discount
+            description: Disables a discount with the specified identifier.
+            responses:
+                204:
+                    description: Discount disabled successfully.
+            400:
+                description: Error - the request is invalid.
+            401:
+                description: Error - the user is not authorized to update the discount.
+            404:
+                description: Error - the specified discount was not found.

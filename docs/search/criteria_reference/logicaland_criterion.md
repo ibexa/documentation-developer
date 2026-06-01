@@ -4,7 +4,7 @@ description: LogicalAnd Search Criterion
 
 # LogicalAnd Criterion
 
-The [`LogicalAnd` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalAnd.html) matches content if all provided Criteria match.
+The [`LogicalAnd` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalAnd.html) matches content if all provided Criteria match.
 
 ## Arguments
 

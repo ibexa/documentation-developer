@@ -11,9 +11,27 @@ To customize your shop, you can override either whole templates, or specific com
 The built-in templates belong to the `storefront` [theme](design_engine.md).
 To override any of them, copy its directory structure in your template directory.
 
+## Customize with Twig Components
+
+You can customize parts of the storefront by using [Twig components](components.md).
+It allows you to inject your own widgets, extending the storefront behavior.
+
+The available groups for the storefront are:
+
+| Group name | Template file |
+|---|---|
+| `storefront-before-maincart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart.html.twig` |
+| `storefront-after-maincart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart.html.twig` |
+| `storefront-before-minicart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/minicart/minicart.html.twig` |
+| `storefront-after-minicart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/minicart/minicart.html.twig` |
+| `storefront-before-add-to-cart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/add_to_cart/add_to_cart.html.twig` |
+| `storefront-after-add-to-cart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/add_to_cart/add_to_cart.html.twig` |
+| `storefront-before-summary` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/summary/summary.html.twig` |
+| `storefront-after-summary` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/summary/summary.html.twig` |
+
 ## Template customization example
 
-As an example, to change the cart display when it contains no products, you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
+As an example, to change the cart display when it contains no products, you need to override `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig` template.
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
@@ -173,11 +191,11 @@ Available Twig:
 
 with parameters:
 
-    - `is_disabled`
-    - `attr`
-    - `product_code`
-    - `quantity_input_attr`
-    - `add_to_cart_btn_attr`
+- `is_disabled`
+- `attr`
+- `product_code`
+- `quantity_input_attr`
+- `add_to_cart_btn_attr`
 
 JavaScript class:
 
@@ -194,9 +212,9 @@ Available Twig:
 
 with parameters:
 
-    - `count`
-    - `attr`
-    - `counter_attr`
+- `count`
+- `attr`
+- `counter_attr`
 
 ### Checkout
 

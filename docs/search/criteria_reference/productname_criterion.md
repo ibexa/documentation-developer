@@ -4,7 +4,7 @@ description: ProductName Search Criterion
 
 # ProductName Criterion
 
-The `ProductName` Search Criterion searches for products by theis names.
+The `ProductName` Search Criterion searches for products by their names.
 
 ## Arguments
 

@@ -104,7 +104,7 @@ First, run:
     rm symfony.lock
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_exp =]]"
@@ -112,7 +112,7 @@ First, run:
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_com =]]"
@@ -120,12 +120,14 @@ First, run:
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
+
+If you're using [custom CKEditor plugins](extend_online_editor.md#add-ckeditor-plugins), update them as well to use the same version range for all CKEditor dependencies.
 
 ## Remove `node_modules` and `yarn.lock`
 
@@ -354,7 +356,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 Site context is used in content tree to display only those content items that belong to the selected website.
 
-You can add locations that shoudn't be publicly accessible to the list of excluded paths:
+You can add locations that shouldn't be publicly accessible to the list of excluded paths:
 
 ```yaml
 # /config/packages/ibexa_site_context.yaml
@@ -461,19 +463,7 @@ Restart Solr for `solrconfig.xml` changes to take effect.
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
 When this happens, you need to erase the index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request.
-Use the command as in the following example:
-
-```bash
-curl --request DELETE 'https://elasticsearch:9200/_all'
-```
-
-To update the schema, and then reindex the content, use the following commands:
-
-```bash
-php bin/console ibexa:elasticsearch:put-index-template --overwrite
-php bin/console ibexa:reindex
-```
+[[% include 'snippets/elasticsearch_clear_index.md' %]]
 
 ## Update to v4.6.latest
 

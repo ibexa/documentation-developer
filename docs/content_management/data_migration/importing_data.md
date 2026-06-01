@@ -45,32 +45,34 @@ Then, the step is described by additional properties depending on its type and m
 
 The following data migration step modes are available:
 
-| `type`                 | `create` | `update` | `delete` | `swap`   |
-|------------------------|:--------:|:--------:|:--------:|:--------:|
-| `action_configuration` | &#10004; | &#10004; | &#10004; |          |
-| `attribute`            | &#10004; | &#10004; | &#10004; |          |
-| `attribute_group`      | &#10004; | &#10004; | &#10004; |          |
-| `content_type`         | &#10004; | &#10004; | &#10004; |          |
-| `content_type_group`   | &#10004; | &#10004; | &#10004; |          |
-| `content`              | &#10004; | &#10004; | &#10004; |          |
-| `currency`             | &#10004; | &#10004; | &#10004; |          |
-| `customer_group`       | &#10004; | &#10004; | &#10004; |          |
-| `language`             | &#10004; |          |          |          |
-| `location`             |          | &#10004; |          | &#10004; |
-| `object_state`         | &#10004; |          |          |          |
-| `object_state_group`   | &#10004; |          |          |          |
-| `payment_method`       | &#10004; |          |          |          |
-| `product_asset`        | &#10004; |          |          |          |
-| `product_availability` | &#10004; |          |          |          |
-| `product_price`        | &#10004; |          |          |          |
-| `product_variant`      | &#10004; |          |          |          |
-| `role`                 | &#10004; | &#10004; | &#10004; |          |
-| `section`              | &#10004; | &#10004; |          |          |
-| `segment`              | &#10004; | &#10004; | &#10004; |          |
-| `segment_group`        | &#10004; | &#10004; | &#10004; |          |
-| `setting`              | &#10004; | &#10004; | &#10004; |          |
-| `user`                 | &#10004; | &#10004; |          |          |
-| `user_group`           | &#10004; | &#10004; | &#10004; |          |
+| `type`                 | `create` | `update` | `delete` | `swap`   | `trash`  |
+|------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|
+| `action_configuration` | &#10004; | &#10004; | &#10004; |          |          |
+| `attribute`            | &#10004; | &#10004; | &#10004; |          |          |
+| `attribute_group`      | &#10004; | &#10004; | &#10004; |          |          |
+| `content_type`         | &#10004; | &#10004; | &#10004; |          |          |
+| `content_type_group`   | &#10004; | &#10004; | &#10004; |          |          |
+| `content`              | &#10004; | &#10004; | &#10004; |          |          |
+| `currency`             | &#10004; | &#10004; | &#10004; |          |          |
+| `customer_group`       | &#10004; | &#10004; | &#10004; |          |          |
+| `discount`             | &#10004; | &#10004; |          |          |          |
+| `discount_code`        | &#10004; |          |          |          |          |
+| `language`             | &#10004; |          |          |          |          |
+| `location`             |          | &#10004; |          | &#10004; | &#10004; |
+| `object_state`         | &#10004; |          |          |          |          |
+| `object_state_group`   | &#10004; |          |          |          |          |
+| `payment_method`       | &#10004; |          |          |          |          |
+| `product_asset`        | &#10004; |          |          |          |          |
+| `product_availability` | &#10004; |          |          |          |          |
+| `product_price`        | &#10004; |          |          |          |          |
+| `product_variant`      | &#10004; |          |          |          |          |
+| `role`                 | &#10004; | &#10004; | &#10004; |          |          |
+| `section`              | &#10004; | &#10004; |          |          |          |
+| `segment`              | &#10004; | &#10004; | &#10004; |          |          |
+| `segment_group`        | &#10004; | &#10004; | &#10004; |          |          |
+| `setting`              | &#10004; | &#10004; | &#10004; |          |          |
+| `user`                 | &#10004; | &#10004; |          |          |          |
+| `user_group`           | &#10004; | &#10004; | &#10004; |          |          |
 
 ### Repeatable steps
 
@@ -104,7 +106,7 @@ In the example above, the expression is enclosed in `###` and the repeated strin
 
 #### Generating fake data
 
-You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.github.io/).
+You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.org/).
 
 To use it, first install Faker on your system:
 
@@ -237,8 +239,14 @@ When creating a content item, three metadata keys are required: `contentType`, `
 To use the location ID of the folder, which is created automatically by the system, you can use a [reference](managing_migrations.md#references).
 In this case you assign the `parent_folder_location_id` reference name to the location ID, and then use it when creating the article.
 
-``` yaml hl_lines="15 24"
+``` yaml hl_lines="15 25"
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
+```
+
+Use the `delete` mode to delete content items:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_content.yaml') =]]
 ```
 
 ### Images
@@ -305,6 +313,12 @@ The following example shows how to swap content items assigned to given location
 
 The metadata keys for Location are optional.
 
+The following example shows how to trash locations.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/trash_location.yaml') =]]
+```
+
 ### Users
 
 The following example shows how to create a user.
@@ -346,6 +360,14 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
+##### Date and time attributes [[% include 'snippets/lts-update_badge.md' %]]
+
+If you're using attributes of the [date and time type](date_and_time.md), you can manage it through the migrations as well, for example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
+```
+
 #### Product types
 
 The following example shows how to create a product type.
@@ -377,14 +399,14 @@ The following example shows how to create variants for a product identified by i
 
 #### Product assets
 
-The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variants)):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]
 ```
 
 This migration uses a [reference](managing_migrations.md#references) to store the created image content ID, and then uses it while creating the asset.
-It uses an [expression syntax](#expression-syntax) to [concat (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
+It uses an [expression syntax](#expression-syntax) to [concatenate (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
 the mandatory scheme `ezcontent://` and the image content ID through the [`reference` function](#built-in-functions) used on the reference's name.
 
 #### Product prices
@@ -479,7 +501,7 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
 ```
 
-### AI action configurations
+### AI action configurations [[% include 'snippets/lts-update_badge.md' %]]
 
 - The following example shows how you can create a new action configuration in your system:
 
@@ -497,6 +519,31 @@ When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
+```
+
+### Discounts [[% include 'snippets/lts-update_badge.md' %]]
+
+- The following example shows how you can create a new [discount](discounts_guide.md) in your system:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing discount as in the example below.
+The provided conditions overwrite any already existing ones.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
+```
+
+For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
+
+### Discount codes [[% include 'snippets/lts-update_badge.md' %]]
+
+You can create a discount code as in the following example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_code_create.yaml') =]]
 ```
 
 ## Criteria

@@ -28,5 +28,3 @@ $productQuery = new ProductQuery(
     new Criterion\ProductStock(50, '>=')
 );
 ```
-
-

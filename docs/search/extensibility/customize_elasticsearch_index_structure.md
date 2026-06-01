@@ -21,7 +21,7 @@ The strategies are:
 - `NullGroupResolver` - groups all documents into a single group.
 - `LanguageGroupResolver` - groups documents by language code.
 - `ContentTypeGroupResolver`- groups documents by content type ID.
-- `CompositeGroupResolver` - allows combining multiple group resolves together to have a more granular index.
+- `CompositeGroupResolver` - allows combining multiple group resolves together to have a more granular index (default).
 
 The default strategy is the composite of language and content type ID, resulting in indexes in the form of `<repository>_<document_type>_<language>_<content_type_id>`.
 
@@ -44,13 +44,13 @@ This resolver must implement `Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\
 In this example, create a `ContentTypeGroupGroupResolver` based on the content type Group ID of the document:
 
 ``` php
-[[= include_file('code_samples/search/elasticsearch/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
+[[= include_file('code_samples/search/custom/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
 ```
 
 Register the resolver as a service:
 
 ``` yaml
-[[= include_file('code_samples/search/elasticsearch/config/group_resolver_services.yaml') =]]
+[[= include_file('code_samples/search/custom/config/group_resolver_services.yaml') =]]
 ```
 
 ### Configure indexing strategy
@@ -58,6 +58,5 @@ Register the resolver as a service:
 Finally, in configuration indicate that Elasticsearch should use your custom indexing strategy:
 
 ``` yaml
-[[= include_file('code_samples/search/elasticsearch/config/packages/elasticsearch.yaml') =]]
+[[= include_file('code_samples/search/custom/config/packages/elasticsearch.yaml') =]]
 ```
-

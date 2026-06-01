@@ -88,7 +88,7 @@ which have been [renamed in this release](ibexa_dxp_v4.0_deprecations.md#configu
 Look through the old YAML files and move your custom configuration to the relevant new files.
 
 In `bundles.php`, remove all entries starting with `eZ`, `EzSystems`, `Ibexa\Platform`, `Silversolutions` and `Siso`.
-Leave only third-party entires and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
+Leave only third-party entries and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
 
 ## Add compatibility layer package
 
@@ -167,6 +167,56 @@ php bin/console ibexa:migrations:migrate
 ```
 
 ## Update your custom code
+
+### GraphQL
+
+Some GraphQL names have changed. Adapt your queries according to the table below.
+
+| 3.3 name                                          | 4.0 name                                    |
+|:--------------------------------------------------|:--------------------------------------------|
+| `id` argument                                     | `contentId` argument                        |
+| `_info` content item property                     | `_contentInfo` content item property        |
+| `<ContentType>Content` (example: `FolderContent`) | `<ContentType>Item` (example: `FolderItem`) |
+
+Example of an updated query:
+
+<table>
+<thead><tr><th scope="col">3.3</th><th scope="col">4.0</th></tr></thead>
+<tbody>
+<tr><td class="compare">
+```graphql
+{
+  content {
+    folder(id: 1) {
+      _info {
+        id
+        name
+      }
+    }
+  }
+}
+```
+</td><td class="compare">
+```graphql
+{
+  content {
+    folder(contentId: 1) {
+       _contentInfo{
+        id
+        name
+      }
+    }
+  }
+}
+```
+</td></tr>
+</tbody></table>
+
+Notice that the argument have been updated to `contentId` while the `id` property keeps its name.
+
+While revisiting GraphQL queries, you may consider the new feature `item`
+allowing to fetch a content item without knowing its content type.
+For more information, see [Get a content item](graphql_queries.md#get-a-content-item).
 
 ### Back office customization
 

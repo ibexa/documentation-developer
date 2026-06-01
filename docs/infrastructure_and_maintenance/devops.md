@@ -2,7 +2,7 @@
 description: See various tools that can help you debug your Ibexa DXP installation.
 ---
 
-# Devops
+# DevOps
 
 ## Cache clearing
 
@@ -37,10 +37,10 @@ While all relevant cache is cleared for you on repository changes when using the
 
 ## Web Debug Toolbar
 
-As of [[= product_name =]] v4.5, the [Symfony Web Debug Toolbar](https://symfony.com/doc/current/profiler.html) is no longer installed by default.
+As of [[= product_name =]] v4.5, the [Symfony Web Debug Toolbar]([[= symfony_doc =]]/profiler.html) is no longer installed by default.
 To install it, run the following command:
 
-```
+```bash
 composer require symfony/debug-pack
 ```
 

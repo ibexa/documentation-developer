@@ -1,0 +1,22 @@
+{
+    "UserSegmentList": {
+        "_media-type": "application\/vnd.ibexa.api.UserSegmentList+json",
+        "_href": "\/api\/ibexa\/v2\/user\/users\/14\/segments",
+        "UserSegment": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.UserSegment+json",
+                "id": 1,
+                "identifier": "corporate_account",
+                "name": "Corporate Account",
+                "SegmentGroup": {
+                    "_media-type": "application\/vnd.ibexa.api.SegmentGroup+json",
+                    "_href": "\/api\/ibexa\/v2\/segment_groups\/corporate_accounts"
+                },
+                "User": {
+                    "_media-type": "application\/vnd.ibexa.api.User+json",
+                    "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+                }
+            }
+        ]
+    }
+}

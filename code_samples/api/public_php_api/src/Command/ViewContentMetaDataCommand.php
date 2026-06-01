@@ -86,7 +86,10 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln(' in ' . $versionInfo->getInitialLanguage()->name);
         }
 
-        $versionInfoArray = iterator_to_array($this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED));
+        $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED);
+        if ($versionInfoArray instanceof \Traversable) {
+            $versionInfoArray = iterator_to_array($versionInfoArray);
+        }
         if (count($versionInfoArray)) {
             $output->writeln('Archived versions:');
             foreach ($versionInfoArray as $versionInfo) {

@@ -1,5 +1,6 @@
 ---
 description: The PIM product guide provides a full description of the features and benefits that this module brings to the clients.
+month_change: false
 ---
 
 # PIM product guide
@@ -36,9 +37,12 @@ Product specifications rely on product attributes. Available attributes are defi
 Each product has its own, specific attributes. You can describe a product in technical terms, define its physical characteristics such as size, color, or shape, or functional characteristics (for example, for a laptop it could be the operating system, amount of memory, or available ports).
 
 Product attributes can belong to one of existing types (for example, numbers, selection, or checkout), but you can also [add custom attribute types](create_custom_attribute_type.md).
-You can configure selected product attributes to be used as a basis for variants.
+Attributes are used as criteria for filtering and searching for products.
+You can also configure selected product attributes to be used as a basis for variants.
 
 ![Product attributes](img/product_attributes.png)
+
+For more information, see [Product attributes](products.md#product-attributes) and [Work with product attributes]([[= user_doc =]]/pim/work_with_product_attributes/)
 
 ### Product variants
 
@@ -75,6 +79,17 @@ Before you can assign categories to products, you need to [enable product catego
 
 ![Product categories](img/product_categories.png)
 
+### Virtual and physical products
+
+Product types in [[= product_name =]] can be either virtual or physical:
+
+- **Physical products** are tangible items that require shipping (for example: books, clothing, electronics).
+- **Virtual products** are items that don't require physical delivery (for example: software licenses, e-books, online courses, digital downloads, additional warranty, tickets for an event).
+
+This product type property can affect the checkout process.
+A cart of only virtual products skips the [shipping step](shipping_management.md) during checkout.
+To learn more about working with virtual products, see [Virtual products]([[= user_doc =]]/pim/create_virtual_product/) in the User Documentation.
+
 ### Currencies
 
 Currencies are used when calculating product price. In the system you can find a list of available currencies, but you can also create custom ones by providing its code.
@@ -101,12 +116,18 @@ Each customer group can have a default price discount that applies to all produc
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 You can also set different prices for specific products or product variants for different customer groups.
 
+You can extend these capabilities even further by installing the [Discounts LTS Update](discounts_guide.md), available for [[= product_name_com =]].
+
 ### Product completeness
 
 Created product has its own list of the tasks required for product configuration: attributes, assets, content, prices, availability, and more.
 You can check how complete the configuration is in the product’s view.
 
 When you create or edit a product, under the product name, you can see visual indication of what part of product information (tasks) you have completed, and what part is still missing.
+
+Product completeness doesn't impact product availability or visibility on the storefront.
+It is intended to help you ensure that product data is properly populated.
+As long as your product meets [basic requirements](enable_purchasing_products.md), it can be published and made available for purchase regardless of its completeness score.
 
 ### Catalogs
 

@@ -1,0 +1,25 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<InvitationCreate>
+    <Sender media-type="application/vnd.ibexa.api.User+xml"
+            href="/api/ibexa/v2/user/users/14"
+    >
+    </Sender>
+    <email>anonymous@link.invalid</email>
+    <context>
+        <simple_array>
+            <element>test</element>
+            <element>value1</element>
+            <element>value2</element>
+            <element>value3</element>
+            <element>value4</element>
+            <element>value5</element>
+        </simple_array>
+        <single_value>value</single_value>
+        <extended_array>
+            <bar>bar_value</bar>
+            <baz>baz_value</baz>
+            <foo>foo_value</foo>
+        </extended_array>
+    </context>
+</InvitationCreate>

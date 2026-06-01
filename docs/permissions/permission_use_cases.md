@@ -133,6 +133,8 @@ For example, to enable the user to edit only content in the "Design" stage and t
 - `content/edit` with `WorkflowStageLimitation` set to "Design".
 - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
+When using the [Collaborative editing LTS Update](collaborative_editing.md), refer to the [Collaborative editing policies](policies.md#content-collaborative-editing) for guidance on editing without a strict workflow.
+
 ## Multi-file upload
 
 Creating content through multi-file upload is treated in the same way as regular creation.
@@ -268,6 +270,22 @@ Set the following permissions to decide what actions are available when users in
 - `checkout/create` - to allow starting the checkout process, by proceeding from cart
 - `checkout/update` - to allow users to modify existing information, for example item quantity
 - `checkout/delete` - to delete checkout
+
+### Discount management [[% include 'snippets/lts-update_badge.md' %]]
+
+Set the following permissions to decide what actions are available when users interact with [discounts](discounts.md) in the back office:
+
+- `discount/create` - to allow the user to create a new discount
+- `discount/update` - to allow the user to change the parameters of an existing discount
+- `discount/view` - to allow the user to view discounts data
+- `discount/delete` - to delete an existing discount
+- `discount/enable` - to allow the user to enable an existing discount
+- `discount/disable` - to allow the user to disable an existing discount
+
+To further control access to a discount, you can use the `DiscountOwner` limitation and set its value to `self`.
+This way users can only interact with their own discounts.
+
+Store users do not need any permissions to use discounts in the buying process.
 
 ### Order management
 

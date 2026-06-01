@@ -29,15 +29,15 @@ You can create the field mapper class anywhere inside your bundle, as long as yo
 There are three different field mappers.
 Each mapper implements two methods, by the same name, but accepting different arguments:
 
-- `ContentFieldMapper`
-    - `::accept(Content $content)`
-    - `::mapFields(Content $content)`
-- `ContentTranslationFieldMapper`
-    - `::accept(Content $content, $languageCode)`
-    - `::mapFields(Content $content, $languageCode)`
-- `LocationFieldMapper`
-    - `::accept(Location $content)`
-    - `::mapFields(Location $content)`
+- [`ContentFieldMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html)
+    - [`::accept(Content $content)`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_accept)
+    - [`::mapFields(Content $content)`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_mapFields)
+- [`ContentTranslationFieldMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html)
+    - [`::accept(Content $content, $languageCode)`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_accept)
+    - [`::mapFields(Content $content, $languageCode)`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_mapFields)
+- [`LocationFieldMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-LocationFieldMapper.html)
+    - [`::accept(Location $content)`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-LocationFieldMapper.html#method_accept)
+    - [`::mapFields(Location $content)`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-LocationFieldMapper.html#method_mapFields)
 
 Mappers can be used on the extension points by registering them with the [service container](php_api.md#service-container) by using service tags, as follows:
 
@@ -52,18 +52,18 @@ Mappers can be used on the extension points by registering them with the [servic
 - Location documents
     - `ibexa.search.solr.field.mapper.location`
 
-The following example shows how you can index data from the parent location content, to make it available for full-text search on the child content.
+The following example shows how you can index data from the parent location content, to make it available for search on the child content.
 The example relies on a use case of indexing webinar data on the webinar events, which are children of the webinar.
 The field mapper could then look like this:
 
 ```php
-[[= include_file('code_samples/search/solr/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
+[[= include_file('code_samples/search/custom/src/Search/FieldMapper/WebinarEventParentNameFieldMapper.php') =]]
 ```
 
-You index full text data only on the content document, therefore, you would register the service like this:
+You index text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/field_mapper_services.yaml') =]]
+[[= include_file('code_samples/search/custom/config/field_mapper_services.yaml') =]]
 ```
 
 !!! caution "Permission issues when using Repository API in document field mappers"

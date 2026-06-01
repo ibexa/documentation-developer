@@ -107,9 +107,9 @@ Ensure that the new tab is styled by adding the following files to `assets/css/`
 [[= include_file('code_samples/back_office/udw/assets/css/image.css') =]]
 ```
 
-### Add css to webpack
+### Add CSS to webpack
 
-Finally, add css in `webpack.config.js`:
+Finally, add CSS in `webpack.config.js`:
 
 ```js
 ibexaConfigManager.add({

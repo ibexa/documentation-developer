@@ -12,10 +12,10 @@ You can query a single content item or a list of content items using fields defi
 
 To get a specific content item by its content ID, location ID, or URL alias, use its relevant singular field, for example `article`, `folder`, or `image`.
 
-```
+```graphql
 {
   content {
-    article (contentId: 62) {
+    article(contentId: 62) {
       title
       author {
         name
@@ -27,7 +27,7 @@ To get a specific content item by its content ID, location ID, or URL alias, use
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -50,17 +50,26 @@ You can also query the generic `item` object.
 The `item` object references a content item, but you can also get its [location information](#querying-locations).
 The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
 
-```
+```graphql
 {
-  item (locationId: 2) {
+  item(locationId: 2) {
     _name
+    ... on FolderItem {
+        name
+    }
+    ... on LandingPageItem {
+        name
+    }
+    ... on ArticleItem {
+        title
+    }
   }
 }
 ```
 
 Response:
 
-```
+```json
 {
   "data": {
     "item": {
@@ -75,7 +84,7 @@ Response:
 To get fields of a content item in a specific language, use the `language` argument.
 The language must be configured for the current SiteAccess.
 
-```
+```graphql
 {
   content {
     article(id: 57) {
@@ -88,7 +97,7 @@ The language must be configured for the current SiteAccess.
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -107,7 +116,7 @@ When you don't specify a language, the response contains the most prioritized tr
 
 To get a list of all content items of a selected type, use the plural field, for example, `articles`:
 
-```
+```graphql
 {
   content {
     articles {
@@ -129,7 +138,7 @@ To get a list of all content items of a selected type, use the plural field, for
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -177,13 +186,13 @@ Response:
 
 To get the IDs and names of all Fields in the `article` content type:
 
-```
+```graphql
 {
   content {
     _types {
-      article{
+      article {
         _info {
-          fieldDefinitions{
+          fieldDefinitions {
             id
             name
           }
@@ -196,7 +205,7 @@ To get the IDs and names of all Fields in the `article` content type:
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -250,7 +259,7 @@ When you use `_location`, the API returns:
 - the location based on the current SiteAccess
 - the main location
 
-```
+```graphql
 {
   content {
     folder (contentId: 133) {
@@ -264,7 +273,7 @@ When you use `_location`, the API returns:
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -286,7 +295,7 @@ Response:
 To query the URL alias of a content item, use `_url`.
 This returns the "best" URL alias for this content item based on its main Location and the current SiteAccess:
 
-```
+```graphql
 {
   content {
     folder (contentId: 1) {
@@ -298,7 +307,7 @@ This returns the "best" URL alias for this content item based on its main Locati
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -316,10 +325,10 @@ To get a [location's](#querying-locations) children, it's recommended to use the
 
 Alternatively, you can query the `children` property of an `item` or `content` object:
 
-```
+```graphql
 {
-  item (locationId: 2) {
-    _location{
+  item(locationId: 2) {
+    _location {
       children {
         edges {
           node {
@@ -338,7 +347,7 @@ Alternatively, you can query the `children` property of an `item` or `content` o
 ```
 Response:
 
-```
+```json
 {
   "data": {
     "item": {
@@ -383,7 +392,7 @@ You can query a single product, products of one type, or all products by providi
 
 To get a single product by its code:
 
-```
+```graphql
 {
   products {
     single(code: "DRESUN") {
@@ -399,7 +408,7 @@ To get a single product by its code:
 
 Response:
 
-```
+```json
 {
   "data": {
     "products": {
@@ -419,7 +428,7 @@ Response:
 
 To get products of a specific type:
 
-```
+```graphql
 {
   products {
     byType {
@@ -438,7 +447,7 @@ To get products of a specific type:
 
 Response:
 
-```
+```json
 {
   "data": {
     "products": {
@@ -467,7 +476,7 @@ Response:
 
 To get all products, using specific criteria (in this case, unavailable products):
 
-```
+```graphql
 {
   products {
     all(
@@ -487,7 +496,7 @@ To get all products, using specific criteria (in this case, unavailable products
 
 Response:
 
-```
+```json
 {
   "data": {
     "products": {
@@ -516,7 +525,7 @@ Response:
 
 To get all articles with a specific text:
 
-```
+```graphql
 {
   content {
     articles(query: {Text:"travel"}) {
@@ -532,7 +541,7 @@ To get all articles with a specific text:
 
 Response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -557,7 +566,7 @@ Response:
 
 To filter products based on content fields:
 
-```
+```graphql
 {
   products {
     all {
@@ -586,7 +595,7 @@ To filter products based on content fields:
 
 To filter products based on attributes:
 
-```
+```graphql
 {
   products {
     single(code: "BLUELACE") {
@@ -609,7 +618,7 @@ To filter products based on attributes:
 
 If the attribute type (in this case, `measure`) cannot be found in the schema, the response is:
 
-```
+```json
 {
   "data": {
     "products": {
@@ -631,7 +640,7 @@ If the attribute type (in this case, `measure`) cannot be found in the schema, t
 
 You can also query attributes by providing the attribute type:
 
-```
+```graphql
 {
   products {
     all {
@@ -664,7 +673,7 @@ You can also query attributes by providing the attribute type:
 
 Response:
 
-```
+```json
 {
   "data": {
     "products": {
@@ -717,7 +726,7 @@ Response:
 
 You can sort query results using `sortBy`:
 
-```
+```graphql
 {
   content {
     articles(sortBy: _datePublished) {
@@ -733,7 +742,7 @@ You can sort query results using `sortBy`:
 
 You can use an array of clauses as well. To reverse the item list, add `_desc` after the clause:
 
-```
+```graphql
 articles(sortBy:[_datePublished,_desc])
 ```
 
@@ -743,7 +752,7 @@ GraphQL offers [cursor-based pagination](https://graphql.org/learn/pagination/) 
 
 You can paginate plural fields by using `edges`:
 
-```
+```graphql
 {
   content {
     articles(sortBy: _datePublished, first:3) {
@@ -766,7 +775,7 @@ If the current `Connection` (list of results) isn't finished yet and there are m
 
 For the `children` node, you can use the following pagination method:
 
-```
+```graphql
 {
   _repository {
     location(locationId: 2) {
@@ -790,7 +799,7 @@ For the `children` node, you can use the following pagination method:
 
 Response:
 
-```
+```json
 {
   "data": {
     "_repository": {
@@ -822,10 +831,14 @@ In the response, `number` contains page numbers, starting with 2 (because 1 is t
 
 To request a specific page, provide the `cursor` as an argument to `children`:
 
-```
+```graphql
 children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 ```
 
 ### Get Matrix field type
 
 To get a Matrix field type with GraphQL, see [Matrix field type reference](matrixfield.md).
+
+### Enable pagination for RelationList field type
+
+To learn how to enable pagination for RelationList field type, see the [RelationList field type reference](relationlistfield.md).

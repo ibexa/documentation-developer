@@ -65,7 +65,7 @@ For more information, see [Using `ez_render` Twig helpers](https://doc.ibexa.co/
 
 ### JWT authentication
 
-You can now use JWT tokens to authenticate in [REST API](https://doc.ibexa.co/en/latest/api/general_rest_usage/#jwt-authentication)
+You can now use JWT tokens to authenticate in [REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_authentication/#jwt-authentication)
 and [GraphQL](https://doc.ibexa.co/en/latest/api/graphql/#jwt-authentication).
 
 See [JWT authentication](https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication) to learn how to configure this authentication method.
@@ -112,4 +112,4 @@ to [get object states and object state groups](https://doc.ibexa.co/en/latest/ap
 
 | Ibexa Platform  | [[= product_name =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0)
+| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0) |

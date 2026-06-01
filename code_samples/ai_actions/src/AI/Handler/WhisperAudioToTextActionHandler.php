@@ -31,7 +31,7 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
 
         $arguments = ['whisper'];
 
-        $language = $action->getRuntimeContext()?->get('languageCode');
+        $language = $action->hasRuntimeContext() ? $action->getRuntimeContext()->get('languageCode') : null;
         if ($language !== null) {
             $arguments[] = sprintf('--language=%s', substr($language, 0, 2));
         }
@@ -49,10 +49,10 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
 
         $output = $process->getOutput();
 
-        $includeTimestamps = $action->getActionContext()
-            ?->getActionTypeOptions()
+        $includeTimestamps = $action->hasActionContext() ? $action->getActionContext()
+            ->getActionTypeOptions()
             ->get('include_timestamps', false)
-            ?? false;
+            : false;
 
         if (!$includeTimestamps) {
             $output = $this->removeTimestamps($output);

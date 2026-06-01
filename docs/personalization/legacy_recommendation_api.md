@@ -72,7 +72,7 @@ It fetches 8 recommendations for user Smith, who is watching the item 123 and th
 The recommendation request returns a list of item IDs that are JSON, JSONP or XML-formatted.
 The result can be integrated into any webpage by using some lines of script code. 
 
-!!! tips
+!!! tip
 
     See the [Quickstart Guide](integrate_recommendation_service.md) for a simple example written in PHP.
 
@@ -157,7 +157,7 @@ Item's attribute, for example, color, price, and more.
 These are customer specific and can only be understood by the recommender system if the item attributes are imported by using the YOOCHOOSE content import APIs.
 There can be multiple attributename and attributevalue pairs.
 
-Legacy Recommendation API and [Submodel configuration]([[= user_doc =]]/personalization/recommendation_models.md#submodels) is required for taking an advantage from this parameter.
+Legacy Recommendation API and [Submodel configuration]([[= user_doc =]]/personalization/recommendation_models/#submodels) is required for taking an advantage from this parameter.
 
 **Values**: alphanumeric=alphanumeric [&alphanumeric=alphanumeric]
 
@@ -174,7 +174,7 @@ Use the parameter categorypath to provide the category to the recommender engine
 
 If passed in combination with a "categorypath" value, the "closest" category the recommended items linked with is delivered in the response as additional field "category".
 
-```
+```javascript
 recommendationResponseList: [ {
         itemId: 1007640000,
         category: "09/0901/090113", ... } ... ]

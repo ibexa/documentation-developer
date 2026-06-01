@@ -89,7 +89,7 @@ You can now take advantage of [[[= product_name_connect =]]](https://www.ibexa.c
 an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
 [[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services that help you automate business processes.
 
-See [[[= product_name_connect =]] documentation](https://doc.ibexa.co/projects/connect/en/latest/).
+See [[[= product_name_connect =]] documentation]([[= connect_doc =]]/).
 
 ![Example of an Ibexa Connect scenario](4.4_connect_scenario_example.png)
 

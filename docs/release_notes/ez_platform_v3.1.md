@@ -18,7 +18,7 @@ For more information, see [eZ Commerce documentation](https://doc.ezplatform.com
 
 This release of eZ Platform introduces the following new features:
 
-!!! dxp
+!!! DXP
 
     ### Site Factory
 
@@ -92,7 +92,7 @@ Display of field groups has been improved in content preview and editing.
 
 When editing, field groups are now presented in tabs:
 
-![Field group tabls in content editing](3.1_collapsible_fields_edit.png)
+![Field group tabs in content editing](3.1_collapsible_fields_edit.png)
 
 In Content preview, the group sections are collapsible:
 
@@ -122,7 +122,7 @@ A customizable search controller has been extracted and placed in `ezplatform-se
 
 You can now search through the contents of Trash and sort the search results based on a number of Search Criteria and Sort Clauses that can be used by the `\eZ\Publish\API\Repository\TrashService::findTrashItems` method only.
 
-For more information, see [Searching in trash](https://doc.ibexa.co/en/latest/api/public_php_api_search/#searching-in-trash).
+For more information, see [Search in trash](https://doc.ibexa.co/en/latest/api/public_php_api_search/#search-in-trash).
 
 ### Repository filtering
 

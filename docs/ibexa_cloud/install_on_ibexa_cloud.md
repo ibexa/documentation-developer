@@ -1,10 +1,11 @@
 ---
 description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
+month_change: false
 ---
 
 # Install on Ibexa Cloud
 
-[[= product_name_cloud =]] enables you to host your application in the cloud by using the [Platform.sh](https://platform.sh/) service.
+[[= product_name_cloud =]] enables you to host your application in the cloud by using the [Upsun](https://upsun.com/) service.
 
 ## 1. Prepare configuration files
 
@@ -22,7 +23,7 @@ You can adapt the configuration in the following places:
 - `.platform/services.yml` - additional services such as search engines or cache
 - `.platform/routes.yml` - routes to additional services, for example Fastly
 
-For details about available configuration settings, refer to [Platform.sh documentation](https://docs.platform.sh/create-apps.html).
+For details about available configuration settings, refer to [Upsun documentation](https://fixed.docs.upsun.com/create-apps.html).
 
 ### Disk space
 
@@ -44,7 +45,7 @@ Configuration under `hooks` defines the process of building and deploying your p
 
 `.platform/services.yaml` contains preconfigured setting blocks that you can uncomment to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
 
-For information about available services, see [Platform.sh documentation](https://docs.platform.sh/add-services.html#available-services).
+For information about available services, see [Upsun documentation](https://fixed.docs.upsun.com/add-services.html#available-services).
 
 If you enable any of the services, you must uncomment the relevant relationship under the `relationship` key in `.platform.app.yaml` as well.
 
@@ -56,47 +57,59 @@ Create a project and select its region.
 
 !!! caution
 
-    Don't use https://console.platform.sh/ which doesn't list [[= product_name_cloud =]] projects.
+    Don't use https://console.upsun.com/ (or former https://console.platform.sh/) which don't list [[= product_name_cloud =]] projects.
     Use https://console.ibexa.cloud to manage your [[= product_name_cloud =]] projects.
 
 ## 3. Prepare for hosting
 
 After the project is created, the website walks you through preparing your project for hosting.
-This includes adding an SSH key, and adding Platform.sh as a git remote.
+This includes adding an SSH key, and adding Upsun as a git remote.
 
-Add your Composer authentication token to the project before pushing it to Platform.sh.
+Add your Composer authentication token to the project before pushing it to Upsun.
 You can set this token as an environment variable.
 
-When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
+When you do, make sure the **Visible during runtime** box in [[= product_name_cloud =]] configuration is unchecked.
 This ensures that the token isn't exposed.
 
-![Setting token to be invisible during runtime](psh_addvariable.png)
+### Composer authentication using the web console
+
+In **Settings** (top right gear icon) -> **Project Settings** -> **Variables** -> **+ Create variable**
+
+![Setting token to be invisible during runtime](ibexa_cloud-composer_auth.png)
+
+### Composer authentication using the CLI command
+
+```bash
+ibexa_cloud variable:create --level project --name env:COMPOSER_AUTH \
+  --json true --visible-runtime false --sensitive true --visible-build true \
+  --value '{"http-basic": {"updates.ibexa.co": {"username": "<installation-key>", "password": "<token-password>"}}}'
+```
 
 ## 4. Push the project
 
-When you're done with configuration, push your project to the Platform.sh remote:
+When you're done with configuration, push your project to the Upsun remote:
 
 ``` bash
-git push -u <platform.sh-remote> master
+git push -u <upsun-remote> main
 ```
 
 You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) to push your code.
 
 ``` bash
-ibexa_cloud push master
+ibexa_cloud push main
 ```
 
 !!! note
 
-    `master` is the Platform.sh name for the production branch.
+    `main` is the Upsun name for the production branch.
 
 !!! caution
 
-    Don't use Platform.sh CLI (`platform`), instead, use the [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
+    Don't use Upsun CLI (`upsun`), instead, use the [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
 
     To install [[= product_name_cloud =]] CLI, follow https://cli.ibexa.cloud/ "Installation instructions".
 
-    [[= product_name_cloud =]] CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use), but you have to replace `platform` with `ibexa_cloud`.
+    [[= product_name_cloud =]] CLI and Upsun CLI share the same commands and the [same documentation](https://fixed.docs.upsun.com/administration/cli.html#3-use), but you have to replace `upsun` with `ibexa_cloud`.
 
-    If you have previously set up an alias to use Platform.sh CLI with [[= product_name_cloud =]], it's outdated.
+    If you have previously set up an alias to use Upsun CLI with [[= product_name_cloud =]], it's outdated.
     Remove the alias and install [[= product_name_cloud =]] CLI instead.

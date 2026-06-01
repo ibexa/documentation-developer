@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>GeneralPropertiesInterface | PHP API Reference (Ibexa Documentation)</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="" />
+        
+    <base href="../">
+    <link rel="icon" href="images/favicon.png"/>
+            <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    
+
+    <script>
+        window.symfonyVersion = '5.4';
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
+            }
+        });
+    </script>
+</head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+    <div class="popover popover--copied">Copied!</div>
+
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+
+    <header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="">
+        
+<a href="../php_api/"
+   title="PHP API Reference"
+   aria-label="PHP API Reference"
+   class="md-header__button md-logo"
+>
+    <img src="./images/ibexa-dxp-logo.png">
+</a>
+        <div class="md-header__switcher push">
+    <div class="md-flex__ellipsis md-header__title switcher docs-switcher" data-md-component="title">
+        <div class="switcher__selected-item" tab-index="-1">
+            <div class="switcher__label" title="Developer Documentation">Developer Documentation</div>
+        </div>
+        <div class="switcher__list">
+            <dl>
+                <strong>
+                    <dd>
+                        <a href="/" title="Developer Documentation">Developer Documentation</a>
+                    </dd>
+                </strong>
+                <dd>
+                    <a href="/projects/userguide" title="User Documentation">User Documentation</a>
+                </dd>
+                <dd>
+                    <a href="/projects/connect" title="Connect Documentation">Connect Documentation</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+        <div class="md-header__switcher">
+    <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
+        <div class="rst-other-versions switcher__list"></div>
+    </div>
+</div>
+        <div class="md-search" data-md-component="search" role="dialog">
+    <label class="md-search__overlay" for="__search"></label>
+    <div class="md-search__inner phpdocumentor-search" role="search" data-search-form>
+        <form class="md-search__form" name="search" >
+            <span class="algolia-autocomplete algolia-autocomplete-left">
+                <input
+                    type="search"
+                    id="search_input"
+                    class="md-search__input phpdocumentor-field phpdocumentor-search__field"
+                    name="query"
+                    aria-label="Search"
+                    placeholder="Search"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    autocomplete="off"
+                    spellcheck="false"
+                    data-md-component="search-query"
+                    data-md-state="active"
+                    required
+                >
+                <label class="md-search__icon md-icon" for="__search">
+                    <img src="images/search.svg" alt="search">
+                </label>
+                <span
+    class="ds-dropdown-menu ds-with-1 phpdocumentor-search-results phpdocumentor-search-results--hidden"
+    role="listbox"
+    data-search-results
+>
+    <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+    <div class="ds-dataset-1">
+        <ul class="ds-suggestions phpdocumentor-search-results__entries">
+        </ul>
+    </div>
+</span>
+            </span>
+        </form>
+    </div>
+</div>
+        <div class="md-header__source">
+                                        <a href="https://github.com/ibexa/documentation-developer/tree/master/docs/api/php_api" title="" class="source-github">
+        <div class="md-source__icon md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+        </div>
+        View on GitHub
+    </a>
+</div>
+    </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+                
+<div class="main_nav" id="nav-container">
+    <div class="nav-loading-wrapper" style="padding: 2rem; text-align: center; color: #666;">
+        <p>Loading navigation...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    var navPath = document.baseURI + '/index.html';
+    var cached = sessionStorage.getItem('phpdoc-nav');
+    var navContainer = document.getElementById('nav-container');
+
+    function loadNav(html) {
+        // Use innerHTML to replace content while keeping the nav-container div
+        navContainer.innerHTML = html;
+
+        // Restore scroll position if saved
+        var scrollWrap = navContainer.querySelector('.md-sidebar__scrollwrap');
+        if (scrollWrap) {
+            var scrollPos = sessionStorage.getItem('nav-scroll');
+            if (scrollPos) {
+                scrollWrap.scrollTop = parseInt(scrollPos, 10);
+            }
+
+            // Save scroll position on scroll
+            scrollWrap.addEventListener('scroll', function() {
+                sessionStorage.setItem('nav-scroll', scrollWrap.scrollTop);
+            });
+        }
+
+        // Highlight current page in navigation
+        activeMenu(window, window.document);
+    }
+
+    if (cached) {
+        // Use cached navigation
+        loadNav(cached);
+    } else {
+        // Fetch navigation
+        fetch(navPath)
+            .then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.text();
+            })
+            .then(function(html) {
+                parser = new DOMParser();
+                doc = parser.parseFromString(html, 'text/html');
+                nav = doc.querySelector('.main_nav_content');
+                sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
+                loadNav(nav.outerHTML);
+            })
+            .catch(function(err) {
+                console.error('Navigation load failed:', err);
+                navContainer.innerHTML = '<div class="main_nav_content"><div style="padding: 1rem; color: #c00;">Navigation failed to load. <a href="index.html">Go to index</a></div></div><div class="main_nav__resize-handler"></div>';
+            })
+        ;
+    }
+})();
+</script>
+
+<noscript>
+    <div class="main_nav">
+        <div class="main_nav_content">
+            <div class="site-header" id="site-name">
+                <a href=".">PHP API Reference</a>
+            </div>
+            <div style="padding: 1rem; background: #ffe; border: 1px solid #cc0;">
+                <p><strong>JavaScript is disabled.</strong></p>
+                <p>Navigation requires JavaScript. Please enable it or go to <a href="namespaces/ibexa-contracts.html"><code>Ibexa\\Contracts</code></a> to navigate.</p>
+            </div>
+        </div>
+        <div class="main_nav__resize-handler"></div>
+    </div>
+</noscript>
+
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+                        <div>
+                                
+<ul class="breadcrumbs">
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa.html">Ibexa</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts.html">Contracts</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts.html">Discounts</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts-admin.html">Admin</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts-admin-form.html">Form</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts-admin-form-data.html">Data</a>
+            &gt;
+        </li>
+        <li class="breadcrumb-item breadcrumb-item-current">
+        <span>
+            GeneralPropertiesInterface
+        </span>
+    </li>
+</ul>
+    
+<div class="content-header">
+            <div class="pills">
+                    
+                    
+            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/discounts"></div>
+            </div>
+        <h1 id="GeneralPropertiesInterface">
+        GeneralPropertiesInterface            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Discounts\Admin\Form\Data\GeneralPropertiesInterface" data-copy-value="Ibexa\Contracts\Discounts\Admin\Form\Data\GeneralPropertiesInterface">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 18">18</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+            <div class="content-header__subheader">Interface</div>
+
+                    <div class="content-header__subheader">
+                Extends
+                                    <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataAwareInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Admin\Form\Data\DiscountDataAwareInterface">DiscountDataAwareInterface</abbr></a>,                                     <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Admin\Form\Data\CustomDataAwareInterface">CustomDataAwareInterface</abbr></a>                            </div>
+                </div>
+    
+
+
+                    
+
+    
+    
+
+
+
+
+    
+    <h2 id="constants">
+        Constants<a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#constants" title="Permanent link">¶</a>
+</h2>
+            <div class="content-header">
+        <h3 id="constant_IDENTIFIER">
+                <img src="./images/public.svg" alt="public" title="public" />IDENTIFIER        <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#constant_IDENTIFIER" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 20">20</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">IDENTIFIER</span> = <span class="phpdocumentor-signature__default-value">&#039;general_properties&#039;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                    
+    
+                <div class="content-header">
+        <h3 id="constant_LABEL_KEY">
+                <img src="./images/public.svg" alt="public" title="public" />LABEL_KEY        <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#constant_LABEL_KEY" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 21">21</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">LABEL_KEY</span> = <span class="phpdocumentor-signature__default-value">&#039;discount.step.general_properties.label&#039;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                    
+    
+            
+    <h2 id="methods">
+        Methods<a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#methods" title="Permanent link">¶</a>
+</h2>
+
+            <div class="content-header">
+        <h3 id="method_addData">
+                <img src="./images/public.svg" alt="public" title="public" />addData()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_addData" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">CustomDataAwareInterface.php</abbr>
+                :
+        <span title="at line 34">34</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">addData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $data
+                    </td>
+                    <td>
+                        object
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_addRegion">
+                <img src="./images/public.svg" alt="public" title="public" />addRegion()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_addRegion" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 126">126</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">addRegion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\RegionInterface">RegionInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$region</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $region
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\RegionInterface">RegionInterface</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getCurrency">
+                <img src="./images/public.svg" alt="public" title="public" />getCurrency()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getCurrency" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 133">133</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getCurrency</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-CurrencyInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface">CurrencyInterface</abbr></a>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-CurrencyInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface">CurrencyInterface</abbr></a>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getData">
+                <img src="./images/public.svg" alt="public" title="public" />getData()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_getData" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">CustomDataAwareInterface.php</abbr>
+                :
+        <span title="at line 22">22</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>TODO: Create a dedicated &quot;Valid&quot;-like constraint that will use different validation groups in itself.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, object&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>TODO: See https://github.com/symfony/symfony/issues/40741.</p>
+
+    </section>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, object&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getDescription">
+                <img src="./images/public.svg" alt="public" title="public" />getDescription()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getDescription" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 65">65</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getDescription</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string|null</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getDescription_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\length</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(max=10000)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getDiscountData">
+                <img src="./images/public.svg" alt="public" title="public" />getDiscountData()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataAwareInterface.html#method_getDiscountData" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/DiscountDataAwareInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/DiscountDataAwareInterface.php">DiscountDataAwareInterface.php</abbr>
+                :
+        <span title="at line 13">13</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getDiscountData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Admin\Form\Data\DiscountDataInterface">DiscountDataInterface</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Admin\Form\Data\DiscountDataInterface">DiscountDataInterface</abbr></a></p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getEndTime">
+                <img src="./images/public.svg" alt="public" title="public" />getEndTime()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getEndTime" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 104">104</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getEndTime</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeImmutable">DateTimeImmutable</abbr>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeImmutable">DateTimeImmutable</abbr>|null</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getEndTime_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\greaterthan</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(propertyPath=&quot;startTime&quot;)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getIdentifier">
+                <img src="./images/public.svg" alt="public" title="public" />getIdentifier()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getIdentifier" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 55">55</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getIdentifier</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getIdentifier_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\sequentially</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(</p>
+<pre class="prettyprint"><code class="prettyprint">@Assert\NotBlank(),
+
+@Assert\Length(min=1, max=190),
+
+@Ibexa\Discounts\Validation\Constraint\Identifier(),
+</code></pre>
+<p>)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getLabel">
+                <img src="./images/public.svg" alt="public" title="public" />getLabel()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLabel" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 143">143</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getLabel</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string|null</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLabel_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\length</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(min=1, max=190)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getLabelDescription">
+                <img src="./images/public.svg" alt="public" title="public" />getLabelDescription()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLabelDescription" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 153">153</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getLabelDescription</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string|null</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLabelDescription_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\length</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(max=10000)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getLanguage">
+                <img src="./images/public.svg" alt="public" title="public" />getLanguage()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLanguage" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 28">28</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getLanguage</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Language.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Language">Language</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Language.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Language">Language</abbr></a></p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getName">
+                <img src="./images/public.svg" alt="public" title="public" />getName()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getName" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 38">38</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getName_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\sequentially</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(</p>
+<pre class="prettyprint"><code class="prettyprint">@Assert\NotBlank(),
+
+@Assert\Length(min=1, max=190),
+</code></pre>
+<p>)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getPriority">
+                <img src="./images/public.svg" alt="public" title="public" />getPriority()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getPriority" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 75">75</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getPriority</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">int</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getPriority_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\range</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(min=1, max=10)</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_getRegions">
+                <img src="./images/public.svg" alt="public" title="public" />getRegions()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getRegions" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 121">121</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getRegions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\RegionInterface">RegionInterface</abbr></a>&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\RegionInterface">RegionInterface</abbr></a>&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getStartTime">
+                <img src="./images/public.svg" alt="public" title="public" />getStartTime()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getStartTime" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 94">94</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getStartTime</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeImmutable">DateTimeImmutable</abbr>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeImmutable">DateTimeImmutable</abbr>|null</p>
+                                                                                
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getStartTime_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\lessthan</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>(propertyPath=&quot;endTime&quot;)</p>
+
+    </section>
+
+                                    </dd>
+                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Assert\notblank</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>()</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_isEnabled">
+                <img src="./images/public.svg" alt="public" title="public" />isEnabled()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_isEnabled" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 111">111</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">isEnabled</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">bool</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_isPermanent">
+                <img src="./images/public.svg" alt="public" title="public" />isPermanent()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_isPermanent" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 82">82</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">isPermanent</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">bool</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_removeData">
+                <img src="./images/public.svg" alt="public" title="public" />removeData()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_removeData" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">CustomDataAwareInterface.php</abbr>
+                :
+        <span title="at line 39">39</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">removeData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $data
+                    </td>
+                    <td>
+                        object
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_removeRegion">
+                <img src="./images/public.svg" alt="public" title="public" />removeRegion()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_removeRegion" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 131">131</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">removeRegion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\RegionInterface">RegionInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$region</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $region
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\RegionInterface">RegionInterface</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setCurrency">
+                <img src="./images/public.svg" alt="public" title="public" />setCurrency()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setCurrency" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 138">138</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setCurrency</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-CurrencyInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface">CurrencyInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$currency</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $currency
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-CurrencyInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface">CurrencyInterface</abbr></a>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setData">
+                <img src="./images/public.svg" alt="public" title="public" />setData()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_setData" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/CustomDataAwareInterface.php">CustomDataAwareInterface.php</abbr>
+                :
+        <span title="at line 29">29</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, object&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $data
+                    </td>
+                    <td>
+                        array&lt;string|int, object&gt;
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setDescription">
+                <img src="./images/public.svg" alt="public" title="public" />setDescription()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setDescription" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 70">70</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setDescription</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $description
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setDiscountData">
+                <img src="./images/public.svg" alt="public" title="public" />setDiscountData()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataAwareInterface.html#method_setDiscountData" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/DiscountDataAwareInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/DiscountDataAwareInterface.php">DiscountDataAwareInterface.php</abbr>
+                :
+        <span title="at line 15">15</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setDiscountData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Admin\Form\Data\DiscountDataInterface">DiscountDataInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$discountData</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $discountData
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Admin\Form\Data\DiscountDataInterface">DiscountDataInterface</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+                    
+    
+                <div class="content-header">
+        <h3 id="method_setEnabled">
+                <img src="./images/public.svg" alt="public" title="public" />setEnabled()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setEnabled" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 116">116</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setEnabled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$enabled</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $enabled
+                    </td>
+                    <td>
+                        bool
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setEndTime">
+                <img src="./images/public.svg" alt="public" title="public" />setEndTime()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setEndTime" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 109">109</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setEndTime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endTime</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $endTime
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setIdentifier">
+                <img src="./images/public.svg" alt="public" title="public" />setIdentifier()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setIdentifier" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 60">60</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setIdentifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$identifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $identifier
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setLabel">
+                <img src="./images/public.svg" alt="public" title="public" />setLabel()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setLabel" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 148">148</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setLabel</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$label</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $label
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setLabelDescription">
+                <img src="./images/public.svg" alt="public" title="public" />setLabelDescription()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setLabelDescription" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 158">158</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setLabelDescription</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$labelDescription</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $labelDescription
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setLanguage">
+                <img src="./images/public.svg" alt="public" title="public" />setLanguage()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setLanguage" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 26">26</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setLanguage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Language.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Language">Language</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$language</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $language
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Language.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Language">Language</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setName">
+                <img src="./images/public.svg" alt="public" title="public" />setName()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setName" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 43">43</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $name
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setPermanent">
+                <img src="./images/public.svg" alt="public" title="public" />setPermanent()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setPermanent" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 87">87</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setPermanent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$permanent</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $permanent
+                    </td>
+                    <td>
+                        bool
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setPriority">
+                <img src="./images/public.svg" alt="public" title="public" />setPriority()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setPriority" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 80">80</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setPriority</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $priority
+                    </td>
+                    <td>
+                        int
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setStartTime">
+                <img src="./images/public.svg" alt="public" title="public" />setStartTime()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setStartTime" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Admin/Form/Data/GeneralPropertiesInterface.php">GeneralPropertiesInterface.php</abbr>
+                :
+        <span title="at line 99">99</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setStartTime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$startTime</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $startTime
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                                </div>
+                    </article>
+                </div>
+
+                                    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                <nav class="md-nav md-nav--secondary" aria-label="">
+                                            
+            <label class="md-nav__title" for="__toc" title="GeneralPropertiesInterface">
+            GeneralPropertiesInterface
+        </label>
+    
+    <ul class="md-nav__list">
+                    <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#constants" title="Constants" class="md-nav__link">
+                    Constants
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#constant_IDENTIFIER" title="IDENTIFIER" class="md-nav__link">
+                                    IDENTIFIER
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#constant_LABEL_KEY" title="LABEL_KEY" class="md-nav__link">
+                                    LABEL_KEY
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
+            </li>
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_addData" title="addData" class="md-nav__link">
+                                    addData()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_addRegion" title="addRegion" class="md-nav__link">
+                                    addRegion()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getCurrency" title="getCurrency" class="md-nav__link">
+                                    getCurrency()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_getData" title="getData" class="md-nav__link">
+                                    getData()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getDescription" title="getDescription" class="md-nav__link">
+                                    getDescription()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataAwareInterface.html#method_getDiscountData" title="getDiscountData" class="md-nav__link">
+                                    getDiscountData()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getEndTime" title="getEndTime" class="md-nav__link">
+                                    getEndTime()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getIdentifier" title="getIdentifier" class="md-nav__link">
+                                    getIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLabel" title="getLabel" class="md-nav__link">
+                                    getLabel()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLabelDescription" title="getLabelDescription" class="md-nav__link">
+                                    getLabelDescription()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getLanguage" title="getLanguage" class="md-nav__link">
+                                    getLanguage()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getName" title="getName" class="md-nav__link">
+                                    getName()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getPriority" title="getPriority" class="md-nav__link">
+                                    getPriority()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getRegions" title="getRegions" class="md-nav__link">
+                                    getRegions()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_getStartTime" title="getStartTime" class="md-nav__link">
+                                    getStartTime()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_isEnabled" title="isEnabled" class="md-nav__link">
+                                    isEnabled()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_isPermanent" title="isPermanent" class="md-nav__link">
+                                    isPermanent()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_removeData" title="removeData" class="md-nav__link">
+                                    removeData()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_removeRegion" title="removeRegion" class="md-nav__link">
+                                    removeRegion()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setCurrency" title="setCurrency" class="md-nav__link">
+                                    setCurrency()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-CustomDataAwareInterface.html#method_setData" title="setData" class="md-nav__link">
+                                    setData()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setDescription" title="setDescription" class="md-nav__link">
+                                    setDescription()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataAwareInterface.html#method_setDiscountData" title="setDiscountData" class="md-nav__link">
+                                    setDiscountData()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setEnabled" title="setEnabled" class="md-nav__link">
+                                    setEnabled()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setEndTime" title="setEndTime" class="md-nav__link">
+                                    setEndTime()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setIdentifier" title="setIdentifier" class="md-nav__link">
+                                    setIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setLabel" title="setLabel" class="md-nav__link">
+                                    setLabel()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setLabelDescription" title="setLabelDescription" class="md-nav__link">
+                                    setLabelDescription()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setLanguage" title="setLanguage" class="md-nav__link">
+                                    setLanguage()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setName" title="setName" class="md-nav__link">
+                                    setName()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setPermanent" title="setPermanent" class="md-nav__link">
+                                    setPermanent()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setPriority" title="setPriority" class="md-nav__link">
+                                    setPriority()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Admin-Form-Data-GeneralPropertiesInterface.html#method_setStartTime" title="setStartTime" class="md-nav__link">
+                                    setStartTime()
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
+            </li>
+            </ul>
+
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </main>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
+    <script src="js/docs.switcher.js"></script>
+    <script src="js/toc.js"></script>
+    <script src="js/search_custom.js"></script>
+    <script src="js/copy_to_clipboard.js"></script>
+    <script src="js/version_switcher_custom.js"></script>
+    <script src="js/external-links.js"></script>
+</body>
+</html>

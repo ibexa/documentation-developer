@@ -10,4 +10,4 @@ services:
         arguments:
             $template: '@@ibexadesign/account/login/oauth2_login.html.twig'
         tags:
-            - { name: ibexa.admin_ui.component, group: login-form-after }
+            - { name: ibexa.twig.component, group: admin-ui-login-form-after }

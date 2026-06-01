@@ -4,7 +4,7 @@ description: ContentTypeGroupId Search Criterion
 
 # ContentTypeGroupId Criterion
 
-The [`ContentTypeGroupId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeGroupId.html) searches for content based on the ID of its content type group.
+The [`ContentTypeGroupId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeGroupId.html) searches for content based on the ID of its content type group.
 
 ## Arguments
 
@@ -25,7 +25,7 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
     ```xml
     <Query>
         <Filter>
-            <ContentTypeGroupIdCriterion>[1, 2]</ContentTypeGroupIdCriterion>
+            <ContentTypeGroupIdCriterion>1</ContentTypeGroupIdCriterion>
         </Filter>
     </Query>
     ```
@@ -55,25 +55,3 @@ You can use the `ContentTypeGroupId` Criterion to query all Media content items
         }
     }
 ```
-
-### REST API
-
-=== "XML"
-
-    ```xml
-      <Query>
-        <Filter>
-            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
-        </Filter>
-      </Query>
-    ```
-
-=== "JSON"
-
-    ```json
-    "Query": {
-        "Filter": {
-            "ContentIdCriterion": [69, 72]
-            }
-        }
-    ```

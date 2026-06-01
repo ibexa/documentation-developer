@@ -58,7 +58,7 @@ For more information, see [Generating encryption keys](https://oauth2.thephpleag
 
 Set the following environment variables:
 
-```
+```bash
 OAUTH2_PUBLIC_KEY_PATH=/somewhere/safe/key.public
 OAUTH2_PRIVATE_KEY_PATH=/somewhere/safe/key.private
 OAUTH2_PRIVATE_KEY_PASSPHRASE=some_passphrase_or_empty
@@ -169,9 +169,9 @@ Other commands let you list all the configured clients (`league:oauth2-server:li
 
 ### Information needed by the client
 
-Your OAuth2 client needs the following information to be able to use your Oauth server:
+Your OAuth2 client needs the following information to be able to use your OAuth server:
 
-- The URL of the [[= product_name =]] used as an oauth server
+- The URL of the [[= product_name =]] used as an OAuth server
 - The client identifier
 - The client secret
 - The scope (`default`)

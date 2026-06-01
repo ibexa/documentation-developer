@@ -10,7 +10,7 @@ To enable it, you must set up authentication parameters that you receive from [[
 
 ## Get authentication parameters
 
-First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]] instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
+First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]] instance must [request access to the service]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 
@@ -18,7 +18,7 @@ When you receive the credentials, add them to your configuration.
 
 In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key: 
 
-```
+```bash
 PERSONALIZATION_CUSTOMER_ID=12345
 PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
 PERSONALIZATION_HOST_URI=https://server_uri
@@ -130,6 +130,7 @@ ibexa:
                     content:
                         use_remote_id: true
 ```
+
 !!! note "Support for alphanumeric content identifier"
 
      Contact support@ibexa.co with your organization's requirements to have the alphanumeric content identifier enabled.
@@ -488,7 +489,7 @@ For example, the following GET request should deliver the response below if the 
 You can retrieve data returned from the Personalization server and modify it before it's shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
-See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
+See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/4.6/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
 
 ``` php
 public static function getSubscribedEvents(): array
@@ -505,7 +506,7 @@ The `-10` refers to priority, which must be negative so this action is performed
 
 Displaying image variations isn't supported out of the box.
 
-You can work around this limitation by creating a template (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).
+You can work around this limitation by creating a template (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/4.6/src/bundle/Resources/views/recommendations.html.twig)).
 
 To access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
@@ -516,7 +517,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 #### Logging
 
-Most operations are logged by using the `ibexa-personalization` [Monolog channel](https://symfony.com/doc/5.4/logging/channels_handlers.html).
+Most operations are logged by using the `ibexa-personalization` [Monolog channel]([[= symfony_doc =]]/logging/channels_handlers.html).
 To log everything about Personalization to `dev.recommendation.log`, add the following configuration:
 
 ``` yaml
@@ -537,4 +538,4 @@ Depending on your requirements, you may need to set up `edit` and `view` [permis
 
 ## Configure recommendation logic
 
-When you enable the Personalization, you can go back to the back office, refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) used to calculate the recommendation results.
+When you enable the Personalization, you can go back to the back office, refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/configure_personalization/) used to calculate the recommendation results.

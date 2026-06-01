@@ -11,8 +11,8 @@ DDEV is an open-source tool that simplifies the process of setting up local PHP 
 
 Before you start the installation, ensure that you have the following software installed:
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
+- [Docker](https://docs.docker.com/get-started/get-docker/)
+- [DDEV](https://docs.ddev.com/en/stable/users/install/ddev-installation/)
 
 ## Installation
 
@@ -31,10 +31,10 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.3 --nodejs-version 20 --docroot=public
+ddev config --project-type=php --php-version 8.4 --nodejs-version 20 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.3, the document root to `public` directory, and creates the document root if it doesn't exist.
+This command sets the project type to PHP, the PHP version to 8.4, the document root to `public` directory, and creates the document root if it doesn't exist.
 
 #### Use another database type (optional)
 
@@ -52,8 +52,8 @@ To use MySQL instead, run the following command:
 ddev config --database=mysql:8.0
 ```
 
-You can also use other versions of MariaDB, Mysql or PostgreSQL.
-See [DDEV database types documentation](https://ddev.readthedocs.io/en/latest/users/extend/database-types/) for available version ranges.
+You can also use other versions of MariaDB, MySQL or PostgreSQL.
+See [DDEV database types documentation](https://docs.ddev.com/en/stable/users/extend/database-types/) for available version ranges.
 
 #### Configure database connection
 
@@ -90,19 +90,19 @@ Depending on your database of choice (MySQL or PostgreSQL), use the appropriate 
 
 #### Enable Mutagen (optional)
 
-If you're using macOS or Windows, you might want to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) to improve performance.
+If you're using macOS or Windows, you might want to enable [Mutagen](https://docs.ddev.com/en/stable/users/install/performance/#mutagen) to improve performance.
 You can do this by running the following command:
 
 ```bash
 ddev config --performance-mode=mutagen
 ```
 
-See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users/install/performance/) for more.
+See [DDEV performance documentation](https://docs.ddev.com/en/stable/users/install/performance/) for more.
 
 #### Change port mapping (optional)
 
 By default, DDEV uses ports 80 and 443.
-You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
+You can [set different ports](https://docs.ddev.com/en/stable/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
 
 ```bash
 ddev config --router-http-port=8080 --router-https-port=8443
@@ -130,7 +130,7 @@ Replace `<installation-key>` and `<token-password>` with your actual installatio
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ```
 
-This authentication doesn't persist if the project is restarted (by `ddev restart` or `ddev composer create`).
+This authentication doesn't persist if the project is restarted (by `ddev restart` or `ddev composer create-project`).
 You can back up the authentication file (`auth.json`) by using the following command:
 
 ```bash
@@ -145,7 +145,7 @@ Once DDEV is running, use Composer to create a new [[= product_name =]] project.
 Remember to replace `<edition>` and `<version>` with your desired edition and version.
 
 ```bash
-ddev composer create ibexa/<edition>-skeleton:<version>
+ddev composer create-project ibexa/<edition>-skeleton:<version>
 ```
 
 !!! tip
@@ -187,17 +187,17 @@ DDEV offers several ways to get the same result, offering different levels of fl
 
 !!! tip
 
-    Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/):
+    Learn more about the [DDEV commands](https://docs.ddev.com/en/stable/users/usage/commands/):
 
-    - run [`ddev --help`](https://ddev.readthedocs.io/en/latest/users/usage/cli/#using-the-ddev-command) to list all commands
-    - run [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a specific command
+    - run [`ddev --help`](https://docs.ddev.com/en/stable/users/usage/cli/#using-the-ddev-command) to list all commands
+    - run [`ddev help <command>`](https://docs.ddev.com/en/stable/users/usage/commands/#help) to get usage details about a specific command
 
-    Learn more about DDEV configuration from [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
+    Learn more about DDEV configuration from [`ddev config` command documentation](https://docs.ddev.com/en/stable/users/usage/commands/#config) and [advanced configuration files documentation](https://docs.ddev.com/en/stable/users/configuration/config/).
 
 
 ### Using `auth.json`
 
-An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
+An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://docs.ddev.com/en/stable/users/extend/in-container-configuration/).
 
 For example, you can copy an `auth.json` file to a DDEV project: `cp <path-to-an>/auth.json .ddev/homeadditions/.composer`
 
@@ -216,7 +216,7 @@ The following example shows the use of `.env.local` with database configuration:
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
   ```bash
-  ddev composer create ibexa/commerce-skeleton --no-install;
+  ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
@@ -336,10 +336,10 @@ ddev restart
 
 #### Scripted procedure
 
-Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
+Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/4.6/scripts/vhost.sh):
 
 ```bash
-curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh
+curl -O https://raw.githubusercontent.com/ibexa/docker/4.6/scripts/vhost.sh
 bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apache2/vhost.template \
   --ip='*' \
   --host-name='my-ddev-project.ddev.site' \
@@ -367,8 +367,8 @@ To run an existing project, you need to:
 1. Add Composer authentication.
 1. Install dependencies packages with Composer.
 1. Populate the contents, which could mean:
-    - getting a clean database with ddev `php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
-    - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
+    - getting a clean database with `ddev php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
+    - injecting a dump with [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
 
@@ -397,17 +397,17 @@ ddev launch
 ```
 
 Notice that the example adds the whole `.ddev/` directory to `.gitignore`, but you can also version parts of it.
-Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
+Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://docs.ddev.com/en/stable/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
 
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
-- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create`.
-- Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
+- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create-project`.
+- Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db).
 
 ### Hostnames and domains
 
-If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
+If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://docs.ddev.com/en/stable/users/extend/additional-hostnames/).
 
 !!! caution
 
@@ -432,4 +432,4 @@ If you want to fully remove the project:
 
 If [additional hostnames](#hostnames-and-domains) have been used, you must clean the hosts file.
 
-To learn more about removing all projects at once or DDEV itself, see [Uninstalling DDEV](https://ddev.readthedocs.io/en/latest/users/usage/uninstall/).
+To learn more about removing all projects at once or DDEV itself, see [Uninstalling DDEV](https://docs.ddev.com/en/stable/users/usage/uninstall/).
