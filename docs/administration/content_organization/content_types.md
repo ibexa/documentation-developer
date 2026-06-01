@@ -83,9 +83,13 @@ If no pattern is provided, the system automatically uses the first field.
         - `lastname`: "*Doe*"
         - `nickname`: "*Bob*"
         - Generated content name: "*Bob*"
+    - Input-output example:
+        - `fistname`: "" (empty)
+        - `lastname`: "*Doe*"
+        - `nickname`: "" (empty)
+        - Generated content name: " *Doe*"
 
-    **Notice that you won't be able to obtain a vertical bar `|`  or parentheses in the generated names as they are special characters.**
-
+    **Notice that the group in parenthesis is always final, it's used even if outputing an empty string and any other piped optional patern after it is always ignored.**
 
 **URL alias name pattern** –
 a pattern which controls how the virtual URLs of the locations are generated when content items are created based on this content type (optional).
