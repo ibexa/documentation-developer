@@ -672,34 +672,31 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 
 For more information, see the following security advisories:
 
-PHP 8.0 and PHP 7.4
-
-* [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
-* [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
-* [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
-* [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
-* [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
-* [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
-* [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
-* [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
-* [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
-* [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
-* [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
-* [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
-* [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
-* [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
-* [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
-* [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
-* [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
-* [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
-
-PHP 7.4 only
-
-* [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
-* [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
-* [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
-* [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
-* [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
+* PHP 8.0 and PHP 7.4
+    * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
+    * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
+    * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
+    * [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
+    * [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
+    * [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
+    * [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
+    * [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
+    * [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
+    * [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
+    * [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
+    * [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
+    * [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
+    * [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
+    * [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
+    * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
+    * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
+* PHP 7.4 only
+    * [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
+    * [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
+    * [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
+    * [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
+    * [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
 To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
 
