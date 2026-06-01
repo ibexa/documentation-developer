@@ -120,21 +120,21 @@ To use Composer to instantly create a project in the current folder with all the
 
         ``` bash
         composer create-project ibexa/headless-skeleton .
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        #TODO: composer config extra.runtime.error_handler "\Ibexa\Contracts\Core\MVC\Symfony\ErrorHandler\Php82HideDeprecationsErrorHandler"
         ```
 
     === "[[= product_name_exp =]]"
 
         ``` bash
         composer create-project ibexa/experience-skeleton .
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        #TODO: composer config extra.runtime.error_handler "\Ibexa\Contracts\Core\MVC\Symfony\ErrorHandler\Php82HideDeprecationsErrorHandler"
         ```
 
     === "[[= product_name_com =]]"
 
         ``` bash
         composer create-project ibexa/commerce-skeleton .
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        #TODO: composer config extra.runtime.error_handler "\Ibexa\Contracts\Core\MVC\Symfony\ErrorHandler\Php82HideDeprecationsErrorHandler"
         ```
 
 ??? note "Using PHP 8.4 or 8.2"
@@ -145,7 +145,7 @@ To use Composer to instantly create a project in the current folder with all the
 
         ``` bash
         composer create-project --no-install ibexa/headless-skeleton .
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        #TODO: composer config extra.runtime.error_handler "\Ibexa\Contracts\Core\MVC\Symfony\ErrorHandler\Php82HideDeprecationsErrorHandler"
         composer update
         ```
 
@@ -153,7 +153,7 @@ To use Composer to instantly create a project in the current folder with all the
 
         ``` bash
         composer create-project --no-install ibexa/experience-skeleton .
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        #TODO: composer config extra.runtime.error_handler "\Ibexa\Contracts\Core\MVC\Symfony\ErrorHandler\Php82HideDeprecationsErrorHandler"
         composer update
         ```
 
@@ -161,7 +161,7 @@ To use Composer to instantly create a project in the current folder with all the
 
         ``` bash
         composer create-project --no-install ibexa/commerce-skeleton .
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        #TODO: composer config extra.runtime.error_handler "\Ibexa\Contracts\Core\MVC\Symfony\ErrorHandler\Php82HideDeprecationsErrorHandler"
         composer update
         ```
 
