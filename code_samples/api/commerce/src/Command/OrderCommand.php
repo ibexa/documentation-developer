@@ -6,6 +6,7 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
 use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CompanyNameCriterion;
@@ -19,37 +20,30 @@ use Ibexa\Contracts\OrderManagement\Value\OrderUser;
 use Ibexa\Contracts\OrderManagement\Value\OrderValue;
 use Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct;
 use Ibexa\Contracts\OrderManagement\Value\Struct\OrderUpdateStruct;
-use Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\LogicalOr;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:order'
+)]
 final class OrderCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private OrderServiceInterface $orderService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        OrderServiceInterface $orderService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly OrderServiceInterface $orderService
     ) {
-        $this->orderService = $orderService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-
-        parent::__construct('doc:order');
+        parent::__construct();
     }
 
     public function configure(): void
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);

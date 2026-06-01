@@ -8,32 +8,26 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Core\FieldType\Image\Value;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:create_image'
+)]
 class CreateImageCommand extends Command
 {
-    private ContentService $contentService;
-
-    private ContentTypeService $contentTypeService;
-
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->contentTypeService = $contentTypeService;
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:create_image');
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -46,7 +40,7 @@ class CreateImageCommand extends Command
             ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -62,7 +56,7 @@ class CreateImageCommand extends Command
             [
                 'path' => $file,
                 'fileSize' => filesize($file),
-                'fileName' => basename($file),
+                'fileName' => basename((string) $file),
                 'alternativeText' => $name,
             ]
         );

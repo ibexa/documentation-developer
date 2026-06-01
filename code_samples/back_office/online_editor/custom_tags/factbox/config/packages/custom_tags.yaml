@@ -2,7 +2,7 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     custom_tags: [factbox]
                     toolbar:
                         custom_tags_group:
@@ -12,8 +12,8 @@ ibexa:
 ibexa_fieldtype_richtext:
     custom_tags:
         factbox:
-            template: '@ibexadesign/field_type/ezrichtext/custom_tags/factbox.html.twig'
-            icon: '/bundles/ibexaicons/img/all-icons.svg#information'
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/factbox.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square'
             attributes:
                 name:
                     type: string

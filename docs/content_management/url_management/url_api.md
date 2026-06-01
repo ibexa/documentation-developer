@@ -1,27 +1,27 @@
 ---
-description: The PHP API URLService enables searching for external URLs used in tech text and URL Fields.
+description: The PHP API URLService enables searching for external URLs used in tech text and URL fields.
 ---
 
 # URL API
 
-[`URLService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
-enables you to find, load and update external URLs used in RichText and URL Fields.
+[`URLService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
+enables you to find, load and update external URLs used in RichText and URL fields.
 
-To view a list of all URLs, use [`URLService::findUrls`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html#method_findUrls)
+To view a list of all URLs, use [`URLService::findUrls`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html#method_findUrls)
 
-`URLService::findUrls` takes as argument a [`URLQuery`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-URLQuery.html),
+`URLService::findUrls` takes as argument a [`URLQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-URLQuery.html),
 in which you need to specify:
 
-- query filter e.g. Section
+- query filter, for example, Section
 - Sort Clauses for URL queries
 - offset for search hits, used for paging the results
-- query limit. If value is `0`, search query will not return any search hits
+- query limit. If value is `0`, search query doesn't return any search hits
 
 ```php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 7, 10) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 5, 6) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 7, 10) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 41, 56) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 34, 49) =]]
 ```
 
 ## URL search reference

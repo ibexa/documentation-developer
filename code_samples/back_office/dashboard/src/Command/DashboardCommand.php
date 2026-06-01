@@ -8,41 +8,41 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Dashboard\DashboardServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:dashboard',
+    description: 'Set a custom dashboard to user group.'
+)]
 class DashboardCommand extends Command
 {
-    protected static $defaultName = 'doc:dashboard';
+    private readonly Locationservice $locationService;
 
-    private DashboardServiceInterface $dashboardService;
+    private readonly ContentService $contentService;
 
-    private Locationservice $locationService;
+    private readonly UserService $userService;
 
-    private ContentService $contentService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
+    private readonly PermissionResolver $permissionResolver;
 
     public function __construct(
-        DashboardServiceInterface $dashboardService,
+        private readonly DashboardServiceInterface $dashboardService,
         Repository $repository
     ) {
-        $this->dashboardService = $dashboardService;
         $this->locationService = $repository->getLocationService();
         $this->contentService = $repository->getContentService();
         $this->userService = $repository->getUserService();
         $this->permissionResolver = $repository->getPermissionResolver();
 
-        parent::__construct(self::$defaultName);
+        parent::__construct();
     }
 
     public function configure(): void
     {
-        $this->setDescription('Set a custom dashboard to user group.')
+        $this
             ->addArgument('dashboard', InputArgument::REQUIRED, 'Location ID of the dashboard model')
             ->addArgument('group', InputArgument::REQUIRED | InputArgument::IS_ARRAY, 'User Group Content ID(s)');
     }
@@ -50,7 +50,7 @@ class DashboardCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $dashboardModelLocationId = (int)$input->getArgument('dashboard');
-        $userGroupLocationIdList = array_map('intval', $input->getArgument('group'));
+        $userGroupLocationIdList = array_map(intval(...), $input->getArgument('group'));
 
         foreach ($userGroupLocationIdList as $userGroupLocationId) {
             try {

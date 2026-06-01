@@ -1,5 +1,5 @@
 ---
-description: Shipment Identifier Criterion
+description: Shipment Identifier Search Criterion
 edition: commerce
 ---
 
@@ -16,7 +16,7 @@ The `Identifier` Search Criterion searches for shipments based on the shipment i
 ### PHP
 
 ``` php
-$query = new ShipmentQuery( 
+$query = new ShipmentQuery(
     new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Identifier('f1t7z-3rb3rt')
 );
 ```

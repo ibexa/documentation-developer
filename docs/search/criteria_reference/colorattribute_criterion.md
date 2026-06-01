@@ -1,3 +1,7 @@
+---
+description: ColorAttribute Search Criterion
+---
+
 # ColorAttribute Criterion
 
 The `ColorAttribute` Search Criterion searches for products by the value of their color attribute.

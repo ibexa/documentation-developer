@@ -1,10 +1,13 @@
 ---
 description: Update your installation to the latest v3.3 version from an earlier v3.3 version.
+month_change: false
 ---
 
 # Update from v3.3.x to v3.3.latest
 
-This update procedure applies if you are using a v3.3 installation without the latest maintenance release.
+This update procedure applies if you're using a v3.3 installation without the latest maintenance release.
+To update from an 3.2 to 3.3, see [Updating the app to v3.3](to_3.3.md).
+From older version, explore [this section](update_ibexa_dxp.md).
 
 Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag_3_3 =]]).
 
@@ -16,7 +19,7 @@ Go through the following steps to update to the latest maintenance release of v3
 
 !!! note
 
-    If you are using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
+    If you're using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
 
 Run:
 
@@ -48,7 +51,7 @@ composer dump-autoload
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
-If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
+If you're using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
 In your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
 If that's the case, you need to perform the following update procedure.
 
@@ -93,11 +96,11 @@ Review the changes to make sure your custom configuration wasn't affected.
 
 Remove the `vendor` folder to prevent issues related to the [new Flex server](#update-flex-server).
 
-Then, perform a database upgrade and other steps relevant to the version you are updating to.
+Then, perform a database upgrade and other steps relevant to the version you're updating to.
 
 !!! caution "Clear Redis cache"
 
-    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+    If you're using Redis as your persistence cache storage you should always clear it manually after an upgrade.
     You can do it by executing the following command:
 
     ```bash
@@ -145,7 +148,7 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 #### Enable Commerce features
 
 Commerce features in Experience and Content editions are disabled by default.
-If you use these features, after the update enable Commerce features by going to `config\packages\ecommerce.yaml`
+If you use these features, after the update enable Commerce features by going to `config/packages/ecommerce.yaml`
 and setting the following:
 
 ``` yaml
@@ -164,7 +167,7 @@ php bin/console ibexa:upgrade --force
 
 #### Database update
 
-If you are using MySQL, run the following update script:
+If you're using MySQL, run the following update script:
 
 ``` sql
 mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
@@ -212,7 +215,7 @@ See https://github.com/ibexa/website-skeleton/pull/5/files for details of the pa
 
 #### Commerce configuration
 
-If you are using Commerce, run the following migration action to update the way Commerce configuration is stored:
+If you're using Commerce, run the following migration action to update the way Commerce configuration is stored:
 
 ``` bash
 mkdir --parent src/Migrations/Ibexa/migrations
@@ -226,13 +229,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
@@ -276,13 +279,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
@@ -292,7 +295,7 @@ Run the following scripts:
 
     Prior to v3.3.13, Symfony 5.3 was used by default.
 
-    If you are still using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    If you're still using Symfony 5.3, you need to update your installation to Symfony 5.4.
     To do this, update your `composer.json` to refer to `5.4.*` instead or `5.3.*`.
 
     Refer to the relevant website skeleton: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
@@ -300,7 +303,7 @@ Run the following scripts:
     The following `sed` commands should update the relevant lines.
     Use them with caution and properly check the result:
 
-    ```shell
+    ```bash
     sed -i -E 's/"symfony\/(.+)": "5.3.*"/"symfony\/\1": "5.4.*"/' composer.json;
     sed -i -E 's/"require": "5.3.*"/"require": "5.4.*"/' composer.json;
     ```
@@ -310,10 +313,24 @@ Run the following scripts:
     You may need to adapt configuration to fit the new minor version of Symfony.
     For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
     
-    ```shell
+    ```bash
     sed -i -E '/ *timeout: [0-9]+/d' ./config/packages/nelmio_solarium.yaml ./config/packages/ezcommerce/ezcommerce_advanced.yaml
     composer update "symfony/*"
     ```
+
+#### Ibexa Cloud
+
+Update Platform.sh configuration and scripts.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
+merge with your custom settings if needed, and commit them to Git.
+
 
 ### v3.3.14
 
@@ -368,11 +385,11 @@ See [Update Flex server](#update-flex-server).
 
 #### VCL configuration for Fastly
 
-Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+[[= product_name =]] now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 
-    Even if you do not plan to use Fastly shielding, it is recommended to update the VCL files for future compatibility.
+    Even if you don't plan to use Fastly shielding, it's recommended to update the VCL files for future compatibility.
 
 1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.
@@ -386,13 +403,13 @@ On Experience or Commerce edition, run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.24-to-3.3.25.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.24-to-3.3.25.sql
     ```
 
@@ -424,4 +441,120 @@ Run the following scripts:
 
 ### v3.3.40
 
-A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+No additional steps needed.
+
+### v3.3.41
+
+#### Security
+
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected. 
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+
+##### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
+
+The [BREACH](https://www.breachattack.com/) attack is a security vulnerability against HTTPS when using HTTP compression.
+
+If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+Fastly users are not affected.
+
+=== "Varnish on [[= product_name_cloud =]]"
+
+    Update the Varnish configuration.
+
+    Generate new configuration with the following command:
+
+    ```bash
+    composer ibexa:setup --platformsh
+    ```
+
+    Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
+
+=== "Varnish 6"
+
+    Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl) file.
+
+=== "Varnish 7"
+
+    Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish7.vcl) file.
+    ```
+
+If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed `Content-Type` in the web server configuration.
+For more information, see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
+
+##### Outdated version of jQuery in ezsystems/ezcommerce-shop package
+
+There are no additional update steps to execute.
+
+#### Other changes
+
+##### Remove duplicated entries in `ezcontentobject_attribute` table
+
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
+
+If you're affected, remove the duplicated entries by running the following command:
+``` bash
+php bin/console ibexa:content:remove-duplicate-fields
+```
+
+!!! caution
+
+    Remember about [**proper database backup**](backup.md) before running the command in the production environment.
+
+You can customize the behavior of the command with the following options:
+
+- `--batch-size` or `-b` - number of attributes affected per iteration. Default value = 10000.
+- `--max-iterations` or `-i` - maximum iterations count. Default value = -1 (unlimited).
+- `--sleep` or `-s` - wait time between iterations, in milliseconds. Default value = 0.
+
+##### Update web server configuration
+
+Adjust the web server configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
+
+See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
+
+#### Removed `symfony/serializer-pack` dependency
+
+This release no longer directly requires the `symfony/serializer-pack` Composer dependency, which can remove some dependencies from your project during the update process.
+
+If you rely on them in your project, for example by using Symfony's `ObjectNormalizer` to create your own REST endpoints, run the following command before updating [[= product_name_base =]] packages:
+
+``` bash
+composer require symfony/serializer-pack
+```
+
+Then, verify that Symfony Flex installed the versions you were using before.
+
+### v3.3.42
+
+#### Security
+
+This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe).
+To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
+
+For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### v3.3.43
+
+#### Security
+
+This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
+
+For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+## Finish the update
+
+[[% include 'snippets/update/finish_the_update.md' %]]
+
+[[% include 'snippets/update/notify_support.md' %]]

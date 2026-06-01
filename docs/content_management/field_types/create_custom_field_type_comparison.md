@@ -1,18 +1,18 @@
 ---
-description: Enable comparison of content Fields based on a custom Field Type.
+description: Enable comparison of content fields based on a custom field type.
 ---
 
-# Create custom Field Type comparison
+# Create custom field type comparison
 
-In the Back Office, you can compare the contents of Fields.
-Comparing is possible only between two versions of the same Field that are in the same language.
+In the back office, you can compare the contents of fields.
+Comparing is possible only between two versions of the same field that are in the same language.
 
-You can add the possibility to compare custom and other unsupported Field Types.
+You can add the possibility to compare custom and other unsupported field types.
 
 !!! note
 
-    The following task uses the [custom "Hello World" Field Type](create_custom_generic_field_type.md).
-    The configuration is based on the comparison mechanism created for the `ezstring` Field Type.
+    The following task uses the [custom "Hello World" field type](create_custom_generic_field_type.md).
+    The configuration is based on the comparison mechanism created for the `ibexa_string` field type.
 
 ## Create Comparable class
 
@@ -21,7 +21,7 @@ First, create a `Comparable.php` class in `src/FieldType/HelloWorld/Comparison`.
 This class implements the `Ibexa\Contracts\VersionComparison\FieldType\Comparable` interface with the `getDataToCompare()` method:
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php') =]]
 ```
 
 The `getDataToCompare()` fetches the data to compare and determines which [comparison engines](#create-comparison-engine) should be used.
@@ -37,19 +37,19 @@ Register this class as a service:
 Next, create a `src/FieldType/HelloWorld/Comparison/Value.php` file that holds the comparison value:
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Value.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Value.php') =]]
 ```
 
 ## Create comparison engine
 
-The comparison engine handles the operations required for comparing the contents of Fields.
-Each Field Type requires a separate comparison engine, which implements the `Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine` interface.
+The comparison engine handles the operations required for comparing the contents of fields.
+Each field type requires a separate comparison engine, which implements the `Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine` interface.
 
-For the "Hello World" Field Type, create the following comparison engine based on the engine for the TextLine Field Type.
+For the "Hello World" field type, create the following comparison engine based on the engine for the TextLine field type.
 Place it in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php`:
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php') =]]
 ```
 
 Register the comparison engine as a service:
@@ -63,7 +63,7 @@ Register the comparison engine as a service:
 Next, create a comparison result class in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php`.
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php') =]]
 ```
 
 ## Provide templates

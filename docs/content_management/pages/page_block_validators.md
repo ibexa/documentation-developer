@@ -1,5 +1,6 @@
 ---
 description: Set up rules for validating Page block content.
+edition: experience
 ---
 
 # Page block validators
@@ -16,11 +17,10 @@ The following block validators are available:
 
 !!! note
 
-    Do not use the `required` and `not_blank` validators for `richtext` attributes.
+    Don't use the `required` and `not_blank` validators for `richtext` attributes.
     Instead, use `not_blank_richtext`.
 
-For each validator you can provide a message that displays in the Page Builder
-when an attribute field doesn't fulfil the criteria.
+For each validator you can provide a message that displays in the Page Builder when an attribute field doesn't fulfill the criteria.
 
 Additionally, for some validators you can provide settings under the
 `ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:
@@ -46,13 +46,13 @@ First, create classes that support your intended method of validation.
 For example, in `src/Validator`, create an `AlphaOnly.php` file:
 
 ``` php
-[[= include_file('code_samples/page/custom_block_validator/src/Validator/AlphaOnly.php') =]]
+[[= include_code('code_samples/page/custom_block_validator/src/Validator/AlphaOnly.php') =]]
 ```
 
 In `src/Validator`, create an `AlphaOnlyValidator.php` class that performs the validation.
 
 ``` php
-[[= include_file('code_samples/page/custom_block_validator/src/Validator/AlphaOnlyValidator.php') =]]
+[[= include_code('code_samples/page/custom_block_validator/src/Validator/AlphaOnlyValidator.php') =]]
 ```
 
 Then, under `ibexa_fieldtype_page.block_validators`, enable the new validator in Page Builder:
@@ -74,5 +74,5 @@ By default, only `not_blank` and `not_blank_richtext` validators mark a block at
 If you create a custom validator `custom_not_blank` with attribute-specific logic, you can extend the `AttributeType` class with a Symfony form type extension to make sure that the attribute is also considered required:
 
 ``` php hl_lines="15"
-[[= include_file('code_samples/page/custom_block_validator/src/Form/Extension/AttributeTypeExtension.php') =]]
+[[= include_code('code_samples/page/custom_block_validator/src/Form/Extension/AttributeTypeExtension.php') =]]
 ```

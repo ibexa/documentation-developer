@@ -1,11 +1,11 @@
 ---
-description: The shipping component covers defining and managing shipping methods as well as managing shipments and their lifecycle.
+description: The shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
 edition: commerce
 ---
 
 # Shipping
 
-The shipping component enables users to define and manage shipping methods of different types, as well as create and manage shipments, search for shipments and filter search results. 
+The shipping component enables users to define and manage shipping methods of different types, create and manage shipments, search for shipments, and filter search results.
 Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
 
 !!! note "Shipping method types"

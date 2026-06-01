@@ -7,28 +7,28 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:find_complex',
+    description: 'Lists content belonging to the provided content type.'
+)]
 class FindComplexCommand extends Command
 {
-    private SearchService $searchService;
-
-    private LocationService $locationService;
-
-    public function __construct(SearchService $searchService, LocationService $locationService)
-    {
-        $this->searchService = $searchService;
-        $this->locationService = $locationService;
-        parent::__construct('doc:find_complex');
+    public function __construct(
+        private readonly SearchService $searchService,
+        private readonly LocationService $locationService
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, ''),
                 new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
@@ -36,9 +36,9 @@ class FindComplexCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
         $text = $input->getArgument('text');
 

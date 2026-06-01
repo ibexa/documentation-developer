@@ -43,7 +43,7 @@ Below, you can find a few examples that demonstrate how you can modify this feat
 ### Customize reorder
 
 You can modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
-Each workflow definition consists of a series of steps as well as a series of transitions between the steps.
+Each workflow definition consists of a series of steps and a series of transitions between the steps.
 
 Below example shows how to set up `can_be_reordered` flag for specific order statuses.
 
@@ -73,10 +73,10 @@ Reorder comes with the dedicated `Ibexa\Contracts\Checkout\Reorder\ReorderServic
 It contains helper methods and facades added over existing API to ease the order manipulation process.
 The following methods can be used to modify the reorder flow to fit your business needs:
 
-#### `ReorderService:addToCartFromOrder` 
+#### `ReorderService:addToCartFromOrder`
 
 Allows you to add items from a previous order to a cart.
-It uses historical data from previously ordered items even if they are no longer available.
+It uses historical data from previously ordered items even if they're no longer available.
 Those items are validated against available stock.
 The method uses the following parameters:
 
@@ -96,7 +96,7 @@ The method uses the following parameters:
 - `$sourceOrder` (OrderInterface) - the source order from which context is copied
 - `$targetCheckout` (CheckoutInterface) - the target checkout to which context is copied
 
-#### `ReorderService:createReorderCart` 
+#### `ReorderService:createReorderCart`
 
 Creates a new shopping cart for reordering items from a past order in the same currency.
 The method uses the following parameters:
@@ -125,4 +125,4 @@ For more information on how to modify checkout, see [Checkout API documentation]
 ### Cart PHP API
 
 Reorder also facilitates `Ibexa\Contracts\Cart\CartServiceInterface` interface `mergeCarts` method.
-For more information on it, see [Cart API documentation](cart_api.md#merge-cart).
+For more information on it, see [Cart API documentation](cart_api.md#merge-carts).

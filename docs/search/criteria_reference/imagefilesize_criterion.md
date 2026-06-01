@@ -1,5 +1,5 @@
 ---
-description: Image FileSize Criterion
+description: Image FileSize Search Criterion
 ---
 
 # Image FileSize Criterion
@@ -8,7 +8,7 @@ The `FileSize` Search Criterion searches for image with specified size.
 
 ## Arguments
 
-- `fieldDefIdentifier` - string representing the identifier of the Field
+- `fieldDefIdentifier` - string representing the identifier of the field
 - (optional) `minValue` - numeric representing minimum file size expressed in MB, default: 0
 - (optional) `maxValue` - numeric representing maximum file size expressed in MB, default: `null`
 
@@ -46,7 +46,7 @@ $query->query = new Criterion\FileSize('image', 0, 1.5);
             "ImageFileSizeCriterion":{
                 "fieldDefIdentifier": "image",
                 "size": {
-                    "min": 0, 
+                    "min": 0,
                     "max": 1.5
                 }
             }

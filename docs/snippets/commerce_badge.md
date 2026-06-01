@@ -1,1 +1,1 @@
-<span class="pill commerce-pill"></span>
+<span class="pill pill--inline pill--commerce"></span>

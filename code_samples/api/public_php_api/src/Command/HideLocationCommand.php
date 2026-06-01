@@ -5,31 +5,29 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:hide',
+    description: 'Hides and reveals again selected Location.'
+)]
 class HideLocationCommand extends Command
 {
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:hide');
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Hides and reveals again selected Location.')
             ->setDefinition([
                 new InputArgument('location_id', InputArgument::REQUIRED, 'Location ID'),
             ]);
@@ -40,7 +38,7 @@ class HideLocationCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('location_id');
+        $locationId = (int) $input->getArgument('location_id');
 
         $location = $this->locationService->loadLocation($locationId);
 

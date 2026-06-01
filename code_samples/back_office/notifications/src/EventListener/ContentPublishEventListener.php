@@ -7,16 +7,13 @@ use Ibexa\Contracts\Core\Repository\NotificationService;
 use Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class ContentPublishEventListener implements EventSubscriberInterface
+final readonly class ContentPublishEventListener implements EventSubscriberInterface
 {
-    private NotificationService $notificationService;
-
-    public function __construct(NotificationService $notificationService)
+    public function __construct(private NotificationService $notificationService)
     {
-        $this->notificationService = $notificationService;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [PublishVersionEvent::class => 'onPublishVersion'];
     }

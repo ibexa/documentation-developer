@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ node.name }} | {{ parent() }}{% endblock %}
+{% block meta %}
+    <meta name="description" content="{{ node.summary|escape }}" />
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    {% include 'components/breadcrumbs.html.twig' %}
+    {% include 'components/enum-title.html.twig' %}
+    {% include 'components/element-header.html.twig' %}
+    {% include 'components/enum-cases.html.twig' %}
+    {% include 'components/methods.html.twig' %}
+{% endblock %}
+
+{% block on_this_page %}
+    {% set cases = cases(node) %}
+    {% set methods = methods(node) %}
+
+    {% if cases is not empty or methods is not empty %}
+        <label class="md-nav__title" for="__toc" title="{{ node.name }}">
+            {{ node.name }}
+        </label>
+    {% endif %}
+
+    <ul class="md-nav__list">
+        {% if cases is not empty %}
+            <li class="md-nav__item level-1 with-children">
+                <a href="{{ node|route("url")|raw }}#cases" title="Cases" class="md-nav__link">
+                    Cases
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                        {% for case in cases %}
+                            <li class="md-nav__item level-2">
+                                <a href="{{ link(case) }}" title="{{ case.name }}" class="md-nav__link">
+                                    {{ case.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </li>
+        {% endif %}
+        {% if methods is not empty %}
+            <li class="md-nav__item level-1 with-children">
+                <a href="{{ node|route("url")|raw }}#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                        {% for method in methods|sortByVisibility %}
+                            <li class="md-nav__item level-2">
+                                <a href="{{ link(method) }}" title="{{ method.name }}" class="md-nav__link">
+                                    {{ method.name }}()
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}

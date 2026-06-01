@@ -10,11 +10,8 @@ use Ibexa\Core\MVC\Symfony\View\ContentView;
 
 class CustomFilterController extends Controller
 {
-    private ContentService $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(private readonly ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
     public function showChildrenAction(ContentView $view): ContentView

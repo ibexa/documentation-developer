@@ -4,12 +4,13 @@ description: Register new users.
 
 # Register new users
 
-You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User content item in the repository.
+You can allow your users to create accounts by employing the `/register` route.
+This route leads to a registration form that, when filled in, creates a new user content item in the repository.
 
 ## User types
 
 There are two user types defined: `users` and `customers`.
-`users` are Back Office users that are involved in creating the page such as editors, and `customers` are frontend users.
+`users` are back office users that are involved in creating the page such as editors, and `customers` are frontend users.
 To decide where the user should be registered to, you need to specify their user type under the `ibexa.system.<scope>.user_type_identifier` [configuration key](configuration.md#configuration-files).
 
 ```yaml
@@ -20,16 +21,17 @@ ibexa:
                 user_type_identifier: user
 ```
 
-## User Groups
+## User groups
 
-By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
+By default, new users generated in this way are placed in the Guest accounts group.
+You can select a different default group in the following section of configuration:
 
 ``` yaml
 ibexa:
     system:
         default:
             user_registration:
-                group_id: <userGroupContentId>
+                group_remote_id: <userGroupContentRemoteId>
 ```
 
 ## Registration form field configuration
@@ -90,4 +92,4 @@ ibexa.site_access.config.<siteaccess>.user_settings.templates.update
 
 **Changing registration form templates:**
 
-To change the registration form template, follow instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).
+To change the registration form template, follow the instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).

@@ -8,7 +8,7 @@ use Ibexa\Shipping\Persistence\Legacy\ShippingMethod\AbstractOptionsStorageSchem
 
 final class StorageSchema extends AbstractOptionsStorageSchema
 {
-    public const TABLE_NAME = 'ibexa_shipping_method_region_custom';
-    public const COLUMN_ID = 'id';
-    public const COLUMN_CUSTOMER_ID = 'customer_id';
+    public const string TABLE_NAME = 'ibexa_shipping_method_region_custom';
+    public const string COLUMN_ID = 'id';
+    public const string COLUMN_CUSTOMER_ID = 'customer_id';
 }

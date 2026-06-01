@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ node.name }} | {{ parent() }}{% endblock %}
+
+{% block content %}
+    {% include 'components/breadcrumbs.html.twig' %}
+    {% include 'components/namespace-title.html.twig' with { add_edition: true } %}
+    {% include 'components/table-of-contents.html.twig' with {'namespaces': node.children} %}
+    {% include 'components/constants.html.twig' %}
+    {% include 'components/functions.html.twig' %}
+{% endblock %}
+
+{% block on_this_page %}{% endblock %}

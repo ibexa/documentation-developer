@@ -40,7 +40,7 @@ The following example shows how to create custom events which add different holi
 First, create a new event in `src/Calendar/Holidays/Event.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/Event.php') =]]
+[[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/Event.php') =]]
 ```
 
 Here, you define a new class for your event based on `Ibexa\Contracts\Calendar\Event`.
@@ -48,7 +48,7 @@ Here, you define a new class for your event based on `Ibexa\Contracts\Calendar\E
 Next, create `src/Calendar/Holidays/EventType.php`:
 
 ```php hl_lines="20-23"
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventType.php') =]]
+[[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/EventType.php') =]]
 ```
 
 You can use the identifier defined in lines 20-23 to configure [event colors](#customize-colors-and-icons).
@@ -69,21 +69,23 @@ One such built-in implementation is `InMemoryEventSource`.
 To add an in-memory collection as an event source, create `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ```php
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 23) =]][[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 29, 40) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 20) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 26, 36) =]]
+
 ```
 
 !!! note
 
     When creating the list of events, you must list all the `createEvent()` entities chronologically.
-    
+
     For example:
-    
+
     ``` php
     $collection = new EventCollection([
         $this->createEvent("Event 1", new DateTime("2024-01-01")),
         $this->createEvent("Event 2", new DateTime("2024-01-02")),
         // ...
-    ```    
+    ```
 
 Next, register the event source as a service:
 
@@ -107,7 +109,7 @@ To do this, place the following `holidays.json` file in `src/Calendar/Holidays`:
 Next, import this file in `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ``` php hl_lines="6-9"
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 19, 33) =]]
+[[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 17, 30, remove_indent=True) =]]
 ```
 
 The calendar now displays the events listed in the JSON file.

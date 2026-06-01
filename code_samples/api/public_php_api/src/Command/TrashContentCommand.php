@@ -6,29 +6,25 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\TrashService;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:trash_content'
+)]
 class TrashContentCommand extends Command
 {
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private TrashService $trashService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LocationService $locationService, UserService $userService, TrashService $trashService, PermissionResolver $permissionResolver)
-    {
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->trashService = $trashService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:trash_content');
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly TrashService $trashService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -45,9 +41,9 @@ class TrashContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
         if ($input->getArgument('newParentId')) {
-            $newParentId = $input->getArgument('newParentId');
+            $newParentId = (int) $input->getArgument('newParentId');
         }
 
         $location = $this->locationService->loadLocation($locationId);

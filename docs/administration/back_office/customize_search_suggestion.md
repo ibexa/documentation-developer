@@ -4,8 +4,8 @@ description: Customize search suggestion configuration and sources.
 
 # Customize search suggestion
 
-In the Back Office, when you start typing in the search field on the top bar, suggestions about what you could be looking for show up directly under the field.
-For more information about using this feature to search for content, see [user documentation]([[= user_doc =]]/search/search_for_content).
+In the back office, when you start typing in the search field on the top bar, suggestions about what you could be looking for show up directly under the field.
+For more information about using this feature to search for content, see [User Documentation]([[= user_doc =]]/search/search_for_content/).
 
 ## Configuration
 
@@ -30,12 +30,13 @@ After this event, the suggestion collection is sorted by score and truncated to 
 !!! tip
 
     You can list listeners and subscribers with the following command:
-    ``` shell
+
+    ```bash
     php bin/console debug:event BuildSuggestionCollectionEvent
     ```
 
-The following example is boosting Product suggestions.
-It's a subscriber that passes after the default one (because priority is set to zero), adds matching products at a score above the earlier Content suggestions, and avoids duplicates.
+The following example is boosting product suggestions.
+It's a subscriber that passes after the default one (because priority is set to zero), adds matching products at a score above the earlier content suggestions, and avoids duplicates.
 
 - If the suggestion source finds a number of matching products that is equal or greater than the `result_limit`, only those products end up in the suggestion.
 - If it finds less than `result_limit` products, those products are on top of the suggestion, followed by items from another suggestion source until the limit is met.
@@ -45,7 +46,7 @@ This example event subscriber is implemented in the `src/EventSubscriber/MySugge
 It uses [`ProductService::findProducts`](product_api.md#products), and returns the received event after having manipulated the `SuggestionCollection`:
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php') =]]
+[[= include_code('code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php') =]]
 ```
 
 To have the logger injected thanks to the `LoggerAwareTrait`, this subscriber must be registered as a service:
@@ -59,7 +60,7 @@ services:
 To represent the product suggestion data, a `ProductSuggestion` class is created in `src/Search/Model/Suggestion/ProductSuggestion.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Search/Model/Suggestion/ProductSuggestion.php') =]]
+[[= include_code('code_samples/back_office/search/src/Search/Model/Suggestion/ProductSuggestion.php') =]]
 ```
 
 This representation needs a normalizer to be transformed into a JSON.
@@ -69,7 +70,7 @@ Alongside data about the product, this array must have a `type` key, whose value
 In `src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php') =]]
+[[= include_code('code_samples/back_office/search/src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php') =]]
 ```
 
 This normalizer is added to suggestion normalizers by decorating `ibexa.search.suggestion.serializer` and redefining its list of normalizers:
@@ -85,7 +86,7 @@ services:
     At this point, it's possible to test the suggestion JSON.
     The route is `/suggestion` with a GET parameter `query` for the searched text.
 
-    For example, log in to the Back Office to have a session cookie, then access the route through the Back Office SiteAccess, such as `<yourdomain>/admin/suggestion?query=platform`.
+    For example, log in to the back office to have a session cookie, then access the route through the back office SiteAccess, such as `<yourdomain>/admin/suggestion?query=platform`.
     If you have a product with "platform" in its name, it is returned as the first suggestion.
 
 A JavaScript renderer displays the normalized product suggestion.
@@ -103,17 +104,17 @@ It's registered as `autocomplete.renderers.<type>` by using the type identifier 
  })(window, document, window.ibexa, window.Routing);
 ```
 
-To fit into the Back Office design, you can take HTML structure and CSS class names from an existing suggestion template `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/ui/global_search_autocomplete_content_item.html.twig`.
+To fit into the back office design, you can take HTML structure and CSS class names from an existing suggestion template `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/ui/global_search_autocomplete_content_item.html.twig`.
 
 To allow template override and ease HTML writing, the example is also loading a template to render the HTML.
 
 Here is a complete `assets/js/admin.search.autocomplete.product.js` from the product suggestion example:
 
-``` js hl_lines="8"
+``` js hl_lines="9"
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 
-To be loaded in the Back Office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`. 
+To be loaded in the back office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`.
 At the end of `webpack.config.js`, add it by using `ibexaConfigManager`:
 
 ``` javascript
@@ -134,7 +135,7 @@ The example template for this wrapping node is stored in `templates/themes/admin
 - At Twig level, it includes the item template, replaces Twig variables with the strings used by the JS renderer,
   and passes it to the [`escape` filter](https://twig.symfony.com/doc/3.x/filters/escape.html) with the HTML attribute strategy.
 
-To be present, this wrapping node template must be added to the `global-search-autocomplete-templates` group of tabs components:
+To be present, this wrapping node template must be added to the `admin-ui-global-search-autocomplete-templates` group of tabs components:
 
 ``` yaml
 services:

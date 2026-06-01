@@ -6,14 +6,14 @@ description: Extend REST API by creating a new resource.
 
 To create a new REST resource, you need to prepare:
 
-* The REST route leading to a controller action.
-* The controller and its action.
-* Optionally, one or several `InputParser` objects if the controller needs to receive a payload to treat, one or several value classes to represent this payload and potentially one or several new media types to type this payload in the `Content-Type` header.
-* Optionally, one or several new value classes to represent the controller action result, their `ValueObjectVisitor` to help the generator to turn this into XML or JSON and potentially one or several new media types to claim in the `Accept` header the desired value.
-* Optionally, the addition of this resource route to the REST root.
+- the REST route leading to a controller action
+- the controller and its action
+- one or several `InputParser` objects if the controller needs to receive a payload to treat, one or several value classes to represent this payload and potentially one or several new media types to type this payload in the `Content-Type` header (optional)
+- one or several new value classes to represent the controller action result, their `ValueObjectVisitor` to help the generator to turn this into XML or JSON and potentially one or several new media types to claim in the `Accept` header the desired value (optional)
+- the addition of this resource route to the REST root (optional)
 
 In the following example, you add a greeting resource to the REST API.
-It is available through `GET` and `POST` methods. `GET` sets default values while `POST` allows inputting custom values.
+It's available through `GET` and `POST` methods. `GET` sets default values while `POST` allows inputting custom values.
 
 ## Route
 
@@ -57,14 +57,14 @@ Having the REST controllers set as services enables using features such as the `
 
 A REST controller should:
 
-- return a value object and have a `Generator` and `ValueObjectVisitor`s producing the XML or JSON output;
-- extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`.
+- return a value object and have a `Generator` and `ValueObjectVisitor`s producing the XML or JSON output
+- extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
 
-If the returned value was depending on a Location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
+If the returned value was depending on a location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
 
 `CachedValue` is used in the following way:
 
@@ -78,7 +78,7 @@ return new CachedValue(
 ## Value and ValueObjectVisitor
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
 ```
 
 A `ValueObjectVisitor` must implement the `visit` method.
@@ -90,7 +90,7 @@ A `ValueObjectVisitor` must implement the `visit` method.
 | `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
 ```
 
 The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the service tag.
@@ -101,7 +101,8 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
 ```
 
-Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format. To have a different vendor than the default, you could create a new `Output\Generator` or hard-code it in the `ValueObjectVisitor` like in the [`RestLocation` example](adding_custom_media_type.md#new-restlocation-valueobjectvisitor).
+Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format.
+To have a different vendor than the default, you could create a new `Output\Generator` or hard-code it in the `ValueObjectVisitor` like in the [`RestLocation` example](adding_custom_media_type.md#new-restlocation-valueobjectvisitor).
 
 ## InputParser
 
@@ -110,7 +111,7 @@ A REST resource could use route parameters to handle input, but this example ill
 For this example, the structure is a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
 ```
 
 Here, this `InputParser` directly returns the right value object.
@@ -126,7 +127,7 @@ services:
 
 Now you can test both `GET` and `POST` methods, and both `XML` and `JSON` format for inputs and outputs.
 
-```shell
+```bash
 curl https://api.example.com/api/ibexa/v2/greet --include;
 curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --header 'Content-Type: application/vnd.ibexa.api.GreetingInput+xml' \
@@ -137,7 +138,7 @@ curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --header 'Accept: application/vnd.ibexa.api.Greeting+json';
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.greeting+xml
 
@@ -186,7 +187,9 @@ ibexa_rest:
                     href: 'router.generate("<resource_route_name>", {routeParameter: value})'
 ```
 
-The `router.generate` renders a URI based on the name of the route and its parameters. The parameter values can be a real value or a placeholder. For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
+The `router.generate` renders a URI based on the name of the route and its parameters.
+The parameter values can be a real value or a placeholder.
+For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
 This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
 In this example, `app.rest.greeting` is available in every SiteAccess (`default`):

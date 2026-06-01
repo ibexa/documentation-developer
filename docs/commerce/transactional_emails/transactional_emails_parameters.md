@@ -7,7 +7,7 @@ edition: commerce
 
 The following variables are provided with an installation of [[= product_name_base =]].
 You can use them when you create a template within an Actito transactional email campaign.
-If this extensive list of variables is not sufficient, you can [extend it to include additional variables](extend_transactional_emails.md#define-additional-variables).
+If this extensive list of variables isn't sufficient, you can [extend it to include additional variables](extend_transactional_emails.md#define-additional-variables).
 
 |Category|Variable|Description|Example values|Notes|
 |:----|:----|:----|:----|:----|
@@ -39,7 +39,7 @@ If this extensive list of variables is not sufficient, you can [extend it to inc
 | |billingAddressPhoneNumber|Phone number|123456789|
 |Payment|paymentMethodIdentifier|Technical identifier of payment method| | |
 | |paymentMethodName|Human readable name of payment method| | |
-| |paymentMethodDescription|Human readable description of payment method|Prepaid cards and gift cards (offline ver.)| |
+| |paymentMethodDescription|Human readable description of payment method|Prepaid cards and gift cards (offline version)| |
 | |paymentMethodTypeName|Human readable name of payment method type|Offline| |
 | |paymentStatus|Technical identifier of payment status|pending, failed|Only available in PaymentStatusChange notification|
 |Shipment|shippingMethodIdentifier|Technical identifier of shipping method| | |
@@ -48,7 +48,7 @@ If this extensive list of variables is not sufficient, you can [extend it to inc
 | |shippingMethodTypeName|Technical name of shipping method type| | |
 | |shipmentStatus|Technical identifier of shipment status| |Only available in ShipmentStatusChange notification|
 |Product information|products.id|Product numerical ID|123|
-| |products.code|Product code, SKU|123456|
+| |products.code|Product code (SKU)|123456|
 | |products.name|Product name|iPhone 15 Pro 256GB Space Gray|
 | |products.url|Product view URL|https://example.com/product/iphone-15-pro-256gb-space-gray/|
 | |products.thumbnail|Product thumbnail URL|https://example.com/assets/images/iphone-15-pro-256gb-space-gray.jpg|

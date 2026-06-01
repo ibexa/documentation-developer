@@ -10,45 +10,28 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+#[AsCommand(
+    name: 'doc:test:activity-log-context',
+    description: 'Test activity log context usage'
+)]
 class ActivityLogContextTestCommand extends Command
 {
-    protected static $defaultName = 'doc:test:activity-log-context';
-
-    protected static $defaultDescription = 'Test activity log context usage';
-
-    private ActivityLogServiceInterface $activityLogService;
-
-    private ContentService $contentService;
-
-    private ContentTypeService $contentTypeService;
-
-    private EventDispatcherInterface $eventDispatcher;
-
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
     public function __construct(
-        ActivityLogServiceInterface $activityLogService,
-        ContentService $contentService,
-        ContentTypeService $contentTypeService,
-        EventDispatcherInterface $eventDispatcher,
-        PermissionResolver $permissionResolver,
-        UserService $userService
+        private readonly ActivityLogServiceInterface $activityLogService,
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly EventDispatcherInterface $eventDispatcher,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService
     ) {
-        parent::__construct(self::$defaultName);
-        $this->activityLogService = $activityLogService;
-        $this->contentService = $contentService;
-        $this->contentTypeService = $contentTypeService;
-        $this->eventDispatcher = $eventDispatcher;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
+        parent::__construct();
     }
 
     protected function configure(): void
