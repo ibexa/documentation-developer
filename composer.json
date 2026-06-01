@@ -69,7 +69,6 @@
         "ibexa/solr": "4.6.x-dev",
         "ibexa/version-comparison": "4.6.x-dev",
         "league/oauth2-google": "^4.0",
-        "twig/twig": "v3.11.3",
         "ibexa/connector-dam": "~4.6.x-dev",
         "ibexa/twig-components": "~4.6.x-dev",
         "ibexa/tree-builder": "~4.6.x-dev",
