@@ -215,7 +215,9 @@ To use Composer to instantly create a project in the current folder with all the
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+
         }'
         composer update
         ```
@@ -241,7 +243,8 @@ To use Composer to instantly create a project in the current folder with all the
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -267,7 +270,8 @@ To use Composer to instantly create a project in the current folder with all the
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -284,6 +288,11 @@ To use Composer to instantly create a project in the current folder with all the
             "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fbvq-z33h-r2np": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-g9zw-qxh8-pq8w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yd6k-t2gh-1m43": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-1tmc-rt7x-12w6": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-xx6c-6d96-db2w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
@@ -300,7 +309,8 @@ To use Composer to instantly create a project in the current folder with all the
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -313,7 +323,11 @@ To use Composer to instantly create a project in the current folder with all the
             "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fbvq-z33h-r2np": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-g9zw-qxh8-pq8w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yd6k-t2gh-1m43": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-1tmc-rt7x-12w6": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-xx6c-6d96-db2w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
@@ -329,7 +343,8 @@ To use Composer to instantly create a project in the current folder with all the
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
@@ -342,7 +357,11 @@ To use Composer to instantly create a project in the current folder with all the
             "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fbvq-z33h-r2np": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-g9zw-qxh8-pq8w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yd6k-t2gh-1m43": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-1tmc-rt7x-12w6": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-xx6c-6d96-db2w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
@@ -358,7 +377,8 @@ To use Composer to instantly create a project in the current folder with all the
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }'
         composer update
         ```
