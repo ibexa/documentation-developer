@@ -672,6 +672,8 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 
 For more information, see the following security advisories:
 
+PHP 8.0 and PHP 7.4
+
 * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
 * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
 * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
@@ -689,6 +691,15 @@ For more information, see the following security advisories:
 * [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
 * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
 * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+* [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
+
+PHP 7.4 only
+
+* [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
+* [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
+* [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
+* [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
+* [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
 To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
 
@@ -712,6 +723,11 @@ If you choose to implement countermeasures without upgrading PHP and updating Tw
 "config": {
     "audit": {
         "ignore": {
+            "PKSA-fbvq-z33h-r2np": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-g9zw-qxh8-pq8w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yd6k-t2gh-1m43": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-1tmc-rt7x-12w6": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-xx6c-6d96-db2w": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
@@ -728,7 +744,8 @@ If you choose to implement countermeasures without upgrading PHP and updating Tw
             "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-fs5b-x5k4-1h39": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }
     }
 }
