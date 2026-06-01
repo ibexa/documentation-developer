@@ -50,7 +50,7 @@ If no pattern is provided, the system automatically uses the first field.
 
 ??? note "Pattern examples"
 
-    The following pattern takes the value of the field with the identifier `title` (which is required):
+    The following pattern takes the value of the field with the identifier `title` (which should be required):
     ```
     <title>
     ```
