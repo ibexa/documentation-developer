@@ -31,7 +31,7 @@ Once configured, the system performs:
 - an initial synchronization of product data from Quable
 - ongoing updates via webhooks (near real-time)
 
-Product data is mapped to the [[= product_name =]]'s product data model, including variants, attributes and [product categorties](product_catalog_guide.md#product-taxonomy).
+Product data is mapped to the [[= product_name =]]'s product data model, including variants, attributes and [product categories](product_catalog_guide.md#product-taxonomy).
 
 This data is then available in the back office, content editing tools like [Online Editor](online_editor_guide.md) and [Page Builder](page_builder_guide.md), and APIs.
 

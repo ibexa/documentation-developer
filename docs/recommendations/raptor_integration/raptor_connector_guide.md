@@ -68,13 +68,17 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
     - [Most popular content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-content-block)
     - [Other customers have also seen this content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-this-content-block)
     - [Personalized content recommendations]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#personalized-content-recommendations-block)
+    - [User’s content history]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#users-content-history-block)
 - **Recommendations: Product** - displays product suggestions based on visitors’ browsing history:
+    - [Items associated with the given Content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#items-associated-with-the-given-content-block)
     - [Most popular products]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-products-block)
     - [Most popular products in category]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-products-in-category-block)
     - [Other customers have also seen]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-block)
 - **Recommendations: Commerce** - shows recommendations based on visitors' purchase history (buy and basket events):
     - [Other customers have also purchased block]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-purchased-block)
     - [The Personal Shopping Assistant]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-block)
+    - [The Personal Shopping Assistant (additional sales)]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-additional-sales-block)
+    - [The Personal Shopping Assistant (conversion)]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-conversion-block)
     - [User's item history]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#users-item-history-block)
 
 ![Recommendation blocks](recommendation_blocks.png)

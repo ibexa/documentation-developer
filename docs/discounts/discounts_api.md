@@ -156,7 +156,7 @@ The example below contains a Command creating a cart discount. The discount:
     - a `summer10` [discount code](#discount-codes) which can be used only 10 times, but a single customer can use the code multiple times
 
 ``` php hl_lines="46-53 55-81 83"
-[[= include_file('code_samples/discounts/src/Command/ManageDiscountsCommand.php') =]]
+[[= include_code('code_samples/discounts/src/Command/ManageDiscountsCommand.php') =]]
 ```
 
 Similarly, use the `deleteDiscount`, `deleteTranslation`, `disableDiscount`, `enableDiscount`, and `updateDiscount` methods from the [DiscountServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) to manage the discounts. You can always attach additional logic to the Discounts API by listening to the [available events](discounts_events.md).
@@ -181,5 +181,5 @@ The example below shows how you can use:
 - [`OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) to display discount details for [orders](order_management.md)
 
 ``` php hl_lines="51-52 58-59 61-74 78-104"
-[[= include_file('code_samples/discounts/src/Command/OrderPriceCommand.php') =]]
+[[= include_code('code_samples/discounts/src/Command/OrderPriceCommand.php') =]]
 ```

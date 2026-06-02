@@ -40,7 +40,7 @@ For further details on which calls are cached or not, see details in the [Symfon
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
 - [[= product_name_base =]] tab: shows calls made to database back end, and if they're cached or not
 
-To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
+To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/5.0/src/lib/Persistence/Cache/Readme.md).
 
 ## Persistence cache configuration
 
@@ -124,7 +124,7 @@ parameters:
 ### Redis/Valkey
 
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
-Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
+Redis is used via [Redis PECL extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
 
@@ -277,6 +277,20 @@ return $myObject;
 For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
 
 ### Clearing persistence cache
+
+!!! caution "Always clear the persistence with `cache:pool:clear` command"
+
+    Running `php bin/console cache:clear` doesn't clear the persistence cache, even when you use a filesystem-based cache pool.
+
+    You must always clear the persistence cache by running:
+
+    ```bash
+    php bin/console cache:pool:clear <cache-pool>
+    ```
+
+    The default cache pool is named `cache.tagaware.filesystem`.
+    The default cache pool when running Redis or Valkey is named `cache.redis`.
+    If you have customized the persistence cache configuration, the name of your cache pool might be different.
 
 Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 

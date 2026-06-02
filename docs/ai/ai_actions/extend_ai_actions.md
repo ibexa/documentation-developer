@@ -14,7 +14,7 @@ For example, you can create a handler that connects to a translation model and u
 You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 86, 105, remove_indent=True) =]]
+[[= include_code('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 87, 105, remove_indent=True) =]]
 ```
 
 The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.
@@ -44,7 +44,7 @@ Below you can find the full example of a Symfony Command, together with a matchi
 The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
 
 ``` php hl_lines="72 85-110"
-[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php') =]]
+[[= include_code('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php') =]]
 ```
 
 ``` yaml
@@ -77,7 +77,7 @@ See [Action Configuration Search Criteria reference](action_configuration_criter
 The following example creates a new Action Configuration:
 
 ``` php hl_lines="3 17"
-[[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 46, 63, remove_indent=True) =]]
+[[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 47, 63, remove_indent=True) =]]
 ```
 
 Actions Configurations are tied to a specific Action Type and are translatable.
@@ -88,7 +88,7 @@ Reuse existing Action Configurations to simplify the execution of AI Actions.
 You can pass one directly to the `ActionServiceInterface::execute()` method:
 
 ``` php hl_lines="7-8"
-[[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 64, 72, remove_indent=True) =]]
+[[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 65, 72, remove_indent=True) =]]
 ```
 
 The passed Action Configuration is only taken into account if the Action Context was not passed to the Action directly using the [ActionInterface::setActionContext()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html#method_hasActionContext) method.
@@ -117,7 +117,7 @@ Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_re
 See the code sample below, together with a matching service definition:
 
 ``` php hl_lines="17 25-28 30-65 67-70"
-[[= include_file('code_samples/ai_actions/src/AI/Handler/LLaVaTextToTextActionHandler.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/Handler/LLaVaTextToTextActionHandler.php') =]]
 ```
 
 ``` yaml
@@ -137,7 +137,7 @@ Form configuration makes the Handler configurable by using the back office.
 The example handler uses the `system_prompt` option, which becomes part of the Action Configuration UI thanks to the following code:
 
 ``` php hl_lines="16-20"
-[[= include_file('code_samples/ai_actions/src/Form/Type/TextToTextOptionsType.php') =]]
+[[= include_code('code_samples/ai_actions/src/Form/Type/TextToTextOptionsType.php') =]]
 ```
 
 ``` yaml
@@ -180,7 +180,7 @@ The class needs to define following  parameters of the Action Type:
 - Action object
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/ActionType/TranscribeAudioActionType.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/ActionType/TranscribeAudioActionType.php') =]]
 ```
 
 ``` yaml
@@ -203,13 +203,13 @@ The `TranscribeAudio` Action Type requires adding two data classes that exist in
 - an `Audio` class, implementing the [DataType interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-DataType.html), to store the input data for the Action
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/DataType/Audio.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/DataType/Audio.php') =]]
 ```
 
 - an `TranscribeAudioAction` class, implementing the [ActionInterface interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html). Pass this object to the `ActionServiceInterface::execute()` method to execute the action.
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/Action/TranscribeAudioAction.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/Action/TranscribeAudioAction.php') =]]
 ```
 
 ### Create custom Action Type options form
@@ -218,7 +218,7 @@ Custom Form Type is needed if the Action Type requires additional options config
 The following example adds a checkbox field that indicates to the Action Handler whether the transcription should include the timestamps.
 
 ``` php hl_lines="16-20"
-[[= include_file('code_samples/ai_actions/src/Form/Type/TranscribeAudioOptionsType.php') =]]
+[[= include_code('code_samples/ai_actions/src/Form/Type/TranscribeAudioOptionsType.php') =]]
 ```
 
 ``` yaml
@@ -234,7 +234,7 @@ The language of the transcribed data is extracted from the Runtime Context for b
 The Action Type options provided in the Action Context dictate whether the timestamps will be removed before returning the result.
 
 ``` php hl_lines="34-37 52-55"
-[[= include_file('code_samples/ai_actions/src/AI/Handler/WhisperAudioToTextActionHandler.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/Handler/WhisperAudioToTextActionHandler.php') =]]
 ```
 
 ``` yaml
@@ -244,7 +244,7 @@ The Action Type options provided in the Action Context dictate whether the times
 ### Integrate with the REST API
 
 At this point the custom Action Type can already be executed by using the PHP API.
-To integrate it with the [AI Actions execute endpoint](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data.
+To integrate it with the [AI Actions execute endpoint](/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data.
 See [adding custom media type](adding_custom_media_type.md) and [creating new REST resource](creating_new_rest_resource.md) to learn more about extending the REST API.
 
 #### Handle input data
@@ -252,7 +252,7 @@ See [adding custom media type](adding_custom_media_type.md) and [creating new RE
 Start by creating an Input Parser able to handle the `application/vnd.ibexa.api.ai.TranscribeAudio` media type.
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/REST/Input/Parser/TranscribeAudio.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/REST/Input/Parser/TranscribeAudio.php') =]]
 ```
 
 ``` yaml
@@ -262,7 +262,7 @@ Start by creating an Input Parser able to handle the `application/vnd.ibexa.api.
 The `TranscribeAudioAction` is a value object holding the parsed request data.
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/REST/Value/TranscribeAudioAction.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/REST/Value/TranscribeAudioAction.php') =]]
 ```
 
 #### Handle output data
@@ -272,14 +272,14 @@ To transform the `TranscribeAudioAction` into a REST response you need to create
 - An `AudioText` value object holding the REST response data
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/REST/Value/AudioText.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/REST/Value/AudioText.php') =]]
 ```
 
 - A resolver converting the Action Response returned from the PHP API layer into the `AudioText` object.
 The resolver is activated when `application/vnd.ibexa.api.ai.AudioText` media type is specified in the `Accept` header:
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/REST/Output/Resolver/AudioTextResolver.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/REST/Output/Resolver/AudioTextResolver.php') =]]
 ```
 
 ``` yaml
@@ -290,7 +290,7 @@ The resolver is activated when `application/vnd.ibexa.api.ai.AudioText` media ty
 
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/AI/REST/Output/ValueObjectVisitor/AudioText.php') =]]
+[[= include_code('code_samples/ai_actions/src/AI/REST/Output/ValueObjectVisitor/AudioText.php') =]]
 ```
 
 ``` yaml

@@ -4,13 +4,125 @@ title: Ibexa DXP v5.0 LTS
 month_change: true
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 [[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.8' %]]
+[[% set date = '2026-05-21' %]]
+
+[[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+MCP servers make it easier for AI agents to discover the available interactions with [[= product_name =]].
+With the MCP Servers feature, you can configure multiple MCP servers with their specific sets of tools.
+
+For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-003-vulnerabilities-in-forms-submissions-rest-sessions-and-solr-logs).
+
+### Raptor connector
+
+#### New recommendation blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Four new recommendation blocks are available in Page Builder:
+
+- **User's content history** compiles a chronological list of recently interacted content or a list of most interacted content
+- **Items associated with the given Content** generates a list of complementary and relevant products that customers often view with a given content
+- **The Personal Shopping Assistant (additional sales)** encourages additional purchases by suggesting complementary cross-selling items
+- **The Personal Shopping Assistant (conversion)** helps users discover better product matches by suggesting similar items based on their activity
+
+For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/).
+
+#### Cookie lifetime configuration
+
+A new `cookie_id_lifetime_days` configuration option controls the lifetime in days of the server-side tracking identifier cookie.
+
+For more information, see [connector installation and configuration](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/connector_installation_configuration/).
+
+### Anonymous user segmentation in [[= product_name_cdp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+[[= product_name_cdp =]] can now build audiences for anonymous visitors.
+Use them in [[= product_name =]] to deliver personalized experiences even before users log in.
+
+For more information, see [Anonymous user segmentation](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
+
+### Gaussian blur optimization in Image Editor
+
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configuring the strength of the gaussian blur that is used for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
+
+### Developer experience
+
+#### Repeatable migration steps with items
+
+The `repeatable` migration type now supports an `items` key, allowing you to provide a list of items to iterate over, similar to a `foreach` loop.
+
+For more information, see [Repeatable steps with items](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#repeatable-steps-with-items).
+
+#### Twig Component groups
+
+Three new [Twig Component groups](https://doc.ibexa.co/en/5.0/templating/components/) are added to the back office:
+
+- `admin-ui-content-column-end`
+- `admin-ui-content-translations-row-actions`
+- `admin-ui-form-product-add-translation-body`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+
+#### PHP API
+
+##### Product API: Computed availability for products
+
+[`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) now uses separate values for availability and computed availability:
+
+- `getAvailability()` returns whether the product or variant is manually set as available
+- `getComputedAvailability()` returns whether the product or variant can be ordered, for example, based on its stock level
+
+For more information, see [Availability and computed availability](https://doc.ibexa.co/en/5.0/product_catalog/products/#product-availability-and-stock).
+
+##### Workflow API: new `loadWorkflowMetadataForVersionInfo` method
+
+The new [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo) method loads workflow information directly from a [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object, without loading the content item.
+
+For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow_api/#getting-workflow-information).
+
+##### Addition summary
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+- [`Ibexa\Contracts\Cdp\Membership`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+- [`Ibexa\Contracts\Mcp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.7' %]]
+[[% set date = null %]]
 
 [[= release_note_entry_begin(
     "Google Gemini connector " + version,

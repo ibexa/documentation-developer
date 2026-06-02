@@ -1,9 +1,7 @@
 ---
 description: Extend Discounts by adding your own rules and conditions
-editions:
-    - lts-update
-    - commerce
 month_change: false
+edition: commerce
 ---
 
 # Extend Discounts
@@ -55,7 +53,7 @@ It's a [`DateTime`](https://www.php.net/manual/en/class.datetime.php) object wit
 To add it, create a class implementing the [`DiscountVariablesResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountVariablesResolverInterface.html):
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/ExpressionProvider/CurrentUserRegistrationDateResolver.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/ExpressionProvider/CurrentUserRegistrationDateResolver.php') =]]
 ```
 
 And mark it as a service using the `ibexa.discounts.expression_language.variable_resolver` service tag:
@@ -73,7 +71,7 @@ The function accepts an optional argument, `tolerance`, allowing you to extend t
 This implementation is simplified and does not cover the approach for accounts created on February 29 during leap years.
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/ExpressionProvider/IsAnniversaryResolver.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/ExpressionProvider/IsAnniversaryResolver.php') =]]
 ```
 
 Mark it as a service using the `ibexa.discounts.expression_language.function` service tag and specify the function name in the service definition.
@@ -109,7 +107,7 @@ It allows you to offer a special discount for customers on the date when their a
 Create the condition by creating a class implementing the [`DiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html):
 
 ``` php hl_lines="29-32"
-[[= include_file('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversary.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversary.php') =]]
 ```
 
 This condition can be used in both catalog and cart discounts.
@@ -130,7 +128,7 @@ For each custom condition class, you must create a dedicated condition factory, 
 This allows you to create conditions when working in the context of the Symfony service container.
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversaryConditionFactory.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversaryConditionFactory.php') =]]
 ```
 
 Mark it as a service using the `ibexa.discounts.condition.factory` service tag and specify the condition's identifier.
@@ -163,7 +161,7 @@ You could use it, for example, in regions sharing the same currency and apply th
 To implement a custom rule, create a class implementing the [`DiscountRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html).
 
 ``` php hl_lines="35-38"
-[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php') =]]
 ```
 
 The `getExpression()` method contains the logic of the rule, expressed using the variables and functions available in the expression engine.
@@ -178,7 +176,7 @@ It uses three expressions:
 As with conditions, create a dedicated rule factory:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRuleFactory.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRuleFactory.php') =]]
 ```
 
 Then, mark it as a service using the `ibexa.discounts.rule.factory` service tag and specify the rule's type.
@@ -204,7 +202,7 @@ You must implement a custom formatter for each custom rule.
 To do it, create a class implementing the [`DiscountValueFormatterInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountValueFormatterInterface.html) and use the `ibexa.discounts.value.formatter` service tag:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchaseParityValueFormatter.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Rule/PurchaseParityValueFormatter.php') =]]
 ```
 
 ``` yaml
@@ -219,10 +217,10 @@ To do it, create a class implementing the [`DiscountValueFormatterInterface`](/a
 You can change the [the default discount priority](discounts_guide.md#discounts-priority) by creating a class implementing the [`DiscountPrioritizationStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountPrioritizationStrategyInterface.html) and aliasing to it the default implementation.
 
 The example below decorates the default implementation to prioritize recently updated discounts above all the others.
-It uses one of the existing [discount search criterions](discounts_criteria.md).
+It uses one of the existing [discount search criteria](discounts_criteria.md).
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/RecentDiscountPrioritizationStrategy.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/RecentDiscountPrioritizationStrategy.php') =]]
 ```
 
 ``` yaml

@@ -7,13 +7,24 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## April 2026
+
+### Releases
+
+- [v5.0.7 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v507)
+- [v4.6.29 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4629)
+
+### Configuration
+
+- Added trailing slashes to all `excluded_uri_prefixes` items to avoid collision with other URIs (for example, `/media` matches on both `/media` and `/mediation` while `/media/` only on `/media/`)
+
 ## March 2026
 
 ### Products
 
-- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/pim/pim_guide/#virtual-and-physical-products)
-- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/pim/product_api/#creating-product-types)
-- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/pim/create_custom_attribute_type/#storage-definition)
+- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide/#virtual-and-physical-products)
+- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/product_catalog/product_api/#creating-product-types)
+- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/product_catalog/create_custom_attribute_type/#storage-definition)
 
 ### Collaborative editing
 
@@ -368,7 +379,7 @@ Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/p
 You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
 Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
 
-Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the bulding blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
+Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the building blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
 
 #### REST API
 
@@ -623,7 +634,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Trainings
 
-- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
+- The Content Editor Training has been released. Learn more in the [announcement blog post](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
 
 ### Infrastructure and maintenance
 
@@ -673,7 +684,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Search
 
 - New [`IsBookmarked` location criterion](https://doc.ibexa.co/en/4.6/search/criteria_reference/isbookmarked_criterion/)
-- [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/4.6/search/criteria_reference/isuserenabled_criterion/)
+- [`IsUserEnabled` is now available on Solr and Elasticsearch](https://doc.ibexa.co/en/4.6/search/criteria_reference/isuserenabled_criterion/)
 
 ### Documentation
 
@@ -1069,7 +1080,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Storefront
 
-- [Display language name instead of its code in language swticher](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
+- [Display language name instead of its code in language switcher](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
 
 ### Templating
 

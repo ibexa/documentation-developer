@@ -14,4 +14,5 @@ You can customize various areas of the product catalog capabilities to adjust it
     "product_catalog/create_custom_name_schema_strategy",
     "product_catalog/customize_product_attribute_templates",
     "product_catalog/customize_product_embed_templates",
+    "product_catalog/create_custom_availability_strategy",
 ], columns=4) =]]

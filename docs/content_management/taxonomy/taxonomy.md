@@ -36,7 +36,7 @@ Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration
 
 ``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 16) =]]
 ```
 
 Replace `<content_categories_remote_id>` with the new container's location remote ID.
@@ -63,7 +63,7 @@ You can hide the **Content** tab in the **Categories** view.
 
 In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
 
-``` yaml
+``` yaml hl_lines="11"
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
@@ -73,7 +73,7 @@ In configuration add `assigned_content_tab` with the flag `false` (for other tax
 By default, for each taxonomy, a menu item is added to the main menu.
 You can hide this menu item by setting a value of the `register_main_menu` configuration key:
 
-``` yaml
+``` yaml hl_lines="6"
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 10) =]]            # existing keys
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 17, 18) =]]
@@ -254,7 +254,7 @@ ibexa:
             default_embedding_model: 'text-embedding-ada-002'
 ```
 
-!!! warning "Change both embedding generation models"
+!!! caution "Change both embedding generation models"
 
     When you change the default suggestions generation model, ensure that you update the `ibexa.system.default.taxonomy.search.default_embedding_model` setting that is used for taxonomy indexing purposes.
     Otherwise the taxonomy suggestions feature fails to find matching entries.

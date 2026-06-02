@@ -31,7 +31,7 @@ Lines 41-51 handle the conversion of content into an XML string:
 
 
 ``` php hl_lines="32 41 42 43 44 45 46 47 48 49 50 51"
-[[= include_file('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
+[[= include_code('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
 
 Now you can create [templates](templates.md) that are used for displaying and configuring your block.

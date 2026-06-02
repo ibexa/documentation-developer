@@ -61,6 +61,19 @@ $output->writeln($result->getName());
     $query->limit = 100;
     ```
 
+#### Disable result count
+
+By default, a search query also counts all matching results.
+If you don't need the total count, set `performCount` to `false` on [`Query`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html) or [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) to improve performance, especially for large result sets.
+
+``` php
+[[= include_code('code_samples/api/public_php_api/src/perform_count.php', 8, 10) =]]
+
+[[= include_code('code_samples/api/public_php_api/src/perform_count.php', 14, 16) =]]
+```
+
+When `performCount` is set to `false`, `$result->totalCount` is `null`.
+
 #### Search with `query` and `filter`
 
 You can use two properties of the `Query` object to search for content: `query` and `filter`.
@@ -206,7 +219,7 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ### Paginate search results
 
-To paginate search or filtering results, it's recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
+To paginate search or filtering results, it's recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
 
 ``` php
 // ...
@@ -227,12 +240,12 @@ For more information and examples, see [PagerFanta documentation](https://www.ba
 
 | Adapter class name                                                                                                               | Description                                                                                                                                                                                                                               |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`ContentSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentSearchAdapter.php)         | Makes a search against passed Query and returns [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) objects.                                                                  |
-| [`ContentSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentSearchHitAdapter.php)   | Makes a search against passed Query and returns [`SearchHit`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                               |
-| [`LocationSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)       | Makes a location search against passed Query and returns [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html) objects.                                                       |
-| [`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php) | Makes a location search against passed Query and  returns [`SearchHit`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                     |
-| [`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)   | Applies a Content filter and returns a [`ContentList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) object.                                                                    |
-| [`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php) | Applies a location filter and returns a [`LocationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) object.                                                                 |
+| [`ContentSearchAdapter`](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/ContentSearchAdapter.php)         | Makes a search against passed Query and returns [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) objects.                                                                  |
+| [`ContentSearchHitAdapter`](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/ContentSearchHitAdapter.php)   | Makes a search against passed Query and returns [`SearchHit`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                               |
+| [`LocationSearchAdapter`](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)       | Makes a location search against passed Query and returns [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html) objects.                                                       |
+| [`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php) | Makes a location search against passed Query and  returns [`SearchHit`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                     |
+| [`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)   | Applies a Content filter and returns a [`ContentList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) object.                                                                    |
+| [`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/5.0/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php) | Applies a location filter and returns a [`LocationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) object.                                                                 |
 | <nobr>`AttributeDefinitionListAdapter`</nobr>                                                                                    | Makes a search for product attributes and returns an [`AttributeDefinitionListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeDefinition-AttributeDefinitionListInterface.html) object. |
 | `AttributeGroupListAdapter`                                                                                                      | Makes a search for product attribute groups and returns an [`AttributeGroupListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupListInterface.html) object.          |
 | `CurrencyListAdapter`                                                                                                            | Makes a search for currencies and returns a [`CurrencyListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Currency-CurrencyListInterface.html) object.                                           |
@@ -266,7 +279,7 @@ The example below uses the `LogicalNot` operator to search for all content conta
 that doesn't belong to the provided Section:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 47, 54) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 47, 54, remove_indent=True) =]]
 ```
 
 ### Combine independent Criteria
@@ -299,7 +312,7 @@ To sort the results of a query, use one of more [Sort Clauses](sort_clause_refer
 For example, to order search results by their publication date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 56, 59) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 56, 59, remove_indent=True) =]]
 ```
 
 !!! tip
@@ -317,7 +330,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 35) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 35, remove_indent=True) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -325,13 +338,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 40) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 40, remove_indent=True) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 45) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 45, remove_indent=True) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific field.
@@ -340,14 +353,14 @@ In this case the aggregation takes the content type identifier and the field ide
 The following example creates an aggregation named `selection` that groups results according to the value of the `topic` field in the `article` content type:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 36, 36) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 36, 36, remove_indent=True) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
 The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 33) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 33, remove_indent=True) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.
