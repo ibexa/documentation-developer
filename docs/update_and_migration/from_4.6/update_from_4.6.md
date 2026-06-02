@@ -698,7 +698,7 @@ If you're using PHP 7.4 or 8.0, to do the [[= product_name =]] update, you have 
 
 #### Update PHP, the custom code, then the platform (recommended)
 
-Make sure to use on PHP 8.1 or higher.
+Make sure to use PHP 8.1 or higher. Since PHP 8.1 has reached its End of Life (EOL), it's recommended that you use PHP 8.2 or higher.
 Migrate custom code to be compatible with PHP 8.1 or higher, for example by using [Rector](https://github.com/rectorphp/rector).
 Then, update Ibexa DXP.
 
