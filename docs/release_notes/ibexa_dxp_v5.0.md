@@ -55,7 +55,7 @@ For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/re
 You can now configure which product category is sent in tracking events.
 
 By default, the connector uses the first category assigned to a product.
-Since Raptor accepts only a single category value, you can override this behavior and select a different category to be included in tracking events.
+Raptor accepts only a single category value, but you can override this behavior and select a different category to be included in tracking events.
 
 To learn more, see [category parameter for product events](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_php_api/#category-parameter-for-product-events).
 
