@@ -50,6 +50,15 @@ Four new recommendation blocks are available in Page Builder:
 
 For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/).
 
+#### Category parameter for product events
+
+You can now configure which product category is sent in tracking events.
+
+By default, the connector uses the first category assigned to a product.
+Since Raptor accepts only a single category value, you can override this behavior and select a different category to be included in tracking events.
+
+To learn more, see [category parameter for product events](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_php_api/#category-parameter-for-product-events).
+
 #### Cookie lifetime configuration
 
 A new `cookie_id_lifetime_days` configuration option controls the lifetime in days of the server-side tracking identifier cookie.
