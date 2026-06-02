@@ -65,12 +65,6 @@ A new `cookie_id_lifetime_days` configuration option controls the lifetime in da
 
 For more information, see [connector installation and configuration](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/connector_installation_configuration/).
 
-#### Category parameter for product events
-
-You can define which product category is sent in tracking events.
-
-For more information, see [Category parameter for product events](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_php_api/#category-parameter-for-product-events).
-
 ### Anonymous user segmentation in [[= product_name_cdp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_cdp =]] can now build audiences for anonymous visitors.
