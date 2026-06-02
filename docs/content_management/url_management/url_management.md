@@ -175,11 +175,11 @@ ibexa:
                     cleanup_method: url_cleanup
 ```
 
-| Option                | Description                                                                                               |
-|-----------------------|-----------------------------------------------------------------------------------------------------------|
-| `transformation`        | Indicates which pattern is used by default.                                                            |
-| `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
-| `transformation_groups` | Contains the available patterns for URL generation.                                                       |
+| Option                               | Description                                                                                               |
+|--------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| `transformation`                     | Indicates which pattern is used by default.                                                               |
+| `separator`                          | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
+| <nobr>`transformation_groups`</nobr> | Contains the available patterns for URL generation.                                                       |
 
 A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/5.0/src/lib/Resources/slug_converter/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/5.0/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
 
@@ -201,7 +201,6 @@ Use it when:
 !!! caution
 
     Before you apply the command, back up your database and make sure it's not modified while the command is running.
-
 
 Execute the following command to regenerate aliases:
 

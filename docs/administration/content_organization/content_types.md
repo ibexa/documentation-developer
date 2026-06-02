@@ -91,12 +91,41 @@ If no pattern is provided, the system automatically uses the first field.
 
     **Notice that the group in parenthesis is always final, it's used even if outputing an empty string and any other piped optional patern after it is always ignored.**
 
+    The following pattern combines several field values and literal text,
+    showing that you can use any characters outside the angle brackets:
+    ```
+    <event_name> (<event_city>) | <event_begin> - <event_end>
+    ```
+    
+     - Input-output example:
+        - `event_name`: "*Ibexa Summit 2026*"
+        - `event_location`: "*Lisbon*"
+        - `event_begin`: "2026-02-05T09:00:00"
+        - `event_end`: "2026-02-06T16:30:00"
+        - Generated content name: "*Ibexa Summit 2026 (Lisbon) | Thu 2026-05-02 08:00:00 - Fri 2026-06-02 15:30:00*" (notice that the date and time where moved from GMT+1 to GMT)
+
 **URL alias name pattern** –
 a pattern which controls how the virtual URLs of the locations are generated when content items are created based on this content type (optional).
 Only the last part of the virtual URL is affected.
 The pattern works in the same way as the content name pattern.
-Text outside the angle brackets is converted with the selected method of URL transformation.
 If no pattern is provided, the system automatically uses the name of the content item itself.
+The resulting name is then [transformed using the slug converter to be part of the final URL alias (System URL)](url_management.md#url-alias-pattern-configuration).
+
+??? note "Pattern examples"
+
+    The following pattern combine several mandatory field values.
+    The slug converter use the out-of-the-box default `urlalias_lowercase` transformation.
+    ```
+    <event_name> (<event_city>) | <event_begin> - <event_end>
+    ```
+    
+     - Input-output example:
+        - `event_name`: "*Ibexa Summit 2026*"
+        - `event_location`: "*Lisbon*"
+        - `event_begin`: "2026-02-05T09:00:00"
+        - `event_end`: "2026-02-06T16:30:00"
+        - Generated URL alias name: "*Ibexa Summit 2026 (Lisbon) | Thu 2026-05-02 08:00:00 - Fri 2026-06-02 15:30:00*"
+        - Generated URL alias slug: `ibexa-summit-2026-lisbon-thu-2026-05-02-08-00-00-fri-2026-06-02-15-30-00`
 
 !!! tip "Changing URL alias and content name patterns"
 
