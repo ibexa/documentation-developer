@@ -466,7 +466,7 @@ To use Elasticsearch 8, follow these steps:
 Replace the existing Elasticsearch package and install Elasticsearch 8:
 
 ```bash
-composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]]
+composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]] --with-all-dependencies
 ```
 
 #### Update Elasticsearch server
