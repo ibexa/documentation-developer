@@ -14,10 +14,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [v5.0.8 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v508)
 - [v4.6.30 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4630)
 
-### AI & MCP
+### AI
 
-- Added documentation for [MCP Servers](mcp.md)
-- Grouped [AI Actions](ai_actions.md) and MCP Servers under [AI](ai.md)
+- Grouped [AI Actions](ai_actions.md) and [MCP Servers](mcp.md) under [AI](ai.md)
 
 ### Search
 
@@ -42,6 +41,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
     - [`Ibexa\Contracts\Mcp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
 
+### DDEV
+
+- Added how to [configure a mail catcher in DDEV](install_with_ddev.md#configure-mailer-optional) for email testing
+
 ## April 2026
 
 ### Releases
@@ -52,6 +55,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Configuration
 
 - Added trailing slashes to all `excluded_uri_prefixes` items to avoid collision with other URIs (for example, `/media` matches on both `/media` and `/mediation` while `/media/` only on `/media/`)
+
+### PHP API
+
+- [`Ibexa\Contracts\ConnectorRaptor`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
+- [`Ibexa\Contracts\IntegratedHelp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
 
 ## March 2026
 
