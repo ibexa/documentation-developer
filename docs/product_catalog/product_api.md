@@ -1,6 +1,6 @@
 ---
 description: Use PHP API to manage products in PIM, their attributes, availability, and prices.
-month_change: false
+month_change: true
 ---
 
 # Product API
