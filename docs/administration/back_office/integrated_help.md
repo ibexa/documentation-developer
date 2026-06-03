@@ -1,7 +1,7 @@
 ---
 description: Integrated help provides quick access to documentation, training, and support resources.
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Integrated help

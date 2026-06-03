@@ -1,5 +1,5 @@
 ---
-month_change: true
+month_change: false
 description: Embedding queries, embedding configuration, providers, and embedding search fields
 ---
 
