@@ -32,6 +32,16 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Listed the [value types supported by the response taggers](content_aware_cache.md#delegator-and-value-taggers)
 
+### PHP API
+
+- Enhanced the PHP API reference with the following new classes and namespaces:
+    - [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+    - [`Ibexa\Contracts\Cdp\Membership`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+    - [`Ibexa\Contracts\Mcp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
 ## April 2026
 
 ### Releases
