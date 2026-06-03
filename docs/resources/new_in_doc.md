@@ -7,6 +7,31 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## May 2026
+
+### Releases
+
+- [v5.0.8 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v508)
+- [v4.6.30 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4630)
+
+### AI & MCP
+
+- Added documentation for [MCP Servers](mcp.md)
+- Grouped [AI Actions](ai_actions.md) and MCP Servers under [AI](ai.md)
+
+### Search
+
+- Documented how to [disable the total count in search results](search_api.md#disable-result-count)
+
+### Notifications
+
+- Covered the [notification channels](notification_channels.md) feature from `ibexa/notifications` package
+- Revamped the [back office notifications documentation](notifications.md)
+
+### HTTP Cache
+
+- Listed the [value types supported by the response taggers](content_aware_cache.md#delegator-and-value-taggers)
+
 ## April 2026
 
 ### Releases
