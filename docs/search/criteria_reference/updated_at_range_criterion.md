@@ -1,6 +1,6 @@
 ---
 description: UpdatedAtRange Search Criterion
-month_change: true
+month_change: false
 ---
 
 # UpdatedAtRange Criterion

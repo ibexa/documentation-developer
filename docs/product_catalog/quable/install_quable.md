@@ -1,6 +1,6 @@
 ---
 description: Install and configure Quable PIM connector for Ibexa DXP
-month_change: true
+month_change: false
 ---
 
 # Install Quable connector

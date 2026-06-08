@@ -1,7 +1,7 @@
 ---
 description: Ibexa DXP provides product catalog capabilities for managing products, product types, variants, attributes, pricing, and catalogs.
 page_type: landing_page
-month_change: true
+month_change: false
 ---
 
 # Product Catalog
