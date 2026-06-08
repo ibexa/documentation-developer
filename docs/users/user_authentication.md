@@ -50,7 +50,7 @@ and configure the firewall to use the `chain` provider:
 ```
 
 In the `config/services.yaml` file, declare the subscriber as a service to pass your user map
-(it's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface`, the user service injection is auto-wired):
+(it's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface`, the config resolver and user service injections are auto-wired):
 
 ``` yaml
 [[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
