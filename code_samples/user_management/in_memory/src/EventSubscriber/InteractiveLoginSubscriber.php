@@ -28,10 +28,11 @@ final readonly class InteractiveLoginSubscriber implements EventSubscriberInterf
     public function onInteractiveLogin(InteractiveLoginEvent $event): void
     {
         $tokenUser = $event->getAuthenticationToken()->getUser();
-        if ($tokenUser instanceof InMemoryUser) {
-            $userLogin = $this->userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
-            $ibexaUser = $this->userService->loadUserByLogin($userLogin);
-            $event->getAuthenticationToken()->setUser(new User($ibexaUser));
+        if (!$tokenUser instanceof InMemoryUser) {
+            return;
         }
+        $userLogin = $this->userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
+        $ibexaUser = $this->userService->loadUserByLogin($userLogin);
+        $event->getAuthenticationToken()->setUser(new User($ibexaUser));
     }
 }
