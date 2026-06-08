@@ -67,17 +67,17 @@ You can solve this issue in one of the following ways:
 
 Varnish configuration:
 
-- [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
-- [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
-- [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
-- [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
+- [`http_resp_hdr_len`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
+- [`http_max_hdr`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
+- [`http_resp_size`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
+- [`workspace_backend`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
 
-If you need to see these long headers in `varnishlog`, adapt the [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
+If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
 
 Nginx has a default limit of 4k/8k when buffering responses:
 
-- For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [proxy_buffer_size](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
-- For FastCGI setup using fastcgi module, configure [fastcgi_buffer_size](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
+- For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [`proxy_buffer_size`](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
+- For FastCGI setup using fastcgi module, configure [`fastcgi_buffer_size`](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
 
 Fastly has a `Surrogate-Key` header limit of 16 kB, and this cannot be changed.
 
@@ -106,7 +106,7 @@ parameters:
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
-```
+```http
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
@@ -140,6 +140,17 @@ The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurat
 For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the content from the `ContentView` and passes it to the `ContentInfoTagger`.
 - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
+The built-in taggers support the following value types:
+
+- [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
+- [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)
+- Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
+- Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
+
+!!! caution
+
+    If a value of any other type is passed (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), no tagger matches and the call has no effect.
+
 ## DispatcherTagger
 
 Accepts any value and passes it on to every tagger registered with the service tag `ibexa.cache.http.response.tagger`.
@@ -150,17 +161,10 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1\. Reusing `DispatcherTagger` to pick correct tags.
 
-Examples for tagging everything needed for content using the autowireable `ResponseTagger` interface:
+Examples for tagging everything needed for content using the autowireable [`ResponseTagger`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html) interface:
 
-``` php
-/** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
-
-// If you have a View object you can simply call:
-$responseTagger->tag($view);
-
-// Or if you have content / Location object only, you can instead provide content info and Location:
-$responseTagger->tag($contentInfo);
-$responseTagger->tag($location);
+``` php hl_lines="3 6 9"
+[[= include_code('code_samples/cache/http_cache/src/response_tagging.php', 3, 11) =]]
 ```
 
 2\. Use `ContentTagInterface` API for content related tags.
@@ -258,7 +262,7 @@ All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CacheP
 Below is an example of a content structure.
 The tags which the content view controller adds to each location are also listed:
 
-```
+```text
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -291,7 +295,7 @@ With the same content structure as above, the `[Child]` location is moved below 
 
 The new structure is then:
 
-```
+```yaml
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -374,7 +378,7 @@ If you run the command multiple times:
 
 it always outputs:
 
-```
+```http
 HTTP/2 200
 (...)
 x-cache: MISS
@@ -450,7 +454,7 @@ Some notes about each of these parameters:
 
 The output for this command should look similar to this:
 
-```
+```http
     HTTP/1.1 200 OK
     Server: nginx/1.27.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -478,7 +482,7 @@ Now you have the user-context-hash, and you can ask origin for the actual resour
 
 The output :
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -531,7 +535,7 @@ This ESI is handled by a controller in the `FieldTypePage` bundle provided by [[
 
 The output is:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -559,7 +563,7 @@ This ESI is handled by a custom `FooController::customAction` and the output of 
 
 Output:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8

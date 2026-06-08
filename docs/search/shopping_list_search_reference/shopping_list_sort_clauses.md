@@ -1,7 +1,7 @@
 ---
 description: Shopping list search sort clauses help define result order of search queries for shopping lists.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list search sort clauses reference
@@ -19,7 +19,7 @@ The following example returns all the shopping lists available to the current us
 The returned shopping list are sorted with the default shopping list on top, followed by the rest sorted by their name.
 
 ```php hl_lines="10-11"
-[[= include_file('code_samples/shopping_list/search/sort_clauses.php', 2) =]]
+[[= include_code('code_samples/shopping_list/search/sort_clauses.php', 3, remove_indent=True) =]]
 ```
 
 For more information about shopping lists search, see [List and search shopping lists](shopping_list_api.md#list-and-search-shopping-lists).

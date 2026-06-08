@@ -1,7 +1,7 @@
 ---
 description: Learn how to integrate the shopping list features to your own online store design.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list design
@@ -65,7 +65,7 @@ To have a more complete example, let's continue with a product full view templat
 
 In `src/Controller/ProductViewController.php`, create a new controller to add the variants to the product view:
 ``` php hl_lines="24-30"
-[[= include_file('code_samples/shopping_list/add_to_shopping_list/src/Controller/ProductViewController.php') =]]
+[[= include_code('code_samples/shopping_list/add_to_shopping_list/src/Controller/ProductViewController.php') =]]
 ```
 
 In `templates/themes/standard/full/product.html.twig`, create a template to render the product in full view:

@@ -19,5 +19,5 @@ The [`DateTimeAttributeRange Search Criterion`](/api/php_api/php_api_reference/c
 The following example lists all products for which the `event_date` attribute has value greater than 2025-01-01.
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Query/DateTimeAttributeRangeQuery.php') =]]
+[[= include_code('code_samples/back_office/search/src/Query/DateTimeAttributeRangeQuery.php') =]]
 ```

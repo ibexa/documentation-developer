@@ -55,6 +55,11 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
 7\. Add another field definition: Text (type Rich text) with identifier `text`.
 
+!!! note
+
+    Make sure all fields are marked as *Translatable*.
+    This setting is required to enable [content translation](#add-a-language-and-translate-content) for all fields in the created content type.
+
 8\. Save the content type.
 
 For more information, see [Content model](content_model.md).
@@ -160,7 +165,7 @@ Switch to the **Translations** tab and add a new translation.
 
 ![Adding a translation](first-steps-add-translation.png)
 
-4\. Select German and base the new translation on the English version.
+4\. Select German as the target language and base the translation on the English source text.
 Edit the content item and publish it.
 
 5\. Go to the front page.
@@ -226,13 +231,15 @@ Mark the user as "Enabled".
 3\. Go to **Admin** -> **Roles**.
 Create a new role called "Blogger".
 
-4\. Add policies that allow the user to log in:
+4\. Add the following policies to ensure the user can log in and access content:
 
 - `User/Login`
 - `Content/Read`
 - `Content/Versionread`
 - `Section/View`
 - `Content/Reverserelatedlist`
+
+When creating these policies, don't add any limitations and click **Save** to proceed.
 
 5\. Now add policies that allow the user to create and publish content, limited to Blog Posts:
 

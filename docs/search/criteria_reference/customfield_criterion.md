@@ -24,5 +24,5 @@ The `CustomField` Criterion isn't available in [Repository filtering](search_api
 ### PHP
 
 ``` php
-[[= include_file('code_samples/search/content/customfield_criterion.php') =]]
+[[= include_code('code_samples/search/content/customfield_criterion.php') =]]
 ```

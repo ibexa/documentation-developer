@@ -12,7 +12,7 @@ Environment variable prefixes are created by converting relationship names to up
 When multiple endpoints are defined for a single relationship, numerical indices are used for all entries except the first one, for example: `SOLR`, `SOLR_1`, `SOLR_2`.
 When multiple services of the same type are present, environment variables are exposed for each service accordingly based on their relationship names.
 
-!!! warning "Environment variables in configuration files"
+!!! caution "Environment variables in configuration files"
 
     To prevent Symfony container initialization failures, you must define placeholder values for [[= product_name_cloud =]] environment variables in your `.env` file when referencing them in configuration files.
 

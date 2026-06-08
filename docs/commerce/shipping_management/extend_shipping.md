@@ -41,7 +41,7 @@ Create a `src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php` 
 Next, define a name of the custom shipping method type in the file, by using the `getTranslationMessages` method.
 
 ``` php hl_lines="32"
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php') =]]
 ```
 
 Create a translations file `translations/ibexa_shipping.en.yaml` that stores a name value for the custom shipping method type:
@@ -79,7 +79,7 @@ Use the type factory to define a compound validator class in `config/services.ya
 Then, create a `src/ShippingMethodType/CustomerNotNullValidator.php` file with a validator class:
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/CustomerNotNullValidator.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/CustomerNotNullValidator.php') =]]
 ```
 
 Finally, register the validator as a service:
@@ -100,7 +100,7 @@ Here, the storage converter converts the `customer_identifier` string value into
 Create a `src/ShippingMethodType/Storage/StorageConverter.php` file with a storage converter class:
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageConverter.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageConverter.php') =]]
 ```
 
 Then, register the storage converter as a service:
@@ -123,13 +123,13 @@ The table stores information specific for the custom shipping method type.
 Create a `src/ShippingMethodType/Storage/StorageDefinition.php` file with a storage definition:
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageDefinition.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageDefinition.php') =]]
 ```
 
 Then, create a `src/ShippingMethodType/Storage/StorageSchema.php` file with a storage schema:
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageSchema.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageSchema.php') =]]
 ```
 
 Then, register the storage definition as a service:
@@ -145,7 +145,7 @@ Here, you limit shipping method availability to customers who meet a specific co
 Create a `src/ShippingMethodType/Vote/CustomVoter.php` file with a voter class:
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Voter/CustomVoter.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/Voter/CustomVoter.php') =]]
 ```
 
 Register the voter as a service:
@@ -160,7 +160,7 @@ You can extend the default shipping method details view by making shipping metho
 To do this, create a `src/ShippingMethodType/Cost/CustomCostFormatter.php` file with a formatter class:
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Cost/CustomCostFormatter.php') =]]
+[[= include_code('code_samples/front/shop/shipping/src/ShippingMethodType/Cost/CustomCostFormatter.php') =]]
 ```
 
 Then register the formatter as a service:

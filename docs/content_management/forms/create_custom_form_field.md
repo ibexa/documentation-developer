@@ -63,7 +63,7 @@ New types of fields require a mapper which implements the `Ibexa\Contracts\FormB
 To create a Country field type, implement the `FieldMapperInterface` interface in `src/FormBuilder/Field/Mapper/CountryFieldMapper.php`:
 
 ``` php
-[[= include_file('code_samples/forms/custom_form_field/src/FormBuilder/Field/Mapper/CountryFieldMapper.php') =]]
+[[= include_code('code_samples/forms/custom_form_field/src/FormBuilder/Field/Mapper/CountryFieldMapper.php') =]]
 ```
 
 Then, register the mapper as a service:
@@ -91,7 +91,7 @@ Field or field attribute definition can be modified by subscribing to one of the
 The following example adds a `custom` string attribute to `single_line` field definition.
 
 ``` php
-[[= include_file('code_samples/forms/custom_form_field/src/EventSubscriber/FormFieldDefinitionSubscriber.php') =]]
+[[= include_code('code_samples/forms/custom_form_field/src/EventSubscriber/FormFieldDefinitionSubscriber.php') =]]
 ```
 
 Register this subscriber as a service:

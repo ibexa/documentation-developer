@@ -21,7 +21,7 @@ The following example shows how to implement an `Owner` matcher.
 This matcher identifies content items that have the provided owner or owners.
 
 ``` php hl_lines="65"
-[[= include_file('code_samples/front/view_matcher/src/View/Matcher/Owner.php') =]]
+[[= include_code('code_samples/front/view_matcher/src/View/Matcher/Owner.php') =]]
 ```
 
 The matcher checks whether the owner of the current content (by its ContentInfo or location) matches any of the values passed in configuration.

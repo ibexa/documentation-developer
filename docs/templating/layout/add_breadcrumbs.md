@@ -11,7 +11,7 @@ This template can contain things such as header, menu, footer, and [assets](asse
 Then, to render breadcrumbs, create a `BreadcrumbController.php` file in `src/Controller`:
 
 ``` php hl_lines="27 35"
-[[= include_file('code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php') =]]
+[[= include_code('code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php') =]]
 ```
 
 The controller uses the [Ancestor Search Criterion](ancestor_criterion.md) to find all Ancestors of the current Location (line 27).

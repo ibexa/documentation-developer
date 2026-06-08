@@ -47,7 +47,7 @@ You can order the tabs by making the tab implement `OrderedTabInterface`.
 The order depends on the numerical value returned by the `getOrder` method:
 
 ``` php
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 37, 41) =]]
+[[= include_code('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 38, 41, remove_indent=True) =]]
 ```
 
 Tabs are displayed according to this value in ascending order.
@@ -64,7 +64,7 @@ You can also influence tab display (for example, order tabs, remove, or modify t
 
 ## Tab groups
 
-You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Component/TabsComponent.php).
+You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/5.0/src/lib/Component/TabsComponent.php).
 
 To create a tab group, register it as a service:
 

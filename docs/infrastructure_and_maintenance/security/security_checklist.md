@@ -151,6 +151,13 @@ This means that editors who have access to Code blocks could add malicious JS in
 As site administrator, be aware of this when giving editors access to the Page Builder features, and limit that access only to trusted editors.
 You can [limit access to specific blocks per content type]([[= user_doc =]]/content_management/configure_ct_field_settings/#default-configuration-of-pages) by defining which page blocks are available to editors.
 
+### Activate JWT authentication for MCP, REST, or GraphQL
+
+To use [MCP servers](mcp_guide.md), you must enable JWT authentication for them.
+You can also consider enabling JWT authentication for [REST](rest_api_usage.md) or [GraphQL](graphql.md) APIs.
+
+For more information, see [Development security](development_security.md#jwt-authentication).
+
 ## Symfony
 
 ### `APP_SECRET` and other secrets
@@ -166,7 +173,7 @@ This applies also to other secrets that may be in use, like the Varnish invalida
 
     The following command generates a 64-character-long secure random value:
 
-    ```shell
+    ```bash
     php -r "print bin2hex(random_bytes(32));"
     ```
 

@@ -8,6 +8,8 @@ Now that you know how to display a single content item, you can take care of ren
 
 In this step you can display a table of all Rides on the front page.
 
+The pagination uses default styling, as this tutorial focuses on functionality.
+
 ## Customize the homepage template
 
 In `templates/full/home_page.html.twig` replace the "Hello world" with a table that displays the list of all existing Rides:
@@ -173,15 +175,12 @@ Because this template is rendered inside a table, it starts with a `<tr>` tag.
     </td>
 </tr>
 ```
-### Add Media permission
+### Media permission
 
-To be able to view the `photo` field you have to add a `read` permission to `Media` section.
+To be able to view the `photo` field you need to have a `content/read` permission to `Media` section.
 
-In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
-
-![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
-
-Edit the **Content/Read** policy line to add the `Media` section to **Limitation** along with the `Standard` section.
+To verify that you have this permission, in the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
+If needed, edit the **Content/Read** policy line to add the `Media` section to **Limitation** along with the `Standard` section.
 
 ![Policies for the Anonymous Role with Media section](step5_admin_anonymous_policies_with_media_section.png)
 

@@ -25,19 +25,17 @@ However, you can still use the menu and look around the existing content in the 
 
 Log in to the back office. Go to **Content Structure**.
 The **Ibexa Digital Experience Platform** content item is the first page that is shown to the visitor.
-Here you can check what content type it belongs to: it's a landing page.
+Here you can check what content type it belongs to: it's a *Landing page*.
 
 ![Ibexa Digital Experience Platform is a landing page](enterprise_tut_home_is_an_lp.png)
 
-The page contains one Code block and is displayed without any template.
+The page is displayed without any template.
 Click **Edit** to enter a mode that enables you to work with pages.
-You can see that the home page has only one zone with the block.
+You can see that the home page has only one drop zone.
 
 ![Empty Page with default layout](enterprise_tut_empty_single_block.png)
 
-Remove the Tag block.
-Hover over it and select the trash icon from the menu.
-Click the **Field** button on the left of the top bar to switch to editing page fields.
+Click the **Fields** button on the left of the top bar to switch to editing page fields.
 Change the Title of the page to "Home".
 Then, publish the page to update its name.
 

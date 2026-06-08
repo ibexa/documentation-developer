@@ -31,7 +31,7 @@ The next time a request comes in from the same user, application lookup for the 
 
 Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle):
 
-```
+```http
 HTTP/1.1 200 OK
 X-User-Context-Hash: <hash>
 Content-Type: application/vnd.fos.user-context-hash

@@ -39,20 +39,20 @@ To enable automatic URL validation, set up cron to run the `ibexa:check-urls` co
 
 For example, to check links every week, add the following script:
 
-```
+```bash
 echo '0 0 * * 0 cd [path-to-ibexa]; php bin/console ibexa:check-urls --quiet --env=prod' > ezp_cron.txt
 ```
 
 Next, append the new cron to user's crontab without destroying existing crons.
 Assuming that the web server user data is www-data:
 
-```
+```bash
 crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -
 ```
 
 Finally, remove the temporary file:
 
-```
+```bash
 rm ezp_cron.txt
 ```
 
@@ -181,7 +181,7 @@ ibexa:
 | `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
 | `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/main/src/lib/Resources/slug_converter/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/5.0/src/lib/Resources/slug_converter/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/5.0/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.

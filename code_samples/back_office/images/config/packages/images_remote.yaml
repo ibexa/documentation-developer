@@ -3,4 +3,4 @@ ibexa:
         default:
             provider: remote
             options:
-                url_pattern: 'https://placekitten.com/%%width%%/%%height%%'
+                url_pattern: 'https://placecats.com/%%width%%/%%height%%'

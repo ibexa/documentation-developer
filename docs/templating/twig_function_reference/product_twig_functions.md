@@ -19,6 +19,10 @@ The `ibexa_get_product()` filter gets the selected product based on either a pro
 ### `ibexa_format_product_attribute`
 
 The `ibexa_format_product_attribute` filter formats the attribute value to a readable, translated form.
+Rendering is performed by using Twig templates with named blocks, defined in a configurable list.
+
+You can customize this behavior by adding templates or by listening to the [`ProductAttributeRenderEvent`](product_catalog_events.md#attribute-rendering).
+For more information, see [Customize product attribute templates](customize_product_attribute_templates.md).
 
 #### Examples
 
@@ -112,9 +116,9 @@ The `ibexa_format_price` filter formats the price value by placing currency code
 #### Examples
 
 ``` html+twig
-{% for product.price in product.attributes %}
-    {{ product.price.getMoney()|ibexa_format_price }}
-{% endfor %}
+{{ order.getValue().getTotalGross()|ibexa_format_price }}
+
+{{ ibexa_get_original_price(discount_product)|ibexa_format_price ?: '-' }}
 ```
 
 ### `ibexa_is_pim_local`
@@ -133,7 +137,7 @@ The `ibexa_is_pim_local` is a helper Twig function that enables changing the beh
 
 ### `ibexa_product_catalog_group_attributes`
 
-The `ibexa_product_catalog_group_attributes` filter groups product attributes based on the [attribute group]([[= user_doc =]]/pim/work_with_product_attributes/#create-attribute-groups) they belong to.
+The `ibexa_product_catalog_group_attributes` filter groups product attributes based on the [attribute group]([[= user_doc =]]/product_catalog/work_with_product_attributes/#create-attribute-groups) they belong to.
 
 #### Example
 

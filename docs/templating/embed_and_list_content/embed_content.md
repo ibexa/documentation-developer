@@ -37,7 +37,7 @@ You can use a custom controller for any situation where Query types aren't suffi
 This configuration points to a custom `RelationController` that should render all Articles with the `showContentAction()` method.
 
 ``` php hl_lines="23 27 28"
-[[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php') =]]
+[[= include_code('code_samples/front/embed_content/src/Controller/RelationController.php') =]]
 ```
 
 This controller uses the Public PHP API to get [the Relations of a content item](browsing_content.md#relations) (lines 27-28).
