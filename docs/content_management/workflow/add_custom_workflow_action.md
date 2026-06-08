@@ -28,7 +28,7 @@ The configuration indicates the name of the custom action (`legal_transition_act
 To define what the action does, create an event listener `src/EventListener/LegalTransitionListener.php`:
 
 ``` php hl_lines="27 37"
-[[= include_file('code_samples/workflow/custom_workflow/src/EventListener/LegalTransitionListener.php') =]]
+[[= include_code('code_samples/workflow/custom_workflow/src/EventListener/LegalTransitionListener.php') =]]
 ```
 
 This listener displays a notification bar at the bottom of the page when a content item goes through the `to_legal` transition.
@@ -55,7 +55,7 @@ The action indicated here is performed only if the result from the `legal_transi
 Then, the following `src/EventListener/ApprovedTransitionListener` is called:
 
 ``` php hl_lines="27"
-[[= include_file('code_samples/workflow/custom_workflow/src/EventListener/ApprovedTransitionListener.php') =]]
+[[= include_code('code_samples/workflow/custom_workflow/src/EventListener/ApprovedTransitionListener.php') =]]
 ```
 
 Register this listener as a service:

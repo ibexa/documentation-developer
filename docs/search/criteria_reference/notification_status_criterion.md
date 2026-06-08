@@ -16,5 +16,5 @@ The `Status` Search Criterion searches for notifications based on notification s
 ### PHP
 
 ```php hl_lines="12"
-[[= include_file('code_samples/notifications/Src/Query/search.php') =]]
+[[= include_code('code_samples/notifications/Src/Query/search.php') =]]
 ```

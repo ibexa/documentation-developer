@@ -22,7 +22,7 @@ It doesn't work with a `full` view when the [page layout](template_configuration
 Create the command in `src/Command/ViewCommand.php`:
 
 ```php hl_lines="57-61"
-[[= include_file('code_samples/front/render_content_in_php/src/Command/ViewCommand.php') =]]
+[[= include_code('code_samples/front/render_content_in_php/src/Command/ViewCommand.php') =]]
 ```
 
 !!! caution

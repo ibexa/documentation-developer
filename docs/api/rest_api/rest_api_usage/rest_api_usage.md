@@ -29,7 +29,7 @@ php bin/console ibexa:openapi --yaml --output=openapi.yaml # YAML output
 
 Use the specification file with [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
 
-!!! info
+!!! note
 
     In [Symfony's `dev` environment](environments.md), you can access a REST API reference generated for your project by visiting the `/api/ibexa/v2/doc` route in the browser.
 
@@ -72,7 +72,7 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1 HTTP/1.1
 The `/` root route is answered by a reference list with the main resource routes and media-types.
 It's presented in XML by default, but you can also switch to JSON output.
 
-```shell
+```bash
 curl https://api.example.com/api/ibexa/v2/
 curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 ```

@@ -20,7 +20,7 @@ ibexa:
                         match:
                             Identifier\ContentType: article
                     folder:
-                        controller: ibexa_query:locationQueryAction
+                        controller: ibexa_query::locationQueryAction
                         template: full/folder.html.twig
                         match:
                             Identifier\ContentType: folder

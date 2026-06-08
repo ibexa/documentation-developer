@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "ibexa-example": {
+      "type": "http",
+      "url": "http://localhost/mcp/example",
+      "headers": {
+        "Authorization": "Bearer <JWT token>"
+      },
+      "tools": ["*"]
+    }
+  }
+}

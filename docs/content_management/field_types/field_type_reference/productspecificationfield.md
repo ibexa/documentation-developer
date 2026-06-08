@@ -6,7 +6,7 @@ month_change: false
 # Product specification field type
 
 This field represents and handles [product attributes](products.md#product-attributes) and [VAT](prices.md#vat).
-Consider it as internal to the [PIM](pim.md).
+Consider it as internal to the [product catalog](product_catalog.md).
 
 | Name                   | Internal name                 | Expected input |
 |------------------------|-------------------------------|----------------|

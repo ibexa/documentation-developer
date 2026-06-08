@@ -69,7 +69,7 @@ You can build them by running `yarn encore prod`, or by setting the environmenta
 
 ### Redis-compatible data stores
 
-Redis and its alternatives, like Valkey, can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
+- Redis and its alternatives, like Valkey, can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
     - However, pure read performance is slower, especially if the next points aren't optimized.
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
 
@@ -138,6 +138,6 @@ The things you need to do:
     2. *If not defined, it's the master process which executes the processes until nothing is left to process.*
 
 2. Change the command so that the master process takes care of forking child processes in slices.
-    1. For execution in-order, [you may look to our platform installer code](https://github.com/ibexa/core/blob/main/src/bundle/RepositoryInstaller/Command/InstallPlatformCommand.php#L220)
+    1. For execution in-order, [you may look to our platform installer code](https://github.com/ibexa/core/blob/5.0/src/bundle/RepositoryInstaller/Command/InstallPlatformCommand.php#L220)
     used to fork out Solr indexing after installation to avoid cache issues.
     2. For parallel execution of the slices, [see Symfony doc for further instruction]([[= symfony_doc =]]/components/process.html#process-signals).

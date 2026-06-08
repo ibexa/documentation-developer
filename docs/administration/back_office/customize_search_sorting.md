@@ -15,7 +15,7 @@ It also implements `TranslationContainerInterface::getTranslationMessages` to pr
 Create the `src/Search/SortingDefinition/Provider/SectionNameSortingDefinitionProvider.php` file:
 
 ``` php hl_lines="22"
-[[= include_file('code_samples/back_office/search/src/Search/SortingDefinition/Provider/SectionNameSortingDefinitionProvider.php') =]]
+[[= include_code('code_samples/back_office/search/src/Search/SortingDefinition/Provider/SectionNameSortingDefinitionProvider.php') =]]
 ```
 
 Then add a service definition to `config/services.yaml`:

@@ -11,7 +11,7 @@ final class ValueNormalizer implements NormalizerInterface
     /**
      * @return array<?float, ?float>
      */
-    public function normalize($object, string $format = null, array $context = []): array
+    public function normalize($object, ?string $format = null, array $context = []): array
     {
         return [
             $object->getX(),

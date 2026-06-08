@@ -7,6 +7,80 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## May 2026
+
+### Releases
+
+- [v5.0.8 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v508)
+- [v4.6.30 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4630)
+
+### AI
+
+- Grouped [AI Actions](ai_actions.md) and [MCP Servers](mcp.md) under [AI](ai.md)
+
+### Search
+
+- Documented how to [disable the total count in search results](search_api.md#disable-result-count)
+
+### Notifications
+
+- Covered the [notification channels](notification_channels.md) feature from `ibexa/notifications` package
+- Revamped the [back office notifications documentation](notifications.md)
+
+### HTTP Cache
+
+- Listed the [value types supported by the response taggers](content_aware_cache.md#delegator-and-value-taggers)
+
+### PHP API
+
+- Enhanced the PHP API reference with the following new classes and namespaces:
+    - [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+    - [`Ibexa\Contracts\Cdp\Membership`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+    - [`Ibexa\Contracts\Mcp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
+### DDEV
+
+- Added how to [configure a mail catcher in DDEV](install_with_ddev.md#configure-mailer-optional) for email testing
+
+## April 2026
+
+### Releases
+
+- [v5.0.7 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v507)
+- [v4.6.29 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4629)
+
+### Configuration
+
+- Added trailing slashes to all `excluded_uri_prefixes` items to avoid collision with other URIs (for example, `/media` matches on both `/media` and `/mediation` while `/media/` only on `/media/`)
+
+### PHP API
+
+- [`Ibexa\Contracts\ConnectorRaptor`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
+- [`Ibexa\Contracts\IntegratedHelp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
+
+## March 2026
+
+### Products
+
+- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide/#virtual-and-physical-products)
+- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/product_catalog/product_api/#creating-product-types)
+- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/product_catalog/create_custom_attribute_type/#storage-definition)
+
+### Collaborative editing
+
+- Documented [how to extend collaboration](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/extend_collaborative_editing/) with a shared cart example
+
+### Search
+
+- Introduced [embeddings search API for taxonomy](https://doc.ibexa.co/en/5.0/search/embeddings_reference/embeddings_reference/)
+
+### Images
+
+- Illustrated [image optimizer customization](https://doc.ibexa.co/en/5.0/content_management/images/images/#customizing-image-optimizers)
+
 ## February 2026
 
 ### Releases
@@ -348,7 +422,7 @@ Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/p
 You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
 Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
 
-Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the bulding blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
+Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the building blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
 
 #### REST API
 
@@ -603,7 +677,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Trainings
 
-- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
+- The Content Editor Training has been released. Learn more in the [announcement blog post](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
 
 ### Infrastructure and maintenance
 
@@ -653,7 +727,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Search
 
 - New [`IsBookmarked` location criterion](https://doc.ibexa.co/en/4.6/search/criteria_reference/isbookmarked_criterion/)
-- [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/4.6/search/criteria_reference/isuserenabled_criterion/)
+- [`IsUserEnabled` is now available on Solr and Elasticsearch](https://doc.ibexa.co/en/4.6/search/criteria_reference/isuserenabled_criterion/)
 
 ### Documentation
 
@@ -1049,7 +1123,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Storefront
 
-- [Display language name instead of its code in language swticher](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
+- [Display language name instead of its code in language switcher](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
 
 ### Templating
 

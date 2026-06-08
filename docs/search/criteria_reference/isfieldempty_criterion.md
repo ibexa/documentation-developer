@@ -18,6 +18,9 @@ The `IsFieldEmpty` Criterion isn't available in [Repository filtering](search_ap
 
 The Richtext field type (`ibexa_richtext`) isn't searchable in the Legacy search engine.
 
+The `IsFieldEmpty` criterion doesn't work for [Taxonomy entry assignment](taxonomyentryassignmentfield.md) fields.
+For this use case, use [`TaxonomyNoEntries`](taxonomy_no_entries.md) instead.
+
 ## Example
 
 ### PHP

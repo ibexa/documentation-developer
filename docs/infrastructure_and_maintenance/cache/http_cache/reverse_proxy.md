@@ -20,7 +20,7 @@ To use the Symfony reverse proxy, you must change your `public/index.php` front 
 
  require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
- return function (array $context) {
+ return static function (array $context) {
 -    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
 +    return new AppCache(new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']));
  };
@@ -158,7 +158,7 @@ If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please 
 
 !!! note "Invalidating Varnish cache by using tokens"
 
-    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ibexa_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ibexa_purge_acl`](https://github.com/ibexa/http-cache/blob/5.0/docs/varnish/vcl/varnish5.vcl#L174).
 
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
@@ -195,7 +195,7 @@ If you created a custom Captcha block for your site by overriding the default fi
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/5.0/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
 For more information about configuring Captcha fields, see [Captcha field](work_with_forms.md#captcha-field).
 
@@ -226,7 +226,7 @@ ibexa:
 
 See the example below to configure Fastly with the `.env` file:
 
-```
+```bash
 HTTPCACHE_PURGE_TYPE="fastly"
 # Optional
 HTTPCACHE_PURGE_SERVER="https://api.fastly.com"

@@ -44,7 +44,7 @@ This resolver must implement `Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\
 In this example, create a `ContentTypeGroupGroupResolver` based on the content type Group ID of the document:
 
 ``` php
-[[= include_file('code_samples/search/custom/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
+[[= include_code('code_samples/search/custom/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
 ```
 
 Register the resolver as a service:

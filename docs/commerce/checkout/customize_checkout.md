@@ -66,7 +66,7 @@ The controller contains a Symfony form that collects user selections.
 It can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 ``` php hl_lines="23 24"
-[[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php') =]]
+[[= include_code('code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php') =]]
 ```
 
 #### Create a form
@@ -74,7 +74,7 @@ It can reuse fields and functions that come from the checkout component, for exa
 In the `src/Form/Type` folder, create a corresponding form:
 
 ``` php
-[[= include_file('code_samples/front/shop/checkout/src/Form/Type/SelectSeatType.php') =]]
+[[= include_code('code_samples/front/shop/checkout/src/Form/Type/SelectSeatType.php') =]]
 ```
 
 ### Create Twig template
@@ -163,7 +163,7 @@ Within the controller, create a form that contains all the necessary fields, suc
 In the `src/Controller/Checkout` folder, create a file that resembles the following example:
 
 ``` php
-[[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/OnePageCheckout.php') =]]
+[[= include_code('code_samples/front/shop/checkout/src/Controller/Checkout/OnePageCheckout.php') =]]
 ```
 
 The controller can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
@@ -173,7 +173,7 @@ The controller can reuse fields and functions that come from the checkout compon
 In the `src/Form/Type` folder, create a corresponding form:
 
 ``` php
-[[= include_file('code_samples/front/shop/checkout/src/Form/Type/OnePageCheckoutType.php') =]]
+[[= include_code('code_samples/front/shop/checkout/src/Form/Type/OnePageCheckoutType.php') =]]
 ```
 
 ### Create Twig template
@@ -212,7 +212,7 @@ Create a PHP definition of the new strategy that allows for workflow manipulatio
 In this example, custom checkout workflow applies when specific currency code ('EUR') is used in the cart.
 
 ``` php
-[[= include_file('code_samples/workflow/strategy/NewWorkflow.php', 0, 25) =]]
+[[= include_code('code_samples/workflow/strategy/NewWorkflow.php', 1, 25, remove_indent=True) =]]
 ```
 
 ### Add conditional step
@@ -224,7 +224,7 @@ By default conditional step is set as null.
 To use conditional step you need to pass second argument to constructor in the strategy definition:
 
 ``` php hl_lines="18"
-[[= include_file('code_samples/workflow/strategy/NewWorkflowConditionalStep.php', 0, 25) =]]
+[[= include_code('code_samples/workflow/strategy/NewWorkflowConditionalStep.php', 1, 25, remove_indent=True) =]]
 ```
 
 ### Register strategy

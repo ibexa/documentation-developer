@@ -33,7 +33,7 @@ It sets the `parentLocationId` property of the new location.
 You can also provide other properties for the location, otherwise they're set to their defaults:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 48, 50) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 49, 50, remove_indent=True) =]]
 ```
 
 ### Changing the main location
@@ -42,7 +42,7 @@ When a content item has more that one location, one location is always considere
 You can change the main location using [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html), by updating the `ContentInfo` with a [`ContentUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) that sets the new main location:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SetMainLocationCommand.php', 46, 51) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SetMainLocationCommand.php', 47, 51, remove_indent=True) =]]
 ```
 
 ### Hiding and revealing locations
@@ -68,14 +68,14 @@ Content which has more locations is still available in its other locations.
 If you delete the [main location](#changing-the-main-location) of a content item that has more locations, another location becomes the main one.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 40, 43) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 41, 43, remove_indent=True) =]]
 ```
 
 To send the location and its subtree to Trash, use [`TrashService::trash`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_trash).
 Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 50, 51) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 51, 51, remove_indent=True) =]]
 ```
 
 ### Moving and copying a subtree
@@ -83,7 +83,7 @@ Items in Trash can be later [restored, or deleted permanently](#trash).
 You can move a location with its whole subtree using [`LocationService::moveSubtree`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_moveSubtree):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/MoveContentCommand.php', 44, 47) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/MoveContentCommand.php', 45, 47, remove_indent=True) =]]
 ```
 
 [`LocationService::copySubtree`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_copySubtree) is used in the same way, but it copies the location and its subtree instead of moving it.
@@ -110,7 +110,7 @@ You must provide the method with the ID of the object in Trash.
 Trash location is identical to the origin location of the object.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 60, 61) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 61, 61, remove_indent=True) =]]
 ```
 
 The content item is restored under its previous location.
@@ -122,7 +122,7 @@ $this->trashService->recover($trashItem, $newParent);
 ```
 
 You can also search through Trash items and sort the results using several public PHP API Search Criteria and Sort Clauses that have been exposed for `TrashService` queries.
-For more information, see [Searching in trash](search_api.md#searching-in-trash).
+For more information, see [Search in trash](search_api.md#search-in-trash).
 
 ## Content types
 
@@ -147,7 +147,7 @@ A content type must have at least one name, in the main language, and at least o
 You can specify more details of the field definition in the create struct, for example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 64, 74) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 65, 74, remove_indent=True) =]]
 ```
 
 ### Copying content types
@@ -155,7 +155,7 @@ You can specify more details of the field definition in the create struct, for e
 To copy a content type, use [`ContentTypeService::copyContentType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_copyContentType):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 85, 88) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 86, 88, remove_indent=True) =]]
 ```
 
 The copy is automatically getting an identifier based on the original content type identifier and the copy's ID, for example: `copy_of_folder_21`.
@@ -163,7 +163,7 @@ The copy is automatically getting an identifier based on the original content ty
 To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeUpdateStruct.html):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 87, 93) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 88, 93, remove_indent=True) =]]
 ```
 
 ### Finding and filtering content types
@@ -180,7 +180,7 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 The following example shows how you can use the criteria to find content types:
 
 ```php hl_lines="28-38"
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 
 #### Query parameters
@@ -210,19 +210,19 @@ To get a list of events for a specified time period, use the `CalendarServiceInt
 You need to provide the method with an EventQuery, which takes a date range and a count as the minimum of parameters:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 37, 48) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 38, 48, remove_indent=True) =]]
 ```
 
 You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`Ibexa\Contracts\Calendar\EventCollection`):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 49, 51) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 50, 51, remove_indent=True) =]]
 ```
 
 You can process the events in a collection using the `find(Closure $predicate)`, `filter(Closure $predicate)`, `map(Closure $callback)` or `slice(int $offset, ?int $length = null)` methods of `EventCollection`, for example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 52, 56) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 53, 56, remove_indent=True) =]]
 ```
 
 ### Performing calendar actions
@@ -232,5 +232,5 @@ You must pass an `Ibexa\Contracts\Calendar\EventAction\EventActionContext` insta
 `EventActionContext` defines events on which the action is performed, and action-specific parameters, for example, a new date:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 57, 61) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 58, 61, remove_indent=True) =]]
 ```
