@@ -3,6 +3,7 @@
 namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Ibexa\Core\MVC\Symfony\Security\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\User\InMemoryUser;
@@ -13,6 +14,7 @@ final readonly class InteractiveLoginSubscriber implements EventSubscriberInterf
 {
     /** @param array<string, string> $userMap */
     public function __construct(
+        private readonly ConfigResolverInterface $configResolver,
         private readonly UserService $userService,
         private readonly array $userMap = [],
     ) {
@@ -31,8 +33,15 @@ final readonly class InteractiveLoginSubscriber implements EventSubscriberInterf
         if (!$tokenUser instanceof InMemoryUser) {
             return;
         }
-        $userLogin = $this->userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
-        $ibexaUser = $this->userService->loadUserByLogin($userLogin);
+        $userIdentifier = $event->getAuthenticationToken()->getUserIdentifier();
+        $ibexaUser = null;
+        if (array_key_exists($userIdentifier, $this->userMap)) {
+            $ibexaUser = $this->userService->loadUserByLogin($this->userMap[$userIdentifier]);
+        }
+        if (null === $ibexaUser) {
+            $anonymousUserId = (int)$this->configResolver->getParameter('anonymous_user_id');
+            $ibexaUser = $this->userService->loadUser($anonymousUserId);
+        }
         $event->getAuthenticationToken()->setUser(new User($ibexaUser));
     }
 }
