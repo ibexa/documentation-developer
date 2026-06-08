@@ -8,10 +8,9 @@ use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Ibexa\Core\MVC\Symfony\Security\UserWrapped;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\User\InMemoryUser;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
+use Symfony\Component\Security\Http\Event\AuthenticationTokenCreatedEvent;
 
-final readonly class InteractiveLoginSubscriber implements EventSubscriberInterface
+final readonly class AuthenticationTokenCreatedSubscriber implements EventSubscriberInterface
 {
     /** @param array<string, string> $userMap */
     public function __construct(
@@ -24,17 +23,17 @@ final readonly class InteractiveLoginSubscriber implements EventSubscriberInterf
     public static function getSubscribedEvents(): array
     {
         return [
-            SecurityEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin',
+            AuthenticationTokenCreatedEvent::class => ['onAuthenticationTokenCreated', 10],
         ];
     }
 
-    public function onInteractiveLogin(InteractiveLoginEvent $event): void
+    public function onAuthenticationTokenCreated(AuthenticationTokenCreatedEvent $event): void
     {
-        $tokenUser = $event->getAuthenticationToken()->getUser();
+        $tokenUser = $event->getAuthenticatedToken()->getUser();
         if (!$tokenUser instanceof InMemoryUser) {
             return;
         }
-        $userIdentifier = $event->getAuthenticationToken()->getUserIdentifier();
+        $userIdentifier = $event->getAuthenticatedToken()->getUserIdentifier();
         $ibexaUser = null;
         if (array_key_exists($userIdentifier, $this->userMap)) {
             $ibexaUser = $this->userService->loadUserByLogin($this->userMap[$userIdentifier]);
@@ -43,7 +42,7 @@ final readonly class InteractiveLoginSubscriber implements EventSubscriberInterf
             $anonymousUserId = (int)$this->configResolver->getParameter('anonymous_user_id');
             $ibexaUser = $this->userService->loadUser($anonymousUserId);
         }
-        //$event->getAuthenticationToken()->setUser(new User($ibexaUser));
-        $event->getAuthenticationToken()->setUser(new UserWrapped($tokenUser, $ibexaUser));
+        //$event->getAuthenticatedToken()->setUser(new User($ibexaUser));
+        $event->getAuthenticatedToken()->setUser(new UserWrapped($tokenUser, $ibexaUser));
     }
 }

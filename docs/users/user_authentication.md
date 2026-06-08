@@ -14,8 +14,8 @@ This is mainly for the kernel to be able to manage content-related permissions (
 
 Depending on your context, you either want to create and return an Ibexa user, or return an existing user, even a generic one.
 
-Whenever a user is matched, Symfony initiates a `SecurityEvents::INTERACTIVE_LOGIN` event.
-Every service listening to this event receives an `InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
+Whenever a user is matched, Symfony initiates an `AuthenticationTokenCreatedEvent` event during authentication.
+Every service listening to this event receives an object which contains the original security token (that holds the matched user) and a [passport]([[= symfony_doc =]]/security/custom_authenticator.html#security-passports).
 
 Then, it's up to a listener to retrieve an Ibexa user from the repository.
 
@@ -32,11 +32,11 @@ The following example uses the [memory user provider]([[= symfony_doc =]]/securi
 maps memory user to Ibexa repository user,
 and [chains]([[= symfony_doc =]]/security/user_providers.html#chain-user-provider) with the Ibexa user provider to be able to use both:
 
-Create as `src/EventSubscriber/InteractiveLoginSubscriber.php` subscribing to the `SecurityEvents::INTERACTIVE_LOGIN` event
+Create as `src/EventSubscriber/AuthenticationTokenCreatedSubscriber.php` subscribing to the `AuthenticationTokenCreatedEvent` event
 and mapping when needed an in-memory authenticated user to an Ibexa user:
 
 ``` php
-[[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
+[[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/AuthenticationTokenCreatedSubscriber.php') =]]
 ```
 
 In `config/packages/security.yaml`,

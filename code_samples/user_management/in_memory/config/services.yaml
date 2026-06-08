@@ -1,5 +1,5 @@
 services:
-    App\EventSubscriber\InteractiveLoginSubscriber:
+    App\EventSubscriber\AuthenticationTokenCreatedSubscriber:
         arguments:
             $userMap:
                 from_memory_user: generic_customer
