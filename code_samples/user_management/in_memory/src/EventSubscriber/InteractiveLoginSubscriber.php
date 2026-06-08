@@ -4,6 +4,7 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
+//use Ibexa\Core\MVC\Symfony\Security\User;
 use Ibexa\Core\MVC\Symfony\Security\UserWrapped;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\User\InMemoryUser;
@@ -42,6 +43,7 @@ final readonly class InteractiveLoginSubscriber implements EventSubscriberInterf
             $anonymousUserId = (int)$this->configResolver->getParameter('anonymous_user_id');
             $ibexaUser = $this->userService->loadUser($anonymousUserId);
         }
+        //$event->getAuthenticationToken()->setUser(new User($ibexaUser));
         $event->getAuthenticationToken()->setUser(new UserWrapped($tokenUser, $ibexaUser));
     }
 }
