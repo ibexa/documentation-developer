@@ -9,8 +9,9 @@ security:
         in_memory:
             memory:
                 users:
-                    from_memory_user: { password: from_memory_pass, roles: [ 'ROLE_USER' ] }
-                    from_memory_admin: { password: from_memory_publish, roles: [ 'ROLE_USER' ] }
+                    from_memory_user: { password: from_memory_pass, roles: [ 'ROLE_USER' ] } # Mapped to `generic_customer` user
+                    from_memory_anonym: { password: from_memory_anonym, roles: [ 'ROLE_USER' ] } # Not mapped so `anonymous` user is loaded
+                    from_memory_admin: { password: from_memory_publish, roles: [ 'ROLE_USER' ] } # Mapped to `admin` user
         ibexa:
             id: ibexa.security.user_provider
         # Chaining in_memory and ibexa user providers

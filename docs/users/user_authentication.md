@@ -18,7 +18,13 @@ Whenever a user is matched, Symfony initiates a `SecurityEvents::INTERACTIVE_LOG
 Every service listening to this event receives an `InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
 Then, it's up to a listener to retrieve an Ibexa user from the repository.
-This user is wrapped within `Ibexa\Core\MVC\Symfony\Security\User` and assigned back into the event's token for the rest of the request.
+
+This Ibexa user can be
+
+- embedded into `Ibexa\Core\MVC\Symfony\Security\User` while forgetting about the original user
+- wrapped into `Ibexa\Core\MVC\Symfony\Security\UserWrapped` with the original user if needed
+
+Finally, this user is assigned back into the event's token for the rest of the request.
 
 ### User mapping example
 
@@ -39,7 +45,7 @@ store some in-memory users with their passwords in plain text and a basic role,
 set a `plaintext` password encoder for the `memory` provider's `InMemoryUser`,
 and configure the firewall to use the `chain` provider:
 
-``` yaml
+``` yaml hl_lines="4 9-14 18-20 26"
 [[= include_file('code_samples/user_management/in_memory/config/packages/security.yaml') =]]
 ```
 
@@ -49,3 +55,10 @@ In the `config/services.yaml` file, declare the subscriber as a service to pass 
 ``` yaml
 [[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
 ```
+
+From the back office, create the mapped users.
+For the example, a new user with the login `generic_customer` and a random password for the mapping to work,
+this account can be in the **Customers** or the **Anonymous users** group.
+
+You can now log in with a in-memory user.
+In the Symfony debug toolbar, you should see the in-memory user as this example uses `UserWrapped`.
