@@ -129,6 +129,7 @@ deptrac:
     App\EventSubscriber\HelpMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
     App\EventSubscriber\InteractiveLoginSubscriber:
+      #- Ibexa\Core\MVC\Symfony\Security\User
       - Ibexa\Core\MVC\Symfony\Security\UserWrapped
     App\EventSubscriber\MyMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
