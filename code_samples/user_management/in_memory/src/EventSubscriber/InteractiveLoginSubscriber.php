@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\InMemoryUser;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
-class InteractiveLoginSubscriber implements EventSubscriberInterface
+final readonly class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
     /** @param array<string, string> $userMap */
     public function __construct(
