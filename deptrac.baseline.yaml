@@ -120,6 +120,8 @@ deptrac:
     App\EventListener\TextAnchorMenuTabListener:
       - Ibexa\AdminUi\Menu\ContentEditAnchorMenuBuilder
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
+    App\EventSubscriber\AuthenticationTokenCreatedSubscriber:
+      - Ibexa\Core\MVC\Symfony\Security\UserWrapped
     App\EventSubscriber\BreadcrumbsMenuSubscriber:
       - Ibexa\Bundle\Storefront\Menu\Builder\BreadcrumbsMenuBuilder
     App\EventSubscriber\FormFieldDefinitionSubscriber:
@@ -128,8 +130,6 @@ deptrac:
       - Ibexa\FormBuilder\Event\FormEvents
     App\EventSubscriber\HelpMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
-    App\EventSubscriber\InteractiveLoginSubscriber:
-      - Ibexa\Core\MVC\Symfony\Security\User
     App\EventSubscriber\MyMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
       - Ibexa\AdminUi\Menu\MainMenuBuilder
