@@ -121,7 +121,6 @@ deptrac:
       - Ibexa\AdminUi\Menu\ContentEditAnchorMenuBuilder
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
     App\EventSubscriber\AuthenticationTokenCreatedSubscriber:
-      #- Ibexa\Core\MVC\Symfony\Security\User
       - Ibexa\Core\MVC\Symfony\Security\UserWrapped
     App\EventSubscriber\BreadcrumbsMenuSubscriber:
       - Ibexa\Bundle\Storefront\Menu\Builder\BreadcrumbsMenuBuilder
