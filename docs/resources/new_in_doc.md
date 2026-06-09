@@ -29,6 +29,10 @@ On 5.0:
 - Covered the [notification channels](https://doc.ibexa.co/en/5.0/api/notification_channels/) feature from `ibexa/notifications` package
 - Revamped the [back office notifications documentation](https://doc.ibexa.co/en/5.0/administration/back_office/notifications/)
 
+### Users
+
+- On both 4.6 and 5.0, add how to disable [Recent activity log](recent_activity.md#disable-activity-log)
+
 ### HTTP Cache
 
 - On 5.0, listed the [value types supported by the response taggers](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/content_aware_cache/#delegator-and-value-taggers)
