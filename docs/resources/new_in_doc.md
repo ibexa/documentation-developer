@@ -27,6 +27,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - Covered the [notification channels](notification_channels.md) feature from `ibexa/notifications` package
 - Revamped the [back office notifications documentation](notifications.md)
 
+### Users
+
+- Add how to disable [Recent activity log](recent_activity.md#disable-activity-log)
+
 ### HTTP Cache
 
 - Listed the [value types supported by the response taggers](content_aware_cache.md#delegator-and-value-taggers)
