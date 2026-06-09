@@ -14,7 +14,7 @@ This is mainly for the kernel to be able to manage content-related permissions (
 
 Depending on your context, you either want to create and return an Ibexa user, or return an existing user, even a generic one.
 
-Whenever a user is matched, Symfony initiates an `AuthenticationTokenCreatedEvent` event during authentication.
+Whenever a user is matched and authenticated, Symfony initiates an `AuthenticationTokenCreatedEvent`.
 Every service listening to this event receives an object which contains the original security token (that holds the matched user) and a [passport]([[= symfony_doc =]]/security/custom_authenticator.html#security-passports).
 
 Then, it's up to a listener to retrieve an Ibexa user from the repository.
