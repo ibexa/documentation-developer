@@ -24,7 +24,7 @@ This Ibexa user can be
 - embedded into `Ibexa\Core\MVC\Symfony\Security\User` while forgetting about the original user
 - wrapped into `Ibexa\Core\MVC\Symfony\Security\UserWrapped` with the original user if needed
 
-Finally, this user is assigned back into the event's token for the rest of the request.
+Finally, this user is assigned back into the event's token for the rest of the process.
 
 ### User mapping example
 
@@ -56,9 +56,19 @@ In the `config/services.yaml` file, declare the subscriber as a service to pass 
 [[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
 ```
 
+You can list the subscribers with the following command to check their order:
+
+``` bash
+php bin/console debug:event-dispatcher AuthenticationTokenCreatedEvent
+```
+
+Notice that the example subscriber priority is `11` so it's executed before
+the `Ibexa\Core\MVC\Symfony\Security\Authentication\EventSubscriber\OnAuthenticationTokenCreatedRepositoryUserSubscriber`
+which set the Ibexa user as the current user.
+
 From the back office, create the mapped users.
 For the example, a new user with the login `generic_customer` and a random password for the mapping to work,
 this account can be in the **Customers** or the **Anonymous users** group.
 
-You can now log in with a in-memory user.
+You can now log in with an in-memory user.
 In the Symfony debug toolbar, you should see the in-memory user as this example uses `UserWrapped`.
