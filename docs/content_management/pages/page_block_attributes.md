@@ -193,7 +193,7 @@ You can set the options for root or nested attribute, see the example configurat
 
 ## Configure checkbox appearance
 
-For the blocks with the `checkbox` type, you can change the look of the checkbox in block configuration forms.
+For blocks with an attribute of `checkbox` type, you can change the look of the checkbox in block configuration forms.
 
 You can do it by adding the `block_prefix: block_configuration_attribute_checkbox_toggle` option in the block configuration as follows:
 
