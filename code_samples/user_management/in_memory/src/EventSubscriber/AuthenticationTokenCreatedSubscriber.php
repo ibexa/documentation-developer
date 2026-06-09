@@ -2,13 +2,15 @@
 
 namespace App\EventSubscriber;
 
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
+use Ibexa\Core\MVC\Symfony\Security\UserWrapped;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\User\InMemoryUser;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
+use Symfony\Component\Security\Http\Event\AuthenticationTokenCreatedEvent;
 
-class InteractiveLoginSubscriber implements EventSubscriberInterface
+final readonly class AuthenticationTokenCreatedSubscriber implements EventSubscriberInterface
 {
     /**
      * @param array<string, string> $userMap
@@ -16,6 +18,8 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
      * @phpstan-param UserProviderInterface<\Ibexa\Core\MVC\Symfony\Security\UserInterface> $userProvider
      */
     public function __construct(
+        private readonly ConfigResolverInterface $configResolver,
+        private readonly UserService $userService,
         private readonly UserProviderInterface $userProvider,
         private readonly array $userMap = [],
     ) {
@@ -24,17 +28,26 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            SecurityEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin',
+            AuthenticationTokenCreatedEvent::class => ['onAuthenticationTokenCreated', 11],
         ];
     }
 
-    public function onInteractiveLogin(InteractiveLoginEvent $event): void
+    public function onAuthenticationTokenCreated(AuthenticationTokenCreatedEvent $event): void
     {
-        $tokenUser = $event->getAuthenticationToken()->getUser();
-        if ($tokenUser instanceof InMemoryUser) {
-            $userLogin = $this->userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
-            $ibexaSecurityUser = $this->userProvider->loadUserByIdentifier($userLogin);
-            $event->getAuthenticationToken()->setUser($ibexaSecurityUser);
+        $token = $event->getAuthenticatedToken();
+        $tokenUser = $token->getUser();
+        if (!$tokenUser instanceof InMemoryUser) {
+            return;
         }
+        $userIdentifier = $token->getUserIdentifier();
+        $ibexaUser = null;
+        if (array_key_exists($userIdentifier, $this->userMap)) {
+            $ibexaUser = $this->userProvider->loadUserByIdentifier($userIdentifier);
+        }
+        if (null === $ibexaUser) {
+            $anonymousUserId = (int)$this->configResolver->getParameter('anonymous_user_id');
+            $ibexaUser = $this->userService->loadUser($anonymousUserId);
+        }
+        $token->setUser(new UserWrapped($tokenUser, $ibexaUser));
     }
 }

@@ -31,6 +31,18 @@ parameters:
 			path: code_samples/api/migration/src/Command/MigrationCommand.php
 
 		-
+			message: '#^Instantiated class App\\Notifications\\MyNotification not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/api/notifications/notification_send.php
+
+		-
+			message: '#^Parameter \#1 \$notification of class Ibexa\\Contracts\\Notifications\\Value\\Notification\\SymfonyNotificationAdapter constructor expects Symfony\\Component\\Notifier\\Notification\\Notification, App\\Notifications\\MyNotification given\.$#'
+			identifier: argument.type
+			count: 1
+			path: code_samples/api/notifications/notification_send.php
+
+		-
 			message: '#^Call to an undefined method Ibexa\\Contracts\\ProductCatalog\\Values\\ProductInterface\:\:getPrice\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -123,18 +135,6 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
 			identifier: argument.type
-			count: 1
-			path: code_samples/api/rest_api/create_image.xml.php
-
-		-
-			message: '#^Result of && is always false\.$#'
-			identifier: booleanAnd.alwaysFalse
-			count: 1
-			path: code_samples/api/rest_api/create_image.xml.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between ''ErrorMessage'' and ''Content'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
@@ -313,12 +313,6 @@ parameters:
 			path: code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageConverter.php
 
 		-
-			message: '#^Class App\\CatalogFilter\\DataTransformer\\ProductNameCriterionTransformer implements generic interface Symfony\\Component\\Form\\DataTransformerInterface but does not specify its types\: T, R$#'
-			identifier: missingType.generics
-			count: 1
-			path: code_samples/catalog/custom_catalog_filter/src/CatalogFilter/DataTransformer/ProductNameCriterionTransformer.php
-
-		-
 			message: '#^Method App\\CatalogFilter\\ProductNameFilter\:\:getTranslationMessages\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -359,12 +353,6 @@ parameters:
 			identifier: missingType.generics
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
-
-		-
-			message: '#^Method App\\FieldType\\Point2D\\Value\:\:__construct\(\) has parameter \$coords with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php
 
 		-
 			message: '#^Class App\\Form\\Type\\Point2DSettingsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'

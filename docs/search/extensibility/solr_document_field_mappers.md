@@ -57,7 +57,7 @@ The example relies on a use case of indexing webinar data on the webinar events,
 The field mapper could then look like this:
 
 ```php
-[[= include_file('code_samples/search/custom/src/Search/FieldMapper/WebinarEventParentNameFieldMapper.php') =]]
+[[= include_code('code_samples/search/custom/src/Search/FieldMapper/WebinarEventParentNameFieldMapper.php') =]]
 ```
 
 You index text data only on the content document, therefore, you would register the service like this:

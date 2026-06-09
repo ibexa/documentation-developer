@@ -40,7 +40,7 @@ The following example shows how to create custom events which add different holi
 First, create a new event in `src/Calendar/Holidays/Event.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/Event.php') =]]
+[[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/Event.php') =]]
 ```
 
 Here, you define a new class for your event based on `Ibexa\Contracts\Calendar\Event`.
@@ -48,7 +48,7 @@ Here, you define a new class for your event based on `Ibexa\Contracts\Calendar\E
 Next, create `src/Calendar/Holidays/EventType.php`:
 
 ```php hl_lines="20-23"
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventType.php') =]]
+[[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/EventType.php') =]]
 ```
 
 You can use the identifier defined in lines 20-23 to configure [event colors](#customize-colors-and-icons).
@@ -109,7 +109,7 @@ To do this, place the following `holidays.json` file in `src/Calendar/Holidays`:
 Next, import this file in `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ``` php hl_lines="6-9"
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 16, 30) =]]
+[[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 17, 30, remove_indent=True) =]]
 ```
 
 The calendar now displays the events listed in the JSON file.

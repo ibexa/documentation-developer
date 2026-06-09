@@ -74,35 +74,70 @@ The following data migration step modes are available:
 | `user`                 | &#10004; | &#10004; |          |          |          |
 | `user_group`           | &#10004; | &#10004; | &#10004; |          |          |
 
+Additionally, the following special migration types are available:
+
+| `type`                 | `execute` |
+|------------------------|:---------:|
+| `repeatable`           | &#10004;  |
+| `sql`                  | &#10004;  |
+| `try_catch`            | &#10004;  |
+
 ### Repeatable steps
 
 You can run a set of one or more similar migration steps multiple times by using the special `repeatable` migration type.
 
-A repeatable migration performs the defined migration steps as many times as the `iterations` setting declares.
+A repeatable migration performs the defined migration steps as many times as specified:
 
-``` yaml hl_lines="4"
-[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 5) =]]
-```
+- with an [interation counter](#repeatable-steps-with-iteration-counter), mimicking the behavior of a [`for` loop](https://www.php.net/manual/en/control-structures.for.php)
+- with a [list of items](#repeatable-steps-with-items), mimicking the behavior of a [`foreach` loop](https://www.php.net/manual/en/control-structures.foreach.php)
 
 !!! tip
 
     You can use repeatable migration steps, for example, to quickly generate large numbers of content items for testing purposes.
 
-You can vary the operations using the iteration counter.
+#### Repeatable steps with iteration counter
+
+You can vary the operations with the iteration counter.
 
 For example, to create five Folders, with names ranging from "Folder 0" to "Folder 4", you can run the following migration using the iteration counter `i`:
 
-``` yaml hl_lines="16"
-[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 16) =]]
+``` yaml hl_lines="4 16"
+[[= include_code('code_samples/data_migration/examples/repeatable_step.yaml', end_line=16) =]]
 ```
 
 To vary the content name, the migration above uses [Symfony expression syntax](#expression-syntax).
 
-In the example above, the expression is enclosed in `###` and the repeated string `SSS`.
+In the example above, the expression is enclosed in `###` and the repeated string `XXX`.
 
 !!! note
 
     Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
+
+#### Repeatable steps with items
+
+By using the `items` key, you can provide an array of items to the `repeatable` step:
+
+``` yaml hl_lines="10-13"
+[[= include_file('code_samples/data_migration/examples/repeatable_step_with_items.yaml') =]]
+```
+
+In the example above, the step runs for each entry declared in `items`.
+On each run, the values of `code` and `name` keys are available as variables.
+
+The iteration counter variable (named `i` by default) is also available and holds the zero-based index of the current item.
+You can rename it with the `iteration_counter_name` setting and combine it with item properties as in the following example:
+
+``` yaml hl_lines="3 10 16"
+[[= include_code('code_samples/data_migration/examples/repeatable_step_with_items_counter.yaml') =]]
+```
+
+This migration results in three new content items:
+
+| Content item name      | Remote location ID    |
+| ---------------------- | --------------------- |
+| Getting started        | `migration_article_0` |
+| Advanced Configuration | `migration_article_1` |
+| API Reference          | `migration_article_2` |
 
 #### Generating fake data
 
@@ -121,6 +156,58 @@ Then, you can use `faker()` in expressions, for example:
 ```
 
 This step generates field values with fake personal names.
+
+### SQL migrations
+
+You can execute raw SQL queries directly in migrations by using the `sql` migration type.
+Use it for custom database operations that don't fit into standard entity migrations, such as creating custom tables or performing bulk updates.
+
+Each query requires a `driver` property that specifies which database system the query is for.
+The migration system automatically filters queries and executes only those matching your current database driver.
+
+```yaml
+[[= include_file('code_samples/data_migration/examples/sql_execute.yaml') =]]
+```
+
+The supported database drivers are:
+
+- `mysql` - MySQL/MariaDB
+- `postgresql` - PostgreSQL
+- `sqlite` - SQLite
+
+You can define queries for multiple database drivers in a single migration step.
+The system executes only the queries that match your configured database platform.
+If no matching queries are found, the migration throws an error.
+
+!!! caution
+
+    SQL migrations bypass the content model abstraction layer and directly modify the database.
+    Use them with caution and ensure your queries are compatible with your target database system.
+
+### Error handling with try-catch
+
+You can wrap one or more migration steps with a `try_catch` step to handle exceptions gracefully.
+
+Use it for migration steps that may fail under specific conditions but should not halt the entire migration process.
+
+For example, you can ensure a language creation migration step succeeds even if the language already exists.
+If the migration step fails for this reason, the exception is suppressed, allowing the remaining migrations to proceed without interruption.
+
+A `try_catch` migration requires the `steps` property and accepts optional `allowed_exceptions` and `stop_after_first_exception` settings.
+
+Default values are:
+
+- `allowed_exceptions`: empty list
+- `stop_after_first_exception`: `true`
+
+```yaml
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+```
+
+When an exception is thrown within a `try_catch` step, it's compared against the list of `allowed_exceptions`.
+If the exception matches, it's caught and the migration step continues or stops depending on the `stop_after_first_exception` configuration setting.
+The migration step is marked as successful and the migration process continues.
+Non-matching exceptions throw immediately, halting the migration process and returning an error.
 
 ### Expression syntax
 
@@ -405,7 +492,7 @@ The following example creates an image [content item](#content-items) from a loc
 ```
 
 This migration uses a [reference](managing_migrations.md#references) to store the created image content ID, and then uses it while creating the asset.
-It uses an [expression syntax](#expression-syntax) to [concat (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
+It uses an [expression syntax](#expression-syntax) to [concatenate (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
 the mandatory scheme `ezcontent://` and the image content ID through the [`reference` function](#built-in-functions) used on the reference's name.
 
 #### Product prices

@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 use Ibexa\Contracts\Collaboration\Session\Query\Criterion;
 use Ibexa\Contracts\Collaboration\Session\Query\SortClause;

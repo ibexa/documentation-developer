@@ -8,9 +8,11 @@ jobs:
         name: Validate code samples
         runs-on: "ubuntu-22.04"
         strategy:
+            fail-fast: false
             matrix:
                 php:
-                    - "8.3"
+                    - "8.4" # Upper supported version
+                    - "8.3" # Lower supported version
         steps:
             - uses: actions/checkout@v4
 
@@ -44,13 +46,27 @@ jobs:
                   dependency-versions: highest
 
             - name: Run PHPStan analysis
+              id: phpstan
+              continue-on-error: true
               run: composer phpstan
 
-            - name: Deptrac
+            - name: Run Deptrac analysis
+              id: deptrac
+              continue-on-error: true
               run: composer deptrac
 
-            - name: Run rector
-              run: vendor/bin/rector process --dry-run --ansi
+            - name: Run Rector check
+              id: rector
+              continue-on-error: true
+              run: composer check-rector
+
+            - name: Fail job if any check failed
+              if: always()
+              run: |
+                  if [[ "${{ steps.phpstan.outcome }}" == "failure" || "${{ steps.deptrac.outcome }}" == "failure" || "${{ steps.rector.outcome }}" == "failure" ]]; then
+                      echo "One or more checks failed: PHPStan=${{ steps.phpstan.outcome }}, Deptrac=${{ steps.deptrac.outcome }}, Rector=${{ steps.rector.outcome }}"
+                      exit 1
+                  fi
 
     code-samples-inclusion-check:
         name: Check code samples inclusion

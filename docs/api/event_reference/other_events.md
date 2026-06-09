@@ -19,7 +19,7 @@ The following events are dispatched when adding content items to bookmarks.
 
 ## Notifications
 
-The following events refer to [notifications displayed in the user menu](notifications.md#create-custom-notifications).
+The following events refer to [notifications displayed in the user menu](notifications.md#user-notifications).
 
 | Event | Dispatched by | Properties |
 |---|---|---|

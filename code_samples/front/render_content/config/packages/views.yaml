@@ -5,7 +5,7 @@ ibexa_design_engine:
 ibexa:
     system:
         site_group:
-            pagelayout: '@ibexadesign/pagelayout.html.twig'
+            page_layout: '@ibexadesign/pagelayout.html.twig'
             design: my_design
             content_view:
                 full:

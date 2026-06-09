@@ -7,6 +7,10 @@ page_type: landing_page
 
 Get started with tutorials to learn how to create a site with [[= product_name =]].
 
+!!! note
+
+    Remember that each tutorial should be performed on a clean project to avoid conflicts with added or modified files.
+
 [[= cards([
     "tutorials/beginner_tutorial/beginner_tutorial",
     "tutorials/page_and_form_tutorial/page_and_form_tutorial",

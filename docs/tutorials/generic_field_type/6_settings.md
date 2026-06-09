@@ -16,7 +16,7 @@ You also specify coordinates as placeholder values `%x%` and `%y%`.
 Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 
 ```php hl_lines="18-27"
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_6/Type.php') =]]
+[[= include_code('code_samples/field_types/2dpoint_ft/steps/step_6/Type.php') =]]
 ```
 
 ## Add a format field
@@ -26,7 +26,7 @@ In this part you define and implement the edit form for your field type.
 Define a `Point2DSettingsType` class and add a `format` field in `src/Form/Type/Point2DSettingsType.php`:
 
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DSettingsType.php') =]]
+[[= include_code('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DSettingsType.php') =]]
 ```
 
 ## FieldDefinitionFormMapper Interface
@@ -46,7 +46,7 @@ In `src/FieldType/Point2D/Type.php` you:
 <details class="tip">
 <summary>Complete Type.php code</summary>
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php') =]]
+[[= include_code('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php') =]]
 ```
 </details>
 

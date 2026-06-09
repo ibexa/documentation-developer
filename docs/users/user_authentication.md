@@ -14,11 +14,17 @@ This is mainly for the kernel to be able to manage content-related permissions (
 
 Depending on your context, you either want to create and return an Ibexa user, or return an existing user, even a generic one.
 
-Whenever a user is matched, Symfony initiates a `SecurityEvents::INTERACTIVE_LOGIN` event.
-Every service listening to this event receives an `InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
+Whenever a user is matched and authenticated, Symfony initiates an `AuthenticationTokenCreatedEvent`.
+Every service listening to this event receives an object which contains the original security token (that holds the matched user) and a [passport]([[= symfony_doc =]]/security/custom_authenticator.html#security-passports).
 
 Then, it's up to a listener to retrieve an Ibexa user from the repository.
-This user is wrapped within `Ibexa\Core\MVC\Symfony\Security\User` and assigned back into the event's token for the rest of the request.
+
+This Ibexa user can be
+
+- embedded into `Ibexa\Core\MVC\Symfony\Security\User` while forgetting about the original user
+- wrapped into `Ibexa\Core\MVC\Symfony\Security\UserWrapped` with the original user if needed
+
+Finally, this user is assigned back into the event's token for the rest of the process.
 
 ### User mapping example
 
@@ -26,12 +32,12 @@ The following example uses the [memory user provider]([[= symfony_doc =]]/securi
 maps memory user to Ibexa repository user,
 and [chains]([[= symfony_doc =]]/security/user_providers.html#chain-user-provider) with the Ibexa user provider to be able to use both:
 
-Create as `src/EventSubscriber/InteractiveLoginSubscriber.php` subscribing to the `SecurityEvents::INTERACTIVE_LOGIN` event,
+Create as `src/EventSubscriber/AuthenticationTokenCreatedSubscriber.php` subscribing to the `AuthenticationTokenCreatedEvent` event,
 mapping when needed an in-memory authenticated user to an Ibexa user,
 and using the Ibexa `UsernameProvider` implementation of `UserProviderInterface::loadUserByIdentifier()` to have a repository user wrapped into a security user:
 
 ``` php
-[[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
+[[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/AuthenticationTokenCreatedSubscriber.php') =]]
 ```
 
 In `config/packages/security.yaml`,
@@ -40,13 +46,30 @@ store some in-memory users with their passwords in plain text and a basic role,
 set a `plaintext` password encoder for the `memory` provider's `InMemoryUser`,
 and configure the firewall to use the `chain` provider:
 
-``` yaml
+``` yaml hl_lines="4 9-14 18-20 26"
 [[= include_file('code_samples/user_management/in_memory/config/packages/security.yaml') =]]
 ```
 
 In the `config/services.yaml` file, declare the subscriber as a service to pass your user map
-(it's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface`, the user service injection is auto-wired):
+(it's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface`, the config resolver and user service injections are auto-wired):
 
 ``` yaml
 [[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
 ```
+
+You can list the subscribers with the following command to check their order:
+
+``` bash
+php bin/console debug:event-dispatcher AuthenticationTokenCreatedEvent
+```
+
+Notice that the example subscriber priority is `11` so it's executed before
+the `Ibexa\Core\MVC\Symfony\Security\Authentication\EventSubscriber\OnAuthenticationTokenCreatedRepositoryUserSubscriber`
+which set the Ibexa user as the current user.
+
+From the back office, create the mapped users.
+For the example, a new user with the login `generic_customer` and a random password for the mapping to work,
+this account can be in the **Customers** or the **Anonymous users** group.
+
+You can now log in with an in-memory user.
+In the Symfony debug toolbar, you should see the in-memory user as this example uses `UserWrapped`.

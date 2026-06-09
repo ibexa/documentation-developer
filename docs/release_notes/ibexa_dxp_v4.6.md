@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
+description: Ibexa DXP v4.6 brings improvements to Commerce, product catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 title: Ibexa DXP v4.6 LTS
 month_change: true
 ---
@@ -9,6 +9,132 @@ month_change: true
 [[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
+
+[[% set version = 'v4.6.30' %]]
+[[% set date = '2026-05-21' %]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-003-vulnerabilities-in-forms-submissions-rest-sessions-and-solr-logs).
+
+### Gaussian blur optimization in Image Editor
+
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configuring the strength of the gaussian blur that is used for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/content_management/images/configure_image_editor/#gaussian-blur-strength).
+
+### Developer experience
+
+#### Twig Component group
+
+New [Twig Component group](https://doc.ibexa.co/en/5.0/templating/components/) is available in the back office:
+
+- `admin-ui-content-column-end`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+
+#### PHP API
+
+##### Product API: Computed availability for products
+
+[`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) now uses separate values for availability and computed availability:
+
+- `getAvailability()` returns whether the product or variant is manually set as available
+- `getComputedAvailability()` returns whether the product or variant can be ordered, for example, based on its stock level
+
+For more information, see [Availability and computed availability](https://doc.ibexa.co/en/4.6/product_catalog/products/#product-availability-and-stock).
+
+##### Workflow API: new `loadWorkflowMetadataForVersionInfo` method
+
+The new [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo) method loads workflow information directly from a [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object, without loading the content item.
+
+For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow_api/#getting-workflow-information).
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.29' %]]
+[[% set date = null %]]
+
+[[= release_note_entry_begin(
+    "Integrated help " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+### Product tour
+
+The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
+
+With product tours, you can create customized onboarding journeys.
+This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
+
+For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administration/back_office/product_tour/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Developer experience
+
+#### Taxonomy search
+
+One [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/search) criterion is added:
+
+- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
+
+#### Custom parameters in `ibexa_render()`
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_render).
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Core\FieldType\ReferenceAwareExternalStorage`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-ReferenceAwareExternalStorage.html)
+- [`Ibexa\Contracts\Core\Options\Context`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Options-Context.html)
+- [`Ibexa\Contracts\CorporateAccount\Order`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-corporateaccount-order.html)
+- [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
+- [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
+  <br>For more information, see [search criteria reference entry](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/).
+- [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html) from the [Integrated help LTS-Update](https://doc.ibexa.co/en/4.6/administration/back_office/integrated_help/)
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.28' %]]
 
@@ -394,7 +520,7 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 
 [[= release_note_entry_begin("Symbol attribute " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](https://doc.ibexa.co/en/4.6/pim/pim_guide/) system.
+The Symbol attribute allows you to store standardized identifiers of your products in the [product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/).
 
 For more information, see [Symbol attribute type](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/).
 
@@ -687,7 +813,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[= release_note_entry_begin("Date and time attribute " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/4.6/pim/pim_guide/) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/).
 
 For more information, see [Date and time attributes](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/).
 
@@ -1275,7 +1401,7 @@ on the dashboard within Recent activity block, or on the user profile.
 
 ![Recent activity log](img/4.6_activity_list.png "Recent activity log")
 
-For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
+For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/5.0/administration/recent_activity/recent_activity/).
 
 ##### Back office search
 
@@ -1291,7 +1417,7 @@ In the search result page, a spellcheck suggestion can be made.
 For example, if the searched text is "Comany", the result page may ask "Did you mean company?", which is clickable to relaunch the search with this word.
 <!-- vale Ibexa.Spellcheck = YES -->
 
-For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/5.0/administration/back_office/customize_search_suggestion/).
 
 ###### Filtering and sorting
 
@@ -1299,7 +1425,7 @@ The search result page can be sorted in other orders than relevance. Name, publi
 
 Filters can be applied to the search page to narrow down the results.
 
-For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/5.0/administration/back_office/customize_search_sorting/).
 
 ##### New and updated content type icons
 
@@ -1314,11 +1440,11 @@ Editors can now use a Digital Asset Management platform that enables storing med
 
 For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
-#### New features and improvements in PIM
+#### New features and improvements in product catalog
 
 ##### Remote PIM support
 
-This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
+This release introduces a foundation for connecting [[= product_name =]]'s product catalog capabilities to external Product Information Management (PIM) systems.
 You can use it to implement a custom solution and connect to external PIM or ERP systems, import product data, and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
 
 Here are the most important benefits of Remote PIM support:
@@ -1337,7 +1463,7 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 - use Customer Groups to apply different prices to products,
 - define and use currencies.
 
-For more information about Remote PIM support and the solution's limitations, see [PIM product guide](https://doc.ibexa.co/en/master/pim/pim_guide/#limitations).
+For more information about Remote PIM support and the solution's limitations, see [Product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide/#limitations).
 
 ##### Virtual products
 
@@ -1367,7 +1493,7 @@ For more information, see [Create product types](https://doc.ibexa.co/projects/u
 VAT rates configuration has been extended to accept additional flags under the `extras` key.
 Developers can use them, for example, to pass additional information to the UI, or define special exclusion rules.
 
-For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
+For more information, see [VAT rates](https://doc.ibexa.co/en/5.0/pim/pim_configuration/#vat-rates).
 
 ##### Ability to search through products in a catalog
 
@@ -1375,8 +1501,8 @@ When you're reviewing catalog details, on the **Products** tab, you can now see 
 
 ##### New Twig functions
 
-The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_is_pim_local), and adjust their behavior accordingly.
-Also, several new Twig functions have been implemented that help [get product availability information](https://doc.ibexa.co/en/master/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability).
+The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/storefront_twig_functions/#ibexa_is_pim_local), and adjust their behavior accordingly.
+Also, several new Twig functions have been implemented that help [get product availability information](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability).
 
 ##### New and modified query types
 
@@ -1388,7 +1514,7 @@ With `IsVirtual` criterion that searches for virtual or physical products, produ
 
 ##### Product migration
 
-[Product variants](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/master/content_management/data_migration/data_migration/).
+[Product variants](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/5.0/content_management/data_migration/data_migration/).
 
 ####  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
@@ -1399,7 +1525,7 @@ directly from their order history with a single click, eliminating the need for 
 The system streamlines the process by recreating the cart, retrieving shipping information, and pre-filling payment details from past orders.
 This feature is exclusively accessible to logged-in users, ensuring a secure and personalized shopping experience.
 
-For more information, see [reorder documentation](https://doc.ibexa.co/en/master/commerce/checkout/reorder/).
+For more information, see [reorder documentation](https://doc.ibexa.co/en/5.0/commerce/checkout/reorder/).
 
 ##### Orders block
 
@@ -1419,13 +1545,13 @@ Quick order form is available to both registered and guest users.
 
 ![Quick order](img/4.6_quick_order.png "Quick order")
 
-For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
+For more information, see [Quick order documentation](https://doc.ibexa.co/en/5.0/commerce/cart/quick_order/).
 
 ##### Cancel order
 
 This version allows you to customize order cancellations by defining a specific order status and related transition.
 
-For more information, see [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order).
+For more information, see [Define cancel order](https://doc.ibexa.co/en/5.0/commerce/order_management/configure_order_management/#define-cancel-order).
 
 ##### Integrate with payment gateways
 
@@ -1453,13 +1579,13 @@ You can create a PHP definition of the new strategy that allows for workflow man
 Defining strategy allows to add conditional steps for workflow if needed.
 When a conditional step is added, the checkout process uses the specified workflow and proceeds to the defined step.
 
-For more information, see [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy).
+For more information, see [Create custom strategy](https://doc.ibexa.co/en/5.0/commerce/checkout/customize_checkout/#create-custom-strategy).
 
 ##### Manage multiple checkout workflows
 
 When working with multiple checkout workflows, you can now specify the desired workflow by passing its name as an argument to the checkout initiation button or link.
 
-For more information, see [Manage multiple workflows](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#manage-multiple-workflows).
+For more information, see [Manage multiple workflows](https://doc.ibexa.co/en/5.0/commerce/checkout/customize_checkout/#manage-multiple-workflows).
 
 ##### Adding context data to cart
 
@@ -1469,7 +1595,7 @@ enabling you to associate additional information with your cart and its contents
 By leveraging context data, such as promo codes or custom texts,
 you can tailor the shopping experience for your customers and enhance the capabilities of your application.
 
-For more information, see [Adding context data](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data).
+For more information, see [Adding context data](https://doc.ibexa.co/en/5.0/commerce/cart/cart_api/#adding-context-data).
 
 #### New features and improvements in Personalization
 
@@ -1492,7 +1618,7 @@ For more information, see [Email triggers](https://doc.ibexa.co/projects/usergui
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Submodel parameters](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+For more information, see [Submodel parameters](https://doc.ibexa.co/en/5.0/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
 ##### New scenario filter
 
@@ -1592,20 +1718,20 @@ New [[= product_name_connect =]] scenario block retrieves and displays data from
 Scenario block is a regular Page block and can be configured on field definition level as any other block.
 You also need to configure scenario block in the Page Builder. To do it, you need to provide name for the block, enter webhook link for the [[= product_name_connect =]] webhook and select the template to be used to present the webhook.
 
-For more information, see [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
+For more information, see [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/5.0/content_management/pages/ibexa_connect_scenario_block/).
 
 #### DDEV
 
-[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp).
+[[[= product_name =]] can officially be run on DDEV](https://docs.ddev.com/en/stable/users/quickstart/#ibexa-dxp).
 
-For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
+For more information, see the [DDEV guide](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 
 #### Customer Data Platform (CDP)
 
 In this release, the CDP configuration allows you to automate the process of exporting data.
 Users can now export not only Content, but also Users and Products data.
 
-For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cdp_activation/cdp_activation/).
+For more information, see [CDP Activation](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_activation/).
 
 ### Developer experience
 

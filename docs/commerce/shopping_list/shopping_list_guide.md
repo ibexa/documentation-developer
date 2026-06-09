@@ -1,7 +1,7 @@
 ---
 description: A shopping list allows users to save potential purchases, recurring product sets, and other items for future use in the cart.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list feature guide
@@ -64,10 +64,10 @@ In the out-of-the-box [storefront](storefront.md), a shopping list user can:
     - products are kept in shopping list while added to the cart
     - products out-of-stock aren't copied and the user is warned
     - product quantities are incremented by 1, the user can adjust quantities in the cart
-  ![Shopping list product list with highligts on "Add to cart" and "Add all to cart" buttons](img/add_to_cart.png "“Add to cart” and “Add all to cart” buttons")
+  ![Shopping list product list with highlights on "Add to cart" and "Add all to cart" buttons](img/add_to_cart.png "“Add to cart” and “Add all to cart” buttons")
 - Move a product from cart to “My Wishlist” (product is removed from cart and added to the default shopping list)
 - Move the whole cart to “My Wishlist” (products are removed from cart and added to the default shopping list)
-  ![Cart's product list with highligts on "Move to My Wishlist" and "Move all to wishlist" buttons](img/move_to_my_wishlist.png "“Move to My Wishlist” and “Move all to wishlist” buttons")
+  ![Cart's product list with highlights on "Move to My Wishlist" and "Move all to wishlist" buttons](img/move_to_my_wishlist.png "“Move to My Wishlist” and “Move all to wishlist” buttons")
 - Delete a shopping list
 
 ## Extensibility

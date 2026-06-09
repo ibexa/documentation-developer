@@ -18,7 +18,7 @@ Search criteria are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguratio
 
 The following example shows how to use them to find specific Action Configurations:
 ``` php
-[[= include_file('code_samples/ai_actions/src/Query/Search.php') =]]
+[[= include_code('code_samples/ai_actions/src/Query/Search.php') =]]
 ```
 
 The result set contains Action Configurations that are:
