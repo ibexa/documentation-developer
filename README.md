@@ -51,12 +51,53 @@ mkdocs serve
 After a short while your documentation should be reachable at http://localhost:8000. If it isn't, check the output
 of the command.
 
+### markdownlint
+
+This repository uses [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown formatting, including table syntax.
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+Run the linter:
+
+```bash
+yarn markdownlint
+```
+
+Some issues can be fixed automatically:
+
+```bash
+yarn markdownlint --fix
+```
+
 ## Testing the code samples
+
+### PHPStan
 
 This repository uses PHPStan to test the code samples. To run the tests locally execute the commands below:
 ```bash
 composer update
 composer phpstan
+```
+
+## Downgrading code samples with Rector
+
+Code samples must be compatible with PHP 7.4.
+Rector is used to check and downgrade PHP 8.x syntax and functions to PHP 7.4-compatible equivalents.
+
+To check which files need downgrading (dry-run, no changes applied), run:
+```bash
+composer require --dev ibexa/rector:~4.6.x-dev
+composer check-rector
+```
+
+To refactor the code samples, run:
+
+``` bash
+vendor/bin/rector
 ```
 
 ## Where to View

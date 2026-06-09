@@ -238,7 +238,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 
 | Module               | Function              | Effect                                                                   | Possible limitations |
 |----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
-| <nobr>`content`</nobr> | <nobr>`share`</nobr> | share content drafts with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation)
+| <nobr>`content`</nobr> | <nobr>`share`</nobr> | share content drafts with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation) |
 | <nobr>`rte`</nobr> | <nobr>`edit`</nobr> | use [Real-time editing](collaborative_editing_guide.md#real-time-editing)    |
 
 

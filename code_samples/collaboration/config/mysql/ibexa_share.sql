@@ -88,7 +88,7 @@ CREATE TABLE ibexa_collaboration_content
   language_id BIGINT NOT NULL,
   INDEX ibexa_collaboration_session_content_version_language_idx (content_id, version_no, language_id),
   PRIMARY KEY(id)
-) DEFAULT CHARACTER SET utf8 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
 ALTER TABLE
   ibexa_collaboration_content
 ADD

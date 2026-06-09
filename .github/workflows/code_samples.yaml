@@ -1,6 +1,10 @@
 name: "Check code samples"
 
 on:
+    push:
+        branches:
+            - master
+            - "[0-9]+.[0-9]+"
     pull_request: ~
 
 jobs:
@@ -8,9 +12,12 @@ jobs:
         name: Validate code samples
         runs-on: "ubuntu-22.04"
         strategy:
+            fail-fast: false
             matrix:
                 php:
-                    - "8.3"
+                    - "8.4" # Upper supported version
+                    - "8.2" # Lower supported that haven't reached end of live
+                    - "7.4" # Lower supported version but reached end of life, 8.2 is recommended instead
         steps:
             - uses: actions/checkout@v4
 
@@ -39,12 +46,62 @@ jobs:
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
                   GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
+            - name: Ignore audit advisory for PHP 7.4
+              if: matrix.php == '7.4'
+              run: |
+                  composer config audit.ignore --json '{
+                      "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-fs5b-x5k4-1h39": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-fbvq-z33h-r2np": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-g9zw-qxh8-pq8w": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-yd6k-t2gh-1m43": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-1tmc-rt7x-12w6": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-xx6c-6d96-db2w": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+                  }'
+
             - uses: ramsey/composer-install@v3
               with:
                   dependency-versions: highest
 
             - name: Run PHPStan analysis
+              id: phpstan
+              continue-on-error: true
               run: composer phpstan
+  
+            - if: matrix.php == '8.4' # ibexa/rector supports PHP 8.3 and higher
+              id: rector
+              name: Run Rector check
+              continue-on-error: true
+              run: |
+                composer require --dev ibexa/rector:~4.6.x-dev
+                composer check-rector
+
+            - name: Fail job if any check failed
+              if: always()
+              run: |
+                  if [[ "${{ steps.phpstan.outcome }}" == "failure" || "${{ steps.rector.outcome }}" == "failure" ]]; then
+                      echo "One or more checks failed: PHPStan=${{ steps.phpstan.outcome }}, Rector=${{ steps.rector.outcome }}"
+                      exit 1
+                  fi
 
     code-samples-inclusion-check:
         name: Check code samples inclusion

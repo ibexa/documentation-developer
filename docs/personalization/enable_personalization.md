@@ -18,7 +18,7 @@ When you receive the credentials, add them to your configuration.
 
 In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key: 
 
-```
+```bash
 PERSONALIZATION_CUSTOMER_ID=12345
 PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
 PERSONALIZATION_HOST_URI=https://server_uri

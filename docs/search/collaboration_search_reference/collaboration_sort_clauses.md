@@ -35,7 +35,7 @@ Session Search Sort Clauses are implementing the [SortClauseInterface](/api/php_
 
 The following example shows how to use them to sort the searched sessions:
 
-```php hl_lines="18"
+```php hl_lines="17"
 [[= include_file('code_samples/collaboration/src/Query/Search.php') =]]
 ```
 

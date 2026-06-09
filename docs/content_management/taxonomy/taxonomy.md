@@ -36,7 +36,7 @@ Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration
 
 ``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 16) =]]
 ```
 
 Replace `<content_categories_remote_id>` with the new container's location remote ID.
@@ -63,7 +63,7 @@ You can hide the **Content** tab in the **Categories** view.
 
 In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
 
-``` yaml
+``` yaml hl_lines="11"
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
@@ -73,7 +73,7 @@ In configuration add `assigned_content_tab` with the flag `false` (for other tax
 By default, for each taxonomy, a menu item is added to the main menu.
 You can hide this menu item by setting a value of the `register_main_menu` configuration key:
 
-``` yaml
+``` yaml hl_lines="6"
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 10) =]]            # existing keys
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 17, 18) =]]
@@ -145,7 +145,7 @@ However, before you can enable it, make sure the following prerequisites have be
 
 - [Search engine](search_engines.md): Taxonomy suggestions require a search engine that supports vector search.
 The feature has been tested to work with Elasticsearch or Solr 9.8.1+.
-- [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions [installed and onfigured](install_ai_actions.md#configure-access-to-openai) to support the OpenAI service.
+- [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions [installed and configured](install_ai_actions.md#configure-access-to-openai) to support the OpenAI service.
 
 #### Enable taxonomy embedding indexing
 
@@ -164,7 +164,7 @@ Toggle this setting at any time to enable or disable indexing of taxonomy embedd
 
 If you are happy with the default settings, clear the cache and reindex the search engine.
 
-``` shell
+```bash
 php bin/console cache:clear
 php bin/console ibexa:reindex
 ```

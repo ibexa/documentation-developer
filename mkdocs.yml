@@ -103,6 +103,7 @@ nav:
             - AI Action events: api/event_reference/ai_action_events.md
             - Discounts events: api/event_reference/discounts_events.md
             - Collaboration events: api/event_reference/collaboration_events.md
+            - Integrated help events: api/event_reference/integrated_help_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
         - Administration: administration/administration.md
@@ -164,6 +165,9 @@ nav:
             - Integrated help:
                 - Integrated help: administration/back_office/integrated_help.md
                 - Customize integrated help: administration/back_office/customize_integrated_help.md
+                - Product tour: administration/back_office/product_tour.md
+                - Configure product tour: administration/back_office/configure_product_tour.md
+                - Customize product tour: administration/back_office/customize_product_tour.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
@@ -291,6 +295,7 @@ nav:
             - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
             - Install and configure Collaborative editing: content_management/collaborative_editing/install_collaborative_editing.md
             - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -369,9 +374,10 @@ nav:
         - Customize PIM:
             - Customize PIM: pim/customize_pim.md
             - Create custom attribute type: pim/create_custom_attribute_type.md
-            - Create product code generator: pim/create_product_code_generator.md
+            - Create custom availability strategy: pim/create_custom_availability_strategy.md
             - Create custom catalog filter: pim/create_custom_catalog_filter.md
             - Create custom name schema: pim/create_custom_name_schema_strategy.md
+            - Create product code generator: pim/create_product_code_generator.md
         - Add remote PIM support: pim/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
@@ -568,6 +574,8 @@ nav:
             - Sibling: search/criteria_reference/sibling_criterion.md
             - Subtree: search/criteria_reference/subtree_criterion.md
             - TaxonomyEntryID: search/criteria_reference/taxonomy_entry_id.md
+            - TaxonomyNoEntries: search/criteria_reference/taxonomy_no_entries.md
+            - TaxonomySubtree: search/criteria_reference/taxonomy_subtree.md
             - UserEmail: search/criteria_reference/useremail_criterion.md
             - UserId: search/criteria_reference/userid_criterion.md
             - UserLogin: search/criteria_reference/userlogin_criterion.md
@@ -802,6 +810,7 @@ nav:
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
+        - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -990,8 +999,8 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.28'
-  latest_tag_5_0: '5.0.6'
+  latest_tag_4_6: '4.6.30'
+  latest_tag_5_0: '5.0.8'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/4.6'

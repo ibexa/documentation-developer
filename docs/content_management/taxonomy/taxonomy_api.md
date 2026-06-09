@@ -1,5 +1,6 @@
 ---
 description: Using the PHP API you can browse taxonomy entries, get their information and manage them.
+month_change: true
 ---
 
 # Taxonomy API
@@ -71,3 +72,15 @@ and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSI
 
     Taxonomy entry management functions triggers events you can listen to.
     For more information, see [Taxonomy events](taxonomy_events.md).
+
+## Search
+
+You can search for content based on its taxonomy entry assignments by using the standard [`SearchService`](search_api.md) with taxonomy-specific Search Criteria:
+
+| Criterion | Description |
+|---|---|
+| [TaxonomyEntryId](taxonomy_entry_id.md) | Find content assigned to a specific taxonomy entry |
+| [TaxonomyNoEntries](taxonomy_no_entries.md) | Find content that has no entries assigned from a given taxonomy |
+| [TaxonomySubtree](taxonomy_subtree.md) | Find content assigned to a taxonomy entry or any of its descendants |
+
+You can also use the [TaxonomyEntryId Aggregation](taxonomyentryid_aggregation.md) to count content items per taxonomy entry.

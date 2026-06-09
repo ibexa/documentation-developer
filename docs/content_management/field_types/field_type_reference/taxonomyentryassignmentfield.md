@@ -76,7 +76,7 @@ The field type validates if all Taxonomy Entries from the value are assigned to 
 
 #### Settings
 
-Name|Type|Default value|Description|
+|Name|Type|Default value|Description|
 |------|------|------|------|
 |`taxonomy`|`string`|`null`|Taxonomy from which entry is chosen.|
 

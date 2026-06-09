@@ -52,7 +52,7 @@ To create a session, execute the following REST request:
 
 === "XML"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
@@ -67,7 +67,7 @@ To create a session, execute the following REST request:
     </SessionInput>
     ```
 
-    ```
+    ``` http
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
@@ -86,7 +86,7 @@ To create a session, execute the following REST request:
 
 === "JSON"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
@@ -102,7 +102,7 @@ To create a session, execute the following REST request:
     }
     ```
 
-    ```
+    ``` http
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
@@ -131,7 +131,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 === "XML"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
@@ -148,7 +148,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     </SessionInput>
     ```
 
-    ```
+    ``` http
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
@@ -165,7 +165,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 === "JSON"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
@@ -183,7 +183,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     }
     ```
 
-    ```
+    ``` http
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+json
     ```
@@ -210,7 +210,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 You can now add the previously set cookie to requests to be executed with the logged-in user.
 
-```
+```http
 GET /content/locations/1/5 HTTP/1.1
 Host: www.example.net
 Accept: Accept: application/vnd.ibexa.api.Location+xml
@@ -224,7 +224,7 @@ It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
 
-```
+```http
 DELETE /content/types/32 HTTP/1.1
 Host: www.example.net
 Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
@@ -259,7 +259,7 @@ A person with minimal insight into this application and the company can easily s
 
 To log out is to `DELETE` the session using its ID (like in the cookie). As this is an unsafe method, the CSRF token must be presented.
 
-```
+```http
 DELETE /user/sessions/go327ij2cirpo59pb6rrv2a4el2 HTTP/1.1
 Host: www.example.net
 Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
@@ -270,11 +270,11 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 
 ### Configuration
 
-See [JWT authentication](#jwt-authentication) or GraphQL.
+See [JWT authentication](development_security.md#jwt-authentication) for configuration instructions.
 
 ### Usage example
 
-After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST, you can get the JWT token through the following request:
+After you configure JWT authentication for REST, you can get the JWT token through the following request:
 
 === "XML"
 
@@ -388,7 +388,7 @@ Most HTTP client libraries and REST libraries support this method.
 
 **Raw HTTP request with basic authentication**
 
-```
+```http
 GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ibexa.api.Root+json

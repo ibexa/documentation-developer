@@ -1,6 +1,6 @@
 ---
 description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
-month_change: true
+month_change: false
 ---
 
 # Reverse proxy
@@ -20,7 +20,7 @@ To use the Symfony reverse proxy, you must change your `public/index.php` front 
 
  require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
- return function (array $context) {
+ return static function (array $context) {
 -    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
 +    return new AppCache(new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']));
  };
@@ -226,7 +226,7 @@ ibexa:
 
 See the example below to configure Fastly with the `.env` file:
 
-```
+```bash
 HTTPCACHE_PURGE_TYPE="fastly"
 # Optional
 HTTPCACHE_PURGE_SERVER="https://api.fastly.com"

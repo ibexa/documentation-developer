@@ -145,10 +145,10 @@ The [`GenericProvider`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/I
 
 With the [`RemoteProvider`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
 
- - remote sources, for example, <http://placekitten.com> (see [example 2](#configuration-examples))
+ - remote sources, for example, <http://placecats.com> (see [example 2](#configuration-examples))
  - live version of a site (see [example 3](#configuration-examples))
 
-![Placeholder RemoteProvider - placekitten.com](placeholder_remote_provider.jpg "Remote placeholder images on a page")
+![Placeholder RemoteProvider - placecats.com](placeholder_remote_provider.jpg "Remote placeholder images on a page")
 
 |Option|Default value|Description|
 |------|-------------|-----------|

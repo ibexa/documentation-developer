@@ -11,6 +11,9 @@
             "url": "https://updates.ibexa.co"
         }
     ],
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
     "require-dev": {
         "ibexa/automated-translation": "4.6.x-dev",
         "ibexa/code-style": "^1.0",
@@ -76,13 +79,21 @@
         "ibexa/collaboration": "~4.6.x-dev",
         "ibexa/share": "~4.6.x-dev",
         "ibexa/phpstan": "~4.6.-dev",
+        "ibexa/integrated-help": "~4.6.x-dev",
         "ibexa/cdp": "~4.6.x-dev",
         "ibexa/image-editor": "~4.6.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
         "check-cs": "@fix-cs --dry-run",
-        "phpstan": "phpstan analyse"
+        "phpstan": "phpstan analyse",
+        "check-rector": "rector process --dry-run --ansi"
+    },
+    "suggest": {
+        "ibexa/rector": "Add Rector to check for code refactoring opportunities"
+    },
+    "scripts-descriptions": {
+         "check-rector": "Check for code refactoring opportunities"
     },
     "config": {
         "allow-plugins": false

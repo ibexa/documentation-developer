@@ -3,35 +3,35 @@
 set +x;
 
 AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to install the targeted edition and version
-OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
+PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
+DXP_VERSION="${DXP_VERSION:-4.6.*}"; # Version from and for which the Reference is built; can be overridden by the DXP_VERSION env var (e.g. v5.0.x-dev for a dev build)
 DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute rector discounts discounts-codes product-catalog-symbol-attribute collaboration share fieldtype-richtext-rte integrated-help cdp); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 SF_VERSION='5.4'; # Symfony version used by Ibexa DXP
-PHPDOC_VERSION='3.8.0'; # Version of phpDocumentor used to build the Reference
+PHPDOC_VERSION='3.10.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.8.0'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.10.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
-BASE_DXP_BRANCH=''; # Branch from and for which the Reference is built when using a dev branch as version
-VIRTUAL_DXP_VERSION=''; # Version for which the reference is supposedly built when using dev branch as version
+BASE_DXP_BRANCH="${BASE_DXP_BRANCH:-}"; # Branch from and for which the Reference is built when using a dev branch as version; can be overridden by the BASE_DXP_BRANCH env var
+VIRTUAL_DXP_VERSION="${VIRTUAL_DXP_VERSION:-}"; # Version for which the reference is supposedly built when using dev branch as version; can be overridden by the VIRTUAL_DXP_VERSION env var
 
-if [ ! -d $OUTPUT_DIR ]; then
-  echo -n "Creating ${OUTPUT_DIR}… ";
-  mkdir -p $OUTPUT_DIR;
+if [ ! -d $PHP_API_OUTPUT_DIR ]; then
+  echo -n "Creating ${PHP_API_OUTPUT_DIR}… ";
+  mkdir -p $PHP_API_OUTPUT_DIR;
   if [ $? -eq 0 ]; then
     echo 'OK';
   else
     exit 1;
   fi;
 fi;
-OUTPUT_DIR=$(realpath $OUTPUT_DIR); # Transform to absolute path before changing the working directory
+PHP_API_OUTPUT_DIR=$(realpath $PHP_API_OUTPUT_DIR); # Transform into absolute path before changing the working directory
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';
@@ -78,7 +78,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   for additional_package in "${DXP_ADD_ONS[@]}"; do
-    composer require --no-interaction --ignore-platform-reqs --no-scripts --with-all-dependencies ibexa/$additional_package:$DXP_VERSION
+    composer require --no-interaction --ignore-platform-reqs --no-scripts --with-all-dependencies ibexa/$additional_package:$DXP_VERSION;
   done;
 fi;
 
@@ -179,18 +179,18 @@ if [ $? -eq 0 ]; then
     ./php_api_reference/js/searchIndex.js \
     > ./php_api_reference/js/searchIndex.new.js;
   mv -f ./php_api_reference/js/searchIndex.new.js ./php_api_reference/js/searchIndex.js;
-  echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
-  cp -rf ./php_api_reference/* $OUTPUT_DIR;
+  echo -n "Copy phpDocumentor output to ${PHP_API_OUTPUT_DIR}… ";
+  cp -rf ./php_api_reference/* $PHP_API_OUTPUT_DIR;
   echo -n 'Remove surplus… ';
   while IFS= read -r line; do
     file="$(echo $line | sed -r 's/Only in (.*): (.*)/\1\/\2/')";
-    if [[ $file = $OUTPUT_DIR/* ]]; then
+    if [[ $file = $PHP_API_OUTPUT_DIR/* ]]; then
       rm -rf $file;
     fi;
-  done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ')";
+  done <<< "$(diff -qr ./php_api_reference $PHP_API_OUTPUT_DIR | grep 'Only in ')";
   echo 'OK.';
 else
-  echo 'A phpDocumentor error prevents reference update.';
+  echo 'A phpDocumentor error prevents PHP Reference update.';
   exit 3;
 fi;
 

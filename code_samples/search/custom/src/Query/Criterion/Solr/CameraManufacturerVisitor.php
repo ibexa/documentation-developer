@@ -18,7 +18,7 @@ final class CameraManufacturerVisitor extends CriterionVisitor
     /**
      * @param \App\Query\Criterion\CameraManufacturerCriterion $criterion
      */
-    public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
+    public function visit(Criterion $criterion, ?CriterionVisitor $subVisitor = null)
     {
         $expressions = array_map(
             function ($value): string {

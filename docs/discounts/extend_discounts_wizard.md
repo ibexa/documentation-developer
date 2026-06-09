@@ -106,7 +106,7 @@ Expand the previously created `AnniversaryConditionStepEventSubscriber` to liste
 
 and add the `addStepDataToStruct()` method:
 
-``` php hl_lines="23-24 57-70"
+``` php hl_lines="23-24 57-75"
 [[= include_file('code_samples/discounts/src/Discounts/Step/Step2/AnniversaryConditionStepEventSubscriber.php') =]]
 ```
 

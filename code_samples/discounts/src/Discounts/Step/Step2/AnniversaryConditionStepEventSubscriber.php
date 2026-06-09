@@ -56,12 +56,17 @@ final class AnniversaryConditionStepEventSubscriber implements EventSubscriberIn
 
     public function addStepDataToStruct(DiscountStructEventInterface $event): void
     {
-        /** @var AnniversaryConditionStep $stepData */
-        $stepData = $event
-                        ->getData()
-                        ->getStepByIdentifier(AnniversaryConditionStep::IDENTIFIER)?->getStepData();
+        $step = $event->getData()
+                        ->getStepByIdentifier(AnniversaryConditionStep::IDENTIFIER);
 
-        if ($stepData === null || !$stepData->enabled) {
+        if ($step === null) {
+            return;
+        }
+
+        /** @var AnniversaryConditionStep $stepData */
+        $stepData = $step->getStepData();
+
+        if (!$stepData->enabled) {
             return;
         }
 
