@@ -22,7 +22,7 @@ final readonly class AuthenticationTokenCreatedSubscriber implements EventSubscr
     public static function getSubscribedEvents(): array
     {
         return [
-            AuthenticationTokenCreatedEvent::class => ['onAuthenticationTokenCreated', 10],
+            AuthenticationTokenCreatedEvent::class => ['onAuthenticationTokenCreated', 11],
         ];
     }
 
