@@ -7,19 +7,16 @@ use Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
 use Ibexa\Core\MVC\Symfony\MVCEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class InteractiveLoginSubscriber implements EventSubscriberInterface
+final class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var \Ibexa\Contracts\Core\Repository\UserService
-     */
-    private $userService;
+    private UserService $userService;
 
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             MVCEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin',
