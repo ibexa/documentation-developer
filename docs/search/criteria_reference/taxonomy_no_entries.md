@@ -1,5 +1,6 @@
 ---
 description: TaxonomyNoEntries Search Criterion
+month_change: true
 ---
 
 # TaxonomyNoEntries Criterion

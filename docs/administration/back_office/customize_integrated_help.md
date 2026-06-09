@@ -1,7 +1,7 @@
 ---
 description: Customize the integrated help menu.
 edition: lts-update
-month_change: false
+month_change: true
 ---
 
 # Customize integrated help
