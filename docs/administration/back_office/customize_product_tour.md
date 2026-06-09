@@ -52,4 +52,3 @@ The subscriber executes the following actions:
 - adds a custom clickable step to highlight the unread notification
 
 ![Scenario built with PHP triggered on unread notification](img/product_tour/custom_scenario.png "Scenario built with PHP triggered on unread notification")
-

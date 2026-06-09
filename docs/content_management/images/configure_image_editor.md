@@ -1,5 +1,6 @@
 ---
 description: Configure image editor to crop, flip, and modify images.
+month_change: true
 ---
 
 # Configure Image Editor

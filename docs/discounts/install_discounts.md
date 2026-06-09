@@ -1,6 +1,6 @@
 ---
 description: Install the Discounts LTS update.
-month_change: true
+month_change: false
 editions:
     - lts-update
     - commerce

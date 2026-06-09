@@ -1,5 +1,6 @@
 ---
 description: Using the PHP API you can browse taxonomy entries, get their information and manage them.
+month_change: true
 ---
 
 # Taxonomy API
