@@ -7,6 +7,62 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## May 2026
+
+### Releases
+
+- [v5.0.8 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v508)
+- [v4.6.30 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4630)
+
+### AI
+
+- On 5.0, Grouped [AI Actions](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions/) and [MCP Servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp/) under [AI](https://doc.ibexa.co/en/5.0/ai/ai/)
+
+### Search
+
+- On both 4.6 and 5.0, Documented how to [disable the total count in search results](search_api.md#disable-result-count)
+
+### Notifications
+
+On 5.0:
+
+- Covered the [notification channels](https://doc.ibexa.co/en/5.0/api/notification_channels/) feature from `ibexa/notifications` package
+- Revamped the [back office notifications documentation](https://doc.ibexa.co/en/5.0/administration/back_office/notifications/)
+
+### HTTP Cache
+
+- On 5.0, listed the [value types supported by the response taggers](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/content_aware_cache/#delegator-and-value-taggers)
+
+### PHP API
+
+- On 5.0, enhanced the PHP API reference with the following new classes and namespaces:
+    - [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+    - [`Ibexa\Contracts\Cdp\Membership`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+    - [`Ibexa\Contracts\Mcp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
+### DDEV
+
+- On both 4.6 and 5.0, added how to [configure a mail catcher in DDEV](install_with_ddev.md#configure-mailer-optional) for email testing
+
+## April 2026
+
+### Releases
+
+- [v5.0.7 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v507)
+- [v4.6.29 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4629)
+
+### Configuration
+
+- Added trailing slashes to all `excluded_uri_prefixes` items to avoid collision with other URIs (for example, `/media` matches on both `/media` and `/mediation` while `/media/` only on `/media/`)
+
+### PHP API
+
+- On 5.0, [`Ibexa\Contracts\ConnectorRaptor`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
+- On both 4.6 and 5.0, [`Ibexa\Contracts\IntegratedHelp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
+
 ## March 2026
 
 ### Products
