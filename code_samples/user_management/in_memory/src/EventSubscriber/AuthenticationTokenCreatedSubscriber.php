@@ -4,7 +4,6 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
-//use Ibexa\Core\MVC\Symfony\Security\User;
 use Ibexa\Core\MVC\Symfony\Security\UserWrapped;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\User\InMemoryUser;
@@ -29,11 +28,12 @@ final readonly class AuthenticationTokenCreatedSubscriber implements EventSubscr
 
     public function onAuthenticationTokenCreated(AuthenticationTokenCreatedEvent $event): void
     {
-        $tokenUser = $event->getAuthenticatedToken()->getUser();
+        $token = $event->getAuthenticatedToken();
+        $tokenUser = $token->getUser();
         if (!$tokenUser instanceof InMemoryUser) {
             return;
         }
-        $userIdentifier = $event->getAuthenticatedToken()->getUserIdentifier();
+        $userIdentifier = $token->getUserIdentifier();
         $ibexaUser = null;
         if (array_key_exists($userIdentifier, $this->userMap)) {
             $ibexaUser = $this->userService->loadUserByLogin($this->userMap[$userIdentifier]);
@@ -42,7 +42,6 @@ final readonly class AuthenticationTokenCreatedSubscriber implements EventSubscr
             $anonymousUserId = (int)$this->configResolver->getParameter('anonymous_user_id');
             $ibexaUser = $this->userService->loadUser($anonymousUserId);
         }
-        //$event->getAuthenticatedToken()->setUser(new User($ibexaUser));
-        $event->getAuthenticatedToken()->setUser(new UserWrapped($tokenUser, $ibexaUser));
+        $token->setUser(new UserWrapped($tokenUser, $ibexaUser));
     }
 }
