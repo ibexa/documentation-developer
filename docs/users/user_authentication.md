@@ -43,14 +43,10 @@ The following is an example of using the in-memory user provider:
 
 ### Implement the listener
 
-In the `config/services.yaml` file:
-
-``` yaml
-[[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
-```
-
 Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
 
 ``` php
 [[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
 ```
+
+It's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface` and the user service injection is auto-wired.
