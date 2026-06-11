@@ -38,73 +38,15 @@ You can override `getUser()` to return whatever user class you want, as long a
 The following is an example of using the in-memory user provider:
 
 ``` yaml
-# config/packages/security.yaml
-security:
-    providers:
-        # Chaining in_memory and ibexa user providers
-        chain_provider:
-            chain:
-                providers: [in_memory, ibexa]
-        ibexa:
-            id: ibexa.security.user_provider
-        in_memory:
-            memory:
-                users:
-                    # You will then be able to login with username "user" and password "userpass"
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-    # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
-    encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+[[= include_file('code_samples/user_management/in_memory/config/packages/security.yaml') =]]
 ```
 
 ### Implement the listener
 
-In the `config/services.yaml` file:
-
-``` yaml
-services:
-    App\EventListener\InteractiveLoginListener:
-        arguments: ['@ibexa.api.service.user']
-        tags:
-            - { name: kernel.event_subscriber } 
-```
-
 Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
 
 ``` php
-<?php
-
-namespace App\EventListener;
-
-use Ibexa\Contracts\Core\Repository\UserService;
-use eIbexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
-use Ibexa\Core\MVC\Symfony\MVCEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-class InteractiveLoginListener implements EventSubscriberInterface
-{
-    /**
-     * @var \Ibexa\Contracts\Core\Repository\UserService
-     */
-    private $userService;
-
-    public function __construct(UserService $userService)
-    {
-        $this->userService = $userService;
-    }
-
-    public static function getSubscribedEvents()
-    {
-        return [
-            MVCEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin'
-        ];
-    }
-
-    public function onInteractiveLogin(InteractiveLoginEvent $event)
-    {
-        // This loads a generic User and assigns it back to the event.
-        // You may want to create Users here, or even load predefined Users depending on your own rules.
-        $event->setApiUser($this->userService->loadUserByLogin( 'lolautruche' ));
-    }
-} 
+[[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
 ```
+
+It's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface` and the user service injection is auto-wired.
