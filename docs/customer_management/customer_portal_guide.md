@@ -118,7 +118,7 @@ Finally, you can customize the registration site itself.
 
 ### REST API
 
-Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account) for interacting with corporate accounts from the context of the [[= product_name_connect =]] app.
+Customer Portal comes with [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Corporate-Account) for interacting with corporate accounts from the context of the [[= product_name_connect =]] app.
 
 ## Capabilities
 

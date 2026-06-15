@@ -11,6 +11,28 @@ Every interaction with the repository than you can do from back office or by usi
 
 The REST API uses HTTP methods (such as `GET` and `PUBLISH`), and HTTP headers to specify the type of request.
 
+## OpenAPI support
+
+The REST API is built on top of [API Platform](https://api-platform.com/docs/symfony/) and meets the [OpenAPI](https://www.openapis.org/) standard.
+
+You can download the OpenAPI specification in:
+
+- [YAML format](/api/rest_api/rest_api_reference/openapi.yaml)
+- [JSON format](/api/rest_api/rest_api_reference/openapi.json)
+
+You can also generate one for your project by running one of the commands below:
+
+``` bash
+php bin/console ibexa:openapi --output=openapi.json # JSON output
+php bin/console ibexa:openapi --yaml --output=openapi.yaml # YAML output
+```
+
+Use the specification file with [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
+
+!!! note
+
+    In [Symfony's `dev` environment](environments.md), you can access a REST API reference generated for your project by visiting the `/api/ibexa/v2/doc` route in the browser.
+
 ## URIs
 
 The REST API is designed in such a way that the client can explore the Repository without constructing any URIs to resources.
@@ -50,7 +72,7 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1 HTTP/1.1
 The `/` root route is answered by a reference list with the main resource routes and media-types.
 It's presented in XML by default, but you can also switch to JSON output.
 
-```shell
+```bash
 curl https://api.example.com/api/ibexa/v2/
 curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 ```

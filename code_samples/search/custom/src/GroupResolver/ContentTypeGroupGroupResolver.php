@@ -8,13 +8,10 @@ use Ibexa\Contracts\Core\Persistence\Content\Type\Handler;
 use Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\Group\GroupResolverInterface;
 use Ibexa\Contracts\Elasticsearch\Mapping\BaseDocument;
 
-final class ContentTypeGroupGroupResolver implements GroupResolverInterface
+final readonly class ContentTypeGroupGroupResolver implements GroupResolverInterface
 {
-    private Handler $contentTypeHandler;
-
-    public function __construct(Handler $contentTypeHandler)
+    public function __construct(private Handler $contentTypeHandler)
     {
-        $this->contentTypeHandler = $contentTypeHandler;
     }
 
     public function resolveDocumentGroup(BaseDocument $document): string

@@ -10,7 +10,7 @@ If you don't want to use custom thumbnails, `ContentType` is used instead.
 ## Thumbnail mechanism
 
 The thumbnail mechanism has two layers, and each layer can have many implementations.
-The mechanism checks if any of the implementations returns a field, for example, `ezimage`, that has function "Can be a thumbnail" turned on.
+The mechanism checks if any of the implementations returns a field, for example, `ibexa_image`, that has function "Can be a thumbnail" turned on.
 
 ![Can be a thumbnail setting](extending_thumbnail_can_be.png)
 
@@ -42,7 +42,7 @@ First, create base strategy for returning custom thumbnails from a static file.
 Create `StaticStrategy.php` in `src/Strategy`.
 
 ```php
-[[= include_file('code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php') =]]
+[[= include_code('code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php') =]]
 ```
 
 Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag and `priority: 100` to `config/services.yaml`:
@@ -58,19 +58,19 @@ At this point you can go to the back office and check the results.
 !!! note "Thumbnail mechanism "
 
     This strategy overrides all generated thumbnails. You can specify a specific content type.
-    See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
+    See the example [here](https://github.com/ibexa/user/blob/5.0/src/lib/Strategy/DefaultThumbnailStrategy.php)
 
 
 ## Other fields as thumbnails
 
 Any field type can generate a thumbnail, for example:
 
-- DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment content type and on the day of the appointment a clock thumbnail with a specific time when it takes place
-- TextBlock (`eztext`) -  you can add a first letter of the text block that is inside
+- DateAndTime (`ibexa_datetime`) - you can add a mini calendar thumbnail for Appointment content type and on the day of the appointment a clock thumbnail with a specific time when it takes place
+- TextBlock (`ibexa_text`) -  you can add a first letter of the text block that is inside
 
-### Add eztext field as thumbnail
+### Add ibexa_text field as thumbnail
 
-First, create a strategy that adds support for `eztext` as the thumbnail.
+First, create a strategy that adds support for `ibexa_text` as the thumbnail.
 It enables you to add a thumbnail URL in the text field.
 
 Add `FieldValueUrl.php` in `src/Thumbnails`.
@@ -91,7 +91,7 @@ class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
 {
     public function getFieldTypeIdentifier(): string
     {
-        return 'eztext';
+        return 'ibexa_text';
     }
 
     public function getThumbnail(Field $field, ?VersionInfo $versionInfo = null): ?Thumbnail

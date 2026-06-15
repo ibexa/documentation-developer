@@ -6,34 +6,30 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\ObjectStateService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:object_state',
+    description: 'Creates OS group with provided States and assigned the Lock OS to provided content item'
+)]
 class ObjectStateCommand extends Command
 {
-    private ContentService $contentService;
-
-    private UserService $userService;
-
-    private ObjectStateService $objectStateService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->userService = $userService;
-        $this->objectStateService = $objectStateService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:object_state');
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly ObjectStateService $objectStateService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided content item')
             ->setDefinition([
                 new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
                 new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),
@@ -46,14 +42,14 @@ class ObjectStateCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier('ez_lock');
+        $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier('ibexa_lock');
         $objectState = $this->objectStateService->loadObjectStateByIdentifier($objectStateGroup, 'locked');
 
         $output->writeln($objectStateGroup->getName());
         $output->writeln($objectState->getName());
 
         $objectStateGroupIdentifier = $input->getArgument('objectStateGroupIdentifier');
-        $objectStateIdentifierList = explode(',', $input->getArgument('objectStateIdentifier'));
+        $objectStateIdentifierList = explode(',', (string) $input->getArgument('objectStateIdentifier'));
 
         $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct($objectStateGroupIdentifier);
         $objectStateGroupStruct->defaultLanguageCode = 'eng-GB';

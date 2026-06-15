@@ -33,7 +33,7 @@ These files contain additional settings and point to the general (not environmen
 
 !!! tip
 
-    Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).
+    Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices.html#configuration).
 
 !!! caution "Special characters"
 

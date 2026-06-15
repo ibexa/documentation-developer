@@ -1,0 +1,43 @@
+ibexa:
+    repositories:
+        <repository_identifier>:
+            mcp:
+                <server_identifier>:
+                    path: <server_route_path>
+                    enabled: true
+                    # Server options…
+                    tools:
+                        - Ibexa\Mcp\Tool\TranslationTools
+                        - Ibexa\Mcp\Tool\SeoTools
+                    discovery_cache: <cache_pool_service>
+                    session:
+                        type: <psr16|file>
+                        # Session options…
+                mcp_psr16:
+                    discovery_cache: cache.redis.mcp
+                    session:
+                        type: psr16
+                        service: cache.redis.mcp
+                        prefix: 'mcp_<server_identifier>_'
+                mcp_file:
+                    session:
+                        type: file
+                        directory: '%kernel.cache_dir%/mcp/sessions'
+                mcp_memory:
+                    session:
+                        type: memory
+    system:
+        <siteaccess_scope>:
+            mcp:
+                servers:
+                    - <server_identifier>
+services:
+    cache.redis.mcp:
+        public: true
+        class: Symfony\Component\Cache\Adapter\RedisTagAwareAdapter
+        parent: cache.adapter.redis
+        tags:
+            -   name: cache.pool
+                clearer: cache.app_clearer
+                provider: 'redis://mcp.redis:6379'
+                namespace: 'mcp'

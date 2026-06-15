@@ -1,6 +1,7 @@
 ---
 description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
 edition: experience
+month_change: false
 ---
 
 # Page Builder product guide
@@ -201,14 +202,14 @@ One of the most important tools that Page Builder offers, is a Scheduler. It all
 
 Page Builder allows you to create highly customizable websites. You can build modifiable and targeted landing pages that meet your needs.
 Each dynamic blocks has its own settings, properties and design that you can set up in your way to customize the content appearing on the page.
-Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, a new customized layout, or block.
+Additionally, if you feel comfortable with your technical skills, you can configure your own elements, for example, a new customized layout, or block.
 
 ### Increase sales with highly personalized campaigns
 
 Personalized campaigns are one of the factors that can increase your sales. 
 With Page Builder you can achieve it, by using customization and time Scheduler.
 Anytime you can edit your page and change a position of a block to enhance visibility.
-Additionaly, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:
+Additionally, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:
 
 A. **Default** blocks:
 

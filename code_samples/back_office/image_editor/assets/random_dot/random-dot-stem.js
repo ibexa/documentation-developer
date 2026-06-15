@@ -26,7 +26,7 @@ ibexa.addConfig(
     {
         label: 'Dot',
         component: Dot,
-        icon: ibexa.helpers.icon.getIconPath('radio-button'), // Path to an icon that will be displayed in the UI
+        icon: ibexa.helpers.icon.getIconPath('form-radio'), // Path to an icon that will be displayed in the UI
         identifier: IDENTIFIER, // The identifier must match the one from the configuration yaml file
     },
     true,

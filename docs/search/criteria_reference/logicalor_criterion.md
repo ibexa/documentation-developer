@@ -4,7 +4,9 @@ description: LogicalOr Search Criterion
 
 # LogicalOr Criterion
 
-The [`LogicalOr` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalOr.html) matches content if at least one of the provided Criteria matches.
+The [`LogicalOr` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalOr.html) matches content if at least one of the provided Criteria matches.
+
+When querying for [products](product_api.md), use [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-LogicalOr.html) instead.
 
 ## Arguments
 

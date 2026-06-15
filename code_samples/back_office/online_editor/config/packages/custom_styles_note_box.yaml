@@ -2,9 +2,9 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     custom_styles: [note_box]
 ibexa_fieldtype_richtext:
     custom_styles:
         note_box:
-            template: field_type/ezrichtext/custom_styles/note_box.html.twig
+            template: field_type/ibexa_richtext/custom_styles/note_box.html.twig

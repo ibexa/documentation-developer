@@ -86,6 +86,32 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
+### v4.5.5
+
+No additional steps needed.
+
+### v4.5.6
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.5-to-4.5.6.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.5-to-4.5.6.sql
+    ```
+
+### v4.5.7
+
+No additional steps needed.
+
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
@@ -356,7 +382,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 Site context is used in content tree to display only those content items that belong to the selected website.
 
-You can add locations that shoudn't be publicly accessible to the list of excluded paths:
+You can add locations that shouldn't be publicly accessible to the list of excluded paths:
 
 ```yaml
 # /config/packages/ibexa_site_context.yaml
@@ -463,19 +489,7 @@ Restart Solr for `solrconfig.xml` changes to take effect.
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
 When this happens, you need to erase the index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request.
-Use the command as in the following example:
-
-```bash
-curl --request DELETE 'https://elasticsearch:9200/_all'
-```
-
-To update the schema, and then reindex the content, use the following commands:
-
-```bash
-php bin/console ibexa:elasticsearch:put-index-template --overwrite
-php bin/console ibexa:reindex
-```
+[[% include 'snippets/elasticsearch_clear_index.md' %]]
 
 ## Update to v4.6.latest
 

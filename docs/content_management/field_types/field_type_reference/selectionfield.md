@@ -1,17 +1,17 @@
 # Selection field type
 
-The Selection field type stores single selections or multiple choices from a list of options, by populating a hash with the list of selected values.
+The Selection field type stores single selections or multiple choices from a list of options, by populating a hash with the list of selected values.
 
-| Name        | Internal name | Expected input type |
-|-------------|---------------|---------------------|
-| `Selection` | `ezselection` | mixed             |
+| Name        | Internal name     | Expected input type |
+|-------------|-------------------|---------------------|
+| `Selection` | `ibexa_selection` | mixed               |
 
 ## PHP API field type
 
 ### Input expectations
 
-| Type    | Example         |
-|---------|-----------------|
+| Type    | Example    |
+|---------|------------|
 | `array` | `[ 1, 2 ]` |
 
 ### Value object
@@ -20,8 +20,8 @@ The Selection field type stores single selections or multiple choices from a 
 
 The Value class of this field type contains the following properties:
 
-| Property     | Type    | Description|
-|--------------|---------|------------|
+| Property     | Type    | Description                                                                                                       |
+|--------------|---------|-------------------------------------------------------------------------------------------------------------------|
 | `$selection` | `int[]` | This property is used for the list of selections, which is a list of integer values, or one single integer value. |
 
 ``` php
@@ -36,7 +36,7 @@ $value->selection = [ 1, 4, 5 ];
 
 ##### Constructor
 
-The `Selection\Value` constructor accepts an array of selected element identifiers.
+The `Selection\Value` constructor accepts an array of selected element identifiers.
 
 ``` php
 // Constructor example
@@ -64,7 +64,7 @@ $hash = [ 1, 2 ];
 ### Validation
 
 This field type validates the input, verifying if all selected options exist in the field definition and checks if multiple selections are allowed in the field definition.
-If any of these validations fail, a `ValidationError` is thrown, specifying the error message.
+If any of these validations fail, a `ValidationError` is thrown, specifying the error message.
 When option validation fails, a list with the invalid options is also presented.
 
 ### Settings

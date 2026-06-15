@@ -4,11 +4,11 @@ This field type is used as fallback for migration scenarios, and for testing pur
 
 | Name   | Internal name | Expected input type |
 |--------|---------------|---------------------|
-| `Null` | variable    | mixed             |
+| `Null` | (variable)    | mixed               |
 
 ## Description
 
-The Null field type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions.
+The Null field type aids when migrating from eZ Publish Platform and earlier legacy versions.
 It's a dummy for legacy field types that aren't implemented in [[= product_name =]].
 
 Null field type accepts anything provided as a value and is usually combined with:

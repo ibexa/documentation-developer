@@ -2,7 +2,7 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:                            
+                ibexa_richtext:                            
                     classes:
                         paragraph:
                             choices: [regular, special, tip_box, warning_box]

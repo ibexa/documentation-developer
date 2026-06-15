@@ -1,0 +1,13 @@
+[[% if version is not defined %]]
+    [[% set version = '' %]]
+[[% endif %]]
+
+To learn more about all the included changes, see the full release change logs:
+
+- [[[= product_name_headless =]] [[= version =]]](https://github.com/ibexa/headless/releases/tag/[[= version =]])
+- [[[= product_name_exp =]] [[= version =]]](https://github.com/ibexa/experience/releases/tag/[[= version =]])
+- [[[= product_name_com =]] [[= version =]]](https://github.com/ibexa/commerce/releases/tag/[[= version =]])
+
+[[% if version != 'v5.0.0' %]]
+To update your application, see the [update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#[[= version_to_anchor(version) =]]).
+[[% endif %]]

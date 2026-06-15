@@ -1,0 +1,57 @@
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% set product = content|ibexa_get_product %}
+
+{% block meta %}
+    {% set token = csrf_token ?? csrf_token(ibexa_get_rest_csrf_token_intention()) %}
+    <meta name="CSRF-Token" content="{{ token }}"/>
+    <meta name="SiteAccess" content="{{ app.request.get('siteaccess').name }}"/>
+{% endblock %}
+
+{% block content %}
+    <span>{{ ibexa_content_name(content) }}</span>
+    <code>{{ product.code }}</code>
+    {% if not product.isBaseProduct() and can_view_shopping_list and can_edit_shopping_list %}
+        {% set component %}
+            {% include '@ibexadesign/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig' with {
+                product_code: product.code,
+            } %}
+        {% endset %}
+        {{ _self.add_to_shopping_list(product, component) }}
+    {% endif %}
+
+    {% if product.isBaseProduct() %}
+        <ul>
+            {% for variant in variants %}
+                <li>
+                    <span>{{ variant.name }}</span>
+                    <code>{{ variant.code }}</code>
+                    {% if can_view_shopping_list and can_edit_shopping_list %}
+                        {% set component %}
+                            {% include '@ibexadesign/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig' with {
+                                product_code: variant.code,
+                            } %}
+                        {% endset %}
+                        {{ _self.add_to_shopping_list(variant, component) }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('add-to-shopping-list-js') }}
+{% endblock %}
+
+{% macro add_to_shopping_list(product, component) %}
+    {% set widget_id = 'add-to-shopping-list-' ~ product.code|slug %}
+    <div style="display: inline-block;">
+        <button onclick="(function(){let e=document.getElementById('{{ widget_id }}'); e.style.display=('none'===window.getComputedStyle(e).display)?'block':'none';})()">
+            Add to shopping list
+        </button>
+        <div id="{{ widget_id }}" style="display: none; position: absolute; background: #fff;">
+            {{ component }}
+        </div>
+    </div>
+{% endmacro %}

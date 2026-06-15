@@ -10,9 +10,8 @@ The GraphQL implementation for [[= product_name =]] is located in [`ibexa/graphq
 ## Setup
 
 Using GraphQL requires a domain schema.
-The schema is generated automatically when installing [[= product_name =]].
 
-When you modify content types or product types in your installation, you need to regenerate the schema:
+Before using GraphQL for the first time, or anytime you modify content types or product types in your installation, you need to generate the schema:
 
 ``` bash
 php bin/console ibexa:graphql:generate-schema
@@ -73,7 +72,7 @@ You can get your session cookie by logging in through the interface or through a
 
 If you have [JWT authentication](development_security.md#jwt-authentication) enabled, you can use the following query to get your authentication token:
 
-```
+```graphql
 mutation CreateToken {
   createToken(username: "admin", password: "publish") {
     token
@@ -84,7 +83,7 @@ mutation CreateToken {
 
 Response:
 
-```
+```json
 {
   "data": {
     "createToken": {
@@ -94,6 +93,27 @@ Response:
   }
 }
 ```
+
+#### JWT token obtained through GraphiQL
+
+To obtain a JWT token, you can use the GraphiQL interface on your development installation.
+GraphiQL is only accessible when `kernel.debug` is set to `true`, similarly to a development environment.
+
+- open GraphiQL UI (for example, at `http://localhost/graphiql`)
+- paste in the following adapted query with the user credentials
+- click the execute button **▶** to get a token
+
+```graphql
+mutation CreateToken {
+  createToken(username: "ibexa-example", password: "Ibexa-3xample") {
+    token
+    message
+  }
+}
+```
+
+![GraphiQL with a JWT token request and its response](jwt-graphiql.png "GraphiQL JWT token request and response")
+
 
 ## Usage
 

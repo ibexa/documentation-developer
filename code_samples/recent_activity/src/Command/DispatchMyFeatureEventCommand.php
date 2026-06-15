@@ -4,22 +4,20 @@ namespace App\Command;
 
 use App\Event\MyFeatureEvent;
 use App\MyFeature\MyFeature;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+#[AsCommand(
+    name: 'app:test:throw-my-feature-event',
+    description: 'Throw/Dispatch a MyFeatureEvent'
+)]
 class DispatchMyFeatureEventCommand extends Command
 {
-    protected static $defaultName = 'app:test:throw-my-feature-event';
-
-    protected static $defaultDescription = 'Throw/Dispatch a MyFeatureEvent';
-
-    private EventDispatcherInterface $eventDispatcher;
-
-    public function __construct(EventDispatcherInterface $eventDispatcher)
+    public function __construct(private readonly EventDispatcherInterface $eventDispatcher)
     {
-        $this->eventDispatcher = $eventDispatcher;
         parent::__construct();
     }
 

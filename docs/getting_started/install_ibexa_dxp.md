@@ -60,7 +60,7 @@ composer -V
 The site is password-protected.
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your Service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](using_composer_auth_token.png)
 
@@ -93,7 +93,7 @@ This allows you to revoke access later.
 After this, when running Composer to get updates, you're asked for a username and password.
 Use:
 
-- as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
+- as username - your Installation key found on the **Maintenance and Support agreement details** page in the Service portal
 - as password - the token password you retrieved in step 3 above
 
 !!! note "Authentication token validation delay"
@@ -114,29 +114,27 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-!!! note "Using PHP 8.3 (recommended)"
+=== "[[= product_name_headless =]]"
 
-    === "[[= product_name_headless =]]"
+    ``` bash
+    composer create-project ibexa/headless-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/headless-skeleton .
-        ```
+=== "[[= product_name_exp =]]"
 
-    === "[[= product_name_exp =]]"
+    ``` bash
+    composer create-project ibexa/experience-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/experience-skeleton .
-        ```
+=== "[[= product_name_com =]]"
 
-    === "[[= product_name_com =]]"
+    ``` bash
+    composer create-project ibexa/commerce-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/commerce-skeleton .
-        ```
+??? note "Using PHP versions other than 8.3"
 
-??? note "Using PHP 8.2 or older"
-
-    If you're using PHP 8.2 or any older version, use a different set of commands:
+    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
@@ -165,21 +163,23 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
+    composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
 
-!!! note "Platform.sh"
+!!! note "[[= product_name_cloud =]]"
 
-    If you're deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html), run the following command:
+    If you're deploying your installation on [Upsun](https://fixed.docs.upsun.com/guides/ibexa/deploy.html), run the following commands:
 
     ``` bash
-    composer ibexa:setup --platformsh
+    composer require ibexa/cloud
+    php bin/console ibexa:cloud:setup --upsun
     ```
 
-    This command provides the necessary configuration for using Platform.sh.
+    These commands add the necessary package and provide the required configuration for using Upsun.
+    For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md).
 
 #### Add project to version control
 
@@ -268,10 +268,26 @@ Install [[= product_name =]] and create a database with:
 
 ``` bash
 php bin/console ibexa:install
-php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
+
+The installer will prompt you for a new password for the `admin` user.
+Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the default [password rules](passwords.md#password-rules):
+
+- a minimum length of 10 characters
+- at least one upper case letter
+- at least one number
+
+!!! note
+
+    In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+
+    ``` bash
+    php bin/console ibexa:install --no-interaction
+    ```
+
+    If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before [going live with your project](security_checklist.md).
 
 ### Run post-installation script
 
@@ -281,7 +297,7 @@ Run the post-installation script with the following command:
 composer run post-install-cmd
 ```
 
-## Use PHPs built-in server
+## Use PHP's built-in server
 
 For development you can use the built-in PHP server.
 
@@ -377,7 +393,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "nginx"
 
-    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
     Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
@@ -486,6 +502,10 @@ So, `ibexa:scheduled:run` can now be run on this SiteAccess with another frequen
             - { name: ibexa.cron.job, schedule: '* * * * *' }
             - { name: ibexa.cron.job, schedule: '*/5 * * * *', category: 'minor_website' }
 ```
+
+### Enable discount re-indexing [[% include 'snippets/commerce_badge.md' %]]
+
+Enable [discount re-indexing in the background](configure_discounts.md#discount-re-indexing).
 
 ## [[= product_name_cloud =]]
 

@@ -40,7 +40,7 @@ Block listener provides the logic for the block.
 It's contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
-[[= include_file('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
+[[= include_code('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
 ```
 
 At this point the new custom block is ready to be used.
@@ -48,7 +48,7 @@ At this point the new custom block is ready to be used.
 You're left with the last cosmetic changes.
 First, the new Block has a broken icon in the **Page blocks** toolbox in page mode.
 This is because you haven't provided this icon yet.
-If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
+If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
 
 Finally, add some styling for the new block. Add the following to the end of the `assets/css/style.css` file:
 
@@ -67,3 +67,5 @@ The Tip of the Day block displays a random Tip from the "Tips" folder.
 Refresh the page a few more times and you can see the tip change randomly.
 
 ![Random Block with a Tip](enterprise_tut_random_block.png "Random Block with a Tip")
+
+To learn more about custom Page Builder blocks, see [Create custom page block](create_custom_page_block.md).

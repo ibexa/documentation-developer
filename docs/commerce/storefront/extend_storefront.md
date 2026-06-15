@@ -7,7 +7,7 @@ edition: commerce
 
 ## Built-in menus
 
-With the `ibexa\storefront` package come the following built-in menus:
+With the `ibexa/storefront` package come the following built-in menus:
 
 | Item   | Value     | Description |
 |------------|----------|---------|
@@ -33,7 +33,7 @@ This subscriber replaces the URI under the `Home` link.
 Create an event subscriber in `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
 
 ``` php
-[[= include_file('code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php') =]]
+[[= include_code('code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php') =]]
 ```
 
 Next, create the `templates/themes/storefront/storefront/knp_menu/breadcrumbs.html.twig` template:

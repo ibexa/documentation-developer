@@ -1,6 +1,7 @@
 ---
 description: Limitations let you fine-tune the permission system by specifying limits to roles granted to users.
 page_type: reference
+month_change: false
 ---
 
 # Limitation reference
@@ -33,17 +34,17 @@ Out of the box FunctionList uses it in the following way:
             - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
-## ActivityLogOwner limitation
+## Activity log Owner limitation
 
-The `ActivityLogOwner` limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
+The Activity log Owner (`ActivityLogOwner`) limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
 
 | Value | UI value        | Description                                                  |
 |-------|-----------------|--------------------------------------------------------------|
 | `1`   | "Only own logs" | Current user can only access their own activity log entries. |
 
-## CartOwner limitation
+## Cart Owner limitation
 
-The `CartOwner` limitation specifies whether the user can modify a cart.
+The Cart Owner (`CartOwner`) limitation specifies whether the user can modify a cart.
 
 ### Possible values
 
@@ -61,6 +62,56 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"Forbid"|The user cannot change owner of a content item|
+
+## Collaborative editing limitations
+
+The Collaborative editing limitations specify how the user can use the [Collaborative editing](collaborative_editing.md) feature.
+
+### Collaborative editing Owner limitation
+
+The Owner limitation specifies whose drafts the user can share.
+If not specified, user can share:
+
+- their drafts
+- drafts they have been invited to collaborate on
+
+#### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"| User can only share drafts that they own |
+
+### Collaborative editing Scope limitation
+
+The Scope limitation specifies whether the user can share the preview and editing view with other users.
+
+#### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"edit"|"Edit"| User can invite other users to edit|
+|"view"|"View"| User can share the preview with other users|
+
+### Collaborative editing PublicLink limitation
+
+The Public Link (`PublicLink`) limitation specifies whether the user can manage the settings of the shareable preview link.
+
+#### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"Off"|"off"| User can't manage the settings|
+|"On"|"on"| User can manage the settings|
+
+## Discount Owner limitation [[% include 'snippets/commerce_badge.md' %]]
+
+The Discount Owner (`DiscountOwner`) limitation specifies whether the user can interact with a [discount](discounts.md).
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Only the user who is the owner of the discount gets access.|
 
 ## Content type Group limitation
 
@@ -239,6 +290,10 @@ The Personalization limitation specifies the SiteAccesses for which the user can
 
 The Product Type (`ProductType`) limitation specifies whether the user has access to products belonging to a specific product type.
 
+!!! caution
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
+
 ### Possible values
 
 |Value|UI value|Description|
@@ -268,6 +323,17 @@ This limitation can be used as a role limitation.
 |Value|UI value|Description|
 |------|------|------|
 |`<Segment_group_id>`|`<Segment_group_name>`|All valid segment group IDs can be set as value(s).|
+
+## Shopping list limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+The Shopping List Owner (`ShoppingListOwner`) limitation specifies whether the user can modify a [shopping list](shopping_list.md).
+
+### Possible values
+
+| Value  | UI value | Description                                                      |
+|--------|----------|------------------------------------------------------------------|
+| "self" | "self"   | Only the user who is the owner of the shopping list gets access. |
+| `null` | none     | User can access all shopping lists.                              |
 
 ## SiteAccess limitation
 
@@ -308,6 +374,41 @@ This limitation can be used as a role limitation.
 ### Usage notes
 
 For more information on how to restrict user's access to part of the subtree, see [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
+
+## Taxonomy limitation
+
+The taxonomy (`Taxonomy`) limitation specifies with which [taxonomies](taxonomy.md) (tags, product categories, or custom ones) user can interact.
+
+The supported policies are:
+
+- `taxonomy/read`
+- `taxonomy/manage`
+- `taxonomy/assign`
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|Taxonomy identifiers|Taxonomy names|List of allowed taxonomies|
+
+
+## Taxonomy Subtree limitation
+
+The taxonomy subtree (`TaxonomySubtree`) limitation specifies whether the user has access to a specific subtree within the [taxonomy](taxonomy.md) tree.
+Once a tag is selected, user can interact with it and all the child tags below it in the taxonomy tree.
+In addition, it grants read-only access to all the parent tags (up to the taxonomy root) so that the user can see the context.
+
+The supported policies are:
+
+- `taxonomy/read`
+- `taxonomy/manage`
+- `taxonomy/assign`
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|Tag IDs|Selected tags| All valid Tag IDs are allowed|
 
 ## Version Lock limitation
 

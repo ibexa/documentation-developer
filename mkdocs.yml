@@ -3,7 +3,16 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2024 Ibexa AS and others"
+copyright: "Copyright 1999-2026 Ibexa AS and others"
+validation:
+    omitted_files: warn
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
+not_in_nav: |
+    search_results.md
+    personalization/legacy_recommendation_api.md
+    /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -75,8 +84,9 @@ nav:
             - Content events: api/event_reference/content_events.md
             - Content type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
-            - Catalog events: api/event_reference/catalog_events.md
+            - Product catalog events: api/event_reference/product_catalog_events.md
             - Cart events: api/event_reference/cart_events.md
+            - Shopping list events: api/event_reference/shopping_list_events.md
             - Order management events: api/event_reference/order_management_events.md
             - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
@@ -90,8 +100,13 @@ nav:
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
             - Trash events: api/event_reference/trash_events.md
+            - Twig Components: api/event_reference/twig_component_events.md
             - AI Action events: api/event_reference/ai_action_events.md
+            - Discounts events: api/event_reference/discounts_events.md
+            - Collaboration events: api/event_reference/collaboration_events.md
+            - Integrated help events: api/event_reference/integrated_help_events.md
             - Other events: api/event_reference/other_events.md
+        - Notification channels: api/notification_channels.md
     - Administration:
         - Administration: administration/administration.md
         - Project organization:
@@ -149,6 +164,12 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
+            - Integrated help:
+                - Integrated help: administration/back_office/integrated_help.md
+                - Customize integrated help: administration/back_office/customize_integrated_help.md
+                - Product tour: administration/back_office/product_tour.md
+                - Configure product tour: administration/back_office/configure_product_tour.md
+                - Customize product tour: administration/back_office/customize_product_tour.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
@@ -256,14 +277,11 @@ nav:
                 - Media field type: content_management/field_types/field_type_reference/mediafield.md
                 - Null field type: content_management/field_types/field_type_reference/nullfield.md
                 - Page field type: content_management/field_types/field_type_reference/pagefield.md
+                - ProductSpecification field type: content_management/field_types/field_type_reference/productspecificationfield.md
                 - Relation field type: content_management/field_types/field_type_reference/relationfield.md
                 - RelationList field type: content_management/field_types/field_type_reference/relationlistfield.md
                 - RichText field type: content_management/field_types/field_type_reference/richtextfield.md
                 - Selection field type: content_management/field_types/field_type_reference/selectionfield.md
-                - SesExternalData: content_management/field_types/field_type_reference/sesexternaldata.md
-                - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
-                - SesSelection: content_management/field_types/field_type_reference/sesselection.md
-                - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
                 - TaxonomyEntry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
                 - TaxonomyEntryAssignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
                 - TextBlock field type: content_management/field_types/field_type_reference/textblockfield.md
@@ -271,6 +289,12 @@ nav:
                 - Time field type: content_management/field_types/field_type_reference/timefield.md
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
                 - User field type: content_management/field_types/field_type_reference/userfield.md
+        - Collaborative editing:
+            - Collaborative editing: content_management/collaborative_editing/collaborative_editing.md
+            - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
+            - Configure Collaborative editing: content_management/collaborative_editing/configure_collaborative_editing.md
+            - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -287,20 +311,26 @@ nav:
         - Image variations: templating/image_variations.md
         - Twig function reference:
             - Twig function reference: templating/twig_function_reference/twig_function_reference.md
+            - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
             - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
+            - Component Twig functions: templating/twig_function_reference/component_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
+            - Discounts Twig functions: templating/twig_function_reference/discounts_twig_functions.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
             - Icon Twig functions: templating/twig_function_reference/icon_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
+            - Page Twig functions: templating/twig_function_reference/page_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Quable functions: templating/twig_function_reference/quable_twig_functions.md
+            - Recommendations Twig functions: templating/twig_function_reference/recommendations_twig_functions.md
             - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
-            - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
+        - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
             - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md
@@ -323,37 +353,60 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
-    - AI Actions:
-        - AI Actions: ai_actions/ai_actions.md
-        - AI Actions guide: ai_actions/ai_actions_guide.md
-        - Install AI Actions: ai_actions/install_ai_actions.md
-        - Extend AI Actions: ai_actions/extend_ai_actions.md
-    - PIM (Product management):
-        - PIM (Product management): pim/pim.md
-        - PIM guide: pim/pim_guide.md
-        - PIM configuration: pim/pim_configuration.md
-        - Products: pim/products.md
+    - AI:
+        - AI: ai/ai.md
+        - AI Actions:
+            - AI Actions: ai/ai_actions/ai_actions.md
+            - AI Actions guide: ai/ai_actions/ai_actions_guide.md
+            - Configure AI Actions: ai/ai_actions/configure_ai_actions.md
+            - Extend AI Actions: ai/ai_actions/extend_ai_actions.md
+        - MCP Servers:
+            - MCP Servers: ai/mcp/mcp.md
+            - MCP Servers guide: ai/mcp/mcp_guide.md
+            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Work with MCP servers: ai/mcp/mcp_usage.md
+    - Product catalog:
+        - Product catalog: product_catalog/product_catalog.md
+        - Product catalog guide: product_catalog/product_catalog_guide.md
+        - Quable PIM integration:
+            - Quable PIM Integration: product_catalog/quable/quable.md
+            - Quable product guide: product_catalog/quable/quable_guide.md
+            - Install Quable: product_catalog/quable/install_quable.md
+            - Configure Quable: product_catalog/quable/configure_quable_connector.md
+            - Quable API: product_catalog/quable/quable_api.md
+        - Product catalog configuration: product_catalog/product_catalog_configuration.md
+        - Products: product_catalog/products.md
         - Attributes:
-            - Date and Time attribute: pim/attributes/date_and_time.md
-        - Product API: pim/product_api.md
-        - Catalogs: pim/catalogs.md
-        - Catalog API: pim/catalog_api.md
-        - Enable purchasing products: pim/enable_purchasing_products.md
-        - Prices: pim/prices.md
-        - Price API: pim/price_api.md
-        - Customize PIM:
-            - Customize PIM: pim/customize_pim.md
-            - Create custom attribute type: pim/create_custom_attribute_type.md
-            - Create product code generator: pim/create_product_code_generator.md
-            - Create custom catalog filter: pim/create_custom_catalog_filter.md
-            - Create custom name schema: pim/create_custom_name_schema_strategy.md
-        - Add remote PIM support: pim/add_remote_pim_support.md
+            - Date and Time attribute: product_catalog/attributes/date_and_time.md
+            - Symbol attribute type: product_catalog/attributes/symbol_attribute_type.md
+        - Product API: product_catalog/product_api.md
+        - Catalogs: product_catalog/catalogs.md
+        - Catalog API: product_catalog/catalog_api.md
+        - Enable purchasing products: product_catalog/enable_purchasing_products.md
+        - Prices: product_catalog/prices.md
+        - Price API: product_catalog/price_api.md
+        - Customize product catalog:
+            - Create custom attribute type: product_catalog/create_custom_attribute_type.md
+            - Create custom availability strategy: product_catalog/create_custom_availability_strategy.md
+            - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
+            - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
+            - Create product code generator: product_catalog/create_product_code_generator.md
+            - Customize product attribute templates: product_catalog/customize_product_attribute_templates.md
+            - Customize product catalog: product_catalog/customize_product_catalog.md
+            - Customize product embed templates: product_catalog/customize_product_embed_templates.md
+        - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
             - Quick order: commerce/cart/quick_order.md
+        - Shopping list:
+            - Shopping list: commerce/shopping_list/shopping_list.md
+            - Shopping list guide: commerce/shopping_list/shopping_list_guide.md
+            - Install shopping list: commerce/shopping_list/install_shopping_list.md
+            - Shopping list design: commerce/shopping_list/shopping_list_design.md
+            - Shopping list API: commerce/shopping_list/shopping_list_api.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
@@ -389,6 +442,13 @@ nav:
             - Transactional emails: commerce/transactional_emails/transactional_emails.md
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
+    - Discounts:
+        - Discounts: discounts/discounts.md
+        - Discounts guide: discounts/discounts_guide.md
+        - Customize Discounts: discounts/configure_discounts.md
+        - Discounts API: discounts/discounts_api.md
+        - Extend Discounts: discounts/extend_discounts.md
+        - Extend Discounts wizard: discounts/extend_discounts_wizard.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -460,6 +520,15 @@ nav:
         - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
         - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
+    - Recommendations:
+        - Integration with Raptor:
+            - Raptor connector: recommendations/raptor_integration/raptor_connector.md
+            - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
+            - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
+            - Tracking functions: recommendations/raptor_integration/tracking_functions.md
+            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
+            - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
+            - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP guide: cdp/cdp_guide.md
@@ -468,7 +537,7 @@ nav:
             - CDP activation: cdp/cdp_activation/cdp_activation.md
             - CDP configuration: cdp/cdp_activation/cdp_configuration.md
             - CDP data export: cdp/cdp_activation/cdp_data_export.md
-            - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
+            - CDP add tracking: cdp/cdp_activation/cdp_add_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
     - Search:
@@ -497,6 +566,7 @@ nav:
             - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
             - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
             - CurrencyCode: search/criteria_reference/currencycode_criterion.md
+            - CustomField: search/criteria_reference/customfield_criterion.md
             - CustomerGroupId: search/criteria_reference/customergroupid_criterion.md
             - DateMetadata: search/criteria_reference/datemetadata_criterion.md
             - Depth: search/criteria_reference/depth_criterion.md
@@ -511,6 +581,7 @@ nav:
             - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
             - ImageWidth: search/criteria_reference/imagewidth_criterion.md
             - IsBookmarked: search/criteria_reference/isbookmarked_criterion.md
+            - IsContainer: search/criteria_reference/iscontainer_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -534,6 +605,8 @@ nav:
             - Sibling: search/criteria_reference/sibling_criterion.md
             - Subtree: search/criteria_reference/subtree_criterion.md
             - TaxonomyEntryID: search/criteria_reference/taxonomy_entry_id.md
+            - TaxonomyNoEntries: search/criteria_reference/taxonomy_no_entries.md
+            - TaxonomySubtree: search/criteria_reference/taxonomy_subtree.md
             - UserEmail: search/criteria_reference/useremail_criterion.md
             - UserId: search/criteria_reference/userid_criterion.md
             - UserLogin: search/criteria_reference/userlogin_criterion.md
@@ -542,6 +615,7 @@ nav:
             - LogicalAnd Criterion: search/criteria_reference/logicaland_criterion.md
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
+        - Content Type Search Criteria: search/content_type_search_reference/content_type_criteria.md
         - Product Search Criteria:
             - Product Search Criteria: search/criteria_reference/product_search_criteria.md
             - AttributeName: search/criteria_reference/attributename_criterion.md
@@ -566,6 +640,7 @@ nav:
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
             - ProductCategory: search/criteria_reference/productcategory_criterion.md
+            - ProductCategorySubtree: search/criteria_reference/productcategorysubtree_criterion.md
             - ProductCode: search/criteria_reference/productcode_criterion.md
             - ProductName: search/criteria_reference/productname_criterion.md
             - ProductType: search/criteria_reference/producttype_criterion.md
@@ -573,7 +648,10 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
-        - Order Search Criteria: 
+            - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
+            - UpdatedAt: search/criteria_reference/updated_at_criterion.md
+            - UpdatedAtRange: search/criteria_reference/updated_at_range_criterion.md
+        - Order Search Criteria:
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
             - CreatedAt: search/criteria_reference/order_created_criterion.md
@@ -629,6 +707,7 @@ nav:
             - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
             - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
             - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
+        - Shopping List Search Criteria: search/shopping_list_search_reference/shopping_list_criteria.md
         - URL Search Criteria:
             - URL Search Criteria: search/url_search_reference/url_search_criteria.md
             - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
@@ -649,6 +728,13 @@ nav:
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
+        - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
+        - Collaboration Search Criteria: search/collaboration_search_reference/collaboration_criteria.md
+        - Notification Search Criteria:
+            - Notification Search Criteria: search/criteria_reference/notification_search_criteria.md
+            - DateCreated: search/criteria_reference/notification_datecreated_criterion.md
+            - Status: search/criteria_reference/notification_status_criterion.md
+            - Type: search/criteria_reference/notification_type_criterion.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -673,6 +759,7 @@ nav:
                 - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
                 - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
                 - Visibility: search/sort_clause_reference/visibility_sort_clause.md
+            - Content Type Sort Clauses: search/content_type_search_reference/content_type_sort_clauses.md
             - Product Sort Clauses:
                 - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
                 - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
@@ -710,12 +797,15 @@ nav:
                 - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
                 - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
                 - Status: search/sort_clause_reference/shipment_status_sort_clause.md
+            - Shopping List Sort Clauses: search/shopping_list_search_reference/shopping_list_sort_clauses.md
             - URL Sort Clauses:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
+            - Collaboration Sort Clauses: search/collaboration_search_reference/collaboration_sort_clauses.md
             - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
+            - Discounts Sort Clauses: search/discounts_search_reference/discounts_sort_clauses.md
         - Aggregation reference:
               # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
@@ -756,6 +846,7 @@ nav:
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
+        - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -770,6 +861,7 @@ nav:
         - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
         - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
         - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
+        - Environment variables: ibexa_cloud/environment_variables.md
         - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
@@ -792,6 +884,7 @@ nav:
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
+        - Background tasks: infrastructure_and_maintenance/background_tasks.md
         - Environments: infrastructure_and_maintenance/environments.md
         - Sessions: infrastructure_and_maintenance/sessions.md
         - Logging: infrastructure_and_maintenance/logging.md
@@ -840,6 +933,9 @@ nav:
               - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
         - Update from v4.6:
               - Update to v4.6: update_and_migration/from_4.6/update_from_4.6.md
+              - Update to v5.0: update_and_migration/from_4.6/update_to_5.0.md
+        - Update from v5.0:
+              - Update to v5.0: update_and_migration/from_5.0/update_from_5.0.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -857,6 +953,8 @@ nav:
         - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v5.0 LTS: release_notes/ibexa_dxp_v5.0.md
+        - Ibexa DXP v5.0 deprecations and BC breaks: release_notes/ibexa_dxp_v5.0_deprecations.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
@@ -926,22 +1024,24 @@ extra:
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Ibexa Engage'
+  pim_product_name: 'Quable'
 
   eol_versions: ['2.5']
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.41'
+  latest_tag_3_3: '3.3.43'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.18'
+  latest_tag_4_6: '4.6.30'
+  latest_tag_5_0: '5.0.8'
 
-  symfony_doc: 'https://symfony.com/doc/5.x'
-  user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  symfony_doc: 'https://symfony.com/doc/7.4'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
@@ -949,10 +1049,12 @@ extra_css:
   - css/codehilite.css
   - css/switcher.css
   - css/custom.css
+  - css/pills.css
   - css/page-not-found.css
   - css/navigation.css
   - css/search.css
   - css/docs.switcher.css
+  - css/release-notes.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
@@ -960,6 +1062,8 @@ extra_javascript:
   - js/jquery.min.js
   - js/jquery-ui.min.js
   - js/custom.js
+  - js/error-page.js
+  - js/release-notes.js
   - js/docs.switcher.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 

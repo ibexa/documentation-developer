@@ -34,6 +34,20 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
         While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system.
         See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
+
+!!! caution "Unsupported legacy sorting methods"
+
+    In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
+    These sorting methods are no longer supported in [[= product_name =]].
+    After you migrate, trying to render the Sub-items tab of content items that are configured to use the unsupported sorting methods results in an error.
+
+    To mitigate the problem, before you migrate, update the affected content items to use supported sorting methods such as Name, Published, or Priority.
+    You can identify the configurations that use unsupported sorting methods with the following SQL query:
+
+    ```sql
+    SELECT node_id, parent_node_id, sort_field FROM ezcontentobject_tree WHERE sort_field IN (6, 7);
+    ```
+
 !!! note
 
     If you're migrating from a legacy eZ Publish version, this page contains the information you need.
@@ -138,7 +152,7 @@ See [Image documentation page](images.md) for information about how to define im
 
 For an example, see a legacy image alias defined as follows in `ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php`:
 
-```
+```ini
 [articleimage]
 Reference=
 Filters[]
@@ -288,7 +302,7 @@ Run the conversion script on a copy of your production database as the script is
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [memory_limit setting](https://www.php.net/manual/en/ini.core.php#ini.memory-limit).
+- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [`memory_limit` setting](https://www.php.net/manual/en/ini.core.php#ini.memory-limit).
 - `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it's able to convert all the `ezxmltext` documents.
 - `--export-dir` specifies a directory where it dumps the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
@@ -304,7 +318,7 @@ The script also has an `--image-content-types` option which you should use if yo
 
 The script needs to know these identifiers to convert `<ezembed>` tags correctly. Failing to do so prevents the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
 
-```
+```ini
 [RelationGroupSettings]
 ImagesClassList[]
 ImagesClassList[]=image
@@ -367,7 +381,7 @@ Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
 
 The corresponding log file, `ezxmltext_12_1234_2_eng-GB.log`:
 
-```
+``` text
 notice: Found ez-temporary attribute in a ezxmltext paragraphs. Removing such attribute where contentobject_attribute.id=1234
 error: Validation errors when converting ezxmltext for contentobject_attribute.id=1234
 - context : Error in 2:0: Element section has extra content: informaltable
@@ -415,11 +429,11 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 Typical problems that needs manual fixing:
 
-**Duplicate xhtml IDs**
+**Duplicate XHTML IDs**
 
-Xhtml IDs needs to be unique. The following `ezxmltext` results in a warning:
+XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 
-```
+```xml
     <paragraph>
         <link target="_blank" xhtml:id="inv5" url_id="2309">link with id inv5</link>
     </paragraph>
@@ -437,7 +451,7 @@ In `ezxmltext` you may have links which refer to other objects by their remote I
 
 In older eZ Publish databases you may also have invalid links due to lack of reference to a target (for example, no `href` or `url_id`):
 
-```
+```xml
     <link>some text</link>
 ```
 
@@ -446,8 +460,6 @@ When the conversion tool detects links with no reference it issues a warning and
 **`<literal>`**
 
 The `<literal>` tag isn't yet supported in eZ Platform.
-
-For more information, see [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
 When you're ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 
@@ -497,7 +509,7 @@ For date-based publisher and Form Builder, there are additional tables, you can 
 
 ### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](reverse_proxy.md#configure-varnish-or-fastly) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](reverse_proxy.md#configure-varnish-and-fastly) page.
 
 ### Web server configuration
 

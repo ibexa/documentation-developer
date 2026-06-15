@@ -4,7 +4,7 @@ description: Field Search Criterion
 
 # Field Criterion
 
-The [`Field` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html) searches for content based on the content of one of its fields.
+The [`Field` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html) searches for content based on the content of one of its fields.
 
 ## Arguments
 
@@ -20,7 +20,6 @@ Querying for a collection with the `EQ` operator returns result only when the wh
 ## Limitations
 
 The `Field` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
-
 
 ## Example
 

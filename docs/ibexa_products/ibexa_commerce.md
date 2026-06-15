@@ -35,7 +35,7 @@ With a help of documentation and trainings, any developer familiar with Symfony 
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [[[= product_name_product_name_headless =]]](ibexa_headless.md#core-features) and [[[= product_name_exp =]]](ibexa_experience.md#core-features) editions.
+[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [[[= product_name_headless =]]](ibexa_headless.md#core-features) and [[[= product_name_exp =]]](ibexa_experience.md#core-features) editions.
 
 ## Capabilities and benefits
 
@@ -79,12 +79,12 @@ It contains default UI components and widgets that can be modified to [create a 
 
 Search becomes crucial when your product catalog is extensive.
 Products can be sorted according to a variety of criteria using faceted search.
-The value it brings makes it a vital component in merchandizing.
+The value it brings makes it a vital component in merchandising.
 You can set up your search engine using [[= product_name_com =]] to help clients find what they're looking for more easily, which could result in more purchases.
 
 #### Catalog management
 
-[[= product_name_com =]] gives you the ability to manage your product repository - [PIM](pim_guide.md), and construct an infinite number of product catalogs, each with unique prices, to further customize the experience for your customers.
+[[= product_name_com =]] gives you the ability to manage your product repository - [Product catalog](product_catalog_guide.md), and construct an infinite number of catalogs, each with unique prices, to further customize the experience for your customers.
 
 #### Transactional emails
 

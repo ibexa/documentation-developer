@@ -15,6 +15,7 @@ Menus are extensible using event subscribers, for example:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 29) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 48, 50) =]]
 ```
 
 !!! tip
@@ -35,7 +36,7 @@ You can listen to the following events:
 || `ConfigureMenuEvent::CONTENT_CREATE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::CONTENT_SIDEBAR_LEFT` |
 | Trash | `ConfigureMenuEvent::TRASH_SIDEBAR_RIGHT` |
-| Section | `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT`
+| Section | `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::SECTION_CREATE_SIDEBAR_RIGHT` |
 | Policies and permissions | `ConfigureMenuEvent::POLICY_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::POLICY_CREATE_SIDEBAR_RIGHT` |
@@ -71,7 +72,7 @@ To add an inactive menu section, don't add a route to its parameters.
 The following method adds a new menu section under **Content**, and under it, a new item with custom attributes:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 30, 43) =]]
+[[= include_code('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 31, 43, remove_indent=True) =]]
 ```
 
 `label` is used for the new menu item in the interface.
@@ -126,7 +127,7 @@ You can use the `extras.icon` parameter to define an icon for a menu item.
 For example, the following code changes the default icon for the **Create content** button in content view:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 46, 48) =]]
+[[= include_code('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 47, 48, remove_indent=True) =]]
 ```
 
 ## Removing menu items
@@ -134,5 +135,5 @@ For example, the following code changes the default icon for the **Create conten
 To remove a menu item, for example, to remove the **Copy subtree** item from the right menu in content view, use the following event listener:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 44, 45) =]]
+[[= include_code('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 45, 45, remove_indent=True) =]]
 ```

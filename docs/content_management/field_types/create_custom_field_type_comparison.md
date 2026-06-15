@@ -12,7 +12,7 @@ You can add the possibility to compare custom and other unsupported field types.
 !!! note
 
     The following task uses the [custom "Hello World" field type](create_custom_generic_field_type.md).
-    The configuration is based on the comparison mechanism created for the `ezstring` field type.
+    The configuration is based on the comparison mechanism created for the `ibexa_string` field type.
 
 ## Create Comparable class
 
@@ -21,7 +21,7 @@ First, create a `Comparable.php` class in `src/FieldType/HelloWorld/Comparison`.
 This class implements the `Ibexa\Contracts\VersionComparison\FieldType\Comparable` interface with the `getDataToCompare()` method:
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php') =]]
 ```
 
 The `getDataToCompare()` fetches the data to compare and determines which [comparison engines](#create-comparison-engine) should be used.
@@ -37,7 +37,7 @@ Register this class as a service:
 Next, create a `src/FieldType/HelloWorld/Comparison/Value.php` file that holds the comparison value:
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Value.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Value.php') =]]
 ```
 
 ## Create comparison engine
@@ -49,7 +49,7 @@ For the "Hello World" field type, create the following comparison engine based o
 Place it in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php`:
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php') =]]
 ```
 
 Register the comparison engine as a service:
@@ -63,7 +63,7 @@ Register the comparison engine as a service:
 Next, create a comparison result class in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php`.
 
 ``` php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php') =]]
 ```
 
 ## Provide templates

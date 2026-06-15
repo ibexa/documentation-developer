@@ -25,19 +25,17 @@ However, you can still use the menu and look around the existing content in the 
 
 Log in to the back office. Go to **Content Structure**.
 The **Ibexa Digital Experience Platform** content item is the first page that is shown to the visitor.
-Here you can check what content type it belongs to: it's a landing page.
+Here you can check what content type it belongs to: it's a *Landing page*.
 
 ![Ibexa Digital Experience Platform is a landing page](enterprise_tut_home_is_an_lp.png)
 
-The page contains one Code block and is displayed without any template.
+The page is displayed without any template.
 Click **Edit** to enter a mode that enables you to work with pages.
-You can see that the home page has only one zone with the block.
+You can see that the home page has only one drop zone.
 
 ![Empty Page with default layout](enterprise_tut_empty_single_block.png)
 
-Remove the Tag block.
-Hover over it and select the trash icon from the menu.
-Click the **Field** button on the left of the top bar to switch to editing page fields.
+Click the **Fields** button on the left of the top bar to switch to editing page fields.
 Change the Title of the page to "Home".
 Then, publish the page to update its name.
 
@@ -67,7 +65,7 @@ First create a new file for layout configuration, `config/packages/ibexa_fieldty
 The `sidebar` (line 3) is the internal key of the layout.
 `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new landing page next to the name.
-Use the [supplied thumbnail file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
+Use the [supplied thumbnail file](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
@@ -92,7 +90,7 @@ Each column is at the same time a zone, and each zone renders the blocks that it
 !!! note
 
     A zone in a layout template **must have** the `data-ibexa-zone-id` attribute (lines 2 and 19).
-    A block **must have** the `data-ez-block-id` attribute (lines 7 and 24).
+    A block **must have** the `data-ibexa-block-id` attribute (lines 7 and 24).
 
 With these three elements: configuration, icon and template, the new layout is ready to use.
 

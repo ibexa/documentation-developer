@@ -13,12 +13,12 @@ The parts illustrate the different roles needed for a successful cluster setup.
 
 ![Server setup for clustering](server_setup.png)
 
-The number of web servers, Memcached/Redis, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Memcached/Redis across the web server), is up to you and your performance needs.
+The number of web servers, Redis/Valkey, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Redis/Valkey across the web server), is up to you and your performance needs.
 
 The minimal requirements are:
 
 - [Shared HTTP cache (using Varnish)](reverse_proxy.md#using-varnish-or-fastly)
-- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis/Valkey)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
@@ -34,24 +34,24 @@ It's also recommended to use:
 
 ### Shared persistence cache
 
-Redis is the recommended cache solution for clustering.
-An alternative solution is using Memcached.
+Redis and Valkey are the recommended cache solutions for clustering.
 
 See [persistence cache documentation](persistence_cache.md#persistence-cache-configuration) on information on how to configure them.
 
 ### Shared sessions
 
 For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
-The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO (database).
+The main option out of the box in Symfony is the PHP Redis session handler (also compatible with Valkey).
+Alternatively, there is Symfony session handler for PDO (database).
 
 To avoid concurrent access to session data from front-end nodes, if possible you should either:
 
 - Enable [Session locking](https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
 - Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_%28computing%29#Persistence)
 
-Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
+Session locking is available with `php-redis` (v4.2.0 and higher).
 
-On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported.
+On [[= product_name_cloud =]] (and Upsun) Redis and Valkey are preferred and supported.
 
 ### Shared binary files
 
@@ -78,7 +78,7 @@ As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 First, define DFS folder path as a variable in `.env` file:
 
-`DFS_NFS_PATH=/tmp/ibx_1439_nfs`
+`DFS_NFS_PATH=<absolute_directory_path>`
 
 Next, if you're using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
 Depending on which database you're using:
@@ -87,14 +87,14 @@ Depending on which database you're using:
 
 or
 
-`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
+`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:5432/ibexa_dfs?serverVersion=14.18`
 
 For production, it's recommended to create the DFS table in its own database, manually importing its schema definition:
 
 !!! note "dfs_schema.sql (MySQL)"
 
     ``` sql
-        CREATE TABLE ezdfsfile (
+        CREATE TABLE ibexa_dfs_file (
           name text NOT NULL,
           name_trunk text NOT NULL,
           name_hash varchar(34) NOT NULL DEFAULT '',
@@ -105,17 +105,17 @@ For production, it's recommended to create the DFS table in its own database, ma
           expired tinyint(1) NOT NULL DEFAULT '0',
           status tinyint(1) NOT NULL DEFAULT '0',
           PRIMARY KEY (name_hash),
-          KEY ezdfsfile_name (name (191)),
-          KEY ezdfsfile_name_trunk (name_trunk (191)),
-          KEY ezdfsfile_mtime (mtime),
-          KEY ezdfsfile_expired_name (expired,name (191))
+          KEY ibexa_dfs_file_name (name (191)),
+          KEY ibexa_dfs_file_name_trunk (name_trunk (191)),
+          KEY ibexa_dfs_file_mtime (mtime),
+          KEY ibexa_dfs_file_expired_name (expired,name (191))
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ```
 
 !!! note "dfs_schema.sql (PostgreSQL)"
 
     ``` sql
-    CREATE TABLE ezdfsfile (
+    CREATE TABLE ibexa_dfs_file (
       name_hash varchar(34) DEFAULT '' NOT NULL,
       name text NOT NULL,
       name_trunk text NOT NULL,
@@ -127,27 +127,23 @@ For production, it's recommended to create the DFS table in its own database, ma
       status boolean DEFAULT false NOT NULL
     );
 
-    ALTER TABLE ONLY ezdfsfile
-      ADD CONSTRAINT ezdfsfile_pkey PRIMARY KEY (name_hash);
+    ALTER TABLE ONLY ibexa_dfs_file
+      ADD CONSTRAINT ibexa_dfs_file_pkey PRIMARY KEY (name_hash);
 
-    CREATE INDEX ezdfsfile_expired_name ON ezdfsfile USING btree (expired, name);
-    CREATE INDEX ezdfsfile_mtime ON ezdfsfile USING btree (mtime);
-    CREATE INDEX ezdfsfile_name ON ezdfsfile USING btree (name);
-    CREATE INDEX ezdfsfile_name_trunk ON ezdfsfile USING btree (name_trunk);
+    CREATE INDEX ibexa_dfs_file_expired_name ON ibexa_dfs_file USING btree (expired, name);
+    CREATE INDEX ibexa_dfs_file_mtime ON ibexa_dfs_file USING btree (mtime);
+    CREATE INDEX ibexa_dfs_file_name ON ibexa_dfs_file USING btree (name);
+    CREATE INDEX ibexa_dfs_file_name_trunk ON ibexa_dfs_file USING btree (name_trunk);
     ```
-
-!!! note
-    On [[= product_name_cloud =]] (and Platform.sh) a separate DFS database is supported for MySQL only.
 
 This example uses Doctrine connection named `dfs`:
 
 ``` yaml
 parameters:
     env(DFS_DATABASE_URL): '%env(resolve:DATABASE_URL)%'
-    dfs_nfs_path: '%env(resolve:DFS_NFS_PATH)%'
     dfs_database_url: '%env(resolve:DFS_DATABASE_URL)%'
     ibexa.io.nfs.adapter.config:
-        root: '%dfs_nfs_path%'
+        root: '%kernel.project_dir%/%env(string:DFS_NFS_PATH)%'
         path: '$var_dir$/$storage_dir$/'
         writeFlags: ~
         linkHandling: ~
@@ -159,12 +155,12 @@ doctrine:
         connections:
             dfs:
                 # configure these for your database server
-                driver: '%dfs_database_driver%'
-                charset: '%dfs_database_charset%'
+                driver: '%env(string:DFS_DATABASE_DRIVER)%'
+                charset: '%env(string:DFS_DATABASE_CHARSET)%'
                 default_table_options:
-                    charset: '%dfs_database_charset%'
-                    collate: '%dfs_database_collation%'
-                url: '%dfs_database_url%'
+                    charset: '%env(string:DFS_DATABASE_CHARSET)%'
+                    collate: '%env(string:DFS_DATABASE_COLLATION)%'
+                url: '%env(string:DFS_DATABASE_URL)%'
 
 # define the Flysystem handler
 oneup_flysystem:
@@ -237,7 +233,7 @@ In any case, this specific rewrite rule must be placed before the ones that "ign
 
 #### Apache
 
-```
+```apacheconf
 RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
 ```
 
@@ -245,11 +241,11 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 
 #### nginx
 
-```
+```nginx
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
-Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there).
+Place this before the include of `ibexa_params.d`/`ibexa_rewrite_params` in your vhost config (or uncomment if already there).
 
 ## Migrating to a cluster setup
 
@@ -259,7 +255,7 @@ You can also use it when you're migrating from one data handler to another, for 
 
 This command shows which handlers are configured:
 
-```
+```bash
 > php bin/console ibexa:io:migrate-files --list-io-handlers
 Configured meta data handlers: default, dfs, aws_s3
 Configured binary data handlers: default, nfs, aws_s3
@@ -267,8 +263,8 @@ Configured binary data handlers: default, nfs, aws_s3
 
 You can do the actual migration like this:
 
-```
-> php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+```bash
+php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.

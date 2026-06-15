@@ -15,14 +15,14 @@ The following example shows how to create an action that assigns a content item 
 First, create an action class, in `src/Migrations/Action/AssignSection.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSection.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Action/AssignSection.php') =]]
 ```
 
 Then you need a denormalizer to convert data that comes from YAML into an action object,
 in `src/Migrations/Action/AssignSectionDenormalizer.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionDenormalizer.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Action/AssignSectionDenormalizer.php') =]]
 ```
 
 Then, tag the action denormalizer so it's recognized by the serializer used for migrations.
@@ -34,7 +34,7 @@ Then, tag the action denormalizer so it's recognized by the serializer used for 
 And finally, add an executor to perform the action, in `src/Migrations/Action/AssignSectionExecutor.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionExecutor.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Action/AssignSectionExecutor.php') =]]
 ```
 
 Tag the executor with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step that executor works with (for example, `content`, `content_type`, or `location`).

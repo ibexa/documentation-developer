@@ -5,7 +5,7 @@ page_type: reference
 
 # URL Twig functions
 
-- [`ibexa_path()`](#ibexa_path) returns the relative URL to a content item or location.
+- [`ibexa_path()`](#ibexa_path) returns the absolute path to a content item or location.
 - [`ibexa_url()`](#ibexa_url) returns the absolute URL to a content item or location.
 - [`ibexa.url.alias`](#ibexaurlalias) generates URLs for a location from the given arguments.
 - [`ibexa_route()`](#ibexa_route) generates a RouteReference object from the given parameters.
@@ -16,7 +16,7 @@ page_type: reference
 
 ### `ibexa_path()`
 
-`ibexa_path()` returns the relative URL to a content item or location.
+`ibexa_path()` returns the absolute path to a content item or location.
 
 |Argument|Type|Description|
 |------|------|------|

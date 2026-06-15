@@ -11,7 +11,7 @@ You need a web server, a relational database and PHP.
 
 The clean installation contains only a root content item which displays a welcome page.
 
-![Front page after clean installation](bike_tutorial_homepage_install_clean.png)
+![Front page after clean installation](welcome_page.png)
 
 You can replace the welcome page with your own in step 3.
 

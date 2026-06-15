@@ -2,8 +2,8 @@
 
 namespace App\AutomatedTranslation;
 
-use Ibexa\AutomatedTranslation\Exception\ClientNotConfiguredException;
 use Ibexa\Contracts\AutomatedTranslation\Client\ClientInterface;
+use Ibexa\Contracts\AutomatedTranslation\Exception\ClientNotConfiguredException;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
 use Ibexa\Contracts\ConnectorAi\Action\RuntimeContext;
 use Ibexa\Contracts\ConnectorAi\ActionConfigurationServiceInterface;
@@ -14,14 +14,10 @@ final class AiClient implements ClientInterface
     /** @var array<string> */
     private array $supportedLanguages;
 
-    private ActionServiceInterface $actionService;
-
-    private ActionConfigurationServiceInterface $actionConfigurationService;
-
-    public function __construct(ActionServiceInterface $actionService, ActionConfigurationServiceInterface $actionConfigurationService)
-    {
-        $this->actionService = $actionService;
-        $this->actionConfigurationService = $actionConfigurationService;
+    public function __construct(
+        private readonly ActionServiceInterface $actionService,
+        private readonly ActionConfigurationServiceInterface $actionConfigurationService
+    ) {
     }
 
     public function setConfiguration(array $configuration): void

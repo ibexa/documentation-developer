@@ -16,11 +16,9 @@ You also have new options to format your text using subscript, superscript, quot
 
 ![New text formatting options](oe-formatting-new-options.png)
 
-For more information, see [EZP-28030](https://issues.ibexa.co/browse/EZP-28030).
-
 #### Improved full text search capabilities
 
-For more information, see [EZP-26806](https://issues.ibexa.co/browse/EZP-26806).
+Added support for full-text search query syntax in Solr.
 
 #### Deleting translations
 
@@ -29,7 +27,6 @@ You can now remove translations from content item Versions through the PHP API.
 For more information, see the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation).
 
 You also have a new endpoint available for deleting a single Version.
-For more information, see [EZP-27864](https://issues.ibexa.co/browse/EZP-27864).
 
 #### Improved Security for password storage
 
@@ -42,15 +39,15 @@ This feature is added both in eZ Platform and the accompanying eZ Publish legacy
 
 This release switches default HTTPCache usage to use ezplatform-http-cache package, which uses Varnish xkey allowing: soft purge, better cache clearing logic and longer ttl.
 
-For Varnish users be aware thus change implies new VCL and requriment for varnish-moduels package, see [below](#updating).
+For Varnish users be aware thus change implies new VCL and requirement for varnish-moduels package, see [below](#updating).
 
 ## Full list of new features, improvements and bug fixes since v1.11.0
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.12.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0) | [List of changes for final for eZ Platform Enterprise Edition v1.12.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0) |
-| [List of changes for rc1 of eZ Platform v1.12.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.12.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-rc1) |
-| [List of changes for beta2 of eZ Platform v1.12.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.12.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-beta2) |
+| [List of changes for final of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0) | [List of changes for final for eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0) |
+| [List of changes for rc1 of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-rc1) |
+| [List of changes for beta2 of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-beta2) |
 
 ### Installation
 

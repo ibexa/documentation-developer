@@ -1,8 +1,10 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
+edition: experience
+month_change: true
 ---
 
-# Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Recent activity
 
 Recent activity log displays last actions in the repository (whatever their origin is, for example, back office, REST, migration, CLI, or CRON).
 
@@ -10,16 +12,16 @@ Recent activity log displays last actions in the repository (whatever their orig
 
 To learn more about its back office usage and the actions logged by default, see [Recent activity in User Documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
-## Configuration and cronjob
+## Configuration
 
-With some configuration, you can customize the log length in the database or on screen.
+With some configuration, you can customize the log length in the database or on screen, or disable the logging completely.
 A command maintains the log size in database, it should be scheduled through CRON.
 
-- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the back office (default value: 25).
-A log item is a group of entries, or an entry without group.
-- The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
+### Log retention
 
-For example, the following configuration sets 15 days of life to the log entries on the `default` repository, and 20 context groups per page for the `admin_group` SiteAccess group:
+The `ibexa.repositories.<repository>.activity_log.truncate_after_days` setting sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
+
+For example, the following configuration sets 15 days of life to the log entries on the `default` repository:
 
 ```yaml
 ibexa:
@@ -27,11 +29,6 @@ ibexa:
         default:
             activity_log:
                 truncate_after_days: 15
-    system:
-        admin_group:
-            activity_log:
-                pagination:
-                    activity_logs_limit: 20
 ```
 
 To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a cron job.
@@ -39,10 +36,42 @@ To minimize the number of entries to delete, it's recommended to execute the com
 
 For more information, see [Additional cron jobs and advanced usage](install_ibexa_dxp.md#additional-cron-jobs-and-advanced-usage).
 
+### Display limit
+
+The `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` setting sets the number of log items shown per page in the back office (default value: 25).
+
+For example, the following configuration sets 20 context groups per page for the `admin_group` SiteAccess group:
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            activity_log:
+                pagination:
+                    activity_logs_limit: 20
+```
+A log item is a group of entries, or an entry without group.
+
+### Disable activity log
+
+The `ibexa.repositories.<repository>.activity_log.enabled` setting can disable activity log entirely for a given [repository](repository_configuration.md).
+
+For example, to disable the activity log for the `default` repository:
+
+```yaml
+ibexa:
+    repositories:
+        default:
+            activity_log:
+                enabled: false
+```
+
+You can also disable activity log for a single action by using the [PHP API](#disable-logging-activities).
+
 ## Permission and security
 
 The [`activity_log/read`](policies.md#activity-log) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
-It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
+It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activity-log-owner-limitation)).
 
 The policy should be given to every roles having access to the back office, at least with the `ActivityLogOwner` owner limitation, to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
 This policy is required to view [activity log in user profile]([[= user_doc =]]/getting_started/get_started/#view-and-edit-user-profile), if [profile is enabled](update_from_4.5.md#user-profile).
@@ -81,8 +110,8 @@ See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Acti
 In the following example, log groups that contain at least one creation of a Content item are displayed in terminal, with a maximum of 10 groups within the last hour.
 It uses the default `admin` user that has a [permission](#permission-and-security) to list everyone's entries.
 
-```php hl_lines="39-43"
-[[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
+```php hl_lines="34-38"
+[[= include_code('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
 ```console
@@ -131,6 +160,7 @@ migration
     Keep activity logging as light as possible.
     Don't make database requests or heavy computation at logging time.
     Keep them for activity log list display time.
+    If needed, you can [disable logging for specific operations](#disable-logging-activities) using the PHP API.
 
 #### Create an entry
 
@@ -142,7 +172,7 @@ In the following example, an event subscriber is subscribing to an event dispatc
 This event has the information needed by a log entry (see details after the example).
 
 ```php
-[[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
+[[= include_code('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
 ```
 
 `ActivityLogService::build()` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
@@ -189,7 +219,7 @@ In the following example, several actions are logged into one context group, eve
     - `complete`
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 63, 83) =]]
+[[= include_code('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 47, 66, remove_indent=True) =]]
 ```
 
 Context groups can't be nested.
@@ -226,28 +256,28 @@ First, follow an example of a default template overriding the one from the bundl
 It can be used during development as a fallback for classes that aren't mapped yet.
 
 ``` twig
-[[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
+[[= include_code('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
 ```
 
 Here is an example of a `ClassNameMapperInterface` associating the class `App\MyFeature\MyFeature` with the identifier `my_feature`:
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
+[[= include_code('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
 ```
 
 This mapper also provides a translation for the class name in the **Filters** menu.
-This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
+This translation can be extracted with `php bin/console jms:translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
 
 To be taken into account, this mapper must be registered as a service:
 
 ``` yaml
-[[= include_file('code_samples/recent_activity/config/append_to_services.yaml') =]]
+[[= include_code('code_samples/recent_activity/config/append_to_services.yaml') =]]
 ```
 
 Here is an example of a `PostActivityListLoadEvent` subscriber which loads the related object when it's an `App\MyFeature\MyFeature`, and attaches it to the log entry:
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
+[[= include_code('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
 ```
 
 The following template is made to display the object of `App\MyFeature\MyFeature` (now identified as `my_feature`) when the action is `simulate`,
@@ -255,10 +285,25 @@ so, it's named in `templates/themes/admin/activity_log/ui/my_feature/simulate.ht
 Thanks to the previous subscriber, the related object is available at display time:
 
 ``` twig
-[[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig') =]]
+[[= include_code('code_samples/recent_activity/templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig') =]]
 ```
+
+### Disable logging activities
+
+You can disable logging the activities with PHP API, for example, when loading large amounts of data in cases where you don't want logging to slow down the process or the actions to be included in the log.
+
+Call [`ActivityLogService::disable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_disable)
+ before running the relevant code, then [`ActivityLogService::enable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_enable) to restore the logging process:
+
+``` php
+[[= include_code('code_samples/recent_activity/src/recent_activity_disable.php') =]]
+```
+
+When disabled, any call to [`ActivityLogService::save()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_save) has no effect and no entries are written to the database.
+
+You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled) and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
 
 ## REST API
 
 You can browse activity logs with REST API.
-For more information, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity).
+For more information, see the [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Activity-Log).

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SegmentCreate>
-  <identifier>segment_identifier</identifier>
-  <name>Segment Name</name>
-  <group>corporate_accounts</group>
-</SegmentCreate>

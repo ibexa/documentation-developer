@@ -1,5 +1,5 @@
 ---
-description: The Ibexa CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
+description: The [[= product_name_cdp =]] product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
 edition: experience
 ---
 
@@ -90,7 +90,7 @@ For more information, see [data customization](https://doc.ibexa.co/en/latest/cd
 ### Client-side Tracking
 
 The final step is setting up a tracking script.
-For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_add_clientside_tracking/) and [tutorial in Raptor documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/9563346335004-Client-Side-Tracking).
+For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_add_clientside_tracking/) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
 
 ### Audience Builder
 
@@ -102,6 +102,14 @@ The `have` conditions are tied to personal characteristics and can be used to tr
 You can also connect created audiences to the activations.
 
 ![Audience Builder](img/audience_builder.png)
+
+### Anonymous user segmentation
+
+[[= product_name_cdp =]] can build audiences for anonymous users, enabling personalised experiences for not logged-in visitors.
+
+When an anonymous visitor accesses your site, Raptor starts building an [anonymous profile](https://content.raptorservices.com/help-center/introduction-to-person-identifiers-and-profile-unification).
+
+You can segment these anonymous profiles into different audiences, exactly as in case of logged-in users, and use this information in [[= product_name =]] to provide personalized experiences.
 
 ## Benefits
 

@@ -4,7 +4,7 @@ description: ObjectStateIdentifier Search Criterion
 
 # ObjectStateIdentifier Criterion
 
-The [`ObjectStateIdentifier` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html) searches for content based on its object state identifier.
+The [`ObjectStateIdentifier` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html) searches for content based on its object state identifier.
 
 ## Arguments
 
@@ -20,7 +20,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['ready']);
 ```
 
 ``` php
-$query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
+$query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock');
 ```
 
 ### REST API
@@ -32,7 +32,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
         <Filter>
             <ObjectStateIdentifierCriterion>
                 <value>not_locked</value>
-                <target>ez_lock</target>
+                <target>ibexa_lock</target>
             </ObjectStateIdentifierCriterion>
         </Filter>
     </Query>
@@ -46,7 +46,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
         "Filter": {
           "ObjectStateIdentifierCriterion": {
             "value": "not_locked",
-            "target": "ez_lock"
+            "target": "ibexa_lock"
           }
         }
       }

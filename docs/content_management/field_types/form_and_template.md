@@ -21,7 +21,7 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 - `FormInterface` — form for the current field
 - `FieldData` — underlying data for current field form
 
-You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
+You have to add your form type to the content editing form. The example shows how `ibexa_boolean` injects the form:
 
 ``` php
 use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
@@ -77,7 +77,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
             CheckboxType::class, [
                 'required' => false,
                 'property_path' => 'fieldSettings[isMultiple]',
-                'label' => 'field_definition.ezcountry.is_multiple',
+                'label' => 'field_definition.ibexa_country.is_multiple',
             ]
         )
         ->add(
@@ -89,7 +89,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
                         'multiple' => true,
                         'expanded' => false,
                         'required' => false,
-                        'label' => 'field_definition.ezcountry.default_value',
+                        'label' => 'field_definition.ibexa_country.default_value',
                     ]
                 )
                 // Deactivate auto-initialize as you're not on the root form.
@@ -134,7 +134,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
 !!! tip
 
-    Template blocks for built-in field types are available in [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
+    Template blocks for built-in field types are available in [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Resources/views/content_fields.html.twig).
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views` (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
@@ -156,7 +156,7 @@ The block can receive the following variables:
 
 For easier field type template development you can take advantage of all defined blocks by using the [`block()` function](https://twig.symfony.com/doc/3.x/functions/block.html).
 
-You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig#L486).
+You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Resources/views/content_fields.html.twig#L486).
 
 !!! caution
 

@@ -27,7 +27,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
             'sortClauses' => [
                 new Query\SortClause\DatePublished(Query::SORT_DESC),
             ],
-            'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
+            'limit' => $parameters['limit'] ?? 10,
         ]);
     }
 

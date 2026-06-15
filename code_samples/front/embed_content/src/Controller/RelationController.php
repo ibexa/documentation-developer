@@ -8,14 +8,10 @@ use Ibexa\Core\MVC\Symfony\View\View;
 
 class RelationController
 {
-    private ContentService $contentService;
-
-    private LocationService $locationService;
-
-    public function __construct(ContentService $contentService, LocationService $locationService)
-    {
-        $this->contentService = $contentService;
-        $this->locationService = $locationService;
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly LocationService $locationService
+    ) {
     }
 
     public function showContentAction(View $view, $locationId): View

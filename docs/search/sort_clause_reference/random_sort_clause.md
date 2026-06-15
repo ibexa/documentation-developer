@@ -4,7 +4,7 @@ description: Random Sort Clause
 
 # Random Sort Clause
 
-The [`Random` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Random.html) orders search results randomly.
+The [`Random` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Random.html) orders search results randomly.
 
 ## Arguments
 

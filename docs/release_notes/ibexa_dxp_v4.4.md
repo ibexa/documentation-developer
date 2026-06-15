@@ -59,13 +59,13 @@ For example, you can define formats or source path for images.
 
 ### New page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This release introduces new page blocks that rely on Personalization and PIM features to let editors visually organize products on a page:
+This release introduces new page blocks that rely on Personalization and product catalog features to let editors visually organize products on a page:
 
 - [Catalog block](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#catalog-block) displays products from a specific catalog to a selected customer group.
 - [Last purchased](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
 - [Last viewed](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
 - [Product collection](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
-- [Recently added](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block) displays a list of products that were recently added to PIM.
+- [Recently added](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block) displays a list of products that were recently added to the product catalog.
 
 ### Personalization improvements
 
@@ -89,7 +89,7 @@ You can now take advantage of [[[= product_name_connect =]]](https://www.ibexa.c
 an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
 [[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services that help you automate business processes.
 
-See [[[= product_name_connect =]] documentation](https://doc.ibexa.co/projects/connect/en/latest/).
+See [[[= product_name_connect =]] documentation]([[= connect_doc =]]/).
 
 ![Example of an Ibexa Connect scenario](4.4_connect_scenario_example.png)
 

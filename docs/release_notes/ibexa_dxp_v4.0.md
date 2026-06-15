@@ -98,7 +98,7 @@ For more information, see [Forms](https://doc.ibexa.co/en/latest/guide/form_buil
 
 ### External datasource handling
 
-Pesronalization has been given an option to fetch content feed from external sources.
+Personalization has been given an option to fetch content feed from external sources.
 
 ### Category exclusion
 
@@ -119,4 +119,4 @@ for full details of changes and how they influence your project.
 
 | [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [[[= product_name_content =]] v4.0](https://github.com/ibexa/content/releases/tag/v4.0.0) | [[[= product_name_exp =]] v4.0](https://github.com/ibexa/experience/releases/tag/v4.0.0) | [[[= product_name_com =]] v4.0](https://github.com/ibexa/commerce/releases/tag/v4.0.0)
+| [[[= product_name_content =]] v4.0](https://github.com/ibexa/content/releases/tag/v4.0.0) | [[[= product_name_exp =]] v4.0](https://github.com/ibexa/experience/releases/tag/v4.0.0) | [[[= product_name_com =]] v4.0](https://github.com/ibexa/commerce/releases/tag/v4.0.0) |

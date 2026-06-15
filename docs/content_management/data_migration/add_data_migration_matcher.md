@@ -16,12 +16,12 @@ Matchers are instances of `FilteringCriterion`, so a custom normalizer needs to 
 
 !!! tip "Normalizers"
 
-    To learn more about normalizers, refer to [Symfony documentation]([[= symfony_doc =]]/components/serializer.html).
+    To learn more about normalizers, refer to [Symfony documentation]([[= symfony_doc =]]/serializer.html).
 
 Create the normalizer in `src/Migrations/Matcher/SectionIdentifierNormalizer.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Matcher/SectionIdentifierNormalizer.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Matcher/SectionIdentifierNormalizer.php') =]]
 ```
 
 Register the normalizer as a service:
@@ -47,7 +47,7 @@ Additionally, if you want to export data using the `ibexa:migrations:generate` c
 Create the generator in `src/Migrations/Matcher/SectionIdentifierGenerator.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Matcher/SectionIdentifierGenerator.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Matcher/SectionIdentifierGenerator.php') =]]
 ```
 
 Register the generator as a service:

@@ -32,7 +32,7 @@ This more than doubles the length of the password, keeping entropy similar.
 If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
 It allows your operating system to use the hard disk to supplement RAM when it runs out.
 
-With swap enabled you're able to successfully run `php -d memory_limit=-1 bin/console ibexa:install --env prod ezplatform-clean`.
+With swap enabled you're able to successfully run `php -d memory_limit=-1 bin/console ibexa:install`.
 
 When a system runs out of RAM, you may see `Killed` when trying to clear the cache (for example, `php bin/console --env=prod cache:clear` from your project's root directory).
 
@@ -54,17 +54,17 @@ if you tell Composer to download dev packages or to download from source.
 
 To avoid the error, check the stability of packages and avoid using `--prefer-source`.
 
-## Redis sessions issues
+## Redis/Valkey sessions issues
 
 ### Inconsistent cache/session data
 
-If cache or session data inconsistent across web servers in Redis, see [Redis clustering](persistence_cache.md#redis-clustering), and make sure you only read/write to one active master instance at a time.
+If cache or session data is inconsistent across web servers, see [Redis clustering](persistence_cache.md#redis-clustering), and make sure you only read/write to one active master instance at a time.
 
 ### Removed or refused sessions
 
-If Redis sessions are removed or new sessions are refused.
+If sessions are removed or new sessions are refused, it's recommended to use a separated instance for sessions, that either never runs out of memory or uses an eviction policy that suits your needs.
+
 For more information, see [Cluster setup](sessions.md#cluster-setup).
-It's recommended to use a separated instance of Redis for sessions, that either never runs out of memory or uses an eviction policy that suits your needs.
 
 ## Conflict with roave/security-advisories
 
@@ -85,9 +85,9 @@ In the rare case when there is no fixed version, you can revert your requirement
 If you have to use the version with the bug (not recommended) you can use `composer remove roave/security-advisories`.
 In such case, require it again when the bug is fixed and the package is updated: `composer require roave/security-advisories:dev-master` 
 
-## Platform.sh HTTP access credentials with Varnish
+## [[= product_name_cloud =]] HTTP access credentials with Varnish
 
-If you're using Platform.sh with Varnish for HTTP cache and you have [HTTP access control by login/password](https://docs.platform.sh/administration/web/configure-environment.html#http-access-control) enabled, configure the following variables in your Platform.sh environment:
+If you're using [[= product_name_cloud =]] with Varnish for HTTP cache and you have [HTTP access control by login/password](https://fixed.docs.upsun.com/administration/web/configure-environment.html#http-access-control) enabled, configure the following variables in your Upsun environment:
 
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`

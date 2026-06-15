@@ -1,12 +1,12 @@
 # EmailAddress field type
 
-The EmailAddress field type represents an email address, in the form of a string.
+The EmailAddress field type represents an email address, in the form of a string.
 
 | Name           | Internal name | Expected input type |
 |----------------|---------------|---------------------|
-| `EmailAddress` | `ezemail`     | `string`            |
+| `EmailAddress` | `ibexa_email` | `string`            |
 
-## PHP API field type 
+## PHP API field type
 
 ### Value object
 
@@ -14,8 +14,8 @@ The EmailAddress field type represents an email address, in the form of a strin
 
 The `Value` class of this field type contains the following properties:
 
-| Property | Type     | Description|
-|----------|----------|------------|
+| Property | Type     | Description                                                           |
+|----------|----------|-----------------------------------------------------------------------|
 | `$email` | `string` | This property is used for the input string provided as email address. |
 
 ``` php
@@ -32,14 +32,14 @@ $emailaddressValue->email = "someuser@example.com";
 
 ##### Constructor
 
-The `EmailAddress\Value` constructor initializes a new value object with the value provided.
+The `EmailAddress\Value` constructor initializes a new value object with the value provided.
 It accepts a string as input.
 
 ``` php
 // Constructor example
 
 use Ibexa\Core\FieldType\EmailAddress\Type;
- 
+
 // Instantiates an EmailAddress Value object
 $emailaddressValue = new Type\Value( "someuser@example.com" );
 ```
@@ -58,8 +58,8 @@ Example: `someuser@example.com`
 
 ### Validation
 
-This field type uses the `EmailAddressValidator` validator as a resource which tests the string supplied as input against a pattern, to make sure that a valid email address has been provided.
-If the validations fail, a `ValidationError` is thrown, specifying the error message.
+This field type uses the `EmailAddressValidator` validator as a resource which tests the string supplied as input against a pattern, to make sure that a valid email address has been provided.
+If the validations fail, a `ValidationError` is thrown, specifying the error message.
 
 ### Settings
 

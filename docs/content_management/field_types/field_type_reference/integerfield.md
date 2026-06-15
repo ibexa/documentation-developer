@@ -2,17 +2,17 @@
 
 This field type represents an integer value.
 
-| Name      | Internal name | Expected input |
-|-----------|---------------|----------------|
-| `Integer` | `ezinteger`   | `integer`      |
+| Name      | Internal name   | Expected input |
+|-----------|-----------------|----------------|
+| `Integer` | `ibexa_integer` | `integer`      |
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 
-|Type|Example|
-|-------|------|
-|`integer`|`2397`|
+| Type      | Example |
+|-----------|---------|
+| `integer` | `2397`  |
 
 ### Value object
 
@@ -31,13 +31,13 @@ $integer->value = 8
 
 ##### Constructor
 
-The `Integer\Value` constructor initializes a new value object with the value provided.
+The `Integer\Value` constructor initializes a new value object with the value provided.
 It expects a numeric, integer value.
 
 ``` php
 // Constructor example
 use Ibexa\Core\FieldType\Integer;
- 
+
 // Instantiates a Integer Value object
 $integerValue = new Integer\Value( 8 );
 ```
@@ -56,7 +56,7 @@ Example: `"8"`
 
 ### Validation
 
-This field type supports `IntegerValueValidator`, defining maximum and minimum float value:
+This field type supports `IntegerValueValidator`, defining maximum and minimum float value:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|

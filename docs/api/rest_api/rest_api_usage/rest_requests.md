@@ -48,7 +48,7 @@ Any REST API URI responds to an `OPTIONS` request.
 
 The response contains an [`Allow` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-allow), which lists the methods accepted by the resource.
 
-```shell
+```bash
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/objects/1
 ```
 
@@ -62,7 +62,7 @@ HTTP/1.1 200 OK
 Allow: PATCH,GET,DELETE,COPY
 ```
 
-```shell
+```bash
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/locations/1/2
 ```
 
@@ -163,19 +163,19 @@ This script:
 
 - receives an image path and optionally a name as command-line arguments,
 - uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it's enabled,
-- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](../rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
+- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_post),
 - and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
 === "XML"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/create_image.xml.php', 0, None, '    ') =]]
+    [[= include_code('code_samples/api/rest_api/create_image.xml.php', 1, None, 1) =]]
     ```
 
 === "JSON"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
+    [[= include_code('code_samples/api/rest_api/create_image.json.php', indent_level=1) =]]
     ```
 
 ### Search (`/views`)

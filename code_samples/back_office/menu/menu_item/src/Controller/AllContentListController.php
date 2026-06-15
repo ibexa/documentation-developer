@@ -13,14 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AllContentListController extends Controller
 {
-    private SearchService $searchService;
-
-    private FormFactory $formFactory;
-
-    public function __construct(SearchService $searchService, FormFactory $formFactory)
-    {
-        $this->searchService = $searchService;
-        $this->formFactory = $formFactory;
+    public function __construct(
+        private readonly SearchService $searchService,
+        private readonly FormFactory $formFactory
+    ) {
     }
 
     public function listAction(int $page = 1): Response
@@ -39,7 +35,7 @@ class AllContentListController extends Controller
         return $this->render('@ibexadesign/all_content_list.html.twig', [
             'totalCount' => $paginator->getNbResults(),
             'articles' => $paginator,
-            'form_edit' => $editForm->createView(),
+            'form_edit' => $editForm,
         ]);
     }
 }

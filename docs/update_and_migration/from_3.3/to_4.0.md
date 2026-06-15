@@ -1,6 +1,6 @@
 ---
 description: Update your installation to v4.0 from the latest v3.3 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v3.3.x to v4.0
@@ -88,7 +88,7 @@ which have been [renamed in this release](ibexa_dxp_v4.0_deprecations.md#configu
 Look through the old YAML files and move your custom configuration to the relevant new files.
 
 In `bundles.php`, remove all entries starting with `eZ`, `EzSystems`, `Ibexa\Platform`, `Silversolutions` and `Siso`.
-Leave only third-party entires and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
+Leave only third-party entries and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
 
 ## Add compatibility layer package
 

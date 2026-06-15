@@ -1,0 +1,8 @@
+-
+    type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: __REMOTE_ID__
+        only_visible_content: true # Optional, default: true. If set to true, only visible content will be deleted. 
+    allow_no_delete: false # Optional, default: false. If set to true, the migration will not fail if no content is found using the specified criteria.

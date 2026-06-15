@@ -66,28 +66,22 @@ Useful commands:
 php bin/console cache:clear --env prod
 ```
 
-- clearing Redis cache
+- clearing Redis/Valkey cache
 
 ```bash
 php bin/console cache:pool:clear cache.redis
-```
-
-- clearing Memcached cache
-
-```bash
-php bin/console cache:pool:clear cache.memcached
 ```
 
 - clearing the Symfony cache manually
 
 ```bash
 rm -rf var/cache/*
+rm -rf var/share/*
 ```
 
 !!! caution "Clearing cache manually"
 
-    Manual cache clearing should be executed with caution.
-    `rm -rf var/cache/*` wipes all the files and unlike `cache:clear` doesn't warm up the cache.
+    Manual cache clearing should be executed with caution, as it doesn't warm up the cache.
     It results in a significant performance drop on first request, so it shouldn't be called on a production environment.
     Besides, it could lead to issues with file ownership after running `cache:clear` as a root.
 

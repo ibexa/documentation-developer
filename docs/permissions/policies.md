@@ -1,6 +1,7 @@
 ---
 description: Policies are the main building block of the permissions system which lets you define the accesses for specific user roles.
 page_type: reference
+month_change: false
 ---
 
 # Policies
@@ -27,7 +28,7 @@ Each role you assign to user or user group consists of policies which define, wh
 
 | Module                       | Function           | Effect               | Possible Limitations                                                    |
 |------------------------------|--------------------|----------------------|-------------------------------------------------------------------------|
-| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activitylogowner-limitation) |
+| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activity-log-owner-limitation) |
 
 #### AI actions
 
@@ -103,10 +104,10 @@ Each role you assign to user or user group consists of policies which define, wh
 
 | Module              | Function              | Effect                                                              | Possible limitations                                      |
 |---------------------|-----------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
-| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cartowner-limitation) |
+| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cart-owner-limitation) |
 
 #### Checkout [[% include 'snippets/commerce_badge.md' %]]
 
@@ -123,6 +124,25 @@ Each role you assign to user or user group consists of policies which define, wh
 |-------------------------|-------------------------|-------------------|----------------------|
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |
 |                         | <nobr>`region`</nobr>   | manage regions    |
+
+#### Discounts [[% include 'snippets/commerce_badge.md' %]]
+
+The [discount](discounts.md) policies decide which actions can be executed by given user or user group.
+
+!!! caution "Customers and discount policies"
+
+    Customers don't need any policies to use the discounts on the [storefront](storefront.md).
+    Even the `discount/view` policy would allow them to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
+
+
+| Module               | Function                 | Effect                      | Possible limitations                                         |
+|----------------------|--------------------------|-----------------------------|----------------------------------------------------|
+| <nobr>`discount`</nobr> | <nobr>`create`</nobr> | create a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`update`</nobr>    | modify discount parameters           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`view`</nobr>      | view discounts (including its details)              | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`delete`</nobr>    | delete a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`enable`</nobr>    | enable a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`disable`</nobr>   | disable a discount          | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
 
 #### Orders [[% include 'snippets/commerce_badge.md' %]]
 
@@ -188,6 +208,15 @@ Each role you assign to user or user group consists of policies which define, wh
 |                                | <nobr>`update`</nobr> | modify a shipping method |
 |                                | <nobr>`view`</nobr>   | view shipping methods    |
 
+#### Shopping lists [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+| Module                       | Function              | Effect                 | Possible limitations                                                  |
+|------------------------------|-----------------------|------------------------|-----------------------------------------------------------------------|
+| <nobr>`shopping_list`</nobr> | <nobr>`create`</nobr> | create a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`delete`</nobr> | delete a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`edit`</nobr>   | modify a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`view`</nobr>   | view shopping lists    | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+
 ### Content management
 
 #### Content
@@ -213,6 +242,14 @@ Each role you assign to user or user group consists of policies which define, wh
 |                        | <nobr>`versionread`</nobr>        | view content after publishing, and to preview any content in the Site mode                                                              | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>Status</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Object State](limitation_reference.md#object-state-limitation)                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |                        | <nobr>`versionremove`</nobr>      | remove archived content versions                                                                                                        | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>Status</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Object State](limitation_reference.md#object-state-limitation)                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |                        | <nobr>`view_embed`</nobr>         | view content embedded in another content item (even when the User isn't allowed to view it as an individual content item)              | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+#### Content collaborative editing
+
+| Module               | Function              | Effect                                                                   | Possible limitations |
+|----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
+| <nobr>`content`</nobr> | <nobr>`share`</nobr> | share content drafts with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation) |
+| <nobr>`rte`</nobr> | <nobr>`edit`</nobr> | use [Real-time editing](collaborative_editing_guide.md#real-time-editing)    |
+
 
 #### Content types
 
@@ -252,7 +289,7 @@ Each role you assign to user or user group consists of policies which define, wh
 | <nobr>`comparison`</nobr> | <nobr>`view`</nobr>         | view version comparison                |
 | <nobr>`workflow`</nobr>   | <nobr>`change_stage`</nobr> | change stage in the specified workflow | [Workflow Transition](limitation_reference.md#workflow-transition-limitation) |
 
-### PIM
+### Product catalog
 
 #### Catalogs
 
@@ -272,14 +309,28 @@ Each role you assign to user or user group consists of policies which define, wh
 |                        | <nobr>`edit`</nobr>   | edit a product                              | [Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation) |
 |                        | <nobr>`view`</nobr>   | view products listed in the product catalog | [Product Type](limitation_reference.md#product-type-limitation)                                                             |
 
+!!! caution
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
+
+#### Product collaborative editing
+
+| Module               | Function              | Effect                                                                   | Possible limitations |
+|----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
+| <nobr>`product`</nobr> | <nobr>`share`</nobr> | share products with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation) |
+
 #### Product types
 
-| Module                      | Function              | Effect                                                                                                          | Possible limitations |
-|-----------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------|
-| <nobr>`product_type`</nobr> | <nobr>`create`</nobr> | create a product type, a new attribute, a new attribute group, and add translation to product type and attribute |
-|                             | <nobr>`delete`</nobr> | delete a product type, attribute, attribute group                                                               |
-|                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                 |
-|                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                             |
+| Module                      | Function              | Effect                                                                                                           | Possible limitations |
+|-----------------------------|-----------------------|------------------------------------------------------------------------------------------------------------------|----------------------|
+| <nobr>`product_type`</nobr> | <nobr>`create`</nobr> | create a product type, a new attribute, a new attribute group, and add translation to product type and attribute | [Product Type](limitation_reference.md#product-type-limitation) |
+|                             | <nobr>`delete`</nobr> | delete a product type, attribute, attribute group                                                                |                      |
+|                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                  | [Product Type](limitation_reference.md#product-type-limitation) |
+|                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                              |                      |
+
+!!! caution
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
 
 ## Combining policies
 

@@ -92,6 +92,7 @@ s
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\Core\URLChecker;
 
 interface URLHandlerInterface
@@ -130,7 +131,6 @@ For each URL alias definition the history of changes is preserved, so that users
 !!! caution "Legacy storage engine limitation"
 
     The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) doesn't archive URL aliases, which initially had the same name in multiple languages.
-    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818).
 
 URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
@@ -164,7 +164,7 @@ ibexa:
 | `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
 | `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/main/tests/lib/Persistence/TransformationProcessor/_fixtures/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/5.0/src/lib/Resources/slug_converter/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/5.0/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.

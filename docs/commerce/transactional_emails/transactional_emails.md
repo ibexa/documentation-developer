@@ -36,7 +36,7 @@ Transactional email support comes as an additional package that needs to be down
 composer require ibexa/connector-actito
 ```
 
-Flex installs and activates the package.
+Symfony Flex installs and activates the package.
 
 ### Configure Actito integration
 
@@ -75,7 +75,7 @@ Create campaigns of transactional email type, one for each notification type tha
 When you build a campaign template, make sure that you use the variables supported by [[= product_name =]].
 For a complete list of parameters, see [Transactional email variables reference](transactional_emails_parameters.md).
 
-!!! Tip
+!!! tip
 
     When you invent names for your campaigns, keep them simple, and don't use special characters or spaces.
 

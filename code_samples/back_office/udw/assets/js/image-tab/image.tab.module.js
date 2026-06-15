@@ -19,7 +19,7 @@ ibexa.addConfig(
             id: 'image',
             component: ImageTabModule,
             label: 'Image',
-            icon: '/bundles/ibexaadminui/img/ibexa-icons.svg#image',
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#image',
         },
     ],
     true,

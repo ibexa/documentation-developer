@@ -43,7 +43,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
 ## New features
 
-!!! dxp
+!!! DXP
 
     ### Site Factory
 
@@ -135,7 +135,7 @@ The `keyword` field type can now recognize versions of a content item.
 
 #### Login by User name or email
 
-You can now give your users th ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
+You can now give your users the ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
 
 #### Password rules
 
@@ -327,8 +327,8 @@ For the upgrade details, see [eZ Platform v3.0 project update instructions](http
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0) | [List of changes for final for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0) |
-| [List of changes for rc1 of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0-rc1) |
+| [List of changes for final of eZ Platform v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0) | [List of changes for final for eZ Platform Enterprise Edition v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0) |
+| [List of changes for rc1 of eZ Platform v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0-rc1) |
 
 ## eZ Platform v3.0.2
 

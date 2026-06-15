@@ -1,6 +1,7 @@
 ---
 title: Dashboard service's PHP API
 description: Use DashboardService to manage dashboards.
+edition: experience
 ---
 
 # DashboardService's PHP API
@@ -25,7 +26,7 @@ First argument is the `Content ID` of the dashboard to copy.
 Following arguments are the Content IDs of the user groups.
 
 ``` php hl_lines="61"
-[[= include_file('code_samples/back_office/dashboard/src/Command/DashboardCommand.php') =]]
+[[= include_code('code_samples/back_office/dashboard/src/Command/DashboardCommand.php') =]]
 ```
 
 The following line runs the command with `74` as the model dashboard's Content ID, `13` the user group's Content ID, and on the SiteAccess `admin` to have the right `user_content_type_identifier` config:

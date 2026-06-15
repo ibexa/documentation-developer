@@ -1,0 +1,13 @@
+-   type: repeatable
+    mode: create
+    steps:
+        -   type: language
+            mode: create
+            metadata:
+                languageCode: '###XXX code XXX###'
+                name: '###XXX name XXX###'
+                enabled: true
+    items:
+        - { code: afr-AF, name: Afrikaans }
+        - { code: alb-SQ, name: Albanian }
+        - { code: ara-AR, name: Arabic }

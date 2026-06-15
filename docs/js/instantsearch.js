@@ -6,7 +6,7 @@
     const parsed_search_page = parseInt(search_page);
     let version = doc.location.pathname.split('/')[2];
     if (!/^\d+\.\d+$/.test(version) && version !== 'latest') {
-        version = 'master';
+        version = 'latest';
     }
     const hitsContainer = '#hits';
     const statsContainer = '#stats';

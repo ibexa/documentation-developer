@@ -17,7 +17,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
     {
-        $definition = $data->fieldDefinition;
+        $definition = $data->getFieldDefinition();
 
         $fieldForm->add('value', HelloWorldType::class, [
             'required' => $definition->isRequired,
