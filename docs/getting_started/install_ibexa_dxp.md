@@ -488,7 +488,15 @@ The `ibexa.cron.job` tag accepts the following options:
   For example, it can be used to set different jobs and `schedule` for different [SiteAccesses](multisite_configuration.md).
 - `priority`: Defines the order in which `ibexa:cron:run` executes commands that are due.
 
-The following command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
+You can list the command services schedule by this tag with the following command:
+
+```bash
+php bin/console debug:container --tag=ibexa.cron.job
+```
+
+The following example shows how to set up a different schedule for a specific SiteAccess with a category.
+
+This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
 
 ```bash
 (crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
