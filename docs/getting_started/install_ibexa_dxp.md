@@ -416,7 +416,7 @@ You should see the welcome page.
 The `ibexa:cron:run` command executes all service commands tagged `ibexa.cron.job`.
 It should be scheduled to run every minute.
 
-The following example, creates a temporary file with the crontab line to appends it to existing web server's crontab, assuming the web server user is `www-data`:
+The following example creates a temporary file with the crontab entry and appends it to the existing crontab for the web server user (`www-data`):
 
 ```bash
 echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
@@ -424,42 +424,42 @@ crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
 rm ibexa_cron.txt
 ```
 
-For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), `ibexa:scheduled:run` command service is tagged `ibexa.cron.job` with, by default, a frequency of every minute (`* * * * *`).
+For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and, by default, runs every minute (`* * * * *`).
 If needed, you can redefine this service to set up another frequency.
 
-The [CDP data export schedule](cdp_data_export_schedule.md) also uses `ibexa.cron.job` tagged services under the hood.
+The [CDP data export schedule](cdp_data_export_schedule.md) also uses services tagged with `ibexa.cron.job`.
 
-You can add other commands to the cron either by:
+You can add other commands to cron by either:
 
 - Adding their own scheduling line to the crontab
 - Tagging their service with `ibexa.cron.job`
 
 #### Additional cron jobs and advanced usage
 
-To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation), schedule the link validating command `ibexa:check-urls`.
+To use [Link Manager](url_management.md#enabling-automatic-url-validation), schedule the URL validation command `ibexa:check-urls`.
 
 To [control the recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
 
-The following example schedule separetely:
+The following example schedules these commands separately:
 
 - `ibexa:cron:run` every minute
 - `ibexa:check-urls` every week (on Sunday at midnight)
-- `ibexa:activity-log:truncate` every exact hour (on 0th minute)
+- `ibexa:activity-log:truncate` every hour (at minute 0)
 
-This shell script create a temporary file with the job lines, then override and replace the existing web crontab.
+This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
 ```bash
 echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
 echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
 echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
-crontab -u www-data - ibexa_cron.txt
+crontab -u www-data ibexa_cron.txt
 rm ibexa_cron.txt
 ```
 
-The following alternative example, use the service tagging to schedule them.
+The following alternative example uses service tagging to schedule these commands.
 It also changes the `ibexa:scheduled:run` frequency to every five minutes.
 
-Appended to `config/services.yaml`:
+Add the following to `config/services.yaml`:
 
 ```
 services:
@@ -480,21 +480,21 @@ services:
             - { name: ibexa.cron.job, schedule: '0 * * * *' }
 ```
 
-The `ibexa.cron.job` tag accepts the following options.
+The `ibexa.cron.job` tag accepts the following options:
 
 - `schedule`: A cron expression representing the period or interval.
-- `options`: Arguments passed to the command, notice that the `--env` and `--siteaccess` options are passed to the command from `ibexa:cron:run` command.
-- `category`: Commands can be grouped in categories, then a category can be passed with `ibexa:cron:run --category=<CATEGORY>`, by default, a `default` category is set and used.
-  For example, it can be used to set different jobs and `schedule` for different SiteAccesses.
-- `priority`: To defined in which order the `ibexa:cron:run` run the commands that need to be.
+- `options`: Arguments passed to the command. Note that `--env` and `--siteaccess` are inherited from `ibexa:cron:run`.
+- `category`: Commands can be grouped into categories, and a category can be passed with `ibexa:cron:run --category=<CATEGORY>`. By default, the `default` category is used.
+  For example, it can be used to set different jobs and `schedule` for different [SiteAccesses](multisite_configuration.md).
+- `priority`: Defines the order in which `ibexa:cron:run` executes commands that are due.
 
-The following command add the scheduling of `ibexa:cron:run` for a SiteAccess `minor_website` and a job category `minor_website`:
+The following command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
 
 ```bash
 (crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
 ```
 
-So, `ibexa:scheduled:run` can now be run on this SiteAccess with another frequency than the default:
+Then, `ibexa:scheduled:run` can run on this SiteAccess at a different frequency from the default:
 
 ```
     Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
