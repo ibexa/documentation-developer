@@ -37,24 +37,7 @@ The following protocols are currently supported:
 
 To enable automatic URL validation, set up cron to run the `ibexa:check-urls` command periodically.
 
-For example, to check links every week, add the following script:
-
-```
-echo '0 0 * * 0 cd [path-to-ibexa]; php bin/console ibexa:check-urls --quiet --env=prod' > ibexa_cron.txt
-```
-
-Next, append the new cron to user's crontab without destroying existing crons.
-Assuming that the web server user data is www-data:
-
-```
-crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
-```
-
-Finally, remove the temporary file:
-
-```
-rm ibexa_cron.txt
-```
+For more information, see [Additional cron jobs and advanced usage](install_ibexa_dxp.md#additional-cron-jobs-and-advanced-usage).
 
 ### Configuration
 

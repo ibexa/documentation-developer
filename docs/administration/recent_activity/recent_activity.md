@@ -34,11 +34,10 @@ ibexa:
                     activity_logs_limit: 20
 ```
 
-To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a crontab.
+To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a cron job.
 To minimize the number of entries to delete, it's recommended to execute the command more than one time a day.
 
-For every exact hour, the cronjob line is:
-`0 * * * * cd [path-to-ibexa]; php bin/console ibexa:activity-log:truncate --quiet --env=prod`
+For more information, see [Additional cron jobs and advanced usage](install_ibexa_dxp.md#additional-cron-jobs-and-advanced-usage).
 
 ## Permission and security
 

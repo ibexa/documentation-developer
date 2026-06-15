@@ -66,3 +66,7 @@ php bin/console ibexa:cdp:stream-product-data --help
 ```bash
 php bin/console ibexa:cdp:stream-content-data --help
 ```
+
+The configuration is executed by `ibexa:cron:run` command which must be configured as a cron job.
+
+For more information, see [Scheduling cron jobs](install_ibexa_dxp.md#scheduling-cron-jobs).
