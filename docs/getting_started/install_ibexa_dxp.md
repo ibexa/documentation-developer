@@ -427,7 +427,7 @@ rm ibexa_cron.txt
 For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and, by default, runs every minute (`* * * * *`).
 If needed, you can redefine this service to set up another frequency.
 
-The [CDP data export schedule](cdp_data_export_schedule.md) also uses services tagged with `ibexa.cron.job`.
+The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
 You can add other commands to cron by either:
 
