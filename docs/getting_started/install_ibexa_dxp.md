@@ -398,7 +398,9 @@ You should see the welcome page.
 
 ### Enable Date-based Publisher
 
-To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ibexa:scheduled:run` command periodically.
+To enable delayed publishing of content items using the Date-based Publisher, you must set up cron to run the `ibexa:scheduled:run` command periodically.
+This command service is tagged `ibexa.cron.job`.
+The `ibexa:cron:run` executes all service commands tagged `ibexa.cron.job`.
 
 For example, to check for publishing every minute, add the following script:
 
@@ -409,7 +411,7 @@ For 5-minute intervals:
 `echo '*/5 * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt`
 
 Next, append the new cron to user's crontab without destroying existing crons.
-Assuming the web server user data is `www-data`:
+Assuming the web server user is `www-data`:
 
 `crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -`
 
@@ -420,6 +422,10 @@ Finally, remove the temporary file:
 ### Enable the Link manager
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
+
+### Enable recent activity log truncation
+
+To [control the log size](recent_activity.md#configuration-and-cronjob).
 
 ## [[= product_name_cloud =]]
 
