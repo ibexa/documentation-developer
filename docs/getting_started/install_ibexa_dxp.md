@@ -438,7 +438,7 @@ You can add other commands to the cron either by:
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation), schedule the link validating command `ibexa:check-urls`.
 
-To [control the recent activity log size](recent_activity.md#configuration-and-cronjob), schedule the `ibexa:activity-log:truncate` command.
+To [control the recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
 
 The following example schedule separetely:
 
