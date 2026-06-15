@@ -436,7 +436,7 @@ You can add other commands to cron by either:
 
 #### Additional cron jobs and advanced usage
 
-To use [Link Manager](url_management.md#enabling-automatic-url-validation), schedule the URL validation command `ibexa:check-urls`.
+To use [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
 
 To [control the recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
 
