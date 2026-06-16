@@ -415,7 +415,7 @@ You should see the welcome page.
 ### Scheduling cron jobs
 
 The `ibexa:cron:run` command executes all service commands tagged `ibexa.cron.job`.
-It should be scheduled to run every minute.
+It should be scheduled to run every minute usin cron.
 
 The following example creates a temporary file with the crontab entry and appends it to the existing crontab for the web server user (`www-data`):
 
@@ -462,7 +462,7 @@ It also changes the `ibexa:scheduled:run` frequency to every five minutes.
 
 Add the following to `config/services.yaml`:
 
-```
+```yaml
 services:
     #…
 
