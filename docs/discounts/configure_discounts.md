@@ -49,11 +49,13 @@ To run discount re-indexing in the background:
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
 ```
 
-3\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
+3\. Periodically run the following command, about one time a day or more often:
 
 ``` bash
 php bin/console ibexa:discounts:reindex
 ```
+
+For more information about scheduling a command, see [Additional cron jobs and advanced usage](install_ibexa_dxp.md#additional-cron-jobs-and-advanced-usage).
 
 !!! note "Deploying Symfony Messenger"
 

@@ -441,11 +441,14 @@ To use [Link manager](url_management.md), schedule the URL validation command `i
 
 To [control the recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
 
+To [re-index discounts](discounts_guide.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command (after having set Ibexa Messenger, for more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing)).
+
 The following example schedules these commands separately:
 
 - `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
 - `ibexa:check-urls` [every week](https://crontab.guru/weekly) (on Sunday at midnight)
 - `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) (at minute 0)
+- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) (at midnight)
 
 This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
@@ -453,6 +456,7 @@ This shell script creates a temporary file with the job lines, then replaces the
 echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
 echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
 echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
+echo '0 0 * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
 crontab -u www-data ibexa_cron.txt
 rm ibexa_cron.txt
 ```
@@ -474,11 +478,15 @@ services:
         arguments:
             $urlChecker: '@Ibexa\Bundle\Core\URLChecker\URLChecker'
         tags:
-            - { name: ibexa.cron.job, schedule: '0 0 * * 0' }
+            - { name: ibexa.cron.job, schedule: '0 0 * * 0', priority: -1 }
 
     Ibexa\Bundle\ActivityLog\Command\TruncateLogCommand:
-        tags:
-            - { name: ibexa.cron.job, schedule: '0 * * * *' }
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 * * * *', priority: -2 }
+
+    Ibexa\Bundle\Discounts\Command\ReIndexDiscountProductCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 0 * * *' }
 ```
 
 The `ibexa.cron.job` tag accepts the following options:
