@@ -412,7 +412,7 @@ You should see the welcome page.
 
     See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
-### Scheduling tasks
+### Schedule tasks
 
 The `ibexa:cron:run` command executes all service commands tagged `ibexa.cron.job`.
 It should be scheduled to run every minute using [`cron`](https://en.wikipedia.org/wiki/Cron).
