@@ -443,9 +443,9 @@ To [control the recent activity log size](recent_activity.md#log-retention), sch
 
 The following example schedules these commands separately:
 
-- `ibexa:cron:run` every minute
-- `ibexa:check-urls` every week (on Sunday at midnight)
-- `ibexa:activity-log:truncate` every hour (at minute 0)
+- `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
+- `ibexa:check-urls` [every week](https://crontab.guru/weekly) (on Sunday at midnight)
+- `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) (at minute 0)
 
 This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
