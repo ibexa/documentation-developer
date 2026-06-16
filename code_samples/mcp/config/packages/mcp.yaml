@@ -10,7 +10,7 @@ ibexa:
                     discovery_cache: cache.tagaware.filesystem
                     session:
                         type: psr16
-                        directory: cache.tagaware.filesystem
+                        service: cache.tagaware.filesystem
     system:
         default:
             mcp:
