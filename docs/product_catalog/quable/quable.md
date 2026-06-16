@@ -1,7 +1,7 @@
 ---
 description: Quable PIM integration with Ibexa DXP
 page_type: landing_page
-month_change: true
+month_change: false
 ---
 
 # Quable PIM Integration

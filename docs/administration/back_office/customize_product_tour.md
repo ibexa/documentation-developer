@@ -1,7 +1,7 @@
 ---
 description: Customize product tour scenarios with custom event listeners
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Customize scenarios with PHP code

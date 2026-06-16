@@ -9,7 +9,7 @@ You can interact directly with the [Raptor connector](raptor_connector.md)'s ser
 
 ## Advanced usage – direct interaction with the service
 
-The [`ServerSideTrackingDispatcherInterface::dispatch()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ServerSideTrackingDispatcherInterface.html#method_dispatch) method allows to send tracking data from the server side.
+The [`ServerSideTrackingDispatcherInterface::dispatch()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ServerSideTrackingDispatcherInterface.html#method_dispatch) method allows sending tracking data from the server side.
 It can be used in controllers, event subscribers, or any other part of the application.
 This method receives an [`EventDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html).
 For more information, see the available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
@@ -38,9 +38,34 @@ Check the following example:
 [[= include_file('code_samples/recommendations/EventMapper.php', 20, 27, remove_indent=True) =]]
 ```
 
+### Category parameter for product events
+
+In [[= product_name =]], products can be assigned to multiple categories.
+However, Raptor accepts only a single category value in tracking events.
+
+By default, the connector uses the first category from the list of categories assigned to the product.
+You can override this behavior and define which category is sent in tracking events.
+
+To do this:
+
+1. Open the product page in the back office.
+2. Check the categories assigned to the product and select the one you want to use.
+3. Copy the identifier.
+4. Pass this identifier as the category parameter in the tracking event.
+
+!!! note
+
+    This option applies only to product-related tracking events.
+
+Example:
+
+``` twig+html
+[[= include_file('code_samples/recommendations/events/category_parameter.html.twig') =]]
+```
+
 ### Manual `EventData` creation
 
-Manual creation of EventData allows precise control over the events sent to the service.
+Manual creation of `EventData` allows precise control over the events sent to the service.
 It enables you to define custom event parameters, track specific user interactions, and tailor data collection to advanced use cases.
 
 Check the following example:

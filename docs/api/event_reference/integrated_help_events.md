@@ -2,7 +2,7 @@
 description: Events that are triggered when working with integrated help features like product tours.
 edition: lts-update
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Integrated help events

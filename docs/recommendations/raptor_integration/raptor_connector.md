@@ -1,7 +1,7 @@
 ---
 description: Step-by-step activation procedure of setting up the Raptor connector.
 page_type: landing_page
-month_change: true
+month_change: false
 ---
 
 # Raptor connector
