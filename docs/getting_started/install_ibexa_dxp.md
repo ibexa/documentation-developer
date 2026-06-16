@@ -415,7 +415,7 @@ You should see the welcome page.
 ### Scheduling tasks
 
 The `ibexa:cron:run` command executes all service commands tagged `ibexa.cron.job`.
-It should be scheduled to run every minute using [cron](https://en.wikipedia.org/wiki/Cron).
+It should be scheduled to run every minute using [`cron`](https://en.wikipedia.org/wiki/Cron).
 
 The following example creates a temporary file with the crontab entry and appends it to the existing crontab for the web server user (`www-data`):
 
