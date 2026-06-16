@@ -20,12 +20,14 @@ In the toolbar, corresponding categories for recommendation blocks are available
 
 - **Recommendations: Content** - presents content recommendations:
     - [Content that has been seen along with the item category]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#content-that-has-been-seen-along-with-the-item-category-block)
+    - [Merchandising content sorted by personal preferences and popularity]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#merchandising-content-sorted-by-personal-preferences-and-popularity)
     - [Most popular content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-content-block)
     - [Other customers have also seen this content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-this-content-block)
     - [Personalized content recommendations]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#personalized-content-recommendations-block)
     - [User’s content history]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#users-content-history-block)
 - **Recommendations: Product** - displays product suggestions based on visitors’ browsing history:
     - [Items associated with the given Content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#items-associated-with-the-given-content-block)
+    - [Items of Customized Feeds sorted by personal preferences and popularity or trendiness]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#items-of-customized-feeds-sorted-by-personal-preferences-and-popularity-or-trendiness)
     - [Most popular products]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-products-block)
     - [Most popular products in category]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-products-in-category-block)
     - [Other customers have also seen]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-block)
