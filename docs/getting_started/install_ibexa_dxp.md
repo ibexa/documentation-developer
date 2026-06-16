@@ -527,7 +527,7 @@ Enable Ibexa Messenger for background tasks, make sure that its [worker starts w
 Ibexa Messenger is used at least by:
 
 - CDP data export, see [Ibexa Messenger support for large batches of data](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
-- [Discount re-indexing](configure_discounts.md#discount-re-indexing).
+- [Discount re-indexing](configure_discounts.md#discount-re-indexing)
 
 ## [[= product_name_cloud =]]
 
