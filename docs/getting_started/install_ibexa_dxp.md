@@ -520,9 +520,14 @@ Then, `ibexa:scheduled:run` can run on this SiteAccess at a different frequency 
             - { name: ibexa.cron.job, schedule: '*/5 * * * *', category: 'minor_website' }
 ```
 
-### Enable discount re-indexing [[% include 'snippets/commerce_badge.md' %]]
+### Enable background tasks
 
-Enable [discount re-indexing in the background](configure_discounts.md#discount-re-indexing).
+Enable Ibexa Messenger for background tasks, make sure that its [worker starts with the server](background_tasks.md#start-worker).
+
+Ibexa Messenger is used at least by:
+
+- CDP data export, see [Ibexa Messenger support for large batches of data](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- [Discount re-indexing](configure_discounts.md#discount-re-indexing).
 
 ## [[= product_name_cloud =]]
 
