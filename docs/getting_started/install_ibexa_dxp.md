@@ -505,7 +505,7 @@ This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and t
 
 Then, `ibexa:scheduled:run` can run on this SiteAccess at a different frequency from the default:
 
-```
+```yaml
     Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
         tags:
             - { name: ibexa.cron.job, schedule: '* * * * *' }
