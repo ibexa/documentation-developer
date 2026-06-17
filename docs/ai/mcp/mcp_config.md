@@ -109,6 +109,20 @@ There are two ways to associate tools with a server:
 
 MCP Servers LTS Update comes with the following built-in tools:
 
+- `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
+    - `get_content_type_list` - TODO: gets content types by IDs
+    - `get_content_type` - gets a content type by ID
+    - `get_content_type_by_identifier` - gets a content type by identifier
+    - `get_content_type_draft` - TODO: get an existing content type draft
+    - `create_content_type` - TODO: get a draft for a new content type
+    - TODO: `create_content_type_draft` - creates a draft for a given content type
+    - `publish_content_type_draft` - publishes a content type draft
+- `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
+    - `add_field_definition` - adds a field definition to a content type draft
+    - `update_field_definition` - updates a field definition in a content type draft
+    - `remove_field_definition` - removes a field definition from a content type draft
+- `Ibexa\Mcp\Tool\ContentType\ContentTypeGroupTools`
+    - `get_content_type_groups` - gets all content type groups
 - `Ibexa\Mcp\Tool\TranslationTools`
     - `list_languages` - lists all languages in the current SiteAccess
     - `list_content_languages` - lists languages in which given content item has translations
