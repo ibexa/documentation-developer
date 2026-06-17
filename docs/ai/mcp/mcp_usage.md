@@ -97,6 +97,8 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
+Adapt the `allowed_hosts` to your case, for example, if you want to use the DDEV `.ddev.site` domain instead of its `127.0.0.1` address equivalent.
+
 An `ibexa.mcp.example` route is now available:
 
 ```bash

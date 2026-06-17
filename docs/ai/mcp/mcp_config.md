@@ -60,8 +60,8 @@ You define MCP servers within a repository configuration and then assign those s
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 1, 8) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 15) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 29, 33) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 17) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 31, 35) =]]
 ```
 
 Routes are built automatically from MCP server `path` configs.
@@ -72,16 +72,17 @@ You can list them by running the following command:
 
 ### MCP server options
 
-| Option                                                                                                          | Type    | Required | Default | Description                                                      |
-|-----------------------------------------------------------------------------------------------------------------|---------|----------|---------|------------------------------------------------------------------|
-| `path`                                                                                                          | string  | Yes      |         | MCP server endpoint path (appended to SiteAccess-aware base URL) |
-| `enabled`                                                                                                       | boolean | No       | `false` | Server state: decides whether it is enabled or disabled          |
-| `version`                                                                                                       | string  | No       | `1.0.0` | MCP server version                                               |
-| [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`  | Server implementation description                                |
-| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`  | Prompt-like instructions provided to the AI agent                |
-| [`tools`](#tool-configuration)                                                                                  | string  | No       | `[]`    | List of tool classes                                             |
-| <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier                    |
-| [`session`](#session-storage)                                                                                   | object  | Yes      |         | Session storage configuration                                    |
+| Option                                                                                                          | Type    | Required | Default                                                                  | Description                                                      |
+|-----------------------------------------------------------------------------------------------------------------|---------|----------|--------------------------------------------------------------------------|------------------------------------------------------------------|
+| `path`                                                                                                          | string  | Yes      |                                                                          | MCP server endpoint path (appended to SiteAccess-aware base URL) |
+| `enabled`                                                                                                       | boolean | No       | `false`                                                                  | Server state: decides whether it is enabled or disabled          |
+| `version`                                                                                                       | string  | No       | `1.0.0`                                                                  | MCP server version                                               |
+| [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`                                                                   | Server implementation description                                |
+| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
+| [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
+| <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
+| [`session`](#session-storage)                                                                                   | object  | Yes      |                                                                          | Session storage configuration                                    |
+| [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers |
 
 !!! note "New servers are disabled by default"
 
@@ -129,7 +130,7 @@ You must provide a PSR-6 or PSR-16 cache pool for this caching.
 For example, you could set up a dedicated Redis/Valkey:
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 19, 19) =]]
 ```
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
@@ -164,8 +165,8 @@ Optionally, you could use a more specific `prefix` option than the default `mcp_
 Such setup is suitable for production environments.
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 18, 21) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 34, 43) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 20, 23) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 36, 45) =]]
 ```
 
 #### File
@@ -177,5 +178,20 @@ Such setup is suitable for development environments.
 In this example, sessions are stored in the `var/cache/<environment>/mcp/sessions/` directory (for example, `var/cache/dev/mcp/session/` for the `dev` environment, and `var/cache/prod/mcp/sessions/` for the `prod` environment):
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 23, 25) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 25, 27) =]]
+```
+
+### Allowed hosts
+
+This parameter lists the domains, the `Host` headers, accepted by the MCP server.
+The port is not part of the matching.
+There is no joker, all cases must be listed.
+
+In this example, only requests from `admin.example.com` domain, `my-ddev-project.ddev.site` domain, or from 127.0.0.1 IP are accepted:
+
+``` yaml
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
+                        - 'admin.example.com'
+                        - '127.0.0.1'
+                        - 'my-ddev-project.ddev.site'
 ```
