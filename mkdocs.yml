@@ -105,6 +105,7 @@ nav:
             - Discounts events: api/event_reference/discounts_events.md
             - Collaboration events: api/event_reference/collaboration_events.md
             - Integrated help events: api/event_reference/integrated_help_events.md
+            - Translations management events: api/event_reference/translations_management_events.md
             - Other events: api/event_reference/other_events.md
         - Notification channels: api/notification_channels.md
     - Administration:
@@ -479,6 +480,11 @@ nav:
             - Language API: multisite/languages/language_api.md
             - Back office translations: multisite/languages/back_office_translations.md
             - Automated content translation: multisite/languages/automated_translations.md
+            - Translations management:
+                - Translations management: multisite/translations_management/translations_management.md
+                - Translations management product guide: multisite/translations_management/translations_management_guide.md
+                - Configure translations management: multisite/translations_management/configure_translations_management.md
+                - Extend translations management: multisite/translations_management/extend_translations_management.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
