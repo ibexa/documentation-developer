@@ -25,7 +25,8 @@ It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
   <br>For more information, see [tools configuration](mcp_config.md#tool-configuration).
-- `name` - tool name (if not set, function name is used)
+- `name` - tool codename - if not set, function name is used
+- `title` - tool title for user interfaces - if not set, the `name` is used
 - `description` - tool description, used by AI agents to understand the tool's purpose
 - `icons` - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
   <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons).
@@ -52,7 +53,8 @@ Methods that return a prompt are marked with the [`Ibexa\Contracts\Mcp\Attribute
 It accepts several arguments that describe how the prompt is used:
 
 - `servers` - array of server identifiers exposing this prompt - required for prompts
-- `name` (optional) - prompt name - if not set, method name is used
+- `name` (optional) - prompt codename - if not set, method name is used
+- `title` (optional) - prompt title - if not set, `name` is used
 - `description` (optional) - human-readable prompt description
 - `icons` (optional) - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
   <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons).
