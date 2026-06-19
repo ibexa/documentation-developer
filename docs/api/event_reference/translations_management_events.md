@@ -1,5 +1,5 @@
 ---
-description: Events that are triggered when working with taxonomy.
+description: Events that are triggered when working with translations management.
 edition: lts-update
 page_type: reference
 ---

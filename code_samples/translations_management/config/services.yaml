@@ -1,0 +1,31 @@
+services:
+    App\TranslationsManagement\MyCustomProvider:
+        tags:
+            - name: 'ibexa.translations_management.auto_translate.provider'
+              identifier: 'my_custom_provider'
+              validation_profile: 'ai_generic'
+    App\TranslationsManagement\MyProviderValidator:
+        tags:
+            - name: 'ibexa.translations_management.auto_translate.provider.validator'
+              profile: 'my_custom_profile'
+    App\TranslationsManagement\MyTranslationAddExtension:
+        tags:
+            - { name: form.type_extension }
+    App\TranslationsManagement\ImageAltTextTransformer:
+        tags:
+            - name: 'ibexa.translations_management.auto_translate.field_value_transformer'
+              field_type_identifier: 'ibexa_image'
+    App\TranslationsManagement\MyCustomExclusionRule:
+        tags:
+            - { name: 'ibexa.translations_management.side_by_side.exclusion_rule' }
+    app.translations_management.exclusion_rule.custom_field_types:
+        class: Ibexa\TranslationsManagement\SideBySide\Service\UnsupportedFieldTypeExclusionRule
+        arguments:
+            $excludedFieldTypeIdentifiers: ['custom_blog_post', 'custom_landing_page']
+        tags:
+            - { name: 'ibexa.translations_management.side_by_side.exclusion_rule' }
+    App\TranslationsManagement\TwigComponent\MyTranslationModalFooter:
+        tags:
+            - name: ibexa.twig.component
+              group: 'admin-ui-content-translation-modal-footer'
+              priority: 10
