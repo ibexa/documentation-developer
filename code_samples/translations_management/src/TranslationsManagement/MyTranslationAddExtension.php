@@ -13,6 +13,6 @@ final class MyTranslationAddExtension extends AbstractTypeExtension
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('my_custom_field', /* ... */);
+        $builder->add('my_custom_field'/* ... */);
     }
 }

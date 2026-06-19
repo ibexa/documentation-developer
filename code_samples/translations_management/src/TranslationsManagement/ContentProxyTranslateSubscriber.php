@@ -11,7 +11,8 @@ final readonly class ContentProxyTranslateSubscriber implements EventSubscriberI
 {
     public function __construct(
         private UrlGeneratorInterface $urlGenerator,
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {
