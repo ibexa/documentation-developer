@@ -35,9 +35,9 @@ The following protocols are currently supported:
 
 ### Enabling automatic URL validation
 
-To enable automatic URL validation, set up cron to run the `ibexa:check-urls` command periodically.
+To enable automatic URL validation, set up a scheduled task to run the `ibexa:check-urls` command periodically.
 
-For more information, see [Additional cron jobs and advanced usage](install_ibexa_dxp.md#additional-cron-jobs-and-advanced-usage).
+For more information, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
 
 ### Configuration
 

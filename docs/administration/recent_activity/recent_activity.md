@@ -34,7 +34,7 @@ ibexa:
 To automate a regular truncation, the command `ibexa:activity-log:truncate` must be scheduled.
 To minimize the number of entries to delete, it's recommended to execute the command more than one time a day.
 
-For more information, see [Additional cron jobs and advanced usage](install_ibexa_dxp.md#additional-cron-jobs-and-advanced-usage).
+For more information, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
 
 ### Display limit
 

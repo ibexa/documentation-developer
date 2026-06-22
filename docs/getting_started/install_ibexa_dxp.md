@@ -430,12 +430,12 @@ If needed, you can redefine this service to set up another frequency.
 
 The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
-You can add other commands to cron by either:
+You can add other commands to scheduled tasks by either:
 
 - Adding their own scheduling line to the crontab
 - Tagging their service with `ibexa.cron.job`
 
-#### Additional cron jobs and advanced usage
+#### Additional scheduled tasks and advanced usage
 
 To use [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
 
