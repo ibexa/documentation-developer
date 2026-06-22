@@ -49,12 +49,12 @@ It's extended with some [[= product_name =]]-specific information:
 
 ![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 
-#### SPI (persistence)
+### SPI (persistence)
 
 This section provides the number of non-cached SPI calls and handlers.
 You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
 
-#### SiteAccess
+### SiteAccess
 
 Here you can see the name of the current SiteAccess and how it was matched.
 For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).

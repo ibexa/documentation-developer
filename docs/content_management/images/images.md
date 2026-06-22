@@ -166,7 +166,7 @@ ibexa:
 
 If there is no configuration assigned to the `binary_handler`, the placeholder generation is disabled.
 
-##### Configuration examples:
+#### Configuration examples
 
 **Example 1 - placeholders with basic information about original image**
 

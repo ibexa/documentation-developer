@@ -7,7 +7,7 @@ edition: experience
 
 In this step you can add a Content List block and a Content Scheduler block and customize them.
 
-### Add a Content List block
+## Add a Content List block
 
 First, create an override template for the Content List block: `templates/blocks/contentlist/default.html.twig`:
 
@@ -57,7 +57,7 @@ The block is displayed using the new template.
 Built-in blocks have default templates included in a clean installation, but you can override them.
 Publish the page now and move on to creating another type of block.
 
-### Create a Content Scheduler block for featured articles
+## Create a Content Scheduler block for featured articles
 
 The next block is the Content Scheduler block that airs articles at predetermined times.
 

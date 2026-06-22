@@ -33,7 +33,7 @@ For more information, see [Bundle documentation](https://github.com/ezsystems/ez
 
 As part of ongoing effort to simplify everyday aspects of the API for v2, you can now simpler deal with SiteAccess languages and translations.
 
-###### Example
+##### Example
 
 For objects such as content, content type, field definitions and more, to get translated name, description or fields you would before this change have to do the following in PHP and Twig:
 

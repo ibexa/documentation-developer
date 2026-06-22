@@ -17,7 +17,7 @@ This field type makes it possible to store and retrieve the value of a relation 
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -31,7 +31,7 @@ The Value class of this field type contains the following properties:
 $relation->destinationContentId = $contentInfo->id;
 ```
 
-##### Constructor
+#### Constructor
 
 The `Relation\Value` constructor initializes a new value object with the value provided. It expects a mixed value.
 

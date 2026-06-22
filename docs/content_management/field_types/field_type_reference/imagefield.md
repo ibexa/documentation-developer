@@ -14,7 +14,7 @@ A **variation service** handles the conversion of the original image into differ
 
 The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
 
-##### Properties
+#### Properties
 
 | Property          | Type   | Example                                                          | Description                                                                                                                                                                                                                                                          |
 |-------------------|--------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

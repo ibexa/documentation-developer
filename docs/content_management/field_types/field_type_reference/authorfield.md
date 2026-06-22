@@ -10,7 +10,7 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 ### Value object
 
-##### Properties
+#### Properties
 
 | Attribute | Type                                     | Description      | Example   |
 |-----------|------------------------------------------|------------------|-----------|
@@ -33,7 +33,7 @@ $authorList = Author\Value([
 ]);
 ```
 
-### Hash format
+#### Hash format
 
 The hash format mostly matches the value object. It has the following key `authors`.
 
@@ -54,7 +54,7 @@ Example
 ]
 ```
 
-##### String representation
+#### String representation
 
 The string contains all the authors with their names and emails.
 
