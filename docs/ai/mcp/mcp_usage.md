@@ -247,12 +247,28 @@ Get the [list of prompts](https://modelcontextprotocol.io/specification/latest/s
 
 You can test your server with the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
 You can even use the inspector as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
+TODO: You can even use the inspector as a DDEV add-on with [`michtio/ddev-mcp-inspector`](https://github.com/michtio/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
 
 You can use a Web interface to obtain the JWT token:
 
 - [REST live documentation](rest_api_authentication.md#jwt-token-obtained-through-rest-documentation)
 - [GraphiQL](graphql.md#jwt-authentication)
+
+??? MCP Inspector settings
+
+    When using it with DDEV, you may encounter certificate issues.
+    To bypass them, you can set the `NODE_TLS_REJECT_UNAUTHORIZED` environment variable to `0` on the MCP inspector container,
+    in `.ddev/docker-compose.mcp-inspector.yaml` at `services.mcp-inspector.environment`:
+
+    ```yaml
+    services:
+      mcp-inspector:
+        # …
+        environment:
+          # …
+          NODE_TLS_REJECT_UNAUTHORIZED: "0"
+    ```
 
 #### MCP server settings
 
