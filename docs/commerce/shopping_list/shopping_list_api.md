@@ -64,6 +64,7 @@ dump($list);
 $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
 dump($list);
 ```
+
 When adding array of entries with `ShoppingListService::addEntries()`,
 an exception is thrown if at least product is already in the shopping list and no entries are added to the list.
 

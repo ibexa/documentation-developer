@@ -180,7 +180,7 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 
 ### Summary of events and services
 
-* event=`kernel.request`
+- event=`kernel.request`
     - 45:`ibexa.siteaccess_match_listener`
         - `Ibexa\Core\MVC\Symfony\SiteAccess\Router`
         - event=`Ibexa\Core\MVC\Symfony\SiteAccess`
@@ -193,18 +193,18 @@ The `HttpKernel` retrieves the response attached to the event and continues.
                 - `Ibexa\Bundle\Core\Routing\UrlAliasRouter`
     - 16:`locale_listener`
     - 13:`Ibexa\AdminUi\EventListener\RequestListener`
-* event=`kernel.controller`
+- event=`kernel.controller`
     - 10:`Ibexa\Bundle\Core\EventListener\ViewControllerListener`
         - `Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`
             - tag=`ibexa.view.builder`
                 - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder`
                     - `Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`
-* event=`kernel.controller_arguments`
-* event=`kernel.view`
+- event=`kernel.controller_arguments`
+- event=`kernel.view`
     - 0:`Ibexa\Bundle\Core\EventListener\ViewRendererListener`
         - `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`
-* event=`kernel.response`
-* event=`kernel.terminate`
+- event=`kernel.response`
+- event=`kernel.terminate`
     - 0:`Ibexa\Bundle\Core\EventListener\BackgroundIndexingTerminateListener`
 
 ### Examples request attributes timeline

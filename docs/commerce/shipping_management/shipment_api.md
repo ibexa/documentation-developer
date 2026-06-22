@@ -53,6 +53,7 @@ To update shipment information, use the `ShipmentService::updateShipment` method
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/ShipmentCommand.php', 106, 116, remove_indent=True) =]]
 ```
+
 ## Delete shipment
 
 To delete a shipment from the system, use the `ShipmentService::deleteShipment` method:

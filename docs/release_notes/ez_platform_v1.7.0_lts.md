@@ -20,47 +20,48 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ### eZ Platform (Open Source)
 
--   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user.
+- **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user.
 The system makes it possible to create translations for eZ Platform UI.
 Studio internationalization and translations ready to use are shipped in further releases.
 Community members are more than welcome to contribute to the translation process.
-    ![](i18n.png)
+
+![""](i18n.png)
 
 <!-- -->
 
--   **Universal Discovery Widget** ("UDW") provides a range of small improvements. The most noticeable one is the preview of content which is more usable and also provides a way to get a full preview of the content object.
+- **Universal Discovery Widget** ("UDW") provides a range of small improvements. The most noticeable one is the preview of content which is more usable and also provides a way to get a full preview of the content object.
 
-![](udwre.png)
+![""](udwre.png)
 
--   The **Admin** panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
+- The **Admin** panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
 
-![](contenttypeviews.png)
+![""](contenttypeviews.png)
 
--   The online editor also brings a range of improvements that improve the editorial experience. The most noticeable one is to offer the possibility to switch from Headings to Paragraph styles for the same element.
+- The online editor also brings a range of improvements that improve the editorial experience. The most noticeable one is to offer the possibility to switch from Headings to Paragraph styles for the same element.
 
  
 
 ##### Notable technical improvements:
 
--   Search:
-    -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level
-        -   For when you need to extend the index with additional data not applicable for FieldType custom fields feature
-        -   *[See Solr Bundle documentation for more info ](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
-    -   Solr Search Engine: Support for FieldRelation on location search
-    -   Legacy Search Engine: Improve word boundaries detection
-    -   ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine
--   Extensibility:
-    -    QueryType's now support using alias when being used as service so you can define several services with same  QueryType class
-        -    Example: Generic location child QueryType being reused several times for specific services for article or blog post listings 
--   API:
-    -   New method:` Location->getSortClauses()` to get Sort Clauses based on what kind of sorting has been set on the Location
-    -   Add Content Version archives limit by configuration & enforce on publish
--   Debug:
-    -   ez-support-tools:dump-info command now able to dump system info in several formats, and default is now json
-        -   *Making it more useful for attaching system info when reporting issues*
-    -   Add SiteAccess collector to debug toolbar
-    -   Make IO exceptions more user friendly
-    -   Make it possible to retrieve original exception when repo-&gt;commit() fails
+- Search:
+    - Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level
+        - For when you need to extend the index with additional data not applicable for FieldType custom fields feature
+        - *[See Solr Bundle documentation for more info ](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
+    - Solr Search Engine: Support for FieldRelation on location search
+    - Legacy Search Engine: Improve word boundaries detection
+    - ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine
+- Extensibility:
+    - QueryType's now support using alias when being used as service so you can define several services with same  QueryType class
+        - Example: Generic location child QueryType being reused several times for specific services for article or blog post listings 
+- API:
+    - New method:` Location->getSortClauses()` to get Sort Clauses based on what kind of sorting has been set on the Location
+    - Add Content Version archives limit by configuration & enforce on publish
+- Debug:
+    - ez-support-tools:dump-info command now able to dump system info in several formats, and default is now json
+        - *Making it more useful for attaching system info when reporting issues*
+    - Add SiteAccess collector to debug toolbar
+    - Make IO exceptions more user friendly
+    - Make it possible to retrieve original exception when repo-&gt;commit() fails
 
  
 
@@ -72,19 +73,19 @@ Community members are more than welcome to contribute to the translation process
 The Studio **Personalization Block** available out of the box lets the editor create a block that renders a list of content items personalized to each and every visitor.
 The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end, and also the template for rendering, should be used.
 
-![](personalizationblock.png)
+![""](personalizationblock.png)
 
 - You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published.
 All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
 
-![](future_publication_window.png)
+![""](future_publication_window.png)
 
 - Create forms in your landing page with the **Form Builder**.
 A special Form Block allows you to add forms with different types of fields to the landing page.
 This system has been designed to be extended, so that you can create your own form fields.
 The system also provide an interface to access the data that has been collected, and download it as CSV files.
 
-![](form-builder-1.png)
+![""](form-builder-1.png)
 
 Submitted results can be previewed in the UI or downloaded in a CSV file, and a designated person is notified of submissions by email.
 
@@ -95,7 +96,7 @@ The product we used are meals that, in a non-demo ideal world, would be availabl
 This ordering part isn't in the demo, nevertheless, the content looks really yummy... 
 Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
-![](productcontenttype.png)
+![""](productcontenttype.png)
 
 ### Installation
 

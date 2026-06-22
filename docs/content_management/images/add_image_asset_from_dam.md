@@ -93,7 +93,7 @@ To extend the DAM support built into [[= product_name =]], you must create a cus
 
     Before you use Wikimedia Commons assets in a production environment, ensure that you comply with their [license requirements](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia#How_to_comply_with_a_file's_license_requirements).
 
-###  Create DAM handler
+### Create DAM handler
 
 This class handles searching through Wikimedia Commons for images and fetching image assets.
 

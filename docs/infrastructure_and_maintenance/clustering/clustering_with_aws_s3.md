@@ -12,18 +12,18 @@ When setting up clustering, you can use Amazon AWS S3 as a binary handler, meani
 
 ## Set up AWS S3 account
 
-1.  Go to <https://aws.amazon.com/> and create an account.
+1. Go to <https://aws.amazon.com/> and create an account.
 An [existing Amazon account can be used](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#sign-up-for-aws).
-1.  [Choose a region](https://docs.aws.amazon.com/storagegateway/latest/vgw/available-regions-intro.html).
+1. [Choose a region](https://docs.aws.amazon.com/storagegateway/latest/vgw/available-regions-intro.html).
 The example below uses EU (Ireland): `eu-west-1`
-1.  Create a bucket in your chosen region and make note of the bucket name:
+1. Create a bucket in your chosen region and make note of the bucket name:
 <https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket>.
-1.  Go to the [IAM Management Console](https://console.aws.amazon.com/iam/home#/users) and create a user.
+1. Go to the [IAM Management Console](https://console.aws.amazon.com/iam/home#/users) and create a user.
 See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-iam.html>.
-1.  Then create a group and assign the user to the group.
-1.  Assign policies to the group. The `AmazonS3FullAccess` policy gives read/write access to your bucket.
-1.  Still in the IAM console, view the user you created. Click the **Security credentials** tab.
-1.  Click "Create access key" and make note of the "Access key ID" and the "Secret access key".
+1. Then create a group and assign the user to the group.
+1. Assign policies to the group. The `AmazonS3FullAccess` policy gives read/write access to your bucket.
+1. Still in the IAM console, view the user you created. Click the **Security credentials** tab.
+1. Click "Create access key" and make note of the "Access key ID" and the "Secret access key".
 The secret key cannot be retrieved again after the key has been created, so don't lose it.
 (However, you can create new keys if needed.)
 

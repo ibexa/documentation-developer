@@ -331,6 +331,7 @@ This template embeds the AI component, but only if a dedicated `transcript` fiel
 ```
 
 And add it to the SiteAccess configuration for the `admin_group`:
+
 ``` yaml
 [[= include_file('code_samples/ai_actions/config/packages/ibexa_admin_ui.yaml') =]]
 ```

@@ -74,6 +74,7 @@ For more information, see [creating your own Actions](create_data_migration_acti
 ### Content
 
 mode: Create
+
 ``` yaml
     actions:
         - { action: assign_object_state, identifier: locked, groupIdentifier: ibexa_lock }
@@ -82,6 +83,7 @@ mode: Create
 ```
 
 mode: Update
+
 ``` yaml
     actions:
         - { action: assign_parent_location, value: 2 }
@@ -92,12 +94,14 @@ mode: Update
 ### Content types
 
 mode: Create
+
 ``` yaml
     actions:
         - { action: assign_content_type_group, value: 'Media' }
 ```
 
 mode: Update
+
 ``` yaml
     actions:
         - { action: assign_content_type_group, value: 'Media' }
@@ -110,6 +114,7 @@ mode: Update
 ### Roles
 
 mode: Create and Update
+
 ``` yaml
     actions:
         -
@@ -132,6 +137,7 @@ mode: Create and Update
 ### Users
 
 mode: Create and Update
+
 ``` yaml
     actions:
         -
@@ -152,6 +158,7 @@ mode: Create and Update
 ### User groups
 
 mode: Create and Update
+
 ``` yaml
     actions:
         -
@@ -174,6 +181,7 @@ mode: Create and Update
     In the `assign_user_group_to_role` action, limitation type section can only use section ID.
 
 mode: Update
+
 ``` yaml
     actions:
         -

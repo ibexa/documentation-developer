@@ -113,11 +113,11 @@ If you plan to use Legacy Bridge for a while before migrating content, you also 
 To move over your own custom configurations, follow the conventions below and manually move the settings over:
 
 - `<old-ez-root>/ezpublish/config/parameters.yaml => <new-ez-root>/app/config/parameters.yaml`
-    -  *For parameters like before, for new parameters you'll be prompted on later step.*
+    - *For parameters like before, for new parameters you'll be prompted on later step.*
 - `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
-    -  *For system/framework config, and for defining global db, cache, search settings.*
+    - *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
-    -  *For SiteAccess, site groups and repository settings.*
+    - *For SiteAccess, site groups and repository settings.*
 
 !!! note "Changes to repository configuration"
 
@@ -233,7 +233,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 
     Since writable directories and files have been replaced / copied, their permissions might have changed. You most likely need to reconfigure webserver user permissions as instructed further down.
 
-###  2.6 Binary files
+### 2.6 Binary files
 
 Binary files can simply be copied from the old to the new installation:
 
@@ -243,7 +243,7 @@ Binary files can simply be copied from the old to the new installation:
 
     In the eZ Publish Platform 5.x installation `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files to the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
 
-###  2.7 Re-apply permissions and update composer
+### 2.7 Re-apply permissions and update composer
 
 Since writable directories and files have been replaced / copied, their permissions might have changed. You need to re-apply them.
 

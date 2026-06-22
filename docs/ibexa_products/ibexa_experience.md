@@ -1,5 +1,4 @@
 ---
-title: Ibexa Experience
 description: Learn about all the main attributes, features, and benefits of the customer-focused Ibexa Experience edition.
 month_change: false
 ---

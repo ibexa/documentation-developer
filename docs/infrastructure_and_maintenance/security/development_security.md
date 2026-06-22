@@ -180,7 +180,7 @@ JWT_PASSPHRASE=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ…
 Set your `JWT_PASSPHRASE`, its value must be strong, random, and securely stored.
 For more recommendations and to learn how to generate one, see [`APP_SECRET` and other secrets](security_checklist.md#app_secret-and-other-secrets).
 
-2. In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
+2\. In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
 
 ``` yaml hl_lines="2-4 6"
 lexik_jwt_authentication:
@@ -192,7 +192,7 @@ lexik_jwt_authentication:
     # …
 ```
 
-3. Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the following command which outputs key files in the `config/jwt` directory:
+3\. Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the following command which outputs key files in the `config/jwt` directory:
 
 ```bash
 php bin/console lexik:jwt:generate-keypair

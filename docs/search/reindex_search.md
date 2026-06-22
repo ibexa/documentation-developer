@@ -7,6 +7,7 @@ description: Reindexing lets you create or refresh the search engine index.
 To (re)create or refresh the search engine index for configured search engines (per SiteAccess repository), use the `php bin/console ibexa:reindex` command.
 
 Some examples of common usage:
+
 ```bash
 # Reindex the whole index using parallel process (by default starts by purging the whole index)
 # (with the 'auto' option which detects the number of CPU cores -1, default behavior)

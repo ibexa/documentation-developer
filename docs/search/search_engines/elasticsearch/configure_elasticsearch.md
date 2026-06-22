@@ -539,6 +539,6 @@ ibexa_elasticsearch:
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/index-templates.html).
 
-# Extend Elasticsearch
+## Extend Elasticsearch
 
 To learn how you can create document field mappers, custom Search Criteria, custom Sort Clauses and Aggregations, see [Create custom Search Criterion](create_custom_search_criterion.md).

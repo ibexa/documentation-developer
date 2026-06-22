@@ -220,6 +220,7 @@ The `content` endpoint returns one item and the `contentlist` endpoint returns m
     }
 }
 ```
+
 ### Export item information
 
 To get recommendations you must first export the item information to the Personalization server.

@@ -1,5 +1,4 @@
 ---
-title: Back office configuration
 description: Configure default upload locations, pagination limits, and more settings for the back office.
 ---
 

@@ -298,6 +298,7 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
     If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
 
 For [[= product_name_com =]] there's an additional migration:
+
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/dashboard_structure.yaml --name=2023_11_20_14_33_order_dashboard_structure.yaml
 php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure.yaml

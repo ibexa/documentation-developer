@@ -14,6 +14,19 @@ config:
   table-pipe-style:
     style: leading_and_trailing
 
+  no-alt-text: true
+  first-line-heading: true
+  list-marker-space: true
+  blanks-around-fences: true
+  single-title: true
+  no-multiple-space-atx: true
+  blanks-around-headings: true
+  ul-style: dash
+  ol-prefix: 
+    style: one_or_ordered
+  ul-indent:
+    indent: 4
+
 ignores:
   - "docs/snippets/**"
   - "docs/index.md"

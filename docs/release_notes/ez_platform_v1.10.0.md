@@ -15,7 +15,7 @@ If you're looking for the Long Term Support (LTS) release, see [https://ezplatfo
 
 This release introduces the ability to add tables in the RichText editor, enabling you to list up tabular data using table headings, merged table cells and more.
 
-![](platformui-table.gif)
+![""](platformui-table.gif)
 
 This is a first step. We aim to provide more in terms of table support in the editor later. For the time being images and embedding aren't supported within the table, as you won't be able to move them out or edit them. We also don't provide yet ability to style the table within the editor.
 
@@ -27,7 +27,7 @@ This is a new way to handle design, theming and design overrides, similar to wha
 
 For more information, see [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
 
-![](newdesigntable.png)
+![""](newdesigntable.png)
 
 #### API: Simplified usage with translations
 
@@ -78,20 +78,20 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 #### Miscellaneous
 
--   Kernel: Don't store full User object in Sessions anymore, just User Id
+- Kernel: Don't store full User object in Sessions anymore, just User Id
 
 ### eZ Platform Enterprise Edition - Studio
 
--   Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form
+- Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form
 
 ![Deleting a form with data](delete-form.gif "Deleting a form with data")
 
--   Schedule block logic has been updated and improved.
+- Schedule block logic has been updated and improved.
 
 ### eZ Platform Enterprise Edition - Studio Demo
 
--   [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
--   We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
+- [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
+- We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
 
 ## Full list of new features, improvements and bug fixes since v1.9.0
 
