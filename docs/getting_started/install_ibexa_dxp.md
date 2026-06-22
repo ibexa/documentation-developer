@@ -491,7 +491,7 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 Install [[= product_name =]] and create a database with:
 
 ``` bash
-php bin/console ibexa:install
+php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
 php bin/console ibexa:graphql:generate-schema
 ```
 
