@@ -21,6 +21,9 @@ final class ImageAltTextTransformer implements FieldValueTransformerInterface
         return new EncodedFieldValue($field->getValue()->alternativeText ?? '');
     }
 
+    /**
+     * @param array<string, mixed> $metadata
+     */
     public function decode(string $value, mixed $previousFieldValue, array $metadata): Value
     {
         $previousFieldValue->alternativeText = $value;

@@ -1,4 +1,8 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
+namespace App\TranslationsManagement;
 
 use Ibexa\AdminUi\Form\Type\Content\Translation\TranslationAddType;
 use Symfony\Component\Form\AbstractTypeExtension;

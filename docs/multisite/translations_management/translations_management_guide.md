@@ -26,7 +26,7 @@ Administrators can manage providers and configure default provider-to-language-p
     Translations management is a standalone set of features.
     Although some views are similar to those delivered by the [Automated translations](automated_translations.md) opt-in package, Translations management does not require the `ibexa/automated-translation` package to run.
     These two packages use different namespaces, service tags, and provider interfaces.
-    
+
 ## Availability
 
 Translations management is an [LTS Update](editions.md#lts-updates) available in all [[= product_name =]] editions.
@@ -37,7 +37,7 @@ Before the translation flow can happen, an administrator sets up the translation
 Then, when an editor opens a content item and requests a new machine translation, the plugin resolves which provider to use.
 It falls back from a language-pair rule to the user's manual selection if necessary.
 The plugin then extracts the translatable fields from the source language version of a content item and sends them to the configured provider's API.
-The translated strings are written into a target-language draft version of a content item, which opens in a side-by-side view for the editor to review and refine.
+The system writes the translated strings into a target-language draft of the content item, which opens in a side-by-side view for the editor to review and refine.
 The editor can save the result as draft, share it with a reviewer or publish it.
 
 ![Translations management flow](translations_management_flow.png "Translations management flow")
@@ -71,13 +71,13 @@ Editors can:
 !!! note "Excluded content types"
 
     Content types that are editable in Page builder or Form builder are excluded from side-by-side editing.
-    
+
     Products are editable in the side-by-side view, but product attributes are not translatable.
 
 ### CLI translation
 
-Translations management package exposes a [console command](configure_translations_management.md#translate-content-items-with-cli) for translating content items from the command line,
-useful for batch processing or CI/CD workflows.
+The Translations management package exposes a [console command](configure_translations_management.md#translate-content-items-with-cli) for translating content items from the command line.
+You can use it for batch processing or CI (Continuous Integration) workflows.
 
 ### Extensibility
 
