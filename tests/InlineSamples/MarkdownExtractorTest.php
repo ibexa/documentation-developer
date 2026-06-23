@@ -6,18 +6,18 @@
  */
 declare(strict_types=1);
 
-namespace Ibexa\Tests\Documentation\Markdown;
+namespace Ibexa\Tests\Documentation\InlineSamples;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-final class MarkdownYamlExtractorTest extends TestCase
+final class MarkdownExtractorTest extends TestCase
 {
-    private MarkdownYamlExtractor $extractor;
+    private MarkdownExtractor $extractor;
 
     protected function setUp(): void
     {
-        $this->extractor = new MarkdownYamlExtractor();
+        $this->extractor = new MarkdownExtractor('yaml');
     }
 
     public function testExtractsNothing(): void

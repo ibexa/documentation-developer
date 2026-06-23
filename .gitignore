@@ -13,3 +13,4 @@ yarn.lock
 docs/css/*.map
 .deptrac.cache
 .phpunit.result.cache
+code_samples/_inline_php/

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Documentation\Yaml;
 
-use Ibexa\Tests\Documentation\Markdown\MarkdownYamlExtractor;
+use Ibexa\Tests\Documentation\InlineSamples\MarkdownExtractor;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -70,7 +70,7 @@ final class YamlSamplesProvider
      */
     private function iterateMarkdownYamlBlocks(): iterable
     {
-        $extractor = new MarkdownYamlExtractor();
+        $extractor = new MarkdownExtractor('yaml');
         $iterator = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator(self::DOCS_DIR, RecursiveDirectoryIterator::SKIP_DOTS)
         );
