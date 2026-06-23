@@ -31,7 +31,45 @@ Finally, the user is assigned back into the event's token for the rest of the pr
 
 The following example uses the [memory user provider]([[= symfony_doc =]]/security/user_providers.html#memory-user-provider), maps memory user to [[= product_name_base =]] repository user, and [chains]([[= symfony_doc =]]/security/user_providers.html#chain-user-provider) with the [[= product_name_base =]] user provider to be able to use both.
 
-Create a `src/EventSubscriber/AuthenticationTokenCreatedSubscriber.php` that subscribes to the `AuthenticationTokenCreatedEvent` event and maps an authenticated in-memory user to an [[= product_name_base =]] user when necessary:
+It's possible to customize the user class used by extending `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
+
+You can override `getUser()` to return whatever user class you want, as long as it implements `Ibexa\Core\MVC\Symfony\Security\UserInterface`.
+
+The following is an example of using the in-memory user provider:
+
+``` yaml
+# config/packages/security.yaml
+security:
+    providers:
+        # Chaining in_memory and ibexa user providers
+        chain_provider:
+            chain:
+                providers: [in_memory, ibexa]
+        ibexa:
+            id: ibexa.security.user_provider
+        in_memory:
+            memory:
+                users:
+                    # You will then be able to login with username "user" and password "userpass"
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+    # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+```
+
+### Implement the listener
+
+In the `config/services.yaml` file:
+
+``` yaml
+services:
+    App\EventListener\InteractiveLoginListener:
+        arguments: ['@ibexa.api.service.user']
+        tags:
+            - { name: kernel.event_subscriber }
+```
+
+Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
 
 ``` php
 [[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/AuthenticationTokenCreatedSubscriber.php') =]]

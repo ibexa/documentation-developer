@@ -60,13 +60,19 @@ jobs:
               continue-on-error: true
               run: composer check-rector
 
+            - name: Run YAML snippet tests
+              id: check-yaml
+              continue-on-error: true
+              run: composer check-yaml
+
             - name: Fail job if any check failed
               if: always()
               run: |
-                  if [[ "${{ steps.phpstan.outcome }}" == "failure" || "${{ steps.deptrac.outcome }}" == "failure" || "${{ steps.rector.outcome }}" == "failure" ]]; then
-                      echo "One or more checks failed: PHPStan=${{ steps.phpstan.outcome }}, Deptrac=${{ steps.deptrac.outcome }}, Rector=${{ steps.rector.outcome }}"
+                  if [[ "${{ steps.phpstan.outcome }}" == "failure" || "${{ steps.deptrac.outcome }}" == "failure" || "${{ steps.rector.outcome }}" == "failure" || "${{ steps.check-yaml.outcome }}" == "failure" ]]; then
+                      echo "One or more checks failed: PHPStan=${{ steps.phpstan.outcome }}, Deptrac=${{ steps.deptrac.outcome }}, Rector=${{ steps.rector.outcome }}, YAML=${{ steps.check-yaml.outcome }}"
                       exit 1
                   fi
+
 
     code-samples-inclusion-check:
         name: Check code samples inclusion
@@ -94,7 +100,7 @@ jobs:
             -   name: Log target branch code_samples usage
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
-                    git fetch origin
+                    git fetch origin --depth=1 ${{ github.head_ref }}
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_target.txt
 

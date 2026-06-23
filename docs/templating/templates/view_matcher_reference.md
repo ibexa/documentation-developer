@@ -234,7 +234,7 @@ match:
 
 ``` yaml
 match:
-    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id': [1, 2, 3]'
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id': [1, 2, 3]
 ```
 
 ## Taxonomy entry identifier
