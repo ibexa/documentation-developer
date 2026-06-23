@@ -42,16 +42,16 @@ In the main menu, go to **Content** -> **Content types**.
 You can see a list of **Content type groups**.
 They're used to group content types in a logical way.
 
-Select **Content** and then click the **Create** button. 
+Select **Content** and then click the **Create** button.
 
 ![Add a content type button](bike_tutorial_create_content_type.png)
 
-Fill the form with this basic info: 
+Fill the form with this basic info:
 
 - **Name**: Ride
 - **Identifier**: `ride`
 
-Then create all fields with the following information: 
+Then create all fields with the following information:
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |

@@ -7,7 +7,7 @@ month_change: false
 
 [[= product_name =]] users edit the contents of RichText fields, for example,  in the Content box of a Page, by using the Online Editor.
 
-You can extend the Online Editor by adding custom tags and styles, defining custom data attributes, re-arranging existing buttons, grouping buttons into custom toolbar, 
+You can extend the Online Editor by adding custom tags and styles, defining custom data attributes, re-arranging existing buttons, grouping buttons into custom toolbar,
 and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/widget_sdk_tutorial_1.html#widget-toolbar-button) and [custom plugins](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_plugins.html).
 
 Online Editor is based on the CKEditor5.
@@ -20,7 +20,7 @@ For more information about extending the back office, see [Extend back office](b
 With custom tags, you can enhance the Online Editor with features that go beyond the built-in ones.
 You configure custom tags under the `ibexa_richtext` key.
 
-Start preparing the tag by adding a configuration file: 
+Start preparing the tag by adding a configuration file:
 
 ```yaml
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
@@ -32,7 +32,7 @@ Supported attribute types are:
 `choice` requires that you provide a list of options in the `choices` key.
 
 You must provide your own files for the Twig template and the icon.
-Place the `factbox.html.twig` template in the 
+Place the `factbox.html.twig` template in the
 `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
 
 ```html+twig
@@ -71,7 +71,7 @@ You can also place custom tags inline with the following configuration:
 ```
 
 `is_inline` is an optional key.
-The default value is `false`, therefore, if it's not set, the custom tag is 
+The default value is `false`, therefore, if it's not set, the custom tag is
 treated as a block tag.
 
 ### Use cases
@@ -107,7 +107,7 @@ Now you can use the tag.
 In the back office, create or edit a content item that has a RichText field type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
-![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
+![Link Tag](custom_tag_link.png "Link Tag in the Online Editor")
 
 #### Acronym
 
@@ -167,7 +167,7 @@ Add labels for the new styles by providing translations in `translations/custom_
 
 ### Rendering
 
-The `template` key points to the template that is used to render the custom style. 
+The `template` key points to the template that is used to render the custom style.
 It's recommended that you use the [design engine](design_engine.md).
 
 The template files for the front end could look as follows:
@@ -198,7 +198,7 @@ You can create a custom style that places a paragraph in a note box:
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_note_box.yaml') =]]
 ```
 
-The `note_box.html.twig` template wraps the content of the selected text 
+The `note_box.html.twig` template wraps the content of the selected text
 (`{{ content }}`) in a custom CSS class:
 
 ``` html+twig
@@ -241,7 +241,7 @@ You can create an inline custom style that highlights a part of a text:
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_highlight.yaml') =]]
 ```
 
-The `highlight.html.twig` template wraps the content of the selected text 
+The `highlight.html.twig` template wraps the content of the selected text
 (`{{ content }}`) in a custom CSS class:
 
 ``` html+twig
@@ -337,7 +337,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml') =]]
 ```
- 
+
 !!! note "Label translations"
 
     If there are many custom attributes, to provide label translations for these attributes, you can use the `ez_online_editor_attributes` translation extractor to get a full list of all custom attributes for all elements in all scopes.

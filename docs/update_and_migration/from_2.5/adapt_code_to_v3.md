@@ -85,7 +85,7 @@ To properly refactor your code, you might need to run the Rector `process` comma
 
 `vendor/bin/rector process src --set symfony40`
 
-You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). 
+You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set).
 Keep in mind that after automatic refactoring finishes there might be some code chunks that you need to fix manually.
 
 ### Update code for specific parts of the system

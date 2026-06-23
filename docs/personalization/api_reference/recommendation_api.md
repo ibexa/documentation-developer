@@ -39,7 +39,7 @@ For the request to return recommendations, you must provide the following parame
 ### Customizing the recommendation request
 
 You can customize the recommendation request by using additional query string parameters.
-For example, you can send the following request to the Personalization server: 
+For example, you can send the following request to the Personalization server:
 
 `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
 
@@ -268,7 +268,7 @@ The recommendation service supports the following HTTP headers to enable cache c
 |Response|`Expires`|Gives the date/time after which the response is outdated|`Expires: Thu, 01 Dec 2013 16:00:00 GMT`|
 
 The last modification timestamp indicates a change that could influence the recommendation response.
-It depends on an updated recommendation calculation, an update of an item or certain scenario configuration changes. 
+It depends on an updated recommendation calculation, an update of an item or certain scenario configuration changes.
 
 The expiration timestamp is a best-effort prediction based on the model configuration and provided context.
 The shortest expiration period is 5 minutes from the request time, the longest is 24 hours.

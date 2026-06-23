@@ -200,7 +200,7 @@ For more information about Recommendation blocks in Page Builder, see the releva
 
 The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
-[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations. 
+[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 [[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
 
 For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
@@ -519,7 +519,7 @@ For more information, see [Taxonomy suggestions](https://doc.ibexa.co/en/5.0/con
 
 The following additions were made to the PHP API:
 
-##### Real-time collaborative editing:
+##### Real-time collaborative editing
 
 - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantScope`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html)
 - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantType`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html)
@@ -534,7 +534,7 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\FieldTypeRichTextRTE\ToS\ToSServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-ToSServiceInterface.html)
 - [`Ibexa\Contracts\Share\Mapper\Action\ShareActionItemsMapperInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html)
 
-##### AI Taxonomy suggestions:
+##### AI Taxonomy suggestions
 
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\Taxonomy`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html)
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TaxonomyEntry`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html)
@@ -640,7 +640,7 @@ Internal and external users can be invited to a collaboration session, through d
 
 With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
 
-Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized. 
+Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized.
 
 ### Discount indexing
 
@@ -902,7 +902,7 @@ This upgrade enhances maintainability, unlocks new UI capabilities, and simplifi
 
 ### Developer experience
 
-#### New packages 
+#### New packages
 
 The following packages have been introduced in [[= product_name =]] v5.0.0:
 

@@ -32,7 +32,7 @@ Both `ActionContext` and `RuntimeContext` are passed to the Action Handler (an o
 
 You can pass the Action Handler directly to the `ActionServiceInterface::execute()` method, which overrides all the other ways of selecting the Action Handler.
 You can also specify the Action Handler by including it in the provided [Action Configuration](#action-configurations).
-In other cases, the Action Handler is selected automatically. 
+In other cases, the Action Handler is selected automatically.
 You can affect this choice by creating your own class implementing the [ActionHandlerResolverInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerResolverInterface.html) or by listening to the [ResolveActionHandlerEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionHandlerEvent.html) Event sent by the default implementation.
 
 You can influence the execution of an Action with two events:
@@ -106,7 +106,7 @@ The following example adds a new Action Handler connecting to a local AI run usi
 
 When creating an Action Handler for [[= product_name_connect =]], add the new handler identifier to the [`Ibexa AI handler` custom property](configure_ai_actions.md#initiate-integration) in [[= product_name_connect =]] user interface.
 
-### Register a custom Action Handler in the system.
+### Register a custom Action Handler in the system
 
 Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html) and register it as a service:
 

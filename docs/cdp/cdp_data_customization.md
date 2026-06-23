@@ -110,7 +110,7 @@ To customize export of field type values, provide your own [`\Ibexa\Contracts\Cd
 New implementation has to be registered as a service manually or by using autoconfiguration.
 The service has to use the tag `ibexa.cdp.export.content.field_value_processor`.
 You can also provide `priority` property to override other Field Value Processors.
-​
+
 - `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
 If the field type returns a single value, provides a `value` key in the array.
 You can return multiple values.

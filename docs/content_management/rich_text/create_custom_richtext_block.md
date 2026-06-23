@@ -5,12 +5,12 @@ edition: experience
 
 # Create custom RichText block
 
-A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when you create a page. 
+A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when you create a page.
 To create a custom block, you must define the block's layout, provide templates, add a subscriber, and register the subscriber as a service.
 
 Follow the procedure below to create a RichText page block.
 
-First, provide the block configuration under the `ibexa_page_fieldtype.blocks` [configuration key](configuration.md#configuration-files). 
+First, provide the block configuration under the `ibexa_page_fieldtype.blocks` [configuration key](configuration.md#configuration-files).
 The following code defines a new block, its view and configuration templates.
 It also sets the attribute type to `richtext` (line 15):
 

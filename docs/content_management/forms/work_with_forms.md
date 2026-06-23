@@ -44,7 +44,7 @@ For information about available options, see [Gregwar/CaptchaBundle's documentat
 
 ## Form submission purging
 
-You can purge all submissions of a given form. 
+You can purge all submissions of a given form.
 To do this, run the following command, where `form-id` stands for Content ID of the form for which you want to purge data:
 
 ```bash

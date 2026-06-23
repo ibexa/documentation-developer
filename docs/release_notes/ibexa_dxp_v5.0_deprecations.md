@@ -153,7 +153,7 @@ Several field type identifiers have changed.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` | 
+| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` |
 | `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentUpdateLimitations` | `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentUpdateLimitations` |
 | `\Ibexa\Contracts\AdminUi\UniversalDiscovery\Provider::getRestFormat` | Removed |
 | `\Ibexa\AdminUi\Form\Type\Search\DateIntervalType` | `\Ibexa\AdminUi\Form\Type\Date\DateIntervalType`|

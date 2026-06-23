@@ -55,7 +55,7 @@ Using additional query string parameters one can customize the recommendation re
 |`categorypath`|Base category path for providing recommendations. The format is the same as the category path for the event tracking. It's possible to add this parameter multiple times. The order of recommendations from the different categories is defined by the calculated relevance.|alphanumeric[/alphanumeric]*|
 |`jsonpcallback` (used only for JSONP request)|Function or method name for a JSONP request. It can be a function ("callme"), or a method ("obj.callme").|valid JavaScript function call (by default "jsonpCallback")|
 
-An example of the recommendation request: 
+An example of the recommendation request:
 
 **`https://reco.perso.ibexa.co/ebl/0000/smith/productpage.json?contextitems=123&categorypath=%2FCamera%2FCompact&numrecs=8`**
 
@@ -70,7 +70,7 @@ It fetches 8 recommendations for user Smith, who is watching the item 123 and th
 ## Response handling
 
 The recommendation request returns a list of item IDs that are JSON, JSONP or XML-formatted.
-The result can be integrated into any webpage by using some lines of script code. 
+The result can be integrated into any webpage by using some lines of script code.
 
 !!! tip
 

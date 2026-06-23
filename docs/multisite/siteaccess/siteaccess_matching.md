@@ -64,7 +64,7 @@ The matching configuration is passed to `setMatchingConfiguration()`.
 
 ### `URIElement`
 
-Maps a URI element to a SiteAccess.	
+Maps a URI element to a SiteAccess.
 
 In configuration, provide the element number you want to match (starting from 1).
 

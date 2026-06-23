@@ -29,8 +29,8 @@ See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_s
 ### Image Editor
 
 With the Image Editor, users can now perform basic operations, such as cropping or flipping an image,
-or setting a point of focus. 
-The Image Editor is available when browsing the Media library, or creating or editing content items 
+or setting a point of focus.
+The Image Editor is available when browsing the Media library, or creating or editing content items
 that contain an `ezimage` or `ezimageasset` Field.
 
 You can modify the Image Editor's default settings to change its appearance or behavior.
@@ -87,7 +87,7 @@ See [list of changes in Symfony 5.2](https://symfony.com/blog/symfony-5-2-curate
 |--------------|------------|------------|
 | [[[= product_name_content =]] v3.3.0](https://github.com/ibexa/content/releases/tag/v3.3.0) | [[[= product_name_exp =]] v3.3.0](https://github.com/ibexa/experience/releases/tag/v3.3.0) | [[[= product_name_com =]] v3.3.0](https://github.com/ibexa/commerce/releases/tag/v3.3.0)|
 
-## v3.3.15 
+## v3.3.15
 
 ### Symfony 5.4
 
