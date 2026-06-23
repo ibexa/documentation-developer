@@ -9,7 +9,7 @@ use Ibexa\Contracts\TranslationsManagement\AutoTranslate\TranslationDataInterfac
 
 final readonly class MyCustomProvider implements TranslationProviderInterface
 {
-     /**
+    /**
      * Replace MyApiClient with your HTTP client, SDK wrapper, or any service
      * that communicates with the external translation API.
      */
