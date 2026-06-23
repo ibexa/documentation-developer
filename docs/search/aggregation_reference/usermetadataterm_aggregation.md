@@ -12,7 +12,7 @@ The [UserMetadataTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-C
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\UserMetadataTermAggregation('user_metadata');
 ```

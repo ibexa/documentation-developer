@@ -56,7 +56,7 @@ The following example shows how you can index data from the parent location cont
 The example relies on a use case of indexing webinar data on the webinar events, which are children of the webinar.
 The field mapper could then look like this:
 
-```php
+``` php
 [[= include_code('code_samples/search/custom/src/Search/FieldMapper/WebinarEventParentNameFieldMapper.php') =]]
 ```
 

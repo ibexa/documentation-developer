@@ -15,7 +15,7 @@ The [`LanguageCode` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\LanguageCode('ger-DE', false);
 ```
 
@@ -46,7 +46,7 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
 You can use the `LanguageCode` Criterion to search for articles that are lacking a translation
 into a specific language:
 
-``` php hl_lines="5"
+``` php {skip-validation} hl_lines="5"
 $query = new LocationQuery;
 $query->query = new Criterion\LogicalAnd([
     new Criterion\ContentTypeIdentifier('article'),

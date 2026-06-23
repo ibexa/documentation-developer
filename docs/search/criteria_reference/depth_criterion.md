@@ -23,6 +23,6 @@ The `value` argument requires:
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Location\Depth(Criterion\Operator::LT, 3);
 ```

@@ -66,7 +66,7 @@ The following sort clauses are supported:
 
 For information stored outside of [[= pim_product_name =]], such as [product availability](product_api.md#product-availability) or [pricing](price_api.md), you can use the existing services to manage them:
 
-``` php hl_lines="6 14"
+``` php {skip-validation} hl_lines="6 14"
 // Manage availability
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 84, 89, remove_indent=True) =]]
 // Manage prices

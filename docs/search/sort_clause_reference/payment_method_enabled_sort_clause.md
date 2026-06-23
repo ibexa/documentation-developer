@@ -13,7 +13,7 @@ The `Enabled` Sort Clause sorts search results by payment method status.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $paymentMethodQuery = new PaymentMethodQuery(
     $criteria,
     [

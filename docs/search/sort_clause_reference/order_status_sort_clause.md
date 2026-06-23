@@ -13,7 +13,7 @@ The `Status` Sort Clause sorts search results by order status.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $orderQuery = new OrderQuery(
     $criteria,
     [

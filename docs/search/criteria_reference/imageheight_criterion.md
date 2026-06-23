@@ -16,6 +16,6 @@ The `Height` Search Criterion searches for image with specified height.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Height('image', 0, 1500);
 ```

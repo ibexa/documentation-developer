@@ -103,7 +103,7 @@ You can get the current version's `VersionInfo` using [`ContentService::loadVers
 
 You can also specify the version number as the second argument to get Relations for a specific version:
 
-``` php
+``` php {skip-validation}
 $versionInfo = $this->contentService->loadVersionInfo($contentInfo, 2);
 ```
 
@@ -149,7 +149,7 @@ All object state groups can be retrieved through [`loadObjectStateGroups`](/api/
 
 To retrieve the fields of the selected content item, you can use the following command:
 
-```php hl_lines="17-18 20-27"
+``` php hl_lines="17-18 20-27"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 0, 7) =]]
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 17, 19) =]]
@@ -169,13 +169,13 @@ The repository is SiteAccess-aware, so languages defined by the SiteAccess are a
 
 To load a specific language, provide its language code when loading the content item:
 
-``` php
+``` php {skip-validation}
 $content = $this->contentService->loadContent($contentId, ['ger-DE']);
 ```
 
 To load all languages as a prioritized list, use `Language::ALL`:
 
-``` php
+``` php {skip-validation}
 $contentService->loadContent($content->id, Language::ALL);
 ```
 
@@ -202,7 +202,7 @@ You can do it through the `getMainLocation` method of the ContentInfo object.
 
 Next, use the `getParentLocation` method of the location object to access the parent location:
 
-``` php
+``` php {skip-validation}
 $mainLocation = $contentInfo->getMainLocation();
 $output->writeln("Parent Location: " . $mainLocation->getParentLocation()->pathString);
 ```
@@ -222,7 +222,7 @@ The versions must have the same language.
 
 For example, to get the comparison between the `name` field of two versions:
 
-```php
+``` php {skip-validation}
 $versionFrom = $this->contentService->loadVersionInfo($contentInfo, $versionFromId);
 $versionTo = $this->contentService->loadVersionInfo($contentInfo, $versionToId);
 

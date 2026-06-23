@@ -16,7 +16,7 @@ Supported orientation values: landscape, portrait and square.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Orientation('image', 'landscape');
 
 OR

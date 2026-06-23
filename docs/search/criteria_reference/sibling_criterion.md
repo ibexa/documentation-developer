@@ -15,13 +15,13 @@ The [`Sibling` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Co
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Sibling(59, 2);
 ```
 
 You can also use the named constructor `Criterion\Sibling::fromLocation` and provide it with the location object:
 
-``` php
+``` php {skip-validation}
 $location = $locationService->loadLocation(59);
 $query->query = Criterion\Sibling::fromLocation($location);
 ```

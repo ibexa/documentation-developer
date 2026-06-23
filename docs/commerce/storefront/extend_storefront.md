@@ -99,7 +99,7 @@ After you modify the controller, it can also pass the following parameters:
 Define your own logic in a custom controller.
 Refer to the code snippet below and create your own file, for example, `CustomProductRenderController.php`:
 
-``` php
+``` php {skip-validation}
     public function renderAction(ProductInterface $product): Response
     {
         return $this->render('@ibexadesign/storefront/product_card.html.twig', [

@@ -102,7 +102,7 @@ You can extend the external URL address validation with a custom protocol.
 To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
 s
 
-```php
+``` php {skip-validation}
 <?php
 
 /**
@@ -246,7 +246,7 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 
 You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
 
-``` php
+``` php {skip-validation}
 $source = 'pictures/*/*';
 $destination = 'media/images/{1}/{2}';
 $redirect = true;

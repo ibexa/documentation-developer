@@ -21,7 +21,7 @@ you need to switch to Core Installer.
 
 **Use:**
 
-``` php
+``` php {skip-validation}
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: EzSystems\PlatformInstallerBundle\Installer\CoreInstaller
@@ -29,7 +29,7 @@ services:
 
 **instead of**:
 
-``` php
+``` php {skip-validation}
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: ezplatform.installer.clean_installer
@@ -42,7 +42,7 @@ Custom schema can be installed defining Symfony Event Subscriber subscribing to 
 
 **Use:**
 
-``` php
+``` php {skip-validation}
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
@@ -50,7 +50,7 @@ services:
 
 **instead of:**
 
-``` php
+``` php {skip-validation}
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: ezplatform.installer.db_based_installer

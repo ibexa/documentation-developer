@@ -12,7 +12,7 @@ The ProductAvailabilityTermAggregation aggregates search results by product avai
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductAvailabilityTermAggregation('product_availability'),

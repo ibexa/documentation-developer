@@ -30,7 +30,7 @@ framework:
 [[= product_name =]] comes with a predefined [set of variables](transactional_emails_parameters.md) that you can use when building a template for your transactional email campaign at Actito.
 If this list isn't sufficient, you can use Events to include additional variables:
 
-```php
+``` php {skip-validation}
 <?php
 
 namespace App\EventSubscriber;
@@ -79,7 +79,7 @@ You do it by means of events that are triggered during profile building.
 
 For example, the `Ibexa\Contracts\ConnectorActito\Event\TransactionalMailRequest\ProfileFactoryEvent` event is triggered for every transactional notification, and it lets you set required data that is passed to Actito API:
 
-```php
+``` php {skip-validation}
 <?php
 
 namespace App\EventSubscriber;
@@ -134,7 +134,7 @@ You could do it by adding a language suffix to a campaign name.
 
 On [[= product_name =]] side, to support this scenario, you must use an Event Subscriber on `Ibexa\Contracts\ConnectorActito\Event\ResolveCampaignEvent`:
 
-```php
+``` php {skip-validation}
 <?php
 
 namespace App\EventSubscriber;

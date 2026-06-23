@@ -12,7 +12,7 @@ The [LocationChildrenTermAggregation](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->aggregations[] = new Aggregation\Location\LocationChildrenTermAggregation('location_children');
 ```

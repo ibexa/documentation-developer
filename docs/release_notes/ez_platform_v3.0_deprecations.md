@@ -772,7 +772,7 @@ All classes and interfaces from `eZ\Publish\Core\Persistence\Database` and `eZ\P
 The signature of the `\eZ\Publish\Core\Persistence\Legacy\URL\Query\CriterionHandler::handle` contract
 now accepts `\Doctrine\DBAL\Query\QueryBuilder` instead of `\eZ\Publish\Core\Persistence\Database\SelectQuery` and has the following form:
 
-``` php
+``` php {skip-validation}
 use \Doctrine\DBAL\Query\QueryBuilder;
 use \eZ\Publish\Core\Persistence\Legacy\URL\Query\CriteriaConverter;
 use \eZ\Publish\API\Repository\Values\URL\Query\Criterion;

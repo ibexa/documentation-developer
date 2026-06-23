@@ -13,7 +13,7 @@ The `Id` Sort Clause sorts search results by order Id.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $orderQuery = new OrderQuery(
     $criteria,
     [

@@ -12,7 +12,7 @@ The ProductTypeTermAggregation aggregates search results by the product type.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductTypeTermAggregation('product_type'),

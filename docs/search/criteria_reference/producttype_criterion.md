@@ -14,7 +14,7 @@ The `ProductType` Search Criterion searches for products by their codes.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductType(['dress'])

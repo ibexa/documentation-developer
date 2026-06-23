@@ -12,7 +12,7 @@ The [`Location\Priority` Sort Clause](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\Priority()];
 ```

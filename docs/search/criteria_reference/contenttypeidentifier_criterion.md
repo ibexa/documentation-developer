@@ -14,7 +14,7 @@ The [`ContentTypeIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
 ```
 

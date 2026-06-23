@@ -27,7 +27,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 |------|------|------|------|
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
-``` php
+``` php {skip-validation}
 // Value object content example
 $relationList->destinationContentId = [
     $contentInfo1->id,
@@ -41,7 +41,7 @@ $relationList->destinationContentId = [
 The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.
 
-``` php
+``` php {skip-validation}
 //Constructor example
 
 // Instantiates a RelationList Value object
@@ -90,7 +90,7 @@ Following selection methods are available:
 |------|------|------|------|
 |`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the field. When set to 0, any number can be selected.|
 
-``` php
+``` php {skip-validation}
 // Example of using settings and validators configuration in PHP
 
 use Ibexa\Core\FieldType\RelationList\Type;

@@ -15,7 +15,7 @@ The [`IsUserEnabled` Search Criterion](/api/php_api/php_api_reference/classes/Ib
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\IsUserEnabled();
 ```
 

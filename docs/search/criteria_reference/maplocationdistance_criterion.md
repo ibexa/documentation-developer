@@ -27,6 +27,6 @@ The `MapLocationDistance` Criterion isn't available in [Repository filtering](se
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\MapLocationDistance('location', Criterion\Operator::LTE, 5, 51.395973, 22.531696);
 ```

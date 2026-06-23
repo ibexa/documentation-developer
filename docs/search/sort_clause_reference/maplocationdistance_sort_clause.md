@@ -19,7 +19,7 @@ The `MapLocationDistance` Sort Clause isn't available in [Repository filtering](
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\MapLocationDistance('place', 'location', 49.542889, 20.111349)];
 ```

@@ -46,7 +46,7 @@ composer require ibexa/connector-anthropic
 
 If not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
-``` php
+``` php {skip-validation}
     Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => ['all' => true],
 ```
 
@@ -105,7 +105,7 @@ composer require ibexa/connector-gemini
 
 Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
-``` php
+``` php {skip-validation}
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
 ```
 

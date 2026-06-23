@@ -15,7 +15,7 @@ The `RangeMeasurementAttributeMaximum` Search Criterion searches for products by
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $value = $this->measurementService->buildSimpleValue('length', 150, 'centimeter');
 
 $query = new ProductQuery(

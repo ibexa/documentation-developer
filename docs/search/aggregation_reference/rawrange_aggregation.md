@@ -21,7 +21,7 @@ The [RawRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->aggregations[] = new Aggregation\RawRangeAggregation('priority', 'priority_id', [
     new Query\Aggregation\Range(1, 10),

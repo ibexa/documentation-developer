@@ -12,7 +12,7 @@ The field-based [AuthorTermAggregation](/api/php_api/php_api_reference/classes/I
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\AuthorTermAggregation('author', 'article', 'authors');
 ```

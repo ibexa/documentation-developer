@@ -182,7 +182,7 @@ The biggest benefit of this feature is saving load time on complex landing pages
 
     1\. Register `LexikJWTAuthenticationBundle` bundle in `/app/AppKernel.php`
 
-    ``` php
+    ``` php {skip-validation}
      public function registerBundles()
      {
          $bundles = array(

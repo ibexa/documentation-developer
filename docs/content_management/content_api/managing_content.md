@@ -116,7 +116,7 @@ Trash location is identical to the origin location of the object.
 The content item is restored under its previous location.
 You can also provide a different location to restore in as a second argument:
 
-``` php
+``` php {skip-validation}
 $newParent = $this->locationService->loadLocation($location);
 $this->trashService->recover($trashItem, $newParent);
 ```
@@ -179,7 +179,7 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 
 The following example shows how you can use the criteria to find content types:
 
-```php hl_lines="28-38"
+``` php hl_lines="28-38"
 [[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 

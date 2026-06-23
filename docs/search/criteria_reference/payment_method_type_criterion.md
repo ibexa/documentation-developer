@@ -15,6 +15,6 @@ The `Type` Search Criterion searches for payment methods based on payment method
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Type('offline');
 ```

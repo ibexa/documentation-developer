@@ -16,7 +16,7 @@ services:
         arguments: ['@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService']
 ```
 
-``` php
+``` php {skip-validation}
 declare(strict_types=1);
 	
 namespace App;

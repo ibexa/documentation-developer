@@ -65,7 +65,7 @@ The basic configuration of the Storefront can look as follows:
 
 The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` interface allows retrieving the product catalog available for a specific user.
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Contracts\Storefront\Repository;
 
 use Ibexa\Contracts\Core\Repository\Values\User\User;

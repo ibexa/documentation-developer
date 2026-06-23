@@ -27,14 +27,14 @@ Range aggregations (`ProductAttributeFloatRangeAggregation` and `ProductAttribut
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductAttributeSelectionAggregation('skin', 'skin_type'),
 ]);
 ```
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductAttributeIntegerRangeAggregation('buttons', 'number_of_buttons', [

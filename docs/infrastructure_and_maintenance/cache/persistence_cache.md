@@ -248,7 +248,7 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 Like any other service, you can also get the cache service with the [service container](php_api.md#service-container) like so:
 
-``` php
+``` php {skip-validation}
 // Getting the cache service in PHP
 
 /** @var \Symfony\Component\Cache\Adapter\TagAwareAdapterInterface */
@@ -259,7 +259,7 @@ $pool = $container->get('ibexa.cache_pool');
 
 Example usage of the cache service:
 
-``` php
+``` php {skip-validation}
 // Example
 $cacheItem = $pool->getItem("myApp-object-${id}");
 if ($cacheItem->isHit()) {
@@ -294,7 +294,7 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
 
 Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 
-``` php
+``` php {skip-validation}
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 

@@ -20,7 +20,7 @@ First level key is the module name which is limited to characters within the set
 Function value is an array of available limitations, identified by the alias declared in `LimitationType` service tag.
 If no limitation is provided, value can be `null` or an empty array.
 
-``` php
+``` php {skip-validation}
 [
     "content" => [
         "read" => ["Class", "ParentClass", "Node", "Language"],
@@ -38,7 +38,7 @@ Name provided in the hash for each limitation is the same value set in the `alia
 
 For example:
 
-``` php
+``` php {skip-validation}
 <?php declare(strict_types=1);
 
 namespace App\Security;
@@ -95,7 +95,7 @@ For example, `translations/forms.en.yaml`:
 
 You can also implement `TranslationContainerInterface` to provide those translations in your policy provider class:
 
-``` php
+``` php {skip-validation}
 <?php declare(strict_types=1);
 
 namespace App\Security;
@@ -158,7 +158,7 @@ The type class implements `Ibexa\Contracts\Core\Limitation\Type`.
 - `accept`, `validate` and `buildValue` implement the value class usage logic.
 - `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user that has access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
-```php
+``` php
 [[= include_code('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
 ```
 
@@ -250,7 +250,7 @@ For example, `translations/ibexa_content_forms_policies.en.yaml`:
 
 Check if current user has this custom limitation set to true from a custom controller:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
 ```
 
@@ -277,7 +277,7 @@ With this setup, users with `content/read` permission can view the form, but can
 
 First, create the `FormPolicyProvider.php` policy provider that registers the new `form` module and the `read_submissions` function by injecting the custom permission into the configuration tree:
 
-```php hl_lines="14-18 26"
+``` php hl_lines="14-18 26"
 [[= include_code('code_samples/back_office/limitation/src/Security/FormPolicyProvider.php') =]]
 ```
 
@@ -311,7 +311,7 @@ This way, after you clean the cache, the new policy becomes available when you [
 To enforce the policy on the PHP API level, decorate the form submission service to enforce permission checks.
 In `src/Security`, create the `FormSubmissionServiceDecorator.php` file:
 
-```php hl_lines="19 33 40 41 44"
+``` php hl_lines="19 33 40 41 44"
 [[= include_code('code_samples/back_office/limitation/src/Security/Form/FormSubmissionServiceDecorator.php') =]]
 ```
 
@@ -335,7 +335,7 @@ This way, users can't access the submission data unless they have the `form/read
 To enforce the policy in the back office, decorate the **Submissions** tab to hide it when the user lacks permission.
 In `src/Security`, create the `FormSubmissionsTabDecorator.php` file:
 
-```php hl_lines="19 30 60-61"
+``` php hl_lines="19 30 60-61"
 [[= include_code('code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php') =]]
 ```
 

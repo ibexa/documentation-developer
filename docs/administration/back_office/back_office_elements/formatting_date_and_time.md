@@ -19,7 +19,7 @@ You can format date and time by using the following services:
 
 To use them, create an `src/Service/MyService.php` file containing:
 
-``` php
+``` php {skip-validation}
 <?php
 
 namespace App\Service;

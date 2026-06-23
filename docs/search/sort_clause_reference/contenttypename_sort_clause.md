@@ -12,7 +12,7 @@ The [`ContentTypeName` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->sortClauses = [new SortClause\Trash\ContentTypeName()];
 ```

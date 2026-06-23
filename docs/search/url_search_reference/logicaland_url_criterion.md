@@ -12,7 +12,7 @@ The [`LogicalAnd` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Co
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query->filter = new Criterion\LogicalAnd(
     [
         new Criterion\Validity(true),

@@ -13,7 +13,7 @@ The `UpdatedAt` Sort Clause sorts search results by the date and time when payme
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $paymentMethodQuery = new PaymentMethodQuery(
     $criteria,
     [

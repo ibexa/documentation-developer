@@ -15,7 +15,7 @@ The [`IsContainer` Search Criterion](/api/php_api/php_api_reference/classes/Ibex
 
 ### PHP
 
-```php
+``` php {skip-validation}
 $query->query = new Criterion\IsContainer(); // Finds containers
 $query->query = new Criterion\IsContainer(false); // Finds non-containers
 ```

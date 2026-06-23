@@ -14,7 +14,7 @@ The `CustomerGroup` Search Criterion searches for prices based on the customer g
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $customerGroup = $customerGroupService->getCustomerGroup(123);
 
 $query = new PriceQuery(

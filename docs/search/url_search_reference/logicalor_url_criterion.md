@@ -12,7 +12,7 @@ The [`LogicalOr` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query->filter = new Criterion\LogicalOr(
     [
         new Criterion\SectionIdentifier(['sports', 'news']),

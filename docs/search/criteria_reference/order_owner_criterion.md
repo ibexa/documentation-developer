@@ -13,7 +13,7 @@ The `OwnerCriterion` Criterion searches for orders based on the user reference.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\OwnerCriterion(
         \Ibexa\Contracts\Core\Repository\Values\User\UserReference(14)
@@ -23,7 +23,7 @@ $query = new OrderQuery(
 
 `OwnerCriterion` Criterion accepts also multiple values:
 
-``` php
+``` php {skip-validation}
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\OwnerCriterion(
         [

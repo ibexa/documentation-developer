@@ -1696,7 +1696,7 @@ Endpoints that allow you to manage prices in your platform with REST API:
 
 A signature for the `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` method has been updated to the following:
 
-```php
+``` php {skip-validation}
     /**
      * @phpstan-param scalar $value
      * @phpstan-param array<string, scalar> $attributes

@@ -112,7 +112,7 @@ See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Acti
 In the following example, log groups that contain at least one creation of a Content item are displayed in terminal, with a maximum of 10 groups within the last hour.
 It uses the default `admin` user that has a [permission](#permission-and-security) to list everyone's entries.
 
-```php hl_lines="34-38"
+``` php hl_lines="34-38"
 [[= include_code('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
@@ -173,7 +173,7 @@ First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into you
 In the following example, an event subscriber is subscribing to an event dispatched by a custom feature.
 This event has the information needed by a log entry (see details after the example).
 
-```php
+``` php
 [[= include_code('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
 ```
 

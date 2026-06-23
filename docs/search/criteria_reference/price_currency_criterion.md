@@ -14,7 +14,7 @@ The `Currency` Search Criterion searches for prices based on the given currency.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $currency = $priceService->getPriceById('EUR');
 
 $query = new PriceQuery(

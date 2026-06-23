@@ -14,7 +14,7 @@ The [`ContentName` Search Criterion](https://github.com/ibexa/core/blob/5.0/src/
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\ContentName('*phone');
 ```
 

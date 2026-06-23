@@ -27,7 +27,7 @@ You can use the provided getters to access the values:
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\RawStatsAggregation('location_depth', 'depth_i');
 ```

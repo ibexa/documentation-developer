@@ -20,7 +20,7 @@ The `Field` Sort Clause isn't available in [Repository filtering](search_api.md#
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Field('article', 'title')];
 ```

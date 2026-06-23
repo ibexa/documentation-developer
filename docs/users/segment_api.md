@@ -64,6 +64,6 @@ To update a segment or a segment group, use `SegmentationService::updateSegment(
 
 To delete a segment or a segment group, use `SegmentationService::removeSegment()` or `SegmentationService::removeSegmentGroup()`:
 
-``` php
+``` php {skip-validation}
 $this->segmentationService->removeSegmentGroup($group);
 ```

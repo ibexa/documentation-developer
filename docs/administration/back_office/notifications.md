@@ -25,7 +25,7 @@ There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 To send a notification from PHP, inject the `TranslatableNotificationHandlerInterface` into your class.
 
-``` php
+``` php {skip-validation}
 $this->notificationHandler->info(
     /** @Desc("Notification text") */
     'example.notification.text',
@@ -90,7 +90,7 @@ You can send notifications to users which are displayed in the user menu.
 To create a new notification you can use the [`NotificationService::createNotification(CreateStruct $createStruct)` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)
 like in the example below:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php') =]]
 ```
 
@@ -102,7 +102,7 @@ To display a user notification, write a renderer and tag it as a service.
 
 The example below presents a renderer that uses Twig to render a view:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/notifications/src/Notification/MyRenderer.php') =]]
 ```
 
@@ -126,7 +126,7 @@ To display a list of notifications, expand the above renderer.
 
 The example below presents a modified renderer that uses Twig to render a list view:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/notifications/src/Notification/ListRenderer.php') =]]
 ```
 

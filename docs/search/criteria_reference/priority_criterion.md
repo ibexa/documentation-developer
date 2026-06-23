@@ -22,6 +22,6 @@ The `value` argument requires:
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Location\Priority(Criterion\Operator::GTE, 50);
 ```

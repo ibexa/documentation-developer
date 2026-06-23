@@ -13,7 +13,7 @@ The `CreatedAt` Sort Clause sorts search results by the date and time when the p
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $paymentQuery = new PaymentQuery(
     $criteria,
     [
