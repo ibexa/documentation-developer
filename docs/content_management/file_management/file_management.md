@@ -91,7 +91,6 @@ Default values:
                     service: ibexa.io.nfs.adapter.site_access_aware
     ```
 
-
 ### Native Flysystem v2 handler
 
 [[= product_name =]] uses it as the default way to read and write content in form of binary files.

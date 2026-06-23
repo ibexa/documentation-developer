@@ -29,7 +29,6 @@ In line 32, `my_block` is the same name of the block that you defined in line 3 
 Line 32 also implements the `PreRender` method.
 Lines 41-51 handle the conversion of content into an XML string:
 
-
 ``` php hl_lines="32 41 42 43 44 45 46 47 48 49 50 51"
 [[= include_code('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
@@ -64,7 +63,6 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 ```
-
 
 You have successfully created a custom RichText block.
 You can now add your block in the **Site** tab.

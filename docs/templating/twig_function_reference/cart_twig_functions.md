@@ -17,4 +17,3 @@ It also eliminates products that have variants but aren't one of those variants.
 ``` html+twig
 {% set is_disabled = (is_disabled or ibexa_can_be_added_to_cart(product) == false)|default(false) %}
 ```
-

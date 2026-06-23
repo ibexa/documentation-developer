@@ -39,7 +39,6 @@ ibexa:
 
 3\. Specific catalog for the defined customer group
 
-
 You can expose different catalogs based on a customer group assigned to the current user.
 
 To do it, provide the following configuration:
@@ -63,7 +62,6 @@ The basic configuration of the Storefront can look as follows:
 ```
 
 ## Retrieve catalog assigned to user
-
 
 The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` interface allows retrieving the product catalog available for a specific user.
 

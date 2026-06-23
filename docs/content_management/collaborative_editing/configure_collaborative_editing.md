@@ -95,7 +95,6 @@ The following settings are available:
 - session:
     - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
 
-
 #### `ibexa/share` configuration
 
 To share content model, you need to configure the `ibexa/share` package.

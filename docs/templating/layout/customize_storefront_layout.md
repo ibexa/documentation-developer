@@ -201,7 +201,6 @@ JavaScript class:
 
 - `@ibexa-cart/src/bundle/Resources/public/js/component/summary`
 
-
 ### Minicart
 
 You could modify the minicart widget by changing its icon, title or other elements.
@@ -227,7 +226,6 @@ with parameters:
 !!! tip
 
     For templates related to product rendering, see [Customize product view](customize_product_view.md#available-templates).
-
 
 ### Summary
 

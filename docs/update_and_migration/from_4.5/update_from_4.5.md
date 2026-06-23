@@ -193,7 +193,6 @@ To fix this, use the order from the skeleton you're using, and add any extra bun
 === "[[= product_name_com =]]"
     Use [https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
 
-
 #### Non-existent service
 
 If you encounter the `You have requested a non-existent service "payum.storage.doctrine.orm".` error,

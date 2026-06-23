@@ -16,7 +16,6 @@ Sort Clauses are found in the [`Ibexa\Contracts\Core\Repository\Values\ContentTy
 | [Identifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html)| Sort by content type's identifier |
 | [Name](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html)| Sort by content type's name |
 
-
 The following example shows how to use them to sort the searched content types:
 
 ```php hl_lines="34-36"

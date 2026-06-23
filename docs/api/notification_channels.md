@@ -266,7 +266,6 @@ Visiting the controller's route in the default SiteAccess on Commerce edition (a
 
 ![Notification in storefront](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
 
-
 ## Create custom channel
 
 You may need to create new channels to subscribe to notifications and send them to new destinations.

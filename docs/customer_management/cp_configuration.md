@@ -56,7 +56,6 @@ ibexa_corporate_account:
 
     If you decide to change deafult names of content types, during migration you have to adjust files accordingly.
 
-
 ## Registration
 
 You can define what fields are required in the Customer Portal registration form.

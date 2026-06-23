@@ -649,7 +649,6 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
                 - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: random }
     ```
 
-
 ### B. Update to v2.3
 
 #### Database update script
@@ -717,7 +716,6 @@ ezrichtext:
 ```
 
 The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
-
 
 ### D. Update to v2.5
     
@@ -895,7 +893,6 @@ Run the following SQL queries to optimize workflow performance:
 CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
 CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 ```
-
 
 ## 5. Finish the update
 

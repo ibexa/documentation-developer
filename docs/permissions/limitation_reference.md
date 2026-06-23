@@ -391,7 +391,6 @@ The supported policies are:
 |------|------|------|
 |Taxonomy identifiers|Taxonomy names|List of allowed taxonomies|
 
-
 ## Taxonomy Subtree limitation
 
 The taxonomy subtree (`TaxonomySubtree`) limitation specifies whether the user has access to a specific subtree within the [taxonomy](taxonomy.md) tree.

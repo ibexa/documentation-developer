@@ -163,7 +163,6 @@ The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and 
 
 You can use this token to check what is provided to the Personalization Engine:
 
-
 ```bash
 curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/content/id/{contentId}?lang={comma_separated_languages}' \
 --header 'Accept: application/vnd.ibexa.api.Content+json' \

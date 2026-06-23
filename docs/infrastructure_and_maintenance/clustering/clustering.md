@@ -189,7 +189,6 @@ ibexa:
                 binarydata_handler: nfs
 ```
 
-
 !!! tip
 
     If you're looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler.

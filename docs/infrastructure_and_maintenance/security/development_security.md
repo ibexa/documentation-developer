@@ -166,7 +166,6 @@ Out of the box, JWT tokens are created by using HMAC (Hash-based Message Authent
 
 You can use PEM (Privacy-enhanced Electronic Mail) keys and the `RS256` (RSA-SHA256) algorithm instead.
 
-
 1. Set the `JWT_PASSPHRASE` secret
 
 In an `.env` file, you should have the following variables:

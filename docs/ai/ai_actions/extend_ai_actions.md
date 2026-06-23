@@ -152,7 +152,6 @@ The Action Handler and Action Type options are rendered in the back office using
 
 ![Custom Action Handler options rendered using the default Twig options formatter](img/action_handler_options.png "Custom Action Handler options rendered using the default Twig options formatter")
 
-
 You can create your own formatting by creating a class implementing the [OptionsFormatterInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-OptionsFormatterInterface.html) interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
 
 The following service definition switches the options rendering to the other built-in options formatter, displaying the options as JSON.
@@ -288,7 +287,6 @@ The resolver is activated when `application/vnd.ibexa.api.ai.AudioText` media ty
 
 - A visitor converting the response value object into a serialized REST response:
 
-
 ``` php
 [[= include_code('code_samples/ai_actions/src/AI/REST/Output/ValueObjectVisitor/AudioText.php') =]]
 ```
@@ -324,7 +322,6 @@ The last step in fully integrating the Transcribe Audio Action Type embeds it di
 
 Extend the default editing template of the `ibexa_binaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
 This template embeds the AI component, but only if a dedicated `transcript` field (of `ibexa_text` type) is available in the same content type to store the content of the transcription.
-
 
 ``` twig
 [[= include_file('code_samples/ai_actions/templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig') =]]

@@ -142,7 +142,6 @@ Several field type identifiers have changed.
 | `ezurl`                           | `ibexa_url`                       |
 | `ezuser`                          | `ibexa_user`                      |
 
-
 ## PHP API classes and methods
 
 !!! note "[[= product_name_base =]] Rector"
@@ -607,7 +606,6 @@ In `migrations`, it makes it easier to integrate custom data types, especially w
 | `Ibexa\Migration\Generator\UserGroup\StepBuilder\Update` | `build` |
 | `Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver` | `resolve` |
 | `Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface` | `resolve` |
-
 
 ??? note "Changes in `Ibexa\Migration\Generator\StepBuilder\StepFactoryInterface`"
 

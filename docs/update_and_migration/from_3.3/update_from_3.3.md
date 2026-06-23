@@ -331,7 +331,6 @@ composer ibexa:setup --platformsh
 Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
 merge with your custom settings if needed, and commit them to Git.
 
-
 ### v3.3.14
 
 #### VCL configuration
