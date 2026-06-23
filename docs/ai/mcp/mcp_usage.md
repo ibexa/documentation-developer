@@ -370,7 +370,7 @@ It should use the `greet` tool to do so.
 
 During a morning session, the interaction could look like this:
 
-```
+``` text
 ❯ Hi. Please, greet me.
 
 ◐ The user wants to be greeted. I'll use the ibexa-example-greet tool, but I don't know their name. Let me ask them first... actually, the tool requires a name. Let me ask the user for their name.

@@ -776,7 +776,7 @@ Enhanced the PHP API with the following new classes and interfaces:
     - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#time-slot-based-models)
 
 - Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
-    - [Enable Personalization ](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
+    - [Enable Personalization](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
     - [Integrate recommendation service](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/)
     - [Tracking integration](https://doc.ibexa.co/en/4.6/personalization/tracking_integration/)
     - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/4.6/personalization/tracking_with_ibexa-tracker/)
@@ -988,7 +988,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Administration
 
 - [Enhanced data migration doc](https://doc.ibexa.co/en/4.6/content_management/data_migration/importing_data/)
-- [Enhanced update to v3.3 procedure ](https://doc.ibexa.co/en/4.6/update_and_migration/from_2.5/to_3.3/)
+- [Enhanced update to v3.3 procedure](https://doc.ibexa.co/en/4.6/update_and_migration/from_2.5/to_3.3/)
 
 ### Content management
 

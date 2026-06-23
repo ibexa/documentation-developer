@@ -165,7 +165,7 @@ However, during the publish action, the sent form is validated in the service.
 Therefore, if there are any errors in the form, you return to the edit page but errors aren't triggered, which can be confusing when you have two or more tabs.
 
 To enable form validation in UI before sending it to the next stage of the workflow, add `validate: true` to the transitions of the stage.
-In the example below the form is validated in two stages:` to_legal` and `done`:
+In the example below the form is validated in two stages: `to_legal` and `done`:
 
 ``` yaml hl_lines="15 28"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 43) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 55, 63) =]]

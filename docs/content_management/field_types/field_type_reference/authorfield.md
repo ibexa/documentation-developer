@@ -14,7 +14,7 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 | Attribute | Type                                     | Description      | Example   |
 |-----------|------------------------------------------|------------------|-----------|
-| `authors` | `\Ibexa\Core\FieldType\Author\Author[] ` | List of authors. | See below |
+| `authors` | `\Ibexa\Core\FieldType\Author\Author[]` | List of authors. | See below |
 
 Example:
 

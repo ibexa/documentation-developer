@@ -195,7 +195,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 ### 2.5. Optional: Install Legacy Bridge
 
 If you don't plan to migrate content directly to newer eZ Platform field types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards.
-For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
+For more information, see [LegacyBridge installation instructions](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
 !!! note
 
