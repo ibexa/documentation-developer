@@ -44,6 +44,18 @@ of the command.
 
 ## Testing the code samples
 
+### YAML configuration
+
+To test the YAML configuration, run the following commands:
+
+``` bash
+composer update
+composer check-yaml
+```
+
+To add an error into a baseline, run `composer yaml-update-baseline` and commit the result.
+Error added to the baseline are not reported again.
+
 ### markdownlint
 
 This repository uses [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown formatting, including table syntax.

@@ -337,10 +337,15 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 If the installation has a dedicated host for REST, you can enable HTTP basic authentication only on this host by setting a firewall like in the following example before the `ibexa_front` one:
 
 ```yaml
+security:
+    firewalls:
+        # ...
         ibexa_rest:
             host: ^api\.example\.com$
             http_basic:
                 realm: Ibexa DXP REST API
+        #ibexa_front:
+        # ...
 ```
 
 !!! caution "Back office uses REST API"
