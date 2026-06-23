@@ -68,10 +68,14 @@ If the returned value was depending on a location, it could have been wrapped in
 
 `CachedValue` is used in the following way:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Rest\Server\Values\CachedValue;
+
+$locationId = 12345;
+
 return new CachedValue(
-    new MyValue($args…),
-    ['locationId'=> $locationId]
+    new MyValue($args),
+    ['locationId' => $locationId]
 );
 ```
 

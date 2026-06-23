@@ -46,8 +46,12 @@ custom_blog_index:
 
     To see the correct breadcrumb, you have to check the method in the controller itself:
 
-    ``` php {skip-validation}
-    if ($request->getMethod() != REQUEST::METHOD_POST) {
+    ``` php
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+    /** @var \Symfony\Component\HttpFoundation\Request $request */
+    if ($request->getMethod() != Request::METHOD_POST) {
         throw new NotFoundHttpException();
     }
     ```

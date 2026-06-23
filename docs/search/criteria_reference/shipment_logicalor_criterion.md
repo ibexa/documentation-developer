@@ -15,11 +15,14 @@ The `LogicalOr` Search Criterion matches shipments if at least one of the provid
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\LogicalOr(
-    [
+``` php
+use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+
+/** @var \Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodInterface $shippingMethod */
+$query = new ShipmentQuery(
+    new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\LogicalOr(
         new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\CreatedAt(new DateTime('2023-03-01')),
         new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\ShippingMethod($shippingMethod)
-    ]
+    )
 );
 ```

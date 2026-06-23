@@ -15,11 +15,14 @@ The `LogicalOr` Search Criterion matches payment methods if at least one of the 
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\LogicalOr(
-    [
-        new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt(new DateTime('2023-03-01'));
-        new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt(new DateTime('2023-05-01'));
-    ]
-);
+``` php
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\LogicalOr;
+
+$query = new PaymentMethodQuery();
+$query->setQuery(new LogicalOr(
+    new CreatedAt(new DateTime('2023-03-01')),
+    new CreatedAt(new DateTime('2023-05-01')),
+));
 ```

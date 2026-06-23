@@ -13,7 +13,9 @@ The `ObjectNameCriterion` Activity Log Criterion matches log groups that have a 
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\ObjectNameCriterion('Ibexa', ActivityLog\Criterion\ObjectNameCriterion::OPERATOR_CONTAINS),
 ]);

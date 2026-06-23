@@ -20,7 +20,12 @@ You can use the provided getters to access the values:
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\BasePriceStatsAggregation;
+
+/** @var CurrencyInterface $currency */
 $query = new ProductQuery();
 $query->setAggregations([
     new BasePriceStatsAggregation('base_price_stats_aggregation', $currency),

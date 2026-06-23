@@ -17,12 +17,16 @@ The `BasePrice` Sort Clause isn't available in the Legacy Search engine.
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+
+/** @var CurrencyInterface $currency */
 $sortClauses = [
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\BasePrice(
         $currency,
         ProductQuery::SORT_ASC
-    )
+    ),
 ];
 $productQuery = new ProductQuery(null, null, $sortClauses);
 ```

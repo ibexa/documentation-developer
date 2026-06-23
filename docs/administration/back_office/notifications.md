@@ -25,8 +25,9 @@ There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 To send a notification from PHP, inject the `TranslatableNotificationHandlerInterface` into your class.
 
-``` php {skip-validation}
-$this->notificationHandler->info(
+``` php
+/** @var \Ibexa\Contracts\AdminUi\Notification\TranslatableNotificationHandlerInterface $notificationHandler */
+$notificationHandler->info(
     /** @Desc("Notification text") */
     'example.notification.text',
     [],

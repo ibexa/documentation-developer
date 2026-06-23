@@ -70,8 +70,10 @@ You can use the [[= product_name_base =]] flavor of the DocBook format in PHP AP
 
 The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
 
-``` php {skip-validation}
-$contentCreateStruct = $contentService->newContentCreateStruct( $contentType, "eng-GB" );
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+/** @var \Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType $contentType */
+$contentCreateStruct = $contentService->newContentCreateStruct($contentType, 'eng-GB');
 
 $inputString = <<<DOCBOOK
 <?xml version="1.0" encoding="UTF-8"?>
@@ -85,7 +87,7 @@ $inputString = <<<DOCBOOK
 </section>
 DOCBOOK;
 
-$contentCreateStruct->setField( "description", $inputString );
+$contentCreateStruct->setField('description', $inputString);
 ```
 
 When creating RichText content with the REST API, use the `xml` key of the `fieldValue` tag:

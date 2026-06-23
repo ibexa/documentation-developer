@@ -25,7 +25,11 @@ The `Field` Criterion isn't available in [Repository filtering](search_api.md#re
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platform');
 ```
 
@@ -65,11 +69,15 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
 
 You can use the `Field` Criterion to search for articles that contain the word "featured":
 
-``` php {skip-validation} hl_lines="4"
+``` php hl_lines="8"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
 $query = new LocationQuery();
-$query->query = new Criterion\LogicalAnd([
+$query->query = new Criterion\LogicalAnd(
+    [
         new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Featured')
+        new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Featured'),
     ]
 );
 ```

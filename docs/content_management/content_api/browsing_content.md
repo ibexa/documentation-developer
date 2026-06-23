@@ -103,8 +103,10 @@ You can get the current version's `VersionInfo` using [`ContentService::loadVers
 
 You can also specify the version number as the second argument to get Relations for a specific version:
 
-``` php {skip-validation}
-$versionInfo = $this->contentService->loadVersionInfo($contentInfo, 2);
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+$versionInfo = $contentService->loadVersionInfo($contentInfo, 2);
 ```
 
 `loadRelationList` provides an iterable [`RelationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-RelationList.html) object
@@ -169,13 +171,19 @@ The repository is SiteAccess-aware, so languages defined by the SiteAccess are a
 
 To load a specific language, provide its language code when loading the content item:
 
-``` php {skip-validation}
-$content = $this->contentService->loadContent($contentId, ['ger-DE']);
+``` php
+/** @var int $contentId */
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+$content = $contentService->loadContent($contentId, ['ger-DE']);
 ```
 
 To load all languages as a prioritized list, use `Language::ALL`:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Language;
+
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
 $contentService->loadContent($content->id, Language::ALL);
 ```
 
@@ -202,9 +210,13 @@ You can do it through the `getMainLocation` method of the ContentInfo object.
 
 Next, use the `getParentLocation` method of the location object to access the parent location:
 
-``` php {skip-validation}
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
 $mainLocation = $contentInfo->getMainLocation();
-$output->writeln("Parent Location: " . $mainLocation->getParentLocation()->pathString);
+$parentLocation = $mainLocation?->getParentLocation();
+if ($parentLocation !== null) {
+    $message = 'Parent Location: ' . $parentLocation->pathString;
+}
 ```
 
 ## Getting content from a location
@@ -222,11 +234,16 @@ The versions must have the same language.
 
 For example, to get the comparison between the `name` field of two versions:
 
-``` php {skip-validation}
-$versionFrom = $this->contentService->loadVersionInfo($contentInfo, $versionFromId);
-$versionTo = $this->contentService->loadVersionInfo($contentInfo, $versionToId);
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
+/** @var int $versionFromId */
+/** @var int $versionToId */
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+/** @var \Ibexa\Contracts\VersionComparison\Service\VersionComparisonServiceInterface $comparisonService */
+$versionFrom = $contentService->loadVersionInfo($contentInfo, $versionFromId);
+$versionTo = $contentService->loadVersionInfo($contentInfo, $versionToId);
 
-$nameComparison = $this->comparisonService->compare($versionFrom, $versionTo)->getFieldValueDiffByIdentifier('name')->getComparisonResult();
+$nameComparison = $comparisonService->compare($versionFrom, $versionTo)->getFieldValueDiffByIdentifier('name')->getComparisonResult();
 ```
 
 `getComparisonResult` returns a `ComparisonResult` object, which depends on the field type being compared.

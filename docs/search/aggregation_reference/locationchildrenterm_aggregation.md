@@ -12,7 +12,10 @@ The [LocationChildrenTermAggregation](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new LocationQuery();
 $query->aggregations[] = new Aggregation\Location\LocationChildrenTermAggregation('location_children');
 ```

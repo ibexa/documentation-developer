@@ -16,7 +16,11 @@ The [`DateMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\DateMetadata(
     Criterion\DateMetadata::CREATED,
     Criterion\Operator::BETWEEN,
@@ -58,10 +62,14 @@ $query->query = new Criterion\DateMetadata(
 
 You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:
 
-``` php {skip-validation} hl_lines="5"
-$query = new LocationQuery;
-$date = strtotime("-1 week");
-$query->query = new Criterion\LogicalAnd([
+``` php hl_lines="9"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new LocationQuery();
+$date = strtotime('-1 week');
+$query->query = new Criterion\LogicalAnd(
+    [
         new Criterion\ContentTypeIdentifier('blog_post'),
         new Criterion\DateMetadata(Criterion\DateMetadata::CREATED, Criterion\Operator::GTE, $date),
     ]

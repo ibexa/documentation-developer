@@ -12,7 +12,10 @@ The [`Location\Depth` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
 $query = new LocationQuery();
-$query->sortClauses = [new SortClause\Depth()];
+$query->sortClauses = [new SortClause\Location\Depth()];
 ```

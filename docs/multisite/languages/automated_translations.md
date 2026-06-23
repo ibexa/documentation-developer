@@ -34,7 +34,7 @@ composer require ibexa/automated-translation
     Symfony Flex installs and activates the package.
     However, you must modify the `config/bundles.php` file to change the bundle loading order so that `IbexaAutomatedTranslationBundle` is loaded before `IbexaAdminUiBundle`:
 
-    ``` php {skip-validation}
+    ``` php
     <?php
 
     return [

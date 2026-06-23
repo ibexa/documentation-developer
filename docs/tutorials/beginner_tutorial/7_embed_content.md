@@ -123,25 +123,22 @@ The controller uses `ContentService` to load related resources (Landmarks) for a
 
 Create a `src/Controller/RideController.php` file:
 
-``` php {skip-validation}
+``` php
 <?php
 
 namespace App\Controller;
 
 use Ibexa\Bundle\Core\Controller;
-use Ibexa\Core\MVC\Symfony\View\ContentView;
 use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Core\MVC\Symfony\View\ContentView;
 
 class RideController extends Controller
 {
-    private $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(private readonly ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
-    public function viewRideWithLandmarksAction(ContentView $view)
+    public function viewRideWithLandmarksAction(ContentView $view): ContentView
     {
         $currentContent = $view->getContent();
         $landmarksListId = $currentContent->getFieldValue('landmarks');

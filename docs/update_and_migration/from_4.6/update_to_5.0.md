@@ -50,17 +50,20 @@ It's recommended to activate one rule set at a time and preview the output by ru
 
 Your configuration could look like the following example:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
+
 return RectorConfig::configure()
     ->withPaths(
-       [
+        [
            __DIR__ . '/src',
-       ]
+        ]
     )
     ->withSets(
-       [
+        [
            IbexaSetList::IBEXA_46->value,
-       ]
+        ]
     )
     ->withPhpSets(php83: true)
     ->withComposerBased(symfony: true)
@@ -463,11 +466,15 @@ Again, it's recommended to activate one rule set at a time and preview the outpu
 
 As this update spans across a broad range of versions, multiple rules can be considered as in the example below.
 
-``` php {skip-validation}
+``` php
 //…
-use Rector\Symfony\Set\SymfonySetList;
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
 use Rector\Symfony\Set\SensiolabsSetList;
-//…
+use Rector\Symfony\Set\SymfonySetList;
+
+return RectorConfig::configure()
+    // ...
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value,

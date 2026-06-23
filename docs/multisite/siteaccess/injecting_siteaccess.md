@@ -16,9 +16,11 @@ services:
         arguments: ['@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService']
 ```
 
-``` php {skip-validation}
+``` php
+<?php
+
 declare(strict_types=1);
-	
+
 namespace App;
 
 use Ibexa\Contracts\Core\Repository\ContentService;
@@ -26,18 +28,8 @@ use Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface;
 
 class MyService
 {
-    /** @var \Ibexa\Contracts\Core\Repository\ContentService */
-    private $contentService;
-
-    /** @var \Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface */
-    private $siteAccessService;
-
-    public function __construct(
-        SiteAccessServiceInterface $siteAccessService,
-        ContentService $contentService
-    ) {
-        $this->siteAccessService = $siteAccessService;
-        $this->contentService = $contentService;
+    public function __construct(private readonly SiteAccessServiceInterface $siteAccessService, private readonly ContentService $contentService)
+    {
     }
 }
 ```

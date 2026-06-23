@@ -40,8 +40,12 @@ and with sort clauses from the [`SortClause` namespace](/api/php_api/php_api_ref
 
 To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
-``` php {skip-validation}
-$lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery());
+``` php
+use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
+use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
+
+/** @var ShoppingListServiceInterface $shoppingListService */
+$lists = $shoppingListService->findShoppingLists(new ShoppingListQuery());
 ```
 
 For more information about the shopping list search,
@@ -56,12 +60,17 @@ If you forgot to retrieve this result in your variable, the local object isn't s
 In the following example, if some assignments (`$list =`) are removed, the dumped `$list` object doesn't contain the stored shopping list at that time.
 If only the middle assignment is removed, the last dumped variable contains the up-to-date shopping list.
 
-``` php {skip-validation}
-$list = $this->shoppingListService->getOrCreateDefaultShoppingList();
+``` php
+use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
+use Ibexa\Contracts\ShoppingList\Value\EntryAddStruct;
+
+/** @var ShoppingListServiceInterface $shoppingListService */
+/** @var string $productCode */
+$list = $shoppingListService->getOrCreateDefaultShoppingList();
 dump($list);
-$list = $this->shoppingListService->clearShoppingList($list);
+$list = $shoppingListService->clearShoppingList($list);
 dump($list);
-$list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
+$list = $shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
 dump($list);
 ```
 

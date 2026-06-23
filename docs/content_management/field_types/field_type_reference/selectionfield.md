@@ -24,25 +24,27 @@ The Value class of this field type contains the following properties:
 |--------------|---------|-------------------------------------------------------------------------------------------------------------------|
 | `$selection` | `int[]` | This property is used for the list of selections, which is a list of integer values, or one single integer value. |
 
-``` php {skip-validation}
+``` php
 // Value object content examples
 
+/** @var \Ibexa\Core\FieldType\Selection\Value $value */
 // Single selection
-$value->selection = 1;
+$value->selection = [1];
 
 // Multiple selection
-$value->selection = [ 1, 4, 5 ];
+$value->selection = [1, 4, 5];
 ```
 
 #### Constructor
 
 The `Selection\Value` constructor accepts an array of selected element identifiers.
 
-``` php {skip-validation}
+``` php
 // Constructor example
+use Ibexa\Core\FieldType\Selection as Selection;
 
 // Instanciates a selection value with items #1 and #2 selected
-$selectionValue = new Selection\Value( [ 1, 2 ] );
+$selectionValue = new Selection\Value([1, 2]);
 ```
 
 #### String representation
@@ -55,10 +57,10 @@ Example: `"1,2,24,42"`
 
 Hash format of this field type is the same as value object's `selection` property.
 
-``` php {skip-validation}
+``` php
 // Example of value in hash format
 
-$hash = [ 1, 2 ];
+$hash = [1, 2];
 ```
 
 ### Validation
@@ -74,13 +76,13 @@ When option validation fails, a list with the invalid options is also presented.
 | `isMultiple` | `boolean` | `false`       | Used to allow or prohibit multiple selection from the option list. |
 | `options`    | `hash`    | `[]`     | Stores the list of options defined in the field definition.    |
 
-``` php {skip-validation}
+``` php
 // Selection field type example settings
 
 use Ibexa\Core\FieldType\Selection\Type;
 
 $settings = [
-    "isMultiple" => true,
-    "options" => [1 => 'One', 2 => 'Two', 3 => 'Three']
+    'isMultiple' => true,
+    'options' => [1 => 'One', 2 => 'Two', 3 => 'Three'],
 ];
 ```

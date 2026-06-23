@@ -70,12 +70,12 @@ The Field definition of this field type can be configured with several options:
 | `useSeconds`  | `boolean`                                        | `false`               | Used to control displaying of seconds in the output.                              |
 | `defaultType` | `Type::DEFAULT_EMPTY Type::DEFAULT_CURRENT_TIME` | `Type::DEFAULT_EMPTY` | The constant used here defines default input value when using back-end interface. |
 
-``` php {skip-validation}
+``` php
 // Time field type example settings
 use Ibexa\Core\FieldType\Time\Type;
 
 $settings = [
-    "defaultType" => DateAndTime::DEFAULT_EMPTY
+    'defaultType' => Type::DEFAULT_EMPTY,
 ];
 ```
 

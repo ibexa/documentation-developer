@@ -80,11 +80,16 @@ To add an in-memory collection as an event source, create `src/Calendar/Holidays
 
     For example:
 
-    ``` php {skip-validation}
+    ``` php
+    use App\Calendar\Holidays\Event;
+    use Ibexa\Contracts\Calendar\EventCollection;
+
+    /** @var \App\Calendar\Holidays\EventType $eventType */
     $collection = new EventCollection([
-        $this->createEvent("Event 1", new DateTime("2024-01-01")),
-        $this->createEvent("Event 2", new DateTime("2024-01-02")),
+        new Event('Event 1', new DateTime('2024-01-01'), $eventType),
+        new Event('Event 2', new DateTime('2024-01-02'), $eventType),
         // ...
+    ]);
     ```
 
 Next, register the event source as a service:

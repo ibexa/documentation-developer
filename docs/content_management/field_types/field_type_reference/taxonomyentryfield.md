@@ -18,21 +18,23 @@ A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value
 
 Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
 
-``` php {skip-validation}
-$taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
-    new \Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry(
-            $taxonomyEntry
-        )
-);
+``` php
+use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
+
+/** @var TaxonomyServiceInterface $taxonomyService */
+$taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
+$taxonomyEntryField = new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value($taxonomyEntry);
 ```
 
 Example using array:
 
-``` php {skip-validation}
-[
+``` php
+use Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry;
+
+/** @var TaxonomyEntry $taxonomyEntry */
+return [
     'taxonomy_entry' => $taxonomyEntry, // load Entry using TaxonomyService
-]
+];
 ```
 
 ### Value object
@@ -47,14 +49,16 @@ Example using array:
 
 The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
-``` php {skip-validation}
+``` php
 // Constructor example
+use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
 use Ibexa\Taxonomy\FieldType\TaxonomyEntry;
 
 // Fetches TaxonomyEntry from TaxonomyService
-$taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
- 
-// Instantiates a checkbox value with a checked state
+/** @var TaxonomyServiceInterface $taxonomyService */
+$taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
+
+// Instantiates a taxonomy entry value
 $taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
 ```
 

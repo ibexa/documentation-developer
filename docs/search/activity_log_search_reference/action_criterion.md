@@ -10,11 +10,14 @@ A set of built-in names is available as `ActivityLogServiceInterface`'s `ACTION_
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
+use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\ActionCriterion([
-        ActivityLog\ActivityLogServiceInterface::ACTION_DELETE,
-        ActivityLog\ActivityLogServiceInterface::ACTION_TRASH,
+        ActivityLogServiceInterface::ACTION_DELETE,
+        ActivityLogServiceInterface::ACTION_TRASH,
     ]),
 ]);
 ```

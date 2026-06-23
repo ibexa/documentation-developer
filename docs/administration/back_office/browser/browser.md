@@ -146,40 +146,42 @@ If an event listener catches additional parameters passed with context, it uses 
 
 In the example below, the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
 
-``` php {skip-validation} hl_lines="29 30 31"
+``` php hl_lines="31-35"
+<?php
+
+use Ibexa\AdminUi\UniversalDiscovery\Event\ConfigResolveEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
 class JohnDoeCanSelectMore implements EventSubscriberInterface
 {
-    private const CONFIGURATION_NAME = 'my_custom_udw';
+    private const string CONFIGURATION_NAME = 'my_custom_udw';
 
     /**
      * Returns an array of event names this subscriber wants to listen to.
      *
-     * @return array The event names to listen to
+     * @return array<string, string> The event names to listen to
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ConfigResolveEvent::NAME => 'onUdwConfigResolve',
         ];
     }
 
-    /**
-     * @param \Ibexa\AdminUi\UniversalDiscovery\Event $event
-     */
-    public function onUdwConfigResolve(ConfigResolveEvent $event)
+    public function onUdwConfigResolve(ConfigResolveEvent $event): void
     {
         if ($event->getConfigName() !== self::CONFIGURATION_NAME) {
-		    return;
-		}
+            return;
+        }
 
         $config = $event->getConfig();
-		$context = $event->getContext();
+        $context = $event->getContext();
 
         if (isset($context['some_contextual_parameter'])) {
-			if ($context['some_contextual_parameter'] === 'johndoe') {
-			    $config['multiple'] = true;
-			}
-		}
+            if ($context['some_contextual_parameter'] === 'johndoe') {
+                $config['multiple'] = true;
+            }
+        }
 
         $event->setConfig($config);
     }

@@ -39,19 +39,31 @@ The `FullText` Criterion isn't available in [Repository filtering](search_api.md
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('victory');
 ```
 
 Using double quotes to indicate a phrase:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('"world cup"');
 ```
 
 Using the AND operator and parenthesis to search for both words at the same time:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('baseball AND cup');
 ```
 
@@ -81,7 +93,11 @@ $query->query = new Criterion\FullText('baseball AND cup');
 
 Assume the following search query:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('(cup AND ba*ball) "breaking news"');
 ```
 

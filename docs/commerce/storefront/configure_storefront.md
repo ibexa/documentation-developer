@@ -63,21 +63,9 @@ The basic configuration of the Storefront can look as follows:
 
 ## Retrieve catalog assigned to user
 
-The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` interface allows retrieving the product catalog available for a specific user.
+The [`\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Storefront-Repository-CatalogResolverInterface.html) interface allows retrieving the product catalog available for a specific user.
 
-``` php {skip-validation}
-namespace Ibexa\Contracts\Storefront\Repository;
-
-use Ibexa\Contracts\Core\Repository\Values\User\User;
-use Ibexa\Contracts\ProductCatalog\Values\CatalogInterface;
-
-interface CatalogResolverInterface
-{
-    public function resolveCatalog(?User $user = null): ?CatalogInterface;
-}
-```
-
-`null` stands for the current user.
+To retrieve catalog assigned for the current user, pass `null`.
 
 ### Configure user account
 

@@ -36,15 +36,16 @@ The Value class of this field type contains the following properties:
 The `MapLocation\Value` constructor initializes a new value object with values provided as hash.
 Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
 
-``` php {skip-validation}
+``` php
 // Constructor example
+use Ibexa\Core\FieldType\MapLocation as MapLocation;
 
 // Instantiates a MapLocation Value object
 $MapLocationValue = new MapLocation\Value(
     [
         'latitude' => 59.928732,
         'longitude' => 10.777888,
-        'address' => "Ibexa Nordics"
+        'address' => 'Ibexa Nordics',
     ]
 );
 ```

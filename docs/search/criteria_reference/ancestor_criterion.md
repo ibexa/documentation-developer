@@ -14,8 +14,13 @@ The [`Ancestor` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)->pathString]);
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+/** @var \Ibexa\Contracts\Core\Repository\LocationService $locationService */
+$query->query = new Criterion\Ancestor([$locationService->loadLocation(62)->pathString]);
 ```
 
 ### REST API
@@ -44,11 +49,18 @@ $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)
 
 You can use the Ancestor Search Criterion to create a list of breadcrumbs leading to the Location:
 
-``` php {skip-validation} hl_lines="2"
-$query = new LocationQuery();
-$query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);
+``` php hl_lines="8"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
-$results = $this->searchService->findLocations($query);
+$locationId = 12345;
+
+$query = new LocationQuery();
+/** @var \Ibexa\Contracts\Core\Repository\LocationService $locationService */
+$query->query = new Criterion\Ancestor([$locationService->loadLocation($locationId)->pathString]);
+
+/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
+$results = $searchService->findLocations($query);
 $breadcrumbs = [];
 foreach ($results->searchHits as $searchHit) {
     $breadcrumbs[] = $searchHit;

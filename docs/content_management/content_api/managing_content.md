@@ -116,9 +116,13 @@ Trash location is identical to the origin location of the object.
 The content item is restored under its previous location.
 You can also provide a different location to restore in as a second argument:
 
-``` php {skip-validation}
-$newParent = $this->locationService->loadLocation($location);
-$this->trashService->recover($trashItem, $newParent);
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\TrashItem $trashItem */
+/** @var \Ibexa\Contracts\Core\Repository\LocationService $locationService */
+/** @var \Ibexa\Contracts\Core\Repository\TrashService $trashService */
+$locationId = 12345;
+$newParent = $locationService->loadLocation($locationId);
+$trashService->recover($trashItem, $newParent);
 ```
 
 You can also search through Trash items and sort the results using several public PHP API Search Criteria and Sort Clauses that have been exposed for `TrashService` queries.

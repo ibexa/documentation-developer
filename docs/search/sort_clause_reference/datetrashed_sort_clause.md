@@ -12,7 +12,10 @@ The [`DateTrashed` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
 $query = new Query();
 $query->sortClauses = [new SortClause\Trash\DateTrashed()];
 ```

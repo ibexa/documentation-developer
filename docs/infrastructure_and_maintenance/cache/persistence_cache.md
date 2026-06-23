@@ -248,25 +248,35 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 Like any other service, you can also get the cache service with the [service container](php_api.md#service-container) like so:
 
-``` php {skip-validation}
+``` php
+use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 // Getting the cache service in PHP
 
-/** @var \Symfony\Component\Cache\Adapter\TagAwareAdapterInterface */
+/** @var ContainerInterface $container */
 $pool = $container->get('ibexa.cache_pool');
+/** @var TagAwareAdapterInterface $pool */
 ```
 
 ### Using the cache service
 
 Example usage of the cache service:
 
-``` php {skip-validation}
+``` php
+use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 // Example
-$cacheItem = $pool->getItem("myApp-object-${id}");
+/** @var TagAwareAdapterInterface $pool */
+/** @var ContainerInterface $container */
+/** @var int $id */
+$cacheItem = $pool->getItem("myApp-object-{$id}");
 if ($cacheItem->isHit()) {
     return $cacheItem->get();
 }
 
-$myObject = $container->get('my_app.backend_service')->loadObject($id)
+$myObject = $container->get('my_app.backend_service')->loadObject($id);
 $cacheItem->set($myObject);
 $cacheItem->tag(['myApp-category-' . $myObject->categoryId]);
 $pool->save($cacheItem);
@@ -294,7 +304,11 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
 
 Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 
-``` php {skip-validation}
+``` php
+use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
+
+/** @var TagAwareAdapterInterface $pool */
+/** @var int $contentId */
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 

@@ -15,7 +15,10 @@ The `SourceCriterion` Search Criterion searches for orders based on the source o
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\SourceCriterion('local_shop')
 );

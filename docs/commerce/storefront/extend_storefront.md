@@ -99,7 +99,13 @@ After you modify the controller, it can also pass the following parameters:
 Define your own logic in a custom controller.
 Refer to the code snippet below and create your own file, for example, `CustomProductRenderController.php`:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+
+class CustomProductRenderController extends AbstractController
+{
     public function renderAction(ProductInterface $product): Response
     {
         return $this->render('@ibexadesign/storefront/product_card.html.twig', [
@@ -109,4 +115,5 @@ Refer to the code snippet below and create your own file, for example, `CustomPr
             'is_relative' => true,
         ]);
     }
+}
 ```
