@@ -50,7 +50,7 @@ It's recommended to activate one rule set at a time and preview the output by ru
 
 Your configuration could look like the following example:
 
-```php
+``` php {skip-validation}
 return RectorConfig::configure()
     ->withPaths(
        [
@@ -463,7 +463,7 @@ Again, it's recommended to activate one rule set at a time and preview the outpu
 
 As this update spans across a broad range of versions, multiple rules can be considered as in the example below.
 
-```php
+``` php {skip-validation}
 //…
 use Rector\Symfony\Set\SymfonySetList;
 use Rector\Symfony\Set\SensiolabsSetList;

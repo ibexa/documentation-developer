@@ -21,7 +21,7 @@ The `CustomPrice` Criterion isn't available in the Legacy Search engine.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPrice(

@@ -14,7 +14,7 @@ Locations that aren't visible are ranked as higher values (for example, with asc
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\Visibility()];
 ```

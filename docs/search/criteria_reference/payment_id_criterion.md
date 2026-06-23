@@ -15,6 +15,6 @@ The `Id` Search Criterion searches for payments based on the payment ID.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Id(2);
 ```

@@ -68,7 +68,7 @@ If the returned value was depending on a location, it could have been wrapped in
 
 `CachedValue` is used in the following way:
 
-```php
+``` php {skip-validation}
 return new CachedValue(
     new MyValue($args…),
     ['locationId'=> $locationId]

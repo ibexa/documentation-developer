@@ -40,7 +40,7 @@ ibexa:
 
 Then, create a subscriber that modifies the scenario.
 
-```php hl_lines="32-34 36-38 40-42 44-55"
+``` php hl_lines="32-34 36-38 40-42 44-55"
 [[= include_code('code_samples/back_office/product_tour/src/EventSubscriber/NotificationScenarioSubscriber.php') =]]
 ```
 

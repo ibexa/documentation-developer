@@ -14,7 +14,7 @@ The `Product` Search Criterion searches for prices based on product codes.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Product('ergo_desk')
 );

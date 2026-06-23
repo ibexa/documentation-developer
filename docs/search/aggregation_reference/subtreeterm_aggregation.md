@@ -13,7 +13,7 @@ The [SubtreeTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contra
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Location\SubtreeTermAggregation('pathstring', '/1/2/');
 ```

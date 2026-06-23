@@ -15,13 +15,13 @@ The `MimeType` Search Criterion searches for image with specified mime type(s).
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\MimeType('image', 'image/jpeg');
 ```
 
 or
 
-```php
+``` php {skip-validation}
 $mimeTypes = [
     'image/jpeg',
     'image/png',

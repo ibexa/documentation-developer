@@ -16,7 +16,7 @@ When querying for [products](product_api.md), use [LogicalOr](/api/php_api/php_a
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->filter = new Criterion\LogicalOr([
         new Criterion\ContentTypeIdentifier('article'),
         new Criterion\SectionIdentifier(['sports', 'news']);

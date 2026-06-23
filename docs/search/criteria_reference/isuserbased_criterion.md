@@ -24,7 +24,7 @@ The `IsUserBased` Criterion isn't available in Solr or Elasticsearch engines.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\IsUserBased();
 ```
 

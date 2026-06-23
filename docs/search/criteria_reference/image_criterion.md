@@ -15,7 +15,7 @@ The `Image` Search Criterion searches for image by specified image attributes.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $imageCriteriaData = [
     'mimeTypes' => [
        'image/png',

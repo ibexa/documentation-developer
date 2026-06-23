@@ -18,7 +18,7 @@ The `Value` class of this field type contains the following properties:
 |----------|----------|-----------------------------------------------------------------------|
 | `$email` | `string` | This property is used for the input string provided as email address. |
 
-``` php
+``` php {skip-validation}
 // Value object content example
 
 use Ibexa\Core\FieldType\EmailAddress\Type;
@@ -35,7 +35,7 @@ $emailaddressValue->email = "someuser@example.com";
 The `EmailAddress\Value` constructor initializes a new value object with the value provided.
 It accepts a string as input.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 
 use Ibexa\Core\FieldType\EmailAddress\Type;

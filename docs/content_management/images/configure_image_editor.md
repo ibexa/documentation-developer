@@ -67,7 +67,7 @@ By default, additional information stores the coordinates of the [focal point]([
 
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 
-``` php
+``` php {skip-validation}
 new FieldValue([
      'data' => [
          'width' => '100',

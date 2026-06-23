@@ -16,7 +16,7 @@ The `FileSize` Search Criterion searches for image with specified size.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\FileSize('image', 0, 1.5);
 ```
 

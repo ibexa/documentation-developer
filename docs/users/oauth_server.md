@@ -34,7 +34,7 @@ Add the tables needed by the bundle:
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
-```php
+``` php {skip-validation}
 <?php
 
 return [

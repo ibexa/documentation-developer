@@ -214,13 +214,13 @@ The controller's definition (that you place in the `config/services.yaml` file u
 [[= include_file('code_samples/back_office/images/config/services.yaml', 0, 8) =]]
 ```
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/SvgController.php') =]]
 ```
 
 To be able to use a proper link in your templates, you also need a dedicated Twig extension:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/SvgExtension.php') =]]
 ```
 

@@ -12,6 +12,6 @@ The [`Pattern` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contr
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query->filter = new Criterion\Pattern('ibexa.co');
 ```

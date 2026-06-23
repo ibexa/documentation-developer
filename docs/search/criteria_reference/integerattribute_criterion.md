@@ -15,7 +15,7 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IntegerAttribute(

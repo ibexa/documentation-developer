@@ -16,7 +16,7 @@ The `CreatedAt` Search Criterion searches for shipments based on the date when t
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $criteria = new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\CreatedAt(
     new DateTime('2023-03-01 14:07:02'),
     'GTE'

@@ -17,17 +17,17 @@ The following conventions apply to contributions to [[= product_name_base =]] co
 
 Define [[= product_name =]] core PHP code in a namespace with the following prefix:
 
-```php
+``` php {skip-validation}
 namespace Ibexa;
 ```
 
 A package which groups some DXP features can use an additional prefix, for example:
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Commerce;
 ```
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Personalization;
 ```
 
@@ -55,11 +55,11 @@ The `src/lib` directory and its corresponding `Ibexa\<PackageName>` namespace ar
 
 Examples:
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Search;
 ```
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Commerce\Shop;
 ```
 
@@ -67,7 +67,7 @@ namespace Ibexa\Commerce\Shop;
 
 The bundle class definition in the `src/bundle` directory must be:
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Bundle\<PackageName>;
 
 class Ibexa[ProductGroup]<PackageName>Bundle // ...
@@ -75,13 +75,13 @@ class Ibexa[ProductGroup]<PackageName>Bundle // ...
 
 Examples:
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Bundle\Search;
 
 class IbexaSearchBundle // ...
 ```
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Bundle\Commerce\Shop;
 
 class IbexaCommerceShopBundle // ...
@@ -91,21 +91,21 @@ class IbexaCommerceShopBundle // ...
 
 A package may introduce a namespace for contracts, to be consumed by first and third party packages and projects, which must be prefixed as:
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Contracts;
 ```
 
 Examples:
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Contracts\Kernel;
 ```
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Contracts\SiteFactory;
 ```
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Contracts\Commerce\Shop;
 ```
 

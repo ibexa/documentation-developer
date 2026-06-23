@@ -13,7 +13,7 @@ The `Updated` Sort Clause sorts search results by the date and time when order s
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $orderQuery = new OrderQuery(
     $criteria,
     [

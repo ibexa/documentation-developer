@@ -14,7 +14,7 @@ The [`LocationRemoteId` Search Criterion](/api/php_api/php_api_reference/classes
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\LocationRemoteId(['4d1e5f216c0a7aaab7f005ffd4b6a8a8', 'b81ef3e62b514188bfddd2a80d447d34']);
 ```
 

@@ -18,7 +18,7 @@ A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value
 
 Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
 
-``` php
+``` php {skip-validation}
 $taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
 new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
     new \Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry(
@@ -29,7 +29,7 @@ new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
 
 Example using array:
 
-``` php
+``` php {skip-validation}
 [
     'taxonomy_entry' => $taxonomyEntry, // load Entry using TaxonomyService
 ]
@@ -47,7 +47,7 @@ Example using array:
 
 The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 use Ibexa\Taxonomy\FieldType\TaxonomyEntry;
 

@@ -15,7 +15,7 @@ searches for content based on its remote content ID.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\RemoteId('abab615dcf26699a4291657152da4337');
 ```
 

@@ -24,7 +24,7 @@ To be able to assign tags to the content, first, you need to add a `TaxonomyEntr
 
 Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value` object:
 
-``` php
+``` php {skip-validation}
 $taxonomyEntry1 = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
 $taxonomyEntry2 = $this->taxonomyService->loadEntryByIdentifier('example_entry_2', 'tags');
 new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
@@ -39,7 +39,7 @@ new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
 
 Example using array:
 
-``` php
+``` php {skip-validation}
 [
     'taxonomy_entries' => [$taxonomyEntry, $taxonomyEntry2], // load entries using TaxonomyService
     'taxonomy' => 'tags',

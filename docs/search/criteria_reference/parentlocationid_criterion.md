@@ -15,7 +15,7 @@ searches for content based on the Location ID of its parent.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\ParentLocationId([54, 58]);
 ```
 
@@ -45,7 +45,7 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
 
 You can use the `ParentLocationId` Search Criterion to list blog posts contained in a blog:
 
-``` php hl_lines="4"
+``` php {skip-validation} hl_lines="4"
 $query = new LocationQuery();
 $query->query = new Criterion\LogicalAnd([
     new Criterion\Visibility(Criterion\Visibility::VISIBLE),

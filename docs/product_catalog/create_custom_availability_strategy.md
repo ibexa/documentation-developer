@@ -50,6 +50,6 @@ If you're not using [autowiring]([[= symfony_doc =]]/service_container/autowirin
 
 To evaluate product availability using a custom strategy, pass the custom context as the second argument to [`ProductAvailabilityServiceInterface::getAvailability()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html):
 
-```php
+``` php
 [[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 122, 127, remove_indent=True) =]]
 ```

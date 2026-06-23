@@ -18,7 +18,7 @@ The Value class of this field type contains the following properties:
 |----------|-----------|---------------|--------------------------------------------------------------------------------|
 | `$bool`  | `boolean` | `false`       | This property is used for the checkbox status, represented by a boolean value. |
 
-``` php
+``` php {skip-validation}
 //Value object content examples
 use Ibexa\Core\FieldType\Checkbox\Type;
 
@@ -36,7 +36,7 @@ $value->bool = false;
 
 The `Checkbox\Value` constructor accepts a boolean value:
 
-``` php
+``` php {skip-validation}
 // Constructor example
 use Ibexa\Core\FieldType\Checkbox\Type;
 

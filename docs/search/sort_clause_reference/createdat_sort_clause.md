@@ -12,7 +12,7 @@ The `CreatedAt` Sort Clause sorts search results by the date and time of the cre
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $productQuery = new ProductQuery(
     null,
     null,

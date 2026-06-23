@@ -14,7 +14,7 @@ The field-based [TimeRangeAggregation](/api/php_api/php_api_reference/classes/Ib
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\TimeRangeAggregation('date', 'event', 'event_time',
 [

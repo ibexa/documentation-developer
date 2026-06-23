@@ -17,6 +17,6 @@ representing whether to search for a main or not main location
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Location\IsMainLocation(IsMainLocation::MAIN);
 ```

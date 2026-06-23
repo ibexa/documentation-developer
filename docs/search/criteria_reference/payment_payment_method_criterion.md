@@ -15,6 +15,6 @@ The `PaymentMethod` Search Criterion searches for payments based on a payment me
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\PaymentMethod(2);
 ```

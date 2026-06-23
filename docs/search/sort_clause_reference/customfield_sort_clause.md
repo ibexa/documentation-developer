@@ -22,7 +22,7 @@ The `CustomField` Sort Clause isn't available in [Repository filtering](search_a
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\CustomField('my_custom_field_s')];
 ```

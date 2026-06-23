@@ -14,7 +14,7 @@ The [`Ancestor` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)->pathString]);
 ```
 
@@ -44,7 +44,7 @@ $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)
 
 You can use the Ancestor Search Criterion to create a list of breadcrumbs leading to the Location:
 
-``` php hl_lines="2"
+``` php {skip-validation} hl_lines="2"
 $query = new LocationQuery();
 $query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);
 
