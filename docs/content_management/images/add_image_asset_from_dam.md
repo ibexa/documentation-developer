@@ -49,15 +49,15 @@ Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the 
 For more information about displaying content, see [Content rendering](render_content.md).
 
 ``` yaml
- ibexa:
-   system:
-     site:
-       content_view:
-         embed:
-           image_dam:
-             template: '@ibexadesign/embed/dam.html.twig'
-             match:
-               Identifier\ContentType: <dam_image_content_type_identifier>
+ibexa:
+    system:
+        site:
+            content_view:
+                embed:
+                    image_dam:
+                        template: '@ibexadesign/embed/dam.html.twig'
+                        match:
+                           Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
 In your [configuration file](configuration.md#configuration-files) add the following configuration:

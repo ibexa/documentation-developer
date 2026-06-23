@@ -192,10 +192,9 @@ By default, the system returns three suggestions.
 You can change the default number if needed by altering the following setting:
 
 ``` yaml hl_lines="4"
-ibexa:
-  taxonomy:
+ibexa_taxonomy:
     text_to_taxonomy:
-      default_suggested_taxonomies_limit: 5
+        default_suggested_taxonomies_limit: 5
 ```
 
 You can also override this setting per AI action by editing its configuration.
