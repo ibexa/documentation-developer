@@ -109,7 +109,7 @@ def define_env(env):
             elif re.search(".html$", path):
                 html = True
                 content = open("docs/%s" % path, "r").read()
-                page = '/'.join((
+                page = 'https:/' + '/'.join((
                     '/',
                     site,
                     language,
@@ -120,7 +120,7 @@ def define_env(env):
                 html = False
                 path = path.rstrip('/')
                 content = open("docs/%s.md" % path, "r").read()
-                page = '/'.join((
+                page = 'https:/' + '/'.join((
                     '/',
                     site,
                     language,
