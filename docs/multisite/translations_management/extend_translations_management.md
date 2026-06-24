@@ -194,3 +194,47 @@ When a response is set on the event, `admin-ui` uses it and doesn't proceed with
     `ContentProxyTranslateEvent` is marked `@internal` in `ibexa/admin-ui`.
     While it functions as an extension point in practice, its name and signature may change.
     It may even be removed entirely without a deprecation notice.
+
+## Manage language pairs programatically
+
+To manage language pairs programmatically, inject `LanguagePairServiceInterface`:
+
+``` php
+use Ibexa\TranslationsManagement\AutoTranslate\LanguagePair\LanguagePairServiceInterface;
+use Ibexa\Contracts\Core\Repository\LanguageService;
+
+/** @var LanguagePairServiceInterface $languagePairService */
+/** @var LanguageService $languageService */
+
+$sourceLanguage = $languageService->loadLanguage('eng-GB');
+$targetLanguage = $languageService->loadLanguage('fre-FR');
+
+// $provider is an instance of TranslationProviderInterface
+$languagePairService->createLanguagePair(
+    $sourceLanguage,
+    $targetLanguage,
+    $provider,
+    false // set to true to replace an existing pair with the same source and target
+);
+```
+
+The service exposes the following methods:
+
+| Method | Description |
+|---|---|
+| `createLanguagePair()` | Create a new language pair. Pass `true` as the fourth argument to overwrite an existing pair with the same source and target. |
+| `updateLanguagePair()` | Update an existing language pair by ID. |
+| `syncLanguagePairsForSourceAndProvider()` | Synchronize all target languages for a given source language and provider. |
+| `loadLanguagePairs()` | Load all configured language pairs. |
+| `deleteLanguagePairById()` | Delete a language pair by ID. |
+| `deleteLanguagePairsForProvider()` | Delete all language pairs associated with a given provider. |
+
+## Service tags reference
+
+The following service tags expose additional extension points that you can use to customize and extend translations management behavior.
+
+| Tag | Purpose | Required attributes |
+|---|---|---|
+| `ibexa.translations_management.auto_translate.provider.language_normalizer` | Register a language code normalizer for a provider | — |
+| `ibexa.translations_management.auto_translate.provider.ai.translation_strategy` | Register a custom AI translation strategy (prompt structure) | `priority` |
+| `ibexa.translations_management.auto_translate.metadata_validation.retry_policy` | Register a metadata validation retry policy | `priority` |
