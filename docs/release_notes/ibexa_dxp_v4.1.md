@@ -38,7 +38,7 @@ The new Measurement product attribute enables describing products with different
 
 ### Dynamic targeting block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-[Dynamic targeting block](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#dynamic-targeting-block) for the Page Builder provides recommendation items based on users related to the configured Segments.
+[Dynamic targeting block](https://doc.ibexa.co/projects/userguide/en/4.1/site_organization/working_with_page/#dynamic-targeting-block) for the Page Builder provides recommendation items based on users related to the configured Segments.
 
 ![Dynamic targeting block](4.1_page_builder_dynamic_targeting.png)
 

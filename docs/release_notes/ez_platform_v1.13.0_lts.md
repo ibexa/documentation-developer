@@ -48,21 +48,11 @@ You can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastruc
 | [List of changes for rc1 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
 | [List of changes for beta2 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

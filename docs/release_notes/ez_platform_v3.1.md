@@ -12,8 +12,6 @@
 
 [eZ Commerce](https://github.com/ezsystems/ezcommerce) now uses Symfony 5 and is fully integrated into the eZ Platform back office.
 
-For more information, see [eZ Commerce documentation](https://doc.ezplatform.com/projects/ezcommerce/en/latest/).
-
 ## New features
 
 This release of eZ Platform introduces the following new features:
@@ -61,7 +59,7 @@ This release of eZ Platform introduces the following new features:
     - Matrix
     - Media
 
-    For overview of additional fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
+    For overview of additional fields, see [User documentation on Comparing versions](https://doc.ibexa.co/projects/userguide/en/3.1/publishing/publishing/#comparing-versions).
     
 ### URL management UI
 
@@ -74,7 +72,7 @@ You can create, modify or delete URL wildcards, and decide if the user should be
 
 ![URL Management UI](3_1_URL_Management.png "URL Management UI")
 
-For more information on how to manage URLs, see [URL management](https://doc.ibexa.co/en/latest/guide/url_management).
+For more information on how to manage URLs, see [URL management](https://doc.ibexa.co/en/3.1/guide/url_management/).
 
 ### Tree view in the Universal Discovery Widget
 

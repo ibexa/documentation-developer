@@ -44,7 +44,7 @@ Follow the upgrade steps below to update them:
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl`.
 
 Once the VCL configuration has been updated,
-you may enable [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) if you prefer.
+you may enable [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/) if you prefer.
 
 ## Update from v4.1.latest to v4.2
 

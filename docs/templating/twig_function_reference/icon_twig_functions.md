@@ -25,7 +25,7 @@ The icons can be displayed in different colors and sizes.
 
 ### Icon color variants
 
-By default, the icon inherits the [`fill`](https://developer.mozilla.org/en-US/docs/Web/CSS/fill) attribute from the parent element.
+By default, the icon inherits the [`fill`](https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/fill) attribute from the parent element.
 You can change it by using one of the available CSS modifiers:
 
 |Modifier|Usage|

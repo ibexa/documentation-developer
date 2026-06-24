@@ -40,7 +40,7 @@ For more information, see [Customer Portal documentation](https://doc.ibexa.co/p
 
 #### Inviting users
 
-You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/latest/users/user_management/#inviting-users) in the frontend as customers or in the back office as members of your team.
+You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/4.2/user_management/manage_users/#invite-users) in the frontend as customers or in the back office as members of your team.
 
 ![Inviting members of your team](4.2_invite_users.png)
 
@@ -106,7 +106,7 @@ you can now get recommendations for all these content types.
 
 ### Taxonomy field type
 
-Taxonomy is now [configured with a field type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
+Taxonomy is now [configured with a field type](https://doc.ibexa.co/projects/userguide/en/latest/content_management/taxonomy/work_with_tags/#add-tag),
 so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same content type.
 
 ### Address field type
@@ -120,7 +120,7 @@ With the [new Address field type](https://doc.ibexa.co/en/latest/content_managem
 Data migration now offers [repeatable migration steps](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#repeatable-steps),
 especially useful when creating large amounts of data, for example for testing.
 
-You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.github.io/).
+You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.org/).
 
 ## Other changes
 

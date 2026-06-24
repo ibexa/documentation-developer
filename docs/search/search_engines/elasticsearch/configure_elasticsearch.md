@@ -305,7 +305,7 @@ To do this, pass the following setting under the `ssl` key:
 verification: false
 ```
 
-For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#ssl-encryption).
+For more information, see [Elasticsearch: Security by default](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#auth-http).
 
 ### Enable debugging
 

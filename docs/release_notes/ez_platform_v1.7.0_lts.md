@@ -4,15 +4,13 @@
 
 **The v1.7.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of December 15, 2016.**
 
-**<https://ezplatform.com/Blog/Long-Term-Support-is-Here>**
-
 LTS Info
 
 eZ Platform Enterprise Edition v1.7.0 is the first version of the 2017 Long Term Support ("LTS") release which is maintained and supported until December 2019.
 
 As of v1.7.0, PHP requirements have been updated to remove PHP 5.5, leaving PHP 5.6 and 7.0 as supported PHP versions.
 
-With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Name-Changes-to-Product-Portfolio) takes effect: "eZ Platform" for the Open Source edition, and "eZ Platform Enterprise Edition" for subscribers.
+With the LTS release, the new product naming takes effect: "eZ Platform" for the Open Source edition, and "eZ Platform Enterprise Edition" for subscribers.
 
 ## Notable Changes Since v1.6.0
 
@@ -92,21 +90,11 @@ Other improvements includes the good setup of all content type field categories 
 
 ![""](productcontenttype.png)
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

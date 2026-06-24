@@ -433,13 +433,13 @@ Installation instructions for v4.6 are not needed in v5.0, or replaced by config
 |:-----------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
 | [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)              |
 | [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly        |
-| [Date and time attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation)  | [Date and time attribute: Usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
+| [Date and time attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation)  | [Date and time attribute: Usage](https://doc.ibexa.co/en/5.0/product_catalog/attributes/date_and_time/#usage) |
 | [Symbol attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation) | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)             |
 
 #### PHP API
 
 Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for v5.0.
-You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
+You can use [`ibexa/rector`](https://github.com/ibexa/rector#ibexa-dxp-rector) package that allows to maintain your custom PHP code quality.
 Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
 
 Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the building blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
@@ -447,7 +447,7 @@ Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](h
 #### REST API
 
 Layout for [v5.0 REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) is now changed.
-As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
+As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
 You can also check the documentation directly on your development installations at `/api/ibexa/v2/doc`.
 
 ## June 2025
@@ -707,8 +707,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### PHP API
 
 - Added the following interfaces and classes to the public PHP API:
-    - [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
-    - [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+    - [`Ibexa\Contracts\Share\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Values-PermissionCheckContext.html)
     - [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
     - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
@@ -861,7 +860,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Infrastructure and maintenance
 
-- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.5/update_from_4.5/#v468)
+- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v468)
 - Modified [v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
 - Updated the recommendations in [Performance](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
 
@@ -899,8 +898,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Infrastructure and maintenance
 
-- [Updated [[= product_name_cloud =]] domain to ibexa.cloud](https://doc.ibexa.co/en/4.6/getting_started/install_on_ibexa_cloud/#4-push-the-project)
-- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.5/update_from_4.5/#v464)
+- [Updated [[= product_name_cloud =]] domain to ibexa.cloud](https://doc.ibexa.co/en/4.6/ibexa_cloud/install_on_ibexa_cloud/#4-push-the-project)
+- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v464)
 
 ### Documentation
 
@@ -924,7 +923,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Infrastructure and maintenance
 
-- [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.5/update_from_4.5/#v463)
+- [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v463)
 
 ### Users
 
@@ -997,7 +996,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - [Updated Create custom view matcher article](https://doc.ibexa.co/en/4.6/templating/templates/create_custom_view_matcher/)
 - [Actito transactional email integration](https://doc.ibexa.co/en/4.6/commerce/transactional_emails/transactional_emails/#configure-actito-integration)
-- [Described user profile](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#edit-user-profile)
+- [Described user profile](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#view-and-edit-user-profile)
 
 ## January 2024
 
@@ -1022,7 +1021,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Getting started
 
 - [[[= product_name_headless =]] product guide](https://doc.ibexa.co/en/4.6/ibexa_products/headless/)
-- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#edit-user-profile) in User Documentation
+- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#view-and-edit-user-profile) in User Documentation
 
 ### Image management
 
@@ -1054,7 +1053,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Templating
 
 - [Taxonomy view matchers](https://doc.ibexa.co/en/4.6/templating/templates/view_matcher_reference/#taxonomy-entry-id)
-- [Get content category Twig filter](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/other_twig_filters/#ibexa_taxonomy_entries_for_content)
+- [Get content category Twig filter](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_taxonomy_entries_for_content-filter)
 - [Updated arguments list for `ibexa_render()` method](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_render)
 - [New Field information Twig functions](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/field_twig_functions/#ibexa_field_group_name)
 - [Updated get user Twig functions](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/user_twig_functions/)
@@ -1198,7 +1197,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Security
 
-- [Hidden state clarification](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/security/security_checklist/#do-not-use-hide-for-read-access-restriction)
+- [Hidden state clarification](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/security/security_checklist/#dont-use-hide-for-read-access-restriction)
 - [Add timeouts information](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/security/security_checklist/#protect-against-brute-force-attacks)
 
 ## July 2023

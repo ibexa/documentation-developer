@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.10.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of June 28, 2017.**
 
-If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [eZ Platform 1.7 release notes](ez_platform_v1.7.0_lts.md).
 
 ## Notable changes since v1.9.0
 
@@ -22,7 +22,7 @@ This is a first step. We aim to provide more in terms of table support in the ed
 
 This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts.
 
-For more information, see [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
+For more information, see [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/v1.0/doc).
 
 ![""](newdesigntable.png)
 
@@ -102,21 +102,11 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja](https://twitter.com/pspanja) for the work Solr index-time boosting, [@plopix](https://twitter.com/Plopix) for the NovaeZSEOBundle, [@jvieilledent](https://twitter.com/jvieilledent) for the initial work on the design engine and to all others who contributed bug reports, feedback and comments that made this release possible.
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

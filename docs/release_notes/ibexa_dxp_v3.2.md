@@ -30,7 +30,7 @@ and use assets such as images directly from the DAM in your content.
 
 [[= product_name_base =]] Platform can now save your edits in a content item or product automatically to help you preserve the progress in an event of a failure.
 
-For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
+For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/3.2/publishing/publishing/#autosave).
 
 ### Aggregation API
 
@@ -92,8 +92,6 @@ You can now see the scheduled blocks in the calendar after you configure the rev
 This way you can envision what content will be available in the future.
 
 Also, you can now apply new filters that are intended to help you declutter the calendar view.
-
-For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
 
 ### Cloning content types
 

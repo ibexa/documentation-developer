@@ -478,7 +478,7 @@ composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]] --with-all-dependen
 Upgrade your Elasticsearch server to version 8.19 or higher.
 For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://developer.upsun.com/docs/add-services/elasticsearch) for a list of supported versions.
 
 #### Update configuration
 

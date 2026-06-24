@@ -207,7 +207,7 @@ It's no longer necessary to take other taxonomies into account when creating tag
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
 To do it, the system checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
 
-For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords).
+For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users/passwords/#breached-passwords).
 
 ### [[= product_name_connect =]]
 

@@ -73,7 +73,7 @@ From product's **Completeness** tab you can now jump directly to editing the pro
 
 #### Catalog filters
 
-In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/5.0/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
+In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/4.3/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
 Built-in filters are also divided into groups now for easier browsing.
 
 Filtering by the Color attribute is now possible.
@@ -104,7 +104,7 @@ The catalogs functionality in the product catalog is now covered in REST API, in
 ### Personalization improvements
 
 Now, as a Personalization admin, after editing a model in the back office,
-[you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#trigger-model-build), use the **Trigger model build** button to build this model with your modifications.
+[you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/configure_models/#trigger-model-build), use the **Trigger model build** button to build this model with your modifications.
 
 ### Taxonomy improvements
 

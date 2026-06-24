@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.9.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of April 19, 2017.**
 
-If you're looking for the Long Term Support (LTS) release, see[https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [eZ Platform 1.7 release notes](ez_platform_v1.7.0_lts.md).
 
 ## Notable changes since v1.8.0
 
@@ -68,21 +68,11 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 | [List of changes for rc1 of eZ Platform v1.9.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.9.0-rc1)         | [List of changes for rc1 for eZ Platform Enterprise Edition v1.9.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.9.0-rc1)       |
 | [List of changes for beta2 of eZ Platform v1.9.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.9.0-beta2)         | [List of changes for beta1 of eZ Platform Enterprise Edition v1.9.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.9.0-beta1)       |
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

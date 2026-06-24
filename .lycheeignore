@@ -1,0 +1,164 @@
+# URLs excluded from lychee link checking.
+# Each line is a regular expression matched against the full URL.
+#
+# Add external URLs here when they produce false positives (redirects, bot-blocks,
+# JS-rendered anchors, etc.). Structural file:// exclusions that depend on the
+# build path live in lychee.toml.dist instead, as they require __BASE_DIR__ substitution.
+
+# Localhost / loopback — not real content links
+^https?://localhost
+^https?://127\.0\.0\.1
+
+# Placeholder domain used in examples
+^https?://example\.com
+
+# Known intentional redirects (302)
+^https://support\.ibexa\.co/
+^https://redocly\.com/redoc/
+^https://updates\.ibexa\.co
+^https://console\.cloud\.google\.com
+
+# Hosts that block automated requests (403)
+^https?://(www\.)?linkedin\.com
+^https?://(www\.)?openai\.com
+^https?://help\.openai\.com
+^https?://(www\.)?paypal\.com
+^https://support\.qualifio\.com/
+^https://unsplash\.com/
+https://support.deepl.com/hc/en-us/articles/360020695820-API-key-for-DeepL-API
+^https?://(www\.)?npmjs\.com
+
+
+# AI provider consoles — redirect to login pages (302/307)
+https://aistudio\.google\.com/app/api-keys
+https://console\.anthropic\.com/login
+https://docs\.claude\.com/en/docs/about-claude/models/overview
+
+# AWS console — redirects unauthenticated requests (302)
+https://console\.aws\.amazon\.com/
+
+# EU legislation portal — fragment (#d1e...) is a JavaScript-rendered anchor
+https://eur-lex\.europa\.eu/
+
+# GitHub release tag URLs with unresolved MkDocs macro (releases/tag/ with no version)
+# These come from snippets using [[= version =]] which does not expand during link-check builds.
+https://github\.com/ibexa/(commerce|experience|headless)/releases/tag/$
+
+# Webarchive links
+https://web.archive.org/web/20140911035812/https://doc.ez.no/display/EZP/Legacy+code+and+features
+https://web.archive.org/web/20150920231014/https://doc.ez.no/display/EZP/Upgrade
+https://web.archive.org/web/20201015232625/https://ezsystems.github.io/ezplatform-rest-reference/
+
+# Doc links older than 4.6
+https://doc.ibexa.co/en/2.2/releases/updating_ez_platform/
+https://doc.ibexa.co/en/2.2/releases/updating_ez_platform/#migrate-landing-pages
+https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield/
+https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield/
+https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield/
+https://doc.ibexa.co/en/2.5/api/graphql/
+https://doc.ibexa.co/en/2.5/api/public_php_api_browsing/#getting-content-from-a-location
+https://doc.ibexa.co/en/2.5/api/public_php_api_browsing/#siteaccess-aware-repository
+https://doc.ibexa.co/en/2.5/community_resources/translations/#how-to-translate-the-interface-using-crowdin
+https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/
+https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/
+https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/
+https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/
+https://doc.ibexa.co/en/2.5/getting_started/requirements/
+https://doc.ibexa.co/en/2.5/getting_started/requirements/
+https://doc.ibexa.co/en/2.5/getting_started/requirements/
+https://doc.ibexa.co/en/2.5/getting_started/requirements/
+https://doc.ibexa.co/en/2.5/getting_started/requirements/
+https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree
+https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers
+https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility
+https://doc.ibexa.co/en/2.5/guide/databases/#using-postgresql
+https://doc.ibexa.co/en/2.5/guide/design_engine/
+https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs
+https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons
+https://doc.ibexa.co/en/2.5/guide/extending/extending_form_builder/
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-plugins
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#example-factbox-tag
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#inline-custom-tags
+https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#link-tag
+https://doc.ibexa.co/en/2.5/guide/images/#reusing-images
+https://doc.ibexa.co/en/2.5/guide/images/#setting-placeholder-generator
+https://doc.ibexa.co/en/2.5/guide/internationalization/
+https://doc.ibexa.co/en/2.5/guide/limitation_reference/#state-limitation
+https://doc.ibexa.co/en/2.5/guide/search/solr/
+https://doc.ibexa.co/en/2.5/guide/search/solr/#solrcloud
+https://doc.ibexa.co/en/2.5/guide/url_management/#regenerating-url-aliases
+https://doc.ibexa.co/en/2.5/guide/url_management/#url-alias-patterns
+https://doc.ibexa.co/en/2.5/guide/url_management/#url-wildcards
+https://doc.ibexa.co/en/2.5/guide/workflow/
+https://doc.ibexa.co/en/2.5/guide/workflow/#permissions
+https://doc.ibexa.co/en/2.5/update_and_migration/from_1.x_2.x/update_app_to_2.5/#c-fix-other-conflicts
+https://doc.ibexa.co/en/2.5/update_and_migration/from_1.x_2.x/update_db_to_2.5/#a-update-to-v22
+https://doc.ibexa.co/en/3.0/api/rest_api_guide/
+https://doc.ibexa.co/en/3.1/guide/url_management/
+https://doc.ibexa.co/en/3.3/api/public_php_api_search/#additional-search-result-data
+https://doc.ibexa.co/en/3.3/extending/extending_udw/
+https://doc.ibexa.co/en/3.3/getting_started/install_ez_platform/
+https://doc.ibexa.co/en/3.3/guide/cache/http_cache/
+https://doc.ibexa.co/en/3.3/guide/content_rendering/queries_and_controllers/content_queries/#content-query-field
+https://doc.ibexa.co/en/3.3/guide/data_migration/data_migration/
+https://doc.ibexa.co/en/3.3/guide/image_editor/
+https://doc.ibexa.co/en/3.3/guide/images/image_editor/
+https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/contenttranslatedname_sort_clause/
+https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/customfield_sort_clause/
+https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/score_sort_clause/
+https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-catalog
+https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-filter-catalogs
+https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-load-catalog-filters
+https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-update-catalog
+https://doc.ibexa.co/en/4.3/pim/pim_configuration/#catalog-filters
+https://doc.ibexa.co/en/4.3/update_and_migration/from_4.2/update_from_4.2/
+https://doc.ibexa.co/en/4.4/commerce/commerce/
+https://doc.ibexa.co/en/4.4/commerce/storefront/storefront/
+https://doc.ibexa.co/en/4.4/content_management/data_migration/data_migration_actions/#data-migration-actions
+https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/
+https://doc.ibexa.co/en/4.4/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler
+https://doc.ibexa.co/en/4.5/api/rest_api/rest_api_usage/rest_requests/#expected-user
+https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration
+https://doc.ibexa.co/en/4.5/commerce/commerce/
+https://doc.ibexa.co/en/4.5/content_management/pages/react_app_block/
+https://doc.ibexa.co/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration
+https://doc.ibexa.co/en/4.5/customer_management/cp_page_builder/
+https://doc.ibexa.co/en/4.5/search/aggregation_reference/product_attribute_aggregations/
+https://doc.ibexa.co/en/4.5/search/aggregation_reference/productavailabilityterm_aggregation/
+https://doc.ibexa.co/en/4.5/search/aggregation_reference/productpricerange_aggregation/
+https://doc.ibexa.co/en/4.5/search/aggregation_reference/productstockrange_aggregation/
+https://doc.ibexa.co/en/4.5/search/aggregation_reference/producttypeterm_aggregation/
+https://doc.ibexa.co/en/4.5/search/aggregation_reference/taxonomyentryid_aggregation/
+https://doc.ibexa.co/en/4.5/search/criteria_reference/productstock_criterion/
+https://doc.ibexa.co/en/4.5/search/criteria_reference/productstockrange_criterion/
+https://doc.ibexa.co/en/4.5/users/passwords/#breached-passwords
+https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree
+https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms
+https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management
+https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options/
+https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft
+https://doc.ibexa.co/projects/userguide/en/2.5/search/#simplified-filtered-search
+https://doc.ibexa.co/projects/userguide/en/3.1/publishing/publishing/#comparing-versions
+https://doc.ibexa.co/projects/userguide/en/3.2/publishing/publishing/#autosave
+https://doc.ibexa.co/projects/userguide/en/4.0/publishing/editorial_workflow/#releasing-locked-drafts
+https://doc.ibexa.co/projects/userguide/en/4.0/site_organization/working_with_page/#configure-block-display
+https://doc.ibexa.co/projects/userguide/en/4.1/site_organization/working_with_page/#dynamic-targeting-block
+https://doc.ibexa.co/projects/userguide/en/4.2/user_management/manage_users/#invite-users
+https://doc.ibexa.co/projects/userguide/en/4.2/user_management/manage_users/#register-as-a-user
+https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#catalog-block
+https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-purchased-block
+https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block
+https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block
+https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block
+https://doc.ibexa.co/projects/userguide/en/4.4/personalization/enable_personalization/#request-access-to-the-server
+https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#predictive
+https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recently-added
+https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recurring-purchase
+https://doc.ibexa.co/projects/userguide/en/4.5/content_management/block_reference/#bestsellers-block
+https://doc.ibexa.co/projects/userguide/en/4.5/content_management/translate_content/#translation-comparison
+https://doc.ibexa.co/projects/userguide/en/4.5/customer_management/build_customer_portal/
+https://doc.ibexa.co/projects/userguide/en/4.5/personalization/recommendation_models/#b2b-model
+https://doc.ibexa.co/projects/userguide/en/4.5/personalization/segment_management/

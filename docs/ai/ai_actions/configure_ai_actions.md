@@ -93,7 +93,7 @@ You can now use the Anthropic connector in your project.
 !!! note "Current model availability"
 
     Anthropic regularly releases new models and deprecates older ones.
-    Before you configure the connector, check the [Anthropic models overview](https://docs.anthropic.com/en/docs/about-claude/models/overview) for the current list of supported model identifiers.
+    Before you configure the connector, check the [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for the current list of supported model identifiers.
 
 ## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
 

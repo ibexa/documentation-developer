@@ -32,12 +32,12 @@ To use Symfony Events, create [Event Listeners]([[= symfony_doc =]]/event_dispat
 
 The list of bundles in v3.0 has been extended by the following ones:
 
-- [`ezplatform-calendar`](https://github.com/ezsystems/ezplatform-calendar)
+- `ezplatform-calendar`
 - [`ezplatform-content-forms`](https://github.com/ezsystems/ezplatform-content-forms)
 - [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel)
 - [`ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest)
-- [`ezplatform-site-factory`](https://github.com/ezsystems/ezplatform-site-factory)
-- [`ezplatform-version-comparison`](https://github.com/ezsystems/ezplatform-version-comparison)
+- `ezplatform-site-factory`
+- `ezplatform-version-comparison`
 
 For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
@@ -150,7 +150,7 @@ You can now duplicate a role with a single click in the back office.
 
 ### REST API reference
 
-The REST reference has been moved from Kernel to a new page, [eZ Platform REST API](https://ezsystems.github.io/ezplatform-rest-reference).
+The REST reference has been moved from Kernel to a new page, [eZ Platform REST API](https://web.archive.org/web/20201015232625/https://ezsystems.github.io/ezplatform-rest-reference/).
 
 ### Search Criteria
 

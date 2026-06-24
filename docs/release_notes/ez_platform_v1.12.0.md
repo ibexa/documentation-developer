@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.12.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of October 31, 2017.**
 
-If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [eZ Platform 1.7 release notes](ez_platform_v1.7.0_lts.md).
 
 ## Notable changes since v1.11.0
 
@@ -49,21 +49,11 @@ For Varnish users be aware thus change implies new VCL and requirement for varni
 | [List of changes for rc1 of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-rc1) |
 | [List of changes for beta2 of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-beta2) |
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at eZPlatform.com
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
@@ -76,7 +66,7 @@ To update to this version, follow the [updating guide](https://doc.ibexa.co/en/
 
     This release enables the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) Bundle by default as it has a more future-proof approach for HttpCache:
     - Cache tagging is more reliable at clearing all affected cache on, for instance, subtree operations
-    - More performant using [xkey](https://github.com/varnish/varnish-modules/blob/master/docs/vmod_xkey.rst) _("Surrogate Key")_ and soft purging, over BAN and growing ban list
+    - More performant using [xkey](https://github.com/varnish/varnish-modules/blob/varnish-modules-0.10.2/docs/vmod_xkey.rst) _("Surrogate Key")_ and soft purging, over BAN and growing ban list
 
     This means:
     - There is a new VCL

@@ -323,7 +323,7 @@ Those steps aren't needed when using [[= product_name_cloud =]], where the provi
 
 - Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
-- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-security-updates)
 to receive notifications when a security fix is released in a GitHub-hosted dependency.
 - If you're not using GitHub for your project, you can create a dummy project on GitHub with the same dependencies as your real project, and enable Dependabot notifications for that.
 - Ensure you get notifications about security fixes in JavaScript dependencies.
