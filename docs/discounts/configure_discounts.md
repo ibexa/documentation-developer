@@ -49,7 +49,7 @@ To run discount re-indexing in the background:
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
 ```
 
-3\. Periodically run the following command, about one time a day or more often:
+3\. Run the following command periodically, at least once a day:
 
 ``` bash
 php bin/console ibexa:discounts:reindex
