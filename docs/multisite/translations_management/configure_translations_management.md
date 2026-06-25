@@ -134,7 +134,7 @@ ibexa:
                                 fre-FR: 'fr'
 ```
 
-The `supportedLanguageCodes` setting controls which languages are available when creating [language pairs](#manage-language-pairs) for this provider.
+The `supportedLanguageCodes` setting controls which languages are available when creating [language pairs](#define-language-pairs) for this provider.
 
 !!! note "Identifier normalization"
 
@@ -142,27 +142,67 @@ The `supportedLanguageCodes` setting controls which languages are available when
     Use one format consistently.
     If you mix `my-provider` and `my_provider` for the same provider, it results in an exception.
 
-## Manage language pairs
+## Define language pairs
 
 Language pair definitions decide which provider handles each source-to-target language combination by default.
 For example, you can decide that English to French translations should use DeepL.
 When an editor [opens the translation modal]([[= user_doc =]]/content_management/translate_content/#add-new-translation) and selects a matching language combination, the provider that you chose is pre-selected in the dropdown.
 The editor can override the pre-selection.
 
-You manage language pairs in back office, under **Admin** > **Languages** > **Translation providers**.
-The configurations are persisted by `SettingService` and stored in the `ibexa_setting` database table under group `translations_management` with identifier `language_pairs`.
-
 The list of languages available when creating a language pair is determined by what each provider supports.
 You can only select the languages that are present in a provider's [supported list](#advanced-translation-provider-options) for that provider's pairs.
 
+The configurations are persisted by `SettingService` and stored in the `ibexa_setting` database table under group `translations_management` with identifier `language_pairs`.
+
+You can manage language pairs in [[= product_name_base =]]'s back office or programatically.
+
+### Manage language pairs in UI
+
+To manage language pairs in the back office, go to **Admin** -> **Languages** -> **Language pairs** tab.
+Here you can create, edit and delete language pairs.
+
+To add a language pair, click **+ Add language pair**.
+Then, pick a source language and one or more target languages from their respective drop-down lists.
+Finally, from the **Translation service** list, pick a translation provider and click **Save and close**
+
+![Creating a language pair](translations_management_language_pairs.png "Creating a language pair")
+
+This will add as many language pairs as you picked target languages.
+
+!!! note
+
+    The **Add language pair** action is disabled if no translation providers are [configured](#configure-translation-providers).
+
+    If a language pair already exists and is associated with a translation provider, you can't create another language pair with a different provider.
+    Edit the existing language pair instead. 
+
+## Manage language pairs programmatically
+
+To manage language pairs programmatically, create a service class and inject `LanguagePairServiceInterface` into its constructor.
+Symfony autowires it automatically` so no manual service configuration is needed.
+
+
+``` php hl_lines="2"
+[[= include_code('code_samples/translations_management/src/TranslationsManagement/TranslationPairManager.php', 14, 35) =]]
+```
+
+The service exposes the following methods:
+
+| Method | Description |
+|---|---|
+| `createLanguagePair()` | Create a new language pair. Pass `true` as the fourth argument to overwrite an existing pair with the same source and target. |
+| `updateLanguagePair()` | Update an existing language pair by ID. |
+| `syncLanguagePairsForSourceAndProvider()` | Synchronize all target languages for a given source language and provider. |
+| `loadLanguagePairs()` | Load all configured language pairs. |
+| `deleteLanguagePairById()` | Delete a language pair by ID. |
+| `deleteLanguagePairsForProvider()` | Delete all language pairs associated with a given provider. |
+
 ## User settings
 
-The Translations management package adds two preferences that editors can configure under their [user settings](getting_started/get_started/#browsing).
+The Translations management package adds preferences that editors can configure under their [user settings](getting_started/get_started/#browsing).
 Each editor can configure them independently, and they do not affect other users.
 
-- Column order
-
-Editors can choose whether the target language column appears on the left or right in the side-by-side view.
+For example, editors can choose whether the target language column appears on the left or right in the side-by-side view.
 By default, the target is on the right, and each editor can override this default.
 
 You can change the system-wide default in configuration:

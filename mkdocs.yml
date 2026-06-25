@@ -482,7 +482,7 @@ nav:
             - Automated content translation: multisite/languages/automated_translations.md
             - Translations management:
                 - Translations management: multisite/translations_management/translations_management.md
-                - Translations management product guide: multisite/translations_management/translations_management_guide.md
+                - Translations management guide: multisite/translations_management/translations_management_guide.md
                 - Configure translations management: multisite/translations_management/configure_translations_management.md
                 - Extend translations management: multisite/translations_management/extend_translations_management.md
     - Permissions:

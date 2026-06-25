@@ -46,11 +46,13 @@ The editor can save the result as draft, share it with a reviewer or publish it.
 
 ### Translation provider management
 
-Administrators can manage translation providers and configure [language pair defaults](configure_translations_management.md#manage-language-pairs).
+Administrators can manage translation providers and configure [language pair defaults](configure_translations_management.md#define-language-pairs).
 This way they can define which provider handles which language combination.
 Editors see the configured default pre-selected when creating a new translation, but can override the selection if needed.
 
-Translations management supports several built-in translation providers, for example Google Translate, which is accessed through its REST API, or OpenAI, accessed through AI Actions.
+![Creating a language pair](translations_management_language_pairs.png "Creating a language pair")
+
+The package provides integrations with several translation providers, including Google Translate through its REST API and OpenAI through [AI Actions](ai_actions.md).
 
 ### Side-by-side translation view
 
@@ -74,7 +76,7 @@ Editors can:
 
     Products are editable in the side-by-side view, but product attributes are not translatable.
 
-### CLI translation
+### Command line translation
 
 The Translations management package exposes a [console command](configure_translations_management.md#translate-content-items-with-cli) for translating content items from the command line.
 You can use it for batch processing or CI (Continuous Integration) workflows.
