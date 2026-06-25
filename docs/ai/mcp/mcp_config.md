@@ -110,13 +110,13 @@ There are two ways to associate tools with a server:
 MCP Servers LTS Update comes with the following built-in tools:
 
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
-    - `get_content_type` - gets a content type by its ID (integer) or identifier (string).
+    - `get_content_type` - gets a content type by its ID.
+    - `get_content_type_by_identifier` - gets a content type by its identifier.
+    - `get_content_type_list` - gets content types by their IDs.
     - `create_content_type` - creates a content type draft.
-    - `create_content_type_draft` - creates a draft for a content type specified by its ID (integer) or identifier (string).
     - `get_content_type_draft` - gets a content type draft by content type ID.
     - `publish_content_type_draft` - publishes a content type draft by content type ID.
 - `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
-    - `get_field_type_list` - lists all available field types with identifiers, names, settings, and validator configuration.
     - `add_field_definition` - adds a field definition to a content type draft.
     - `update_field_definition` - updates a field definition in a content type draft.
     - `remove_field_definition` - removes a field definition from a content type draft.
