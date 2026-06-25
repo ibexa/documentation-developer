@@ -27,7 +27,7 @@ It's capable of handling the following types of files:
 
 ### Value object
 
-##### Properties
+#### Properties
 
 `Ibexa\Core\FieldType\Media\Value` offers the following properties.
 

@@ -78,7 +78,6 @@ In this example, the field is `priority_i` which exists only for locations.
 
     For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor` tag.
 
-
 For the result extractor, you can use the built-in `RangeAggregationResultExtractor` and provide it with the aggregation class in the `aggregationClass` parameter.
 
 === "Solr"
@@ -182,7 +181,6 @@ Finally, register the aggregation visitor as a service.
 
     For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor` tag.
 
-
 ### Create result extractor
 
 === "Solr"
@@ -212,7 +210,6 @@ Finally, register the aggregation visitor as a service.
     The `supports()` method checks whether the provided aggregation is of the supported type (in this case, your custom `PriorityRangeAggregation`).
 
     The `extract()` method converts the [raw data provided by the search engine](https://www.elastic.co/docs/explore-analyze/query-filter/aggregations) to a `RangeAggregationResult` object.
-
 
 Finally, register the result extractor as a service.
 

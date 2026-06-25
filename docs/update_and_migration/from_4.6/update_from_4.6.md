@@ -49,7 +49,7 @@ No additional steps needed.
 
 ## v4.6.2
 
-#### Database update
+### Database update
 
 Run the following scripts:
 
@@ -102,7 +102,7 @@ ibexa:
 
 ## v4.6.4
 
-#### Database update
+### Database update
 
 Run the following scripts:
 
@@ -170,6 +170,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
+
 ``` bash
 php bin/console ibexa:content:remove-duplicate-fields
 ```
@@ -303,7 +304,7 @@ No additional steps needed.
 ### Security
 
 This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
-By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe).
 To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
 
 For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
@@ -326,19 +327,22 @@ You can use it to get rid of PHP code deprecations and start preparing your proj
 
 To get started with [[= product_name_base =]] Rector, execute the following steps:
 
-1. Add the Composer dependency:
+1\. Add the Composer dependency:
+
 ``` bash
 composer require --dev ibexa/rector:^4.6
 ```
 
-2. Adjust the created `rector.php` configuration file to match your project structure
+2\. Adjust the created `rector.php` configuration file to match your project structure
 
-3. Run Rector in the dry-run mode to preview the changes: 
+3\. Run Rector in the dry-run mode to preview the changes:
+
 ``` bash
 vendor/bin/rector --dry-run
 ```
 
-4. Run Rector:
+4\. Run Rector:
+
 ``` bash
 vendor/bin/rector
 ```
@@ -672,33 +676,33 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 
 For more information, see the following security advisories:
 
-* PHP 8.0 and PHP 7.4
-    * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
-    * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
-    * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
-    * [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
-    * [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
-    * [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
-    * [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
-    * [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
-    * [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
-    * [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
-    * [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
-    * [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
-    * [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
-    * [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
-    * [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
-    * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
-    * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
-    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
-* PHP 7.4 only
-    * [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
-    * [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
-    * [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
-    * [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
-    * [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
+- PHP 8.0 and PHP 7.4
+    - [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
+    - [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
+    - [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
+    - [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
+    - [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
+    - [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
+    - [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
+    - [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
+    - [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
+    - [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
+    - [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
+    - [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
+    - [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
+    - [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
+    - [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
+    - [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
+    - [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+    - [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
+- PHP 7.4 only
+    - [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
+    - [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
+    - [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
+    - [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
+    - [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
-To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
+To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version.
 
 For projects meeting this requirement, you can update the packages with Composer.
 

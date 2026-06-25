@@ -27,7 +27,7 @@ for a full comparison of old and new bundle names and namespaces.
 
 ### Richtext namespace
 
-The internal format of richtext has changed. 
+The internal format of richtext has changed.
 
 All namespace changes are listed in the
 [richtext](https://github.com/ibexa/fieldtype-richtext/blob/bf45e57ea1d2933cc02eb8d8bff76c0925de92de/src/bundle/Resources/config/default_settings.yaml#L60-L67) repository.
@@ -236,8 +236,8 @@ The following Twig functions and filter have been renamed, including:
     | `unserialize` | `ibexa_commerce_unserialize` |
     | `youtube_video_id` | `ibexa_commerce_youtube_video_id` |
 
-
 ## URL Alias route name
+
 URL Alias route name has changed from `ez_urlalias` to `ibexa.url.alias`.
 
 ## Configuration file names

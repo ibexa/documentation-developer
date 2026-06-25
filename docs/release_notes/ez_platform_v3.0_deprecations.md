@@ -324,7 +324,7 @@ Following the upgrade to Symfony 5, the following event classes have been deprec
 Also, as of Symfony 5, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
-##### SubtreeQuery
+### SubtreeQuery
 
 Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
 
@@ -420,10 +420,10 @@ This change is introduced without BC breaks.
 
 Following API methods have been removed:
 
-* `\eZ\Publish\API\Repository\ContentService::removeTranslation`
-* `\eZ\Publish\API\Repository\UserService::loadAnonymousUser`
-* `\eZ\Publish\API\Repository\Repository::getCurrentUser`
-* `\eZ\Publish\API\Repository\Repository::getCurrentUserReference`
+- `\eZ\Publish\API\Repository\ContentService::removeTranslation`
+- `\eZ\Publish\API\Repository\UserService::loadAnonymousUser`
+- `\eZ\Publish\API\Repository\Repository::getCurrentUser`
+- `\eZ\Publish\API\Repository\Repository::getCurrentUserReference`
 - `\eZ\Publish\API\Repository\Repository::setCurrentUser`
 - `\eZ\Publish\API\Repository\Repository::hasAccess`
 - `\eZ\Publish\API\Repository\Repository::canUser`
@@ -795,7 +795,7 @@ You should rely on injected Connection instead.
 
 ## ezplatform-page-builder
 
-#### JavaScript
+### JavaScript
 
 #### Event names changed
 
@@ -958,7 +958,6 @@ The following classes have been moved to `EzPlatformContentFormsBundle`:
 |`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPassword`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPassword`|
 |`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPasswordValidator`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPasswordValidator\ValidationErrorsProcessor`|
 
-
 The following methods have been moved to `EzPlatformUserBundle`:
 
 |Former method|Current method|
@@ -967,7 +966,6 @@ The following methods have been moved to `EzPlatformUserBundle`:
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::forgotUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::forgotUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::resetUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::resetUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::updateUserSetting`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::updateUserSetting`|
-
 
 The following classes have been moved to `EzPlatformContentFormsBundle`.
 

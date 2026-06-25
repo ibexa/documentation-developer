@@ -18,7 +18,7 @@ This field type stores one or several comma-separated keywords as a string or ar
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

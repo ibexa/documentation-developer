@@ -45,7 +45,7 @@ This release of eZ Platform introduces the following new features:
 
     You can now filter elements in the sidebar during site creation process to get to the desired blocks faster.
 
-    ![](3_1_filter_elements.png)
+    ![""](3_1_filter_elements.png)
 
     ### Field group permissions
 
@@ -104,7 +104,7 @@ When users create or edit a content item or a Page, they can now save it without
 They can then return to editing, or pass the content to another contributor.
 Validation that used to happen at each save operation now, by default, happens when you click the **Publish** button.
 
-The `ContentService::validate()` method has been added that you can use to trigger validation of individual fields 
+The `ContentService::validate()` method has been added that you can use to trigger validation of individual fields
 or whole content items for completeness at other stages of the editing process.
 
 ### Search

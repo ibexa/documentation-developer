@@ -11,7 +11,7 @@ After you configure it, it can generate alt text for images or transform text pa
 
 You can also extend it to perform other tasks or support additional AI services.
 
-##  Getting Started
+## Getting Started
 
 [[= cards([
 "ai/ai_actions/ai_actions_guide",

@@ -19,7 +19,7 @@ The field type expects a number as input. Both decimal and integer numbers are a
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

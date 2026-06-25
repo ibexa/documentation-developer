@@ -164,7 +164,7 @@ Querying product attributes with GraphQL is improved with the option to [query b
 
 ### New ways to add images in Online Editor
 
-You can now drag and drop images directly into the Online Editor. 
+You can now drag and drop images directly into the Online Editor.
 To achieve the same result, you can also click the **Upload image** button and select a file from the disk.
 Images that you upload this way are automatically added to the Media library.
 

@@ -229,9 +229,9 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
 
-#### Getting cache service
+### Getting cache service
 
-##### With dependency injection
+#### With dependency injection
 
 In your Symfony services configuration you can define that you require the cache service in your configuration like so:
 
@@ -244,7 +244,7 @@ In your Symfony services configuration you can define that you require the cache
 
 This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
-##### With service container
+#### With service container
 
 Like any other service, you can also get the cache service with the [service container](php_api.md#service-container) like so:
 

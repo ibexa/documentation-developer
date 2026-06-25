@@ -20,7 +20,7 @@ If your project uses custom installer and has relied on Clean Installer service 
 you need to switch to Core Installer.
 
 **Use:**
-    
+
 ``` php
 services:
     Acme\App\Installer\MyCustomInstaller:
@@ -28,7 +28,7 @@ services:
 ```
 
 **instead of**:
-    
+
 ``` php
 services:
     Acme\App\Installer\MyCustomInstaller:

@@ -112,7 +112,7 @@ This allows you to build custom content logic queries with nested logical operat
 
 Custom Field Criterion search mirrors the one already existing in PHP API `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
 
-#### Example of custom Content Query:
+### Example of custom Content Query
 
 ```json
  "ContentQuery":{

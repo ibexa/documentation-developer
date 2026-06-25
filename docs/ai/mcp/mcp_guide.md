@@ -6,7 +6,6 @@ month_change: true
 
 # MCP Servers product guide
 
-
 ## What is MCP Servers
 
 MCP ([Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)) is a protocol that standardizes how AI systems interact with external systems.
@@ -22,7 +21,7 @@ However, when facing a specific REST or GraphQL API, an agent may misunderstand 
 MCP servers make the discovery of available capabilities much easier.
 They help AI agents translate natural language prompts into concrete actions on the system.
 
-![](img/mcp-com-diagram.png)
+![MCP communication diagram showing AI agent client connecting to MCP Server within Ibexa DXP.](img/mcp-com-diagram.png)
 
 An MCP server allows the agent to discover available tools, inspect their parameters, learn how to use them, and select the correct action.
 

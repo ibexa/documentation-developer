@@ -75,7 +75,7 @@ First, run:
     composer recipes:install ibexa/commerce --force -v
     ```
 
-The `recipes:install` command installs new YAML configuration files. 
+The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
 #### Run data migration

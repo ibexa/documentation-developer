@@ -134,7 +134,6 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
     Customers don't need any policies to use the discounts on the [storefront](storefront.md).
     Even the `discount/view` policy would allow them to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
-
 | Module               | Function                 | Effect                      | Possible limitations                                         |
 |----------------------|--------------------------|-----------------------------|----------------------------------------------------|
 | <nobr>`discount`</nobr> | <nobr>`create`</nobr> | create a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
@@ -249,7 +248,6 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
 | <nobr>`content`</nobr> | <nobr>`share`</nobr> | share content drafts with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation) |
 | <nobr>`rte`</nobr> | <nobr>`edit`</nobr> | use [Real-time editing](collaborative_editing_guide.md#real-time-editing)    |
-
 
 #### Content types
 

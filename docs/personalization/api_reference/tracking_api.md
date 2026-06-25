@@ -13,7 +13,7 @@ The most popular user events are:
 - Login - When a user logs in on a website
 - Clickrecommended - When a user clicks a recommendation
 
-For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types/) in User Documentation. 
+For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types/) in User Documentation.
 Depending on the event type, some additional parameters, such as item price or user rating, must be provided.
 
 Importing historical user data can help you reduce the delay in delivery of high quality recommendations.
@@ -61,14 +61,14 @@ For example:
 
 ### User identifier
 
-High quality recommendations can only be delivered if the underlying data is correct and consistent. 
+High quality recommendations can only be delivered if the underlying data is correct and consistent.
 For consistent tracking it's crucial to choose and use a consistent identifier for a user.
 A user usually visits a website anonymously.
-Therefore, their identifier is either a first-party cookie or a session ID provided by the website. 
+Therefore, their identifier is either a first-party cookie or a session ID provided by the website.
 If there is no existing user ID handling that can be re-used, it's recommended that you use your own cookie and set the expiry date to at least 90 days from the last usage.
 If there is a login mechanism, the user is usually tracked with a temporary identifier before the login.
 Immediately after a successful login process a Login event must be sent.
-At this point a [pseudonymous](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1489-1-1) user ID, for example, a system's internal registration id, must be used. 
+At this point a [pseudonymous](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1489-1-1) user ID, for example, a system's internal registration id, must be used.
 After logout, the anonymous user ID can be used again.
 
 !!! note
@@ -174,14 +174,14 @@ The format of the URL is:
 `GET https://event.perso.ibexa.co/api/[customerid]/blacklist/[userid]/[itemtypeid]/[itemid]`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-This event has no query string parameters. 
+This event has no query string parameters.
 
 ### Buy event
 
 As the name suggests, this event is used when an end user buys an item.
 It must be sent to the event tracker at the end of a successful check-out process to ensure that no further action of the user can result in an abort.
 
-The URL has the following format: 
+The URL has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/buy/[userid]/[itemtypeid]/[itemid]?fullprice=2.50EUR&quantity=4`
 
@@ -202,7 +202,7 @@ If products are sold on a subscription basis, or the web presence is ad-sponsore
 
 Every Buy event can contain a price.
 If the price is set, it's stored with the event and used for calculating the revenue for statistics.
-The price must be a price the user paid for the item, including all taxes and discounts. 
+The price must be a price the user paid for the item, including all taxes and discounts.
 
 If product price filtering is activated, the information provided over the product import is used.
 
@@ -258,7 +258,7 @@ The following table lists the request parameters:
 |`percentage`|Informs how much of an item was consumed, for example, that an article was read only in 20%, a movie was watched in 90% or someone finished 3/4 of all levels of a game.|0-100|
 
 The logic for calculating the percentage is defined by the implementation.
-For articles, this could be by scrolling down, for a movie/video based on the consumption part. 
+For articles, this could be by scrolling down, for a movie/video based on the consumption part.
 You must decide what 100% consumption means.
 For example, a movie contains end titles that are almost never consumed.
 Therefore, they should not be part of the percentage calculation.
@@ -279,7 +279,7 @@ Based on this information, recommendations presented by the store can be more ac
 `GET https://event.perso.ibexa.co/api/[customerid]/deletefrombasket/[userid]/[itemtypeid]/[itemid]`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-This event has no query string parameters. 
+This event has no query string parameters.
 
 ### Deletefromwishlist event
 
@@ -290,7 +290,7 @@ Based on this information, recommendations presented by the store can be more ac
 `GET https://event.perso.ibexa.co/api/[customerid]/deletefromwishlist/[userid]/[itemtypeid]/[itemid]`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-This event has no query string parameters. 
+This event has no query string parameters.
 
 ### Login event
 
@@ -303,7 +303,7 @@ As a result, the user identifier changes from an anonymous visit-scoped ID (sour
 You should correlate both IDs to correlate the Buy events (account ID) with the preceding Click events (visit-scoped ID).
 The Login event serves exactly this purpose.
 
-The format of the URL is: 
+The format of the URL is:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/login/[sourceuserid]/[targetuserid]`
 
@@ -444,7 +444,7 @@ The request parameters are:
 |`scenario`|Name of the scenario, where recommendations originated from. This parameter is required.|URL-encoded alphanumeric|
 
 The scenario parameter identifies the originating scenario to gain detailed statistics about the scenario that motivated the user to click on a recommendation.
-This information comes with the recommendation from the recommendation controller. 
+This information comes with the recommendation from the recommendation controller.
 
 The event is used for providing statistics about how often users accepted the recommendations of the configured recommendation scenario or considered them as valuable.
 

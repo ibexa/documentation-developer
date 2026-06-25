@@ -48,7 +48,7 @@ Preparing a new layout requires three things:
 - thumbnail
 - template
 
-#### Add entry in configuration
+### Add entry in configuration
 
 First create a new file for layout configuration, `config/packages/ibexa_fieldtype_page.yaml`:
 
@@ -56,7 +56,7 @@ First create a new file for layout configuration, `config/packages/ibexa_fieldty
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 0, 13) =]]
 ```
 
-#### Add thumbnail
+### Add thumbnail
 
 !!! tip
 
@@ -69,7 +69,7 @@ Use the [supplied thumbnail file](https://github.com/ibexa/documentation-develop
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
-#### Create page template
+### Create page template
 
 Configuration points to `sidebar.html.twig` as the template for the layout.
 The template defines what zones are available in the layout.

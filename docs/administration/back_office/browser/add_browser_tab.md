@@ -45,6 +45,7 @@ The module governs the creation of the new tab.
 ## Add tab to webpack config
 
 In `webpack.config.js`, add the following declaration:
+
 ```js
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
 ```
@@ -91,7 +92,7 @@ Finally, create an image view by adding an `image.js` to `assets/js/image-tab/co
 [[= include_file('code_samples/back_office/udw/assets/js/image-tab/components/image.js') =]]
 ```
 
-##  Add styles
+## Add styles
 
 Ensure that the new tab is styled by adding the following files to `assets/css/`.
 

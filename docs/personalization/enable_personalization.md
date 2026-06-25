@@ -16,7 +16,7 @@ First, either you or another [[= product_name_base =]] user responsible for mana
 
 When you receive the credentials, add them to your configuration.
 
-In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key: 
+In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key:
 
 ```bash
 PERSONALIZATION_CUSTOMER_ID=12345
@@ -163,7 +163,6 @@ The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and 
 
 You can use this token to check what is provided to the Personalization Engine:
 
-
 ```bash
 curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/content/id/{contentId}?lang={comma_separated_languages}' \
 --header 'Accept: application/vnd.ibexa.api.Content+json' \
@@ -220,6 +219,7 @@ The `content` endpoint returns one item and the `contentlist` endpoint returns m
     }
 }
 ```
+
 ### Export item information
 
 To get recommendations you must first export the item information to the Personalization server.

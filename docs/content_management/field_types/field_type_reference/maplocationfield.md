@@ -21,7 +21,7 @@ As input it expects three values:
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -31,7 +31,7 @@ The Value class of this field type contains the following properties:
 | `$longitude` | `float`  | This property stores the longitude value of the map location reference. |
 | `$address`   | `string` | This property stores the address of map location.                       |
 
-##### Constructor
+#### Constructor
 
 The `MapLocation\Value` constructor initializes a new value object with values provided as hash.
 Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).

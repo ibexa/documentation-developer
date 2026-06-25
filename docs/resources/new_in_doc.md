@@ -181,7 +181,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Infrastructure
 
- - [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
+- [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
 
 ### Taxonomy
 
@@ -358,7 +358,6 @@ We want to thank
     In addition, a new exception is available in the 5.0 version:
 
     - [`Ibexa\Contracts\AutomatedTranslation\Exception\ClientNotConfiguredException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Exception-ClientNotConfiguredException.html)
-
 
 ## August 2025
 
@@ -776,7 +775,7 @@ Enhanced the PHP API with the following new classes and interfaces:
     - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#time-slot-based-models)
 
 - Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
-    - [Enable Personalization ](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
+    - [Enable Personalization](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
     - [Integrate recommendation service](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/)
     - [Tracking integration](https://doc.ibexa.co/en/4.6/personalization/tracking_integration/)
     - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/4.6/personalization/tracking_with_ibexa-tracker/)
@@ -813,6 +812,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Added edition information to [PHP API reference](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/) to aid navigation
 
 ### REST API
+
 - Removed multiple obsolete RAML types from the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html)
 
 ### User management
@@ -987,7 +987,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Administration
 
 - [Enhanced data migration doc](https://doc.ibexa.co/en/4.6/content_management/data_migration/importing_data/)
-- [Enhanced update to v3.3 procedure ](https://doc.ibexa.co/en/4.6/update_and_migration/from_2.5/to_3.3/)
+- [Enhanced update to v3.3 procedure](https://doc.ibexa.co/en/4.6/update_and_migration/from_2.5/to_3.3/)
 
 ### Content management
 
@@ -1220,6 +1220,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
+
 - Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
 - [Expected user](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_usage/rest_requests/#expected-user) header support
 

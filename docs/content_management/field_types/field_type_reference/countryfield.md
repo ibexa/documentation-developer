@@ -58,7 +58,7 @@ The format used by the toHash method is the Alpha2 value, however the input is c
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

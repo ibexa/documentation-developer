@@ -173,18 +173,18 @@ Apply the following database update scripts:
 
     Always back up your data before you perform any actions on the product catalog.
 
-Regardless of whether your application already uses the product catalog or you want 
-to start using this functionality, you can choose to use the old features, 
+Regardless of whether your application already uses the product catalog or you want
+to start using this functionality, you can choose to use the old features,
 present in v4.0.x, or upgrade to the all new product catalog that v4.1.x brings.
 
-To use the legacy solution, in the `config/packages` folder, 
-in YAML files with shop configuration, under the `parameters` key, 
+To use the legacy solution, in the `config/packages` folder,
+in YAML files with shop configuration, under the `parameters` key,
 make sure that the `ibexa.commerce.site_access.config.eshop.default.catalog_data_provider` parameter is set to `ez5`.
   
-To use the new product catalog, since the new solution doesn't support the old 
-price engine out of the box, in your price engine configuration, 
-you must update the following parameters by providing the 
-`Ibexa\\ProductCatalog\\Bridge\\PriceProvider` value in the `ibexa_setting` table, 
+To use the new product catalog, since the new solution doesn't support the old
+price engine out of the box, in your price engine configuration,
+you must update the following parameters by providing the
+`Ibexa\\ProductCatalog\\Bridge\\PriceProvider` value in the `ibexa_setting` table,
 `commerce` group, `config` identifier:
 
 ```yaml

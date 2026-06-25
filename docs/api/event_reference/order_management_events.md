@@ -5,6 +5,7 @@ page_type: reference
 ---
 
 # Order management events
+
 | Event | Dispatched by | Properties |
 |---|---|---|
 |`BeforeCreateOrderEvent`|`OrderService::createOrder`|`OrderCreateStruct $createStruct`<br/>`?OrderInterface $orderResult = null`|

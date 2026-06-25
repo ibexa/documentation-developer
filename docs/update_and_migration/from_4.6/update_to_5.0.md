@@ -43,8 +43,8 @@ Customize the `rector.php` config file by:
 
 - making it match your directory structure (for example, you may not have the `tests` directory)
 - adding project-specific rules:
-  - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
-  - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
+    - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
+    - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
 
 It's recommended to activate one rule set at a time and preview the output by running Rector with the `--dry-run` option to decide which rulesets should be used and in which order.
 
@@ -66,7 +66,9 @@ return RectorConfig::configure()
     ->withComposerBased(symfony: true)
 ;
 ```
+
 Run the following command to preview the changes done by Rector:
+
 ```bash
 php vendor/bin/rector --dry-run
 ```
@@ -913,10 +915,10 @@ The following example illustrates the update of a custom page block's icon:
 
 Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
-* If you have already installed the feature, its schema has been updated by the previous step.
-* If you haven't installed the feature, you need to add its schema to your database.
+- If you have already installed the feature, its schema has been updated by the previous step.
+- If you haven't installed the feature, you need to add its schema to your database.
   Store the SQL of the schema into a file, **review it carefully**, then run it.
-* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
+- If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
 
@@ -971,7 +973,6 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
     # Pause to review schema_symbol-attribute.sql
     psql <database_name> < schema_symbol-attribute.sql
     ```
-
 
 #### Install collaboration
 

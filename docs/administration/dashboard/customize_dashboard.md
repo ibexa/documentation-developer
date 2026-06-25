@@ -1,5 +1,4 @@
 ---
-title: Dashboard customization
 description: Customize dashboard.
 edition: experience
 ---

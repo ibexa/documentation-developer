@@ -58,9 +58,9 @@ To use the connector with the Anthropic services, you need to create an account,
 
 2. Go to **API keys** and click **Create Key**.
 
-4. Select the workspace, enter a **Key Name** and click **Add**.
+3. Select the workspace, enter a **Key Name** and click **Add**.
 
-5. Take a note of the API key, because it is displayed only once.
+4. Take a note of the API key, because it is displayed only once.
 
 Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
 
@@ -87,6 +87,7 @@ ibexa_connector_anthropic:
             claude-opus-4-6: 'Claude Opus 4.6 (advanced reasoning)'
             claude-opus-4-7: 'Claude Opus 4.7 (most capable)'
 ```
+
 You can now use the Anthropic connector in your project.
 
 !!! note "Current model availability"
@@ -122,16 +123,16 @@ To use the connector with the Gemini services, you need to create an account, se
     1. Add project name, for example, "My project".
     1. Modify the automatically generated **Project ID** if necessary.
     1. Select location: choose your organization.
-1.  Click **Create**.
+1. Click **Create**.
 
 #### Configure billing
 
 1. Navigate to the Google Cloud Console's **Billing** page.
 1. If you do not have one, click **Add billing account** and add a payment method.
 1. In **Your projects** tab, locate your project, and in its line, from the **Actions** menu, select **Change billing**.
-1. Select your active billing account, and click **Set account**. 
+1. Select your active billing account, and click **Set account**.
 
-#### Enable the Gemini API 
+#### Enable the Gemini API
 
 1. Navigate to the Google Cloud Console's **APIs & Services** page.
 1. From the left-hand menu, select **Library** and search for the Generative Language API.

@@ -16,7 +16,7 @@ This field type represents an integer value.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -29,7 +29,7 @@ The Value class of this field type contains the following properties:
 $integer->value = 8
 ```
 
-##### Constructor
+#### Constructor
 
 The `Integer\Value` constructor initializes a new value object with the value provided.
 It expects a numeric, integer value.
@@ -42,13 +42,13 @@ use Ibexa\Core\FieldType\Integer;
 $integerValue = new Integer\Value( 8 );
 ```
 
-### Hash format
+#### Hash format
 
 Hash value of this field type is an integer value as a string.
 
 Example: `"8"`
 
-### String representation
+#### String representation
 
 String representation of the field type's value returns the integer value as a string.
 

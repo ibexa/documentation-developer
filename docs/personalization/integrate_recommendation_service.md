@@ -170,8 +170,8 @@ To let your visitors receive emails with recommendations:
 Out of many options, it could be an [[= product_name_connect =]] [webhook]([[= connect_doc =]]/tools/webhooks/).
 The endpoint must meet the following requirements:
 
- - must support POST requests
- - must accept JSON objects in a format that resembles the following example:
+- must support POST requests
+- must accept JSON objects in a format that resembles the following example:
 
 ``` json
 {

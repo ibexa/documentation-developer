@@ -211,7 +211,6 @@ DDEV offers several ways to get the same result, offering different levels of fl
 
     Learn more about DDEV configuration from [`ddev config` command documentation](https://docs.ddev.com/en/stable/users/usage/commands/#config) and [advanced configuration files documentation](https://docs.ddev.com/en/stable/users/configuration/config/).
 
-
 ### Using `auth.json`
 
 An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://docs.ddev.com/en/stable/users/extend/in-container-configuration/).
@@ -232,6 +231,7 @@ The following example shows the use of `.env.local` with database configuration:
 
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
+
   ```bash
   ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;

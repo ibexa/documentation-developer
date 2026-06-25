@@ -22,7 +22,6 @@ ibexa:
                         title: <item_name>
 ```
 
-
 See the example:
 
 ```yaml

@@ -45,7 +45,6 @@ All product management operations remain handled in [[= pim_product_name =]].
 
 [[= pim_product_name =]] is the authoritative system for product data, including attributes, classifications, variants, and translations.
 
-
 [[= product_name =]] consumes this data and makes it available for use within content and back office interfaces, enabling editorial teams to enrich content by reusing product information.
 
 ## Use cases

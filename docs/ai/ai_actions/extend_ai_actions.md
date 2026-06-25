@@ -32,7 +32,7 @@ Both `ActionContext` and `RuntimeContext` are passed to the Action Handler (an o
 
 You can pass the Action Handler directly to the `ActionServiceInterface::execute()` method, which overrides all the other ways of selecting the Action Handler.
 You can also specify the Action Handler by including it in the provided [Action Configuration](#action-configurations).
-In other cases, the Action Handler is selected automatically. 
+In other cases, the Action Handler is selected automatically.
 You can affect this choice by creating your own class implementing the [ActionHandlerResolverInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerResolverInterface.html) or by listening to the [ResolveActionHandlerEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionHandlerEvent.html) Event sent by the default implementation.
 
 You can influence the execution of an Action with two events:
@@ -106,7 +106,7 @@ The following example adds a new Action Handler connecting to a local AI run usi
 
 When creating an Action Handler for [[= product_name_connect =]], add the new handler identifier to the [`Ibexa AI handler` custom property](configure_ai_actions.md#initiate-integration) in [[= product_name_connect =]] user interface.
 
-### Register a custom Action Handler in the system.
+### Register a custom Action Handler in the system
 
 Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html) and register it as a service:
 
@@ -151,7 +151,6 @@ Pass the Action Handler identifier (`LLaVATextToText`) as the type when tagging 
 The Action Handler and Action Type options are rendered in the back office using the built-in Twig options formatter.
 
 ![Custom Action Handler options rendered using the default Twig options formatter](img/action_handler_options.png "Custom Action Handler options rendered using the default Twig options formatter")
-
 
 You can create your own formatting by creating a class implementing the [OptionsFormatterInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-OptionsFormatterInterface.html) interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
 
@@ -288,7 +287,6 @@ The resolver is activated when `application/vnd.ibexa.api.ai.AudioText` media ty
 
 - A visitor converting the response value object into a serialized REST response:
 
-
 ``` php
 [[= include_code('code_samples/ai_actions/src/AI/REST/Output/ValueObjectVisitor/AudioText.php') =]]
 ```
@@ -325,12 +323,12 @@ The last step in fully integrating the Transcribe Audio Action Type embeds it di
 Extend the default editing template of the `ibexa_binaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
 This template embeds the AI component, but only if a dedicated `transcript` field (of `ibexa_text` type) is available in the same content type to store the content of the transcription.
 
-
 ``` twig
 [[= include_file('code_samples/ai_actions/templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig') =]]
 ```
 
 And add it to the SiteAccess configuration for the `admin_group`:
+
 ``` yaml
 [[= include_file('code_samples/ai_actions/config/packages/ibexa_admin_ui.yaml') =]]
 ```

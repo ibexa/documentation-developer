@@ -254,4 +254,5 @@ To generate the Customer Portal menu you should use `customer_portal.menu.main` 
     </div>
 {% endblock %}
 ```
+
 To learn more about creating a menu, see [Add navigation menu](add_navigation_menu.md).
