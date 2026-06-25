@@ -19,7 +19,33 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-MCP servers update
+### Tools
+
+Several new content type tools were added to the MCP Servers feature:
+
+- `add_field_definition`
+- `create_content_type`
+- `get_content_type_by_identifier`
+- `get_content_type_draft`
+- `get_content_type_groups`
+- `get_content_type_list`
+- `get_content_type`
+- `list_non_translated_content_ids`
+- `publish_content_type_draft`
+- `remove_field_definition`
+- `update_field_definition`
+
+One tool have been renamed:
+
+- `list_content_translations` is now `list_content_languages`
+
+For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools).
+
+### Configuration
+
+A mandatory `allowed_hosts` parameter is added to configuration to restrict access to an MCP server.
+
+For more information, see [Allowed hosts](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts).
 
 [[= release_note_entry_end() =]]
 
