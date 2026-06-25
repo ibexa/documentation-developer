@@ -36,7 +36,7 @@ When hybrid tracking is enabled, `TrackingScriptExtension` renders the proxy boo
 The shim sends events to the configured proxy endpoint, by default, `/raptor/track`.
 Each event is sent in a separate request using a batch-compatible format.
 The `TrackingProxyController::track` controller validates the `EventPayloadParser` payload, enriches each event with identifiers resolved from cookies, and dispatches one `TrackProxiedEventMessage` for every event.
-Messages are then processed asynchronously through `MessageProvider` and `SendersLocator`, and `TrackProxiedEventMessageHandler` ultimately forwards them to Raptor through `TrackingService::trackRawParameters`.
+Messages are then processed asynchronously via Messenger and `TrackProxiedEventMessageHandler` ultimately forwards them to Raptor through `TrackingService::trackRawParameters`.
 
 ### Hybrid tracking configuration
 
@@ -65,6 +65,9 @@ ibexa.connector_raptor:
     resource: '@IbexaConnectorRaptorBundle/Resources/config/routing.yaml'
 ```
 
+This import is required only in `hybrid` mode.
+Without it, the proxy endpoint returns 404 responses and tracking events are not processed.
+
 ### Proxy path configuration
 
 You can configure the proxy endpoint path globally.
@@ -78,11 +81,28 @@ ibexa_connector_raptor:
 
 !!! note
 
-   The path must start with a `/` symbol.
+   The path must start with a `/` symbol and cannot overlap with any existing routes.
    The route is generated from this value, so updating it automatically updates the route as well.
    You don't need to modify the routing import.
 
+After changing the configuration, clear the application cache:
+
+``` bash
+php bin/console cache:clear
+```
+
+Verify that the route has been registered correctly.
+To do it, run the following command:
+
+``` bash
+php bin/console debug:router | grep raptor
+```
+
 ### Template usage
+
+By default, the tracking script waits for user consent before sending tracking events.
+Consent can be provided either by rendering the script with `ibexa_tracking_script` (`has_consented` = `true`) or by triggering the `enableTracking` JavaScript event.
+The same template syntax is used across all tracking modes, so changing `tracking_type` does not require any template changes.
 
 The Twig API remains identical regardless of the configured tracking mode:
 
