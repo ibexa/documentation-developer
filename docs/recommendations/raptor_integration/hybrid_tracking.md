@@ -13,27 +13,28 @@ Since the browser never connects to the Raptor domain, ad blockers cannot block 
 ## Hybrid vs server or client side tracking
 
 Both `server` and `hybrid` tracking modes deliver pageviews and events server side, so tracking requests are not affected by ad blockers.
-The difference is that `hybrid` mode also loads the Raptor JavaScript in the browser.
+The main difference is that `hybrid` mode loads a local, first-party tracking JavaScript (`raptor-proxy.js`) provided by the DXP instance, instead of the Raptor SaaS JavaScript.
+The Raptor script itself (`//deliver.raptorstatic.com/script/raptor-3.0.min.js`) is loaded only in `client` mode.
 
-The browser script is used only to manage first-party cookies.
-It can create and refresh visitor cookies, which helps them last longer in Safari ITP.
+The browser script only forwards captured tracking events to the same-origin proxy endpoint on your DXP instance. First-party visitor cookies are created and refreshed server side, which is what helps them survive Safari ITP.
 Event tracking still happens on the server, so ad blockers cannot block it.
 
-Server mode should be used when browser side cookie management is not necessary.
-While hybrid mode is useful when you want the benefits of server side tracking together with improved cookie persistence.
+The main advantage of `hybrid` mode over `server` mode is its ability to capture client side tracking events.
+Visitor cookies are also refreshed more frequently than in `server` mode.
 
 Check the table below to compare the behavior of different tracking modes:
 
-|Tracking type|Browser script|Event delivery|Works with ad blockers|Cookie refresh|
-|-------------|--------------|--------------|----------------------|--------------|
-|client       |yes           |Browser       |no                    |yes           |
-|server       |no            |Server        |yes                   |no            |
-|hybrid       |yes           |Server        |yes                   |yes           |
+|Tracking type|Browser script|Event delivery|Works with ad blockers|Cookie refresh                       |
+|-------------|--------------|--------------|----------------------|-------------------------------------|
+|client       |yes           |Browser       |no                    |yes                                  |
+|server       |no            |Server        |yes                   |yes (server side, on full page loads)|
+|hybrid       |yes           |Server        |yes                   |yes                                  |
 
 ## Hybrid tracking flow
 
 When hybrid tracking is enabled, `TrackingScriptExtension` renders the proxy bootstrap template and loads the `raptor-proxy.js` shim, which replaces the `window.raptor.push` and drains the initial event queue.
-The shim sends batched events to the configured proxy endpoint, by default, `/raptor/track`.
+The shim sends events to the configured proxy endpoint, by default, `/raptor/track`.
+Each event is sent in a separate request using a batch-compatible format.
 The `TrackingProxyController::track` controller validates the `EventPayloadParser` payload, enriches each event with identifiers resolved from cookies, and dispatches one `TrackProxiedEventMessage` for every event.
 Messages are then processed asynchronously through `MessageProvider` and `SendersLocator`, and `TrackProxiedEventMessageHandler` ultimately forwards them to Raptor through `TrackingService::trackRawParameters`.
 
