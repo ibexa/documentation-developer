@@ -32,7 +32,7 @@ This copies the migration files into the project's migrations directory and adds
 ## Configure translation providers
 
 Translation providers are the services that perform the actual text translation.
-There are two types of translation providers:
+The Translations management package comes with two types of translation providers:
 
 - REST API-based providers call a translation service such as Google Translate or DeepL directly by using an API key.
 - AI-based providers send translation requests through the [AI Actions](configure_ai_actions.md) framework, relying on the same model selection and policy controls as other AI features in [[= product_name =]].
@@ -55,7 +55,7 @@ Out of the box, Translations management can support the following translation pr
 
     - For the AI-based translation providers, [install and configure](configure_ai_actions.md) the `ibexa/connector-ai` package and their corresponding connectors.
 
-#### Built-in AI providers
+**Built-in AI providers**
 
 When you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
@@ -181,7 +181,6 @@ This adds as many language pairs as you picked target languages.
 To manage language pairs programmatically, create a service class and inject `LanguagePairServiceInterface` into its constructor.
 Symfony autowires it automatically so no manual service configuration is needed.
 
-
 ``` php hl_lines="2"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/TranslationPairManager.php', 14, 35) =]]
 ```
@@ -281,7 +280,7 @@ The warning is shown or hidden dynamically by `side-by-side-translation-modal-wa
 
 ## Translate content items with CLI
 
-For the purposes of batch processing, automations and other scripted actions, the Translations management package exposes a command that translates content items by using any of the configured providers:
+For the purposes of batch processing, automation and other scripted actions, the Translations management package exposes a command that translates content items by using any of the configured providers:
 
 ``` bash
 php bin/console ibexa:translations:auto-translate-content \

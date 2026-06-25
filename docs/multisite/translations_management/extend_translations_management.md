@@ -68,7 +68,6 @@ To add support for a custom or non-standard field type, implement [`FieldValueTr
 - `encode(Field $field): EncodedFieldValue` - extracts the translatable string from the field and wraps it in an [`EncodedFieldValue`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html). The constructor takes the extracted string as its first argument and an optional metadata array as its second.
 - `decode(string $value, mixed $previousFieldValue, array $metadata): Value` - receives the translated string, the previous field value, and any metadata, and returns the updated field value
 
-
 ``` php hl_lines="19 24"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/ImageAltTextTransformer.php') =]]
 ```
