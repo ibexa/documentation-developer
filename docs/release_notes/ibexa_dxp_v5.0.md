@@ -10,6 +10,35 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.9' %]]
+[[% set date = '2026-06-30' %]]
+
+[[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+MCP servers update
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    '2026-06-30',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Hybrid tracking
+
+New `hybrid` tracking mode is available alongside [`client` and `server`](tracking_functions.md).
+In this mode, the browser uses a first-party tracking shim provided by the DXP instance.
+Tracking events are forwarded through a same-origin endpoint and processed server side before being sent to Raptor, helping reduce the impact of ad blockers while preserving client side event tracking.
+
+For more information, see [hybrid tracking](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/hybrid_tracking/).
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.8' %]]
 [[% set date = '2026-05-21' %]]
 
