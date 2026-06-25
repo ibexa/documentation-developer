@@ -4,7 +4,7 @@ edition: lts-update
 month_change: true
 ---
 
-# Translations management
+# Configure translations management
 
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content translation.
 It introduces a plugin that handles the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target languages and provide translations in a single view, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).

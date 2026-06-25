@@ -10,6 +10,53 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.10' %]]
+[[% set date = '2026-07-30' %]]
+
+[[= release_note_entry_begin(
+    'Translations management ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+Translations management is a new LTS Update that extends [[= product_name =]]'s built-in language management tools with machine translation, a side-by-side editing view, and a command-line translation utility.
+
+### Machine translation providers
+
+Translation providers are the services that perform the actual text translation.
+Translations management uses two provider types to connect to the translation services:
+
+- REST API-based providers: Google Translate and DeepL, configured with API keys
+- AI-based providers: OpenAI, Anthropic Claude, and Google Gemini, routed through AI Actions
+
+For more information, see [Configure translation providers](configure_translations_management.md#configure-translation-providers).
+
+### Side-by-side translation view
+
+A [side-by-side translation view]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view) displays the source and target text of the content item or product on one screen.
+Editors can translate or compare source and target content, copy all content from the source column to the target column in a single action, and use the distraction-free mode for focused editing of individual fields.
+
+For more information, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
+
+### CLI translation command
+
+A new console command translates content items from the command line, enabling batch processing and automated workflows.
+
+For more information, see [Translate content items with CLI](configure_translations_management.md#translate-content-items-with-cli).
+
+### Developer experience
+
+The package exposes multiple extension points for custom translation workflows, including:
+
+- Custom translation providers through `TranslationProviderInterface`
+- Custom field type support through `FieldValueTransformerInterface`
+- Custom content type exclusion rules through `SideBySideExclusionRuleInterface`
+- extension points for adding UI elements and fields to the views used by the feature
+
+For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/translations/extend_translations_management/).
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.8' %]]
 [[% set date = '2026-05-21' %]]
 
