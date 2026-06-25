@@ -414,10 +414,10 @@ You should see the welcome page.
 
 ### Schedule tasks
 
-The `ibexa:cron:run` command executes all service commands tagged `ibexa.cron.job`.
-It should be scheduled to run every minute using [`cron`](https://en.wikipedia.org/wiki/Cron).
+The `ibexa:cron:run` command executes all service commands tagged with `ibexa.cron.job`.
+Use [`cron`](https://en.wikipedia.org/wiki/Cron) to run it every minute.
 
-The following example creates a temporary file with the crontab entry and appends it to the existing crontab for the web server user (`www-data`):
+The following example creates a temporary crontab entry file and appends it to the existing crontab for the web server user (`www-data`):
 
 ```bash
 echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
@@ -425,8 +425,8 @@ crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
 rm ibexa_cron.txt
 ```
 
-For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and, by default, runs every minute (`* * * * *`).
-If needed, you can redefine this service to set up another frequency.
+For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and runs every minute (`* * * * *`) by default.
+You can redefine this service to change the frequency.
 
 The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
@@ -446,9 +446,9 @@ To [re-index discounts](discounts_guide.md#discount-re-indexing), schedule the `
 The following example schedules these commands separately:
 
 - `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
-- `ibexa:check-urls` [every week](https://crontab.guru/weekly) (on Sunday at midnight)
-- `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) (at minute 0)
-- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) (at midnight)
+- `ibexa:check-urls` [every week](https://crontab.guru/weekly) on Sunday at midnight
+- `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) at minute 0
+- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) at midnight
 
 This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
@@ -492,12 +492,14 @@ services:
 The `ibexa.cron.job` tag accepts the following options:
 
 - `schedule`: A cron expression representing the period or interval.
-- `options`: Arguments passed to the command. Note that `--env` and `--siteaccess` are inherited from `ibexa:cron:run`.
-- `category`: Commands can be grouped into categories, and a category can be passed with `ibexa:cron:run --category=<CATEGORY>`. By default, the `default` category is used.
+- `options`: Arguments passed to the command.
+  `--env` and `--siteaccess` are inherited from `ibexa:cron:run`.
+- `category`: Commands can be grouped into categories, and a category can be passed with `ibexa:cron:run --category=<CATEGORY>`.
+  By default, the `default` category is used.
   For example, it can be used to set different jobs and `schedule` for different [SiteAccesses](multisite_configuration.md).
 - `priority`: Defines the order in which `ibexa:cron:run` executes commands that are due.
 
-You can list the command services schedule by this tag with the following command:
+Run the following command to list all command services scheduled with the ibexa.cron.job tag:
 
 ```bash
 php bin/console debug:container --tag=ibexa.cron.job
@@ -522,11 +524,12 @@ Then, `ibexa:scheduled:run` can run on this SiteAccess at a different frequency 
 
 ### Enable background tasks
 
-Enable Ibexa Messenger for background tasks, make sure that its [worker starts with the server](background_tasks.md#start-worker).
+Enable Ibexa Messenger for background tasks.
+Make sure that its [worker starts with the server](background_tasks.md#start-worker).
 
-Ibexa Messenger is used at least by:
+A list of processes that use [[= product_name_base =]] Messenger includes at least these two:
 
-- CDP data export, see [Ibexa Messenger support for large batches of data](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- [CDP data export](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
 - [Discount re-indexing](configure_discounts.md#discount-re-indexing)
 
 ## [[= product_name_cloud =]]
