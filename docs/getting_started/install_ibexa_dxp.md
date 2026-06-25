@@ -430,18 +430,23 @@ You can redefine this service to change the frequency.
 
 The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
-You can add other commands to scheduled tasks by either:
+You can add other commands to scheduled tasks in one of two ways:
 
-- Adding their own scheduling line to the crontab
-- Tagging their service with `ibexa.cron.job`
+- add their own scheduling line to the crontab
+- tag their service with `ibexa.cron.job`
 
 #### Additional scheduled tasks and advanced usage
 
-To use [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
+Here are some additional tasks that require scheduling:
 
-To [control the recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
+- To use the [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
+- To control the [recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
+- To re-index [discounts](discounts_guide.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command.
 
-To [re-index discounts](discounts_guide.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command (after having set Ibexa Messenger, for more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing)).
+    !!! note
+
+        You must first set up [[= product_name_base =]] Messenger.
+        For more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing)).
 
 The following example schedules these commands separately:
 
