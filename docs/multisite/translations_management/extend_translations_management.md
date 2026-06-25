@@ -6,15 +6,15 @@ month_change: true
 
 # Extend translations management
 
-By extending [Translations management](translations_management_guide.md), you can build custom translation workflows and adapt the feature set's behavior to your specific requirements.
+By extending [Translations management](translations_management_guide.md), you can build custom translation workflows and adapt the package's behavior to your specific requirements.
 The package is designed to be extended in multiple ways.
 You can create custom [translation providers](configure_translations_management.md#configure-translation-providers), field type transformers, exclusion rules, and UI components.
-In all cases you follow the same pattern: implement an interface or extend a base class, then register the service with a service tag.
+In all cases, you follow the same pattern: implement an interface or extend a base class, then register the service with a service tag.
 The package discovers and registers tagged services automatically.
 
 ## Add custom translation provider
 
-Before you build a custom translation provider, make sure that the `ibexa/connector-ai` package is installed in your system.
+Before you build a custom translation provider, if your provider uses the AI Actions framework, make sure that the `ibexa/connector-ai` package is installed in your system.
 
 To connect a translation service that is not built into the package, implement [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html).
 The `translate()` method receives a `TranslationDataInterface` object that carries the text to translate along with the source and target language codes:
@@ -30,7 +30,7 @@ Both `identifier` and `validation_profile` are required attributes.
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 6) =]]
 ```
 
-The `validation_profile` attribute links the provider to a validator that checks language codes and payload size before each call.
+The `validation_profile` attribute links the provider to a validator that checks language codes and payload size before each before each translation request.
 By default, three profiles are available:
 
 | Profile | Used by |
@@ -46,7 +46,8 @@ To define a custom validation profile, implement [`ProviderValidatorInterface`](
 [[= include_code('code_samples/translations_management/config/services.yaml', 7, 10) =]]
 ```
 
-The [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) class is available as a reusable base with configurable maximum payload size and language code regex patterns.
+You can extend [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) as base class.
+It exposes configurable maximum payload size and language code regex patterns.
 
 The package also provides several specialized interfaces for providers with specific requirements:
 
@@ -81,7 +82,7 @@ It must match the value that `getFieldTypeIdentifier()` returns:
 [[= include_code('code_samples/translations_management/config/services.yaml', 14, 17) =]]
 ```
 
-If a field type requires metadata, for example, RichText fields with embedded objects that you must preserved after translation, implement [`MetadataAwareFieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html) instead.
+If a field type requires metadata, for example, RichText fields with embedded objects that you must preserve after translation, implement [`MetadataAwareFieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html) instead.
 
 ## Define custom exclusion rules
 
@@ -90,7 +91,7 @@ The Translations management package ships with one rule that excludes content ty
 
 ### Exclude with custom class
 
-To exclude additional content types, for example, content types with fields that are known to behave poorly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
+To exclude additional content types, for example, content types whose fields render incorrectly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
 The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object and returns `true` if the content item should be excluded.
 Classes that implement this interface are automatically tagged with `autoconfigure`:
 
@@ -110,7 +111,7 @@ If `autoconfigure` is not available, register the tag explicitly:
 `MyCustomExclusionRule` targets one specific content type by name.
 To exclude any content type that contain specific field types without the need to write a custom class, register an additional instance of the built-in [`UnsupportedFieldTypeExclusionRule`](https://github.com/ibexa/translations-management/blob/main/src/lib/SideBySide/Service/UnsupportedFieldTypeExclusionRule.php).
 Because this registers a second instance of the service with different arguments, you can't use the class name as the service ID.
-Use an arbitrary string ID instead to avoid overwriting the package's own registration:
+Use an arbitrary string ID instead to avoid a service definition conflict:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
@@ -167,7 +168,7 @@ Register it as a service:
 [[= include_code('code_samples/translations_management/config/services.yaml', 11, 13) =]]
 ```
 
-The extra field is then available in the submitted form data, which the standard `admin-ui` controller passes through the translation flow.
+The extra field is then available in the submitted form data, which the standard `admin-ui` controller includes in the translation request data.
 Use this approach when you need to read extra input from the editor, not to redirect or replace the response.
 
 ## Intercept translation flow
@@ -184,7 +185,7 @@ Subscribe at a higher priority to act before the package does:
 
 Both highlighted calls are required:
 
-- `setResponse()` alone does not prevent the translations management listener at priority 100 from running and overwriting the response.
+- `setResponse()` alone does not prevent the Translations management listener at priority 100 from running and overwriting the response.
 - `stopPropagation()` stops all lower-priority listeners from executing.
 
 When a response is set on the event, `admin-ui` uses it and doesn't proceed with the standard translation editor.
@@ -201,6 +202,6 @@ The following service tags expose additional extension points that you can use t
 
 | Tag | Purpose | Required attributes |
 |---|---|---|
-| `ibexa.translations_management.auto_translate.provider.language_normalizer` | Register a language code normalizer for a provider | — |
+| `ibexa.translations_management.auto_translate.provider.language_normalizer` | Register a language code normalizer for a provider | none |
 | `ibexa.translations_management.auto_translate.provider.ai.translation_strategy` | Register a custom AI translation strategy (prompt structure) | `priority` |
 | `ibexa.translations_management.auto_translate.metadata_validation.retry_policy` | Register a metadata validation retry policy | `priority` |

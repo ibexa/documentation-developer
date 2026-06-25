@@ -1,5 +1,5 @@
 ---
-description: Install translations management, and configure it, including AI-based translation providers.
+description: Install translations management configure translation providers, language pairs, and more.
 edition: lts-update
 month_change: true
 ---
@@ -7,7 +7,7 @@ month_change: true
 # Translations management
 
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content translation.
-It introduces a plugin that handles translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target languages and provide translations in a single view, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
+It introduces a plugin that handles the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target languages and provide translations in a single view, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 The package is standalone and does not require the `ibexa/automated-translation` add-on package to run.
 
@@ -57,7 +57,7 @@ Out of the box, Translations management can support the following translation pr
 
 #### Built-in AI providers
 
-When you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Clause (`auto_translate_anthropic`).
+When you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
@@ -71,7 +71,7 @@ You can then [customize these configurations in the UI]([[= user_doc =]]/ai_acti
 
 ### Add YAML configuration
 
-In `config/packages` folder, create a `translations_management.yaml` file.
+In `config/packages`, create a `translations_management.yaml` file.
 You configure the providers in the SiteAccess-aware `translations_management` namespace.
 
 ``` yaml
@@ -102,14 +102,14 @@ If a value is missing or empty, the provider doesn't appear in the UI as a selec
     AI-based providers require that AI policies are assigned to user roles.
     If an editor can't see AI providers in the translation provider dropdown, check if the appropriate AI policies are granted in their role definition.
 
-If you fail to configure the providers, the Translations management disables itself in the editor's UI.
+If you fail to configure the providers, the Translations management feature disables itself in the editor's UI.
 The **Use automatic translation** checkbox is disabled, and a message is displayed that prompts the user to contact the administrator
 
 This state is controlled by `TranslationProviderFormFieldsConfigurator::isAutomaticTranslationDisabled()`, which returns `true` when the provider registry is empty.
 
 ### Advanced translation provider options
 
-In addition to their required authentication setting, all providers support two optional keys:
+In addition to their required authentication keys, all providers support two optional ones:
 
 - `supportedLanguageCodes` - overrides the default list of language codes this provider accepts
 - `languageCodesMap` - maps language codes used by [[= product_name =]], for example, `eng-GB`, to the provider-specific codes the API expects
@@ -154,7 +154,7 @@ You can only select the languages that are present in a provider's [supported li
 
 The configurations are persisted by `SettingService` and stored in the `ibexa_setting` database table under group `translations_management` with identifier `language_pairs`.
 
-You can manage language pairs in [[= product_name_base =]]'s back office or programatically.
+You can manage language pairs in [[= product_name_base =]]'s back office or programmatically.
 
 ### Manage language pairs in UI
 
@@ -167,7 +167,7 @@ Finally, from the **Translation service** list, pick a translation provider and 
 
 ![Creating a language pair](translations_management_language_pairs.png "Creating a language pair")
 
-This will add as many language pairs as you picked target languages.
+This adds as many language pairs as you picked target languages.
 
 !!! note
 
@@ -179,7 +179,7 @@ This will add as many language pairs as you picked target languages.
 ## Manage language pairs programmatically
 
 To manage language pairs programmatically, create a service class and inject `LanguagePairServiceInterface` into its constructor.
-Symfony autowires it automatically` so no manual service configuration is needed.
+Symfony autowires it automatically so no manual service configuration is needed.
 
 
 ``` php hl_lines="2"
@@ -241,7 +241,7 @@ To assemble the view, `SideBySideEditContextBuilder` performs the following acti
 
 !!! note "Meta fields"
 
-    The builder excludes the fields that are marked marked as `meta: true` or belong to a field group is listed in `admin_ui_forms.content_edit.meta_field_groups_list`, and does not render them.
+    The builder excludes the fields that are marked marked as `meta: true` or belong to a field group that is listed in `admin_ui_forms.content_edit.meta_field_groups_list`, and does not render them.
 
 To resolve the column order, `SideBySideTargetLanguagePositionResolver` reads the user setting and falls back to `source_left_target_right` when the setting is not made.
 The Twig template applies `order-xl-*` classes for responsive column placement.
@@ -305,5 +305,5 @@ The command uses the same provider configuration and field value transformers as
 | `--provider` | Yes | Identifier of the translation provider to use |
 | `--from` | Yes | Source language code |
 | `--to` | Yes | Target language code |
-| `--user-id` | No | Repository user ID to run the translation (default: `14`) |
+| `--user-id` | No | Repository user ID to run the translation (default: `14`, which is the Administrator user) |
 | `--draft-only` | No | Create a translated draft without publishing it |
