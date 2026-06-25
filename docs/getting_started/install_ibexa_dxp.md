@@ -446,7 +446,7 @@ Here are some additional tasks that require scheduling:
     !!! note
 
         You must first set up [[= product_name_base =]] Messenger.
-        For more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing)).
+        For more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing).
 
 The following example schedules these commands separately:
 
