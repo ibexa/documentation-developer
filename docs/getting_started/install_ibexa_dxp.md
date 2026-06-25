@@ -518,7 +518,7 @@ This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and t
 (crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
 ```
 
-Then, `ibexa:scheduled:run` can run on this SiteAccess at a different frequency from the default:
+Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:
 
 ```yaml
     Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
