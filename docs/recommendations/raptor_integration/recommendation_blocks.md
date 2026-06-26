@@ -38,7 +38,11 @@ In the toolbar, corresponding categories for recommendation blocks are available
 
 ![Recommendation blocks](img/recommendation_blocks.png)
 
-After opening the settings of a recommendation block, a link is available at the bottom of the window.
+After opening the settings of a recommendation block, you can click the info icon on the right side to display a tooltip with basic information about selected recommendation strategy.
+
+![Tooltip](img/tooltip.png)
+
+Also, a link is available at the bottom of the window.
 It leads to the [Raptor Control Panel](https://controlpanel.raptorsmartadvisor.com/) (opens in a separate tab), where you can configure advanced settings and fine-tune the recommendation strategy.
 
 ![Advanced settings](img/advanced_settings.png)
