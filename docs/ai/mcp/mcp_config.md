@@ -199,6 +199,8 @@ In this example, sessions are stored in the `var/cache/<environment>/mcp/session
 This parameter lists the domains, the `Host` headers, accepted by the MCP server.
 The port is not part of the matching.
 There is no joker, all cases must be listed.
+As item, you can use a hostname, an IP, or an IPv6.
+IPv6 addresses must be bracketed, for example `[::1]`. 
 
 In this example, only requests from `admin.example.com` domain, `my-ddev-project.ddev.site` domain, or from 127.0.0.1 IP are accepted:
 
