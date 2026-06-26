@@ -135,6 +135,15 @@ MCP Servers LTS Update comes with the following experimental built-in tools:
                     # …
 ```
 
+!!! caution "Experimental tools"
+
+    The built-in tools are experimental and may change in future releases.
+    They are provided as examples of how to implement tools and how to configure them in an MCP server.
+    As-is, they may not cover all your needs or may not be practical to all AI agents.
+    If you use them, be prepared to update your MCP server configuration and tool usage when upgrading to a new version of [[= product_name =]].
+
+    See how to build your own tools in [Work with MCP servers](mcp_usage.md#).
+
 ### Discovery cache
 
 Discovery is cached to avoid scanning for capabilities on every request.
