@@ -245,6 +245,8 @@ deptrac:
     App\Tab\Dashboard\Everyone\EveryoneArticleTab:
       - Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper
       - Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter
+    App\TranslationsManagement\MyTranslationAddExtension:
+      - Ibexa\AdminUi\Form\Type\Content\Translation\TranslationAddType
     App\View\Matcher\Owner:
       - Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MatcherInterface
       - Ibexa\Core\MVC\Symfony\View\ContentValueView
