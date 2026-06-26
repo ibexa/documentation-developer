@@ -9,11 +9,11 @@ use Ibexa\Contracts\TranslationsManagement\AutoTranslate\Provider\TranslationPro
 use Ibexa\TranslationsManagement\AutoTranslate\LanguagePair\LanguagePairInterface;
 use Ibexa\TranslationsManagement\AutoTranslate\LanguagePair\LanguagePairServiceInterface;
 
-final class TranslationPairManager
+final readonly class TranslationPairManager
 {
     public function __construct(
-        private readonly LanguagePairServiceInterface $languagePairService,
-        private readonly LanguageService $languageService,
+        private LanguagePairServiceInterface $languagePairService,
+        private LanguageService $languageService,
     ) {
     }
 

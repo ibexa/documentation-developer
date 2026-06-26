@@ -7,7 +7,7 @@ namespace App\TranslationsManagement;
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
 use Ibexa\Contracts\TranslationsManagement\AutoTranslate\Transformer\Field\EncodedFieldValue;
 use Ibexa\Contracts\TranslationsManagement\AutoTranslate\Transformer\Field\FieldValueTransformerInterface;
-use Ibexa\Core\FieldType\Value;
+use Ibexa\Contracts\Core\FieldType\Value;
 
 final class ImageAltTextTransformer implements FieldValueTransformerInterface
 {

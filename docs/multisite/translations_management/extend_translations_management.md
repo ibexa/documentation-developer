@@ -170,6 +170,12 @@ Register it as a service:
 The extra field is then available in the submitted form data, which the standard `admin-ui` controller includes in the translation request data.
 Use this approach when you need to read extra input from the editor, not to redirect or replace the response.
 
+!!! caution "Internal `TranslationAddType`"
+
+    `TranslationAddType` is marked `@internal` in `ibexa/admin-ui`.
+    While it functions as an extension point in practice, its name and signature may change.
+    It may even be removed entirely without a deprecation notice.
+
 ## Intercept translation flow
 
 The `BeforeTranslateEvent` and `TranslateEvent` [events](translations_management_events.md#translation-events) operate at the field-value level and cannot redirect the HTTP flow.
