@@ -21,7 +21,19 @@ month_change: true
 
 ### Tools
 
-Several new content type tools are available.
+Several new content type tools were added to the MCP Servers feature:
+
+- `add_field_definition`
+- `create_content_type`
+- `get_content_type_by_identifier`
+- `get_content_type_draft`
+- `get_content_type_groups`
+- `get_content_type_list`
+- `get_content_type`
+- `list_non_translated_content_ids`
+- `publish_content_type_draft`
+- `remove_field_definition`
+- `update_field_definition`
 
 One tool have been renamed:
 
