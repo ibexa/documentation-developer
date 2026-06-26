@@ -21,7 +21,7 @@ month_change: true
 
 ### Tools
 
-Several new content type tools were added to the MCP Servers feature:
+Several new experimental content type tools were added to the MCP Servers feature:
 
 - `create_content_type`
 - `get_content_type`
@@ -43,7 +43,7 @@ For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mc
 
 ### Configuration
 
-- A mandatory `allowed_hosts` parameter is added to configuration to restrict access to an MCP server. For more information, see [Allowed hosts](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts).
+- An `allowed_hosts` parameter is added to configuration to restrict access to an MCP server. It's default value covers only few local cases. For more information, see [Allowed hosts](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts).
 - A `title` property is added to capability attributes to optionally provide a friendly UI label. For more information see [MCP server capabilities](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_usage/#mcp-server-capabilities).
 
 [[= release_note_entry_end() =]]
