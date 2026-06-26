@@ -23,21 +23,21 @@ month_change: true
 
 Several new content type tools were added to the MCP Servers feature:
 
-- `add_field_definition`
 - `create_content_type`
-- `get_content_type_by_identifier`
-- `get_content_type_draft`
-- `get_content_type_groups`
-- `get_content_type_list`
 - `get_content_type`
-- `list_non_translated_content_ids`
+- `get_content_type_by_identifier`
+- `get_content_type_list`
+- `get_content_type_draft`
 - `publish_content_type_draft`
+- `add_field_definition`
 - `remove_field_definition`
 - `update_field_definition`
+- `get_content_type_groups`
 
-One tool have been renamed:
+Among translation tools:
 
-- `list_content_translations` is now `list_content_languages`
+- `list_non_translated_content_ids` tool is added.
+- `list_content_translations` is now renamed `list_content_languages`
 
 For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools).
 
