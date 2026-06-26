@@ -107,7 +107,7 @@ There are two ways to associate tools with a server:
 
 #### Built-in tools
 
-MCP Servers LTS Update comes with the following built-in tools:
+MCP Servers LTS Update comes with the following experimental built-in tools:
 
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
     - `get_content_type` - gets a content type by its ID.
