@@ -7,7 +7,7 @@ It makes them reusable across system.
 |--------------|---------------------|
 | `ImageAsset` | `ibexa_image_asset` |
 
-### Input expectations
+## Input expectations
 
 Example array:
 
@@ -18,9 +18,9 @@ Example array:
 | `string`                                                     | ID of the Asset content item.                   | `"150"`    |
 | `integer`                                                    | ID of the Asset content item.                   | `150`      |
 
-### Value object
+## Value object
 
-##### Properties
+### Properties
 
 Value object of `ibexa_image_asset` contains the following properties:
 
@@ -36,7 +36,7 @@ $imageAssetValue->destinationContentId = $contentInfo->id;
 $imageAssetValue->alternativeText = "Picture of an apple.";
 ```
 
-##### Constructor
+#### Constructor
 
 The `ImageAsset\Value` constructor initializes a new value object with the value provided.
 It expects an ID of a content item representing asset and the alternative text.
@@ -54,7 +54,7 @@ This field type validates if:
 
 - `destinationContentId` points to a content item which has correct content type
 
-### Configuration
+## Configuration
 
 ImageAsset field type allows configuring the following options:
 

@@ -19,6 +19,7 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Security
 
 This release includes security fixes.
@@ -824,6 +825,7 @@ For more information, see [Date and time attributes](https://doc.ibexa.co/en/4.6
 [[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Features
+
 You can now [duplicate AI actions]([[= user_doc =]]/ai_actions/work_with_ai_actions/#duplicate-ai-actions) in the AI actions list.
 
 #### PHP API
@@ -1516,7 +1518,7 @@ With `IsVirtual` criterion that searches for virtual or physical products, produ
 
 [Product variants](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/5.0/content_management/data_migration/data_migration/).
 
-####  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
+#### New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
 ##### Reorder
 

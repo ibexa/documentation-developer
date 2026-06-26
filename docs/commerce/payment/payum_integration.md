@@ -73,7 +73,6 @@ When you implement the online payment solution, take the following consideration
 - When you modify the payment process, you may need to subscribe to events dispatched by Payum.
 For a list of events, see [Event dispatcher](https://github.com/Payum/Payum/blob/master/docs/event-dispatcher.md) in Payum documentation.
 
-
 !!! caution
 
     In certain cases, depending on the payment processing service, when a customer closes the payment page in a browser and the bank has not processed the payment yet, the payment status can remain unchanged.

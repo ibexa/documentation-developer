@@ -33,7 +33,6 @@ ibexa:
 
 ![Meta tab](tab_switcher.png)
 
-
 ### Configure field groups for Meta tab
 
 The default configuration makes the `ibexa_taxonomy_entry_assignment` field always visible in the Meta tab in the content form.
@@ -65,7 +64,6 @@ ibexa:
                 content_edit:
                     meta_field_groups_list: []
 ```
-
 
 The `meta_field_groups_list` configuration can be overridden.
 

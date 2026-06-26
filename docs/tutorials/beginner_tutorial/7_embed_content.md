@@ -21,7 +21,7 @@ Each Ride may be related to multiple Landmarks.
 - **Name**: Landmark
 - **Identifier**: landmark
 
-Then add all fields with the following information: 
+Then add all fields with the following information:
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
@@ -194,7 +194,6 @@ Add the following lines at the end of `templates/full/ride.html.twig`, before th
 ```
 
 You can now check the Ride page again to see all the connected Landmarks.
-
 
 !!! tip
 

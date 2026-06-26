@@ -17,7 +17,7 @@
 
 eZ Platform v2.0.0 introduces significant changes to the architecture, especially to the back-office interface.
 
-#### Symfony 3
+### Symfony 3
 
 eZ Platform has become a pure Symfony application, based on Symfony 3, which brings with it many enhancements.
 
@@ -28,7 +28,7 @@ eZ Platform has become a pure Symfony application, based on Symfony 3, which bri
     Among others, the `var` directory now contains cache and logs.
     The `bin` directory is now used to call the `console` command, so use `bin/console` instead of `app/console`.
 
-#### Back-office interface
+### Back-office interface
 
 The back-office interface no longer uses YUI, and is instead based on React components and Bootstrap, which makes it easier to extend.
 Explore the Extending section in the menu to learn how to extend the new version of the UI.
@@ -37,7 +37,7 @@ The features of eZ Platform remain the same as in 1.x versions. However, the loo
 
 ![v2.0.0 interface](v2_general_screen.png)
 
-#### Studio
+### Studio
 
 The StudioUI still uses the 1.x interface. It will be rewritten to the new architecture in an upcoming version.
 

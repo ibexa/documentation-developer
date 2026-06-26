@@ -59,7 +59,6 @@ ibexa:
                 entity: <entity_name>
 ```
 
-
 4\. Define profile table in Actito database for storing notification attributes.
 
 !!! note
@@ -79,10 +78,8 @@ For a complete list of parameters, see [Transactional email variables reference]
 
     When you invent names for your campaigns, keep them simple, and don't use special characters or spaces.
 
-
 Campaign emails can be sent in one language only.
 To send emails in different languages, for example, because your application serves end-users from different locales, for each notification and language pair, you must create a separate campaign and [extend the solution to support that](extend_transactional_emails.md#send-emails-in-language-of-commerce-presence).
-
 
 ### Configure mapping
 

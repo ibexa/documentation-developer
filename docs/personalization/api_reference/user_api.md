@@ -5,7 +5,7 @@ description: Use HTTP methods to correlate metadata with user data and combine u
 # User API
 
 When generating recommendations, it's useful to have the ability to correlate metadata with user data and combine users into clusters of certain type.
-Such metadata can be gender, ZIP code, discount rate, and more. 
+Such metadata can be gender, ZIP code, discount rate, and more.
 You can use the following user metadata import format to enrich the tracked data with information that cannot be calculated and must be provided by the end-user.
 
 If you plan to import user metadata, contact support@ibexa.co to ensure that you're compliant with privacy regulations.
@@ -45,7 +45,7 @@ For the requests to function, you must provide the following parameters:
 
       All parameters must be URL-encoded (see RFC 3986) and cannot contain slash, backslash or space characters.
 
-##### Source
+### Source
 
 The `source` parameter defines the system that stores the specified user's metadata.
 If you have multiple source systems for updating user attributes, for example, a registration service, where users define their gender and age, or an application that integrates with Facebook to source the brands the user "liked" in your shop, every new upload of attributes replaces the attribute set that already exists for the same user/source pair.
@@ -56,10 +56,10 @@ If you need to get all the available attributes for all sources, apply the `allS
 
 When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the XML object.
 
-##### User ID
+### User ID
 
 User ID is a case-sensitive combination of characters.
-If transferred as part of the URL, the attribute must be URL-encoded. 
+If transferred as part of the URL, the attribute must be URL-encoded.
 If transferred in the XML object, the attribute must be XML-encoded.
 
 For example:
@@ -67,7 +67,6 @@ For example:
 | User ID             | URL encoded             | XML encoded               |
 |---------------------|-------------------------|---------------------------|
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
-
 
 ## DELETE request
 
@@ -98,7 +97,7 @@ The attribute keys and values are chosen at random.
 </users>
 ```
 
-Attribute keys are POSIX alphanumeric codes that can consist of the following characters: `\[A-Z\]`, `\[0-9\]`, `"\_"` and `"-"`. 
+Attribute keys are POSIX alphanumeric codes that can consist of the following characters: `\[A-Z\]`, `\[0-9\]`, `"\_"` and `"-"`.
 Attribute keys are case sensitive.
 
 The following attribute types are supported:

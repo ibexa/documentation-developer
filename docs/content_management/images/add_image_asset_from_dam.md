@@ -93,7 +93,7 @@ To extend the DAM support built into [[= product_name =]], you must create a cus
 
     Before you use Wikimedia Commons assets in a production environment, ensure that you comply with their [license requirements](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia#How_to_comply_with_a_file's_license_requirements).
 
-###  Create DAM handler
+### Create DAM handler
 
 This class handles searching through Wikimedia Commons for images and fetching image assets.
 
@@ -157,9 +157,8 @@ In this example, the search only uses the main text input.
 The tab and its corresponding panel are a service created by combining existing components, like in the case of other [back office tabs](back_office_tabs.md).
 
 The `commons_search_tab` service uses the `GenericSearchTab` class as a base, and the `GenericSearchType` form for search input.
-It is linked to the `commons` DAM source and uses the identifier `commons`. 
+It is linked to the `commons` DAM source and uses the identifier `commons`.
 The DAM search tab is registered in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups) using the `ibexa.admin_ui.tab` tag.
-
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 22, 33) =]]

@@ -116,7 +116,6 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/site-factory|Enables configuration of sites from UI|
 |ibexa/engage|Enables integration with [Qualifio Engage platform](https://developers.qualifio.com/docs/engage/)|
 
-
 ## [[= product_name_com =]] packages
 
 |Bundle|Description|

@@ -5,12 +5,12 @@ edition: experience
 
 # Create custom RichText block
 
-A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when you create a page. 
+A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when you create a page.
 To create a custom block, you must define the block's layout, provide templates, add a subscriber, and register the subscriber as a service.
 
 Follow the procedure below to create a RichText page block.
 
-First, provide the block configuration under the `ibexa_page_fieldtype.blocks` [configuration key](configuration.md#configuration-files). 
+First, provide the block configuration under the `ibexa_page_fieldtype.blocks` [configuration key](configuration.md#configuration-files).
 The following code defines a new block, its view and configuration templates.
 It also sets the attribute type to `richtext` (line 15):
 
@@ -28,7 +28,6 @@ Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 In line 32, `my_block` is the same name of the block that you defined in line 3 above.
 Line 32 also implements the `PreRender` method.
 Lines 41-51 handle the conversion of content into an XML string:
-
 
 ``` php hl_lines="32 41 42 43 44 45 46 47 48 49 50 51"
 [[= include_code('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
@@ -64,7 +63,6 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 ```
-
 
 You have successfully created a custom RichText block.
 You can now add your block in the **Site** tab.

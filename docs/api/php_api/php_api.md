@@ -81,7 +81,6 @@ For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Co
 
     Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` /  `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
 
-
 ## Authentication
 
 One of the responsibilities of the repository is user authentication.

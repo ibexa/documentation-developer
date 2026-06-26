@@ -44,7 +44,7 @@ In `config/packages/security.yaml`, add the `memory` and `chain` user providers,
 ```
 
 In the `config/services.yaml` file, declare the subscriber as a service to pass your user map.
-Since it implements the `EventSubscriberInterface`, it's automatically tagged as a `kernel.event_subscriber`. 
+Since it implements the `EventSubscriberInterface`, it's automatically tagged as a `kernel.event_subscriber`.
 The config resolver and user service injections are auto-wired automatically.
 
 ``` yaml

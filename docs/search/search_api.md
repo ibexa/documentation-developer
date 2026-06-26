@@ -304,7 +304,6 @@ Even though the location B is hidden, the query finds the content because both c
 - the content item has location B
 - the content item is visible (it has the visible location A)
 
-
 ## Sort results
 
 To sort the results of a query, use one of more [Sort Clauses](sort_clause_reference.md).
@@ -384,7 +383,6 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
 See [Aggregation reference](aggregation_reference.md) for details of all available aggregations.
 
 ## Search with embeddings
-
 
 !!! note "Feature support"
 

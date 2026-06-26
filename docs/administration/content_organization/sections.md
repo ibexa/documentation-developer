@@ -35,7 +35,7 @@ Other references to the section remain and thus the system most likely loses con
 Section ID numbers aren't recycled.
 If a section is removed, its ID number cannot be reused when a new section is created.
 
-### Registering users
+## Registering users
 
 Registration form for your website is placed under this address: <yourdomain>/register.
 By default, new users created in this way are placed in the Guest accounts group.

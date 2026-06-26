@@ -22,7 +22,7 @@ It's also possible to directly pass an instance of `\DateTime`.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

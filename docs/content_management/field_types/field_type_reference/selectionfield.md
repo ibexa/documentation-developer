@@ -16,7 +16,7 @@ The Selection field type stores single selections or multiple choices from a lis
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -34,7 +34,7 @@ $value->selection = 1;
 $value->selection = [ 1, 4, 5 ];
 ```
 
-##### Constructor
+#### Constructor
 
 The `Selection\Value` constructor accepts an array of selected element identifiers.
 
@@ -45,13 +45,13 @@ The `Selection\Value` constructor accepts an array of selected element identifie
 $selectionValue = new Selection\Value( [ 1, 2 ] );
 ```
 
-##### String representation
+#### String representation
 
 String representation of this field type is its list of selections as a string, concatenated with a comma.
 
 Example: `"1,2,24,42"`
 
-### Hash format
+#### Hash format
 
 Hash format of this field type is the same as value object's `selection` property.
 

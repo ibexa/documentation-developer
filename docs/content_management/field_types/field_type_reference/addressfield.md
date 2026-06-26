@@ -17,7 +17,7 @@ provided by the `ibexa/fieldtype-address` package.
 
 ## PHP API field type
 
-### Inputs:
+### Inputs
 
 | Type     | Description                                   | Example           |
 |----------|-----------------------------------------------|-------------------|

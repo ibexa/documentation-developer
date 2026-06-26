@@ -345,6 +345,7 @@ Alternatively, you can query the `children` property of an `item` or `content` o
   }
 }
 ```
+
 Response:
 
 ```json

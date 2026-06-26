@@ -195,7 +195,6 @@ When constructing a `ContentTypeQuery`, you can pass the following parameters:
 
 - `int $limit = 25` — maximum number of results to return
 
-
 ## Calendar events
 
 You can handle the calendar using `CalendarServiceInterface` (`Ibexa\Contracts\Calendar\CalendarServiceInterface`).
