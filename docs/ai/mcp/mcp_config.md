@@ -107,7 +107,7 @@ There are two ways to associate tools with a server:
 
 #### Built-in tools
 
-MCP Servers LTS Update comes with the following experimental built-in tools:
+MCP Servers LTS Update comes with the following **experimental** built-in tools:
 
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
     - `get_content_type` - gets a content type by its ID.
@@ -142,7 +142,7 @@ MCP Servers LTS Update comes with the following experimental built-in tools:
     As-is, they may not cover all your needs or may not be practical to all AI agents.
     If you use them, be prepared to update your MCP server configuration and tool usage when upgrading to a new version of [[= product_name =]].
 
-    See how to build your own tools in [Work with MCP servers](mcp_usage.md#).
+    See how to build your own tools in [Work with MCP servers](mcp_usage.md).
 
 ### Discovery cache
 
