@@ -71,9 +71,20 @@ In [multi-repository setups](repository_configuration.md), the worker process al
 
     Doctrine transport works across multiple repositories without issues, but other transports may need to be adjusted, so that queues across different repositories are not accidentally shared.
 
-!!! note "Deploying [[= product_name_base =]] Messenger"
+#### Configure for production environment
 
-    Additional considerations regarding the deployment of Symfony Messenger to production, which you can find in [Symfony documentation](https://symfony.com/doc/current/messenger.html#deploying-to-production) apply to [[= product_name_base =]] Messenger as well.
+In production, make sure that [[= product_name_base =]] Messenger keeps running.
+You can configure a process manager, such as Supervisor or systemd, to restart the worker if it stops.
+
+To prevent issues with memory leaks or stale processes, run the worker with execution limits:
+
+- `--limit` limits the number of messages the worker processes before exiting.
+- `--time-limit` limits the execution time in seconds before the worker exits.
+- `--memory-limit` restricts the maximum memory usage.
+
+For more information, see [Symfony production recomemendation for the Messenger component]([[= symfony_doc =]]/messenger.html#deploying-to-production).
+
+If you deploy your application on [[= product_name_cloud =]], using [Workers](https://fixed.docs.upsun.com/guides/symfony/workers.html) is recommended.
 
 ### Dispatch message
 
