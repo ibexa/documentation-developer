@@ -74,7 +74,7 @@ In [multi-repository setups](repository_configuration.md), the worker process al
 #### Configure for production environment
 
 In production, make sure that [[= product_name_base =]] Messenger keeps running.
-You can configure a process manager, such as Supervisor or systemd, to restart the worker if it stops.
+You can configure a process manager, such as [Supervisor]([[= symfony_doc =]]/messenger.html#messenger-supervisor) or [systemd]([[= symfony_doc =]]/messenger.html#systemd-configuration), to restart the worker if it stops.
 
 To prevent issues with memory leaks or stale processes, run the worker with execution limits:
 
@@ -82,7 +82,13 @@ To prevent issues with memory leaks or stale processes, run the worker with exec
 - `--time-limit` limits the execution time in seconds before the worker exits.
 - `--memory-limit` restricts the maximum memory usage.
 
-For more information, see [Symfony production recomemendation for the Messenger component]([[= symfony_doc =]]/messenger.html#deploying-to-production).
+The following example shows how you can specify these limits:
+
+``` bash
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --limit=100 --time-limit=60 --memory-limit=256M
+```
+
+For more information, see [Symfony production recommandation for the Messenger component]([[= symfony_doc =]]/messenger.html#deploying-to-production).
 
 If you deploy your application on [[= product_name_cloud =]], using [Workers](https://fixed.docs.upsun.com/guides/symfony/workers.html) is recommended.
 
