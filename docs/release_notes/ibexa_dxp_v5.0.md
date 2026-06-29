@@ -16,7 +16,7 @@ month_change: true
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
     date,
-    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
 ### Tools
@@ -43,7 +43,7 @@ For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mc
 
 ### Configuration
 
-- An `allowed_hosts` parameter is added to configuration to restrict access to an MCP server. It's default value covers only few local cases. For more information, see [Allowed hosts](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts).
+- An `allowed_hosts` parameter is added to configuration to restrict access to an MCP server. It's default value covers only few cases for local development. For more information, see [Allowed hosts](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts).
 - A `title` property is added to capability attributes to optionally provide a friendly UI label. For more information see [MCP server capabilities](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_usage/#mcp-server-capabilities).
 
 [[= release_note_entry_end() =]]
