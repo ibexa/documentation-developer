@@ -55,6 +55,12 @@ ibexa:
                 tracking_type: hybrid
 ```
 
+
+!!! note
+
+    The `hybrid_tracking_proxy_path` setting is configured globally, while `enabled`, `customer_id`, and `tracking_type` are configured per SiteAccess.
+
+
 ### Routing import
 
 Hybrid tracking requires routing import.
