@@ -7,7 +7,7 @@ month_change: true
 
 Hybrid tracking mode is an additional tracking mode available alongside [`client` and `server`](tracking_functions.md).
 In hybrid mode, the bundle includes a client side shim that captures Raptor tracking events and sends them to a same-origin endpoint instead of communicating directly with Raptor SaaS.
-The server enriches each event with identifiers resolved from request cookies (`cookieId`, `sessionId`, and `userId`) and forwards it to Raptor asynchronously through [Messenger](background_tasks.md).
+The server enriches each event with identifiers resolved from request cookies (`cookieId`, `sessionId`, and `userId`) and forwards it to Raptor asynchronously through [Ibexa Messenger](background_tasks.md).
 Since the browser never connects to the Raptor domain, ad blockers cannot block the requests.
 
 ## Hybrid vs server or client side tracking
@@ -16,7 +16,7 @@ Both `server` and `hybrid` tracking modes deliver pageviews and events server si
 The main difference is that `hybrid` mode loads a local, first-party tracking JavaScript (`raptor-proxy.js`) provided by the DXP instance, instead of the Raptor SaaS JavaScript.
 The Raptor script itself (`//deliver.raptorstatic.com/script/raptor-3.0.min.js`) is loaded only in `client` mode.
 
-The browser script only forwards captured tracking events to the same-origin proxy endpoint on your DXP instance. First-party visitor cookies are created and refreshed server side, which is what helps them survive Safari ITP.
+The browser script only forwards captured tracking events to the same-origin proxy endpoint on your DXP instance. First-party visitor cookies are created and refreshed server side, which is what helps them survive Safari [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/).
 Event tracking still happens on the server, so ad blockers cannot block it.
 
 The main advantage of `hybrid` mode over `server` mode is its ability to capture client side tracking events.
@@ -32,11 +32,10 @@ Check the table below to compare the behavior of different tracking modes:
 
 ## Hybrid tracking flow
 
-When hybrid tracking is enabled, `TrackingScriptExtension` renders the proxy bootstrap template and loads the `raptor-proxy.js` shim, which replaces the `window.raptor.push` and drains the initial event queue.
-The shim sends events to the configured proxy endpoint, by default, `/raptor/track`.
-Each event is sent in a separate request using a batch-compatible format.
-The `TrackingProxyController::track` controller validates the `EventPayloadParser` payload, enriches each event with identifiers resolved from cookies, and dispatches one `TrackProxiedEventMessage` for every event.
-Messages are then processed asynchronously via Messenger and `TrackProxiedEventMessageHandler` ultimately forwards them to Raptor through `TrackingService::trackRawParameters`.
+When hybrid tracking is enabled, `TrackingScriptExtension` renders the proxy bootstrap template and loads the `raptor-proxy.js` shim, which replaces the `window.raptor.push` function and drains the initial event queue.
+The shim sends each captured event to the proxy endpoint as a separate POST request.
+The `TrackingProxyController::track` action validates the `EventPayloadParser` payload, enriches each event with identifiers resolved from cookies, and dispatches one `TrackProxiedEventMessage` for every event.
+Messages are then processed asynchronously via Ibexa Messenger and `TrackProxiedEventMessageHandler` ultimately forwards them to Raptor through `TrackingService::trackRawParameters`.
 
 ### Hybrid tracking configuration
 
@@ -62,7 +61,7 @@ ibexa:
 ### Routing import
 
 Hybrid tracking requires routing import.
-It means that the proxy endpoint route must be imported in the project, for example in the `config/routes.yaml` file:
+It means that the proxy endpoint route must be imported in the project, for example in the `config/routes/ibexa_connector_raptor.yaml` file:
 
 ``` yaml
 ibexa.connector_raptor:
@@ -105,8 +104,8 @@ php bin/console debug:router | grep raptor
 ### Template usage
 
 By default, the tracking script waits for user consent before sending tracking events.
-Consent can be provided either by rendering the script with `ibexa_tracking_script` (`has_consented` = `true`) or by triggering the `enableTracking` JavaScript event.
-The same template syntax is used across all tracking modes, so changing `tracking_type` does not require any template changes.
+
+For more information, see [Handle tracking consent](recommendations_twig_functions.md#handle-tracking-consent).
 
 The Twig API remains identical regardless of the configured tracking mode:
 
