@@ -88,7 +88,7 @@ The following example shows how you can specify these limits:
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --limit=100 --time-limit=60 --memory-limit=256M
 ```
 
-For more information, see [Symfony production recommandation for the Messenger component]([[= symfony_doc =]]/messenger.html#deploying-to-production).
+For more information, see [Symfony production recommendation for the Messenger component]([[= symfony_doc =]]/messenger.html#deploying-to-production).
 
 If you deploy your application on [[= product_name_cloud =]], using [Workers](https://fixed.docs.upsun.com/guides/symfony/workers.html) is recommended.
 
