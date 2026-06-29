@@ -37,7 +37,7 @@ Several new experimental content type tools were added to the MCP Servers featur
 Among translation tools:
 
 - `list_non_translated_content_ids` tool is added.
-- `list_content_translations` is now renamed `list_content_languages`
+- `list_content_translations` is now renamed to `list_content_languages`
 
 For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools).
 
