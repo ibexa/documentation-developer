@@ -7,7 +7,7 @@
         {% set path = node.file.path|split('/', 4) %}
         {% set package = path|slice(1, 2)|join('/') %}
         {% if package_edition_map[package] is defined and 'oss' == package_edition_map[package] %}
-            {% set href = 'https://github.com/' ~ package ~ '/blob/main/' ~ path[3] %}
+            {% set href = 'https://github.com/' ~ package ~ '/blob/5.0/' ~ path[3] %}
         {% endif %}
     {% endif %}
     <a href="{{ href }}" title="" class="source-github">
