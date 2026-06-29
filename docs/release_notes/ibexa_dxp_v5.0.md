@@ -62,6 +62,17 @@ Tracking events are forwarded through a same-origin endpoint and processed serve
 
 For more information, see [hybrid tracking](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/hybrid_tracking/).
 
+### Raptor connector
+
+#### New recommendation blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Two new recommendation blocks are available in Page Builder:
+
+- **Items of Customized Feeds sorted by personal preferences and popularity or trendiness** sorts items from Customized Feeds based on user preferences, popularity, and current trends
+- **Merchandising content sorted by personal preferences and popularity** uses merchandising content and sorts it by personal preferences and popularity
+
+For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/).
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.8' %]]
