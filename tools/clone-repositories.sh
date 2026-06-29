@@ -46,9 +46,14 @@ git clone --depth=1 --branch "$USERDOC_50_BRANCH" https://github.com/ibexa/docum
 git clone --depth=1 --branch "$CONNECT_BRANCH"    https://github.com/ibexa/documentation-connect.git repositories/connect &
 wait
 
+echo "==> Installing dependencies for versioned repositories..."
+for dir in repositories/devdoc-4.6 repositories/devdoc-5.0 repositories/userdoc-4.6 repositories/userdoc-5.0 repositories/connect; do
+    (cd "$dir" && pip install -q -r requirements.txt)
+done
+
 echo "==> Building versioned repositories..."
 for dir in repositories/devdoc-4.6 repositories/devdoc-5.0 repositories/userdoc-4.6 repositories/userdoc-5.0 repositories/connect; do
-    (cd "$dir" && pip install -q -r requirements.txt && mkdocs build --quiet) &
+    (cd "$dir" && mkdocs build --quiet) &
 done
 wait
 
