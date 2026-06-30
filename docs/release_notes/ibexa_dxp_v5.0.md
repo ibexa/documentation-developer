@@ -16,7 +16,7 @@ month_change: true
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
     date,
-    ['Headless', 'Experience', 'Commerce', 'LTS Update, 'New feature']
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
 ### Tools
@@ -36,7 +36,7 @@ Several new experimental content type tools were added to the MCP Servers featur
 
 Among translation tools:
 
-- `list_non_translated_content_ids` tool is added.
+- `list_non_translated_content_ids` tool is added
 - `list_content_translations` is now renamed to `list_content_languages`
 
 For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools).
