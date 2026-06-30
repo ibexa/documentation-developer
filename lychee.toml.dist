@@ -107,6 +107,7 @@ exclude_all_private = true
 # Required to resolve root-relative links (e.g. href="/…") found in every page into
 # file:// URLs. Those file:// URLs are then excluded from checking by the pattern in
 # the exclude list — internal links are validated by `mkdocs build --strict`.
+# `site` is the default `mkdocs build` output directory.
 root_dir = "site"
 
 #############################  Remap  ###############################
