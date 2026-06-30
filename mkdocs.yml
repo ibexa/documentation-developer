@@ -526,6 +526,7 @@ nav:
             - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
             - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
             - Tracking functions: recommendations/raptor_integration/tracking_functions.md
+            - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
             - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
             - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
