@@ -73,7 +73,7 @@ The following settings are global and apply to the entire application (they are 
 
 - `strict_exceptions` – when enabled, tracking exceptions are thrown instead of being silently handled. Default value: `%kernel.debug%`.
 
-- `hybrid_tracking_proxy_path` - by default, it's set to `/raptor/track`. The client side shim sends tracking events to this same-origin endpoint, which forwards them to Raptor asynchronously.
+- `hybrid_tracking_proxy_path` - by default, it's set to `/raptor/track`. The client-side shim sends tracking events to this same-origin endpoint, which forwards them to Raptor asynchronously.
 
 This value can be overridden in `config/packages/ibexa_connector_raptor.yaml` file, for example:
 

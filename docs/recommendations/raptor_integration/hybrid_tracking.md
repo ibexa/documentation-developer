@@ -43,7 +43,7 @@ To configure the Raptor hybrid tracking, use the `ibexa.system.<scope>.connector
 
 ``` yaml
 ibexa_connector_raptor:
-    hybrid_tracking_proxy_path: '/track'
+    hybrid_tracking_proxy_path: '/raptor/track'
 
 ibexa:
     system:
