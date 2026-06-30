@@ -93,6 +93,8 @@ This way you can envision what content will be available in the future.
 
 Also, you can now apply new filters that are intended to help you declutter the calendar view.
 
+For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/3.3/publishing/advanced_publishing_options/#calendar-widget).
+
 ### Cloning content types
 
 When creating content types in the back office, you don't have to start from scratch.
