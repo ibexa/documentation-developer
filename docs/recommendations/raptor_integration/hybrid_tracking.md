@@ -6,20 +6,20 @@ month_change: true
 # Raptor hybrid tracking
 
 Hybrid tracking mode is an additional tracking mode available alongside [`client` and `server`](tracking_functions.md).
-In hybrid mode, the bundle includes a client side shim that captures Raptor tracking events and sends them to a same-origin endpoint instead of communicating directly with Raptor SaaS.
+In hybrid mode, the bundle includes a client-side shim that captures Raptor tracking events and sends them to a same-origin endpoint instead of communicating directly with Raptor SaaS.
 The server enriches each event with identifiers resolved from request cookies (`cookieId`, `sessionId`, and `userId`) and forwards it to Raptor asynchronously through [Ibexa Messenger](background_tasks.md).
 Since the browser never connects to the Raptor domain, ad blockers cannot block the requests.
 
-## Hybrid vs server or client side tracking
+## Hybrid vs server or client-side tracking
 
-Both `server` and `hybrid` tracking modes deliver pageviews and events server side, so tracking requests are not affected by ad blockers.
+Both `server` and `hybrid` tracking modes deliver pageviews and events server-side, so tracking requests are not affected by ad blockers.
 The main difference is that `hybrid` mode loads a local, first-party tracking JavaScript (`raptor-proxy.js`) provided by the DXP instance, instead of the Raptor SaaS JavaScript.
 The Raptor script itself (`//deliver.raptorstatic.com/script/raptor-3.0.min.js`) is loaded only in `client` mode.
 
-The browser script only forwards captured tracking events to the same-origin proxy endpoint on your DXP instance. First-party visitor cookies are created and refreshed server side, which is what helps them survive Safari [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/).
+The browser script only forwards captured tracking events to the same-origin proxy endpoint on your DXP instance. First-party visitor cookies are created and refreshed server-side, which is what helps them survive Safari [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/).
 Event tracking still happens on the server, so ad blockers cannot block it.
 
-The main advantage of `hybrid` mode over `server` mode is its ability to capture client side tracking events.
+The main advantage of `hybrid` mode over `server` mode is its ability to capture client-side tracking events.
 Visitor cookies are also refreshed more frequently than in `server` mode.
 
 Check the table below to compare the behavior of different tracking modes:
@@ -27,12 +27,12 @@ Check the table below to compare the behavior of different tracking modes:
 |Tracking type|Browser script|Event delivery|Works with ad blockers|Cookie refresh                       |
 |-------------|--------------|--------------|----------------------|-------------------------------------|
 |client       |yes           |Browser       |no                    |yes                                  |
-|server       |no            |Server        |yes                   |yes (server side, on full page loads)|
+|server       |no            |Server        |yes                   |yes (server-side, on full page loads)|
 |hybrid       |yes           |Server        |yes                   |yes                                  |
 
 ## Hybrid tracking flow
 
-When hybrid tracking is enabled, `TrackingScriptExtension` renders the proxy bootstrap template and loads the `raptor-proxy.js` shim, which replaces the `window.raptor.push` function and drains the initial event queue.
+When hybrid tracking is enabled, `TrackingScriptExtension` renders the proxy bootstrap template and loads the `raptor-proxy.js` shim, which replaces the `window.raptor.push` function and sends out the events queued before the tracking consent was given.
 The shim sends each captured event to the proxy endpoint as a separate POST request.
 The `TrackingProxyController::track` action validates the `EventPayloadParser` payload, enriches each event with identifiers resolved from cookies, and dispatches one `TrackProxiedEventMessage` for every event.
 Messages are then processed asynchronously via Ibexa Messenger and `TrackProxiedEventMessageHandler` ultimately forwards them to Raptor through `TrackingService::trackRawParameters`.
@@ -75,7 +75,7 @@ Without it, the proxy endpoint returns 404 responses and tracking events are not
 
 You can configure the proxy endpoint path globally.
 By default, it's set to `/raptor/track`.
-The client side shim sends tracking events to this same-origin endpoint, which forwards them to Raptor asynchronously.
+The client-side shim sends tracking events to this same-origin endpoint, which forwards them to Raptor asynchronously.
 
 ``` yaml
 ibexa_connector_raptor:
@@ -84,9 +84,9 @@ ibexa_connector_raptor:
 
 !!! note
 
-   The path must start with a `/` symbol and cannot overlap with any existing routes.
-   The route is generated from this value, so updating it automatically updates the route as well.
-   You don't need to modify the routing import.
+    The path must start with a `/` symbol and cannot overlap with any existing routes.
+    The route is generated from this value, so updating it automatically updates the route as well.
+    You don't need to modify the routing import.
 
 After changing the configuration, clear the application cache:
 

@@ -33,13 +33,15 @@ Recommendation blocks provided in Page Builder, are available in [[= product_nam
 ## How does Raptor tracking work
 
 To start [tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) user interactions, the tracking script needs to be added to the website’s layout.
-Tracking can be set up either on the client-side or server-side, depending on how you want to capture and process the events.
+Tracking can be set up either on the client-side, server-side, or using hybrid mode, depending on how you want to capture and process the events.
 
 The tracking works differently depending on the mode you choose.
 In server-side mode, tracking happens on the server, handling all events without loading scripts in the browser.
 In client-side mode, it inserts script tags so tracking runs directly in the browser.
+In hybrid mode, the browser loads a first-party shim that forwards tracking events to a same-origin proxy endpoint instead of the Raptor SaaS script, helping prevent ad blockers from blocking tracking.
+For more information, see [Hybrid tracking](hybrid_tracking.md).
 
-You can switch between server and client tracking at any time by changing the tracking type to fit your setup and needs.
+You can switch between tracking modes at any time by changing the tracking type to fit your setup and needs.
 
 ## Capabilities
 
@@ -88,7 +90,7 @@ For a complete description of Recommendation blocks see [Recommendation blocks i
 ### Advanced usage for complex tracking scenarios
 
 For more complex tracking requirements, [PHP API](tracking_php_api.md) provides direct access to the service.
-It lets you track custom user actions, create more detailed tracking logic, and support scenarios not covered by the standard client- or server-side setups.
+It lets you track custom user actions, create more detailed tracking logic, and support scenarios not covered by the standard setups.
 
 ## Benefits
 

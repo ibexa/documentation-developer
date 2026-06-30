@@ -18,4 +18,4 @@ ibexa:
 ibexa_connector_raptor:
     # When enabled, tracking exceptions are thrown instead of being silently handled
     strict_exceptions: true
-    hybrid_tracking_proxy_path: '/track'
+    hybrid_tracking_proxy_path: '/raptor/track'
