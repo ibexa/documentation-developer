@@ -50,19 +50,19 @@ For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mc
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
-    '2026-06-30',
+    date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
-### Hybrid tracking
+### Raptor connector
+
+#### Hybrid tracking
 
 New `hybrid` tracking mode is available alongside [`client` and `server`](tracking_functions.md).
 In this mode, the browser uses a first-party tracking shim provided by the DXP instance.
 Tracking events are forwarded through a same-origin endpoint and processed server side before being sent to Raptor, helping reduce the impact of ad blockers while preserving client side event tracking.
 
 For more information, see [hybrid tracking](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/hybrid_tracking/).
-
-### Raptor connector
 
 #### New recommendation blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
