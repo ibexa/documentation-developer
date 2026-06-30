@@ -6,14 +6,14 @@ month_change: true
 # Raptor hybrid tracking
 
 Hybrid tracking mode is an additional tracking mode available alongside [`client` and `server`](tracking_functions.md).
-In hybrid mode, the bundle includes a client-side shim that captures Raptor tracking events and sends them to a same-origin endpoint instead of communicating directly with Raptor SaaS.
+In hybrid mode, the bundle includes a client-side [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that captures Raptor tracking events and sends them to a same-origin endpoint instead of communicating directly with Raptor SaaS.
 The server enriches each event with identifiers resolved from request cookies (`cookieId`, `sessionId`, and `userId`) and forwards it to Raptor asynchronously through [Ibexa Messenger](background_tasks.md).
 Since the browser never connects to the Raptor domain, ad blockers cannot block the requests.
 
 ## Hybrid vs server or client-side tracking
 
 Both `server` and `hybrid` tracking modes deliver pageviews and events server-side, so tracking requests are not affected by ad blockers.
-The main difference is that `hybrid` mode loads a local, first-party tracking JavaScript (`raptor-proxy.js`) provided by the DXP instance, instead of the Raptor SaaS JavaScript.
+The main difference is that `hybrid` mode loads a first-party tracking JavaScript (`raptor-proxy.js`) provided by the DXP instance, instead of the Raptor SaaS JavaScript.
 The Raptor script itself (`//deliver.raptorstatic.com/script/raptor-3.0.min.js`) is loaded only in `client` mode.
 
 The browser script only forwards captured tracking events to the same-origin proxy endpoint on your DXP instance. First-party visitor cookies are created and refreshed server-side, which is what helps them survive Safari [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/).
