@@ -311,7 +311,7 @@ The following deprecated items have been removed:
 |`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
 |`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
 |`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
-|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 Following the upgrade to Symfony 5, the following event classes have been deprecated:
