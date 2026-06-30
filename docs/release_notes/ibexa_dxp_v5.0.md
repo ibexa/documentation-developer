@@ -16,7 +16,7 @@ month_change: true
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
     date,
-    ['Headless', 'Experience', 'Commerce', 'LTS Update']
+    ['Headless', 'Experience', 'Commerce', 'LTS Update, 'New feature']
 ) =]]
 
 ### Tools
