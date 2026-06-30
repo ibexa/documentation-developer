@@ -73,6 +73,19 @@ Two new recommendation blocks are available in Page Builder:
 
 For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/).
 
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\ConnectorRaptor\Message\TrackProxiedEventMessage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\TrackingBehaviorProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html)
+- [`Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\SudoStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html)
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.8' %]]
