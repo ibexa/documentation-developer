@@ -504,7 +504,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### MCP Servers
 
-    To learn more about the [MCP Servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide.md), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config.md).
+    To learn more about the [MCP Servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
