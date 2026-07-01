@@ -2,7 +2,7 @@
 description: Overview of MCP resources in [[= product_name =]]
 page_type: landing_page
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # MCP Servers

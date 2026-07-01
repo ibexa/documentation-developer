@@ -1,6 +1,6 @@
 ---
 description: Install Ibexa DXP with Docker and DDEV to use it for development.
-month_change: true
+month_change: false
 ---
 
 # Install with DDEV

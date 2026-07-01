@@ -1,6 +1,6 @@
 ---
 description: Implement custom availability strategies to handle different business scenarios, for example pre-orders or per-region availability.
-month_change: true
+month_change: false
 ---
 
 # Create custom availability strategy
