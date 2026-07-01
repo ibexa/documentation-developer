@@ -6,7 +6,7 @@ This field type represents a date without time information.
 |--------|---------------|---------------------|
 | `Date` | `ibexa_date`  | mixed               |
 
-#### PHP API field type
+## PHP API field type
 
 ### Input expectations
 
@@ -26,7 +26,7 @@ Before storing, the provided input value is set to the beginning of the day in t
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

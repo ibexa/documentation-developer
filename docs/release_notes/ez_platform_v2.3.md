@@ -96,6 +96,7 @@ Improvements to the API cover:
 #### Back office translations
 
 There are three new ways you can now contribute to back office translations:
+
 - translate in-context with bookmarks
 - translate in-context with console
 - translate directly on the Crowdin website

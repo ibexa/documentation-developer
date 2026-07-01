@@ -29,7 +29,7 @@ This release deprecates all Commerce packages that you've known from previous re
 - `ibexa/checkout`
 - `ibexa/storefront`
 
-As part of this effort, two all-new components have been created: Cart and Checkout, that you can use to build your own e-commerce presence. 
+As part of this effort, two all-new components have been created: Cart and Checkout, that you can use to build your own e-commerce presence.
 
 ![The new cart view](img/4.4_new_cart.png "The new cart view")
 

@@ -7,6 +7,65 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## June 2026
+
+### Releases
+
+- [v5.0.9 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v509)
+- [v4.6.31 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4631)
+- [Ibexa DXP 3.3 has reached End of Life (EOL) on 30 June 2026](https://support.ibexa.co/Public/service-life). You can access the 3.3 documentation by unfolding **Older versions** in the **Change version** drop-down menu.
+
+### Users
+
+- Updated [user authentication customization example](user_authentication.md)
+
+### Background tasks and scheduled tasks
+
+- Reworked documentation about [scheduled tasks](install_ibexa_dxp.md#schedule-tasks)
+- Described [Ibexa Messenger configuration for production](background_tasks.md#configure-for-production-environment)
+
+## May 2026
+
+### Releases
+
+- [v5.0.8 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v508)
+- [v4.6.30 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4630)
+
+### AI
+
+- Grouped [AI Actions](ai_actions.md) and [MCP Servers](mcp.md) under [AI](ai.md)
+
+### Search
+
+- Documented how to [disable the total count in search results](search_api.md#disable-result-count)
+
+### Notifications
+
+- Covered the [notification channels](notification_channels.md) feature from `ibexa/notifications` package
+- Revamped the [back office notifications documentation](notifications.md)
+
+### Users
+
+- Add how to disable [Recent activity log](recent_activity.md#disable-activity-log)
+
+### HTTP Cache
+
+- Listed the [value types supported by the response taggers](content_aware_cache.md#delegator-and-value-taggers)
+
+### PHP API
+
+- Enhanced the PHP API reference with the following new classes and namespaces:
+    - [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+    - [`Ibexa\Contracts\Cdp\Membership`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+    - [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+    - [`Ibexa\Contracts\Mcp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
+### DDEV
+
+- Added how to [configure a mail catcher in DDEV](install_with_ddev.md#configure-mailer-optional) for email testing
+
 ## April 2026
 
 ### Releases
@@ -17,6 +76,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Configuration
 
 - Added trailing slashes to all `excluded_uri_prefixes` items to avoid collision with other URIs (for example, `/media` matches on both `/media` and `/mediation` while `/media/` only on `/media/`)
+
+### PHP API
+
+- [`Ibexa\Contracts\ConnectorRaptor`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
+- [`Ibexa\Contracts\IntegratedHelp`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
 
 ## March 2026
 
@@ -134,7 +198,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Infrastructure
 
- - [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
+- [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
 
 ### Taxonomy
 
@@ -311,7 +375,6 @@ We want to thank
     In addition, a new exception is available in the 5.0 version:
 
     - [`Ibexa\Contracts\AutomatedTranslation\Exception\ClientNotConfiguredException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Exception-ClientNotConfiguredException.html)
-
 
 ## August 2025
 
@@ -729,7 +792,7 @@ Enhanced the PHP API with the following new classes and interfaces:
     - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#time-slot-based-models)
 
 - Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
-    - [Enable Personalization ](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
+    - [Enable Personalization](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
     - [Integrate recommendation service](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/)
     - [Tracking integration](https://doc.ibexa.co/en/4.6/personalization/tracking_integration/)
     - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/4.6/personalization/tracking_with_ibexa-tracker/)
@@ -766,6 +829,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Added edition information to [PHP API reference](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/) to aid navigation
 
 ### REST API
+
 - Removed multiple obsolete RAML types from the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html)
 
 ### User management
@@ -940,7 +1004,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Administration
 
 - [Enhanced data migration doc](https://doc.ibexa.co/en/4.6/content_management/data_migration/importing_data/)
-- [Enhanced update to v3.3 procedure ](https://doc.ibexa.co/en/4.6/update_and_migration/from_2.5/to_3.3/)
+- [Enhanced update to v3.3 procedure](https://doc.ibexa.co/en/4.6/update_and_migration/from_2.5/to_3.3/)
 
 ### Content management
 
@@ -1173,6 +1237,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
+
 - Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
 - [Expected user](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_usage/rest_requests/#expected-user) header support
 

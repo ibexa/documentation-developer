@@ -124,7 +124,6 @@ This release introduced several back office improvements to facilitate editorial
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of object states to content
 
-
 ![Back office improvements](2.5_back_office_improvements.png)
 
 ### Permissions
@@ -246,7 +245,6 @@ This section provides a list of deprecated features to be removed in eZ Platform
 - The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/api/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` service container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
 - `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and isn't used by the installation process anymore.
-
 
 ## eZ Platform v2.5.6
 

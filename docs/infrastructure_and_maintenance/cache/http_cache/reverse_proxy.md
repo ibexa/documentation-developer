@@ -146,10 +146,10 @@ If the Varnish server is protected by Basic Auth, specify the Basic Auth credent
                 purge_servers: [http://myuser:mypasswd@my.varnish.server:8081]
 ```
 
-Varnish is enabled by default when using [[= product_name_cloud =]] and the `purge_servers` setting is set automatically. 
+Varnish is enabled by default when using [[= product_name_cloud =]] and the `purge_servers` setting is set automatically.
 To enable Basic Auth on [[= product_name_cloud =]] when using Varnish, specify the credentials using the following environment variables to make sure that Varnish is reachable:
 
-```
+``` bash
 env:HTTPCACHE_USERNAME=myuser
 env:HTTPCACHE_PASSWORD=mypasswd
 ```

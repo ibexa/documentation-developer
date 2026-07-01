@@ -129,6 +129,7 @@ The following example adds support for automatically translating alternative tex
 ``` php hl_lines="11-14 16-19 21-27 33-38"
 [[= include_code('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
 ```
+
 In this example, the methods are responsible for:
 
 - `canEncode` - deciding whether the field to be encoded is an [Image](imagefield.md) field

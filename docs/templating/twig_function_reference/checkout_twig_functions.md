@@ -8,7 +8,7 @@ page_type: reference
 
 You can use checkout Twig functions to get information about the checkout process, and total values related to cart and cart items.
 
-### `ibexa_checkout_step_label()`
+## `ibexa_checkout_step_label()`
 
 The `ibexa_checkout_step_label()` function returns a name of the step (configured in `framework.workflows.workflow.ibexa_checkout.transitions.<transition>.metadata.label`).
 
@@ -18,7 +18,7 @@ The `ibexa_checkout_step_label()` function returns a name of the step (configure
 {% endblock %}
 ```
 
-### `ibexa_checkout_steps()`
+## `ibexa_checkout_steps()`
 
 The `ibexa_checkout_steps()` function returns a list of steps configured in `framework.workflows.workflow.ibexa_checkout.transitions`).
 
@@ -28,7 +28,7 @@ The `ibexa_checkout_steps()` function returns a list of steps configured in `fra
 {% endfor %}
 ```
 
-### `ibexa_checkout_step_path()`
+## `ibexa_checkout_step_path()`
 
 The `ibexa_checkout_step_path()` function returns a path to the step.
 
@@ -36,7 +36,7 @@ The `ibexa_checkout_step_path()` function returns a path to the step.
 <a href="{{ ibexa_checkout_step_path(checkout, step) }}">{{ <link_label> }}</a>
 ```
 
-### `ibexa_checkout_step_url()`
+## `ibexa_checkout_step_url()`
 
 The `ibexa_checkout_step_url()` function returns a URL address of the step.
 By setting the optional argument to `true` you can decide whether the function returns a relative or absolute URL of the checkout step.
@@ -46,7 +46,7 @@ The default value of the optional argument is `false`, which stands for the abso
 <a href="{{ ibexa_checkout_step_url(checkout, step, true) }}">{{ <target_page_label> }}</a>
 ```
 
-### `ibexa_checkout_step_number()`
+## `ibexa_checkout_step_number()`
 
 The `ibexa_checkout_step_number` function returns a sequential number of the step (based on configuration under `framework.workflows.workflow.ibexa_checkout.transitions`).
 
@@ -56,7 +56,7 @@ The `ibexa_checkout_step_number` function returns a sequential number of the ste
 {% endblock %}
 ```
 
-### `ibexa_checkout_summary_entries()`
+## `ibexa_checkout_summary_entries()`
 
 The `ibexa_checkout_summary_entries` function takes in a single argument, a cart summary object, and returns the checkout summary.
 
@@ -68,7 +68,7 @@ The `ibexa_checkout_summary_entries` function takes in a single argument, a cart
 {% endblock %}
 ```
 
-### `ibexa_checkout_summary_vat_summaries()`
+## `ibexa_checkout_summary_vat_summaries()`
 
 The `ibexa_checkout_summary_vat_summaries()` function takes in a single argument, a cart summary object, and returns an array of VAT summary objects for the cart.
 Each VAT summary relates to a certain VAT rate, and contains information about the VAT rate, and the VAT value.

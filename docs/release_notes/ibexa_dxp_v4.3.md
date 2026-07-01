@@ -38,7 +38,7 @@ By adding additional steps and options, you can build a process that perfectly m
 ### SEO configuration exposed
 
 SEO configuration gains a more prominent place on the content type editing screen.
-For example, to enable SEO, you now have to edit the content type that you want to modify, 
+For example, to enable SEO, you now have to edit the content type that you want to modify,
 scroll down to the SEO section and switch the **Enable SEO for this content type** toggle.
 
 For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/work_with_seo/).
@@ -126,7 +126,7 @@ The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ## v4.3.1
 
-### New REST API endpoints 
+### New REST API endpoints
 
 You can now use new REST API routes that confirm whether the User is logged in,
 without invoking any other route:
@@ -154,7 +154,7 @@ It allows REST API endpoints to work with cookie-based authentication.
 
 #### HTTP cache support for product-related responses
 
-Customer group is now part of user context, which enables HTTP cache to support 
+Customer group is now part of user context, which enables HTTP cache to support
 product-related responses.
 
 #### Ability to retrieve a customer group

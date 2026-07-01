@@ -12,14 +12,14 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 |Type|Description|Example|
 |------|------|------|
-|`int|string`|ID of the related content item|`42`|
+|`int` or `string`|ID of the related content item|`42`|
 |`array`|An array of related Content IDs|`[ 24, 42 ]`|
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
 |`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type value object|See below.|
 
 ### Value Object
 
-##### Properties
+#### Properties
 
 `Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
 
@@ -36,7 +36,7 @@ $relationList->destinationContentId = [
 ];
 ```
 
-##### Constructor
+#### Constructor
 
 The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.
@@ -74,7 +74,7 @@ The field definition of this field type can be configured with the following opt
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`selectionMethod`|`mixed`|`SELECTION_BROWSE`|Method of selection in the back-end interface.|
-|`selectionDefaultLocation`|`string|integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
+|`selectionDefaultLocation`|`string` or `integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
 |`selectionContentTypes`|`array`|`[]`|An array of content type IDs that are allowed for related Content.|
 
 Following selection methods are available:

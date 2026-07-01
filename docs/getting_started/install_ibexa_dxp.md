@@ -1,5 +1,6 @@
 ---
 description: Install Ibexa DXP on a Linux system and prepare your installation for production.
+month_change: false
 ---
 
 # Install Ibexa DXP
@@ -395,7 +396,6 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
     You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
 
-
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
     Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
 
@@ -412,34 +412,130 @@ You should see the welcome page.
 
     See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
-### Enable Date-based Publisher
+### Schedule tasks
 
-To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ibexa:scheduled:run` command periodically.
+The `ibexa:cron:run` command executes all service commands tagged with `ibexa.cron.job`.
+Use [`cron`](https://en.wikipedia.org/wiki/Cron) to run it every minute.
 
-For example, to check for publishing every minute, add the following script:
+The following example creates a temporary crontab entry file and appends it to the existing crontab for the web server user (`www-data`):
 
-`echo '* * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
+```bash
+echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
+rm ibexa_cron.txt
+```
 
-For 5-minute intervals:
+For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and runs every minute (`* * * * *`) by default.
+You can redefine this service to change the frequency.
 
-`echo '*/5 * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
+The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
-Next, append the new cron to user's crontab without destroying existing crons.
-Assuming the web server user data is `www-data`:
+You can add other commands to scheduled tasks in one of two ways:
 
-`crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -`
+- add their own scheduling line to the crontab
+- tag their service with `ibexa.cron.job`
 
-Finally, remove the temporary file:
+#### Additional scheduled tasks and advanced usage
 
-`rm ezp_cron.txt`
+Here are some additional tasks that require scheduling:
 
-### Enable the Link manager
+- To use the [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
+- To control the [recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
+- To re-index [discounts](discounts_guide.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command.
 
-To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
+    !!! note
 
-### Enable discount re-indexing [[% include 'snippets/commerce_badge.md' %]]
+        You must first set up [[= product_name_base =]] Messenger.
+        For more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing).
 
-Enable [discount re-indexing in the background](configure_discounts.md#discount-re-indexing).
+The following example schedules these commands separately:
+
+- `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
+- `ibexa:check-urls` [every week](https://crontab.guru/weekly) on Sunday at midnight
+- `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) at minute 0
+- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) at midnight
+
+This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
+
+```bash
+echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
+echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
+echo '0 0 * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
+crontab -u www-data ibexa_cron.txt
+rm ibexa_cron.txt
+```
+
+The following alternative example uses service tagging to schedule these commands.
+It also changes the `ibexa:scheduled:run` frequency to every five minutes.
+
+Add the following to `config/services.yaml`:
+
+```yaml
+services:
+    #…
+
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: ibexa.cron.job, schedule: '*/5 * * * *' }
+
+    Ibexa\Bundle\Core\Command\CheckURLsCommand:
+        arguments:
+            $urlChecker: '@Ibexa\Bundle\Core\URLChecker\URLChecker'
+        tags:
+            - { name: ibexa.cron.job, schedule: '0 0 * * 0', priority: -1 }
+
+    Ibexa\Bundle\ActivityLog\Command\TruncateLogCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 * * * *', priority: -2 }
+
+    Ibexa\Bundle\Discounts\Command\ReIndexDiscountProductCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 0 * * *' }
+```
+
+The `ibexa.cron.job` tag accepts the following options:
+
+- `schedule`: A cron expression representing the period or interval.
+- `options`: Arguments passed to the command.
+  `--env` and `--siteaccess` are inherited from `ibexa:cron:run`.
+- `category`: Commands can be grouped into categories, and a category can be passed with `ibexa:cron:run --category=<CATEGORY>`.
+  By default, the `default` category is used.
+  For example, it can be used to set different jobs and `schedule` for different [SiteAccesses](multisite_configuration.md).
+- `priority`: Defines the order in which `ibexa:cron:run` executes commands that are due.
+
+Run the following command to list all command services scheduled with the ibexa.cron.job tag:
+
+```bash
+php bin/console debug:container --tag=ibexa.cron.job
+```
+
+The following example shows how to set up a different schedule for a specific SiteAccess with a category.
+
+This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
+
+```bash
+(crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
+```
+
+Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:
+
+```yaml
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: ibexa.cron.job, schedule: '* * * * *' }
+            - { name: ibexa.cron.job, schedule: '*/5 * * * *', category: 'minor_website' }
+```
+
+### Enable background tasks
+
+Enable Ibexa Messenger for background tasks.
+Make sure that its [worker starts with the server](background_tasks.md#start-worker).
+
+A list of processes that use [[= product_name_base =]] Messenger includes at least these two:
+
+- [CDP data export](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- [Discount re-indexing](configure_discounts.md#discount-re-indexing)
 
 ## [[= product_name_cloud =]]
 

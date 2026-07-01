@@ -58,6 +58,7 @@ The method takes as arguments:
 - domain of the string
 
 Here's an example:
+
 ``` php hl_lines="13 14 15"
 use Symfony\Component\Translation\TranslatorInterface;
 

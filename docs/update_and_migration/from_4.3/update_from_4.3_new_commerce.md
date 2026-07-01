@@ -136,6 +136,7 @@ oneup_flysystem:
             local:
                 location: '%kernel.cache_dir%/flysystem'
 ```
+
 If you haven't applied custom changes to that file,
 you can reset the third-party `oneup/flysystem-bundle` recipe by executing:
 
@@ -418,6 +419,7 @@ Finish the code update by running:
 ```bash
 composer run post-install-cmd
 ```
+
 ## Run data migration
 
 ### Customer Portal self-registration

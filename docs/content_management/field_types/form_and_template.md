@@ -131,7 +131,6 @@ you need to define a template containing a block for the field.
 
 By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
-
 !!! tip
 
     Template blocks for built-in field types are available in [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Resources/views/content_fields.html.twig).

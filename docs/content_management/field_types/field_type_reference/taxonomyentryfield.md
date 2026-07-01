@@ -17,6 +17,7 @@ A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value
 | `array` | array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object under the `taxonomy_entry` key | see below |
 
 Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
+
 ``` php
 $taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
 new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
@@ -25,7 +26,9 @@ new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
         )
 );
 ```
+
 Example using array:
+
 ``` php
 [
     'taxonomy_entry' => $taxonomyEntry, // load Entry using TaxonomyService
@@ -38,7 +41,7 @@ Example using array:
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`taxonomyEntry`|`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry|null`|Stores selected taxonomy entry.|
+|`taxonomyEntry`|`?Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
 
 #### Constructor
 
@@ -54,6 +57,7 @@ $taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 
 // Instantiates a checkbox value with a checked state
 $taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
 ```
+
 #### String representation
 
 `taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.

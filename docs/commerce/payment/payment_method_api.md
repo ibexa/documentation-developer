@@ -76,6 +76,7 @@ To update payment method information, use the `PaymentMethodServiceInterface::up
 ## Delete payment method
 
 To delete a payment method from the system, use the `PaymentMethodService::deletePayment` method:
+
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 96, 101, remove_indent=True) =]]
 ```

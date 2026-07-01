@@ -1,7 +1,7 @@
 ---
 description: AI interactions with [[= product_name =]]
 page_type: landing_page
-month_change: true
+month_change: false
 ---
 
 # Artificial Intelligence

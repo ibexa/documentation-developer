@@ -10,7 +10,7 @@ This field type represents a customer group that a user belongs to.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

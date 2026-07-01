@@ -175,6 +175,7 @@ Because this template is rendered inside a table, it starts with a `<tr>` tag.
     </td>
 </tr>
 ```
+
 ### Media permission
 
 To be able to view the `photo` field you need to have a `content/read` permission to `Media` section.

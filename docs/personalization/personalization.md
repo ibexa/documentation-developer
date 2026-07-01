@@ -23,8 +23,3 @@ To provide online recommendations, the service must at least:
     "personalization/integrate_recommendation_service",
     "personalization/api_reference/api_reference",
 ], columns=3) =]]
-
-
-
-
-

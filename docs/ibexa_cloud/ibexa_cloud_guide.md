@@ -1,6 +1,5 @@
 ---
 description: Learn how to host your application and improve your business processes by using Ibexa Cloud hosting platform.
-title: Ibexa Cloud product guide
 month_change: false
 ---
 

@@ -1,5 +1,6 @@
 ---
 description: Manage URL aliases and wildcards, and validate external URLs.
+month_change: true
 ---
 
 # URL management
@@ -20,7 +21,6 @@ Edit the entry to update the URL address in all the occurrences throughout the w
 
     When you edit the details of an entry to update the URL address, the status automatically changes to valid.
 
-
 ## External URL validation
 
 You can validate all the addresses from the URL table by executing the `ibexa:check-urls` command.
@@ -35,26 +35,9 @@ The following protocols are currently supported:
 
 ### Enabling automatic URL validation
 
-To enable automatic URL validation, set up cron to run the `ibexa:check-urls` command periodically.
+To enable automatic URL validation, set up a scheduled task to run the `ibexa:check-urls` command periodically.
 
-For example, to check links every week, add the following script:
-
-```bash
-echo '0 0 * * 0 cd [path-to-ibexa]; php bin/console ibexa:check-urls --quiet --env=prod' > ezp_cron.txt
-```
-
-Next, append the new cron to user's crontab without destroying existing crons.
-Assuming that the web server user data is www-data:
-
-```bash
-crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -
-```
-
-Finally, remove the temporary file:
-
-```bash
-rm ezp_cron.txt
-```
+For more information, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
 
 ### Configuration
 
@@ -102,6 +85,7 @@ For more information about [[= product_name_base =]] configuration, see [Configu
 You can extend the external URL address validation with a custom protocol.
 To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
 s
+
 ```php
 <?php
 
@@ -202,7 +186,6 @@ Use it when:
 
     Before you apply the command, back up your database and make sure it's not modified while the command is running.
 
-
 Execute the following command to regenerate aliases:
 
 ``` bash
@@ -243,7 +226,6 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 
     To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` policy.
     For more information about permissions, see [Permissions](permissions.md).
-
 
 ### Configuring URL wildcards with the public PHP API
 

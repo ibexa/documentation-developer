@@ -1,7 +1,7 @@
 ---
 description: Limitations let you fine-tune the permission system by specifying limits to roles granted to users.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Limitation reference
@@ -390,7 +390,6 @@ The supported policies are:
 |Value|UI value|Description|
 |------|------|------|
 |Taxonomy identifiers|Taxonomy names|List of allowed taxonomies|
-
 
 ## Taxonomy Subtree limitation
 

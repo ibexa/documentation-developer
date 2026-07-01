@@ -75,4 +75,3 @@ In addition to [filters exposed by LiipImagineBundle](https://symfony.com/bundle
     ``` bash
     php bin/console liip:imagine:cache:remove -v
     ```
-
