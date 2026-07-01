@@ -365,7 +365,7 @@ For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 Most HTTP client libraries and REST libraries support this method.
 [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) is an example of using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`.
 
-**Raw HTTP request with basic authentication**
+See the following raw HTTP request with basic authentication example:
 
 ```http
 GET / HTTP/1.1

@@ -2,9 +2,9 @@
 
 This field type stores one or several comma-separated keywords as a string or array of strings.
 
-| Name      | Internal name   | Expected input    |
-|-----------|-----------------|-------------------|
-| `Keyword` | `ibexa_keyword` | `string[]|string` |
+| Name      | Internal name   | Expected input         |
+|-----------|-----------------|------------------------|
+| `Keyword` | `ibexa_keyword` | `string[]` or `string` |
 
 ## PHP API field type
 

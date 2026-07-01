@@ -21,9 +21,9 @@ This field type makes it possible to store and retrieve the value of a relation 
 
 The Value class of this field type contains the following properties:
 
-| Property               | Type              | Description                                                                               |
-|------------------------|-------------------|-------------------------------------------------------------------------------------------|
-| `$destinationContentId` | `string|int|null` | This property is used to store the value provided, which represents the related content. |
+| Property               | Type                        | Description                                                                               |
+|------------------------|-----------------------------|-------------------------------------------------------------------------------------------|
+| `$destinationContentId` | `string`, `int`, or `null` | This property is used to store the value provided, which represents the related content.  |
 
 ``` php
 // Value object content example

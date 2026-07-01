@@ -74,11 +74,11 @@ This field type doesn't perform any special validation of the input value.
 
 The field definition of this field type can be configured with several options:
 
-| Name           | Type      | Default value         | Description                                                                                                                             |
-|----------------|-----------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `useSeconds`   | `boolean` | `false`               | Used to control displaying of seconds in the output.                                                                                    |
-| `defaultType`  | `mixed`   | `Type::DEFAULT_EMPTY` | One of the `DEFAULT_*` constants, used by the administration interface for setting the default field value. See below for more details. |
-| `dateInterval` | `null     | \DateInterval`        | `null`                                                                                                                                  |This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface is adjusted by the given `\DateInterval`.|
+| Name           | Type             | Default value         | Description                                                                                                                             |
+|----------------|------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `useSeconds`   | `boolean`        | `false`               | Used to control displaying of seconds in the output.                                                                                    |
+| `defaultType`  | `mixed`          | `Type::DEFAULT_EMPTY` | One of the `DEFAULT_*` constants, used by the administration interface for setting the default field value. See below for more details. |
+| `dateInterval` | `?\DateInterval` | `null`                | This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface is adjusted by the given `\DateInterval`.|
 
 Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\DateAndTime\Type` class:
 

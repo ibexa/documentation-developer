@@ -7,9 +7,9 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateObjectStateEvent`|`ObjectStateService::createObjectState`|`ObjectStateGroup $objectStateGroup`</br>`ObjectStateCreateStruct $objectStateCreateStruct`</br>`ObjectState|null $objectState`|
+|`BeforeCreateObjectStateEvent`|`ObjectStateService::createObjectState`|`ObjectStateGroup $objectStateGroup`</br>`ObjectStateCreateStruct $objectStateCreateStruct`</br>`?ObjectState $objectState`|
 |`CreateObjectStateEvent`|`ObjectStateService::createObjectState`|`ObjectState $objectState`</br>`ObjectStateGroup $objectStateGroup`</br>`ObjectStateCreateStruct $objectStateCreateStruct`|
-|`BeforeUpdateObjectStateEvent`|`ObjectStateService::updateObjectState`|`ObjectState $objectState`</br>`ObjectStateUpdateStruct $objectStateUpdateStruct`</br>`ObjectState|null $updatedObjectState`|
+|`BeforeUpdateObjectStateEvent`|`ObjectStateService::updateObjectState`|`ObjectState $objectState`</br>`ObjectStateUpdateStruct $objectStateUpdateStruct`</br>`?ObjectState $updatedObjectState`|
 |`UpdateObjectStateEvent`|`ObjectStateService::updateObjectState`|`ObjectState $updatedObjectState`</br>`ObjectState $objectState`</br>`ObjectStateUpdateStruct $objectStateUpdateStruct`|
 |`BeforeDeleteObjectStateEvent`|`ObjectStateService::deleteObjectState`|`ObjectState $objectState`|
 |`DeleteObjectStateEvent`|`ObjectStateService::deleteObjectState`|`ObjectState $objectState`|
@@ -18,9 +18,9 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateObjectStateGroupEvent`|`ObjectStateService::createObjectStateGroup`|`ObjectStateGroupCreateStruct $objectStateGroupCreateStruct`</br>`ObjectStateGroup|null $objectStateGroup`|
+|`BeforeCreateObjectStateGroupEvent`|`ObjectStateService::createObjectStateGroup`|`ObjectStateGroupCreateStruct $objectStateGroupCreateStruct`</br>`?ObjectStateGroup $objectStateGroup`|
 |`CreateObjectStateGroupEvent`|`ObjectStateService::createObjectStateGroup`|`ObjectStateGroup $objectStateGroup`</br>`ObjectStateGroupCreateStruct $objectStateGroupCreateStruct`|
-|`BeforeUpdateObjectStateGroupEvent`|`ObjectStateService::updateObjectStateGroup`|`ObjectStateGroup $objectStateGroup`</br>`ObjectStateGroupUpdateStruct $objectStateGroupUpdateStruct`</br>`ObjectStateGroup|null $updatedObjectStateGroup`|
+|`BeforeUpdateObjectStateGroupEvent`|`ObjectStateService::updateObjectStateGroup`|`ObjectStateGroup $objectStateGroup`</br>`ObjectStateGroupUpdateStruct $objectStateGroupUpdateStruct`</br>`?ObjectStateGroup $updatedObjectStateGroup`|
 |`UpdateObjectStateGroupEvent`|`ObjectStateService::updateObjectStateGroup`|`ObjectStateGroup $updatedObjectStateGroup`</br>`ObjectStateGroup $objectStateGroup`</br>`ObjectStateGroupUpdateStruct $objectStateGroupUpdateStruct`|
 |`BeforeDeleteObjectStateGroupEvent`|`ObjectStateService::deleteObjectStateGroup`|`ObjectStateGroup $objectStateGroup`|
 |`DeleteObjectStateGroupEvent`|`ObjectStateService::deleteObjectStateGroup`|`ObjectStateGroup $objectStateGroup`|
