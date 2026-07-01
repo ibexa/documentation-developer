@@ -12,7 +12,7 @@ month_change: true
 
 [[% set version = 'v4.6.31' %]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2026-06-31', ['Headless', 'Experience', 'Commerce', ]) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-07-01', ['Headless', 'Experience', 'Commerce', ]) =]]
 
 [[% include 'snippets/release_46.md' %]]
 

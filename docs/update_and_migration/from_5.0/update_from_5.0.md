@@ -520,5 +520,5 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     Between v5.0.8 and v5.0.9, the following changes were made to the MCP Servers feature:
 
-    - An [`allowed_hosts`](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config.md#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
-    - The [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config.md#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
+    - An [`allowed_hosts`](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
+    - The [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
