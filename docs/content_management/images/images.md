@@ -168,19 +168,19 @@ If there is no configuration assigned to the `binary_handler`, the placeholder g
 
 #### Configuration examples
 
-**Example 1 - placeholders with basic information about original image**
+##### Example 1 - placeholders with basic information about original image
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/images_basic.yaml') =]]
 ```
 
-**Example 2 - placeholders from remote source**
+##### Example 2 - placeholders from remote source
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/images_remote.yaml') =]]
 ```
 
-**Example 3 - placeholders from live version of a site**
+##### Example 3 - placeholders from live version of a site
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/images_live.yaml') =]]

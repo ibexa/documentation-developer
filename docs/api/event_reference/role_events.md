@@ -7,13 +7,13 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateRoleDraftEvent`|`RoleService::createRoleDraft`|`Role $role`</br>`RoleDraft|null $roleDraft`|
+|`BeforeCreateRoleDraftEvent`|`RoleService::createRoleDraft`|`Role $role`</br>`?RoleDraft $roleDraft`|
 |`CreateRoleDraftEvent`|`RoleService::createRoleDraft`|`Role $role`</br>`RoleDraft $roleDraft`|
-|`BeforeCreateRoleEvent`|`RoleService::createRole`|`RoleCreateStruct $roleCreateStruct`</br>`RoleDraft|null $roleDraft`|
+|`BeforeCreateRoleEvent`|`RoleService::createRole`|`RoleCreateStruct $roleCreateStruct`</br>`?RoleDraft $roleDraft`|
 |`CreateRoleEvent`|`RoleService::createRole`|`RoleCreateStruct $roleCreateStruct`</br>`RoleDraft $roleDraft`|
-|`BeforeUpdateRoleDraftEvent`|`RoleService::updateRoleDraft`|`RoleDraft $roleDraft`</br>`RoleUpdateStruct $roleUpdateStruct`</br>`RoleDraft|null $updatedRoleDraft`|
+|`BeforeUpdateRoleDraftEvent`|`RoleService::updateRoleDraft`|`RoleDraft $roleDraft`</br>`RoleUpdateStruct $roleUpdateStruct`</br>`?RoleDraft $updatedRoleDraft`|
 |`UpdateRoleDraftEvent`|`RoleService::updateRoleDraft`|`RoleDraft $roleDraft`</br>`RoleUpdateStruct $roleUpdateStruct`</br>`RoleDraft $updatedRoleDraft`|
-|`BeforeCopyRoleEvent`|`RoleService::copyRole`|`Role $role`</br>`RoleCopyStruct $roleCopyStruct`</br>`Role|null $copiedRole`|
+|`BeforeCopyRoleEvent`|`RoleService::copyRole`|`Role $role`</br>`RoleCopyStruct $roleCopyStruct`</br>`?Role $copiedRole`|
 |`CopyRoleEvent`|`RoleService::copyRole`|`Role $copiedRole`</br>`Role $role`</br>`RoleCopyStruct $roleCopyStruct`|
 |`BeforePublishRoleDraftEvent`|`RoleService::publishRoleDraft`|`RoleDraft $roleDraft`|
 |`PublishRoleDraftEvent`|`RoleService::publishRoleDraft`|`RoleDraft $roleDraft`|
@@ -26,11 +26,11 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeAddPolicyByRoleDraftEvent`|`RoleService::addPolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyCreateStruct $policyCreateStruct`</br>`RoleDraft|null $updatedRoleDraft`|
+|`BeforeAddPolicyByRoleDraftEvent`|`RoleService::addPolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyCreateStruct $policyCreateStruct`</br>`?RoleDraft $updatedRoleDraft`|
 |`AddPolicyByRoleDraftEvent`|`RoleService::addPolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyCreateStruct $policyCreateStruct`</br>`private $updatedRoleDraft`|
-|`BeforeUpdatePolicyByRoleDraftEvent`|`RoleService::updatePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policy`</br>`PolicyUpdateStruct $policyUpdateStruct`</br>`PolicyDraft|null $updatedPolicyDraft`|
+|`BeforeUpdatePolicyByRoleDraftEvent`|`RoleService::updatePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policy`</br>`PolicyUpdateStruct $policyUpdateStruct`</br>`?PolicyDraft $updatedPolicyDraft`|
 |`UpdatePolicyByRoleDraftEvent`|`RoleService::updatePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policy`</br>`PolicyUpdateStruct $policyUpdateStruct`</br>`PolicyDraft $updatedPolicyDraft`|
-|`BeforeRemovePolicyByRoleDraftEvent`|`RoleService::removePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policyDraft`</br>`RoleDraft|null $updatedRoleDraft`|
+|`BeforeRemovePolicyByRoleDraftEvent`|`RoleService::removePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policyDraft`</br>`?RoleDraft $updatedRoleDraft`|
 |`RemovePolicyByRoleDraftEvent`|`RoleService::removePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policyDraft`</br>`RoleDraft $updatedRoleDraft`|
 
 ## Assigning roles
