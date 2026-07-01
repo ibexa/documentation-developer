@@ -58,7 +58,7 @@ For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mc
 
 #### Hybrid tracking
 
-New `hybrid` tracking mode is available alongside [`client` and `server`](tracking_functions.md).
+New `hybrid` tracking mode is available alongside [`client` and `server`](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/).
 In this mode, the browser uses a first-party tracking shim provided by the DXP instance.
 Tracking events are forwarded through a same-origin endpoint and processed server side before being sent to Raptor, helping reduce the impact of ad blockers while preserving client side event tracking.
 
