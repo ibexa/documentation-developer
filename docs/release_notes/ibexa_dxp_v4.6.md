@@ -31,7 +31,7 @@ month_change: true
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
     date,
-    ['Headless', 'Experience', 'Commerce', ])
+    ['Headless', 'Experience', 'Commerce'])
 =]]
 
 [[% include 'snippets/release_46.md' %]]
