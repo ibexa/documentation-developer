@@ -750,6 +750,10 @@ If you choose to implement countermeasures without upgrading PHP and updating Tw
 
 In addition, consider upgrading your project to one of [the actively supported PHP versions](requirements.md#php).
 
+## v4.6.31
+
+No additional steps needed.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
