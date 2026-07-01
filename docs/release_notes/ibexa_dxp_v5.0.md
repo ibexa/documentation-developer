@@ -86,6 +86,10 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Messenger\Stamp\SudoStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html)
 - [`Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html)
 
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.8' %]]
