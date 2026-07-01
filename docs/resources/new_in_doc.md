@@ -13,7 +13,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [v5.0.9 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v509)
 - [v4.6.31 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4631)
-- [3.3 as reached End of Life (EOL) on 30 June 2026](https://support.ibexa.co/Public/service-life). 3.3 documentation can still be accessed in the **Change version** dropdown menu by unfolding **Older versions**.
+- [3.3 as reached End of Life (EOL) on 30 June 2026](https://support.ibexa.co/Public/service-life). 3.3 documentation can still be accessed in the **Change version** drop-down menu by unfolding **Older versions**.
 
 ### Users
 
