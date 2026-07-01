@@ -1,6 +1,6 @@
 ---
 description: Notify users through several channels.
-month_change: true
+month_change: false
 ---
 
 # Notification channels

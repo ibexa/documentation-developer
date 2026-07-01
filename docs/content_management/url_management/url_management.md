@@ -1,5 +1,6 @@
 ---
 description: Manage URL aliases and wildcards, and validate external URLs.
+month_change: true
 ---
 
 # URL management

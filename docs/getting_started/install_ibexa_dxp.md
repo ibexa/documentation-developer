@@ -1,6 +1,6 @@
 ---
 description: Install Ibexa DXP on a Linux system and prepare your installation for production.
-month_change: true
+month_change: false
 ---
 
 # Install Ibexa DXP
