@@ -268,11 +268,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/ServerSideTrackingDispatcherInterface.php">
         <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/ServerSideTrackingDispatcherInterface.php">ServerSideTrackingDispatcherInterface.php</abbr>
                 :
-        <span title="at line 21">21</span>
+        <span title="at line 24">24</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Dispatches tracking event for asynchronous processing.</p>
+    <p>Dispatches a tracking event for asynchronous processing.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -285,7 +285,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">dispatch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\Event\EventDataInterface">EventDataInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$eventData</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">dispatch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\Event\EventDataInterface">EventDataInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$eventData</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -294,6 +294,11 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>When $url is null, the URL of the current main request is used. The proxy controller
+passes the originating page URL explicitly so it isn't replaced by the proxy path.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -315,6 +320,20 @@
                     <td class="empty">
                                                     -
                                             </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $url
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
                     <td class="empty">
                                                     -
                                             </td>

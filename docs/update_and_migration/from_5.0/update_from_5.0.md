@@ -458,6 +458,10 @@ Make sure it contains the highlighted addition:
         set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
 ```
 
+## v5.0.9
+
+No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Update requires additional update steps](#mcp-servers) if you're using it.
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
@@ -498,3 +502,22 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
+
+=== "MCP Servers"
+
+    ### MCP Servers
+
+    To learn more about the [MCP Servers](mcp_guide.md), see the [installation and configuration instructions](mcp_config.md).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/mcp:[[= latest_tag_5_0 =]]
+    ```
+
+    #### v5.0.9
+
+    Between v5.0.8 and v5.0.9, the following changes were made to the MCP Servers feature:
+
+    - An [`allowed_hosts`](mcp_config.md#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
+    - The [built-in tool](mcp_config.md#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.

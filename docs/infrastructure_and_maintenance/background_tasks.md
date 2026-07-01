@@ -1,6 +1,6 @@
 ---
 description: Use Ibexa Messenger to run processes in the background and conserve system resources.
-month_change: false
+month_change: true
 ---
 
 # Background tasks
