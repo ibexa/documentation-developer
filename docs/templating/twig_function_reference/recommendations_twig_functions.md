@@ -39,6 +39,8 @@ Example setup using parameters:
 If the custom `customerId` parameter is not set, the function uses the `customerID` from the [connector configuration](connector_installation_configuration.md#siteaccess-aware-configuration) to render the tracking script.
 It can be overridden by providing a custom value if needed.
 
+### Handle tracking consent
+
 If the `hasConsented` parameter is set to `true` in the template, the tracking script is initialized automatically.
 This value should be set if user consent for tracking cookies is already known at render time.
 If `hasConsented` is set to `false`, tracking should be enabled by dispatching a custom JavaScript event after consent is granted, for example through a custom script in layout.

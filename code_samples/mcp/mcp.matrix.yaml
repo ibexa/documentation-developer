@@ -13,6 +13,8 @@ ibexa:
                     session:
                         type: <psr16|file>
                         # Session options…
+                    allowed_hosts:
+                        - '<domain_name>'
                 mcp_psr16:
                     discovery_cache: cache.redis.mcp
                     session:
