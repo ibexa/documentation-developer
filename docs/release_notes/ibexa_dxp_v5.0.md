@@ -11,7 +11,7 @@ month_change: true
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v5.0.9' %]]
-[[% set date = '2026-06-30' %]]
+[[% set date = '2026-07-01' %]]
 
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
