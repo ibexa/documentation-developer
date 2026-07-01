@@ -54,7 +54,7 @@ Variables:
 |Name|Type|Values|
 |----|----|-----------|
 |`headline` (optional)|string|if not specified, the header isn't rendered|
-|`headline_items`|array|
+|`headline_items`|array| |
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|hash|{`label`, `content_raw`, `content`}|
 

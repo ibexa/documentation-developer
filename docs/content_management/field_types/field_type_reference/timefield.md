@@ -30,9 +30,9 @@ It's also possible to directly pass an instance of `\DateTime`.
 
 The Value class of this field type contains the following properties:
 
-| Property | Type           | Description                                                                       |
-|----------|----------------|-----------------------------------------------------------------------------------|
-| `$time`  | `integer|null` | Holds the time information as a number of seconds since the beginning of the day. |
+| Property | Type                | Description                                                                       |
+|----------|---------------------|-----------------------------------------------------------------------------------|
+| `$time`  | `integer` or `null` | Holds the time information as a number of seconds since the beginning of the day. |
 
 #### Constructor
 

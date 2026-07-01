@@ -41,7 +41,7 @@ Example using array:
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`taxonomyEntry`|`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry|null`|Stores selected taxonomy entry.|
+|`taxonomyEntry`|`?Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
 
 #### Constructor
 

@@ -7,13 +7,13 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateContentTypeDraftEvent`|`ContentTypeService::createContentTypeDraft`|`ContentType $contentType`</br>`ContentTypeDraft|null $contentTypeDraft`|
+|`BeforeCreateContentTypeDraftEvent`|`ContentTypeService::createContentTypeDraft`|`ContentType $contentType`</br>`?ContentTypeDraft $contentTypeDraft`|
 |`CreateContentTypeDraftEvent`|`ContentTypeService::createContentTypeDraft`|`ContentTypeDraft $contentTypeDraft`</br>`ContentType $contentType`|
-|`BeforeCreateContentTypeEvent`|`ContentTypeService::createContentType`|`ContentTypeCreateStruct $contentTypeCreateStruct`</br>`array $contentTypeGroups`</br>`ContentTypeDraft|null $contentTypeDraft`|
+|`BeforeCreateContentTypeEvent`|`ContentTypeService::createContentType`|`ContentTypeCreateStruct $contentTypeCreateStruct`</br>`array $contentTypeGroups`</br>`?ContentTypeDraft $contentTypeDraft`|
 |`CreateContentTypeEvent`|`ContentTypeService::createContentType`|`ContentTypeDraft $contentTypeDraft`</br>`ContentTypeCreateStruct $contentTypeCreateStruct`</br>`array $contentTypeGroups`|
 |`BeforeUpdateContentTypeDraftEvent`|`ContentTypeService::updateContentTypeDraft`|`ContentTypeDraft $contentTypeDraft`</br>`ContentTypeUpdateStruct $contentTypeUpdateStruct`|
 |`UpdateContentTypeDraftEvent`|`ContentTypeService::updateContentTypeDraft`|`ContentTypeDraft $contentTypeDraft`</br>`ContentTypeUpdateStruct $contentTypeUpdateStruct`|
-|`BeforeCopyContentTypeEvent`|`ContentTypeService::copyContentType`|`ContentType $contentType`</br>`User $creator`</br>`ContentType|null $contentTypeCopy`|
+|`BeforeCopyContentTypeEvent`|`ContentTypeService::copyContentType`|`ContentType $contentType`</br>`User $creator`</br>`?ContentType $contentTypeCopy`|
 |`CopyContentTypeEvent`|`ContentTypeService::copyContentType`|`ContentType $contentTypeCopy`</br>`ContentType $contentType`</br>`User $creator`|
 |`BeforePublishContentTypeDraftEvent`|`ContentTypeService::publishContentTypeDraft`|`ContentTypeDraft $contentTypeDraft`|
 |`PublishContentTypeDraftEvent`|`ContentTypeService::publishContentTypeDraft`|`ContentTypeDraft $contentTypeDraft`|
@@ -24,7 +24,7 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateContentTypeGroupEvent`|`ContentTypeService::createContentTypeGroup`|`ContentTypeCreateStruct $contentTypeCreateStruct`</br>`array $contentTypeGroups`</br>`ContentTypeDraft|null $contentTypeDraft`|
+|`BeforeCreateContentTypeGroupEvent`|`ContentTypeService::createContentTypeGroup`|`ContentTypeCreateStruct $contentTypeCreateStruct`</br>`array $contentTypeGroups`</br>`?ContentTypeDraft $contentTypeDraft`|
 |`CreateContentTypeGroupEvent`|`ContentTypeService::createContentTypeGroup`|`ContentTypeGroup $contentTypeGroup`</br>`ContentTypeGroupCreateStruct $contentTypeGroupCreateStruct`|
 |`BeforeUpdateContentTypeGroupEvent`|`ContentTypeService::updateContentTypeGroup`|`ContentTypeGroup $contentTypeGroup`</br>`ContentTypeGroupUpdateStruct $contentTypeGroupUpdateStruct`|
 |`UpdateContentTypeGroupEvent`|`ContentTypeService::updateContentTypeGroup`|`ContentTypeGroup $contentTypeGroup`</br>`ContentTypeGroupUpdateStruct $contentTypeGroupUpdateStruct`|
@@ -35,7 +35,7 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeRemoveContentTypeTranslationEvent`|`ContentTypeService::removeContentTypeTranslation`|`ContentTypeDraft $contentTypeDraft`</br>`string $languageCode`</br>`ContentTypeDraft|null $newContentTypeDraft`|
+|`BeforeRemoveContentTypeTranslationEvent`|`ContentTypeService::removeContentTypeTranslation`|`ContentTypeDraft $contentTypeDraft`</br>`string $languageCode`</br>`?ContentTypeDraft $newContentTypeDraft`|
 |`RemoveContentTypeTranslationEvent`|`ContentTypeService::removeContentTypeTranslation`|`ContentTypeDraft $newContentTypeDraft`</br>`ContentTypeDraft $contentTypeDraft`</br>`string $languageCode`|
 
 ## Field definitions
