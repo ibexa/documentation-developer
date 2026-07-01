@@ -681,13 +681,13 @@ The PHP API has been enhanced with the following new classes:
 
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\Discounts\Admin\Form\DiscountValueFormTypeMapperInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
-- [`Ibexa\Contracts\Discounts\Admin\Form\FormThemeProviderInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-FormThemeProviderInterface.html)
-- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUnusableException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUnusableException.html)
-- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUserInvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUserInvalidArgumentException.html)
-- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUsageInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUsageInterface.html)
-- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUser`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUser.html)
-- [`Ibexa\Contracts\DiscountsCodes\Value\Query\DiscountCodeUsageQuery`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html )
+- [`Ibexa\Contracts\Discounts\Admin\Form\DiscountValueFormTypeMapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
+- [`Ibexa\Contracts\Discounts\Admin\Form\FormThemeProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-FormThemeProviderInterface.html)
+- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUnusableException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUnusableException.html)
+- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUserInvalidArgumentException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUserInvalidArgumentException.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUsageInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUsageInterface.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUser`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUser.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\Query\DiscountCodeUsageQuery`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html )
 
 To update to the latest version, see the [update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#lts-updates).
 
@@ -697,15 +697,15 @@ To update to the latest version, see the [update instructions](https://doc.ibexa
 
 #### Twig Components
 
-- The new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+- The new [Twig Components](https://doc.ibexa.co/en/4.6/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
 
 #### Extending Sub-items view
 
-- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/4.6/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
 
 #### Infrastructure
 
-- MySQL 8.4, Node 20 and Node 22 are now [officially supported](https://doc.ibexa.co/en/latest/getting_started/requirements/)
+- MySQL 8.4, Node 20 and Node 22 are now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/)
 
 #### PHP API
 
@@ -762,13 +762,13 @@ To learn more, see the [published security advisory IBEXA-SA-2025-002](https://d
 #### Features
 
 - The [CartSummary endpoint](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts-cart-summary) now supports a new `Accept` header: `application/vnd.ibexa.api.ShortCartSummary`, returning only the essential data about products in the cart
-- Added a new repository setting: [grace period for archived versions](https://doc.ibexa.co/en/latest/administration/configuration/repository_configuration/#grace-period-for-archived-versions)
-- Added a new `group_remote_id` setting for [controlling the user group in which registering users are created](https://doc.ibexa.co/en/latest/users/user_registration/#user-groups)
+- Added a new repository setting: [grace period for archived versions](https://doc.ibexa.co/en/4.6/administration/configuration/repository_configuration/#grace-period-for-archived-versions)
+- Added a new `group_remote_id` setting for [controlling the user group in which registering users are created](https://doc.ibexa.co/en/4.6/users/user_registration/#user-groups)
 
 #### Ibexa Rector
 
 - The [Ibexa Rector package](https://github.com/ibexa/rector/tree/4.6?tab=readme-ov-file#ibexa-dxp-rector) has been released, allowing you to automatically refactor your code and remove deprecations.
-To learn how to use it, see the [update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector)
+To learn how to use it, see the [update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector)
 
 #### PHP API
 
@@ -1340,7 +1340,7 @@ For more information, see [Edit embedded content items](https://doc.ibexa.co/pro
 With multiple changes to the back office UI intended to expose the most important information and actions, editors can now better focus on their work.
 The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
 
-For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
+For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/discover_ui/#focus-mode).
 
 ![Focus mode](img/4.6_focus_mode.png "Focus mode")
 
@@ -1628,14 +1628,14 @@ For more information, see [Email triggers](https://doc.ibexa.co/projects/usergui
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Submodel parameters](https://doc.ibexa.co/en/5.0/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+For more information, see [Submodel parameters](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#submodels).
 
 ##### New scenario filter
 
 Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
 This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
 
-For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
+For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/filters/#commerce-specific-filters).
 
 ### Other changes
 
@@ -1646,7 +1646,7 @@ New `project_dir()` expression language function that allows you to reference cu
 #### Site Factory events
 
 Site Factory events have been moved from the `Ibexa\SiteFactory\ServiceEvent\Events` namespace to the `Ibexa\Contracts\SiteFactory\Events` namespace, keeping the backward compatibility.
-For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/event_reference/site_events/).
+For a full list of events, see [Site events](https://doc.ibexa.co/en/4.6/api/event_reference/site_events/).
 
 Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
 New listeners automatically grant permissions to log in to a site, providing a more seamless site management experience.

@@ -17,7 +17,7 @@ description: Ibexa DXP v4.1 enhances the product catalog capabilities, adds a Me
 
 With this release, product catalog brings new PHP APIs, productivity boost from new product Search Criteria and Sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
 
-You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/latest/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
+You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/4.1/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
 
 Currencies, regions and customer groups can now be resolved automatically in the PHP API
 based on the current context (for example, selected locale).
@@ -70,16 +70,16 @@ A language switcher in Taxonomy view enables quick switching between different t
 ### Image optimization
 
 Images modified in the Image Editor are now optimized for reduced file size.
-You can use external libraries to [optimize different image formats](https://doc.ibexa.co/en/latest/guide/images/#image-optimization).
+You can use external libraries to [optimize different image formats](https://doc.ibexa.co/en/4.1/guide/images/images/#support-for-svg-images).
 
 ### Expanded data migrations
 
 [Data migration](data_migration.md) now covers additional objects:
 
-- [database settings](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#settings)
-- [segments](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#segments)
-- [prices](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#prices) with `create` mode
-- [settings](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#settings)
+- [database settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
+- [segments](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#segments)
+- [prices](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#prices) with `create` mode
+- [settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
 
 Data migration now also offers a locking capability,
 which prevents multiple processes from executing the same migration and causing duplicated records.

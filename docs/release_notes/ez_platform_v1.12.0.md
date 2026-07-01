@@ -24,7 +24,7 @@ Added support for full-text search query syntax in Solr.
 
 You can now remove translations from content item Versions through the PHP API.
 
-For more information, see the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation).
+For more information, see the section on [deleting translations](https://doc.ibexa.co/en/5.0/content_management/content_api/creating_content/#deleting-a-translation).
 
 You also have a new endpoint available for deleting a single Version.
 

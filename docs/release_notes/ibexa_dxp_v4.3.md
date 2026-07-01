@@ -19,7 +19,7 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, produc
 
 #### Company self-registration
 
-Now, a prospective buyer can apply to [create a company account](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/) on a seller's website.
+Now, a prospective buyer can apply to [create a company account](https://doc.ibexa.co/projects/userguide/en/4.3/shop_administration/company_self_registration/) on a seller's website.
 
 The application goes through an approval process
 where admin specifies the customer group and sales representative for the new company account.
@@ -41,7 +41,7 @@ SEO configuration gains a more prominent place on the content type editing scree
 For example, to enable SEO, you now have to edit the content type that you want to modify,
 scroll down to the SEO section and switch the **Enable SEO for this content type** toggle.
 
-For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/work_with_seo/).
+For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/4.3/search_engine_optimization/work_with_seo/).
 
 !!! note
 

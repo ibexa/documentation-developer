@@ -43,7 +43,7 @@ It enables you to manually select a set of content items to be displayed.
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which content types can be embedded in it.
 
-    For more information and an example, see [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates).
+    For more information and an example, see [block templates](https://doc.ibexa.co/en/3.3/guide/page/page_blocks/#block-templates).
 
 #### RecommendationBundle adapted for YooChoose v2
 

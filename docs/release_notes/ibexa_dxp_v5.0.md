@@ -734,7 +734,7 @@ Once properly configured, it uses a background queue to trigger price re-indexin
 ### Improvements to notifications
 
 An improved notifications system is now more intuitive.
-Developers can now create and configure their own notification types, while users can now [browse through a list of notifications](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/notifications/), where they can either act on them or dismiss them.
+Developers can now create and configure their own notification types, while users can now [browse through a list of notifications](https://doc.ibexa.co/projects/userguide/en/5.0/getting_started/notifications/), where they can either act on them or dismiss them.
 
 ![A searchable notifications list](502_notifications_screen.png "A searchable notifications list")
 

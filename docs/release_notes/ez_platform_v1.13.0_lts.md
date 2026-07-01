@@ -23,7 +23,7 @@ You can edit a link in the manager and it's updated automatically in all content
 
 You can now copy a content item with all of its sub-items in the back office.
 
-The maximum number of content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
+The maximum number of content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_configuration/#copy-subtree-limit).
 
 ![Copy subtree option in the menu](copy_subtree_button.png)
 
@@ -38,7 +38,7 @@ Made ezplatform-http-cache extensible in third party bundles.
 
 ### Fastly
 
-You can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
+You can [serve Varnish through Fastly](https://doc.ibexa.co/en/2.2/guide/http_cache/#serving-varnish-through-fastly).
 
 ## Full list of new features, improvements and bug fixes since v1.12.0
 
