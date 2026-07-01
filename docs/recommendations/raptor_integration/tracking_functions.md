@@ -1,6 +1,6 @@
 ---
 description: Integrate the tracking script to collect user interactions.
-month_change: false
+month_change: true
 ---
 
 # Raptor tracking functions
