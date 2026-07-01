@@ -85,7 +85,7 @@ fi;
 if [[ "$DXP_VERSION" == *".x-dev" ]]; then
   GIT_REF=$BASE_DXP_BRANCH;
 else
-  GIT_REF="v$DXP_VERSION";
+  GIT_REF="v${DXP_VERSION#v}";
 fi
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
