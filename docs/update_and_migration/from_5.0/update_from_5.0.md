@@ -460,7 +460,7 @@ Make sure it contains the highlighted addition:
 
 ## v5.0.9
 
-No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Update requires additional update steps](update_from_5.0#mcp-servers) if you're using it.
+No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Update requires additional update steps](#mcp-servers) if you're using it.
 
 ## LTS Updates and additional packages
 
