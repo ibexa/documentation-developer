@@ -988,7 +988,7 @@ extra:
   product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Ibexa Engage'
 
-  eol_versions: ['2.5']
+  eol_versions: ['2.5', '3.3']
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
