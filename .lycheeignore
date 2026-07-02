@@ -16,7 +16,6 @@
 ^https://support\.ibexa\.co/
 ^https://redocly\.com/redoc/
 ^https://updates\.ibexa\.co
-^https://console\.cloud\.google\.com
 
 # Hosts that block automated requests (403)
 ^https?://(www\.)?linkedin\.com
@@ -32,7 +31,7 @@ https://support.deepl.com/hc/en-us/articles/360020695820-API-key-for-DeepL-API
 # AI provider consoles — redirect to login pages (302/307)
 https://aistudio\.google\.com/app/api-keys
 https://console\.anthropic\.com/login
-https://docs\.claude\.com/en/docs/about-claude/models/overview
+^https://console\.cloud\.google\.com
 
 # AWS console — redirects unauthenticated requests (302)
 https://console\.aws\.amazon\.com/

@@ -70,7 +70,7 @@ ANTHROPIC_API_KEY=<your_api_key>
 ###< ibexa/connector-anthropic ###
 ```
 
-By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://docs.claude.com/en/docs/about-claude/models/overview) model.
+By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://platform.claude.com/docs/en/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
 To do it, in `config/packages` folder, create a YAML file similar to this example:
