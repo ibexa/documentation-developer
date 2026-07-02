@@ -435,6 +435,8 @@ Both `name` and `enabled` are optional, only the fields you provide are modified
 [[= include_file('code_samples/data_migration/examples/update_language.yaml') =]]
 ```
 
+The example above saves the ID of the updated language as a [reference](managing_migrations.md#references) for further usage.
+
 ### Product catalog
 
 #### Attributes and attribute groups
