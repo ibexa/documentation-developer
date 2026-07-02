@@ -1,7 +1,7 @@
 #############################  Display  #############################
 
 # Verbose program output
-verbose = "error"
+verbose = "warn"
 
 # Output format
 format = "markdown"
