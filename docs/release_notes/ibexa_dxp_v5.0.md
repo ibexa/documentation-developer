@@ -64,7 +64,7 @@ For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mc
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin(
-    "Ibexa DXP " + version,
+    product_name + ' ' +  + version,
     date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]

@@ -29,7 +29,7 @@ month_change: true
 [[% set date = '2026-07-01' %]]
 
 [[= release_note_entry_begin(
-    "Ibexa DXP " + version,
+    product_name + ' ' + version,
     date,
     ['Headless', 'Experience', 'Commerce'])
 =]]
