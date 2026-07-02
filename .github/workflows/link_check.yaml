@@ -105,15 +105,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Comment broken links
-              if: github.event_name == 'pull_request'
+              if: always() && github.event_name == 'pull_request'
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                 path: lychee-report.md
-
-            - name: Upload link-check report
-              if: always()
-              uses: actions/upload-artifact@v4
-              with:
-                  name: lychee-report
-                  path: lychee-report.md
-                  if-no-files-found: ignore
