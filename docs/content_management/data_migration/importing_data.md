@@ -57,7 +57,7 @@ The following data migration step modes are available:
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |          |
 | `discount`             | &#10004; | &#10004; |          |          |          |
 | `discount_code`        | &#10004; |          |          |          |          |
-| `language`             | &#10004; |          |          |          |          |
+| `language`             | &#10004; | &#10004; |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; | &#10004; |
 | `object_state`         | &#10004; |          |          |          |          |
 | `object_state_group`   | &#10004; |          |          |          |          |
@@ -426,6 +426,13 @@ The required metadata keys are: `languageCode`, `name`, and `enabled`.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_language.yaml') =]]
+```
+
+You can also update an existing language to rename it or change its enabled state.
+Both `name` and `enabled` are optional, only the fields you provide are modified.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_language.yaml') =]]
 ```
 
 ### Product catalog

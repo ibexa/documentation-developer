@@ -1,0 +1,7 @@
+-
+    type: language
+    mode: update
+    languageCode: ger-DE
+    metadata:
+        name: 'German (Germany)'
+        enabled: true
