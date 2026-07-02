@@ -91,7 +91,7 @@ jobs:
                       lychee-
 
             - name: Check links
-              uses: lycheeverse/lychee-action@v2
+              uses: lycheeverse/lychee-action@master
               with:
                   args: >-
                       --config lychee.toml
@@ -103,6 +103,12 @@ jobs:
                   fail: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Comment broken links
+              if: github.event_name == 'pull_request'
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                path: lychee-report.md
 
             - name: Upload link-check report
               if: always()

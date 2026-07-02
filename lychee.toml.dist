@@ -60,7 +60,7 @@ user_agent = "Mozilla/5.0 (compatible; lychee link checker)"
 # Check anchor fragments in cross-doc links (remapped to explicit index.html paths).
 # Internal fragments are already validated by `mkdocs build --strict` and are excluded
 # via the file:// exclude pattern below.
-include_fragments = true
+include_fragments = "full"
 
 # Do NOT check links inside <code> and <pre> blocks.
 include_verbatim = false
