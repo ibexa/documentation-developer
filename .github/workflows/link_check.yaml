@@ -99,7 +99,7 @@ jobs:
                       --cache-exclude-status "400.."
                       site
                   output: lychee-report.md
-                  jobSummary: false
+                  jobSummary: true
                   fail: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
