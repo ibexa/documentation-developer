@@ -319,7 +319,7 @@ In the back office, go to **Personalization** > **Import** and review the list o
 
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
-Every time an editor creates, updates or deletes content in the back office, a notification is sent to https://admin.perso.ibexa.co/.
+Every time an editor creates, updates or deletes content in the back office, a notification is sent to the personalization server.
 The personalization service also notifies other components of the Personalization server and it eventually fetches the affected content and updates it internally.
 
 ![Subsequent content exports](incremental_content_export.png)

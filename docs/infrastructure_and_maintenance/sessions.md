@@ -82,19 +82,19 @@ See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 
 To set it up, you need to:
 
-- [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
+- [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/blob/6.2.0/README.md#php-session-handler)
 - Set `%ibexa.session.handler_id%` to `~` _(null)_ in `config/packages/ibexa.yaml`
 
 Alternatively if you have needs to configure the servers dynamically:
 
 - Set `%ibexa.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
-- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
+- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Redis](https://github.com/phpredis/phpredis/blob/6.2.0/README.md#php-session-handler)
 
 !!! note "[[= product_name_cloud =]]"
 
     For [[= product_name_cloud =]] installations, the [`ibexa/cloud` package](install_on_ibexa_cloud.md) performs configuration based on the `.platform.app.yaml` file.
 
-If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
+If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis/blob/6.2.0/README.md#session-locking) for session locking.
 
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 

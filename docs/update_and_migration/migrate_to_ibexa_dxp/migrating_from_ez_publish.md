@@ -30,11 +30,11 @@ The specific incompatibilities
 The specific changes that are migrated and are incompatible with legacy are:
 
 - XmlText fields have been replaced with a new [RichText](richtextfield.md) field
-- Page field (ezflow) has been replaced by the [LandingPage](pagefield.md) field, and is now provided by our commercial product [eZ Platform Enterprise Edition](http://ezstudio.com/)
+- Page field (ezflow) has been replaced by the [LandingPage](pagefield.md) field, and is now provided by our commercial product eZ Platform Enterprise Edition
 - Incremental future improvements to the database schema to improve features and scalability of the content repository
 
 Together these major improvements make it practically impossible to run eZ Platform side by side with eZ Publish legacy, like it was possible in 5.x series.
-*For these reasons we recommend that you use eZ Publish Enterprise 5.4  ([which is supported until end of 2021](https://support.ez.no/Public/Service-Life)) if you don't have the option to remake your web application yet, or want to do it gradually.*
+*For these reasons we recommend that you use eZ Publish Enterprise 5.4  ([which is supported until end of 2021](https://support.ibexa.co/Public/service-life)) if you don't have the option to remake your web application yet, or want to do it gradually.*
 
 ## Migration Path
 
@@ -47,9 +47,9 @@ Alternatively you can use Null field type as a dummy implementation for the cust
 Using Null field type prevents errors from the Platform Stack, see [Null field type Reference](nullfield.md)
 - Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](beginner_tutorial.md)
 - Rewrite custom admin modules to use the new Platform/Symfony stack
-    - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
+    - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://web.archive.org/web/20140911035812/https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
 
-See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade).
+See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://web.archive.org/web/20150920231014/https://doc.ez.no/display/EZP/Upgrade).
 
 !!! caution "Avoid exception when migrating the database"
 

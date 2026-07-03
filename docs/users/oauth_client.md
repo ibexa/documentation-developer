@@ -50,7 +50,7 @@ In `config/packages/security.yaml`, enable the `ibexa_oauth2_connect` firewall a
 [[= include_file('code_samples/user_management/oauth_google/config/packages/security.yaml') =]]
 ```
 
-The `custom_authenticators` setting specifies the [custom authenticators]([[= symfony_doc =]]/current/security/custom_authenticator.html) to be used.
+The `custom_authenticators` setting specifies the [custom authenticators]([[= symfony_doc =]]/security/custom_authenticator.html) to be used.
 
 By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` authenticator you add a possibility to use OAuth2 on those routes.
 

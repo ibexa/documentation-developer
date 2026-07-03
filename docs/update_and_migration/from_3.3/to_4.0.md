@@ -227,7 +227,7 @@ The v4 version of [[= product_name =]] is using Bootstrap 5 in the back office. 
 #### Custom plugins and buttons
 
 If you added your own Online Editor plugins or buttons, you need to rewrite them
-using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/tutorials/crash-course/plugins.html#creating-custom-plugins).
+using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/framework/tutorials/crash-course/plugins.html#creating-custom-plugins).
 
 #### Custom tags
 

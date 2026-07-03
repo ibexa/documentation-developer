@@ -72,7 +72,7 @@ ibexa_tracking_track_event(
 )
 ```
 
-- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
+- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-parameters-reference).
 - **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, see [tracking event examples](#tracking-events).
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
@@ -83,7 +83,7 @@ The following events are supported and can be triggered from Twig templates:
 
 #### `pageview` event
 
-The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference#:~:text=Event%20Specifications%20%28Full%20Reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
+The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
 
 Use it for basic page metrics and debugging the Live Tracking Stream.
 

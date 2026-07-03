@@ -24,7 +24,7 @@ This release brings a completely reconstructed user interface of the Personaliza
 
 [[= product_name =]] is now installed using [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 
-See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_started/install_ez_platform) for a new guide to installing the product.
+See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_started/install_ez_platform/) for a new guide to installing the product.
 
 ### Image Editor
 
@@ -35,11 +35,11 @@ that contain an `ezimage` or `ezimageasset` Field.
 
 You can modify the Image Editor's default settings to change its appearance or behavior.
 
-For more information, see [Configuring the Image Editor](https://doc.ibexa.co/en/3.3/guide/image_editor).
+For more information, see [Configuring the Image Editor](https://doc.ibexa.co/en/3.3/guide/image_editor/).
 
 ### Migration bundle
 
-The new [migration bundle](https://doc.ibexa.co/en/3.3/guide/data_migration) enables you to export and import your Repository data by using YAML files.
+The new [migration bundle](https://doc.ibexa.co/en/3.3/guide/data_migration/data_migration/) enables you to export and import your Repository data by using YAML files.
 
 ## Other changes
 
@@ -47,9 +47,9 @@ The new [migration bundle](https://doc.ibexa.co/en/3.3/guide/data_migration) ena
 
 Search API has been extended with the following capabilities:
 
-- [Score Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/score_sort_clause) orders search results by their score.
-- [CustomField Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/customfield_sort_clause) sorts search results by raw search index fields.
-- [ContentTranslatedName Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/contenttranslatedname_sort_clause) sorts search results by the content items' translated names.
+- [Score Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/score_sort_clause/) orders search results by their score.
+- [CustomField Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/customfield_sort_clause/) sorts search results by raw search index fields.
+- [ContentTranslatedName Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/contenttranslatedname_sort_clause/) sorts search results by the content items' translated names.
 
 You can now access [additional search result data from PagerFanta](https://doc.ibexa.co/en/3.3/api/public_php_api_search/#additional-search-result-data).
 
@@ -57,12 +57,12 @@ You can now access [additional search result data from PagerFanta](https://doc.i
 
 You can now use the following new PHP API methods:
 
-- [`UserService::loadUserGroupByRemoteId`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/UserService.php#L71)
-- [`PasswordHashService::getDefaultHashType`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L18)
-- [`PasswordHashService::getSupportedHashTypes`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L25)
-- [`PasswordHashService::isHashTypeSupported`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L30)
-- [`PasswordHashService::createPasswordHash`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L37)
-- [`PasswordHashService::isValidPassword`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L44)
+- [`UserService::loadUserGroupByRemoteId`](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Publish/API/Repository/UserService.php#L71)
+- [`PasswordHashService::getDefaultHashType`](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Publish/API/Repository/PasswordHashService.php#L18)
+- [`PasswordHashService::getSupportedHashTypes`](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Publish/API/Repository/PasswordHashService.php#L25)
+- [`PasswordHashService::isHashTypeSupported`](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Publish/API/Repository/PasswordHashService.php#L30)
+- [`PasswordHashService::createPasswordHash`](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Publish/API/Repository/PasswordHashService.php#L37)
+- [`PasswordHashService::isValidPassword`](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Publish/API/Repository/PasswordHashService.php#L44)
 
 ### Query Field Location handling
 

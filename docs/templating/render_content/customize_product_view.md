@@ -16,7 +16,7 @@ To override any of them, copy its directory structure in your template directory
 ## Template customization example
 
 As an example, to modify the template used to display the product price,
-you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/storefront/component/price/price.html.twig`](https://github.com/ibexa/storefront/blob/v4.4.0/src/bundle/Resources/views/themes/storefront/storefront/component/price/price.html.twig) template.
+you need to override the `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/storefront/component/price/price.html.twig` template.
 
 To do it, create your own template in `templates/themes/storefront/storefront/component/price/price.html.twig` file:
 

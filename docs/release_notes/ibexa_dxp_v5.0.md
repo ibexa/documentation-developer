@@ -222,10 +222,10 @@ The following additions were made to the PHP API:
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
+This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
 You can also use it as an alternative embeddings provider for the [taxonomy suggestions feature](taxonomy.md#taxonomy-suggestions).
 
-For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
+For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai/ai_actions/configure_ai_actions/#install-google-gemini-connector).
 
 [[= release_note_entry_end() =]]
 
@@ -289,7 +289,7 @@ For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/p
 
 ### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
+You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
 
 ### Developer experience
 
@@ -371,7 +371,7 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\ProductCatalog\Events\ProductAttributeRenderEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-ProductAttributeRenderEvent.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
   <br>For more information, see [search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/).
-- [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html) from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/)
+- [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html) from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/)
 - [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html) from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/)
 
 ### Full changelog
@@ -413,7 +413,7 @@ Product variant querying now supports filtering by variant codes and product att
 
 You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
 
-For more information, see [Product API - Searching variants](https://doc.ibexa.co/en/5.0/pim/product_api/#searching-for-variants-across-all-products).
+For more information, see [Product API - Searching variants](https://doc.ibexa.co/en/5.0/product_catalog/product_api/#searching-for-variants-across-all-products).
 
 ### Infrastructure
 
@@ -553,9 +553,9 @@ For more information, see [Integrated help](https://doc.ibexa.co/en/5.0/administ
 
 [[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Anthropic Claude](https://claude.com/product/overview).
+This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions/) with [Anthropic Claude](https://claude.com/product/overview).
 
-For more information, see how to [install Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions#install-anthropic-connector).
+For more information, see how to [install Anthropic connector](https://doc.ibexa.co/en/5.0/ai/ai_actions/configure_ai_actions#install-anthropic-connector).
 
 [[= release_note_entry_end() =]]
 
@@ -734,7 +734,7 @@ Once properly configured, it uses a background queue to trigger price re-indexin
 ### Improvements to notifications
 
 An improved notifications system is now more intuitive.
-Developers can now create and configure their own notification types, while users can now [browse through a list of notifications](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/notifications/), where they can either act on them or dismiss them.
+Developers can now create and configure their own notification types, while users can now [browse through a list of notifications](https://doc.ibexa.co/projects/userguide/en/5.0/getting_started/notifications/), where they can either act on them or dismiss them.
 
 ![A searchable notifications list](502_notifications_screen.png "A searchable notifications list")
 
@@ -860,7 +860,7 @@ It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/late
 
 With this release, [[= product_name =]] starts supporting [Solr 9](https://doc.ibexa.co/en/5.0/getting_started/requirements/#search).
 
-Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) feature.
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions/) feature.
 
 ### Improved content creation interface
 
@@ -912,9 +912,9 @@ By default, the AI Actions feature can help users with their work in following s
 
 ![AI Assistant](ai_assistant.png)
 
-AI Actions integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
+AI Actions integrate with [Ibexa Connect]([[= connect_doc =]]/), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
 
-For more information, see [AI Actions product guide](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/).
+For more information, see [AI Actions product guide](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions_guide/).
 
 #### Discounts [[% include 'snippets/commerce_badge.md' %]]
 

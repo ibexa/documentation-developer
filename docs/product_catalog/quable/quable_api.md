@@ -9,7 +9,7 @@ month_change: false
 As [[= pim_product_name =]] products are represented as [[= product_name =]] products, you can use the existing [Product APIs](product_api.md) to retrieve the product information.
 
 [[= pim_product_name =]] is the source of truth about products and categories and you should only use the [[= product_name =]] APIs to read the information coming from [[= pim_product_name =]], but you can't use them to modify it.
-To modify the information, use the [[[= pim_product_name =]] interface](https://quable.com) or the dedicated [[[= pim_product_name =]] APIs](https://developers.quable.com/quable-api/).
+To modify the information, use the [[[= pim_product_name =]] interface](https://www.quable.com) or the dedicated [[[= pim_product_name =]] APIs](https://developers.quable.com/quable-api/).
 
 ## REST API Usage
 
