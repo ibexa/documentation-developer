@@ -26,6 +26,7 @@
 ^https://unsplash\.com/
 https://support.deepl.com/hc/en-us/articles/360020695820-API-key-for-DeepL-API
 ^https?://(www\.)?npmjs\.com
+^https?://(www\.)?iso\.org
 
 # Google consoles — redirect to Google account login page (302)
 https://aistudio\.google\.com/app/api-keys
