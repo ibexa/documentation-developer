@@ -94,7 +94,7 @@ If you deploy your application on [[= product_name_cloud =]], using [Workers](ht
 
 ## Dispatch message
 
-To have a task processed in the background, dispatch an appriopriate message by using the `\Symfony\Component\Messenger\MessageBusInterfac\MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message):
+To have a task processed in the background, dispatch an appropriate message by using the `\Symfony\Component\Messenger\MessageBusInterfac\MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message):
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 3) =]]
@@ -104,7 +104,7 @@ To have a task processed in the background, dispatch an appriopriate message by 
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 26) =]]
 ```
 
-Additionally, attach message metada by using [stamps](#stamps).
+Additionally, attach message metadata by using [stamps](#stamps).
 
 ### Stamps
 

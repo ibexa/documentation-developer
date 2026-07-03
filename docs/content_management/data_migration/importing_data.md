@@ -88,7 +88,7 @@ You can run a set of one or more similar migration steps multiple times by using
 
 A repeatable migration performs the defined migration steps as many times as specified:
 
-- with an [interation counter](#repeatable-steps-with-iteration-counter), mimicking the behavior of a [`for` loop](https://www.php.net/manual/en/control-structures.for.php)
+- with an [iteration counter](#repeatable-steps-with-iteration-counter), mimicking the behavior of a [`for` loop](https://www.php.net/manual/en/control-structures.for.php)
 - with a [list of items](#repeatable-steps-with-items), mimicking the behavior of a [`foreach` loop](https://www.php.net/manual/en/control-structures.foreach.php)
 
 !!! tip
