@@ -7,7 +7,7 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 !!! tip "Upgrade to v3"
 
     For a guide on moving your project to v3,
-    see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/updating/updating).
+    see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/update_and_migration/update_ibexa_dxp/).
 
 ## Symfony 5
 
