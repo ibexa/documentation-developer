@@ -668,12 +668,11 @@ Run the provided SQL upgrade script to update your database:
 
 ### Update Twig to v3.26.0
 
-For security reasons, it's highly recommenced to update `twig/twig`, `twig/intl-extra`, and `twig/cssinliner-extra` to version v3.26.0 or higher.
+For security reasons, it's highly recommenced to update `twig/twig` and `twig/intl-extra` to version v3.26.0 or higher.
 
 For more information, see the following security advisories:
 
 * PHP 8.0 and PHP 7.4
-    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39) 
     * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
     * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
     * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
@@ -691,6 +690,7 @@ For more information, see the following security advisories:
     * [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
     * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
     * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
 * PHP 7.4 only
     * [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
     * [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
@@ -698,16 +698,16 @@ For more information, see the following security advisories:
     * [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
     * [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
-To use these packages in versions not affected by security vulnerabilities, PHP 8.3 is the minimum required version. 
+To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
 
 For projects meeting this requirement, you can update the packages with Composer.
 
-If you're using PHP 8.2 or an older version, to do the [[= product_name =]] update, you have two options:
+If you're using PHP 7.4 or 8.0, to do the [[= product_name =]] update, you have two options:
 
 #### Update PHP, the custom code, then the platform (recommended)
 
-Make sure to use PHP 8.3 or higher. Since PHP 8.1 has reached its End of Life (EOL), it's recommended that you use PHP 8.2 or higher.
-Migrate custom code to be compatible with PHP 8.3 or higher, for example by using [Rector](https://github.com/rectorphp/rector).
+Make sure to use PHP 8.1 or higher. Since PHP 8.1 has reached its End of Life (EOL), it's recommended that you use PHP 8.2 or higher.
+Migrate custom code to be compatible with PHP 8.1 or higher, for example by using [Rector](https://github.com/rectorphp/rector).
 Then, update Ibexa DXP.
 
 #### Implement other countermeasures
@@ -752,7 +752,7 @@ In addition, consider upgrading your project to one of [the actively supported P
 
 ## v4.6.31
 
-
+No additional steps needed.
 
 ## LTS Updates
 
@@ -1022,7 +1022,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ## v4.6.30
 
-    For security reason, [update Twig to v3.26.0](#update-twig-to-v3260).
+    For security reason, [update `twig/cssinliner-extra` to v3.26.0](#update-twig-to-v3260).
     When using Collaborative editing, this security advisories affects more PHP versions, including PHP 8.2 and older versions:
 
     * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
