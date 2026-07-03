@@ -22,7 +22,7 @@ You can adapt the configuration in the following places:
 
 - `.platform.app.yaml` - main configuration
 - `.platform/services.yml` - additional [services](https://fixed.docs.upsun.com/add-services.html) such as search engines or cache
-- `.platform/routes.yml` - routes to define how [requests are handled after reaching Upsun](https://fixed.docs.upsun.com/define-routes.html)
+- `.platform/routes.yml` - routes to define how [Upsun handles incoming web requests](https://fixed.docs.upsun.com/define-routes.html)
 
 For details about available configuration settings, refer to [Upsun documentation](https://fixed.docs.upsun.com/create-apps.html).
 
