@@ -283,17 +283,19 @@ You can select and test it in the right column.
 
 ![Right panel of MCP Inspector with a list of prompts obtained from the MCP server, and the test of the `greet` prompt](img/mcp-inspector-greet-prompt.png "MCP Inspector `greet` prompt test")
 
-### Perform Copilot CLI test
+### Perform Copilot or Claude Code test
 
-#### Add MCP server to Copilot CLI
+You can use your MCP with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) or [Claude Code CLI](https://code.claude.com/docs/en/overview) like illustrated here, or any agent with any interface to test your MCP server.
 
-For the sake of the [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) test in this example, you configure the MCP server in an `.mcp.json` file at the [[= product_name =]] project root.
+#### Add MCP server to agent CLI
+
+For the sake of the agent test, in this example, you configure the MCP server in an `.mcp.json` file at the [[= product_name =]] project root.
 This way it is only available for a session opened from there.
 
 You can handle the JWT token for this test in the following ways:
 
-- Hard code the JWT token into the configuration and update it at every expiration.
-- Wrap a JWT token request and an MCP server call into a script.
+- [Hard code the JWT token](#hard-coded-variant) into the configuration and update it at every expiration.
+- [Wrap a JWT token request and an MCP server call into a script](#fully-scripted-variant).
 
 ##### Hard coded variant
 
@@ -307,12 +309,30 @@ The `.mcp.json` file must be edited to update the JWT token each time it expires
 You can request a token by using the GraphiQL web interface or a `curl` command, and then edit the file manually.
 Alternatively, you can configure a shell script to request the JWT token, extract it from the response, and replace it in the file.
 
-When Copilot complains that it can't communicate with the MCP server:
+When Copilot or Claude Code complains that it can't communicate with the MCP server:
 
 - Update the JWT token in the `.mcp.json` file.
 - Reload the MCP servers in Copilot CLI with one of these methods:
     - Run `/mcp reload` command to reload all MCP servers.
     - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
+
+=== "Copilot CLI"
+
+    - Update the JWT token in the `.mcp.json` file.
+    - Reload the MCP servers in Copilot CLI with one of these methods:
+        - Run `/mcp reload` command to reload all MCP servers.
+        - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
+
+    !!! note "Reloading multiple MCP servers"
+
+        If you have several MCP servers enabled globally, reloading all of them at the same time can be time consuming.
+        Consider reloading them one by one.
+
+=== "Claude Code CLI"
+
+    - Update the JWT token in the `.mcp.json` file.
+    - Run `/mcp reconnect ibexa-example` command to reconnect the `ibexa-example` MCP server.
+
 
 ##### Fully scripted variant
 
@@ -330,43 +350,79 @@ For example, thanks to [`npx`](https://www.npmjs.com/package/npx), you can do it
 [[= include_code('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
 ```
 
-When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI with one of these methods:
+When the agent complains that it can't communicate with the MCP server, reload it:
 
-- Run `/mcp reload` command to reload all MCP servers.
-- Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
+=== "Copilot CLI"
 
-!!! note "Reloading multiple MCP servers"
+    Reload the MCP servers in Copilot CLI with one of these methods:
 
-    If you have several MCP servers enabled globally, reloading all of them at the same time can be time consuming.
-    Consider reloading them one by one.
+    - Run `/mcp reload` command to reload all MCP servers.
+    - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
 
-#### Run MCP server test with Copilot CLI
+    !!! note "Reloading multiple MCP servers"
 
-Launch Copilot CLI at the project root, where the `.mcp.json` file is located:
+        If you have several MCP servers enabled globally, reloading all of them at the same time can be time consuming.
+        Consider reloading them one by one.
 
-```bash
-cd /path/to/project
-copilot
-```
+=== "Claude Code CLI"
+
+    Run `/mcp reconnect ibexa-example` command to reconnect the `ibexa-example` MCP server.
+
+#### Run MCP server test with Copilot CLI or Claude Code CLI
+
+Launch the agent CLI at the project root, where the `.mcp.json` file is located:
+
+=== "Copilot CLI"
+
+    ```bash
+    cd /path/to/project
+    copilot
+    ```
+
+=== "Claude Code CLI"
+
+    ```bash
+    cd /path/to/project
+    claude
+    ```
 
 If prompted, confirm that you trust the files in this folder.
 You may choose to have your choice remembered for the future.
 
-Run the `/mcp show ibexa-example` to check the MCP server status and details:
+You can check the MCP server status and details with the `/mcp` command:
 
-```text
- MCP Server: ibexa-example
+=== "Copilot CLI"
 
- Type:     http
- URL:      http://localhost/mcp/example
- Status:   ✓ Connected
- Source:   /path/to/project/.mcp.json
+    Run the `/mcp show ibexa-example` to check the MCP server status and details:
 
- Tools (1/1 enabled):
-  ✓ greet: Greet a user by name
-```
+    ``` text
+    MCP Server: ibexa-example
 
-You can prompt Copilot to greet you.
+    Type:     stdio
+    Command:  bash
+    Status:   ✓ Connected
+    Source:   /path/to/project/.mcp.json
+
+    Tools (1/1 enabled):
+     ✓ greet: Greet a user by name (70 tokens)
+    ```
+
+=== "Claude Code CLI"
+
+    Run the `/mcp` command and select ibexa-example to check the MCP server status and details:
+
+    ``` text
+    Ibexa-example MCP Server                                                                                                                                                                                    
+
+    Status:           ✔ connected                                                                                                                                                                               
+    Command:          bash                                                                                                                                                                                      
+    Args:             mcp-ibexa-example-wrapper.sh                                                                                                                                                              
+    Config location:  /path/to/project/.mcp.json                                                                                                                                          
+    Capabilities: tools                                                                                                                                                                                         
+    Tools: 1 tool
+    ```
+
+You can prompt the agent to greet you.
 It should use the `greet` tool to do so.
 
 - You can ask it "Please, greet me." and it might respond with a request for your name if it doesn't already know it.
@@ -374,48 +430,92 @@ It should use the `greet` tool to do so.
 
 During a morning session, the interaction could look like this:
 
-``` text
-❯ Hi. Please, greet me.
+=== "Copilot CLI"
 
-◐ The user wants to be greeted. I'll use the ibexa-example-greet tool, but I don't know their name. Let me ask them first... actually, the tool requires a name. Let me ask the user for their name.
+    ```text
+    ❯ Hi. Please, greet me.
 
-  Wait, actually I can just greet them without knowing their name using a general greeting, but the tool requires a name parameter. Let me ask for their name.
+    ◐ The user wants to be greeted. I'll use the ibexa-example-greet tool, but I don't know their name. Let me ask them first... actually, the tool requires a name. Let me ask the user for their name.
 
-● Asked user What's your name?
-  └ Pulley
+      Wait, actually I can just greet them without knowing their name using a general greeting, but the tool requires a name parameter. Let me ask for their name.
 
-● Greet a user (MCP: ibexa-example) · name: "Pulley"
-  └ {"general":"Hello, Pulley!","close":"Hey, Pulley!","morning":"Good morning, P...
+    ● Asked user What's your name?
+      └ Pulley
 
-● Good morning, Pulley! ☀️
+    ● Greet a user (MCP: ibexa-example) · name: "Pulley"
+      └ {"general":"Hello, Pulley!","close":"Hey, Pulley!","morning":"Good morning, P...
 
-❯ Hi. Please, greet me. We're close friends.
+    ● Good morning, Pulley! ☀️
 
-◐ The user wants a close friend greeting. From the previous response, I can see the "close" greeting is "Hey, Pulley!"
+    ❯ Hi. Please, greet me. We're close friends.
 
-● Greet a user (MCP: ibexa-example) · name: "Pulley"
-  └ {"general":"Hello, Pulley!","close":"Hey, Pulley!","morning":"Good morning, P...
+    ◐ The user wants a close friend greeting. From the previous response, I can see the "close" greeting is "Hey, Pulley!"
 
-● Hey, Pulley! 😄
+    ● Greet a user (MCP: ibexa-example) · name: "Pulley"
+      └ {"general":"Hello, Pulley!","close":"Hey, Pulley!","morning":"Good morning, P...
 
-❯ Please, greet someone named "ElePHPant" in a general way (so I could reuse it at any time)
+    ● Hey, Pulley! 😄
 
-◐ The user wants a general greeting for someone named "ElePHPant".
+    ❯ Please, greet someone named "ElePHPant" in a general way (so I could reuse it at any time)
 
-● greet (MCP: ibexa-example) · name: "ElePHPant"
-  └ {"general":"Hello, ElePHPant!","close":"Hey, ElePHPant!","morning":"Good morn...
+    ◐ The user wants a general greeting for someone named "ElePHPant".
 
-● Hello, ElePHPant! 🐘
+    ● greet (MCP: ibexa-example) · name: "ElePHPant"
+      └ {"general":"Hello, ElePHPant!","close":"Hey, ElePHPant!","morning":"Good morn...
 
-❯ Please, greet someone named "ElePHPant" like it's 22:30
+    ● Hello, ElePHPant! 🐘
 
-◐ 22:30 is evening time, so I'll use the evening greeting.
+    ❯ Please, greet someone named "ElePHPant" like it's 22:30
 
-● greet (MCP: ibexa-example) · name: "ElePHPant"
-  └ {"general":"Hello, ElePHPant!","close":"Hey, ElePHPant!","morning":"Good morn...
+    ◐ 22:30 is evening time, so I'll use the evening greeting.
 
-● Good evening, ElePHPant! 🌙
-```
+    ● greet (MCP: ibexa-example) · name: "ElePHPant"
+      └ {"general":"Hello, ElePHPant!","close":"Hey, ElePHPant!","morning":"Good morn...
 
-The Copilot's reflection and its final response, including the improvised emoji, may differ from this example.
-The key point is that Copilot CLI decides to use the `greet` tool, calls it with the right argument, displays the call result, and then uses it in its final output.
+    ● Good evening, ElePHPant! 🌙
+    ```
+
+=== "Claude Code CLI"
+
+    ❯ Hi. Please, greet me.
+
+    ⏺ What's your name?
+
+    ✻ Worked for 3s
+
+    ❯ Pulley
+
+      Called ibexa-example
+
+    ⏺ Hello, Pulley! 👋
+
+    ✻ Churned for 4s
+
+    ❯ Hi. Please, greet me. We're close friends now.
+
+      Called ibexa-example
+
+    ⏺ Hey, Pulley! 👋
+
+    ✻ Baked for 4s
+
+    ❯ Please, greet someone named "ElePHPant" in a general way (so I could reuse it at any time)
+
+      Called ibexa-example
+
+    ⏺ Hello, ElePHPant!
+
+    ✻ Brewed for 5s
+
+    ❯ Please, greet someone named "ElePHPant" like it's 22:30
+
+    ⏺ That falls under the "evening" variant: Good evening, ElePHPant!   
+
+    ✻ Sautéed for 2s
+
+The agent's reflections, reaction times, and final responses, including the improvised emojis, may differ from those examples.
+The key point is that the agent decides to use the `greet` tool, calls it with the right argument, displays the call result, and then uses it in its final output.
+
+You can fine-tune the prompt or remove unnecessary variants if needed.
+For example, you could instruct to always use the time of the day variants, or simply remove the `general` and `close` variants.
+To remove the unnecessary is more efficient that extending the instruction. 
