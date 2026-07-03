@@ -40,10 +40,10 @@ const OUTPUT_DIR = REPO_ROOT . '/code_samples/_inline_php';
 /**
  * Recursively removes all files and directories under $dir, then removes $dir itself.
  */
-function removeDirectory(string $dir): void
+function removeDirectory(string $dir): bool
 {
     if (!is_dir($dir)) {
-        return;
+        return true;
     }
 
     $iterator = new RecursiveIteratorIterator(
@@ -53,18 +53,25 @@ function removeDirectory(string $dir): void
 
     foreach ($iterator as $item) {
         if ($item->isDir()) {
-            rmdir($item->getRealPath());
+            if (!rmdir($item->getRealPath())) {
+                return false;
+            }
         } else {
-            unlink($item->getRealPath());
+            if (!unlink($item->getRealPath())) {
+                return false;
+            }
         }
     }
 
-    rmdir($dir);
+    return rmdir($dir);
 }
 
 // Clean up the output directory from the previous run to avoid stale files
 // (e.g. from docs that were renamed, moved, or had snippets removed).
-removeDirectory(OUTPUT_DIR);
+if (!removeDirectory(OUTPUT_DIR)) {
+    fwrite(STDERR, 'ERROR: Could not clean directory: ' . OUTPUT_DIR . "\n");
+    exit(2);
+}
 
 // Always recreate the root output directory so downstream tools (Rector,
 // PHP-CS-Fixer) that receive it as a path argument don't fail when there
