@@ -75,7 +75,8 @@ jobs:
                       "PKSA-g9zw-qxh8-pq8w": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
                       "PKSA-yd6k-t2gh-1m43": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
                       "PKSA-1tmc-rt7x-12w6": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-                      "PKSA-xx6c-6d96-db2w": "As this is for code quality tests and not to run a production DXP, this can be ignored."
+                      "PKSA-xx6c-6d96-db2w": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
+                      "PKSA-8zx5-v2nz-58pb": "As this is for code quality tests and not to run a production DXP, this can be ignored."
                   }'
 
             - name: Ignore audit advisory for PHP 8.2
