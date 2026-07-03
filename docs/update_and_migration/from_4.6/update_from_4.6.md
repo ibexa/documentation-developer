@@ -673,6 +673,7 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 For more information, see the following security advisories:
 
 * PHP 8.0 and PHP 7.4
+    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
     * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
     * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
     * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
@@ -690,7 +691,6 @@ For more information, see the following security advisories:
     * [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
     * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
     * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
-    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
 * PHP 7.4 only
     * [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
     * [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
@@ -752,7 +752,12 @@ In addition, consider upgrading your project to one of [the actively supported P
 
 ## v4.6.31
 
-No additional steps needed.
+### Security
+
+To [update Twig to v3.26.0](#update-twig-to-v3260) is still highly recommended.
+If you use PHP 8.0 or 7.4, there is one more security advisory to take into account:
+
+* [PKSA-8zx5-v2nz-58pb](https://packagist.org/security-advisories/PKSA-8zx5-v2nz-58pb)
 
 ## LTS Updates
 
