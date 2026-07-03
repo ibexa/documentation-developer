@@ -10,6 +10,84 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.9' %]]
+[[% set date = '2026-07-01' %]]
+
+[[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+### Tools
+
+Several new experimental content type tools were added to the MCP Servers feature:
+
+- `create_content_type`
+- `get_content_type`
+- `get_content_type_by_identifier`
+- `get_content_type_list`
+- `get_content_type_draft`
+- `publish_content_type_draft`
+- `add_field_definition`
+- `remove_field_definition`
+- `update_field_definition`
+- `get_content_type_groups`
+
+Among translation tools:
+
+- `list_non_translated_content_ids` tool is added
+- `list_content_translations` is now renamed to `list_content_languages`
+
+For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools).
+
+### Configuration
+
+- An `allowed_hosts` parameter is added to configuration to restrict access to an MCP server. It's default value covers only few cases for local development. For more information, see [Allowed hosts](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts).
+- A `title` property is added to capability attributes to optionally provide a friendly UI label. For more information, see [MCP server capabilities](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_usage/#mcp-server-capabilities).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Raptor connector
+
+#### Hybrid tracking
+
+New `hybrid` tracking mode is available alongside [`client` and `server`](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/).
+In this mode, the browser uses a first-party tracking shim provided by the DXP instance.
+Tracking events are forwarded through a same-origin endpoint and processed server side before being sent to Raptor, helping reduce the impact of ad blockers while preserving client side event tracking.
+
+For more information, see [hybrid tracking](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/hybrid_tracking/).
+
+#### New recommendation blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Two new recommendation blocks are available in Page Builder:
+
+- **Items of Customized Feeds sorted by personal preferences and popularity or trendiness** sorts items from Customized Feeds based on user preferences, popularity, and current trends
+- **Merchandising content sorted by personal preferences and popularity** uses merchandising content and sorts it by personal preferences and popularity
+
+For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/).
+
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\ConnectorRaptor\Message\TrackProxiedEventMessage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\TrackingBehaviorProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html)
+- [`Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\SudoStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html)
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.8' %]]
 [[% set date = '2026-05-21' %]]
 

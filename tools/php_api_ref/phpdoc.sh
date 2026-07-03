@@ -85,7 +85,7 @@ fi;
 if [[ "$DXP_VERSION" == *".x-dev" ]]; then
   GIT_REF=$BASE_DXP_BRANCH;
 else
-  GIT_REF="v$DXP_VERSION";
+  GIT_REF="v${DXP_VERSION#v}";
 fi
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
@@ -172,6 +172,7 @@ $PHP_BINARY $PHPDOC_BIN -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
+  rm -f ./php_api_reference/images/apple-touch-icon.png ./php_api_reference/images/favicon-16x16.png ./php_api_reference/images/favicon-32x32.png ./php_api_reference/images/favicon.ico;
   rm -f ./php_api_reference/classes/Symfony-*.html ./php_api_reference/namespaces/symfony*.html
   echo -n 'Remove Symfony namespace from index… ';
   awk 'NR==FNR{if (/.*"fqsen": "\\\\Symfony.*/) for (i=-1;i<=3;i++) del[NR+i]; next} !(FNR in del)' \
