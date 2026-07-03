@@ -27,10 +27,8 @@
 https://support.deepl.com/hc/en-us/articles/360020695820-API-key-for-DeepL-API
 ^https?://(www\.)?npmjs\.com
 
-
-# AI provider consoles — redirect to login pages (302/307)
+# Google consoles — redirect to Google account login page (302)
 https://aistudio\.google\.com/app/api-keys
-https://console\.anthropic\.com/login
 ^https://console\.cloud\.google\.com
 
 # AWS console — redirects unauthenticated requests (302)

@@ -54,7 +54,7 @@ This adds the feature code, including basic handlers that let you refine text or
 
 To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
-1. Log in to your [Anthropic Claude console](https://console.anthropic.com/login).
+1. Log in to your [Anthropic Claude console](https://platform.claude.com/login).
 
 2. Go to **API keys** and click **Create Key**.
 
