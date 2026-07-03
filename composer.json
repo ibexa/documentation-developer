@@ -123,7 +123,17 @@
         "check-rector": "php tools/extract-inline-php.php && rector process --dry-run --ansi",
         "check-yaml": "phpunit --group yaml",
         "phpunit": "phpunit --exclude-group=yaml",
-        "yaml-update-baseline": "php tests/generate-yaml-baseline.php"
+        "yaml-update-baseline": "php tests/generate-yaml-baseline.php",
+        "composer-update": "[ -d vendor ] || composer update",
+        "yarn-install": "[ -d node_modules ] || yarn install",
+        "markdownlint": [
+            "@yarn-install",
+            "yarn markdownlint"
+        ],
+        "test": [
+            "@composer-update",
+            "EXIT=0; composer check-cs || EXIT=1; composer phpstan || EXIT=1; composer deptrac || EXIT=1; composer check-rector || EXIT=1; composer markdownlint || EXIT=1; exit $EXIT"
+        ]
     },
     "scripts-descriptions": {
         "fix-cs": "Automatically fixes code style in all files",
@@ -133,7 +143,11 @@
         "fix-rector": "Automatically applies Rector refactoring to code samples and syncs back to Markdown",
         "check-rector": "Check for code refactoring opportunities",
         "check-yaml": "Run PHPUnit tests (YAML validation)",
-        "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures"
+        "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures",
+        "composer-update": "Install composer dependencies if not already installed",
+        "yarn-install": "Install yarn dependencies if not already installed",
+        "markdownlint": "Run Markdownlint on all documentation files",
+        "test": "Run all checks (CS-Fixer, PHPStan, Deptrac, Rector, Markdownlint, YAML checks), continuing past failures and reporting failure overall if any check failed"
     },
     "config": {
         "allow-plugins": false
