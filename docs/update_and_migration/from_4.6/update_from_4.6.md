@@ -672,9 +672,8 @@ For security reasons, it's highly recommenced to update `twig/twig`, `twig/intl-
 
 For more information, see the following security advisories:
 
-* PHP 8.2 and older
-    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
 * PHP 8.0 and PHP 7.4
+    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39) 
     * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
     * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
     * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
@@ -753,7 +752,7 @@ In addition, consider upgrading your project to one of [the actively supported P
 
 ## v4.6.31
 
-No additional steps needed.
+
 
 ## LTS Updates
 
@@ -1020,3 +1019,10 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
     ```
+
+    ## v4.6.30
+
+    For security reason, [update Twig to v3.26.0](#update-twig-to-v3260).
+    When using Collaborative editing, this security advisories affects more PHP versions, including PHP 8.2 and older versions:
+
+    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
