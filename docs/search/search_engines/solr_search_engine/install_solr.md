@@ -7,7 +7,7 @@ description: Install Solr search engine to use it with Ibexa DXP.
 ## Configure and start Solr
 
 The example presents a configuration with a single core.
-For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://solr.apache.org/guide/7_7/solr-cores-and-solr-xml.html) and [core administration](https://cwiki.apache.org/confluence/display/solr/CoreAdmin).
+For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://solr.apache.org/guide/7_7/solr-cores-and-solr-xml.html) and [core administration](https://cwiki.apache.org/confluence/spaces/SOLR/pages/120722785/CoreAdmin).
 
 ### Download Solr files
 

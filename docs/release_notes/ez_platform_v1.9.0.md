@@ -40,7 +40,7 @@ To reflect this change, the content tree button has been renamed **Content brows
 
 - You can now restore from Trash content whose original Location has been deleted.
 - Pasted thead/tfood tags are now kept in RichText field type, and its Online Editor
-- Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/2.2/guide/solr)
+- Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/2.2/guide/solr/)
 
 ### eZ Platform Enterprise Edition - Studio
 
