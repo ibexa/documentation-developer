@@ -39,7 +39,7 @@ The list of bundles in v3.0 has been extended by the following ones:
 - `ezplatform-site-factory`
 - `ezplatform-version-comparison`
 
-For details, see [Bundles](https://doc.ibexa.co/en/3.3/guide/bundles).
+For details, see [Bundles](https://doc.ibexa.co/en/3.3/guide/bundles/).
 
 ## New features
 
@@ -120,12 +120,12 @@ For full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co
 
 #### Content query field type
 
-The new [Content query field type](https://doc.ibexa.co/en/3.3/api/field_types_reference/contentqueryfield)
+The new [Content query field type](https://doc.ibexa.co/en/3.3/api/field_types_reference/contentqueryfield/)
 enables you to configure a Content query that uses parameters from a Field definition.
 
 #### Field type creation
 
-You can now use [Generic field type](https://doc.ibexa.co/en/3.3/extending/extending_field_type) as a template for your custom field types.
+You can now use [Generic field type](https://doc.ibexa.co/en/3.3/api/field_type/create_custom_generic_field_type/) as a template for your custom field types.
 
 #### Keyword field type
 
@@ -158,15 +158,15 @@ The following new Search Criteria have been added:
 
 |Search Criterion|Search based on|
 |-----|-----|
-|[IsUserBased](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/isuserbased_criterion)|Whether content represents a User account|
-|[IsUserEnabled](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/isuserenabled_criterion)|Whether a User account is enabled|
-|[ObjectStateIdentifier](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/objectstateidentifier_criterion)|Object state Identifier|
-|[SectionId](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sectionid_criterion)|ID of the Section content is assigned to|
-|[SectionIdentifier](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sectionidentifier_criterion)|Identifier of the Section content is assigned to|
-|[UserEmail](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/useremail_criterion)|Email address of a User account|
-|[Sibling](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sibling_criterion)|Locations that are children of the same parent|
-|[UserId](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/userid_criterion)|User ID|
-|[UserLogin](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/userlogin_criterion)|User login|
+|[IsUserBased](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/isuserbased_criterion/)|Whether content represents a User account|
+|[IsUserEnabled](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/isuserenabled_criterion/)|Whether a User account is enabled|
+|[ObjectStateIdentifier](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/objectstateidentifier_criterion/)|Object state Identifier|
+|[SectionId](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sectionid_criterion/)|ID of the Section content is assigned to|
+|[SectionIdentifier](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sectionidentifier_criterion/)|Identifier of the Section content is assigned to|
+|[UserEmail](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/useremail_criterion/)|Email address of a User account|
+|[Sibling](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sibling_criterion/)|Locations that are children of the same parent|
+|[UserId](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/userid_criterion/)|User ID|
+|[UserLogin](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/userlogin_criterion/)|User login|
 
 ### Random sorting
 
@@ -200,7 +200,7 @@ You can now add custom tooltips to provide more information for the users when t
 
 The new thumbnails API allows you to easily choose an image for each content.
 
-For more information, see [Extending thumbnails](https://doc.ibexa.co/en/3.3/extending/extending_thumbnails).
+For more information, see [Extending thumbnails](https://doc.ibexa.co/en/3.3/extending/extending_thumbnails/).
 
 ### Type hints for public PHP API
 
@@ -226,7 +226,7 @@ New multilingual content route for internal translations has been added.
 ### Renamed templates and parameters
 
 Templates and parameters used by the back office have been renamed for consistency.
-For A full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/releases/ez_platform_v3.0_deprecations).
+For A full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/releases/ez_platform_v3.0_deprecations/).
 
 ### HTTP Cache
 
@@ -266,7 +266,7 @@ New methods have been introduced to the PHP API:
 
 ## Deprecations and removals
 
-For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations and backwards compatibility breaks](https://doc.ibexa.co/en/3.3/releases/ez_platform_v3.0_deprecations).
+For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations and backwards compatibility breaks](https://doc.ibexa.co/en/3.3/releases/ez_platform_v3.0_deprecations/).
 
 ### SignalSlots
 
@@ -312,7 +312,7 @@ The Symfony Service definitions, providing extension point to create custom inst
 
 ## Requirements changes
 
-eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requirements](https://doc.ibexa.co/en/3.3/getting_started/requirements).
+eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requirements](https://doc.ibexa.co/en/3.3/getting_started/requirements/).
 
 !!! note
 
@@ -321,7 +321,7 @@ eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requi
 
 ## Updating
 
-For the upgrade details, see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/updating/updating).
+For the upgrade details, see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/update_and_migration/update_ibexa_dxp/).
 
 ## Full changelog
 

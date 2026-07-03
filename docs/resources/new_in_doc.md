@@ -513,7 +513,7 @@ Discounts documentation includes:
 
 ### AI Actions Connect handler
 
-- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/4.6/ai_actions/ai_actions_guide/) with [Ibexa Connect]([[= connect_doc =]])
+- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/4.6/ai_actions/ai_actions_guide/) with [Ibexa Connect]([[= connect_doc =]]/)
 
 ### Contributions
 
