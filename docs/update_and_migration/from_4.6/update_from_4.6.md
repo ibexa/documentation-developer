@@ -1025,7 +1025,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
     ```
 
-    ## v4.6.30
+    #### v4.6.30
 
     For security reason, [update `twig/cssinliner-extra` to v3.26.0](#update-twig-to-v3260).
     When using Collaborative editing, this security advisories affects more PHP versions, including PHP 8.2 and older versions:
