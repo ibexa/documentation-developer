@@ -41,28 +41,18 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
     }
     ```
 
-## Use case
+## Use cases
 
 You can use the `LanguageCode` Criterion to search for articles that are lacking a translation
 into a specific language:
 
 ``` php hl_lines="5"
-$query = new LocationQuery;
-$query->query = new Criterion\LogicalAnd([
-    new Criterion\ContentTypeIdentifier('article'),
-    new Criterion\LogicalNot(
-        new Criterion\LanguageCode('ger-DE', false)
-    )
-    ]
-);
+[[= include_file('code_samples/search/language/src/Controller/ArticlesToTranslateController.php', 24, 41) =]]
+```
 
-$results = $this->searchService->findContent($query);
-$articles = [];
-foreach ($results->searchHits as $searchHit) {
-    $articles[] = $searchHit;
-}
+You can use the `LanguageCode` Criterion to search in
+several languages while ensuring results have a translation in one specific language:
 
-return $this->render('list/articles_to_translate.html.twig', [
-    'articles' => $articles,
-]);
+``` php hl_lines="3 6"
+[[= include_file('code_samples/search/language/src/Command/SearchTestCommand.php', 35, 47) =]]
 ```
