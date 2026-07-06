@@ -7,7 +7,7 @@ description: Install Solr search engine to use it with Ibexa DXP.
 ## Configure and start Solr
 
 The example presents a configuration with a single core.
-For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://solr.apache.org/guide/7_7/solr-cores-and-solr-xml.html) and [core administration](https://cwiki.apache.org/confluence/spaces/SOLR/pages/120722785/CoreAdmin).
+For configuring Solr in other ways, including examples, see [Solr configuration files](https://solr.apache.org/guide/solr/9_8/configuration-guide/configuration-files.html) and [core discovery](https://solr.apache.org/guide/solr/9_8/configuration-guide/core-discovery.html).
 
 ### Download Solr files
 
@@ -86,7 +86,7 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 - automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
-To set SolrCloud up follow [SolrCloud reference guide](https://solr.apache.org/guide/7_7/solrcloud.html).
+To set SolrCloud up follow [Getting Started with SolrCloud](https://solr.apache.org/guide/solr/9_8/getting-started/tutorial-solrcloud.html).
 
 ### Continue Solr configuration
 
@@ -278,7 +278,7 @@ ibexa_solr:
 
 ### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://solr.apache.org/guide/7_7/solrcloud.html).
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://solr.apache.org/guide/solr/9_8/getting-started/tutorial-solrcloud.html).
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
@@ -311,13 +311,13 @@ ibexa_solr:
                 main_translations: main
 ```
 
-This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://solr.apache.org/guide/7_7/shards-and-indexing-data-in-solrcloud.html#document-routing).
+This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://solr.apache.org/guide/solr/9_8/deployment-guide/solrcloud-shards-indexing.html#document-routing).
 
 ### Solr Basic HTTP Authorization
 
 Solr core can be secured with Basic HTTP Authorization.
 
-For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/7_7/basic-authentication-plugin.html).
+For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/solr/9_8/deployment-guide/basic-authentication-plugin.html)).
 
 In the example below we configured Solr Bundle to work with secured Solr core.
 
@@ -378,6 +378,6 @@ Here are the most common issues you may encounter:
 - Content isn't immediately available
     - Solr Bundle on purpose doesn't commit changes directly on Repository updates *(on indexing)*,
       but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication)
-      to balance performance and load on your Solr instance against needs you have for "[NRT](https://solr.apache.org/guide/7_7/near-real-time-searching.html)".
+      to balance performance and load on your Solr instance against needs you have for [Near Real Time (NRT) searching)](https://solr.apache.org/guide/solr/9_8/deployment-guide/solrcloud-distributed-requests.html#near-real-time-nrt-use-cases).
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
