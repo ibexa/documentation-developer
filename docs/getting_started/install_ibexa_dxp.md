@@ -160,11 +160,20 @@ To use Composer to instantly create a project in the current folder with all the
         composer update
         ```
 
+!!! caution "Deprecation messages on PHP 8.2 and newer"
+
+    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
+
+    ``` bash
+    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+    composer dump-autoload
+    ```
+
 !!! tip "Authentication token"
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
-!!! tip
+!!! tip "Version constraint"
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
 
@@ -267,10 +276,19 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
 Install [[= product_name =]] and create a database with:
 
-``` bash
-php bin/console ibexa:install
-php bin/console ibexa:graphql:generate-schema
-```
+=== "PHP 8.4"
+
+    ``` bash
+    php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
+    php bin/console ibexa:graphql:generate-schema
+    ```
+
+=== "PHP 8.3 and older"
+
+    ``` bash
+    php bin/console ibexa:install
+    php bin/console ibexa:graphql:generate-schema
+    ```
 
 Before executing the command make sure that the database user has sufficient permissions.
 

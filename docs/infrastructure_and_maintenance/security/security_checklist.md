@@ -8,7 +8,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 !!! caution
 
-    Security is an ongoing process. After going live, you should pay attention to security advisories released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+    Security is an ongoing process. After going live, you should pay attention to Ibexa security advisories released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
 
 ## [[= product_name =]]
 
@@ -16,7 +16,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 Make sure Admin users and other privileged users who have access to System Information and setup in the back end are vetted and fully trustworthy.
 
-As administrator you have access to full information about the system through the `setup/system_info` policy, and also to user data, role editing, and many other critical aspects.
+As administrator, you have access to full information about the system through the `setup/system_info` policy, and also to user data, role editing, and many other critical aspects.
 
 The users in your organization who have backend access must be kept up-to-date.
 Any user leaving the organization must be disabled without delay.
@@ -316,6 +316,7 @@ Those steps aren't needed when using [[= product_name_cloud =]], where the provi
 
 - Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
+- Update Composer packages regulary. Try to not ignore [package security advisories](security_advisories.md#package-security-advisories). Update dependencies to be able to install fixed versions.
 - Enable [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
 to receive notifications when a security fix is released in a GitHub-hosted dependency.
 - If you're not using GitHub for your project, you can create a dummy project on GitHub with the same dependencies as your real project, and enable Dependabot notifications for that.
