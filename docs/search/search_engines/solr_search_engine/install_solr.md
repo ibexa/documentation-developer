@@ -317,7 +317,7 @@ This solution uses the default SolrCloud [document routing strategy: `compositeI
 
 Solr core can be secured with Basic HTTP Authorization.
 
-For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/solr/9_8/deployment-guide/basic-authentication-plugin.html)).
+For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/solr/9_8/deployment-guide/basic-authentication-plugin.html).
 
 In the example below we configured Solr Bundle to work with secured Solr core.
 
