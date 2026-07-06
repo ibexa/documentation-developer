@@ -37,7 +37,7 @@ This release of eZ Platform introduces the following new features:
     You can now use [Elasticsearch](https://www.elastic.co/) in your eZ Platform installation
     through the `PlatformElasticSearchEngineBundle`.
 
-    See [Elasticsearch documentation](https://doc.ibexa.co/en/3.1/guide/search/elastic) to learn how to set up, configure and user Elasticsearch with eZ Platform.
+    See [Elasticsearch documentation](https://doc.ibexa.co/en/3.1/guide/search/elastic/) to learn how to set up, configure and user Elasticsearch with eZ Platform.
 
     ### Page Builder
 
@@ -82,7 +82,7 @@ Selections that you make in one view survive when you switch to the other view.
 
 ![Tree view in the Content Browser](3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
 
-For more information about configuring the Universal Discovery Widget, see [Extending Universal Discovery Widget](https://doc.ibexa.co/en/3.1/extending/extending_udw).
+For more information about configuring the Universal Discovery Widget, see [Extending Universal Discovery Widget](https://doc.ibexa.co/en/3.1/extending/extending_udw/).
 
 ### Field group display
 
