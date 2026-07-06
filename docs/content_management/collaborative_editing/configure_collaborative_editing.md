@@ -57,14 +57,15 @@ security:
 ```yaml
 security:
     # ...
-    ibexa_shareable_link:
-        request_matcher: Ibexa\Collaboration\Security\RequestMatcher\ShareableLinkRequestMatcher
-        pattern: ^/
-        provider: shared
-        stateless: true
-        user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-        custom_authenticators:
-            - Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
+    firewalls:
+        ibexa_shareable_link:
+            request_matcher: Ibexa\Collaboration\Security\RequestMatcher\ShareableLinkRequestMatcher
+            pattern: ^/
+            provider: shared
+            stateless: true
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+            custom_authenticators:
+                - Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
 ```
 
 ### Configuration

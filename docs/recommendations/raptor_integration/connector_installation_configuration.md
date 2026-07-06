@@ -36,7 +36,7 @@ To configure the Raptor connector, use the `ibexa.system.<scope>.connector_rapto
     - `server` - tracking is handled on the backend, with events sent directly to the tracking API. It's not affected by ad blockers.
     - `hybrid` - tracking is executed in the browser by a first-party JavaScript provided by the DXP instead of Raptor and then forwarded by the DXP server to the Raptor SaaS. For more information, see [Hybrid tracking](hybrid_tracking.md).
 - `recommendations_api_key` - an API key used to authenticate requests to the Recommendations API. This key allows the connector to retrieve personalized recommendations from the recommendation engine. You can find this value as ["API key"](connector_installation_configuration.md#recommendations-api-key) in Raptor Control Panel.
-- `recommendations_api_url` (optional) - overrides the default Raptor address, do not set it unless a custom endpoint is required.
+- `recommendations_api_uri` (optional) - overrides the default Raptor address, do not set it unless a custom endpoint is required.
 - `cookie_id_lifetime_days` (optional) - the lifetime in days of the server-side tracking identifier cookies. Default value: `365` days. Minimum value: `1` day.
 
 By default, `tracking_type` is set to `client` as client-side tracking is the standard Raptor mode.

@@ -4,6 +4,9 @@
     "type": "library",
     "license": "GNU General Public License v2.0",
     "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Documentation\\": "tests/"
+        }
     },
     "repositories": [
         {
@@ -15,6 +18,9 @@
         "php": "^8.3"
     },
     "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "symfony/yaml": "^7.0",
+        "ibexa/connector-gemini": "5.0.x-dev",
         "ibexa/automated-translation": "5.0.x-dev",
         "ibexa/code-style": "~2.0.0",
         "friendsofphp/php-cs-fixer": "^3.30",
@@ -52,7 +58,7 @@
         "ibexa/page-builder": "5.0.x-dev",
         "ibexa/order-management": "5.0.x-dev",
         "ibexa/calendar": "5.0.x-dev",
-        "ibexa/payment": "5.0.x-dev",
+        "ibexa/payment": "~5.0.x-dev",
         "ibexa/shipping": "5.0.x-dev",
         "ibexa/fieldtype-matrix": "5.0.x-dev",
         "ibexa/storefront": "5.0.x-dev",
@@ -86,21 +92,33 @@
         "ibexa/cdp": "~5.0.x-dev",
         "ibexa/connector-raptor": "~5.0.x-dev",
         "ibexa/image-editor": "~5.0.x-dev",
-        "ibexa/integrated-help": "~5.0.x-dev"
+        "ibexa/integrated-help": "~5.0.x-dev",
+        "ibexa/site-context": "~5.0.x-dev",
+        "ibexa/fieldtype-richtext-rte": "~5.0.x-dev",
+        "ibexa/site-factory": "~5.0.x-dev",
+        "ibexa/ckeditor-premium": "~5.0.x-dev",
+        "ibexa/measurement": "~5.0.x-dev",
+        "ibexa/connector-actito": "~5.0.x-dev",
+        "ibexa/fastly": "~5.0.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
         "check-cs": "@fix-cs --dry-run",
         "phpstan": "phpstan analyse",
         "deptrac": "deptrac analyse",
-        "check-rector": "rector process --dry-run --ansi"
+        "check-rector": "rector process --dry-run --ansi",
+        "check-yaml": "phpunit --group yaml",
+        "phpunit": "phpunit --exclude-group=yaml",
+        "yaml-update-baseline": "php tests/generate-yaml-baseline.php"
     },
     "scripts-descriptions": {
         "fix-cs": "Automatically fixes code style in all files",
         "check-cs": "Run code style checker for all files",
         "phpstan": "Run static code analysis",
         "deptrac": "Run Deptrac architecture testing",
-        "check-rector": "Check for code refactoring opportunities"
+        "check-rector": "Check for code refactoring opportunities",
+        "check-yaml": "Run PHPUnit tests (YAML validation)",
+        "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures"
     },
     "config": {
         "allow-plugins": false
