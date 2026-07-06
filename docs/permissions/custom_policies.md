@@ -174,7 +174,7 @@ services:
 
 #### Form mapper
 
-To provide support for editing custom policies in the back office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/5.0/src/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the back office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/6.0/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 - `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
 - `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.

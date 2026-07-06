@@ -2,7 +2,7 @@ INHERIT: plugins.yml
 
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
-edit_uri: edit/5.0/docs
+edit_uri: edit/6.0/docs
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2026 Ibexa AS and others"
 validation:
@@ -1041,9 +1041,10 @@ extra:
   latest_tag_4_5: '4.5.7'
   latest_tag_4_6: '4.6.31'
   latest_tag_5_0: '5.0.9'
+  latest_tag_6_0: '6.0.0'
 
   symfony_doc: 'https://symfony.com/doc/7.4'
-  user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/6.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:

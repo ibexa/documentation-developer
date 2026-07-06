@@ -381,7 +381,7 @@ You can modify the order and visibility of buttons that are available in the Onl
 
 For each button you can set `priority`, which defines the order of buttons in the toolbar.
 
-For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/5.0/src/bundle/Resources/config/prepend/ezpublish.yaml)
+For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/6.0/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
 ## Add CKEditor plugins
 

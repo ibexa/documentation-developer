@@ -123,7 +123,7 @@ and can optionally implement interfaces required by specific channels.
 | `sms`     | `Symfony\Component\Notifier\Notification\SmsNotificationInterface`                                                                                                                                                      | **No**                          |
 
 The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#user-notifications).
-The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.7/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
+The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/6.0/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
 
 Some channels don't need a recipient:
 

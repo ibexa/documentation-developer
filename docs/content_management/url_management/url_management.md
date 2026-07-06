@@ -164,7 +164,7 @@ ibexa:
 | `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
 | `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/5.0/src/lib/Resources/slug_converter/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/5.0/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/6.0/src/lib/Resources/slug_converter/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/6.0/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.

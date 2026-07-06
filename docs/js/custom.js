@@ -2,10 +2,10 @@
 let jquery = jQuery;
 
 $(document).ready(function() {
-    const latestVersionNumber = '5.0';
+    const latestVersionNumber = '6.0';
 
     // replace edit url
-    let branchName = '5.0';
+    let branchName = '6.0';
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
     const eolVersions = window.eol_versions ?? [];
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
     }
 
     if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
-        branchName = '5.0';
+        branchName = '6.0';
     }
 
     // Insert version into header links

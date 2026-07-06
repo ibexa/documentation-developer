@@ -11,6 +11,10 @@ on:
                 description: "Clear lychee cache and recheck all links from scratch"
                 type: boolean
                 default: false
+            devdoc_60_branch:
+                description: "ibexa/documentation-developer branch for 6.0"
+                type: string
+                default: "6.0"
             devdoc_50_branch:
                 description: "ibexa/documentation-developer branch for 5.0"
                 type: string
@@ -19,6 +23,10 @@ on:
                 description: "ibexa/documentation-developer branch for 4.6"
                 type: string
                 default: "4.6"
+            userdoc_60_branch:
+                description: "ibexa/documentation-user branch for 6.0"
+                type: string
+                default: "6.0"
             userdoc_50_branch:
                 description: "ibexa/documentation-user branch for 5.0"
                 type: string
@@ -74,8 +82,10 @@ jobs:
             - name: Clone and build versioned repositories for link remap
               run: >-
                   bash tools/clone-repositories.sh
+                  "${{ inputs.devdoc_60_branch || '6.0' }}"
                   "${{ inputs.devdoc_50_branch || '5.0' }}"
                   "${{ inputs.devdoc_46_branch || '4.6' }}"
+                  "${{ inputs.userdoc_60_branch || '6.0' }}"
                   "${{ inputs.userdoc_50_branch || '5.0' }}"
                   "${{ inputs.userdoc_46_branch || '4.6' }}"
                   "${{ inputs.connect_branch || 'main' }}"

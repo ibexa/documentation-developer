@@ -44,7 +44,7 @@ final readonly class HelpMenuSubscriber implements EventSubscriberInterface
                 'uri' => 'https://www.youtube.com/watch?v=qWaBHG2LRm8',
                 'extras' => [
                     'isHighlighted' => false,
-                    'icon' => 'https://doc.ibexa.co/en/5.0/templating/twig_function_reference/img/icons/video.svg.png',
+                    'icon' => 'https://doc.ibexa.co/en/6.0/templating/twig_function_reference/img/icons/video.svg.png',
                     'description' => 'Discover new features and improvements brought by Ibexa DXP v5.',
                 ],
             ]);

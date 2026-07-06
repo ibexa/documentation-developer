@@ -118,9 +118,11 @@ root_dir = "site"
 # - en/latest/           → current build's site/ directory (self-referential links from cards() macro)
 # - en/4.6/              → repositories/devdoc-4.6/site/
 # - en/5.0/              → repositories/devdoc-5.0/site/
-# - userguide/en/latest/ → repositories/userdoc-5.0/site/ (newest available)
+# - en/6.0/              → repositories/devdoc-6.0/site/
+# - userguide/en/latest/ → repositories/userdoc-5.0/site/ (newest available, v6 is not released yet)
 # - userguide/en/4.6/    → repositories/userdoc-4.6/site/
 # - userguide/en/5.0/    → repositories/userdoc-5.0/site/
+# - userguide/en/6.0/    → repositories/userdoc-6.0/site/
 # - connect/en/latest/   → repositories/connect/site/
 #
 # Three patterns per version handle all URL shapes.
@@ -163,6 +165,10 @@ remap = [
     "https://doc\\.ibexa\\.co/en/5\\.0/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/devdoc-5.0/site/$1$2",
     "https://doc\\.ibexa\\.co/en/5\\.0/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/devdoc-5.0/site/$1/index.html$2",
     "https://doc\\.ibexa\\.co/en/5\\.0/$ file://__BASE_DIR__/repositories/devdoc-5.0/site/index.html",
+    # devdoc 6.0
+    "https://doc\\.ibexa\\.co/en/6\\.0/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/devdoc-6.0/site/$1$2",
+    "https://doc\\.ibexa\\.co/en/6\\.0/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/devdoc-6.0/site/$1/index.html$2",
+    "https://doc\\.ibexa\\.co/en/6\\.0/$ file://__BASE_DIR__/repositories/devdoc-6.0/site/index.html",
     # userdoc 4.6
     "https://doc\\.ibexa\\.co/projects/userguide/en/4\\.6/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-4.6/site/$1$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/4\\.6/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-4.6/site/$1/index.html$2",
@@ -171,6 +177,10 @@ remap = [
     "https://doc\\.ibexa\\.co/projects/userguide/en/5\\.0/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/5\\.0/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1/index.html$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/5\\.0/$ file://__BASE_DIR__/repositories/userdoc-5.0/site/index.html",
+    # userdoc 6.0
+    "https://doc\\.ibexa\\.co/projects/userguide/en/6\\.0/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-6.0/site/$1$2",
+    "https://doc\\.ibexa\\.co/projects/userguide/en/6\\.0/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-6.0/site/$1/index.html$2",
+    "https://doc\\.ibexa\\.co/projects/userguide/en/6\\.0/$ file://__BASE_DIR__/repositories/userdoc-6.0/site/index.html",
     # userdoc master — treated as the newest available (userdoc-5.0)
     "https://doc\\.ibexa\\.co/projects/userguide/en/master/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/master/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1/index.html$2",

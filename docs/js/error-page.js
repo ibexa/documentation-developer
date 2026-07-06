@@ -6,7 +6,7 @@
     }
 
     // Find the correct version
-    let currentVersion = '5.0';
+    let currentVersion = '6.0';
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {

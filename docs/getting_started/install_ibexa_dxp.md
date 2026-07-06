@@ -394,7 +394,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "nginx"
 
-    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/6.0/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/6.0/resources/templates/nginx).
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
     Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
