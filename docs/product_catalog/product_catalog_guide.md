@@ -200,7 +200,7 @@ Filtering and pagination function the same as with the product catalog, relying 
 However, criteria and sort clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
 
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
-For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/6.0/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
+For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
 
 For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md).
 
