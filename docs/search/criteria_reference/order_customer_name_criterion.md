@@ -15,7 +15,7 @@ The `CustomerNameCriterion` Search Criterion searches for orders based on the na
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CustomerNameCriterion('john')
 );

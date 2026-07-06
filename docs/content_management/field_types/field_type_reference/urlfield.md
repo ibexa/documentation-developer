@@ -27,7 +27,7 @@ The Value class of this field type contains the following properties:
 | `$link`  | `string` | This property stores the link provided to the value of this field type.                              |
 | `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this field type. |
 
-``` php
+``` php {skip-validation}
 // Value object content example
 
 $url->link = "https://www.ibexa.co";
@@ -39,7 +39,7 @@ $url->text = "Ibexa";
 The `Url\Value` constructor initializes a new value object with the provided value.
 It expects two comma-separated strings, corresponding to the link and text.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 
 // Instantiates an Url Value object
@@ -53,7 +53,7 @@ $UrlValue = new Url\Value( "https://www.ibexa.co/", "Ibexa" );
 | `link` | `string` | Link content. | "https://www.ibexa.co/" |
 | `text` | `string` | Text content. | "Ibexa"                 |
 
-```php
+``` php {skip-validation}
 // Example of the hash value in PHP
 $hash = [
     "link" => "https://www.ibexa.co/",

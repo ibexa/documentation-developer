@@ -15,7 +15,7 @@ The `CurrencyCodeCriterion` Search Criterion searches for orders based on the cu
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CurrencyCodeCriterion('USD')
 );

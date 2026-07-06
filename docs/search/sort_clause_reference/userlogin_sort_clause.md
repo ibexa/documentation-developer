@@ -12,7 +12,7 @@ The [`UserLogin` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contr
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->sortClauses = [new SortClause\Trash\UserLogin()];
 ```

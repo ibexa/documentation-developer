@@ -90,7 +90,7 @@ framework:
     On Upsun, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
 
-    ```php
+    ``` php {skip-validation}
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
     ```
 

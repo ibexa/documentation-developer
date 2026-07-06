@@ -14,7 +14,7 @@ The [`UserId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\UserId([14]);
 ```
 

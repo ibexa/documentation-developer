@@ -14,7 +14,7 @@ The `ProductName` Search Criterion searches for products by their names.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName('sofa*')

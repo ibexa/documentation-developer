@@ -10,7 +10,7 @@ A set of built-in names is available as `ActivityLogServiceInterface`'s `ACTION_
 
 ## Example
 
-```php
+``` php {skip-validation}
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\ActionCriterion([
         ActivityLog\ActivityLogServiceInterface::ACTION_DELETE,

@@ -101,7 +101,7 @@ In `src/Connector/Dam/Handler` folder, create the `WikimediaCommonsHandler.php` 
 which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_search) to query the server
 and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_fetchAsset) to return asset objects:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
 ```
 
@@ -120,7 +120,7 @@ The transformation factory maps [[= product_name =]]'s image variations to corre
 In `src/Connector/Dam/Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example,
 which implements the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
 ```
 

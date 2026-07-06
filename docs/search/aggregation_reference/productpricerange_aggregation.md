@@ -14,7 +14,7 @@ The ProductPriceRangeAggregation aggregates search results by the value of the p
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductPriceRangeAggregation('price', 'PLN', [

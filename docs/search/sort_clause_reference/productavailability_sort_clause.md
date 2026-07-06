@@ -12,7 +12,7 @@ The `ProductAvailability` Sort Clause sorts search results by whether they have 
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     null,

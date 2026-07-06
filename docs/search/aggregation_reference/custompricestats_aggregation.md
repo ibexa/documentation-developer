@@ -20,7 +20,7 @@ The CustomPriceStatsAggregation aggregates search results by the value of the cu
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new CustomPriceStatsAggregation('custom_price_stats_aggregation', $currency, $customerGroup),

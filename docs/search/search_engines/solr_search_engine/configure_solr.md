@@ -72,7 +72,7 @@ The configuration above results in the following boosting (content type / Field)
     The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\FullText`.
     The following example shows custom query which benefits from the custom fields created in the previous example.
 
-    ```php
+    ``` php {skip-validation}
     <?php
 
     namespace App\Controller;

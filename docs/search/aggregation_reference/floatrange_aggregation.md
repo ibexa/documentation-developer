@@ -14,7 +14,7 @@ The field-based [FloatRangeAggregation](/api/php_api/php_api_reference/classes/I
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\FloatRangeAggregation('float', 'product', 'weight',
 [

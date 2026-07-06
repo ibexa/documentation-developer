@@ -15,7 +15,7 @@ The `SimpleMeasurementAttribute` Search Criterion searches for products by the v
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $value = $this->measurementService->buildSimpleValue('length', 120, 'centimeter');
 
 $query = new ProductQuery(

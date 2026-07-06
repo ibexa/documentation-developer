@@ -18,7 +18,7 @@ The associated Symfony Flex recipe configures the bundle and its routes.
 
 Check that the following line has been added by the recipe to `config/bundles.php` file's array:
 
-```php
+``` php {skip-validation}
     Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle::class => ['all' => true],
 ```
 

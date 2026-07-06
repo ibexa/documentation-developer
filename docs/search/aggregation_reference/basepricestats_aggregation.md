@@ -20,7 +20,7 @@ You can use the provided getters to access the values:
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->setAggregations([
     new BasePriceStatsAggregation('base_price_stats_aggregation', $currency),

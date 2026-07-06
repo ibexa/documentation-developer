@@ -12,7 +12,7 @@ The field-based [CheckboxTermAggregation](/api/php_api/php_api_reference/classes
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\CheckboxTermAggregation('checkbox', 'article', 'enable_comments');
 ```

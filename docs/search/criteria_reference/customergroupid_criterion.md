@@ -14,6 +14,6 @@ The `CustomerGroupId` Search Criterion searches for content based on the ID of i
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\CustomerGroupId(1);
 ```

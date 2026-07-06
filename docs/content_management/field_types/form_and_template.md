@@ -23,7 +23,7 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 
 You have to add your form type to the content editing form. The example shows how `ibexa_boolean` injects the form:
 
-``` php
+``` php {skip-validation}
 use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
 use Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType;
 use Symfony\Component\Form\FormInterface;
@@ -63,7 +63,7 @@ You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.htm
 
 Providing definition editing support is almost identical to creating content editing support. The only difference are field names:
 
-``` php
+``` php {skip-validation}
 use Ibexa\AdminUi\Form\Data\FieldDefinitionData;
 use Ibexa\ContentForms\Form\Type\FieldType\CountryFieldType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

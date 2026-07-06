@@ -15,7 +15,7 @@ The `Id` Search Criterion searches for shipments based on the shipment ID.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ShipmentQuery(
     new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Id(2)
 );

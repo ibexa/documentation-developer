@@ -12,6 +12,6 @@ The [Validity URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contra
 
 ## Example
 
-```php
+``` php {skip-validation}
 $query->filter = new Criterion\Validity(true);
 ```

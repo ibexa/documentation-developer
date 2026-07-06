@@ -146,7 +146,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
-    ```php
+    ``` php {skip-validation}
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -197,7 +197,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/Block/RandomBlock.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\Block;
@@ -336,7 +336,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/DependencyInjection/AppExtension.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\DependencyInjection;
@@ -399,7 +399,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
-    ```php
+    ``` php {skip-validation}
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }} data-ez-zone-id="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -456,7 +456,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/Block/Event/Listener/RandomBlockListener.php` in place of `src/AppBundle/Block/RandomBlock.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\Block\Event\Listener;
@@ -576,7 +576,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/DependencyInjection/AppExtension.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\DependencyInjection;

@@ -18,7 +18,7 @@ The field-based [IntegerStatsAggregation](/api/php_api/php_api_reference/classes
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\IntegerStatsAggregation('integer', 'product', 'amount');
 ```

@@ -12,7 +12,7 @@ The [`DateModified` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Co
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\DateModified()];
 ```

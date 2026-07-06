@@ -20,7 +20,7 @@ The `LoggedAtCriterion` Activity Log Criterion matches activity log group that h
 
 The following example is to match all activity log groups that aren't older than a day:
 
-```php
+``` php {skip-validation}
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\LoggedAtCriterion(new \DateTime('- 1 day'), ActivityLog\Criterion\LoggedAtCriterion::GTE),
 ]);

@@ -25,7 +25,7 @@ For this use case, use [`TaxonomyNoEntries`](taxonomy_no_entries.md) instead.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\IsFieldEmpty('title');
 ```
 
@@ -33,7 +33,7 @@ $query->query = new Criterion\IsFieldEmpty('title');
 
 You can use the `IsFieldEmpty` Criterion to search for articles that don't have an image:
 
-``` php hl_lines="4"
+``` php {skip-validation} hl_lines="4"
 $query = new LocationQuery;
 $query->query = new Criterion\LogicalAnd([
         new Criterion\ContentTypeIdentifier('article'),

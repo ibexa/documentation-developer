@@ -35,7 +35,7 @@ The length of the string provided must be between the minimum length defined in 
 The default value for both properties is 0, which means that the validation is disabled by default.
 To set the validation properties, the `validateValidatorConfiguration()` method needs to be inspected, which receives an array with `minStringLength` and `maxStringLength` like in the following representation:
 
-```php
+``` php {skip-validation}
 [
   'StringLengthValidator' => [
     'maxStringLength' => 60

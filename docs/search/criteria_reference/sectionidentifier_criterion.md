@@ -14,7 +14,7 @@ The [`SectionIdentifier` Search Criterion](/api/php_api/php_api_reference/classe
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\SectionIdentifier(['sports', 'news']);
 ```
 

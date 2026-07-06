@@ -8,7 +8,7 @@ description: Configurations and management of binary files.
 
 To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
 
-```php
+``` php {skip-validation}
 $file = $this->ioService->loadBinaryFile($field->value->id);
 $fileContent = $this->ioService->getFileContents($file);
 ```

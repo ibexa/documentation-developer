@@ -39,19 +39,19 @@ The `FullText` Criterion isn't available in [Repository filtering](search_api.md
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\FullText('victory');
 ```
 
 Using double quotes to indicate a phrase:
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\FullText('"world cup"');
 ```
 
 Using the AND operator and parenthesis to search for both words at the same time:
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\FullText('baseball AND cup');
 ```
 
@@ -81,7 +81,7 @@ $query->query = new Criterion\FullText('baseball AND cup');
 
 Assume the following search query:
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\FullText('(cup AND ba*ball) "breaking news"');
 ```
 

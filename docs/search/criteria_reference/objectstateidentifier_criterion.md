@@ -15,11 +15,11 @@ The [`ObjectStateIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\ObjectStateIdentifier(['ready']);
 ```
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock');
 ```
 

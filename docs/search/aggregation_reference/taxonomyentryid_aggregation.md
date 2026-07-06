@@ -13,12 +13,12 @@ The `TaxonomyEntryIdAggregation` aggregates search results by the content item's
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\TaxonomyEntryIdAggregation('taxonomy', 'tags');
 ```
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery();
 $query->aggregations[] = new Aggregation\TaxonomyEntryIdAggregation('categories', 'product_categories');
 ```

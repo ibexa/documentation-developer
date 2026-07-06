@@ -10,7 +10,7 @@ To provide support for a custom Search Criterion, do the following.
 
 First, create a `CameraManufacturerCriterion.php` file that contains the Criterion class:
 
-``` php
+``` php {skip-validation}
 --8<--
 code_samples/search/custom/src/Query/Criterion/CameraManufacturerCriterion.php
 --8<--
@@ -22,7 +22,7 @@ Then, add a `CameraManufacturerVisitor` class, implementing `CriterionVisitor`:
 
 === "Solr"
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
     --8<--
@@ -30,7 +30,7 @@ Then, add a `CameraManufacturerVisitor` class, implementing `CriterionVisitor`:
 
 === "Elasticsearch"
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php
     --8<--

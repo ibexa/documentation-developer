@@ -16,7 +16,7 @@ The [`UserMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, 12);
 ```
 
@@ -56,7 +56,7 @@ $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criter
 
 You can use the `UserMetadata` Criterion to search for blog posts created by the Contributor user group:
 
-``` php hl_lines="7"
+``` php {skip-validation} hl_lines="7"
 // ID of your custom Contributor User Group
 $contributorGroupId = 32;
 

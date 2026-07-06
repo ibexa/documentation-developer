@@ -42,7 +42,7 @@ As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value
 
 Depending on the selected input type, the object resembles the following examples:
 
-``` php
+``` php {skip-validation}
 // Simple input (single value) example
 
 // @var MeasurementServiceInterface $measurementService
@@ -57,7 +57,7 @@ $measurementValue = new Measurement\Value(
 );
 ```
 
-``` php
+``` php {skip-validation}
 // Range input value example
 
 // @var MeasurementServiceInterface $measurementService

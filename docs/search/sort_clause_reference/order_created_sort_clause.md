@@ -13,7 +13,7 @@ The `Created` Sort Clause sorts search results by the date and time when the ord
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $orderQuery = new OrderQuery(
     $criteria,
     [

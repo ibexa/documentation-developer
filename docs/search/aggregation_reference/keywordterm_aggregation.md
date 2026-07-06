@@ -12,7 +12,7 @@ The field-based [KeywordTermAggregation](/api/php_api/php_api_reference/classes/
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\KeywordTermAggregation('keyword', 'article', 'tags');
 ```

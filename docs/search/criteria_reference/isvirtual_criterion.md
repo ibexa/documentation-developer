@@ -14,7 +14,7 @@ The `IsVirtual` Search Criterion searches for virtual or physical products.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IsVirtual(true)

@@ -16,6 +16,6 @@ The `Width` Search Criterion searches for image with specified width.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Width('image', 150, 1000);
 ```

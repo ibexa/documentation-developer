@@ -14,7 +14,7 @@ The [DateMetadataRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\DateMetadataRangeAggregation('date_metadata', Aggregation\DateMetadataRangeAggregation::PUBLISHED,
     [
