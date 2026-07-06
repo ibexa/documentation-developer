@@ -5,7 +5,7 @@ info:
     url: https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png
   title: Ibexa DXP REST API
   description: ""
-  version: 5.0.9
+  version: 6.0.0
 servers:
 - url: /api/ibexa/v2
   description: Current server
