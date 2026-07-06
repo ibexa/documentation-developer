@@ -142,7 +142,7 @@ Other commands let you list all the configured clients (`league:oauth2-server:li
     For a list of all the commands that you can use maintain your clients, in a terminal, run `bin/console list league:oauth2-server`.
     To see usage details for each of the commands, run `bin/console help <command>` .
 
-    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
+    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/1.x/docs/basic-setup.md).
 
 ### Information needed by the client
 
