@@ -168,7 +168,7 @@ It's recommended to use a simple associative array format for the settings schem
 
 An example schema could look like this:
 
-``` php {skip-validation}
+``` php
 [
     'backupData' => [
         'type' => 'bool',

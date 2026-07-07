@@ -7,18 +7,6 @@ parameters:
 			path: code_samples/_inline_php/administration/configuration/repository_configuration/ab545148cd13f7537467f6c43859d757ba15120b5df7d9933e6236336f1bf5e1.php
 
 		-
-			message: '#^Dead catch \- Ibexa\\Contracts\\Core\\Repository\\Exceptions\\NotFoundException is never thrown in the try block\.$#'
-			identifier: catch.neverThrown
-			count: 1
-			path: code_samples/_inline_php/api/php_api/php_api/1207fc11956ce57c9503ab18d8fb6316f391ed152816968fccfb020a4d498420.php
-
-		-
-			message: '#^Dead catch \- Ibexa\\Contracts\\Core\\Repository\\Exceptions\\UnauthorizedException is never thrown in the try block\.$#'
-			identifier: catch.neverThrown
-			count: 1
-			path: code_samples/_inline_php/api/php_api/php_api/1207fc11956ce57c9503ab18d8fb6316f391ed152816968fccfb020a4d498420.php
-
-		-
 			message: '#^Instantiated class MyValue not found\.$#'
 			identifier: class.notFound
 			count: 1
@@ -37,10 +25,22 @@ parameters:
 			path: code_samples/_inline_php/commerce/transactional_emails/extend_transactional_emails/9512b966ae24a637ff0bba4d63a51f6418567d4c1245ea3d61272890838582a4.php
 
 		-
+			message: '#^Expression "\[\[''id'' \=\> 1, ''name'' \=\> ''Boba Fett'', ''email'' \=\> ''boba\.fett@example\.com''\], \[''id'' \=\> 2, ''name'' \=\> ''Darth Vader'', ''email'' \=\> ''darth\.vader@example\.com''\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/authorfield/41087640467e69b96880fd3bcacebfab85a1983d922fd05e6f2aeffdadb77897.php
+
+		-
 			message: '#^Property Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content\:\:\$fields is not writable\.$#'
 			identifier: assign.propertyReadOnly
 			count: 1
 			path: code_samples/_inline_php/content_management/field_types/field_type_reference/countryfield/3cd88088ebfaab6dc8aab79fd8d9e380586a05e9a250f208935020a274d6a77f.php
+
+		-
+			message: '#^Expression "\[''JP'' \=\> \[''Name'' \=\> ''Japan'', ''Alpha2'' \=\> ''JP'', ''Alpha3'' \=\> ''JPN'', ''IDC'' \=\> 81\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/countryfield/f00f86b7aae5981123e6212809be54752d5c5faec122aee5b4d4c68152533e3f.php
 
 		-
 			message: '#^Expression "\[''isISBN13'' \=\> \\true\]" on a separate line does not do anything\.$#'
@@ -113,30 +113,6 @@ parameters:
 			identifier: class.notFound
 			count: 1
 			path: code_samples/_inline_php/update_and_migration/from_4.6/update_to_5.0/20a5c589183c1b8ee4f67c7a0c9352320eb7349e3f06f89c61e245ea4b7f585f.php
-
-		-
-			message: '#^Access to undefined constant Ibexa\\Core\\MVC\\Symfony\\MVCEvents\:\:INTERACTIVE_LOGIN\.$#'
-			identifier: classConstant.notFound
-			count: 1
-			path: code_samples/_inline_php/users/user_authentication/661a7600ac0964cdf501697eda6461ec2a7a1c3813025f1fbb4ffa16ec174b53.php
-
-		-
-			message: '#^Call to method setApiUser\(\) on an unknown class eIbexa\\Core\\MVC\\Symfony\\Event\\InteractiveLoginEvent\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/_inline_php/users/user_authentication/661a7600ac0964cdf501697eda6461ec2a7a1c3813025f1fbb4ffa16ec174b53.php
-
-		-
-			message: '#^Method App\\EventListener\\InteractiveLoginListener\:\:onInteractiveLogin\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: code_samples/_inline_php/users/user_authentication/661a7600ac0964cdf501697eda6461ec2a7a1c3813025f1fbb4ffa16ec174b53.php
-
-		-
-			message: '#^Parameter \$event of method App\\EventListener\\InteractiveLoginListener\:\:onInteractiveLogin\(\) has invalid type eIbexa\\Core\\MVC\\Symfony\\Event\\InteractiveLoginEvent\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/_inline_php/users/user_authentication/661a7600ac0964cdf501697eda6461ec2a7a1c3813025f1fbb4ffa16ec174b53.php
 
 		-
 			message: '#^Class App\\Form\\Type\\TextToTextOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'

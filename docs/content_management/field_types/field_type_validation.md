@@ -17,7 +17,7 @@ except it has an additional level, to group settings for a certain validation me
 
 For example, for the `ibexa_string` type, the validator schema could be:
 
-``` php {skip-validation}
+``` php
 [
     'stringLength' => [
         'minStringLength' => [

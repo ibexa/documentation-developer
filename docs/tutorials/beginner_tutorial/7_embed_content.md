@@ -123,7 +123,7 @@ The controller uses `ContentService` to load related resources (Landmarks) for a
 
 Create a `src/Controller/RideController.php` file:
 
-``` php {skip-validation}
+``` php
 <?php
 
 namespace App\Controller;

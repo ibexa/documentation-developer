@@ -72,7 +72,7 @@ parameters:
         an_array: [apple, banana, pear]
 ```
 
-``` php {skip-validation}
+``` php
 // Usage inside a controller
 /** @var \Symfony\Component\DependencyInjection\ContainerInterface $container */
 $myParameter = $container->getParameter('myapp.parameter.name');

@@ -41,17 +41,17 @@ The hash format mostly matches the value object. It has the following key `autho
 
 Example
 
-``` php {skip-validation}
+``` php
 [
     [
        'id' => 1,
        'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com'
+       'email' => 'boba.fett@example.com',
     ],
     [
        'id' => 2,
        'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com'
+       'email' => 'darth.vader@example.com',
     ],
 ];
 ```

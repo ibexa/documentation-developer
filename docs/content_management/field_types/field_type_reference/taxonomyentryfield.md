@@ -49,7 +49,7 @@ return [
 
 The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
-``` php {skip-validation}
+``` php
 // Constructor example
 use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
 use Ibexa\Taxonomy\FieldType\TaxonomyEntry;

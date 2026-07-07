@@ -171,7 +171,7 @@ Examples for tagging everything needed for content using the autowireable [`Resp
 
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
-``` php {skip-validation}
+``` php
 /** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location */

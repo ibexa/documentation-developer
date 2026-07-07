@@ -27,7 +27,7 @@ The Value class of this field type contains the following properties:
 | `$link`  | `string` | This property stores the link provided to the value of this field type.                              |
 | `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this field type. |
 
-``` php {skip-validation}
+``` php
 // Value object content example
 
 /** @var \Ibexa\Core\FieldType\Url\Value $url */
@@ -40,7 +40,7 @@ $url->text = 'Ibexa';
 The `Url\Value` constructor initializes a new value object with the provided value.
 It expects two comma-separated strings, corresponding to the link and text.
 
-``` php {skip-validation}
+``` php
 // Constructor example
 use Ibexa\Core\FieldType\Url as Url;
 

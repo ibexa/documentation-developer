@@ -11,7 +11,7 @@ The following example shows how to add a Search Criterion to all queries.
 
 Depending on your configuration, this might impact all search queries, including those used for search and content tree in the back office.
 
-``` php {skip-validation} hl_lines="34"
+``` php hl_lines="34"
 --8<--
 code_samples/search/custom/src/EventSubscriber/CustomQueryFilterSubscriber.php
 --8<--

@@ -25,7 +25,7 @@ The Value class of this field type contains the following properties:
 |------------------------|-----------------------------|-------------------------------------------------------------------------------------------|
 | `$destinationContentId` | `string`, `int`, or `null` | This property is used to store the value provided, which represents the related content.  |
 
-``` php {skip-validation}
+``` php
 // Value object content example
 
 /** @var \Ibexa\Core\FieldType\Relation\Value $relation */
@@ -37,7 +37,7 @@ $relation->destinationContentId = $contentInfo->id;
 
 The `Relation\Value` constructor initializes a new value object with the value provided. It expects a mixed value.
 
-``` php {skip-validation}
+``` php
 // Constructor example
 use Ibexa\Core\FieldType\Relation as Relation;
 
@@ -60,7 +60,7 @@ The field definition of this field type can be configured with three options:
 | `selectionRoot`         | `string` | `null`                            | This setting defines the selection root.                                       |
 | `selectionContentTypes` | `array`  | `[]`                              | An array of content type IDs that are allowed for related Content.             |
 
-``` php {skip-validation}
+``` php
 // Relation FieldType example settings
 
 use Ibexa\Core\FieldType\Relation\Type;
