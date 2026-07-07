@@ -164,6 +164,10 @@ To use Composer to instantly create a project in the current folder with all the
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
+!!! caution "Security advisories"
+
+    If you encounter security advisories that prevent the install, see [Package security advisories](security_advisories.md#package-security-advisories).
+
 !!! tip "Version constraint"
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
