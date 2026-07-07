@@ -70,7 +70,7 @@ parameters:
 			message: '#^Call to an undefined method object\:\:loadObject\(\)\.$#'
 			identifier: method.notFound
 			count: 1
-			path: code_samples/_inline_php/infrastructure_and_maintenance/cache/persistence_cache/353177557bb0bc90eb5b4270a1c24e9544452d429462edff6f2aab293e6999e9.php
+			path: code_samples/_inline_php/infrastructure_and_maintenance/cache/persistence_cache/2f333548247830523074f882c44ffb2c58e158accf9fdcd50dcb4e2e86209b1f.php
 
 		-
 			message: '#^Property App\\MyService\:\:\$contentService is never read, only written\.$#'

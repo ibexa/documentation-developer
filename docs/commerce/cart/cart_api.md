@@ -69,9 +69,11 @@ use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
 
 // ...
 
-/** @var \Ibexa\Contracts\Core\Repository\UserService $userService */
-/** @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService */
-/** @var \Ibexa\Contracts\Cart\Value\CartInterface $cart */
+/**
+ * @var \Ibexa\Contracts\Core\Repository\UserService $userService
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var \Ibexa\Contracts\Cart\Value\CartInterface $cart
+ */
 $updateMetadataStruct = new CartMetadataUpdateStruct();
 $updateMetadataStruct->setOwner($userService->loadUserByLogin('user'));
 
@@ -158,8 +160,10 @@ use Ibexa\Contracts\Cart\Value\CartCreateStruct;
 use Ibexa\Contracts\Core\Collection\ArrayMap;
 use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
 
-/** @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService */
-/** @var CurrencyInterface $currency */
+/**
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var CurrencyInterface $currency
+ */
 $createStruct = new CartCreateStruct('My Cart', $currency);
 $createStruct->setContext(new ArrayMap([
     'coupon_code' => 'X1MF7699',
@@ -180,9 +184,11 @@ use Ibexa\Contracts\Cart\Value\EntryAddStruct;
 use Ibexa\Contracts\Core\Collection\ArrayMap;
 use Ibexa\ProductCatalog\Local\Repository\Values\Product;
 
-/** @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService */
-/** @var \Ibexa\Contracts\Cart\Value\CartInterface $cart */
-/** @var Product $product */
+/**
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var \Ibexa\Contracts\Cart\Value\CartInterface $cart
+ * @var Product $product
+ */
 $entryAddStruct = new EntryAddStruct($product);
 $entryAddStruct->setContext(new ArrayMap([
     'tshirt_text' => 'EqEqEqEq',

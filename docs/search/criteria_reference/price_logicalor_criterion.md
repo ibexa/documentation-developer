@@ -18,8 +18,10 @@ The `LogicalOr` Search Criterion matches prices if at least one of the provided 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
 
-/** @var \Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface $currencyUSD */
-/** @var \Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface $currencyEUR */
+/**
+ * @var \Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface $currencyUSD
+ * @var \Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface $currencyEUR
+ */
 $query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalOr(
         new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency($currencyUSD),

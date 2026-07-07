@@ -268,9 +268,11 @@ use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 // Example
-/** @var TagAwareAdapterInterface $pool */
-/** @var ContainerInterface $container */
-/** @var int $id */
+/**
+ * @var TagAwareAdapterInterface $pool
+ * @var ContainerInterface $container
+ * @var int $id
+ */
 $cacheItem = $pool->getItem("myApp-object-{$id}");
 if ($cacheItem->isHit()) {
     return $cacheItem->get();
@@ -307,8 +309,10 @@ Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache c
 ``` php
 use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 
-/** @var TagAwareAdapterInterface $pool */
-/** @var int $contentId */
+/**
+ * @var TagAwareAdapterInterface $pool
+ * @var int $contentId
+ */
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 

@@ -28,10 +28,13 @@ This field type makes it possible to store and retrieve values of a relation to 
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
 ``` php
-// Value object content example
-/** @var \Ibexa\Core\FieldType\RelationList\Value $relationList */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1 */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2 */
+/**
+ * Value object content example
+ * 
+ * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
 $relationList->destinationContentIds = [
     $contentInfo1->id,
     $contentInfo2->id,
@@ -48,8 +51,10 @@ It expects a mixed array as value.
 //Constructor example
 use Ibexa\Core\FieldType\RelationList as RelationList;
 
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1 */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2 */
+/**
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
 // Instantiates a RelationList Value object
 $relationListValue = new RelationList\Value(
     [

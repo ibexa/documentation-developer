@@ -64,8 +64,10 @@ If only the middle assignment is removed, the last dumped variable contains the 
 use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
 use Ibexa\Contracts\ShoppingList\Value\EntryAddStruct;
 
-/** @var ShoppingListServiceInterface $shoppingListService */
-/** @var string $productCode */
+/**
+ * @var ShoppingListServiceInterface $shoppingListService
+ * @var string $productCode
+ */
 $list = $shoppingListService->getOrCreateDefaultShoppingList();
 dump($list);
 $list = $shoppingListService->clearShoppingList($list);

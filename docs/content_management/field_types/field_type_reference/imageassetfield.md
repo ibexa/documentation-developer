@@ -30,10 +30,12 @@ Value object of `ibexa_image_asset` contains the following properties:
 | `alternativeText`      | `string` | The alternative image text (for example "Picture of an apple."). |
 
 ``` php
-// Value object content example
-
-/** @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
+/**
+ * Value object content example
+ * 
+ * @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ */
 $imageAssetValue->destinationContentId = $contentInfo->id;
 $imageAssetValue->alternativeText = 'Picture of an apple.';
 ```

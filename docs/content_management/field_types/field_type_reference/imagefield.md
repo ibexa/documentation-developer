@@ -150,9 +150,11 @@ The variation service, `ibexa.field_type.ibexa_image.variation_service`, can be 
 It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, and more.):
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Variation\VariationHandler $imageVariationHandler */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $imageField */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo */
+/**
+ * @var \Ibexa\Contracts\Core\Variation\VariationHandler $imageVariationHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $imageField
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo
+ */
 $variation = $imageVariationHandler->getVariation(
     $imageField,
     $versionInfo,
@@ -170,8 +172,10 @@ As for any field type, there are several ways to input content to a field.
 For an Image, the quickest is to call `setField()` on the ContentStruct:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
-/** @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService */
+/**
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
+ */
 $createStruct = $contentService->newContentCreateStruct(
     $contentTypeService->loadContentTypeByIdentifier('image'),
     'eng-GB'
@@ -184,8 +188,10 @@ To customize the Image's alternative texts, you must first get an `Image\Value` 
 For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
-/** @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService */
+/**
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
+ */
 $createStruct = $contentService->newContentCreateStruct(
     $contentTypeService->loadContentTypeByIdentifier('image'),
     'eng-GB'

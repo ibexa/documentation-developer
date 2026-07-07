@@ -24,8 +24,10 @@ use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
 use Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 
-/** @var CurrencyInterface $currency */
-/** @var CustomerGroupInterface $customerGroup */
+/**
+ * @var CurrencyInterface $currency
+ * @var CustomerGroupInterface $customerGroup
+ */
 $sortClauses = [
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CustomPrice(
         $currency,

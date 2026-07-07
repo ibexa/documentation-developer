@@ -113,8 +113,10 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 
 //...
 
-/** @var Repository $repository */
-/** @var Location $location */
+/**
+ * @var Repository $repository
+ * @var Location $location
+ */
 $hiddenLocation = $repository->sudo(static fn (Repository $repository): Location => $repository->getLocationService()->hideLocation($location));
 ```
 

@@ -117,9 +117,11 @@ The content item is restored under its previous location.
 You can also provide a different location to restore in as a second argument:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\TrashItem $trashItem */
-/** @var \Ibexa\Contracts\Core\Repository\LocationService $locationService */
-/** @var \Ibexa\Contracts\Core\Repository\TrashService $trashService */
+/**
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\TrashItem $trashItem
+ * @var \Ibexa\Contracts\Core\Repository\LocationService $locationService
+ * @var \Ibexa\Contracts\Core\Repository\TrashService $trashService
+ */
 $locationId = 12345;
 $newParent = $locationService->loadLocation($locationId);
 $trashService->recover($trashItem, $newParent);

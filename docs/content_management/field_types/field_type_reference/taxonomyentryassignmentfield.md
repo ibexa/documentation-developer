@@ -45,8 +45,10 @@ Example using array:
 ``` php
 use Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry;
 
-/** @var TaxonomyEntry $taxonomyEntry */
-/** @var TaxonomyEntry $taxonomyEntry2 */
+/**
+ * @var TaxonomyEntry $taxonomyEntry
+ * @var TaxonomyEntry $taxonomyEntry2
+ */
 return [
     'taxonomy_entries' => [$taxonomyEntry, $taxonomyEntry2], // load entries using TaxonomyService
     'taxonomy' => 'tags',
