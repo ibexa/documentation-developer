@@ -269,7 +269,7 @@ Install [[= product_name =]] and create a database with:
 
 === "PHP 8.4"
 
-    Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation will fail due to some errors like "headers have already been sent".
+    Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation fails due to errors such as "headers have already been sent".
 
     ``` bash
     php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
