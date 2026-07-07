@@ -18,11 +18,11 @@ You can run the following command to check for available updates without install
 composer update --dry-run
 ```
 
-When a security issue is discovered on a Composer package, a security advisory is emitted, and the disrecommended affected versions of the package can't be installed without action.
+When a security issue is discovered in a Composer package, a security advisory is issued, and the affected versions of the package become blocked from installation unless you take action.
 
-When installing or updating, Composer avoids the installation of packages that are affected by security advisories.
-But there might be some constraint issues making the installation or update impossible.
-For example, security fixes might not be deployed for [unsupported PHP versions](https://www.php.net/supported-versions.php).
+When installing or updating, Composer avoids installing packages that are affected by security advisories.
+However, this can create constraint issues that make installation or updates impossible.
+For example, security fixes might not be available for [unsupported PHP versions](https://www.php.net/supported-versions.php).
 
 Example of a Composer output about a package with security issues when trying to install:
 
@@ -30,7 +30,7 @@ Example of a Composer output about a package with security issues when trying to
 - Root composer.json requires twig/cssinliner-extra v3.11.0 (exact version match), found twig/cssinliner-extra[v3.11.0] but these were not loaded, because they are affected by security advisories ("PKSA-fs5b-x5k4-1h39").
 ```
 
-Composer output isn't always as verbose about security advisories blocking installation or update.
+Composer's output isn't always this verbose about security advisories blocking installation or updates.
 
 For example, imagine this error appeared recently when trying to install Ibexa DXP 4.6 on PHP 7.4:
 
@@ -39,9 +39,9 @@ For example, imagine this error appeared recently when trying to install Ibexa D
 - twig/twig[v3.27.0, ..., v3.28.0] require php >=8.1.0 -> your php version (7.4.33) does not satisfy that requirement.
 ```
 
-It was working before. You can check about the package on packagist.org, or on an already running Ibexa DXP what version of this package was previously accepted.
+It worked before. You can check packagist.org, or an already running instance of Ibexa DXP, to see which version of this package was previously accepted.
 
-In this example, [`twig/twig` v3.11.3](https://packagist.org/packages/twig/twig#v3.11.3) matches the constraints.
+In this example, [`twig/twig` v3.11.3](https://packagist.org/packages/twig/twig#v3.11.3) matches the constraints `^3.0` and PHP 7.4 `>=7.2.5`.
 ```terminal
 % composer require twig/twig:3.11.3
 Your requirements could not be resolved to an installable set of packages.
@@ -50,16 +50,16 @@ Your requirements could not be resolved to an installable set of packages.
     - Root composer.json requires twig/twig 3.11.3 (exact version match: 3.11.3 or 3.11.3.0), found twig/twig[v3.11.3] but these were not loaded, because they are affected by security advisories ("PKSA-8zx5-v2nz-58pb").
 ```
 
-It's highly recommended to not install affected package and meet the requirements of the fixed versions.
+It's highly recommended that you not install the affected package, and instead meet the requirements of the fixed version.
 
-You can use https://packagist.org/security-advisories/ resource to know more about a security advisory, like the affected packages and versions, detailed issue, or the other possible reference IDs for the advisory - PKSA (Packagist Security Advisory), GHSA (GitHub Security Advisories), CVE (Common Vulnerabilities and Exposures)
+You can use the https://packagist.org/security-advisories/ resource to learn more about a security advisory, such as the affected packages and versions, a detailed description of the issue, and other possible reference IDs for the advisory: PKSA (Packagist Security Advisory), GHSA (GitHub Security Advisories), and CVE (Common Vulnerabilities and Exposures).
 
-If you need to, upgrade PHP, and migrate custom code to be compatible with higher version of PHP, for example by using [Rector](https://github.com/rectorphp/rector).
+If you need to, upgrade PHP and migrate your custom code to be compatible with the newer PHP version, for example by using [Rector](https://github.com/rectorphp/rector).
 
-If updating the affected package isn't possible, review the security issues carefully and assess the danger.
-If you choose to implement countermeasures without upgrading requirements, you can ignore the security advisory.
-We recommand to use Composer [config.policy.advisories.ignore-id](https://getcomposer.org/doc/06-config.md#ignore-id) setting with for each entry the reason why you allow yourself to ignore it.
-This way, if a package is affected by a new security advisory, you are warned.
+If updating the affected package isn't possible, carefully review the security issue and assess the risk.
+If you choose to implement countermeasures instead of upgrading, you can ignore the security advisory.
+We recommend using Composer's [`config.policy.advisories.ignore-id`](https://getcomposer.org/doc/06-config.md#ignore-id) setting, providing for each entry the reason why you consider it safe to ignore.
+This way, you'll still be warned if the package is affected by a new security advisory.
 
 ```json
 {
