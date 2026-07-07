@@ -1,12 +1,12 @@
 ---
-description: Find Ibexa security advisories, and learn how to handle Composer package security advisories.
+description: Find [[= product_name_base =]] security advisories, and learn how to handle Composer package security advisories.
 ---
 
 # Security advisories
 
-## Ibexa security advisories
+## [[= product_name_base =]] security advisories
 
-Ibexa security advisories are released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+[[= product_name_base =]] security advisories are released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
 
 ## Package security advisories
 
@@ -32,14 +32,14 @@ Example of a Composer output about a package with security issues when trying to
 
 Composer's output isn't always this verbose about security advisories blocking installation or updates.
 
-For example, imagine this error appeared recently when trying to install Ibexa DXP 4.6 on PHP 7.4:
+For example, imagine this error appeared recently when trying to install [[= product_name =]] 4.6 on PHP 7.4:
 
 ```text
 - ibexa/user[v4.6.0, ..., v4.6.31] require twig/twig ^3.0 -> satisfiable by twig/twig[v3.27.0, v3.27.1, v3.28.0].
 - twig/twig[v3.27.0, ..., v3.28.0] require php >=8.1.0 -> your php version (7.4.33) does not satisfy that requirement.
 ```
 
-It worked before. You can check packagist.org, or an already running instance of Ibexa DXP, to see which version of this package was previously accepted.
+It worked before. You can check packagist.org, or an already running instance of [[= product_name =]], to see which version of this package was previously accepted.
 
 In this example, [`twig/twig` v3.11.3](https://packagist.org/packages/twig/twig#v3.11.3) matches the constraints `^3.0` and PHP 7.4 `>=7.2.5`.
 ```terminal
