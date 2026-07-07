@@ -132,7 +132,7 @@
         ],
         "test": [
             "@composer-update",
-            "EXIT=0; composer check-cs || EXIT=1; composer phpstan || EXIT=1; composer deptrac || EXIT=1; composer check-rector || EXIT=1; composer markdownlint || EXIT=1; exit $EXIT"
+            "EXIT=0; composer check-cs || EXIT=1; composer phpstan || EXIT=1; composer deptrac || EXIT=1; composer check-rector || EXIT=1; composer markdownlint || EXIT=1; composer check-yaml || EXIT=1; exit $EXIT"
         ]
     },
     "scripts-descriptions": {
