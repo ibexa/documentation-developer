@@ -74,8 +74,70 @@ ibexa_tracking_track_event(
 
 - **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-parameters-reference).
 - **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, see [tracking event examples](#tracking-events).
-- **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
+- **context** (optional)- type: array, additional event data, such as quantity, basket details, [website ID](#websiteid-parameter), or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
+
+### `websiteId` parameter
+
+The `websiteId` (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` funtion.
+
+Example:
+
+``` html+twig
+{{ ibexa_tracking_track_event('visit', product, {
+    websiteId: 'my-id'
+}) }}
+```
+
+The website ID, also known as a **Login ID**, is available for logged-in users.
+It serves as a persistent, cross-device identifier.
+Both the User ID and the Cookie ID can be used to personalize website modules.
+
+The value of `websiteId` parameter is resolved in the following order:
+
+1. Explicit `websiteId` passed in the `ibexa_tracking_track_event()` context.
+2. Custom `WebsiteIdContextProviderInterface` implementations (the first one returning a non-null value wins).
+3. The built-in provider, which uses the logged-in user's identifier (`ruid`).
+
+If no value is resolved, the event is sent without the `p7` parameter.
+
+To resolve `websiteId` on the project level, implement the interface as following:
+
+``` php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Tracking;
+
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface;
+
+final class MyWebsiteIdProvider implements WebsiteIdContextProviderInterface
+{
+    public function getWebsiteId(): ?string
+    {
+        // Return a non-empty string to use it as the websiteId (p7),
+        // or null to defer to the next provider in the chain.
+        return 'my-id';
+    }
+}
+```
+
+The provider is registered automatically.
+Implementing the interface is sufficient, no service configuration is required.
+
+!!! note
+
+    Custom provider takes precedence over the built-in one.
+    A provider must return either null or a non-empty string.
+
+If you register multiple providers, control their order by tagging the service with a priority (higher priority is checked first):
+
+``` php
+App\Tracking\MyWebsiteIdProvider:
+    tags:
+        - { name: ibexa.connector.raptor.tracking.website_id_context_provider, priority: 50 }
+```
 
 ### Tracking events
 
