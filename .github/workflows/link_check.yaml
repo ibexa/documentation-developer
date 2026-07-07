@@ -95,7 +95,7 @@ jobs:
               uses: actions/cache@v4
               with:
                   path: .lycheecache
-                  key: lychee-${{ github.ref_name }}-${{ hashFiles('lychee.toml') }}
+                  key: lychee-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
                       lychee-${{ github.ref_name }}-
                       lychee-
