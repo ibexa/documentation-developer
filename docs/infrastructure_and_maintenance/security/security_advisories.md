@@ -1,5 +1,5 @@
 ---
-description: TODO.
+description: Find Ibexa security advisories, and learn how to handle Composer package security advisories.
 ---
 
 # Security advisories
