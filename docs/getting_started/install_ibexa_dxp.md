@@ -160,15 +160,6 @@ To use Composer to instantly create a project in the current folder with all the
         composer update
         ```
 
-!!! caution "Deprecation messages on PHP 8.2 and newer"
-
-    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
-
-    ``` bash
-    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-    composer dump-autoload
-    ```
-
 !!! tip "Authentication token"
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
