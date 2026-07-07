@@ -26,7 +26,7 @@ The Value class of this field type contains the following properties:
 |-----------|------------|----------------------------------------|
 | `$values` | `string[]` | Holds an array of keywords as strings. |
 
-``` php {skip-validation}
+``` php
 // Value object content example
 use Ibexa\Core\FieldType\Keyword\Value;
 
@@ -43,7 +43,7 @@ The `Keyword\Value` constructor initializes a new value object with the value pr
 
 It expects a list of keywords, either comma-separated in a string or as an array of strings.
 
-``` php {skip-validation}
+``` php
 // Constructor example
 use Ibexa\Core\FieldType\Keyword\Value;
 

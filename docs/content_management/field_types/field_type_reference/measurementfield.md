@@ -42,7 +42,7 @@ As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value
 
 Depending on the selected input type, the object resembles the following examples:
 
-``` php {skip-validation}
+``` php
 // Simple input (single value) example
 
 use Ibexa\Measurement\FieldType\MeasurementValue;
@@ -59,7 +59,7 @@ $measurementValue = new MeasurementValue(
 );
 ```
 
-``` php {skip-validation}
+``` php
 // Range input value example
 
 use Ibexa\Measurement\FieldType\MeasurementValue;
