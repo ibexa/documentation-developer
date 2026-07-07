@@ -37,7 +37,7 @@ The field definition of this field type can be configured with one option:
 |--------------|-----------|---------------|--------------------------------------------------------------------------------------------|
 | `isMultiple` | `boolean` | `false`       | This setting allows (if true) or prohibits (if false) the selection of multiple countries. |
 
-``` php
+``` php {skip-validation}
 // Country FieldType example settings
 $settings = [
     'isMultiple' => true,
@@ -49,7 +49,7 @@ $settings = [
 The format used for serialization is simpler than the full format.
 It's also available when setting value on the content field, by setting the value to an array instead of the value object. Example of that shown below:
 
-``` php
+``` php {skip-validation}
 // Value object content example
 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
 $content->fields['countries'] = ['JP', 'NO'];
@@ -67,7 +67,7 @@ The Value class of this field type contains the following properties:
 |--------------|-----------|---------------------------------------------------------------------------------------|
 | `$countries` | `array[]` | This property is used for the country selection provided as input, as its attributes. |
 
-``` php
+``` php {skip-validation}
 // Value object content example
 /** @var \Ibexa\Core\FieldType\Country\Value $value */
 $value->countries = [
@@ -85,7 +85,7 @@ $value->countries = [
 The `Country\Value` constructor initializes a new value object with the value provided.
 It expects an array as input.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 use Ibexa\Core\FieldType\Country as Country;
 

@@ -1,6 +1,6 @@
 ---
 description: Integrate the tracking script to collect user interactions.
-month_change: false
+month_change: true
 ---
 
 # Raptor tracking functions
@@ -37,18 +37,24 @@ connector_raptor:
 # Client-side tracking
 connector_raptor:
     tracking_type: 'client'  # Returns <script> tags
+
+# Hybrid tracking
+connector_raptor:
+    tracking_type: 'hybrid'  # # Returns <script> tags (loads a first-party proxy shim, not the Raptor SaaS script)
 ```
 
 - **server** - doesn't return anything in the `prod` environment, while returns HTML comments in the `dev` environment or any environment where `kernel.debug` Symfony container parameter is set to `true`. Tracking is performed server-side.
 - **client** - returns `script` tags to load the tracking script in the browser.
+- **hybrid** - returns script tags like `client`, but they load a first-party shim (`raptor-proxy.js`) that forwards events to a same-origin proxy endpoint instead of the Raptor SaaS script. The server then delivers them to Raptor, preventing ad blockers from blocking tracking.
 
 You can switch tracking mode anytime by changing the `tracking_type` parameter.
 
-For more information on Tracking modes, see Raptor documentation:
+For more information on Tracking modes, see documentation:
 
 - [Client-side tracking](https://content.raptorservices.com/help-center/client-side-tracking)
 - [Server-side tracking](https://content.raptorservices.com/help-center/server-side-tracking)
 - [Client-side vs. Server-side tracking](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking)
+- [Hybrid tracking](hybrid_tracking.md)
 
 ## Complex integration
 

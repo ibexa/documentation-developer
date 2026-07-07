@@ -64,7 +64,7 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 
 You can also use this method to change cart ownership:
 
-``` php
+``` php {skip-validation}
 use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
 
 // ...

@@ -1,5 +1,6 @@
 ---
 description: Manage URL aliases and wildcards, and validate external URLs.
+month_change: true
 ---
 
 # URL management
@@ -34,26 +35,9 @@ The following protocols are currently supported:
 
 ### Enabling automatic URL validation
 
-To enable automatic URL validation, set up cron to run the `ibexa:check-urls` command periodically.
+To enable automatic URL validation, set up a scheduled task to run the `ibexa:check-urls` command periodically.
 
-For example, to check links every week, add the following script:
-
-```bash
-echo '0 0 * * 0 cd [path-to-ibexa]; php bin/console ibexa:check-urls --quiet --env=prod' > ezp_cron.txt
-```
-
-Next, append the new cron to user's crontab without destroying existing crons.
-Assuming that the web server user data is www-data:
-
-```bash
-crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -
-```
-
-Finally, remove the temporary file:
-
-```bash
-rm ezp_cron.txt
-```
+For more information, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
 
 ### Configuration
 
@@ -99,7 +83,7 @@ For more information about [[= product_name_base =]] configuration, see [Configu
 ### Custom protocol support
 
 You can extend the external URL address validation with a custom protocol.
-To do this, you must provide a service that implements the []`Ibexa\Bundle\Core\URLChecker\URLHandlerInterface`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/URLChecker/URLHandlerInterface.php) interface.
+To do this, you must provide a service that implements the [`Ibexa\Bundle\Core\URLChecker\URLHandlerInterface`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/URLChecker/URLHandlerInterface.php) interface.
 
 Then you must register the service with an `ibexa.url_checker.handler` tag, like in the following example:
 

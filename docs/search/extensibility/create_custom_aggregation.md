@@ -9,7 +9,7 @@ description: Create custom Aggregation to use with Solr and Elasticsearch search
 To create a custom Aggregation, create an aggregation class.
 In the following example, an aggregation groups the location query results by the location priority:
 
-``` php
+``` php {skip-validation}
 --8<--
 code_samples/search/custom/src/Query/Aggregation/PriorityRangeAggregation.php
 --8<--
@@ -137,7 +137,7 @@ In a more complex use case, you must create your own visitor and extractor.
 
     The aggregation visitor must implement [`Ibexa\Contracts\Solr\Query\AggregationVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-Query-AggregationVisitor.html):
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
     --8<--
@@ -147,7 +147,7 @@ In a more complex use case, you must create your own visitor and extractor.
 
     The aggregation visitor must implement [`Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-AggregationVisitor.html):
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationVisitor.php
     --8<--
@@ -187,7 +187,7 @@ Finally, register the aggregation visitor as a service.
 
     You must also create a result extractor, which implements [`Ibexa\Contracts\Solr\ResultExtractor\AggregationResultExtractor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor.html) that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
     --8<--
@@ -195,13 +195,13 @@ Finally, register the aggregation visitor as a service.
 
     The `canVisit()` method checks whether the provided aggregation is of the supported type (in this case, your custom `PriorityRangeAggregation`).
 
-    The `extract()` method converts the [raw data provided by the search engine](https://solr.apache.org/guide/8_8/search-sample.html#aggregation) to a `RangeAggregationResult` object.
+    The `extract()` method converts the [raw data provided by the search engine](https://solr.apache.org/guide/solr/9_8/query-guide/search-sample.html#aggregation) to a `RangeAggregationResult` object.
 
 === "Elasticsearch"
 
     You must also create a result extractor, which implements  [`Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-AggregationResultExtractor.html) that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
     --8<--

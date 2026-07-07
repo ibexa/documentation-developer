@@ -30,9 +30,9 @@ It's also possible to directly pass an instance of `\DateTime`.
 
 The Value class of this field type contains the following properties:
 
-| Property | Type           | Description                                                                       |
-|----------|----------------|-----------------------------------------------------------------------------------|
-| `$time`  | `integer|null` | Holds the time information as a number of seconds since the beginning of the day. |
+| Property | Type                | Description                                                                       |
+|----------|---------------------|-----------------------------------------------------------------------------------|
+| `$time`  | `integer` or `null` | Holds the time information as a number of seconds since the beginning of the day. |
 
 #### Constructor
 
@@ -70,7 +70,7 @@ The Field definition of this field type can be configured with several options:
 | `useSeconds`  | `boolean`                                        | `false`               | Used to control displaying of seconds in the output.                              |
 | `defaultType` | `Type::DEFAULT_EMPTY Type::DEFAULT_CURRENT_TIME` | `Type::DEFAULT_EMPTY` | The constant used here defines default input value when using back-end interface. |
 
-``` php
+``` php {skip-validation}
 // Time field type example settings
 use Ibexa\Core\FieldType\Time\Type;
 

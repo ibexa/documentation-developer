@@ -71,7 +71,7 @@ The field type supports `FileSizeValidator`, defining maximum size of media file
 |------|------|------|------|
 |`maxFileSize`|`int`|`false`|Maximum size of the file in bytes.|
 
-``` php
+``` php {skip-validation}
 // Example of using Media field type validator in PHP
 
 use Ibexa\Core\FieldType\Media\Type;
@@ -108,7 +108,7 @@ List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldT
 | `TYPE_HTML5_VIDEO`  | HTML5 Video             |
 | `TYPE_HTML5_AUDIO`  | HTML5 Audio             |
 
-``` php
+``` php {skip-validation}
 // Example of using Media field type settings in PHP
 
 use Ibexa\Core\FieldType\Media\Type;

@@ -61,7 +61,7 @@ Hash value of this field type is an array with two keys:
 | `timestamp` | `integer` | Time information in [Unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                               | `1400856992`                            |
 | `rfc850`    | `string`  | Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this has higher precedence over the timestamp value. | `"Friday, 23-May-14 14:56:14 GMT+0000"` |
 
-``` php
+``` php {skip-validation}
 // Example of the hash value in PHP
 $hash = [
     'timestamp' => 1400856992,
@@ -88,7 +88,7 @@ Following `defaultType` default value options are available as constants in the 
 | `DEFAULT_EMPTY`        | Default value is empty.          |
 | `DEFAULT_CURRENT_DATE` | Default value uses current date. |
 
-``` php
+``` php {skip-validation}
 // Date field type example settings
 
 use Ibexa\Core\FieldType\Date\Type;

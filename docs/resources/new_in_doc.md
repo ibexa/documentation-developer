@@ -7,6 +7,23 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## June 2026
+
+### Releases
+
+- [v5.0.9 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v509)
+- [v4.6.31 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4631)
+- [Ibexa DXP 3.3 has reached End of Life (EOL) on 30 June 2026](https://support.ibexa.co/Public/service-life). You can access the 3.3 documentation by unfolding **Older versions** in the **Change version** drop-down menu.
+
+### Users
+
+- Updated [user authentication customization example](user_authentication.md)
+
+### Background tasks and scheduled tasks
+
+- Reworked documentation about [scheduled tasks](install_ibexa_dxp.md#schedule-tasks)
+- Described [Ibexa Messenger configuration for production](background_tasks.md#configure-for-production-environment)
+
 ## May 2026
 
 ### Releases
@@ -160,9 +177,9 @@ This promotes skipping the rebuild of the Symfony container when environment var
 ### Discounts
 
 - Extending Discounts
-    - Added documentation about how to [create custom conditions and rules](https://doc.ibexa.co/en/latest/discounts/extend_discounts/#create-custom-conditions-and-rules) and [change discount priority](https://doc.ibexa.co/en/latest/discounts/extend_discounts/#change-discount-priority)
-    - Added documentation about how to [extend Discounts wizard](https://doc.ibexa.co/en/latest/discounts/extend_discounts_wizard/)
-    - Example [how to deal with discounts products using the API](https://doc.ibexa.co/en/latest/discounts/discounts_api/#example-api-usage) added in the Discounts API page
+    - Added documentation about how to [create custom conditions and rules](https://doc.ibexa.co/en/5.0/discounts/extend_discounts/#create-custom-conditions-and-rules) and [change discount priority](https://doc.ibexa.co/en/5.0/discounts/extend_discounts/#change-discount-priority)
+    - Added documentation about how to [extend Discounts wizard](https://doc.ibexa.co/en/5.0/discounts/extend_discounts_wizard/)
+    - Example [how to deal with discounts products using the API](https://doc.ibexa.co/en/5.0/discounts/discounts_api/#example-api-usage) added in the Discounts API page
 
 ### Infrastructure
 
@@ -416,13 +433,13 @@ Installation instructions for v4.6 are not needed in v5.0, or replaced by config
 |:-----------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
 | [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)              |
 | [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly        |
-| [Date and time attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation)  | [Date and time attribute: Usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
+| [Date and time attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation)  | [Date and time attribute: Usage](https://doc.ibexa.co/en/5.0/product_catalog/attributes/date_and_time/#usage) |
 | [Symbol attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation) | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)             |
 
 #### PHP API
 
 Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for v5.0.
-You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
+You can use [`ibexa/rector`](https://github.com/ibexa/rector#ibexa-dxp-rector) package that allows to maintain your custom PHP code quality.
 Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
 
 Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the building blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
@@ -430,7 +447,7 @@ Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](h
 #### REST API
 
 Layout for [v5.0 REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) is now changed.
-As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
+As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
 You can also check the documentation directly on your development installations at `/api/ibexa/v2/doc`.
 
 ## June 2025
@@ -496,7 +513,7 @@ Discounts documentation includes:
 
 ### AI Actions Connect handler
 
-- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/4.6/ai_actions/ai_actions_guide/) with [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)
+- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/4.6/ai_actions/ai_actions_guide/) with [Ibexa Connect]([[= connect_doc =]]/)
 
 ### Contributions
 
@@ -565,7 +582,7 @@ We want to thank [todomagichere](https://github.com/todomagichere) and [hgieseno
 
 ### Page Builder clipboard
 
-- Described how you can use the [Page Builder's clipboard](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_pages/#copy-blocks) to copy blocks between pages
+- Described how you can use the [Page Builder's clipboard](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/create_edit_pages/#copy-blocks) to copy blocks between pages
 
 ### REST API
 
@@ -690,8 +707,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### PHP API
 
 - Added the following interfaces and classes to the public PHP API:
-    - [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
-    - [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+    - [`Ibexa\Contracts\Share\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Values-PermissionCheckContext.html)
     - [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
     - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
@@ -769,10 +785,10 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - Added dynamic attribute submodels information by:
     - mentioning them in [customizing the recommendation request](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request) instructions
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#dynamic-attributes)
+    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#dynamic-attributes)
 - Added time-slot based models information by:
     - changing the list of parameters available when [customizing the recommendation request](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request)
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#time-slot-based-models)
+    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#time-slot-based-models)
 
 - Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
     - [Enable Personalization](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
@@ -844,7 +860,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Infrastructure and maintenance
 
-- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.5/update_from_4.5/#v468)
+- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v468)
 - Modified [v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
 - Updated the recommendations in [Performance](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
 
@@ -882,8 +898,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Infrastructure and maintenance
 
-- [Updated [[= product_name_cloud =]] domain to ibexa.cloud](https://doc.ibexa.co/en/4.6/getting_started/install_on_ibexa_cloud/#4-push-the-project)
-- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.5/update_from_4.5/#v464)
+- [Updated [[= product_name_cloud =]] domain to ibexa.cloud](https://doc.ibexa.co/en/4.6/ibexa_cloud/install_on_ibexa_cloud/#4-push-the-project)
+- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v464)
 
 ### Documentation
 
@@ -907,7 +923,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Infrastructure and maintenance
 
-- [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.5/update_from_4.5/#v463)
+- [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v463)
 
 ### Users
 
@@ -956,9 +972,9 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Dashboard
 
 - New dashboard sections in User Documentation:
-    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard/)
-    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/)
-    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard_block_reference/)
+    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/dashboard/dashboard/)
+    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/dashboard/work_with_dashboard/)
+    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/dashboard/dashboard_block_reference/)
 - Dashboard section in Developer Documentation:
     - [Configure default dashboard](https://doc.ibexa.co/en/4.6/administration/dashboard/configure_default_dashboard/)
     - [Customize dashboard](https://doc.ibexa.co/en/4.6/administration/dashboard/customize_dashboard/)
@@ -966,7 +982,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### DAM
 
-- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/latest/dam/ibexa_dam/)
+- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/4.6/dam/ibexa_dam/)
 
 ### PIM
 
@@ -980,7 +996,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - [Updated Create custom view matcher article](https://doc.ibexa.co/en/4.6/templating/templates/create_custom_view_matcher/)
 - [Actito transactional email integration](https://doc.ibexa.co/en/4.6/commerce/transactional_emails/transactional_emails/#configure-actito-integration)
-- [Described user profile](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#edit-user-profile)
+- [Described user profile](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/get_started/#view-and-edit-user-profile)
 
 ## January 2024
 
@@ -995,22 +1011,22 @@ Enhanced the PHP API with the following new classes and interfaces:
     - [How to hide the delete button in large subtrees](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy/#hide-delete-button-on-large-subtree)
     - [How to remove orphaned content items](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy/#remove-orphaned-content-items)
 - Updated information in User Documentation:
-    - [Enhanced create and edit pages article](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_pages/)
-    - [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_content_items/#edit-embedded-content-items)
+    - [Enhanced create and edit pages article](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/create_edit_pages/)
+    - [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/create_edit_content_items/#edit-embedded-content-items)
 
 ### DAM
 
-- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/latest/dam/ibexa_dam/)
+- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/4.6/dam/ibexa_dam/)
 
 ### Getting started
 
 - [[[= product_name_headless =]] product guide](https://doc.ibexa.co/en/4.6/ibexa_products/headless/)
-- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#edit-user-profile) in User Documentation
+- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/get_started/#view-and-edit-user-profile) in User Documentation
 
 ### Image management
 
-- [Upload and store images](https://doc.ibexa.co/projects/userguide/en/latest/image_management/upload_images/)
-- [Moved Edit images from Content management](https://doc.ibexa.co/projects/userguide/en/latest/image_management/edit_images/)
+- [Upload and store images](https://doc.ibexa.co/projects/userguide/en/4.6/image_management/upload_images/)
+- [Moved Edit images from Content management](https://doc.ibexa.co/projects/userguide/en/4.6/image_management/edit_images/)
 
 ### Personalization
 
@@ -1032,12 +1048,12 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### PIM
 
-- [Reorganized and updated information in User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/pim/pim/)
+- [Reorganized and updated information in User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/pim/pim/)
 
 ### Templating
 
 - [Taxonomy view matchers](https://doc.ibexa.co/en/4.6/templating/templates/view_matcher_reference/#taxonomy-entry-id)
-- [Get content category Twig filter](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/other_twig_filters/#ibexa_taxonomy_entries_for_content)
+- [Get content category Twig filter](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_taxonomy_entries_for_content-filter)
 - [Updated arguments list for `ibexa_render()` method](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_render)
 - [New Field information Twig functions](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/field_twig_functions/#ibexa_field_group_name)
 - [Updated get user Twig functions](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/user_twig_functions/)
@@ -1079,7 +1095,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/latest/personalization/triggers/#trigger-types)
+- [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/#trigger-types)
 - [Wishlist and Deletefromwishlist events](https://doc.ibexa.co/en/4.6/personalization/api_reference/tracking_api/#track-events)
 
 ### PIM
@@ -1113,7 +1129,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - [Updated configuration for triggers](https://doc.ibexa.co/en/4.6/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
 - [Send messages with recommendations](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/latest/personalization/triggers/) in User Documentation
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/) in User Documentation
 
 ### PIM
 
@@ -1149,7 +1165,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### New home page
 
-- Redesigned [home page for User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/)
+- Redesigned [home page for User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/)
 
 ### Administration
 
@@ -1165,10 +1181,10 @@ Enhanced the PHP API with the following new classes and interfaces:
     - [Create custom strategy](https://doc.ibexa.co/en/4.6/commerce/checkout/customize_checkout/#create-custom-strategy)
 - Payments
     - [Implement payment method filtering](https://doc.ibexa.co/en/4.6/commerce/payment/payment_method_filtering/)
-    - [Filter payment methods](https://doc.ibexa.co/projects/userguide/en/latest/commerce/payment/work_with_payment_methods/#filter-payment-methods)
+    - [Filter payment methods](https://doc.ibexa.co/projects/userguide/en/4.6/commerce/payment/work_with_payment_methods/#filter-payment-methods)
 - Shipping
     - [Extend shipping](https://doc.ibexa.co/en/4.6/commerce/shipping_management/extend_shipping/)
-    - [Filter shipping methods](https://doc.ibexa.co/projects/userguide/en/latest/commerce/shipping_management/work_with_shipping_methods/#filter-shipping-methods)
+    - [Filter shipping methods](https://doc.ibexa.co/projects/userguide/en/4.6/commerce/shipping_management/work_with_shipping_methods/#filter-shipping-methods)
 
 ### Online Editor
 
@@ -1181,7 +1197,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Security
 
-- [Hidden state clarification](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/security/security_checklist/#do-not-use-hide-for-read-access-restriction)
+- [Hidden state clarification](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/security/security_checklist/#dont-use-hide-for-read-access-restriction)
 - [Add timeouts information](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/security/security_checklist/#protect-against-brute-force-attacks)
 
 ## July 2023
@@ -1210,14 +1226,14 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Personalization
 
 - [Multiple attributes in submodel computation](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#submodel-parameters)
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels) in User Documentation
+- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#submodels) in User Documentation
 
 ### PIM
 
 - Updated [Enable purchasing products](https://doc.ibexa.co/en/4.6/pim/enable_purchasing_products/#region-and-currency)
 - [Virtual products](https://doc.ibexa.co/en/4.6/pim/products/#product-types)
-- [Virtual products in User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/pim/create_virtual_product/)
-- [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_product_attributes/) in User Documentation
+- [Virtual products in User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/pim/create_virtual_product/)
+- [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/4.6/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
 
@@ -1258,7 +1274,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Personalization
 
 - [Email triggers](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/latest/personalization/triggers/) in User Documentation
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/) in User Documentation
 
 ### Search
 
@@ -1269,8 +1285,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Commerce
 
-- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/latest/commerce/shipping_management/work_with_shipping_methods/) in User Documentation
-- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/latest/commerce/payment/work_with_payments/) in User Documentation
+- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/4.6/commerce/shipping_management/work_with_shipping_methods/) in User Documentation
+- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/4.6/commerce/payment/work_with_payments/) in User Documentation
 - Stock Search Criteria and Aggregation:
     - [ProductStockRangeAggregation](https://doc.ibexa.co/en/4.6/search/aggregation_reference/productstockrange_aggregation/)
     - [ProductStock](https://doc.ibexa.co/en/4.6/search/criteria_reference/productstock_criterion/)
@@ -1324,12 +1340,12 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### New Page blocks
 
 - [React app Page block](https://doc.ibexa.co/en/4.6/content_management/pages/react_app_block/)
-- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#bestsellers-block)
+- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#bestsellers-block)
 
 ### Others
 
-- [Translation comparison](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/#translation-comparison)
-- [Managing Segments](https://doc.ibexa.co/projects/userguide/en/latest/personalization/segment_management/)
+- [Translation comparison](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/translate_content/#translation-comparison)
+- [Managing Segments](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/segment_management/)
 
 ## March 2023
 
@@ -1365,7 +1381,7 @@ and [extend Storefront](https://doc.ibexa.co/en/4.6/commerce/storefront/extend_s
 
 ### Page Builder
 
-- Description of new Page Builder blocks: [Catalog](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#catalog-block) and [Product collection](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#product-collection-block)
+- Description of new Page Builder blocks: [Catalog](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#catalog-block) and [Product collection](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#product-collection-block)
 
 ### Other
 

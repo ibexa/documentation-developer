@@ -39,6 +39,8 @@ config:
   blanks-around-lists: true
   no-trailing-punctuation:
     punctuation: [".", ":", ";",]
+  no-emphasis-as-heading: true
+  table-column-count: true
 
 ignores:
   - "docs/snippets/**"

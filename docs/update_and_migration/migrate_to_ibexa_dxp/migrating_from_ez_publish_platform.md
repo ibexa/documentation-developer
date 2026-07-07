@@ -423,9 +423,11 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 `php -d memory_limit=1536M bin/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
 
+##### Typical problems
+
 Typical problems that needs manual fixing:
 
-**Duplicate XHTML IDs**
+###### Duplicate XHTML ID
 
 XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 
@@ -441,7 +443,7 @@ XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 The conversion tool replaces the duplicate id (`inv5`) with a random value. If you need the ID value to match your CSS, you need to change it manually.
 The conversion tool also complains about IDs which contain invalid characters.
 
-**Links with non-existing `object_remote_id` or `node_remote_id`.**
+###### Links with non-existing `object_remote_id` or `node_remote_id`
 
 In `ezxmltext` you may have links which refer to other objects by their remote ID. This isn't supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it issues a warning about it.
 
@@ -453,7 +455,7 @@ In older eZ Publish databases you may also have invalid links due to lack of ref
 
 When the conversion tool detects links with no reference it issues a warning and rewrite the URL to point to current page (`href="#"`).
 
-**`<literal>`**
+###### `<literal>`
 
 The `<literal>` tag isn't yet supported in eZ Platform.
 
@@ -461,7 +463,7 @@ When you're ready to migrate your eZ Publish XmlText content to the eZ Platform 
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-**Custom tags and attributes**
+###### Custom tags and attributes
 
 eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
@@ -587,18 +589,16 @@ new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle
 bin/console cache:clear
 ```
 
-**4.** Run the script with the following parameters:
+**4.** Run the script below with the following parameters:
 
 - absolute path of your legacy application
 - list of .ini files which define your legacy blocks
-
-**Script command**
 
 ``` bash
 bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<another block definition> ...]
 ```
 
-**Example of the migration script command**
+Example usage:
 
 ``` bash
 bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php

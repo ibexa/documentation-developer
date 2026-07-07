@@ -10,7 +10,7 @@ ignoreErrors:
     -
         path: code_samples/mcp/mcp.matrix.yaml
         line: 0
-        hash: 18f640cd008ed9f1761db531c1426cd6707d316c5f9727f540187959ca57a514
+        hash: 5fba465c96608f7f32ea4dc052b72ab2c0db3d2e975ff394f179ad421b163945
         message: '~The value "\<psr16\|file\>" is not allowed for path "ibexa\.repositories\.\<repository_identifier\>\.mcp\.\<server_identifier\>\.session\.type"\. Permissible values\: "file", "psr16"\.~'
     -
         path: code_samples/workflow/custom_workflow/config/packages/workflows.yaml
@@ -335,8 +335,8 @@ ignoreErrors:
     -
         path: docs/recommendations/raptor_integration/tracking_functions.md
         line: 33
-        hash: c2988244a58202f4c2260adddb526aee1315ea134e47dc4cef1fec2aa4bded02
-        message: '~Duplicate key "connector_raptor" detected at line 6 \(near "    tracking_type\: ''client''  \# Returns \<script\> tags"\)\.~'
+        hash: ca52a936f86a66c78951579cee005c4f5b87d844b8ff5d0b2f587b6aa68054b9
+        message: '~Duplicate key "connector_raptor" detected at line 6 \(near "\# Hybrid tracking"\)\.~'
     -
         path: docs/release_notes/ez_platform_v2.4.md
         line: 221
@@ -379,12 +379,12 @@ ignoreErrors:
         message: '~Unrecognized option "trace" under "ibexa_elasticsearch\.connections\.default"\. Available options are "authentication", "connection_pool", "connection_selector", "debug", "elastic_cloud_id", "hosts", "index_templates", "node_pool_resurrect", "node_pool_selector", "retries", "ssl"\.~'
     -
         path: docs/update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
-        line: 535
+        line: 537
         hash: 0578015f89f42b10f703e4fa171d2283db34626cb66fe4802663cd46faf95e4f
         message: '~Mapping values are not allowed in multi\-line blocks at line 2 \(near "    ezpublish\.persistence\.slug_converter\:"\)\.~'
     -
         path: docs/update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
-        line: 546
+        line: 548
         hash: 1c88285aea32c1ee15509cdb4f296773e3e47c804b26699e98a1c6dac51eb66f
         message: '~Unable to parse at line 1 \(near "    ezpublish\.persistence\.slug_converter\:"\)\.~'
     -

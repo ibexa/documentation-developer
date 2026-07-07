@@ -7,15 +7,15 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 !!! tip "Upgrade to v3"
 
     For a guide on moving your project to v3,
-    see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/latest/updating/updating).
+    see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/update_and_migration/update_ibexa_dxp/).
 
 ## Symfony 5
 
 v3.0 now uses Symfony 5 instead of Symfony 3.
-Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md), [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md), [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md), and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md) to learn about all changes it entails.
+Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/5.0/CHANGELOG-4.0.md), [for 5.0](https://github.com/symfony/symfony/blob/5.0/CHANGELOG-5.0.md), [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/4.0/UPGRADE-4.0.md), and [for 5.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md) to learn about all changes it entails.
 
 See [v3.0 project update](adapt_code_to_v3.md) for the steps you need to take to update your project to Symfony 5.
-See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/latest/getting_started/requirements).
+See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/3.3/getting_started/requirements/).
 
 ### Template configuration
 
@@ -36,11 +36,11 @@ Example 2:
 
 Following the upgrade to Symfony 5, the DFS IO handler must be configured in a different way.
 
-For more information, see the Doctrine connection configuration example in the [Clustering](https://doc.ibexa.co/en/latest/guide/clustering/#configuring-the-dfs-io-handler) article.
+For more information, see the Doctrine connection configuration example in the [Clustering](https://doc.ibexa.co/en/3.3/guide/clustering/#configuring-the-dfs-io-handler) article.
 
 ## Field types
 
-The following tags used to register field type features in the [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) have been renamed:
+The following tags used to register field type features in the [service container](https://doc.ibexa.co/en/3.3/api/public_php_api/#service-container) have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -56,7 +56,7 @@ The following tags used to register field type features in the [service containe
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
 
-For more information, see [eZ Platform v3.0 project update](https://doc.ibexa.co/en/latest/updating/4_3_upgrade_field_types).
+For more information, see [eZ Platform v3.0 project update](https://doc.ibexa.co/en/3.3/update_and_migration/from_2.5/update_code/3_update_field_types/).
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 
@@ -89,9 +89,9 @@ The following Symfony Service definitions that provide extension point to create
 
 The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
-Deprecated `ezplatform.ee.installer.class` [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) parameter has been removed.
+Deprecated `ezplatform.ee.installer.class` [service container](https://doc.ibexa.co/en/3.3/api/public_php_api/#service-container) parameter has been removed.
 
-See [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/latest/updating/4_8_upgrade_rest/#custom-installers) for upgrade details.
+See [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/update_and_migration/from_2.5/update_code/8_update_rest/#custom-installers) for upgrade details.
 
 ## ezplatform-admin-ui
 
@@ -281,7 +281,7 @@ The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated f
 ### Universal Discovery Widget
 
 The UDW configuration has been changed.
-For the full list of UDW configuration keys and their descriptions, see [UDW configuration](https://doc.ibexa.co/en/latest/extending/extending_udw/#configuration).
+For the full list of UDW configuration keys and their descriptions, see [UDW configuration](https://doc.ibexa.co/en/3.3/extending/extending_udw/#configuration).
 
 ### Online Editor
 
@@ -290,7 +290,7 @@ All Online Editor front-end code and assets (such as JS, CSS, or fonts) have bee
 ### Adding new tabs in the back office
 
 The way of adding custom tab groups in the back office has changed.
-You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest/extending/extending_tabs/#adding-a-new-tab-group).
+You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/3.3/extending/tabs/back_office_tabs/).
 
 ### Content type forms
 
@@ -311,7 +311,7 @@ The following deprecated items have been removed:
 |`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
 |`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
 |`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
-|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 Following the upgrade to Symfony 5, the following event classes have been deprecated:
@@ -463,7 +463,7 @@ Following SPI methods have been removed:
 
 ### Dynamic settings
 
-Using dynamic settings (through `$setting$`) and getting settings from the [ConfigResolver](https://doc.ibexa.co/en/latest/guide/config_dynamic/#configresolver) in a class constructor
+Using dynamic settings (through `$setting$`) and getting settings from the [ConfigResolver](https://doc.ibexa.co/en/3.3/guide/configuration/config_dynamic/#configresolver) in a class constructor
 or method call has been dropped.
 
 You should use the ConfigResolver instead.
@@ -473,7 +473,7 @@ Don't store the values globally. Every time the value is needed call `ConfigReso
 
 #### AbstractController
 
-The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container).
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](https://doc.ibexa.co/en/3.3/api/public_php_api/#service-container).
 For details, see [Service Subscribers Locators]([[= symfony_doc =]]/service_container/service_subscribers_locators.html).
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
@@ -689,7 +689,7 @@ The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserI
 
 ### Symfony service container
 
-The deprecated Symfony [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
+The deprecated Symfony [service container](https://doc.ibexa.co/en/3.3/api/public_php_api/#service-container) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
 For the full list of the dropped parameters, see
 [kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/1.0/dropped-container-parameters.md).
@@ -865,7 +865,7 @@ All Online Editor front-end code and assets (such as JS, CSS, or fonts) have bee
 #### Custom button configuration
 
 Configuring custom Online Editor buttons with `ezrichtext.alloy_editor.extra_buttons` is deprecated.
-Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](https://doc.ibexa.co/en/latest/extending/online_editor_button) instead.
+Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](https://doc.ibexa.co/en/3.3/extending/online_editor_button/) instead.
 
 ### View matching
 

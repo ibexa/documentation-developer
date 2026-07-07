@@ -100,14 +100,14 @@ Use the following checklist to ensure the roles and policies are secure:
 
 ### Don't use "hide" for read access restriction
 
-The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+The [visibility switcher](locations.md#location-visibility) is a convenient feature for withdrawing content from the frontend.
 It acts as a filter in the frontend by default.
 You can choose to respect it or ignore it in your code.
 It isn't permission-based, and doesn't restrict read access to content.
 Hidden content can be read through other means, like the REST API or GraphQL.
 
-If you need to restrict read access to a given content item, you could create a role that grants read access for a given [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/) or [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/), and set a different section or object State for the given content.
-Or use other permission-based [**Limitations**](https://doc.ibexa.co/en/latest/permissions/limitations/).
+If you need to restrict read access to a given content item, you could create a role that grants read access for a given [**Section**](sections.md) or [**Object State**](object_states.md), and set a different section or object State for the given content.
+Or use other permission-based [**Limitations**](limitations.md).
 
 ### Minimize exposure
 
@@ -117,7 +117,7 @@ Reduce your attack surface by exposing only what you must.
 
 - If possible, make the back office unavailable on the open internet.
 - [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It's only required in the back office SiteAccess though, so you can consider blocking it in other SiteAccesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
-- By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: [[= product_name_exp =]] v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely by setting `enabled: false`.
+- By default, a [Powered-By header](update_db_to_2.5.md#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: [[= product_name_exp =]] v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely by setting `enabled: false`.
 
     ```yaml
     ibexa_system_info:
@@ -323,7 +323,7 @@ Those steps aren't needed when using [[= product_name_cloud =]], where the provi
 
 - Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
-- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-security-updates)
 to receive notifications when a security fix is released in a GitHub-hosted dependency.
 - If you're not using GitHub for your project, you can create a dummy project on GitHub with the same dependencies as your real project, and enable Dependabot notifications for that.
 - Ensure you get notifications about security fixes in JavaScript dependencies.

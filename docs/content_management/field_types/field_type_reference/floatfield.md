@@ -27,7 +27,7 @@ The Value class of this field type contains the following properties:
 |----------|---------|---------------------------------------------------------------|
 | `$value` | `float` | This property is used to store the value provided as a float. |
 
-``` php
+``` php {skip-validation}
 // Value object content example
 
 use Ibexa\Core\FieldType\Float\Value as FloatValue;
@@ -43,7 +43,7 @@ $floatValue->value = 284.773;
 The `Float\Value` constructor initializes a new value object with the value provided.
 It expects a numeric value with or without decimals.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 
 use Ibexa\Core\FieldType\Float\Value as FloatValue;
@@ -61,7 +61,7 @@ This field type supports `FloatValueValidator`, defining maximum and minimum flo
 | `minFloatValue` | `float` | `null         | This setting defines the minimum value this field type which is allowed as input. |
 | `maxFloatValue` | `float` | `null         | This setting defines the maximum value this field type which is allowed as input. |
 
-``` php
+``` php {skip-validation}
 // Validator configuration example in PHP
 
 /** @var \Ibexa\Contracts\Core\Repository\Repository $repository */

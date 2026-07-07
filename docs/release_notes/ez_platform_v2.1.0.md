@@ -82,6 +82,6 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 ## Installation
 
-[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/)
 
-[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/)

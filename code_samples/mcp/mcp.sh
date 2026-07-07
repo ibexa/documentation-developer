@@ -40,7 +40,7 @@ curl -s -i -X 'POST' "$baseUrl/mcp/example" \
 
 sed '$d' response.tmp.txt
 tail -n 1 response.tmp.txt | jq
-mcpSessionId=$(cat response.tmp.txt | grep 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/')
+mcpSessionId=$(cat response.tmp.txt | grep -i 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/i')
 rm response.tmp.txt
 
 curl -s -i -X 'POST' "$baseUrl/mcp/example" \

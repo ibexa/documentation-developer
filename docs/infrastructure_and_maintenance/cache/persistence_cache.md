@@ -54,7 +54,7 @@ Use of Redis as shared cache back end is a requirement for use in clustering set
 For an overview of this feature, see [Clustering](clustering.md).
 Filesystem adapters, for example, are **not** intended to be used over a shared filesystem.
 
-**Cache service**
+### Cache service
 
 The underlying cache system is exposed as an `ibexa.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 

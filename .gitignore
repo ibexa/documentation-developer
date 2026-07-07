@@ -12,5 +12,9 @@ auth.json
 yarn.lock
 docs/css/*.map
 .deptrac.cache
+.lycheecache
+lychee.toml
+/repositories/
+lychee-report.md
 .phpunit.result.cache
 code_samples/_inline_php/

@@ -12,8 +12,6 @@
 
 [eZ Commerce](https://github.com/ezsystems/ezcommerce) now uses Symfony 5 and is fully integrated into the eZ Platform back office.
 
-For more information, see [eZ Commerce documentation](https://doc.ezplatform.com/projects/ezcommerce/en/latest/).
-
 ## New features
 
 This release of eZ Platform introduces the following new features:
@@ -26,20 +24,20 @@ This release of eZ Platform introduces the following new features:
 
     You can now create multiple content structures that can be used as Site skeletons for the new sites.
 
-    For more information about Site skeleton, see [Configure Site skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#site-skeletons).
+    For more information about Site skeleton, see [Configure Site skeleton](https://doc.ibexa.co/en/3.1/guide/site_factory/#configure-site-skeleton).
 
     #### Defining parent Location
 
     You can now define the parent Location for every new site in the template configuration.
 
-    For more information about defining parent Location, see [Configure parent Location](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#parent-location).
+    For more information about defining parent Location, see [Configure parent Location](https://doc.ibexa.co/en/3.1/guide/site_factory/#configure-parent-location).
 
     ### Elasticsearch
 
     You can now use [Elasticsearch](https://www.elastic.co/) in your eZ Platform installation
     through the `PlatformElasticSearchEngineBundle`.
 
-    See [Elasticsearch documentation](https://doc.ibexa.co/en/latest/guide/search/elastic) to learn how to set up, configure and user Elasticsearch with eZ Platform.
+    See [Elasticsearch documentation](https://doc.ibexa.co/en/3.1/guide/search/elastic/) to learn how to set up, configure and user Elasticsearch with eZ Platform.
 
     ### Page Builder
 
@@ -49,7 +47,7 @@ This release of eZ Platform introduces the following new features:
 
     ### Field group permissions
 
-    The new [field group limitation](https://doc.ibexa.co/en/latest/guide/limitation_reference/#field-group-limitation)
+    The new [field group limitation](https://doc.ibexa.co/en/3.1/guide/limitation_reference/#field-group-limitation)
     enables you to control who can edit content fields per field group.
 
     ### Version comparison
@@ -61,7 +59,7 @@ This release of eZ Platform introduces the following new features:
     - Matrix
     - Media
 
-    For overview of additional fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
+    For overview of additional fields, see [User documentation on Comparing versions](https://doc.ibexa.co/projects/userguide/en/3.1/publishing/publishing/#comparing-versions).
     
 ### URL management UI
 
@@ -74,7 +72,7 @@ You can create, modify or delete URL wildcards, and decide if the user should be
 
 ![URL Management UI](3_1_URL_Management.png "URL Management UI")
 
-For more information on how to manage URLs, see [URL management](https://doc.ibexa.co/en/latest/guide/url_management).
+For more information on how to manage URLs, see [URL management](https://doc.ibexa.co/en/3.1/guide/url_management/).
 
 ### Tree view in the Universal Discovery Widget
 
@@ -84,7 +82,7 @@ Selections that you make in one view survive when you switch to the other view.
 
 ![Tree view in the Content Browser](3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
 
-For more information about configuring the Universal Discovery Widget, see [Extending Universal Discovery Widget](https://doc.ibexa.co/en/latest/extending/extending_udw).
+For more information about configuring the Universal Discovery Widget, see [Extending Universal Discovery Widget](https://doc.ibexa.co/en/3.1/extending/extending_udw/).
 
 ### Field group display
 
@@ -122,11 +120,11 @@ A customizable search controller has been extracted and placed in `ezplatform-se
 
 You can now search through the contents of Trash and sort the search results based on a number of Search Criteria and Sort Clauses that can be used by the `\eZ\Publish\API\Repository\TrashService::findTrashItems` method only.
 
-For more information, see [Search in trash](https://doc.ibexa.co/en/latest/api/public_php_api_search/#search-in-trash).
+For more information, see [Search in trash](https://doc.ibexa.co/en/3.1/api/public_php_api_search/#searching-in-trash).
 
 ### Repository filtering
 
-[Repository filtering](https://doc.ibexa.co/en/latest/api/public_php_api_search/#repository-filtering) enables you to filter content and Locations using a defined Filter,
+[Repository filtering](https://doc.ibexa.co/en/3.1/api/public_php_api_search/#repository-filtering) enables you to filter content and Locations using a defined Filter,
 without the `SearchService`.
 
 ### PermissionResolver

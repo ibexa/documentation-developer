@@ -43,13 +43,13 @@ return [
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`taxonomyEntry`|`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry|null`|Stores selected taxonomy entry.|
+|`taxonomyEntry`|`?Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
 
 #### Constructor
 
 The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
 use Ibexa\Taxonomy\FieldType\TaxonomyEntry;

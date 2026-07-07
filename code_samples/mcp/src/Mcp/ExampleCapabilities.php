@@ -18,6 +18,7 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
     #[McpTool(
         servers: ['example'],
         name: 'greet',
+        title: 'User greeting',
         description: 'Greet a user by name',
         annotations: new ToolAnnotations(
             readOnlyHint: true,
@@ -73,6 +74,7 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
     #[McpPrompt(
         servers: ['example'],
         name: 'greet',
+        title: 'Be greeted',
         description: 'Prompt to invoke the `greet` tool',
         icons: [new Icon(
             src: 'https://openmoji.org/data/color/svg/1F91D.svg',

@@ -1,6 +1,6 @@
 ---
 description: Recommendations Twig Functions
-month_change: true
+month_change: false
 ---
 
 # Recommendations Twig functions
@@ -39,6 +39,8 @@ Example setup using parameters:
 If the custom `customerId` parameter is not set, the function uses the `customerID` from the [connector configuration](connector_installation_configuration.md#siteaccess-aware-configuration) to render the tracking script.
 It can be overridden by providing a custom value if needed.
 
+### Handle tracking consent
+
 If the `hasConsented` parameter is set to `true` in the template, the tracking script is initialized automatically.
 This value should be set if user consent for tracking cookies is already known at render time.
 If `hasConsented` is set to `false`, tracking should be enabled by dispatching a custom JavaScript event after consent is granted, for example through a custom script in layout.
@@ -70,7 +72,7 @@ ibexa_tracking_track_event(
 )
 ```
 
-- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
+- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-parameters-reference).
 - **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, see [tracking event examples](#tracking-events).
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
@@ -81,7 +83,7 @@ The following events are supported and can be triggered from Twig templates:
 
 #### `pageview` event
 
-The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference#:~:text=Event%20Specifications%20%28Full%20Reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
+The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
 
 Use it for basic page metrics and debugging the Live Tracking Stream.
 

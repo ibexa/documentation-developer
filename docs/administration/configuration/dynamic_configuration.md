@@ -77,7 +77,7 @@ For more information about dependency injection, see [Service container](php_api
     Don't store the retrieved config value unless you know what you're doing.
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
-``` php
+``` php {skip-validation}
 namespace App;
 
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;

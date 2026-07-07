@@ -1,6 +1,6 @@
 ---
 description: ProductAvailability Search Criterion
-month_change: true
+month_change: false
 ---
 
 # ProductAvailability Criterion

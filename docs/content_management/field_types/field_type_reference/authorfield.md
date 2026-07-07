@@ -81,7 +81,7 @@ Following `defaultAuthor` default value options are available as constants in 
 | `DEFAULT_VALUE_EMPTY`  | Default value is empty.                   |
 | `DEFAULT_CURRENT_USER` | Default value uses currently logged user. |
 
-``` php
+``` php {skip-validation}
 // Author field type example settings
 
 use Ibexa\Core\FieldType\Author\Type;

@@ -25,15 +25,16 @@ It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
   <br>For more information, see [tools configuration](mcp_config.md#tool-configuration).
-- `name` - tool name (if not set, function name is used)
+- `name` - tool codename - if not set, function name is used
+- `title` - tool title for user interfaces - if not set, the `name` is used
 - `description` - tool description, used by AI agents to understand the tool's purpose
 - `icons` - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
-  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons).
+  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/index#icons).
 - `outputSchema` - associative array describing a JSON object response
 - `annotations` - [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
   <br>For more information, see the [`ToolAnnotations` specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations).
 - `meta` - free-form array for additional metadata
-  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta).
+  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/index#_meta).
 
 The framework automatically builds an `inputSchema` from the method arguments and their types.
 To customize or extend the generated schema, you can:
@@ -41,27 +42,28 @@ To customize or extend the generated schema, you can:
 - add descriptions with DocBlock `@param` tags
 - use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation)
 
-If an argument is an [enum](https://www.php.net/manual/en/language.types.enumerations.php), its possible values are listed in the schema ([`UntitledSingleSelectEnumSchema`](https://modelcontextprotocol.io/specification/latest/schema#untitledsingleselectenumschema)).
+If an argument is an [enum](https://www.php.net/manual/en/language.types.enumerations.php), its possible values are listed in the schema ([`UntitledSingleSelectEnumSchema`](https://modelcontextprotocol.io/specification/2025-11-25/schema#untitledsingleselectenumschema)).
 
 ### Prompts
 
-MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to help users interact with AI agents connected to the server.
+MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts) to help users interact with AI agents connected to the server.
 
 Methods that return a prompt are marked with the [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html).
 
 It accepts several arguments that describe how the prompt is used:
 
 - `servers` - array of server identifiers exposing this prompt - required for prompts
-- `name` (optional) - prompt name - if not set, method name is used
+- `name` (optional) - prompt codename - if not set, method name is used
+- `title` (optional) - prompt title - if not set, `name` is used
 - `description` (optional) - human-readable prompt description
 - `icons` (optional) - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
-  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons).
+  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/index#icons).
 - `meta` (optional) - rarely used free-form array for additional metadata
-  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta).
+  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/index#_meta).
 
 The framework automatically builds the `arguments` array from the method arguments and their types.
-Prompt method arguments must be strings to comply with the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams).
-To add argument descriptions, use DocBlock `@param` tags, it's mapped to the `description` defined by the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/latest/schema#promptargument).
+Prompt method arguments must be strings to comply with the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/2025-11-25/schema#getpromptrequestparams).
+To add argument descriptions, use DocBlock `@param` tags, it's mapped to the `description` defined by the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/2025-11-25/schema#promptargument).
 
 ## Example
 
@@ -96,6 +98,8 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 ``` yaml
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
+
+Adapt the `allowed_hosts` to your case, for example, if you want to use the DDEV `.ddev.site` domain instead of its `127.0.0.1` address equivalent.
 
 An `ibexa.mcp.example` route is now available:
 
@@ -175,7 +179,7 @@ Before you can communicate with the MCP server, you must first request a JWT tok
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 1, 7) =]]
 ```
 
-Then, perform [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
+Then, perform [initialization](https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 21, 44) =]]
@@ -199,7 +203,7 @@ Validate the initialization:
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 52, 56) =]]
 ```
 
-Get the [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
+Get the [list of tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#listing-tools):
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 54, 61) =]]
@@ -209,7 +213,7 @@ Get the [list of tools](https://modelcontextprotocol.io/specification/latest/ser
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 69, 128) =]]
 ```
 
-[Call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools) the `greet` tool:
+[Call](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#calling-tools) the `greet` tool:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 63, 76) =]]
@@ -219,7 +223,7 @@ Get the [list of tools](https://modelcontextprotocol.io/specification/latest/ser
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 129, 148) =]]
 ```
 
-Get the [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
+Get the [list of prompts](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#listing-prompts):
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 78, 85) =]]
@@ -242,7 +246,7 @@ Get the [list of prompts](https://modelcontextprotocol.io/specification/latest/s
 ### Perform MCP Inspector test
 
 You can test your server with the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
-You can even use the inspector as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
+You can even use the inspector as a DDEV add-on with [`michtio/ddev-mcp-inspector`](https://github.com/michtio/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
 
 You can use a Web interface to obtain the JWT token:

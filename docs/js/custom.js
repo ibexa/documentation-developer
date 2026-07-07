@@ -5,7 +5,7 @@ $(document).ready(function() {
     const latestVersionNumber = '5.0';
 
     // replace edit url
-    let branchName = 'master';
+    let branchName = '5.0';
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
     const eolVersions = window.eol_versions ?? [];
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
     }
 
     if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
-        branchName = 'master';
+        branchName = '5.0';
     }
 
     // Insert version into header links

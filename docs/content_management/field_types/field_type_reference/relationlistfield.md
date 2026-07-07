@@ -12,7 +12,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 |Type|Description|Example|
 |------|------|------|
-|`int|string`|ID of the related content item|`42`|
+|`int` or `string`|ID of the related content item|`42`|
 |`array`|An array of related Content IDs|`[ 24, 42 ]`|
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
 |`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type value object|See below.|
@@ -27,7 +27,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 |------|------|------|------|
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
-``` php
+``` php {skip-validation}
 // Value object content example
 /** @var \Ibexa\Core\FieldType\RelationList\Value $relationList */
 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1 */
@@ -44,7 +44,7 @@ $relationList->destinationContentIds = [
 The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.
 
-``` php
+``` php {skip-validation}
 //Constructor example
 use Ibexa\Core\FieldType\RelationList as RelationList;
 
@@ -80,7 +80,7 @@ The field definition of this field type can be configured with the following opt
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`selectionMethod`|`mixed`|`SELECTION_BROWSE`|Method of selection in the back-end interface.|
-|`selectionDefaultLocation`|`string|integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
+|`selectionDefaultLocation`|`string` or `integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
 |`selectionContentTypes`|`array`|`[]`|An array of content type IDs that are allowed for related Content.|
 
 Following selection methods are available:
@@ -96,7 +96,7 @@ Following selection methods are available:
 |------|------|------|------|
 |`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the field. When set to 0, any number can be selected.|
 
-``` php
+``` php {skip-validation}
 // Example of using settings and validators configuration in PHP
 
 use Ibexa\Core\FieldType\RelationList\Type;

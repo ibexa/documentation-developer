@@ -67,12 +67,12 @@ You can solve this issue in one of the following ways:
 
 Varnish configuration:
 
-- [`http_resp_hdr_len`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
-- [`http_max_hdr`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
-- [`http_resp_size`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
-- [`workspace_backend`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
+- [`http_resp_hdr_len`](https://www.varnish.org/docs/reference/varnishd/#http_resp_hdr_len) (default 8k, change to for example, 32k)
+- [`http_max_hdr`](https://www.varnish.org/docs/reference/varnishd/#http_max_hdr) (default 64, change to for example, 128)
+- [`http_resp_size`](https://www.varnish.org/docs/reference/varnishd/#http_resp_size) (default 23k, change to for example, 96k)
+- [`workspace_backend`](https://www.varnish.org/docs/reference/varnishd/#workspace_backend) (default 64k, change to for example, 128k)
 
-If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
+If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://www.varnish.org/docs/reference/varnishd/#vsl_reclen) setting.
 
 Nginx has a default limit of 4k/8k when buffering responses:
 
@@ -171,7 +171,7 @@ Examples for tagging everything needed for content using the autowireable [`Resp
 
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
-``` php
+``` php {skip-validation}
 /** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location */

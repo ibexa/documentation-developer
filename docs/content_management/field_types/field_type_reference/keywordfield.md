@@ -2,9 +2,9 @@
 
 This field type stores one or several comma-separated keywords as a string or array of strings.
 
-| Name      | Internal name   | Expected input    |
-|-----------|-----------------|-------------------|
-| `Keyword` | `ibexa_keyword` | `string[]|string` |
+| Name      | Internal name   | Expected input         |
+|-----------|-----------------|------------------------|
+| `Keyword` | `ibexa_keyword` | `string[]` or `string` |
 
 ## PHP API field type
 
@@ -26,7 +26,7 @@ The Value class of this field type contains the following properties:
 |-----------|------------|----------------------------------------|
 | `$values` | `string[]` | Holds an array of keywords as strings. |
 
-``` php
+``` php {skip-validation}
 // Value object content example
 use Ibexa\Core\FieldType\Keyword\Value;
 
@@ -43,7 +43,7 @@ The `Keyword\Value` constructor initializes a new value object with the value pr
 
 It expects a list of keywords, either comma-separated in a string or as an array of strings.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 use Ibexa\Core\FieldType\Keyword\Value;
 

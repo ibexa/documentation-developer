@@ -133,7 +133,7 @@ When it happens, the `Ibexa\Taxonomy\ActionHandler\TextToTaxonomyActionHandler` 
 
 !!! note "Field selection"
 
-    You select the actual text fields, whose values are used as source for the embedding generation, when you create an [AI action](https://doc.ibexa.co/projects/userguide/en/latest/ai_actions/work_with_ai_actions/#create-ai-actions-that-use-ibexa-connect) that uses the `text-to-taxonomy` handler.
+    You select the actual text fields, whose values are used as source for the embedding generation, when you create an [AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-use-ibexa-connect) that uses the `text-to-taxonomy` handler.
 
 The search engine then compares the generated embedding with the taxonomy path embeddings stored in its index.
 By default, it selects the three best-matching taxonomy paths and presents them to the editor as suggestions.

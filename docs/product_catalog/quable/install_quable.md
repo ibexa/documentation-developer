@@ -9,7 +9,7 @@ To integrate [[= product_name =]] with [[= pim_product_name =]] PIM, you need to
 
 ## Create [[= pim_product_name =]] instance
 
-Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] PIM instance](https://quable.com).
+Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] PIM instance](https://www.quable.com).
 
 ## Install package
 

@@ -99,10 +99,13 @@ jobs:
                     ref: ${{ github.base_ref }}
             -   name: Log target branch code_samples usage
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                env:
+                    HEAD_REF: ${{ github.head_ref }}
+                    CODE_SAMPLES_CHANGE: ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }}
                 run: |
-                    git fetch origin --depth=1 ${{ github.head_ref }}
-                    git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
-                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_target.txt
+                    git fetch origin --depth=1 "$HEAD_REF"
+                    git checkout "origin/$HEAD_REF" -- tools/code_samples/code_samples_usage.php
+                    php tools/code_samples/code_samples_usage.php $CODE_SAMPLES_CHANGE > $HOME/code_samples_usage_target.txt
 
             -   name: Checkout source branch (head_ref)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
@@ -111,7 +114,9 @@ jobs:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
-                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_source.txt
+                env:
+                    CODE_SAMPLES_CHANGE: ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }}
+                run: php tools/code_samples/code_samples_usage.php $CODE_SAMPLES_CHANGE > $HOME/code_samples_usage_source.txt
 
             -   name: Compare code_samples usages (diff --unified)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''

@@ -24,7 +24,7 @@ The Value class of this field type contains the following properties:
 |--------------|---------|-------------------------------------------------------------------------------------------------------------------|
 | `$selection` | `int[]` | This property is used for the list of selections, which is a list of integer values, or one single integer value. |
 
-``` php
+``` php {skip-validation}
 // Value object content examples
 
 /** @var \Ibexa\Core\FieldType\Selection\Value $value */
@@ -39,7 +39,7 @@ $value->selection = [1, 4, 5];
 
 The `Selection\Value` constructor accepts an array of selected element identifiers.
 
-``` php
+``` php {skip-validation}
 // Constructor example
 use Ibexa\Core\FieldType\Selection as Selection;
 
@@ -57,7 +57,7 @@ Example: `"1,2,24,42"`
 
 Hash format of this field type is the same as value object's `selection` property.
 
-``` php
+``` php {skip-validation}
 // Example of value in hash format
 
 $hash = [1, 2];
@@ -76,7 +76,7 @@ When option validation fails, a list with the invalid options is also presented.
 | `isMultiple` | `boolean` | `false`       | Used to allow or prohibit multiple selection from the option list. |
 | `options`    | `hash`    | `[]`     | Stores the list of options defined in the field definition.    |
 
-``` php
+``` php {skip-validation}
 // Selection field type example settings
 
 use Ibexa\Core\FieldType\Selection\Type;
