@@ -79,7 +79,7 @@ ibexa_tracking_track_event(
 
 ### `websiteId` parameter
 
-The `websiteId` (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` funtion.
+The `websiteId` (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
 
 Example:
 
@@ -101,7 +101,7 @@ The value of `websiteId` parameter is resolved in the following order:
 
 If no value is resolved, the event is sent without the `p7` parameter.
 
-To resolve `websiteId` on the project level, implement the interface as following:
+To resolve `websiteId` on the project level, implement the interface as follows:
 
 ``` php
 <?php
