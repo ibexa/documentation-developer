@@ -27,7 +27,7 @@ For example, to search for all content of a selected content type, use one Crite
 
 The following command takes the content type identifier as an argument and lists all results:
 
-``` php {skip-validation} hl_lines="14 16"
+``` php {skip-validation hl_lines="14 16"}
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 5, 7) =]]
 // ...
@@ -132,7 +132,7 @@ It doesn't use the `SearchService` and isn't based on indexed data.
 
 For example, the following command lists all content items under the specified parent location and sorts them by name in descending order:
 
-``` php {skip-validation} hl_lines="15-18"
+``` php {skip-validation hl_lines="15-18"}
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 5, 9) =]]
 
@@ -143,7 +143,7 @@ For example, the following command lists all content items under the specified p
 
 The same Filter can be applied to find locations instead of content items, for example:
 
-``` php {skip-validation} hl_lines="20"
+``` php {skip-validation hl_lines="20"}
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 5, 9) =]]
 
@@ -199,7 +199,7 @@ $filter
 You can use the `SearchService` or repository filtering in a controller, as long as you provide the required parameters.
 For example, in the code below, `locationId` is provided to list all children of a location by using the `SearchService`.
 
-``` php {skip-validation} hl_lines="22-24"
+``` php {skip-validation hl_lines="22-24"}
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Controller/CustomController.php', 5, 12) =]]
     // ...
@@ -210,7 +210,7 @@ The rendering of results is then relegated to [templates](templates.md) (lines 2
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 
-``` php {skip-validation} hl_lines="19"
+``` php {skip-validation hl_lines="19"}
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 5, 12) =]]
     // ...
