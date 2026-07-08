@@ -146,7 +146,7 @@ If an event listener catches additional parameters passed with context, it uses 
 
 In the example below, the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
 
-``` php {skip-validation} hl_lines="29 30 31"
+``` php {skip-validation hl_lines="29 30 31"}
 class JohnDoeCanSelectMore implements EventSubscriberInterface
 {
     private const CONFIGURATION_NAME = 'my_custom_udw';
