@@ -39,7 +39,7 @@ class WorkflowCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
         $workflowName = $input->getArgument('workflowName');
         $transitionName = $input->getArgument('transitionName');
 
@@ -62,6 +62,9 @@ class WorkflowCommand extends Command
             $workflow->apply($workflowMetadata->content, $transitionName, ['message' => 'done', 'reviewerId' => 14]);
             $output->writeln('Moved ' . $content->getName() . ' through transition ' . $transitionName);
         }
+
+        $versionInfo = $content->getVersionInfo();
+        $workflowMetadataByVersion = $this->workflowService->loadWorkflowMetadataForVersionInfo($versionInfo, $workflowName);
 
         return self::SUCCESS;
     }

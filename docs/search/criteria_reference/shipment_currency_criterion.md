@@ -1,5 +1,5 @@
 ---
-description: Shipment Currency Criterion
+description: Shipment Currency Search Criterion
 edition: commerce
 ---
 
@@ -16,7 +16,7 @@ The `Currency` Search Criterion searches for shipments based on the currency cod
 ### PHP
 
 ``` php
-$query = new ShipmentQuery( 
+$query = new ShipmentQuery(
     new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Currency('USD', 'CZK')
 );
 ```

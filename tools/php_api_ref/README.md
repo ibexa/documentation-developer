@@ -57,11 +57,25 @@ Time is saved. The DXP's code could even be modified for test purpose.
 
 If you change some of those values, please do not commit those changes, and don't commit their output.
 To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
-```shell
+```bash
 cp tools/php_api_ref/phpdoc.sh tools/php_api_ref/phpdoc.dev.sh
 nano phpdoc.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
 nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
 tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
+```
+
+### Creating a build of dev version
+
+To build the reference for an unreleased version, set the following variables:
+
+- `DXP_VERSION`
+- `BASE_DXP_BRANCH`
+- `VIRTUAL_DXP_VERSION`
+
+For example, to build the API Reference based on the development version of the DXP before the 5.0.10 release, run:
+
+``` bash
+DXP_VERSION=v5.0.x-dev BASE_DXP_BRANCH=5.0 VIRTUAL_DXP_VERSION=5.0.10 tools/api_refs/api_refs.sh ~/my/path/to/auth.json
 ```
 
 ### Test a branch

@@ -1,3 +1,7 @@
+---
+description: ProductStock Search Criterion
+---
+
 # ProductStock Criterion
 
 The `ProductStock` Search Criterion searches for products by their numerical stock.
@@ -24,5 +28,3 @@ $productQuery = new ProductQuery(
     new Criterion\ProductStock(50, '>=')
 );
 ```
-
-

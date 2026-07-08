@@ -1,3 +1,5 @@
+{% if node.source is not null %}
+
 <div class="main_nav">
     <div class="main_nav_content">
         <div class="site-header" id="site-name">
@@ -11,7 +13,7 @@
                         <ul class="md-nav__list">
                             <li></li>
                             {% for namespace in project.namespace.children %}
-                                {% include 'components/menu.html.twig' with { entry: namespace, depth: 0 } %}
+                                {% include 'components/menu.html.twig' with { entry: namespace, depth: 0, nav_id: loop.index } %}
                                 {% set break = true %}
                             {% endfor %}
                         </ul>
@@ -22,3 +24,82 @@
     </div>
     <div class="main_nav__resize-handler"></div>
 </div>
+
+{% else %}
+
+<div class="main_nav" id="nav-container">
+    <div class="nav-loading-wrapper" style="padding: 2rem; text-align: center; color: #666;">
+        <p>Loading navigation...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    var navPath = document.baseURI + '/index.html';
+    var cached = sessionStorage.getItem('phpdoc-nav');
+    var navContainer = document.getElementById('nav-container');
+
+    function loadNav(html) {
+        // Use innerHTML to replace content while keeping the nav-container div
+        navContainer.innerHTML = html;
+
+        // Restore scroll position if saved
+        var scrollWrap = navContainer.querySelector('.md-sidebar__scrollwrap');
+        if (scrollWrap) {
+            var scrollPos = sessionStorage.getItem('nav-scroll');
+            if (scrollPos) {
+                scrollWrap.scrollTop = parseInt(scrollPos, 10);
+            }
+
+            // Save scroll position on scroll
+            scrollWrap.addEventListener('scroll', function() {
+                sessionStorage.setItem('nav-scroll', scrollWrap.scrollTop);
+            });
+        }
+
+        // Highlight current page in navigation
+        activeMenu(window, window.document);
+    }
+
+    if (cached) {
+        // Use cached navigation
+        loadNav(cached);
+    } else {
+        // Fetch navigation
+        fetch(navPath)
+            .then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.text();
+            })
+            .then(function(html) {
+                parser = new DOMParser();
+                doc = parser.parseFromString(html, 'text/html');
+                nav = doc.querySelector('.main_nav_content');
+                sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
+                loadNav(nav.outerHTML);
+            })
+            .catch(function(err) {
+                console.error('Navigation load failed:', err);
+                navContainer.innerHTML = '<div class="main_nav_content"><div style="padding: 1rem; color: #c00;">Navigation failed to load. <a href="index.html">Go to index</a></div></div><div class="main_nav__resize-handler"></div>';
+            })
+        ;
+    }
+})();
+</script>
+
+<noscript>
+    <div class="main_nav">
+        <div class="main_nav_content">
+            <div class="site-header" id="site-name">
+                <a href=".">PHP API Reference</a>
+            </div>
+            <div style="padding: 1rem; background: #ffe; border: 1px solid #cc0;">
+                <p><strong>JavaScript is disabled.</strong></p>
+                <p>Navigation requires JavaScript. Please enable it or go to <a href="namespaces/ibexa-contracts.html"><code>Ibexa\\Contracts</code></a> to navigate.</p>
+            </div>
+        </div>
+        <div class="main_nav__resize-handler"></div>
+    </div>
+</noscript>
+
+{% endif %}

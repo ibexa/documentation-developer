@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.6 version from v4.5.x.
 
 # Update from v4.5.x to v4.6
 
-This update procedure applies if you are using a v4.5 installation.
+This update procedure applies if you're using a v4.5 installation.
 
 ## Update from v4.5.x to v4.5.latest
 
@@ -85,6 +85,7 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
+
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
@@ -103,7 +104,7 @@ First, run:
     rm symfony.lock
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_exp =]]"
@@ -111,7 +112,7 @@ First, run:
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_com =]]"
@@ -119,12 +120,14 @@ First, run:
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
+
+If you're using [custom CKEditor plugins](extend_online_editor.md#add-ckeditor-plugins), update them as well to use the same version range for all CKEditor dependencies.
 
 ## Remove `node_modules` and `yarn.lock`
 
@@ -240,7 +243,7 @@ And apply the following database script:
 
 ### Image picker migration
 
-The new Image picker by default expects an `ezkeyword` Field Type to exist in the `image` content type.
+The new Image picker by default expects an `ezkeyword` field type to exist in the `image` content type.
 
 You can add it running the following commands:
 
@@ -251,7 +254,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_06_15_00_image_content_t
 
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you must run data migration required by the dashboard and other features to finish the upgrade process:
 
 ```bash
@@ -265,7 +268,8 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
 
 !!! caution
 
-    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a Role dedicated for dashboard management and assigns it to the Editors User Group. If you have custom User Groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
+    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a role dedicated for dashboard management and assigns it to the Editors user group.
+    If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
 
 For [[= product_name_com =]] there's an additional migration:
 ``` bash
@@ -340,7 +344,7 @@ ibexa:
                 field_groups: ['about', 'contact']
 ```
 
-You can use your own content type that represents the Back Office user, or use the default one provided by [[= product_name =]]:
+You can use your own content type that represents the back office user, or use the default one provided by [[= product_name =]]:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml
@@ -350,9 +354,9 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 #### Site context
 
-Site context is used in Content Tree to display only those content items that belong to the selected website.
+Site context is used in content tree to display only those content items that belong to the selected website.
 
-You can add locations that shoudn't be publicly accessible to the list of excluded paths:
+You can add locations that shouldn't be publicly accessible to the list of excluded paths:
 
 ```yaml
 # /config/packages/ibexa_site_context.yaml
@@ -392,7 +396,7 @@ ibexa:
 
 #### Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
+You must add the `Activity Log / Read` policy (`activity_log/read`) to every role that has access to the back office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard-migration), and the "Recent activity" block in [user profiles](#user-profile).
 
 The following migration example allows users with the `Editor` role to access their own activity log:
@@ -459,121 +463,8 @@ Restart Solr for `solrconfig.xml` changes to take effect.
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
 When this happens, you need to erase the index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request.
-Use the command as in the following example:
+[[% include 'snippets/elasticsearch_clear_index.md' %]]
 
-```bash
-curl --request DELETE 'https://elasticsearch:9200/_all'
-```
+## Update to v4.6.latest
 
-To update the schema, and then reindex the content, use the following commands:
-
-```bash
-php bin/console ibexa:elasticsearch:put-index-template --overwrite
-php bin/console ibexa:reindex
-```
-
-<!-- vale Ibexa.VariablesVersion = NO -->
-
-## v4.6.2
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.1-to-4.6.2.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.1-to-4.6.2.sql
-    ```
-
-## v4.6.3
-
-### Notification config update
-
-The configuration of the package `ibexa/notifications` has changed.
-This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
-
-If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
-
-For example, the following v4.6.2 config:
-
-```yaml hl_lines="4"
-ibexa:
-    system:
-        my_siteacces_name:
-            notifications: # old
-                subscriptions:
-                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
-                        channels:
-                            - sms
-```
-
-becomes the following from v4.6.3:
-
-```yaml hl_lines="4"
-ibexa:
-    system:
-        my_siteacces_name:
-            notifier: # new
-                subscriptions:
-                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
-                        channels:
-                            - sms
-```
-
-## v4.6.4
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.3-to-4.6.4.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
-    ```
-
-## v4.6.8
-
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
-
-## v4.6.9
-
-No additional steps needed.
-
-## v4.6.10
-
-A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
-
-## v4.6.11
-
-### Ibexa Cloud
-
-Update Platform.sh configuration for PHP and Varnish.
-
-Generate new configuration with the following command:
-
-```bash
-composer ibexa:setup --platformsh
-```
-
-Review the changes applied to `.platform.app.yaml` and `.platform/`,
-merge with your custom settings if needed, and commit them to Git.
+Now, proceed to the last step, [updating to the latest v4.6 patch version](update_from_4.6.md).

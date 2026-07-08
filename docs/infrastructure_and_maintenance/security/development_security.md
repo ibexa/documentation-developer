@@ -10,8 +10,7 @@ description: Ensure the security of your Ibexa DXP installation by using one of 
 
 !!! note "Security checklist"
 
-    See the [Security checklist](security_checklist.md) for a list of security-related issues
-    you should take care of before going live with a project.
+    See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
 ## Symfony authentication
 
@@ -46,19 +45,21 @@ logout:
     You can fully customize the routes and/or the controller used for login.
     However, remember to match `login_path`, `check_path` and `logout.path` from `security.yaml`.
 
-    See [security configuration reference]([[= symfony_doc =]]/reference/configuration/security.html) and [standard login form documentation]([[= symfony_doc =]]/security/form_login_setup.html).
+    See [security configuration reference]([[= symfony_doc =]]/reference/configuration/security.html) and [standard login form documentation]([[= symfony_doc =]]/security.html#form-login).
 
 ### Authentication using Symfony Security component
 
-Authentication is provided using the Symfony Security component.
+Authentication is provided by the Symfony Security component.
 
-[Native and universal `form_login`]([[= symfony_doc =]]/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`. Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
+[Native and universal `form_login`]([[= symfony_doc =]]/security.html#form-login) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`.
+Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
 
 #### Security controller
 
-A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security/form_login_setup.html).
+A `SecurityController` is used to manage all security-related actions and is thus used to display the login form.
+It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security.html#form-login).
 
-The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/Security/login.html.twig).
+The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Resources/views/Security/login.html.twig).
 
 The layout used by default is `%ibexa.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
@@ -77,10 +78,10 @@ By default, Symfony redirects to the [URI configured in `security.yaml` as `defa
 
 #### Remember me
 
-It is possible to use the "Remember me" functionality.
+It's possible to use the "Remember me" functionality.
 Refer to the [Symfony cookbook on this topic]([[= symfony_doc =]]/security/remember_me.html).
 
-If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
+If you want to use this feature, you must at least extend the login template to add the required checkbox:
 
 ``` html+twig
 {% extends "@IbexaCore/Security/login.html.twig" %}
@@ -94,14 +95,14 @@ If you want to use this feature, you must at least extend the login template in 
 
 #### Login handlers / SSO
 
-Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/user_providers.html).
+This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (for example, [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), and more).
 
 See [Authenticating a user with multiple user provider](user_authentication.md#authenticate-user-with-multiple-user-providers) for more information.
 
 ## JWT authentication
 
-To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file,
-modify the existing configuration by setting `authorization_header` to `enabled`:
+To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file, modify the existing configuration by setting `authorization_header` to `enabled`:
 
 ``` yaml hl_lines="8"
 lexik_jwt_authentication:
@@ -119,7 +120,7 @@ lexik_jwt_authentication:
 ```
 
 You also need a new Symfony firewall configuration for REST and/or GraphQL APIs.
-It is already provided in `config/packages/security.yaml`, you only need to uncomment it:
+It's already provided in `config/packages/security.yaml`, you only need to uncomment it:
 
 ``` yaml
 security:
@@ -144,3 +145,17 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 ```
+
+Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
+
+```bash
+php bin/console lexik:jwt:generate-keypair
+```
+
+The generated key pair will be stored in the `config/jwt`directory.
+
+!!! note "[[= product_name_cloud =]]"
+
+    To generate and store the tokens on [[= product_name_cloud =]], define the `config/jwt` directory as a volume in the `.platform.app.yaml` file. 
+    In 3-node cluster setups, ensure that the key pair is the same on all 3 servers. 
+    You can use a network share, or use a local mount and manually copy the key pair between the servers.

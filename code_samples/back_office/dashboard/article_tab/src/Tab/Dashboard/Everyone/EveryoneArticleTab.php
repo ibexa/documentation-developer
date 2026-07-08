@@ -2,33 +2,33 @@
 
 namespace App\Tab\Dashboard\Everyone;
 
-use Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper;
+use Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
 use Ibexa\Contracts\AdminUi\Tab\AbstractTab;
 use Ibexa\Contracts\AdminUi\Tab\OrderedTabInterface;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-use Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter;
+use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 {
-    protected PagerLocationToDataMapper $pagerLocationToDataMapper;
+    protected PagerContentToDataMapper $pagerContentToDataMapper;
 
     protected SearchService $searchService;
 
     public function __construct(
         Environment $twig,
         TranslatorInterface $translator,
-        PagerLocationToDataMapper $pagerLocationToDataMapper,
+        PagerContentToDataMapper $pagerContentToDataMapper,
         SearchService $searchService
     ) {
         parent::__construct($twig, $translator);
 
-        $this->pagerLocationToDataMapper = $pagerLocationToDataMapper;
+        $this->pagerContentToDataMapper = $pagerContentToDataMapper;
         $this->searchService = $searchService;
     }
 
@@ -60,7 +60,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         ]);
 
         $pager = new Pagerfanta(
-            new LocationSearchAdapter(
+            new ContentSearchAdapter(
                 $query,
                 $this->searchService
             )
@@ -69,7 +69,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         $pager->setCurrentPage($page);
 
         return $this->twig->render('@ibexadesign/ui/dashboard/tab/all_content.html.twig', [
-            'data' => $this->pagerLocationToDataMapper->map($pager, true),
+            'data' => $this->pagerContentToDataMapper->map($pager),
         ]);
     }
 }

@@ -21,7 +21,7 @@ post:
             type: SessionInput
             example: !include examples/user/sessions/POST/SessionInput.xml.example
         application/vnd.ibexa.api.SessionInput+json:
-            type: SessionInput
+            type: SessionInputWrapper
             example: !include examples/user/sessions/POST/SessionInput.json.example
     responses:
         200:
@@ -31,7 +31,7 @@ post:
                     type: Session
                     example: !include examples/user/sessions/POST/Session.xml.example
                 application/vnd.ibexa.api.Session+json:
-                    type: Session
+                    type: SessionWrapper
                     example: !include examples/user/sessions/POST/Session.json.example
         201:
             description: Session is created.
@@ -40,7 +40,7 @@ post:
                     type: Session
                     example: !include examples/user/sessions/POST/Session.xml.example
                 application/vnd.ibexa.api.Session+json:
-                    type: Session
+                    type: SessionWrapper
                     example: !include examples/user/sessions/POST/Session.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -68,7 +68,7 @@ post:
                         type: Session
                         example: !include examples/user/sessions/POST/Session.xml.example
                     application/vnd.ibexa.api.Session+json:
-                        type: Session
+                        type: SessionWrapper
                         example: !include examples/user/sessions/POST/Session.json.example
             404:
                 description: User does not have a valid session, or it has expired.
@@ -107,7 +107,7 @@ post:
                             type: Session
                             example: !include examples/user/sessions/session_id/refresh/POST/Session.xml.example
                         application/vnd.ibexa.api.Session+json:
-                            type: Session
+                            type: SessionWrapper
                             example: !include examples/user/sessions/session_id/refresh/POST/Session.json.example
                 404:
                     description: Error - the session does not exist.

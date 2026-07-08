@@ -38,7 +38,7 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
                     continue;
                 }
 
-                if (str_contains($field->value, 'Company Name')) {
+                if (strpos($field->value, 'Company Name') !== false) {
                     $newValue = str_replace('Company Name', $step->getReplacement(), $field->value);
                     $struct->setField($field->fieldDefIdentifier, new Value($newValue));
                 }

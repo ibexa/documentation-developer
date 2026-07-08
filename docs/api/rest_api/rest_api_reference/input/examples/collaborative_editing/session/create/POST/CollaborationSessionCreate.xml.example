@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentSessionCreate>
+    <Owner media-type="application/vnd.ibexa.api.User+xml"
+           href="/api/ibexa/v2/user/users/14"
+    >
+    </Owner>
+    <ParticipantListCreate media-type="application/vnd.ibexa.api.ParticipantListCreate+xml">
+        <ParticipantCreate media-type="application/vnd.ibexa.api.InternalParticipantCreate+xml">
+            <scope>edit</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml"
+                  href="/api/ibexa/v2/user/users/70
+            >
+            </User>
+        </ParticipantCreate>
+        <ParticipantCreate media-type="application/vnd.ibexa.api.ExternalParticipantCreate+xml">
+            <email>user@link.invalid</email>
+            <scope>view</scope>
+        </ParticipantCreate>
+    </ParticipantListCreate>
+    <contentId>57</contentId>
+    <versionNo>1</versionNo>
+</ContentSessionCreate>

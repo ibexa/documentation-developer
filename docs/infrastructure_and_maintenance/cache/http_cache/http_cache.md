@@ -4,13 +4,10 @@ description: Ibexa DXP's HTTP cache functionalities enable using reverse proxies
 
 # HTTP cache
 
-[[= product_name =]] provides advanced caching features needed for its own content views,
-to make Varnish and Fastly act as the view cache for the system.
+[[= product_name =]] provides advanced caching features needed for its own content views, to make Varnish and Fastly act as the view cache for the system.
 This and other features allow [[= product_name =]] to be scaled up to serve high traffic websites and applications.
 
-HTTP cache is handled by the [ibexa/http-cache](https://github.com/ibexa/http-cache) bundle,
-which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/latest/),
-a Symfony community bundle that in turn extends [Symfony HTTP cache]([[= symfony_doc =]]/http_cache.html).
+HTTP cache is handled by the [ibexa/http-cache](https://github.com/ibexa/http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/latest/), a Symfony community bundle that in turn extends [Symfony HTTP cache]([[= symfony_doc =]]/http_cache.html).
 
 For content view responses coming from [[= product_name =]] itself, this means that:
 

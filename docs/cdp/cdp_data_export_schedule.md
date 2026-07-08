@@ -7,7 +7,7 @@ edition: experience
 
 ## Configuration key
 
-Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting Content, Users and Products.
+Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting content, users, and products.
 An `ibexa_cdp.data_export` [configuration key](configuration.md#configuration-files) looks as below:
 
 ```yaml
@@ -37,10 +37,10 @@ ibexa_cdp:
                     options: '--stream-id=00000000-00000000-00000000-00000000 --product-type=computer --no-draft'
 ```
 
-Under the `schedule` setting you can find separate sections for exporting User, Content, and Product. 
+Under the `schedule` setting you can find separate sections for exporting user, content, and product.
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
-- `interval` - sets the frequency of the command invoke, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour".
+- `interval` - sets the frequency of the command invoke, for example, `'*/30 * * * *'` means "every 30 minutes", `'0 */12 * * *'` means "every 12th hour".
 It uses a standard `crontab` format, see [examples](https://crontab.guru/examples.html).
 - `options`- allows you to add arguments that have to be passed to the export command.
 
@@ -66,3 +66,7 @@ php bin/console ibexa:cdp:stream-product-data --help
 ```bash
 php bin/console ibexa:cdp:stream-content-data --help
 ```
+
+The configuration is executed by `ibexa:cron:run` command which must be configured as a cron job.
+
+For more information, see [Schedule tasks](install_ibexa_dxp.md#schedule-tasks).

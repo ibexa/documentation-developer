@@ -15,7 +15,7 @@ get:
                     type: UrlWildcardList
                     example: !include examples/content/urlwildcards/GET/UrlWildcardList.xml.example
                 application/vnd.ibexa.api.UrlWildcardList+json:
-                    type: UrlWildcardList
+                    type: UrlWildcardListWrapper
                     example: !include examples/content/urlwildcards/GET/UrlWildcardList.json.example
         401:
             description: Error - The user has no permission to read URL wildcards.
@@ -38,7 +38,7 @@ post:
             type: UrlWildcardCreate
             example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.xml.example
         application/vnd.ibexa.api.UrlWildcardCreate+json:
-            type: UrlWildcardCreate
+            type: UrlWildcardCreateWrapper
             example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.json.example
     responses:
         201:
@@ -48,7 +48,7 @@ post:
                     type: UrlWildcard
                     example: !include examples/content/urlwildcards/POST/UrlWildcard.xml.example
                 application/vnd.ibexa.api.UrlWildcard+json:
-                    type: UrlWildcard
+                    type: UrlWildcardWrapper
                     example: !include examples/content/urlwildcards/POST/UrlWildcard.json.example
         400:
             description: Error - The input does not match the input schema definition.
@@ -74,7 +74,7 @@ post:
                         type: UrlWildcard
                         example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.xml.example
                     application/vnd.ibexa.api.UrlWildcard+json:
-                        type: UrlWildcard
+                        type: UrlWildcardWrapper
                         example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.json.example
             401:
                 description: Error - The user is not authorized to read URL wildcards.

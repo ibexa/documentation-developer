@@ -1,6 +1,10 @@
+---
+description: TimeRangeAggregation
+---
+
 # TimeRangeAggregation
 
-The Field-based [TimeRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-TimeRangeAggregation.html) aggregates search results by the value of the Date, DateTime or Time Field.
+The field-based [TimeRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-TimeRangeAggregation.html) aggregates search results by the value of the Date, DateTime, or Time field.
 
 ## Arguments
 

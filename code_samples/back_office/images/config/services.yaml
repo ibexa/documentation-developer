@@ -6,3 +6,28 @@ services:
             - '@ibexa.api.service.content'
             - '@ibexa.field_type.ezbinaryfile.io_service'
             - '@Ibexa\Core\Helper\TranslationHelper'
+
+    App\Connector\Dam\Handler\WikimediaCommonsHandler:
+        tags:
+            - { name: 'ibexa.platform.connector.dam.handler', source: 'commons' }
+
+    App\Connector\Dam\Transformation\WikimediaCommonsTransformationFactory:
+        tags:
+            - { name: 'ibexa.platform.connector.dam.transformation_factory', source: 'commons' }
+
+    commons_asset_variation_generator:
+        class: Ibexa\Connector\Dam\Variation\URLBasedVariationGenerator
+        tags:
+            - { name: 'ibexa.platform.connector.dam.variation_generator', source: 'commons' }
+
+    commons_search_tab:
+        class: Ibexa\Connector\Dam\View\Search\Tab\GenericSearchTab
+        public: false
+        arguments:
+            $identifier: 'commons'
+            $source: 'commons'
+            $name: 'Wikimedia Commons'
+            $searchFormType: 'Ibexa\Connector\Dam\Form\Search\GenericSearchType'
+            $formFactory: '@form.factory'
+        tags:
+            - { name: 'ibexa.admin_ui.tab', group: 'connector-dam-search' }

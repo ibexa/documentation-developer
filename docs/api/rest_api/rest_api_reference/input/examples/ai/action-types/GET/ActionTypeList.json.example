@@ -1,0 +1,36 @@
+{
+    "ActionTypeList": {
+        "_media-type": "application/vnd.ibexa.api.ai.ActionTypeList+json",
+        "_href": "/api/ibexa/v2/ai/action-types",
+        "ActionType": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                "identifier": "transcribe_audio",
+                "name": "Transcribe audio",
+                "inputIdentifier": "audio",
+                "outputIdentifier": "text",
+                "options": {}
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                "identifier": "generate_alt_text",
+                "name": "Generate alternative text",
+                "inputIdentifier": "image",
+                "outputIdentifier": "text",
+                "options": {
+                    "width": 512,
+                    "height": 512,
+                    "image_quality": 85
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                "identifier": "refine_text",
+                "name": "Refine text",
+                "inputIdentifier": "text",
+                "outputIdentifier": "text",
+                "options": {}
+            }
+        ]
+    }
+}

@@ -18,7 +18,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
     private ProductServiceInterface $productService;
 
     public function __construct(
-        ProductServiceInterface $productService,
+        ProductServiceInterface $productService
     ) {
         $this->productService = $productService;
     }
@@ -41,7 +41,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
 
         try {
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
-                new Criterion\ProductName(implode(' ', array_map(static function (string $word) {
+                new Criterion\ProductName(implode(' ', array_map(static function (string $word): string {
                     return "$word*";
                 }, $words))),
                 new Criterion\ProductCode($words),

@@ -11,7 +11,7 @@
             200:
                 body:
                     application/vnd.ibexa.api.VatCategoryList+json:
-                        type: VatCategoryList
+                        type: VatCategoryListWrapper
                         example: !include examples/product/catalog/vat/region/GET/VatCategoryList.json.example
             401:
                 description: Error - the user is not authorized to read this object.
@@ -30,7 +30,7 @@
                 200:
                     body:
                         application/vnd.ibexa.api.VatCategory+json:
-                            type: VatCategory
+                            type: VatCategoryWrapper
                             example: !include examples/product/catalog/vat/region/identifier/GET/VatCategory.json.example
                 401:
                     description: Error - the user is not authorized to read this object.

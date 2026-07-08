@@ -4,55 +4,21 @@ description: Manipulate the search query when using the Elasticsearch search eng
 
 # Manipulate Elasticsearch query
 
-You can customize the search query before it is executed.
-To do it, subscribe to `Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent`.
+You can customize the search query before it's executed.
+To do it, subscribe to [`Ibexa\Contracts\Elasticsearch\Query\Event\QueryFilterEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-Event-QueryFilterEvent.html).
 
-The following example shows how to add an additional Search Criterion to all queries.
+The following example shows how to add a Search Criterion to all queries.
 
-Depending on your configuration, this might impact all search queries,
-including those used for search and content tree in the Back Office.
+Depending on your configuration, this might impact all search queries, including those used for search and content tree in the back office.
 
 ``` php hl_lines="34"
-<?php
-
-declare(strict_types=1);
-
-namespace App\EventSubscriber;
-
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
-use Ibexa\Contracts\ElasticSearch\Query\Event\QueryFilterEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-final class CustomQueryFilterSubscriber implements EventSubscriberInterface
-{
-    public function onQueryFilter(QueryFilterEvent $event): void
-    {
-        $query = $event->getQuery();
-
-        $additionalCriteria = new ObjectStateIdentifier('locked');
-
-        if ($query->filter !== null) {
-            $query->filter = $additionalCriteria;
-        } else {
-            // Append Criterion to existing filter
-            $query->filter = new LogicalAnd([
-                $query->filter,
-                $additionalCriteria
-            ]);
-        }
-    }
-
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            QueryFilterEvent::class => 'onQueryFilter'
-        ];
-    }
-}
+--8<--
+code_samples/search/custom/src/EventSubscriber/CustomQueryFilterSubscriber.php
+--8<--
 ```
 
-Remember to register the subscriber as a service:
+If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option)
+for event subscribers, register it as a service:
 
 ``` yaml
 services:

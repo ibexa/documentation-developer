@@ -1,5 +1,6 @@
 ---
 description: Install Ibexa DXP with Docker and DDEV to use it for development.
+month_change: true
 ---
 
 # Install with DDEV
@@ -11,8 +12,8 @@ DDEV is an open-source tool that simplifies the process of setting up local PHP 
 
 Before you start the installation, ensure that you have the following software installed:
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
+- [Docker](https://docs.docker.com/get-started/get-docker/)
+- [DDEV](https://docs.ddev.com/en/stable/users/install/ddev-installation/)
 
 ## Installation
 
@@ -31,10 +32,10 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.1 --nodejs-version 18 --docroot=public --create-docroot
+ddev config --project-type=php --php-version 8.4 --nodejs-version 20 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
+This command sets the project type to PHP, the PHP version to 8.4, the document root to `public` directory, and creates the document root if it doesn't exist.
 
 #### Use another database type (optional)
 
@@ -52,12 +53,13 @@ To use MySQL instead, run the following command:
 ddev config --database=mysql:8.0
 ```
 
-You can also use other versions of MariaDB, Mysql or PostgreSQL. 
-See [DDEV database types documentation](https://ddev.readthedocs.io/en/latest/users/extend/database-types/) for available version ranges.
+You can also use other versions of MariaDB, MySQL or PostgreSQL.
+See [DDEV database types documentation](https://docs.ddev.com/en/stable/users/extend/database-types/) for available version ranges.
 
 #### Configure database connection
 
-Now, configure the database connection for your [[= product_name =]] project. Depending on your database of choice (MySQL or PostgreSQL), use the appropriate command below.
+Now, configure the database connection for your [[= product_name =]] project.
+Depending on your database of choice (MySQL or PostgreSQL), use the appropriate command below.
 
 !!! note
 
@@ -87,23 +89,32 @@ Now, configure the database connection for your [[= product_name =]] project. De
     ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
     ```
 
-#### Enable Mutagen (optional)
+#### Configure mailer (optional)
 
-If you're using macOS or Windows, you might want to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) to improve performance. You can do this by running the following command:
+You can configure [Symfony Mailer]([[= symfony_doc =]]/mailer.html) to use the [integrated mail catcher Mailpit](https://docs.ddev.com/en/stable/users/usage/developer-tools/#email-capture-and-review-mailpit):
 
 ```bash
-ddev config --mutagen-enabled
+ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
 ```
 
-See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users/install/performance/) for more.
+#### Enable Mutagen (optional)
+
+If you're using macOS or Windows, you might want to enable [Mutagen](https://docs.ddev.com/en/stable/users/install/performance/#mutagen) to improve performance.
+You can do this by running the following command:
+
+```bash
+ddev config --performance-mode=mutagen
+```
+
+See [DDEV performance documentation](https://docs.ddev.com/en/stable/users/install/performance/) for more.
 
 #### Change port mapping (optional)
 
 By default, DDEV uses ports 80 and 443.
-You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
+You can [set different ports](https://docs.ddev.com/en/stable/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
 
 ```bash
-ddev config --http-port=8080 --https-port=8443
+ddev config --router-http-port=8080 --router-https-port=8443
 ```
 
 ### 3. Start DDEV
@@ -122,13 +133,14 @@ ddev start
 
 Next, you need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
 You must run the following command **after** executing `ddev start`, because the command runs inside the container.
-Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
+Replace `<installation-key>` and `<token-password>` with your actual installation key and token password.
 
 ```bash
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ```
 
-This authentication won't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) by using the following command:
+This authentication doesn't persist if the project is restarted (by `ddev restart` or `ddev composer create-project`).
+You can back up the authentication file (`auth.json`) by using the following command:
 
 ```bash
 ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .ddev/homeadditions/.composer"
@@ -138,11 +150,11 @@ If you want to reuse an existing `auth.json` file, see [Using `auth.json`](#usin
 
 ### 5. Create project
 
-Once DDEV is running, use Composer to create a new [[= product_name =]] project. 
-Remember to replace `<edition>` and `<version>` with your desired edition and version respectively.
+Once DDEV is running, use Composer to create a new [[= product_name =]] project.
+Remember to replace `<edition>` and `<version>` with your desired edition and version.
 
 ```bash
-ddev composer create ibexa/<edition>-skeleton:<version>
+ddev composer create-project ibexa/<edition>-skeleton:<version>
 ```
 
 !!! tip
@@ -184,23 +196,21 @@ DDEV offers several ways to get the same result, offering different levels of fl
 
 !!! tip
 
-    Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/):
-    
-    - run [`ddev --help`](https://ddev.readthedocs.io/en/latest/users/usage/cli/#using-the-ddev-command) to list all commands
-    - run [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a specific command
-    
-    Learn more about DDEV configuration from [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
+    Learn more about the [DDEV commands](https://docs.ddev.com/en/stable/users/usage/commands/):
+
+    - run [`ddev --help`](https://docs.ddev.com/en/stable/users/usage/cli/#using-the-ddev-command) to list all commands
+    - run [`ddev help <command>`](https://docs.ddev.com/en/stable/users/usage/commands/#help) to get usage details about a specific command
+
+    Learn more about DDEV configuration from [`ddev config` command documentation](https://docs.ddev.com/en/stable/users/usage/commands/#config) and [advanced configuration files documentation](https://docs.ddev.com/en/stable/users/configuration/config/).
 
 
 ### Using `auth.json`
 
-An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
+An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://docs.ddev.com/en/stable/users/extend/in-container-configuration/).
 
-For example, you can copy an `auth.json` file to a DDEV project:
-`cp <path-to-an>/auth.json .ddev/homeadditions/.composer`
+For example, you can copy an `auth.json` file to a DDEV project: `cp <path-to-an>/auth.json .ddev/homeadditions/.composer`
 
-Alternatively, the Composer global `auth.json` can be the DDEV global `auth.json` with the help of a symbolic link:
-`mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
+Alternatively, the Composer global `auth.json` can be the DDEV global `auth.json` with the help of a symbolic link: `mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
 
 If the DDEV project has already been started, you need to run `ddev restart`.
 
@@ -215,7 +225,7 @@ The following example shows the use of `.env.local` with database configuration:
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
   ```bash
-  ddev composer create ibexa/commerce-skeleton --no-install;
+  ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
@@ -274,7 +284,7 @@ For example, you can append it to [[= product_name_base =]]'s FastCGI config:
 echo 'fastcgi_param HTTPS $fcgi_https;' >> .ddev/nginx_full/ibexa_params.d/ibexa_fastcgi_params
 ```
 
-### Switch to Apache and its Virtual Host
+### Switch to Apache and its virtual host
 
 To use Apache instead of the default Nginx, run the following command:
 
@@ -282,14 +292,14 @@ To use Apache instead of the default Nginx, run the following command:
 ddev config --webserver-type=apache-fpm
 ```
 
-[[= product_name =]] can't run on Apache without a dedicated Virtual Host.
+[[= product_name =]] can't run on Apache without a dedicated virtual host.
 
-To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with [[= product_name =]]'s config. 
+To set the Apache virtual host, override `.ddev/apache/apache-site.conf` with [[= product_name =]]'s config.
 You can do it manually or by using a script.
 
 #### Manual procedure
 
-Copy the Virtual Host template as the new Apache configuration:
+Copy the virtual host template as the new Apache configuration:
 
 ```bash
 cp vendor/ibexa/post-install/resources/templates/apache2/vhost.template .ddev/apache/apache-site.conf
@@ -335,10 +345,10 @@ ddev restart
 
 #### Scripted procedure
 
-Generate the Virtual Host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
+Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/4.6/scripts/vhost.sh):
 
 ```bash
-curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh
+curl -O https://raw.githubusercontent.com/ibexa/docker/4.6/scripts/vhost.sh
 bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apache2/vhost.template \
   --ip='*' \
   --host-name='my-ddev-project.ddev.site' \
@@ -366,8 +376,8 @@ To run an existing project, you need to:
 1. Add Composer authentication.
 1. Install dependencies packages with Composer.
 1. Populate the contents, which could mean:
-    - getting a clean database with ddev `php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
-    - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
+    - getting a clean database with `ddev php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
+    - injecting a dump with [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
 
@@ -396,33 +406,33 @@ ddev launch
 ```
 
 Notice that the example adds the whole `.ddev/` directory to `.gitignore`, but you can also version parts of it.
-Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
+Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://docs.ddev.com/en/stable/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
 
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
-- In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
-- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create`.
-- Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
+- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create-project`.
+- Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db).
 
 ### Hostnames and domains
 
-If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
+If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://docs.ddev.com/en/stable/users/extend/additional-hostnames/).
 
 !!! caution
 
     As this feature modifies domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
 
-### Cluster or Ibexa Cloud
+### Cluster or [[= product_name_cloud =]]
 
-DDEV can be useful to locally simulate a production cluster.
+You can use DDEV to locally simulate a production cluster.
 
-- See [clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
+- See [Clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis, or Memcached to your DDEV installation.
 - See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 
-If you need to stop the project to start it again later, use `ddev stop`. Then, use `ddev start` to run the project in the same state.
+If you need to stop the project to start it again later, use `ddev stop`.
+Then, use `ddev start` to run the project in the same state.
 
 If you want to fully remove the project:
 
@@ -431,4 +441,4 @@ If you want to fully remove the project:
 
 If [additional hostnames](#hostnames-and-domains) have been used, you must clean the hosts file.
 
-To learn more about removing all projects at once or DDEV itself, see [Uninstalling DDEV](https://ddev.readthedocs.io/en/latest/users/usage/uninstall/).
+To learn more about removing all projects at once or DDEV itself, see [Uninstalling DDEV](https://docs.ddev.com/en/stable/users/usage/uninstall/).

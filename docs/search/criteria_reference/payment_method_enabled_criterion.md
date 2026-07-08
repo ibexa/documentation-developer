@@ -1,5 +1,5 @@
 ---
-description: Payment Method Enabled Criterion
+description: Payment Method Enabled Search Criterion
 edition: commerce
 ---
 

@@ -1,14 +1,14 @@
 ---
-description: Learn how to host your application and improve your business processess by using Ibexa Cloud hosting platform.
+description: Learn how to host your application and improve your business processes by using Ibexa Cloud hosting platform.
 title: Ibexa Cloud product guide
 month_change: false
 ---
 
-# [[= product_name_cloud =]] product guide
+# Ibexa Cloud product guide
 
 ## What is [[= product_name_cloud =]]
 
-[[= product_name_cloud =]] is a cloud hosting platform that enables you to host your application in the cloud by using the [Platform.sh](https://platform.sh/) service.
+[[= product_name_cloud =]] is a cloud hosting platform that enables you to host your application in the cloud by using the [Upsun](https://upsun.com/) service.
 It also establishes the framework for the potential growth and improves project delivery.
 As a diverse Platform as a Service (PaaS), it's designed to allow you to focus on the crucial things.
 
@@ -41,16 +41,18 @@ When you have an account, you can log in to https://console.ibexa.cloud.
 
 ### Platform as a Service
 
-[[= product_name_cloud =]] is a PaaS provider. It's a cloud-based subscription service that you can use for developing, managing, and running applications without infrastructure concerns.
+[[= product_name_cloud =]] is a PaaS provider.
+It's a cloud-based subscription service that you can use for developing, managing, and running applications without infrastructure concerns.
 This cloud computing approach gives users access to a full cloud platform, including hardware, software, and infrastructure.
-PaaS eliminates the requirement to buy and install the necessary hardware and software. All you have to do is access it and you can start deploying resources and developing right away.
+PaaS eliminates the requirement to buy and install the necessary hardware and software.
+All you have to do is access it and you can start deploying resources and developing right away.
 
 ![How PaaS works](how_paas_works.png)
 
 ### Performance management
 
-Make your applications more effective, scalable, and effective by using the [Observability Suite](https://platform.sh/features/observability-suite/).
-This package gives you the the ability to test, profile, and monitor your application before putting it into production.
+Make your applications more effective, scalable, and effective by using the [Observability Suite](https://docs.upsun.com/increase-observability.html).
+This package gives you the ability to test, profile, and monitor your application before putting it into production.
 Observability Suite comes with each [[= product_name_cloud =]] subscription.
 
 ### Automation
@@ -74,7 +76,8 @@ What's more, [[= product_name_cloud =]] as an end-to-end cloud hosting platform,
 
 Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
 You can be sure that the safety protocols are compliant with all applicable legislation.
-What's more, all updates to your code and infrastructure are fully auditable. Global CDN (Content Delivery Network) is included and fully managed.
+What's more, all updates to your code and infrastructure are fully auditable.
+Global CDN (Content Delivery Network) is included and fully managed.
 [[= product_name_cloud =]], thanks to extensive [[= product_name_base =]] support, enables effortless deployment.
 You can create a clone not only of the code, but also data and the infrastructure.
 As the infrastructure is exactly the same as what's currently in production, you can be sure that everything works well when you conduct your release and push it live.
@@ -82,12 +85,13 @@ As the infrastructure is exactly the same as what's currently in production, you
 ### High availability and compatibility
 
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and supports a variety of hosting platforms.
-It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrates naturally at the end of your existing production chain, including staging, and work in progress branch preview.
-You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
+It's a Git-native development - compatible with Git Flow.
+[[= product_name_cloud =]] deployment integrates naturally at the end of your existing production chain, including staging, and work in progress branch preview.
+You can also integrate with, for example, Bitbucket, GitHub, GitLab.
 You can instantly clone every branch of both your code and infrastructure configuration.
-Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
-It means that the infrastracture is described in the code and that is what allows you to clone both code and infrastracture configuration at the same time.
-If you want to work with services such as [MySQL](https://docs.platform.sh/add-services/mysql.html) or [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html), you can add them with a line of code.
+Upsun (and [[= product_name_cloud =]], by extension) uses the [Infrastructure as Code approach](https://fixed.docs.upsun.com/learn/overview.html#infrastructure-as-code).
+It means that the infrastructure is described in the code and that is what allows you to clone both code and infrastructure configuration at the same time.
+If you want to work with services such as [MySQL](https://fixed.docs.upsun.com/add-services/mysql.html) or [Elasticsearch](https://fixed.docs.upsun.com/add-services/elasticsearch.html), you can add them with a line of code.
 What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, or Google Cloud Platform.
 
 ### Great customer experience
@@ -117,12 +121,12 @@ Team members can also see and provide input on the new feature's actual appearan
 
 ### Integrated customer support
 
-Support integration is a part of the combined Platform.sh and [[= product_name_base =]] service.
+Support integration is a part of the combined Upsun and [[= product_name_base =]] service.
 In case of an issue, you only have to submit one ticket, no matter whether it has to do with [[= product_name =]] or the cloud infrastructure.
 When you submit a ticket with [[= product_name_cloud =]], the support team looks into the issue and assigns it to the appropriate expert.
 
 ### Lower cost
 
 With PaaS solution there is no need to purchase and maintain hardware or software infrastructure. This reduces the total cost of ownership and operational expenses.
-According to [Forrester Total Economic Impact report](https://platform.sh/blog/platform-sh-drives-meaningful-cost-savings/) from March 2022, a company that uses Platform.sh for three years achieves an investment return of 219%.
-According to this in-depth analysis, Platform.sh reduces operating expenses for developers and IT by $1 million over the course of three years, and in as little as seven months, break-even point can be reached.
+According to [Forrester Total Economic Impact report](https://devcenter.upsun.com/posts/platform-sh-drives-meaningful-cost-savings/) from March 2022, a company that uses Upsun for three years achieves an investment return of 219%.
+According to this in-depth analysis, Upsun reduces operating expenses for developers and IT by $1 million over the course of three years, and in as little as seven months, break-even point can be reached.

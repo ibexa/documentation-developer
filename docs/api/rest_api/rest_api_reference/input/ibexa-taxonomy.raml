@@ -18,7 +18,7 @@ displayName: Taxonomy
                             application/vnd.ibexa.api.TaxonomyEntry+xml:
                                 type: TaxonomyEntry
                             application/vnd.ibexa.api.TaxonomyEntry+json:
-                                type: TaxonomyEntry
+                                type: TaxonomyEntryWrapper
                     401:
                         description: Error - the user is not authorized to read this Entry.
                     404:
@@ -40,7 +40,7 @@ displayName: Taxonomy
                             application/vnd.ibexa.api.TaxonomyEntry+xml:
                                 type: TaxonomyEntry
                             application/vnd.ibexa.api.TaxonomyEntry+json:
-                                type: TaxonomyEntry
+                                type: TaxonomyEntryWrapper
                     401:
                         description: Error - the user is not authorized to read this Entry.
                     404:
@@ -62,7 +62,7 @@ displayName: Taxonomy
                             application/vnd.ibexa.api.TaxonomyEntry+xml:
                                 type: TaxonomyEntry
                             application/vnd.ibexa.api.TaxonomyEntry+json:
-                                type: TaxonomyEntry
+                                type: TaxonomyEntryWrapper
                     401:
                         description: Error - the user is not authorized to read this Entry.
                     404:
@@ -81,7 +81,7 @@ displayName: Taxonomy
                 application/vnd.ibexa.api.TaxonomyEntryBulkRemove+xml:
                     type: TaxonomyEntryBulkRemove
                 application/vnd.ibexa.api.TaxonomyEntryBulkRemove+json:
-                    type: TaxonomyEntryBulkRemove
+                    type: TaxonomyEntryBulkRemoveWrapper
                     example: !include examples/taxonomy/entries/DELETE/TaxonomyEntryBulkRemove.json.example
             responses:
                 204:
@@ -104,7 +104,7 @@ displayName: Taxonomy
                     application/vnd.ibexa.api.TaxonomyEntryBulkMove+xml:
                         type: TaxonomyEntryBulkMove
                     application/vnd.ibexa.api.TaxonomyEntryBulkMove+json:
-                        type: TaxonomyEntryBulkMove
+                        type: TaxonomyEntryBulkMoveWrapper
                         example: !include examples/taxonomy/entries/move/POST/TaxonomyEntryBulkMove.json.example
                 responses:
                     204:
@@ -132,7 +132,7 @@ displayName: Taxonomy
                         application/vnd.ibexa.api.TaxonomyEntryAssignment+xml:
                             type: TaxonomyEntryAssignment
                         application/vnd.ibexa.api.TaxonomyEntryAssignment+json:
-                            type: TaxonomyEntryAssignment
+                            type: TaxonomyEntryAssignmentWrapper
                 404:
                     description: Error - the assignment does not exist.
     /entry-assignments:
@@ -146,7 +146,7 @@ displayName: Taxonomy
                             application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
                 body:
                     application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
-                        type: TaxonomyEntryAssignToContent
+                        type: TaxonomyEntryAssignToContentWrapper
                         example: !include examples/taxonomy/POST/TaxonomyEntryAssignToContent.json.example
                 responses:
                     201:
@@ -165,7 +165,7 @@ displayName: Taxonomy
                             application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
                 body:
                     application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json:
-                        type: TaxonomyEntryUnassignFromContent
+                        type: TaxonomyEntryUnassignFromContentWrapper
                         example: !include examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example
                 responses:
                     201:
@@ -194,7 +194,7 @@ displayName: Taxonomy
                                 example: !include examples/taxonomy/GET/EntryAssignmentCollection.xml.example
                             application/vnd.ibexa.api.EntryAssignmentCollection+json:
                                 description: Contains metadata about the content itself and a list of taxonomy entry assignments to this content, in JSON format.
-                                type: EntryAssignmentCollection
+                                type: EntryAssignmentCollectionWrapper
                                 example: !include examples/taxonomy/GET/EntryAssignmentCollection.json.example
                     404:
                         description: Error - the Content does not exists.

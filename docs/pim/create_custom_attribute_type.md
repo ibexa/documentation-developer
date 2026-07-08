@@ -137,7 +137,9 @@ Register the converter as a service and tag it with `ibexa.product_catalog.attri
 
 ### Storage definition
 
-Next, prepare a `PercentStorageDefinition` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageDefinitionInterface`.
+You can either create a new storage definition or use an existing one.
+
+To create a new storage definition, prepare a `PercentStorageDefinition` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageDefinitionInterface`.
 
 ``` php
 [[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageDefinition.php') =]]
@@ -149,8 +151,21 @@ Register the storage definition as a service and tag it with `ibexa.product_cata
 [[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 41, 44) =]]
 ```
 
+If you prefer to use an existing storage definition, you need to create a Storage Definition Tag CompilerPass `src/DependencyInjection/AddFloatStorageDefinitionTag.php`:
+
+``` php
+[[= include_file('code_samples/catalog/custom_attribute_type/src/DependencyInjection/AddFloatStorageDefinitionTag.php') =]]
+```
+
+Add the CompilerPass to the container.
+Do it in a `src/Kernel.php` file or in your Bundle class:
+
+``` php hl_lines="5 7-8 14-20"
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Kernel.php') =]]
+```
+
 ## Use new attribute type
 
-In the Back Office you can now add a new Percent attribute to your product type and create a product with it.
+In the back office you can now add a new Percent attribute to your product type and create a product with it.
 
 ![Creating a product with a custom Percent attribute](catalog_custom_attribute_type.png)

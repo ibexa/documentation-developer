@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\ProductCatalog\Availability\PurchasableWithoutStockAvailabilityContext;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
@@ -32,8 +33,14 @@ final class ProductCommand extends Command
 
     private ProductAvailabilityServiceInterface $productAvailabilityService;
 
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductTypeServiceInterface $productTypeService, ProductServiceInterface $productService, LocalProductServiceInterface $localProductService, ProductAvailabilityServiceInterface $productAvailabilityService)
-    {
+    public function __construct(
+        UserService $userService,
+        PermissionResolver $permissionResolver,
+        ProductTypeServiceInterface $productTypeService,
+        ProductServiceInterface $productService,
+        LocalProductServiceInterface $localProductService,
+        ProductAvailabilityServiceInterface $productAvailabilityService
+    ) {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;
@@ -92,25 +99,33 @@ final class ProductCommand extends Command
 
         $product = $this->productService->getProduct('NEWMODIFIEDPRODUCT');
 
-        $productAvailabilityCreateStruct = new ProductAvailabilityCreateStruct($product, true, true);
+        $productAvailabilityCreateStruct = new ProductAvailabilityCreateStruct($product, false, true);
 
         $this->productAvailabilityService->createProductAvailability($productAvailabilityCreateStruct);
 
         if ($this->productAvailabilityService->hasAvailability($product)) {
             $availability = $this->productAvailabilityService->getAvailability($product);
 
-            $output->write($availability->isAvailable() ? 'Available' : 'Unavailable');
-            $output->writeln(' with stock ' . $availability->getStock());
-
-            $availability = $this->productAvailabilityService->getAvailability($product);
+            $output->writeln($availability->getAvailability() ? 'Available flag: true' : 'Available flag: false');
+            $output->writeln($availability->getComputedAvailability() ? 'Can be ordered: true' : 'Can be ordered: false');
+            $output->writeln('Stock: ' . $availability->getStock());
 
             $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true, false, 80);
 
             $this->productAvailabilityService->updateProductAvailability($productAvailabilityUpdateStruct);
 
-            $output->write($availability->isAvailable() ? 'Available' : 'Unavailable');
+            $output->writeln($availability->getAvailability() ? 'Available flag: true' : 'Available flag: false');
+            $output->writeln($availability->getComputedAvailability() ? 'Can be ordered: true' : 'Can be ordered: false');
             $output->writeln(' available now with stock ' . $availability->getStock());
         }
+
+        $availability = $this->productAvailabilityService->getAvailability(
+            $product,
+            new PurchasableWithoutStockAvailabilityContext()
+        );
+
+        $canBeOrdered = $availability->getComputedAvailability();
+        $output->writeln('Can be ordered: ' . ($canBeOrdered ? 'true' : 'false') . ', Stock: ' . $availability->getStock());
 
         $this->localProductService->deleteProduct($product);
 

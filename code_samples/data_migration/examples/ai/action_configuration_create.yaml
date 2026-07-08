@@ -1,0 +1,18 @@
+-   type: action_configuration
+    mode: create
+    identifier: foo_identifier
+    enabled: false
+    names:
+        'eng-GB': 'foo_name_eng_gb'
+        'ger-DE': 'foo_name_ger_de'
+
+    descriptions:
+        'ger-DE': 'foo_description_ger_de'
+
+    action_handler_identifier: foo_handler
+    action_handler_options:
+        handler_option: foo
+
+    action_type_identifier: generate_alt_text
+    action_type_options:
+        max_length: 130

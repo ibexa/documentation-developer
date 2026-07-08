@@ -10,8 +10,8 @@ To allow this filtering, you need to create a custom payment method type and reg
 
 ## Create custom payment method type
 
-There are different ways you can extend your Payment module implementation. 
-One of them is to [create a custom payment method type](extend_payment.md). 
+You can extend your Payment module implementation in different ways.
+One of them is to [create a custom payment method type](extend_payment.md).
 
 The following example shows, how to create `New Payment Method Type`.
 
@@ -32,7 +32,7 @@ Now new custom payment method type should be visible in **Commerce** -> **Paymen
 Next, create a `NewPaymentMethodTypeVoter.php` file with the voter definition for your new payment method type:
 
 ``` php
-[[= include_file('code_samples/front/shop/payment/src/src/lib/PaymentMethod/Voter/NewPaymentMethodTypeVoter.php') =]]
+[[= include_file('code_samples/front/shop/payment/src/lib/PaymentMethod/Voter/NewPaymentMethodTypeVoter.php') =]]
 ```
 
 Created voter decides, if selected payment method type can be used and displayed in checkout process.

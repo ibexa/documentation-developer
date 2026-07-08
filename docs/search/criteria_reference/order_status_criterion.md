@@ -1,5 +1,5 @@
 ---
-description: Order Status Criterion
+description: Order Status Search Criterion
 edition: commerce
 ---
 

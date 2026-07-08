@@ -1,10 +1,10 @@
 # SpecificationsType
 
-This Field Type stores a structured list of attributes for products.
+This field type stores a structured list of attributes for products.
 
 !!! caution "Field naming"
 
-    A Field of the SpecificationsType must have `ses_specifications` as its Field identifier.
+    A field of the SpecificationsType must have `ses_specifications` as its field identifier.
 
 The data is stored in JSON format.
 

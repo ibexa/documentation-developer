@@ -37,7 +37,7 @@ final class PaymentCommand extends Command
         UserService $userService,
         PaymentServiceInterface $paymentService,
         OrderServiceInterface $orderService,
-        PaymentMethodServiceInterface $paymentMethodService,
+        PaymentMethodServiceInterface $paymentMethodService
     ) {
         $this->paymentService = $paymentService;
         $this->permissionResolver = $permissionResolver;

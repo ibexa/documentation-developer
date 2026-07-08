@@ -1,5 +1,5 @@
 ---
-description: Payment Status Criterion
+description: Payment Status Search Criterion
 edition: commerce
 ---
 

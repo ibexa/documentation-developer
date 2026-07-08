@@ -199,7 +199,8 @@ html{-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:n
     --mid-grey: rgb(201,201,208);
     --dark-grey: rgb(151,151,151);
     
-    
+    --color-warning-dark-01: rgb(211,130,43);
+    --color-primary-main: rgb(163,39,104);
     --caution-border: var(--ibexa-orange);
     --note-border: var(--mid-grey);
     --enterprise-border: var(--ibexa-jazzberry);
@@ -578,9 +579,9 @@ figcaption {
 }
 
 a.external:not(.card):after {
-    content: url(../images/open-in-new.svg);
+    content: url(../../../../images/open-in-new.svg);
     font-style: normal;
-    padding-left: 2px;
+    padding-left: 0px;
     position: relative;
     font-size: 11px;
     top: -5px;
@@ -700,7 +701,6 @@ div.pills {
 }
 
 .pill {
-    background-color: var(--ibexa-jazzberry);
     border-radius: 2.18px;
     padding: 3px 8px;
     color: var(--white);
@@ -713,7 +713,8 @@ div.pills {
 }
 
 .experience-pill {
-    background-color: var(--ibexa-orange);
+    color: var(--color-warning-dark-01);
+    border: 1px solid var(--color-warning-dark-01);
 }
 
 .commerce-pill::after {
@@ -721,7 +722,17 @@ div.pills {
 }
 
 .commerce-pill {
-    background-color: var(--ibexa-jazzberry);
+    color: var(--color-primary-main);
+    border: 1px solid var(--color-primary-main);
+}
+
+.optional-pill::after {
+    content: "Optional";
+}
+
+.optional-pill {
+    color: var(--sherpa-blue);
+    border: 1px solid var(--sherpa-blue);
 }
 
 .md-clipboard:focus, .md-clipboard:hover {
@@ -1573,6 +1584,10 @@ body.menu-resizing {
     background-image: url(../images/minus-white.svg);
 }
 
+.md-nav--primary .md-nav__item--nested:has(a[href="namespaces/symfony-contracts.html"]) {
+    display: none;
+}
+
 
 ul.breadcrumbs li.breadcrumb-item a {
     color: var(--dark-grey);
@@ -1617,16 +1632,6 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     line-height: 18px;
     padding: 0 8px;
     background-color: transparent;
-}
-
-.md-typeset .content-header .experience-pill {
-    color: var(--ibexa-orange);
-    border: 1px solid var(--ibexa-orange);
-}
-
-.md-typeset .content-header .commerce-pill {
-    color: var(--ibexa-jazzberry);
-    border: 1px solid var(--ibexa-jazzberry);
 }
 
 .md-typeset .content-header img {
@@ -1919,18 +1924,28 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 .popover::after {
     bottom: 100%;
     left: 50%;
-    border: solid transparent;
     content: "";
     height: 0;
     width: 0;
     position: absolute;
-    border-color: transparent;
+    border: 4px solid transparent;
     border-bottom-color: #2B333C;
-    border-width: 4px;
     margin-left: -4px;
 }
 
 .popover--visible {
     visibility: visible;
     opacity: 1;
+}
+
+.phpdocumentor-admonition svg {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+
+}
+
+.phpdocumentor-admonition article, .phpdocumentor-cases article {
+    padding-bottom: 0;
 }

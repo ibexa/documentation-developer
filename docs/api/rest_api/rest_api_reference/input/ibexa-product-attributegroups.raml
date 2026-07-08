@@ -3,7 +3,7 @@ get:
     description: Returns a list of attribute groups. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/attribute_groups/view instead.
     body:
         application/vnd.ibexa.api.AttributeGroupListGet+json:
-            type: AttributeGroupListGet
+            type: AttributeGroupListGetWrapper
             example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupListGet.json.example
     headers:
         Accept:
@@ -22,7 +22,7 @@ get:
                 application/vnd.ibexa.api.AttributeGroupList+xml:
                     type: AttributeGroupList
                 application/vnd.ibexa.api.AttributeGroupList+json:
-                    type: AttributeGroupList
+                    type: AttributeGroupListWrapper
                     example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
         401:
             description: Error - the user has no permission to read attribute groups.
@@ -40,13 +40,13 @@ post:
                 application/vnd.ibexa.api.AttributeGroupCreate+json
     body:
         application/vnd.ibexa.api.AttributeGroupCreate+json:
-            type: AttributeGroupCreate
+            type: AttributeGroupCreateWrapper
             example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupCreate.json.example
     responses:
         201:
             body:
                 application/vnd.ibexa.api.AttributeGroup+json:
-                    type: AttributeGroup
+                    type: AttributeGroupWrapper
                     example: !include examples/product/catalog/attribute_groups/POST/AttributeGroup.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -62,7 +62,7 @@ post:
             application/vnd.ibexa.api.AttributeGroupGet+xml:
                 type: AttributeGroupGet
             application/vnd.ibexa.api.AttributeGroupGet+json:
-                type: AttributeGroupGet
+                type: AttributeGroupGetWrapper
                 example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroupGet.json.example
         headers:
             Accept:
@@ -81,7 +81,7 @@ post:
                     application/vnd.ibexa.api.AttributeGroup+xml:
                         type: AttributeGroup
                     application/vnd.ibexa.api.AttributeGroup+json:
-                        type: AttributeGroup
+                        type: AttributeGroupWrapper
                         example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroup.json.example
             401:
                 description: Error - the user has no permission to read attribute groups.
@@ -103,7 +103,7 @@ post:
             application/vnd.ibexa.api.AttributeGroupUpdate+xml:
                 type: AttributeGroupUpdate
             application/vnd.ibexa.api.AttributeGroupUpdate+json:
-                type: AttributeGroupUpdate
+                type: AttributeGroupUpdateWrapper
                 example: !include examples/product/catalog/attribute_groups/id/PATCH/AttributeGroupUpdate.json.example
         responses:
             201:
@@ -111,7 +111,7 @@ post:
                     application/vnd.ibexa.api.AttributeGroup+xml:
                         type: AttributeGroup
                     application/vnd.ibexa.api.AttributeGroup+json:
-                        type: AttributeGroup
+                        type: AttributeGroupWrapper
                         example: !include examples/product/catalog/attribute_groups/id/PATCH/AttributeGroup.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -158,7 +158,7 @@ post:
             application/vnd.ibexa.api.AttributeGroupViewInput+xml:
                 type: AttributeGroupViewInput
             application/vnd.ibexa.api.AttributeGroupViewInput+json:
-                type: AttributeGroupViewInput
+                type: AttributeGroupViewInputWrapper
                 example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupViewInput.json.example
         responses:
             200:
@@ -166,7 +166,7 @@ post:
                     application/vnd.ibexa.api.AttributeGroupView+xml:
                         type: AttributeGroupView
                     application/vnd.ibexa.api.AttributeGroupView+json:
-                        type: AttributeGroupView
+                        type: AttributeGroupViewWrapper
                         example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupView.json.example
             400:
                 description: Error - the input does not match the input schema definition.

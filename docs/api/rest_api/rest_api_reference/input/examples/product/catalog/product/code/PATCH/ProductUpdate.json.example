@@ -1,6 +1,6 @@
 {
     "ProductUpdate": {
-        "ContentUpdate": { 
+        "ContentUpdate": {
               "__url": "/api/ibexa/v2/content/objects/67",
               "fields": {
                   "field": [
