@@ -114,22 +114,24 @@ use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextPro
 
 final class MyWebsiteIdProvider implements WebsiteIdContextProviderInterface
 {
-    public function getWebsiteId(): ?string
+    private const string WEBSITE_ID = 'my-id';
+
+    public function getWebsiteId(): string
     {
-        // Return a non-empty string to use it as the websiteId (p7),
-        // or null to defer to the next provider in the chain.
-        return 'my-id';
+        return self::WEBSITE_ID;
     }
 }
 ```
 
+Since this provider always returns a value, it narrows the return type to `string`.
+If your provider resolves the value conditionally, declare the return type as `?string` and return `null` to allow the next provider in the chain to handle the request.
 The provider is registered automatically.
 Implementing the interface is sufficient, no service configuration is required.
 
 !!! note
 
     Custom provider takes precedence over the built-in one.
-    A provider must return either null or a non-empty string.
+    A provider must return either `null` or a non-empty string.
 
 If you register multiple providers, control their order by tagging the service with a priority (higher priority is checked first):
 
