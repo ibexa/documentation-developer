@@ -476,6 +476,7 @@ During a morning session, the interaction could look like this:
 
 === "Claude Code CLI"
 
+    ```text
     ❯ Hi. Please, greet me.
 
     ⏺ What's your name?
@@ -511,6 +512,7 @@ During a morning session, the interaction could look like this:
     ⏺ That falls under the "evening" variant: Good evening, ElePHPant!   
 
     ✻ Sautéed for 2s
+    ```
 
 The agent's reflections, reaction times, and final responses, including the improvised emojis, may differ from those examples.
 The key point is that the agent decides to use the `greet` tool, calls it with the right argument, displays the call result, and then uses it in its final output.
