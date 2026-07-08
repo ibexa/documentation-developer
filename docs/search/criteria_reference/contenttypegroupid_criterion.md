@@ -45,7 +45,7 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 You can use the `ContentTypeGroupId` Criterion to query all Media content items
 (the default ID for the Media content type group is 3):
 
-``` php {skip-validation} hl_lines="1"
+``` php {skip-validation hl_lines="1"}
         $query->query = new Criterion\ContentTypeGroupId([3]);
 
         $results = $this->searchService->findContent($query);

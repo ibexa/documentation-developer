@@ -57,7 +57,7 @@ For more information, see [Built-In Query Types](built-in_query_types.md).
 Here, you need to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
 
-``` php {skip-validation} hl_lines="21 22"
+``` php {skip-validation hl_lines="21 22"}
 <?php
 
 namespace App\QueryType;
