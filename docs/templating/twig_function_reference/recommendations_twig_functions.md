@@ -133,7 +133,7 @@ Implementing the interface is sufficient, no service configuration is required.
 
 If you register multiple providers, control their order by tagging the service with a priority (higher priority is checked first):
 
-``` php
+``` yaml
 App\Tracking\MyWebsiteIdProvider:
     tags:
         - { name: ibexa.connector.raptor.tracking.website_id_context_provider, priority: 50 }
