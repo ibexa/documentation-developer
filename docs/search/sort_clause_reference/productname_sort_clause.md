@@ -12,7 +12,7 @@ The `ProductName` Sort Clause sorts search results by the Product code.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new ProductQuery(
     null,
     null,

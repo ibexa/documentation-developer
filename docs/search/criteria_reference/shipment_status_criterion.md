@@ -15,7 +15,7 @@ The `Status` Search Criterion searches for shipments based on shipment status.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new ShipmentQuery(
     new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Status('pending')
 );

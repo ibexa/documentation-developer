@@ -64,7 +64,7 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 
 You can also use this method to change cart ownership:
 
-``` php
+``` php {skip-validation}
 use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
 
 // ...
@@ -150,7 +150,7 @@ It can include any relevant information that you want to associate with a partic
 
 To add context data to a cart, follow this example:
 
-```php
+``` php {skip-validation}
 $createStruct = new CartCreateStruct(...);
 $createStruct->setContext(new ArrayMap([
     'coupon_code' => 'X1MF7699',
@@ -166,7 +166,7 @@ You also add "X1MF7699" coupon code as context data to the cart.
 
 To attach context data to a cart entry, proceed as follows:
 
-```php
+``` php {skip-validation}
 $entryAddStruct = new EntryAddStruct(...);
 $entryAddStruct->setContext(new ArrayMap([
     'tshirt_text' => 'EqEqEqEq',
@@ -184,6 +184,6 @@ In this case, you attach a "tshirt_text" attribute to the cart entry, which migh
 To combine the contents of multiple shopping carts into a target cart, use the `CartServiceInterface::mergeCarts` method.
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
-```php
+``` php
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 127, 139, remove_indent=True) =]]
 ```

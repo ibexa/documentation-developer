@@ -15,7 +15,7 @@ The `IsCompanyAssociatedCriterion` Search Criterion searches for orders based on
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\IsCompanyAssociatedCriterion(true)
 );

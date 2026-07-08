@@ -18,7 +18,7 @@ parameters:
     # Internal configuration
     ibexa.site_access.config.default.content.default_ttl: 60
     ibexa.site_access.config.site_group.content.default_ttl: 3600
- 
+
     # Here "myapp" is the namespace, followed by the SiteAccess name as the parameter scope
     # Parameter "my_param" will have a different value in site_group and admin_group
     myapp.site_group.my_param: value
@@ -29,7 +29,7 @@ parameters:
 
 Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
 
-``` php
+``` php {skip-validation}
 $configResolver = $this->getConfigResolver();
  
 // ibexa.site_access.config is the default namespace, so no need to specify it
@@ -77,7 +77,7 @@ For more information about dependency injection, see [Service container](php_api
     Don't store the retrieved config value unless you know what you're doing.
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
-``` php
+``` php {skip-validation}
 namespace App;
 
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;

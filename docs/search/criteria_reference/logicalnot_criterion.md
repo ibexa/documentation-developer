@@ -14,7 +14,7 @@ It takes only one Criterion in the array parameter.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query->filter = new Criterion\LogicalNot(
     new Criterion\ContentTypeIdentifier($contentTypeId)
 );

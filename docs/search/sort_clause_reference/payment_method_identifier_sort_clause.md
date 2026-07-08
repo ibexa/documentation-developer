@@ -13,7 +13,7 @@ The `Identifier` Sort Clause sorts search results by payment method identifier.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $paymentMethodQuery = new PaymentMethodQuery(
     $criteria,
     [

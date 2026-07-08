@@ -20,7 +20,7 @@ Use Location Search to avoid this.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
 ```
 

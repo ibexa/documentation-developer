@@ -10,7 +10,7 @@ To create a custom Sort Clause, do the following.
 
 First, add a `ScoreSortClause.php` file with the Sort Clause class:
 
-``` php
+``` php {skip-validation}
 --8<--
 code_samples/search/custom/src/Query/SortClause/ScoreSortClause.php
 --8<--
@@ -22,7 +22,7 @@ Then, add a `ScoreVisitor` class that implements `SortClauseVisitor`:
 
 === "Solr"
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/SortClause/Solr/ScoreVisitor.php
     --8<--
@@ -30,7 +30,7 @@ Then, add a `ScoreVisitor` class that implements `SortClauseVisitor`:
 
 === "Elasticsearch"
 
-    ``` php
+    ``` php {skip-validation}
     --8<--
     code_samples/search/custom/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
     --8<--

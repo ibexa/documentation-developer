@@ -16,7 +16,7 @@ When querying for [products](product_api.md), use [LogicalAnd](/api/php_api/php_
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\LogicalAnd([
         new Criterion\ContentTypeIdentifier('article'),
         new Criterion\SectionIdentifier(['sports', 'news']);

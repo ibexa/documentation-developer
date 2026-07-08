@@ -91,7 +91,7 @@ This a low effort solution, and can be enough for one fragment that is reused ac
 
 Example:
 
-```php
+``` php {skip-validation}
     // Inside a custom controller action, or even a Content View controller
     $response->setVary('Cookie');
 ```
@@ -139,7 +139,7 @@ To avoid overloading any application code, take advantage of Symfony's event sys
 
 1\. Add a [Response event (`kernel.response`)]([[= symfony_doc =]]/reference/events.html#kernel-response) [listener or subscriber]([[= symfony_doc =]]/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
-```php
+``` php {skip-validation}
 public function addPreferenceHash(FilterResponseEvent $event)
 {
     $response = $event->getResponse();
@@ -186,7 +186,7 @@ public function addPreferenceHash(FilterResponseEvent $event)
 
 3\. Add `Vary` in your custom controller or content view controller:
 
-```php
+``` php {skip-validation}
 $response->setVary('X-User-Preference-Hash');
 
 // If you _also_ need to vary on [[= product_name =]] permissions, instead use:

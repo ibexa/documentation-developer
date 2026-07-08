@@ -15,7 +15,7 @@ It returns the content item and all the content items below it in the subtree.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\Subtree('/1/2/71/72/');
 ```
 

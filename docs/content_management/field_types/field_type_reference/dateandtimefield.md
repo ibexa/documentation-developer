@@ -59,7 +59,7 @@ Hash value of this field type is an array with two keys:
 | `timestamp` | `integer` | Time information in [Unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                         | `1400856992`                            |
 | `rfc850`    | `string`  | Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this has precedence over the timestamp value.  | `"Friday, 23-May-14 14:56:14 GMT+0000"` |
 
-``` php
+``` php {skip-validation}
 $hash = [
     "timestamp" => 1400856992,
     "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
@@ -88,7 +88,7 @@ Following `defaultType` default value options are available as constants in the 
 | `DEFAULT_CURRENT_DATE`          | Default value uses current date.                                                             |
 | `DEFAULT_CURRENT_DATE_ADJUSTED` | Default value uses current date, adjusted by the interval defined in `dateInterval` setting. |
 
-``` php
+``` php {skip-validation}
 // DateAndTime FieldType example settings
 
 use Ibexa\Core\FieldType\DateAndTime\Type;
@@ -110,6 +110,6 @@ The template called by the [`ibexa_render_field()` Twig function](field_twig_fun
 
 Example:
 
-``` php
+``` php {skip-validation}
 {{ ibexa_render_field(content, 'datetime') }}
 ```

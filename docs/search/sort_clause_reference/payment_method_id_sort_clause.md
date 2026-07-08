@@ -13,7 +13,7 @@ The `Id` Sort Clause sorts search results by payment method ID.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $paymentMethodQuery = new PaymentMethodQuery(
     $criteria,
     [

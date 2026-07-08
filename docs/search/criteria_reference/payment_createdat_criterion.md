@@ -16,7 +16,7 @@ The `CreatedAt` Search Criterion searches for payments based on the date when th
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $criteria = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\CreatedAt(
     new DateTime('2023-03-01')
 );

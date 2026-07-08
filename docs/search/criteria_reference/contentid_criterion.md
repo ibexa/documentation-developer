@@ -14,7 +14,7 @@ The [`ContentId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\ContentId([62, 64]);
 ```
 

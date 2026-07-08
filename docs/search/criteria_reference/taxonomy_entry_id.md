@@ -14,12 +14,12 @@ The [`TaxonomyEntryId` Search Criterion](/api/php_api/php_api_reference/classes/
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Criterion\TaxonomyEntryId(1);
 ```
 
 Add an array of ID's to find Content tagged with at least one of the tags (OR).
 
-```php
+``` php {skip-validation}
 $query->query = new Criterion\TaxonomyEntryId([1, 2, 3]);
 ```

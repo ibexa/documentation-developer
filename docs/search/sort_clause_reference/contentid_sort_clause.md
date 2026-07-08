@@ -12,7 +12,7 @@ The [`ContentId` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contr
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\ContentId()];
 ```

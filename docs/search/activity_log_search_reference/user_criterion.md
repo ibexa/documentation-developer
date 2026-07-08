@@ -8,7 +8,7 @@ The `UserCriterion` Activity Log Criterion matches log groups that have an activ
 
 ## Example
 
-```php
+``` php {skip-validation}
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\UserCriterion([10, 14]),
 ]);

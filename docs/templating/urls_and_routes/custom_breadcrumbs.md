@@ -46,7 +46,7 @@ custom_blog_index:
 
     To see the correct breadcrumb, you have to check the method in the controller itself:
 
-    ``` php
+    ``` php {skip-validation}
     if ($request->getMethod() != REQUEST::METHOD_POST) {
         throw new NotFoundHttpException();
     }

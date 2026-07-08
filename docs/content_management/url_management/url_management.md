@@ -50,13 +50,13 @@ ibexa:
             url_checker:
                 handlers:
                     http:
-                    	enabled: true
-                    	batch_size: 64
+                        enabled: true
+                        batch_size: 64
                     https:
-                    	enabled: true
-                    	ignore_certificate: false
+                        enabled: true
+                        ignore_certificate: false
                     mailto:
-                    	enabled: false
+                        enabled: false
 ```
 
 Available options are protocol-specific.
@@ -86,7 +86,7 @@ You can extend the external URL address validation with a custom protocol.
 To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
 s
 
-```php
+``` php {skip-validation}
 <?php
 
 /**
@@ -112,7 +112,6 @@ Then you must register the service with an `ibexa.url_checker.handler` tag, like
 ```yaml
 app.url_checker.handler.custom:
     class: 'App\URLChecker\Handler\CustomHandler'
-    ...
     tags:
         - { name: ibexa.url_checker.handler, scheme: custom }
 ```
@@ -231,7 +230,7 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 
 You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
 
-``` php
+``` php {skip-validation}
 $source = 'pictures/*/*';
 $destination = 'media/images/{1}/{2}';
 $redirect = true;

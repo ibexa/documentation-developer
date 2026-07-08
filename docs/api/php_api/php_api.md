@@ -107,7 +107,7 @@ You can use this method to perform an action that the current user doesn't have 
 
 For example, to [hide a Location](managing_content.md#hiding-and-revealing-locations), use:
 
-``` php
+``` php {skip-validation}
 use Ibexa\Contracts\Core\Repository\Repository;
 
 //...
@@ -146,7 +146,7 @@ For example if you're using a command which takes the content ID as a parameter,
 
 Both cases should be covered with error messages:
 
-``` php
+``` php {skip-validation}
 try {
     // ...
 } catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {

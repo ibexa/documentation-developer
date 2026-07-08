@@ -15,7 +15,7 @@ The `StatusCriterion` Search Criterion searches for orders based on order status
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\StatusCriterion('pending')
 );

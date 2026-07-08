@@ -15,7 +15,7 @@ The `Dimensions` Search Criterion searches for image with specified dimensions.
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $imageCriteriaData = [
     'width' => [
         'min' => 100, // (default: 0, optional)

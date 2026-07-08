@@ -303,7 +303,7 @@ This enables you to use different settings for different repositories.
 
 To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
 
-``` php
+``` php {skip-validation}
 use Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 
@@ -326,7 +326,7 @@ final class CustomRepositoryConfigParser implements RepositoryConfigParserInterf
 
 You need to register this configuration extension in the following way:
 
-``` php
+``` php {skip-validation}
 final class AcmeFeatureBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
@@ -342,6 +342,6 @@ final class AcmeFeatureBundle extends Bundle
 
 To access the configuration settings, use the `Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
 
-``` php
+``` php {skip-validation}
 $acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];
 ```

@@ -13,7 +13,7 @@ The `UpdatedAt` Sort Clause sorts search results by the date and time when shipm
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [

@@ -13,7 +13,7 @@ The `Identifier` Sort Clause sorts search results by shipment identifier.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [

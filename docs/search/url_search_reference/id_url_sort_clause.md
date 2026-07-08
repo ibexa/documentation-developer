@@ -12,7 +12,7 @@ The [`SortClause\Id` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-C
 
 ## Example
 
-``` php
+``` php {skip-validation}
 use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
 use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
 

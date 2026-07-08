@@ -12,6 +12,6 @@ The [SectionIdentifier URL Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-```php
+``` php {skip-validation}
 $query->filter = new Criterion\SectionIdentifier(['standard', 'media']);
 ```

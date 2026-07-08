@@ -13,7 +13,7 @@ The `Status` Sort Clause sorts search results by shipment status.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [

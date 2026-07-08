@@ -491,7 +491,7 @@ You can retrieve data returned from the Personalization server and modify it bef
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
 See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
 
-``` php
+``` php {skip-validation}
 public static function getSubscribedEvents(): array
 {
     return [

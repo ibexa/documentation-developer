@@ -13,7 +13,7 @@ The ProductStockRangeAggregation aggregates search results by products' numerica
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $productQuery = new ProductQuery();
 $productQuery->setAggregations([
     new ProductStockRangeAggregation('stock', [

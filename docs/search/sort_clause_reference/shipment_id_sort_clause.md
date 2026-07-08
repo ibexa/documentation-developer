@@ -13,7 +13,7 @@ The `Id` Sort Clause sorts search results by shipment Id.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [

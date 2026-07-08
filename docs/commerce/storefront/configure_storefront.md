@@ -65,7 +65,7 @@ The basic configuration of the Storefront can look as follows:
 
 The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` interface allows retrieving the product catalog available for a specific user.
 
-```php
+``` php {skip-validation}
 namespace Ibexa\Contracts\Storefront\Repository;
 
 use Ibexa\Contracts\Core\Repository\Values\User\User;
@@ -92,9 +92,10 @@ Settings for a Storefront user are configured under the `ibexa.system.<scope>.st
 ibexa:
     system:
         site_group:
-            user_settings_groups:
-                - location
-                - custom_group
+            storefront:
+                user_settings_groups:
+                    - location
+                    - custom_group
 ```
 
 By default, only the `location` user settings is provided:

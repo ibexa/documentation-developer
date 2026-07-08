@@ -15,14 +15,14 @@ The `ProductStock` Search Criterion searches for products by their numerical sto
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $productQuery = new ProductQuery(
     null,
     new Criterion\ProductStock(10)
 );
 ```
 
-``` php
+``` php {skip-validation}
 $productQuery = new ProductQuery(
     null,
     new Criterion\ProductStock(50, '>=')

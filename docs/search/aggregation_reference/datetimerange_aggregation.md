@@ -14,7 +14,7 @@ The field-based [DateTimeRangeAggregation](/api/php_api/php_api_reference/classe
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\DateTimeRangeAggregation('date', 'event', 'event_date',
 [

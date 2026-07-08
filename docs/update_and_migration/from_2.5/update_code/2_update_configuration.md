@@ -31,7 +31,7 @@ you now need to rewrite your code to inject the ConfigResolver and get the relev
 
 **Use:**
 
-``` php
+``` php {skip-validation}
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 
 class MyService
@@ -53,7 +53,7 @@ class MyService
 
 **instead of:**
 
-``` php
+``` php {skip-validation}
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 
 class MyService

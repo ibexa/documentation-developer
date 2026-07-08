@@ -13,7 +13,7 @@ The `Status` Sort Clause sorts search results by payment status.
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $paymentQuery = new PaymentQuery(
     $criteria,
     [

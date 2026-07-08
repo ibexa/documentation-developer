@@ -18,7 +18,7 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 Example:
 
-``` php
+``` php {skip-validation}
 $authorList = Author\Value([
    new Author\Author([
        'id' => 1,
@@ -39,7 +39,7 @@ The hash format mostly matches the value object. It has the following key `autho
 
 Example
 
-``` php
+``` php {skip-validation}
 [
     [
        'id' => 1,
@@ -79,7 +79,7 @@ Following `defaultAuthor` default value options are available as constants in 
 | `DEFAULT_VALUE_EMPTY`  | Default value is empty.                   |
 | `DEFAULT_CURRENT_USER` | Default value uses currently logged user. |
 
-``` php
+``` php {skip-validation}
 // Author field type example settings
 
 use Ibexa\Core\FieldType\Author\Type;

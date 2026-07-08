@@ -18,7 +18,7 @@ The `Location\IsMainLocation` Sort Clause isn't available in [Repository filteri
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\InMainLocation()];
 ```

@@ -149,7 +149,7 @@ Requested through REST, this resource generates the variation if it doesn't exis
 The variation service, `ibexa.field_type.ibexa_image.variation_service`, can be used to generate/get variations for a field.
 It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, and more.):
 
-``` php
+``` php {skip-validation}
 $variation = $imageVariationHandler->getVariation(
     $imageField, $versionInfo, 'large'
 );
@@ -164,7 +164,7 @@ echo $variation->uri;
 As for any field type, there are several ways to input content to a field.
 For an Image, the quickest is to call `setField()` on the ContentStruct:
 
-``` php
+``` php {skip-validation}
 $createStruct = $contentService->newContentCreateStruct(
     $contentTypeService->loadContentType( 'image' ),
     'eng-GB'
@@ -176,7 +176,7 @@ $createStruct->setField( 'image', '/tmp/image.png' );
 To customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property.
 For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
 
-``` php
+``` php {skip-validation}
 $createStruct = $contentService->newContentCreateStruct(
     $contentTypeService->loadContentType( 'image' ),
     'eng-GB'
@@ -189,7 +189,7 @@ $createStruct->setField( 'image', $imageField );
 
 You can also provide a hash of `Image\Value` properties, either to `setField()`, or to the constructor:
 
-``` php
+``` php {skip-validation}
 $imageValue = new \Ibexa\Core\FieldType\Image\Value(
     [
         'id' => '/tmp/image.png',

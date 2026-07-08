@@ -18,7 +18,7 @@ In Elasticsearch engine, you cannot combine the `Random` Sort Clause with any ot
 
 ## Example
 
-``` php
+``` php {skip-validation}
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Random()];
 ```

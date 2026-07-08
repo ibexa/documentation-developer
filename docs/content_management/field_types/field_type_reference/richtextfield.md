@@ -70,7 +70,7 @@ You can use the [[= product_name_base =]] flavor of the DocBook format in PHP AP
 
 The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
 
-``` php
+``` php {skip-validation}
 $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, "eng-GB" );
 
 $inputString = <<<DOCBOOK

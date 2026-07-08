@@ -18,7 +18,7 @@ The Matrix field type is available via the Matrix Bundle provided by the [ibexa/
 
 Example of input:
 
-```php
+``` php {skip-validation}
 new FieldType\Value([
     new FieldType\Value\Row(['col1' => 'Row 1, Col 1', 'col2' => 'Row 1, Col 2']),
     new FieldType\Value\Row(['col1' => 'Row 2, Col 1', 'col2' => 'Row 2, Col 2']),
@@ -46,7 +46,7 @@ If, after removing empty rows, the number of rows doesn't fulfill the configured
 
 For example, the following input doesn't validate if `Minimum number of rows` is set to 3, because the second row is empty:
 
-```php
+``` php {skip-validation}
 new FieldType\Value([
     new FieldType\Value\Row(['col1' => 'Row 1, Col 1', 'col2' => 'Row 1, Col 2']),
     new FieldType\Value\Row(['col1' => '', 'col2' => '']),

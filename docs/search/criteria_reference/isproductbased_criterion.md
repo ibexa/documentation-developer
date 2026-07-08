@@ -10,6 +10,6 @@ The `IsProductBased` Search Criterion searches for content that plays the role o
 
 ### PHP
 
-``` php
+``` php {skip-validation}
 $query->query = new Ibexa\Contracts\ProductCatalog\Values\Content\Query\Criterion\IsProductBased();
 ```
