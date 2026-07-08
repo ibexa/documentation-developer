@@ -515,7 +515,7 @@ During a morning session, the interaction could look like this:
     ```
 
 The agent's reflections, reaction times, and final responses, including the improvised emojis, may differ from those examples.
-The key point is that the agent decides to use the `greet` tool, calls it with the right argument, displays the call result, and then uses it in its final output.
+The key point is that the agent decides to use the `greet` tool, calls it with the right argument, and then uses the call result in its final output.
 
 You can fine-tune the prompt or remove unnecessary variants if needed.
 For example, you could instruct to always use the time of the day variants, or simply remove the `general` and `close` variants.
