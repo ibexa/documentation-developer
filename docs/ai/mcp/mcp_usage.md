@@ -13,7 +13,7 @@ Additionally, you can create your own capabilities (tools, prompts, and resource
 
 The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of the [official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk).
 
-A PHP class that implements MCP server capabilities such as tools, prompts, or resources, must:
+A PHP class that implements MCP server capabilities such as tools, prompts, or resources must:
 
 - implement [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) so that it can be scanned for capabilities
 - use attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to declare capabilities
@@ -25,7 +25,7 @@ It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
   <br>For more information, see [tools configuration](mcp_config.md#tool-configuration).
-- `name` - tool codename - if not set, function name is used
+- `name` - tool codename - if not set, the function name is used
 - `title` - tool title for user interfaces - if not set, the `name` is used
 - `description` - tool description, used by AI agents to understand the tool's purpose
 - `icons` - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
@@ -53,7 +53,7 @@ Methods that return a prompt are marked with the [`Ibexa\Contracts\Mcp\Attribute
 It accepts several arguments that describe how the prompt is used:
 
 - `servers` - array of server identifiers exposing this prompt - required for prompts
-- `name` (optional) - prompt codename - if not set, method name is used
+- `name` (optional) - prompt codename - if not set, the method name is used
 - `title` (optional) - prompt title - if not set, `name` is used
 - `description` (optional) - human-readable prompt description
 - `icons` (optional) - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
@@ -63,7 +63,7 @@ It accepts several arguments that describe how the prompt is used:
 
 The framework automatically builds the `arguments` array from the method arguments and their types.
 Prompt method arguments must be strings to comply with the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/2025-11-25/schema#getpromptrequestparams).
-To add argument descriptions, use DocBlock `@param` tags, it's mapped to the `description` defined by the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/2025-11-25/schema#promptargument).
+To add argument descriptions, use DocBlock `@param` tags, which are mapped to the `description` defined by the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/2025-11-25/schema#promptargument).
 
 ## Example
 
@@ -99,7 +99,7 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
-Adapt the `allowed_hosts` to your case, for example, if you want to use the DDEV `.ddev.site` domain instead of its `127.0.0.1` address equivalent.
+Adapt the `allowed_hosts` to your case, for example, if you want to use the DDEV `.ddev.site` domain instead of the equivalent `127.0.0.1` address.
 
 An `ibexa.mcp.example` route is now available:
 
@@ -113,7 +113,7 @@ Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
 
 The class contains:
 
-- a method marked with an [`McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) that associates it to the `example` server as `greet` tool
+- a method marked with an [`McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) that associates it with the `example` server as the `greet` tool
 - a method marked with an [`McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html) that provides a prompt template to users
 
 ``` php
@@ -121,7 +121,7 @@ The class contains:
 ```
 
 In this example, the `servers` attribute parameter associates only this tool with the `example` server.
-Alternatively, you can assign all tools from the class to a server by using the `tools` parameter in server configuration.
+Alternatively, you can assign all tools from the class to a server by using the `tools` parameter in the server configuration.
 For more information, see [tools configuration](mcp_config.md#tool-configuration).
 
 For the prompt, the `servers` parameter is required.
@@ -249,7 +249,7 @@ You can test your server with the [MCP Inspector](https://modelcontextprotocol.i
 You can even use the inspector as a DDEV add-on with [`michtio/ddev-mcp-inspector`](https://github.com/michtio/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
 
-You can use a Web interface to obtain the JWT token:
+You can use a web interface to obtain the JWT token:
 
 - [REST live documentation](rest_api_authentication.md#jwt-token-obtained-through-rest-documentation)
 - [GraphiQL](graphql.md#jwt-authentication)
@@ -285,21 +285,21 @@ You can select and test it in the right column.
 
 ### Perform Copilot or Claude Code test
 
-You can use your MCP with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) or [Claude Code CLI](https://code.claude.com/docs/en/overview) like illustrated here, or any agent with any interface to test your MCP server.
+You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) or [Claude Code CLI](https://code.claude.com/docs/en/overview), as illustrated here, or with any other agent or interface.
 
 #### Add MCP server to agent CLI
 
 For the sake of the agent test, in this example, you configure the MCP server in an `.mcp.json` file at the [[= product_name =]] project root.
-This way it is only available for a session opened from there.
+This way, it is only available for a session opened from there.
 
 You can handle the JWT token for this test in the following ways:
 
-- [Hard code the JWT token](#hard-coded-variant) into the configuration and update it at every expiration.
+- [Hard-code the JWT token](#hard-coded-variant) into the configuration and update it at every expiration.
 - [Wrap a JWT token request and an MCP server call into a script](#fully-scripted-variant).
 
-##### Hard coded variant
+##### Hard-coded variant
 
-The hard coded JWT token configuration in `.mcp.json` looks as follows:
+The hard-coded JWT token configuration in `.mcp.json` looks as follows:
 
 ``` json
 [[= include_code('code_samples/mcp/http.mcp.json') =]]
@@ -325,7 +325,7 @@ When Copilot or Claude Code complains that it can't communicate with the MCP ser
 
     !!! note "Reloading multiple MCP servers"
 
-        If you have several MCP servers enabled globally, reloading all of them at the same time can be time consuming.
+        If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming.
         Consider reloading them one by one.
 
 === "Claude Code CLI"
@@ -360,7 +360,7 @@ When the agent complains that it can't communicate with the MCP server, reload i
 
     !!! note "Reloading multiple MCP servers"
 
-        If you have several MCP servers enabled globally, reloading all of them at the same time can be time consuming.
+        If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming.
         Consider reloading them one by one.
 
 === "Claude Code CLI"
@@ -392,7 +392,7 @@ You can check the MCP server status and details with the `/mcp` command:
 
 === "Copilot CLI"
 
-    Run the `/mcp show ibexa-example` to check the MCP server status and details:
+    Run the `/mcp show ibexa-example` command to check the MCP server status and details:
 
     ``` text
     MCP Server: ibexa-example
@@ -425,7 +425,7 @@ You can prompt the agent to greet you.
 It should use the `greet` tool to do so.
 
 - You can ask it "Please, greet me." and it might respond with a request for your name if it doesn't already know it.
-- You can also give it another name to greet, like in the prompt template.
+- You can also give it another name to greet, as shown in the prompt template.
 
 During a morning session, the interaction could look like this:
 
@@ -517,6 +517,6 @@ During a morning session, the interaction could look like this:
 The agent's reflections, reaction times, and final responses, including the improvised emojis, may differ from those examples.
 The key point is that the agent decides to use the `greet` tool, calls it with the right argument, and then uses the call result in its final output.
 
-You can fine-tune the prompt or remove unnecessary variants if needed.
-For example, you could instruct to always use the time of the day variants, or simply remove the `general` and `close` variants.
-To remove the unnecessary is more efficient that extending the instruction.
+You can fine-tune the prompt, or remove unnecessary variants if needed.
+For example, you could instruct the agent to always use the time-of-day variants, or simply remove the `general` and `close` variants.
+Removing what's unnecessary is more efficient than extending the instructions.
