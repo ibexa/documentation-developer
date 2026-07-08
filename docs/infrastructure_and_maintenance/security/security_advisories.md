@@ -6,7 +6,7 @@ description: Find [[= product_name_base =]] security advisories, and learn how t
 
 ## [[= product_name_base =]] security advisories
 
-[[= product_name_base =]] security advisories are released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+[[= product_name_base =]] security advisories are released via [your Service portal](https://support.ibexa.co/), and via [Security advisories](https://developers.ibexa.co/security-advisories). The latter is available to non-subscribers.
 
 ## Package security advisories
 
