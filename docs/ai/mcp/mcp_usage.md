@@ -333,7 +333,6 @@ When Copilot or Claude Code complains that it can't communicate with the MCP ser
     - Update the JWT token in the `.mcp.json` file.
     - Run `/mcp reconnect ibexa-example` command to reconnect the `ibexa-example` MCP server.
 
-
 ##### Fully scripted variant
 
 The wrapping script configuration in `.mcp.json` looks as follows:
@@ -518,4 +517,4 @@ The key point is that the agent decides to use the `greet` tool, calls it with t
 
 You can fine-tune the prompt or remove unnecessary variants if needed.
 For example, you could instruct to always use the time of the day variants, or simply remove the `general` and `close` variants.
-To remove the unnecessary is more efficient that extending the instruction. 
+To remove the unnecessary is more efficient that extending the instruction.
