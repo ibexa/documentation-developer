@@ -91,6 +91,25 @@ Regenerate the baseline by running:
 composer phpstan -- --generate-baseline
 ```
 
+#### Skipping validation of inline PHP snippets
+
+PHP code blocks embedded directly in Markdown files are extracted and tested with PHPStan.
+To exclude a snippet from validation (for example, for an intentionally incomplete fragment), add the `skip-validation` marker to its opening fence:
+
+````markdown
+``` php {skip-validation}
+```
+````
+
+If the code block uses other options, such as `hl_lines`, they must be placed **inside the same curly-brace group** as the marker:
+
+````markdown
+``` php {skip-validation hl_lines="6 14"}
+```
+````
+
+Both `php {skip-validation} hl_lines="6 14"` and `php hl_lines="6 14" {skip-validation}` are rejected by the Markdown parser, and the whole code block is rendered as plain paragraph text.
+
 ### Deptrac
 
 This repository uses Deptrac to test the code samples. To run the tests locally execute the commands below:

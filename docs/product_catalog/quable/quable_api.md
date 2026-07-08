@@ -37,7 +37,7 @@ The following example shows how you can retrieve a single product:
 Use [`ProductQuery`](product_api.md#getting-product-information) to search for multiple products:
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 59, 68, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 59, 69, remove_indent=True) =]]
 ```
 
 When working with [[= pim_product_name =]] products, the following search criteria are supported:
@@ -68,7 +68,8 @@ For information stored outside of [[= pim_product_name =]], such as [product ava
 
 ``` php hl_lines="6 14"
 // Manage availability
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 84, 89, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 86, 90, remove_indent=True) =]]
+
 // Manage prices
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75, remove_indent=True) =]]
 ```
