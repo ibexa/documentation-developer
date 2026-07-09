@@ -311,11 +311,6 @@ Alternatively, you can configure a shell script to request the JWT token, extrac
 
 When Copilot or Claude Code complains that it can't communicate with the MCP server:
 
-- Update the JWT token in the `.mcp.json` file.
-- Reload the MCP servers in Copilot CLI with one of these methods:
-    - Run `/mcp reload` command to reload all MCP servers.
-    - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
-
 === "Copilot CLI"
 
     - Update the JWT token in the `.mcp.json` file.
