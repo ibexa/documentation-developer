@@ -65,7 +65,7 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
 
 You can use the `Field` Criterion to search for articles that contain the word "featured":
 
-``` php {skip-validation} hl_lines="4"
+``` php {skip-validation hl_lines="4"}
 $query = new LocationQuery();
 $query->query = new Criterion\LogicalAnd([
         new Criterion\ContentTypeIdentifier('article'),

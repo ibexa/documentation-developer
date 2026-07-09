@@ -56,7 +56,7 @@ You can use a custom template for example to display information about password 
 
 In case of more advanced template customization, you can use a subscriber, for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
 
-``` php {skip-validation} hl_lines="23 35 40 42"
+``` php {skip-validation hl_lines="23 35 40 42"}
 <?php
 
 declare(strict_types=1);

@@ -58,7 +58,7 @@ $query->query = new Criterion\DateMetadata(
 
 You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:
 
-``` php {skip-validation} hl_lines="5"
+``` php {skip-validation hl_lines="5"}
 $query = new LocationQuery;
 $date = strtotime("-1 week");
 $query->query = new Criterion\LogicalAnd([
