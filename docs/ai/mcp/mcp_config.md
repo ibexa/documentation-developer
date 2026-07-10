@@ -64,11 +64,20 @@ You define MCP servers within a repository configuration and then assign those s
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 31, 35) =]]
 ```
 
+Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
+You can list all defined servers by running the following command:
+
+```bash
+ddev php bin/console debug:container ibexa.mcp.server
+```
+
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
 You can list them by running the following command:
 
-`php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
+```bash
+php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
+```
 
 ### Built-in MCP servers
 
