@@ -70,6 +70,12 @@ You can list them by running the following command:
 
 `php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
 
+### Built-in MCP servers
+
+Some MCP servers are already defined on default installation.
+
+- `/mcp/data-intelligence` - The [Data Intelligence Layer](data_intelligence_layer.md) MCP server is bundled with tool sets from `Ibexa\Bundle\DataIntelligenceLayer\Mcp\` namespace and expose metrics about content to AI agent TODO: like the Orchestration chat one.
+
 ### MCP server options
 
 | Option                                                                                                          | Type    | Required | Default                                                                  | Description                                                      |
@@ -128,6 +134,15 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code.
 - `Ibexa\Mcp\Tool\SeoTools`
     - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
+- `Ibexa\Bundle\DataIntelligenceLayer\Mcp\MetricDiscoveryTools`
+    - `dil_discover_metrics` - TODO
+- `Ibexa\Bundle\DataIntelligenceLayer\Mcp\MetricReaderTools`
+    - `dil_get_metric` - TODO
+    - `dil_list_entity_metrics` - TODO
+    - `dil_query_metrics` - TODO
+    - `dil_count_metrics` - TODO
+    - `dil_get_translation_backlog` - TODO
+    - `dil_get_translation_subtree_coverage` - TODO
 
 ``` yaml hl_lines="5-7"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]

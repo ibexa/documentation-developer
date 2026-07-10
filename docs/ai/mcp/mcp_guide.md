@@ -21,7 +21,7 @@ However, when facing a specific REST or GraphQL API, an agent may misunderstand 
 MCP servers make the discovery of available capabilities much easier.
 They help AI agents translate natural language prompts into concrete actions on the system.
 
-![MCP communication diagram showing AI agent client connecting to MCP Server within Ibexa DXP.](img/mcp-com-diagram.png)
+![MCP communication diagram showing AI agent client connecting to MCP server within Ibexa DXP.](img/mcp-com-diagram.png)
 
 An MCP server allows the agent to discover available tools, inspect their parameters, learn how to use them, and select the correct action.
 
@@ -40,3 +40,9 @@ With the MCP Servers feature, you can:
 
 MCP servers are defined specifically for each [repository](repository_configuration.md) and assigned to individual [SiteAccesses](siteaccess.md) scopes.
 This way you can build flexible configurations that match different contexts.
+
+## Built-in MCP servers
+
+### DIL MCP server
+
+The [Data Intelligence Layer](data_intelligence_layer.md) MCP server is an already set up server that expose tools to access metrics about content so an AI agent can work on content quality or translation coverage.
