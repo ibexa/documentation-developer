@@ -91,7 +91,7 @@ jobs:
                       lychee-
 
             - name: Check links
-              uses: lycheeverse/lychee-action@master
+              uses: lycheeverse/lychee-action@v2.9.0
               with:
                   args: >-
                       --config lychee.toml
