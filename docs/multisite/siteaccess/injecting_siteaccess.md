@@ -28,8 +28,10 @@ use Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface;
 
 class MyService
 {
-    public function __construct(private readonly SiteAccessServiceInterface $siteAccessService, private readonly ContentService $contentService)
-    {
+    public function __construct(
+        private readonly SiteAccessServiceInterface $siteAccessService,
+        private readonly ContentService $contentService
+    ) {
     }
 }
 ```

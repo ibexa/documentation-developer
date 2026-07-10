@@ -20,10 +20,10 @@ The Value class of this field type contains the following properties:
 
 ``` php
 //Value object content examples
-use Ibexa\Core\FieldType\Checkbox\Value;
+use Ibexa\Core\FieldType\Checkbox;
 
 // Instantiates a checkbox value with a default state (false)
-$checkboxValue = new Value();
+$checkboxValue = new Checkbox\Value();
 
 // Checked
 $checkboxValue->bool = true;
@@ -38,10 +38,10 @@ The `Checkbox\Value` constructor accepts a boolean value:
 
 ``` php
 // Constructor example
-use Ibexa\Core\FieldType\Checkbox\Value;
+use Ibexa\Core\FieldType\Checkbox;
 
 // Instantiates a checkbox value with a checked state
-$checkboxValue = new Value(true);
+$checkboxValue = new Checkbox\Value(true);
 ```
 
 ##### String representation

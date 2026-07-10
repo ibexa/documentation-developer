@@ -42,7 +42,7 @@ It expects two comma-separated strings, corresponding to the link and text.
 
 ``` php
 // Constructor example
-use Ibexa\Core\FieldType\Url as Url;
+use Ibexa\Core\FieldType\Url;
 
 // Instantiates an Url Value object
 $UrlValue = new Url\Value('https://www.ibexa.co/', 'Ibexa');

@@ -31,8 +31,8 @@ Value object of `ibexa_image_asset` contains the following properties:
 
 ``` php
 /**
- * Value object content example
- * 
+ * Value object content example.
+ *
  * @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue
  * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
  */

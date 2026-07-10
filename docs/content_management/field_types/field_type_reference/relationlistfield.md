@@ -29,8 +29,8 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 ``` php
 /**
- * Value object content example
- * 
+ * Value object content example.
+ *
  * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
  * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
  * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2

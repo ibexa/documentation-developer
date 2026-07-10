@@ -27,8 +27,8 @@ The Value class of this field type contains the following properties:
 
 ``` php
 /**
- * Value object content example
- * 
+ * Value object content example.
+ *
  * @var \Ibexa\Core\FieldType\Relation\Value $relation
  * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
  */

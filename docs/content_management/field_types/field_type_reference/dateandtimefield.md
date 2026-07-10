@@ -98,6 +98,13 @@ $settings = [
     'defaultType' => Type::DEFAULT_EMPTY,
     'dateInterval' => null,
 ];
+
+/** @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService */
+$dateAndTimeFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct(
+    'my_date_and_time_field',
+    'ibexa_datetime'
+);
+$dateAndTimeFieldCreateStruct->fieldSettings = $settings;
 ```
 
 ## Template rendering
