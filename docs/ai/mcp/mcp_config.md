@@ -83,7 +83,8 @@ php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
 
 Some MCP servers are already defined on default installation.
 
-- `/mcp/data-intelligence` - The [Data Intelligence Layer](data_intelligence_layer.md) MCP server is bundled with tool sets from `Ibexa\Bundle\DataIntelligenceLayer\Mcp\` namespace and expose metrics about content to AI agent TODO: like the Orchestration chat one.
+- `data_intelligence_layer` (`/mcp/data-intelligence`) - The [Data Intelligence Layer](data_intelligence_layer.md) MCP server is bundled with tool sets from `Ibexa\Bundle\DataIntelligenceLayer\Mcp\` namespace and expose metrics about content to AI agent TODO: like the Orchestration chat one.
+  By default, it's enabled but not assigned to any SiteAccess scope. TODO: confirm; maybe it will be assigned to admin_group?
 
 ### MCP server options
 
