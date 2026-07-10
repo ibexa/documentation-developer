@@ -110,7 +110,7 @@ Additionally, attach message metadata by using [stamps](#stamps).
 
 You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control how the message is processed.
 
-Use Stamps available in Symfony, and combine them with the ones provided by [[= product_name =]]:
+Use [Stamps available in Symfony](https://github.com/symfony/symfony/tree/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp), and combine them with the ones provided by [[= product_name =]]:
 
 - [SudoStamp](#sudostamp)
 - [UserPermissionStamp](#userpermissionstamp)
