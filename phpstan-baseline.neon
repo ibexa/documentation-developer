@@ -76,13 +76,13 @@ parameters:
 			message: '#^Property App\\MyService\:\:\$contentService is never read, only written\.$#'
 			identifier: property.onlyWritten
 			count: 1
-			path: code_samples/_inline_php/multisite/siteaccess/injecting_siteaccess/8c8e5bbb699fa46d35caf839176460dccbdd53431e04edd95c7ea25a7e638d9c.php
+			path: code_samples/_inline_php/multisite/siteaccess/injecting_siteaccess/ab06aaada31a753d4da4ac9c30d6588608ca390d67846d676de254308b9981e3.php
 
 		-
 			message: '#^Property App\\MyService\:\:\$siteAccessService is never read, only written\.$#'
 			identifier: property.onlyWritten
 			count: 1
-			path: code_samples/_inline_php/multisite/siteaccess/injecting_siteaccess/8c8e5bbb699fa46d35caf839176460dccbdd53431e04edd95c7ea25a7e638d9c.php
+			path: code_samples/_inline_php/multisite/siteaccess/injecting_siteaccess/ab06aaada31a753d4da4ac9c30d6588608ca390d67846d676de254308b9981e3.php
 
 		-
 			message: '#^Variable \$this might not be defined\.$#'
