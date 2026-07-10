@@ -169,16 +169,16 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 
 `jq`, `grep`, and `sed` are also used to parse or display outputs.
 
-First, use the shell script to set the [[= product_name =]]'s base URL and user credentials as variables for easier reuse:
+First, use the shell script to set the [[= product_name =]]'s base URL, user credentials, and MCP server URL as variables for easier reuse:
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 5, 7) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 5, 8) =]]
 ```
 
 Before you can communicate with the MCP server, you must first request a JWT token through the REST API:
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 9, 23) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 10, 24) =]]
 ```
 
 ``` json
@@ -188,7 +188,7 @@ Before you can communicate with the MCP server, you must first request a JWT tok
 Then, perform [initialization](https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 21, 44) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 22, 45) =]]
 ```
 
 ``` http
@@ -202,7 +202,7 @@ Then, perform [initialization](https://modelcontextprotocol.io/specification/202
 Validate the initialization:
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 46, 52) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 47, 53) =]]
 ```
 
 ``` http
@@ -212,7 +212,7 @@ Validate the initialization:
 Get the [list of tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#listing-tools):
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 54, 61) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 55, 62) =]]
 ```
 
 ``` json
@@ -222,7 +222,7 @@ Get the [list of tools](https://modelcontextprotocol.io/specification/2025-11-25
 [Call](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#calling-tools) the `greet` tool:
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 63, 76) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 64, 77) =]]
 ```
 
 ``` json
@@ -232,7 +232,7 @@ Get the [list of tools](https://modelcontextprotocol.io/specification/2025-11-25
 Get the [list of prompts](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#listing-prompts):
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 78, 85) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 79, 86) =]]
 ```
 
 ``` json
@@ -242,7 +242,7 @@ Get the [list of prompts](https://modelcontextprotocol.io/specification/2025-11-
 [Get the prompt](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt) of the `greet` method:
 
 ``` bash
-[[= include_code('code_samples/mcp/mcp.sh', 87, 100) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 88, 101) =]]
 ```
 
 ``` json
