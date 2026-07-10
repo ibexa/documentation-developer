@@ -85,7 +85,7 @@ Example:
 
 ``` html+twig
 {{ ibexa_tracking_track_event('visit', product, {
-    websiteId: 'my-id'
+    websiteId: 'ibexa_user_get_current().login'
 }) }}
 ```
 
@@ -96,7 +96,7 @@ Both the User ID and the Cookie ID can be used to personalize website modules.
 The value of `websiteId` parameter is resolved in the following order:
 
 1. Explicit `websiteId` passed in the `ibexa_tracking_track_event()` context.
-2. Custom `WebsiteIdContextProviderInterface` implementations (the first one returning a non-null value wins).
+2. Custom [`WebsiteIdContextProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html) implementations (the first one returning a non-null value wins).
 3. The built-in provider, which uses the logged-in user's identifier (`ruid`).
 
 If no value is resolved, the event is sent without the `p7` parameter.
@@ -114,7 +114,7 @@ use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextPro
 
 final class MyWebsiteIdProvider implements WebsiteIdContextProviderInterface
 {
-    private const string WEBSITE_ID = 'my-id';
+    private const string WEBSITE_ID = 'ibexa_user_get_current().login';
 
     public function getWebsiteId(): string
     {
