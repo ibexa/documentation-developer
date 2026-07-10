@@ -10,9 +10,14 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/ibexa/data-intelligence-layer"
+        },
+        {
             "type": "composer",
             "url": "https://updates.ibexa.co"
         }
+
     ],
     "require": {
         "php": "^8.3"
