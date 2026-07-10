@@ -99,7 +99,8 @@
         "ibexa/ckeditor-premium": "~6.0.x-dev",
         "ibexa/measurement": "~6.0.x-dev",
         "ibexa/connector-actito": "~6.0.x-dev",
-        "ibexa/fastly": "~6.0.x-dev"
+        "ibexa/fastly": "~6.0.x-dev",
+        "ibexa/data-intelligence-layer": "~6.0.x-dev"
     },
     "scripts": {
         "fix-cs": [
