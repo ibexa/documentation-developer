@@ -13,12 +13,17 @@ The `CreatedAt` Sort Clause sorts search results by the date and time when the p
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+$criteria = null;
+
 $paymentQuery = new PaymentQuery(
     $criteria,
     [
         new \Ibexa\Contracts\Payment\Payment\Query\SortClause\CreatedAt(
-            \Ibexa\Contracts\Payment\Payment\Query\SortClause\CreatedAt::SORT_ASC)
+            \Ibexa\Contracts\Payment\Payment\Query\SortClause\CreatedAt::SORT_ASC
+        ),
     ]
 );
 ```

@@ -28,7 +28,10 @@ The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
 
 ``` php {skip-validation}
-Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+return [
+    // ...
+    Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+];
 ```
 
 ## Parsing semantic configuration

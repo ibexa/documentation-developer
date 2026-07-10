@@ -16,8 +16,12 @@ The `FileSize` Search Criterion searches for image with specified size.
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new Criterion\FileSize('image', 0, 1.5);
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+$query->query = new Criterion\Image\FileSize('image', 0, 1.5);
 ```
 
 ### REST API

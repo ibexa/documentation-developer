@@ -20,7 +20,10 @@ For more information, see [Availability and computed availability](products.md#a
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductAvailability(true)

@@ -15,6 +15,10 @@ The `Identifier` Search Criterion searches for payments based on the payment ide
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Identifier('f7578972-e7f4-4cae-85dc-a7c74610204e');
+``` php
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+$query = new PaymentQuery(
+    new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Identifier('f7578972-e7f4-4cae-85dc-a7c74610204e')
+);
 ```

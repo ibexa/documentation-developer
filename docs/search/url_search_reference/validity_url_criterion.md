@@ -12,6 +12,10 @@ The [Validity URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contra
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+
+$query = new URLQuery();
 $query->filter = new Criterion\Validity(true);
 ```

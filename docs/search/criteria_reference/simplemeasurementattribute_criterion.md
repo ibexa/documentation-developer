@@ -15,12 +15,16 @@ The `SimpleMeasurementAttribute` Search Criterion searches for products by the v
 
 ### PHP
 
-``` php {skip-validation}
-$value = $this->measurementService->buildSimpleValue('length', 120, 'centimeter');
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
+/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
+$value = $measurementService->buildSimpleValue('length', 120, 'centimeter');
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\SimpleMeasurementAttribute(
+    new \Ibexa\Contracts\Measurement\Product\Query\Criterion\SimpleMeasurementAttribute(
         'width',
         $value
     )

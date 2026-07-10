@@ -171,8 +171,12 @@ Examples for tagging everything needed for content using the autowireable [`Resp
 
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
-``` php {skip-validation}
-/** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
+``` php
+/**
+ * @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
+ */
 
 // Example for tagging everything needed for Content:
 $tagHandler->addContentTags([$content->id]);
@@ -191,7 +195,9 @@ In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` s
 
 The following example adds minimal tags when ID 33 and 34 are rendered in ESI, but parent response needs these tags to get refreshed if they're deleted:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
@@ -203,9 +209,9 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 For custom or built-in controllers (for example, REST) that still use `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
 It supports singular and comma-separated location ID value(s):
 
-``` php {skip-validation}
+``` php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
-$response->headers->set('X-Location-Id', 123);
+$response->headers->set('X-Location-Id', '123');
 
 // Alternatively using several Location ID values
 $response->headers->set('X-Location-Id', '123,212,42');
@@ -322,8 +328,11 @@ In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), 
 While the system purges tags whenever API is used to change data, you may need to purge directly from code.
 For that you can use the built-in purge client:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+
 /** @var \Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface $purgeClient */
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location */
 
 // Example for purging by Location ID:
 $purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);

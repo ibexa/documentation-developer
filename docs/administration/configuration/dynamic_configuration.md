@@ -27,11 +27,11 @@ parameters:
     myapp.default.my_param: Default value
 ```
 
-Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
+Inside a controller extending the `Ibexa\Core\MVC\Symfony\Controller\Controller` class, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
 
 ``` php {skip-validation}
 $configResolver = $this->getConfigResolver();
- 
+
 // ibexa.site_access.config is the default namespace, so no need to specify it
 // The following will resolve ibexa.site_access.config.<siteaccessName>.content.default_ttl
 // In the case of site_group, it will return 3600.
@@ -77,24 +77,18 @@ For more information about dependency injection, see [Service container](php_api
     Don't store the retrieved config value unless you know what you're doing.
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
-``` php {skip-validation}
+``` php
 namespace App;
 
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
- 
+
 class Service
 {
-    /**
-     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
-     */
-    private $configResolver;
- 
-    public function __construct( ConfigResolverInterface $configResolver )
+    public function __construct(private readonly ConfigResolverInterface $configResolver)
     {
-        $this->configResolver = $configResolver;
     }
 
-    public function someMethodThatNeedConfig()
+    public function someMethodThatNeedConfig(): void
     {
         $configValue = $this->configResolver->getParameter('my_param', 'myapp');
     }

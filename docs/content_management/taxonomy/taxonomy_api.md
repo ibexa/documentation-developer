@@ -20,10 +20,14 @@ and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 !!! note
 
     A taxonomy entry identifier is unique per taxonomy. If you have [several taxonomies](taxonomy.md#customize-taxonomy-structure), you can increase code readability by always passing the taxonomy identifier even when it's the default one. The default taxonomy is `tags` if it exists, else the first configured taxonomy (see `\Ibexa\Taxonomy\Service\TaxonomyConfiguration::getDefaultTaxonomyName` for details).
-    ``` php {skip-validation}
-    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'tags');
-    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'events');
-    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'devices');
+    ``` php
+    /**
+     * @var array<int, \Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry> $springs
+     * @var \Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface $taxonomyService
+     */
+    $springs[] = $taxonomyService->loadEntryByIdentifier('spring', 'tags');
+    $springs[] = $taxonomyService->loadEntryByIdentifier('spring', 'events');
+    $springs[] = $taxonomyService->loadEntryByIdentifier('spring', 'devices');
     ```
 
 You can also get a taxonomy entry from the ID of its underlying content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.

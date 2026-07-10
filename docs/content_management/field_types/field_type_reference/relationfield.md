@@ -25,9 +25,13 @@ The Value class of this field type contains the following properties:
 |------------------------|-----------------------------|-------------------------------------------------------------------------------------------|
 | `$destinationContentId` | `string`, `int`, or `null` | This property is used to store the value provided, which represents the related content.  |
 
-``` php {skip-validation}
-// Value object content example
-
+``` php
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\Relation\Value $relation
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ */
 $relation->destinationContentId = $contentInfo->id;
 ```
 
@@ -35,11 +39,13 @@ $relation->destinationContentId = $contentInfo->id;
 
 The `Relation\Value` constructor initializes a new value object with the value provided. It expects a mixed value.
 
-``` php {skip-validation}
+``` php
 // Constructor example
+use Ibexa\Core\FieldType\Relation as Relation;
 
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
 // Instantiates a Relation Value object
-$relationValue = new Relation\Value( $contentInfo->id );
+$relationValue = new Relation\Value($contentInfo->id);
 ```
 
 ### Validation
@@ -56,14 +62,14 @@ The field definition of this field type can be configured with three options:
 | `selectionRoot`         | `string` | `null`                            | This setting defines the selection root.                                       |
 | `selectionContentTypes` | `array`  | `[]`                              | An array of content type IDs that are allowed for related Content.             |
 
-``` php {skip-validation}
+``` php
 // Relation FieldType example settings
 
 use Ibexa\Core\FieldType\Relation\Type;
 
 $settings = [
-    "selectionMethod" => 1,
-    "selectionRoot" => null,
-    "selectionContentTypes" => []
+    'selectionMethod' => 1,
+    'selectionRoot' => null,
+    'selectionContentTypes' => [],
 ];
 ```

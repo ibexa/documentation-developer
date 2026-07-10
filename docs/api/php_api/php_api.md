@@ -107,14 +107,17 @@ You can use this method to perform an action that the current user doesn't have 
 
 For example, to [hide a Location](managing_content.md#hiding-and-revealing-locations), use:
 
-``` php {skip-validation}
+``` php
 use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 
 //...
 
-$hiddenLocation = $repository->sudo(function (Repository $repository) use ($location) {
-    return $repository->getLocationService()->hideLocation($location);
-});
+/**
+ * @var Repository $repository
+ * @var Location $location
+ */
+$hiddenLocation = $repository->sudo(static fn (Repository $repository): Location => $repository->getLocationService()->hideLocation($location));
 ```
 
 ### Setting the repository user
@@ -149,9 +152,9 @@ Both cases should be covered with error messages:
 ``` php {skip-validation}
 try {
     // ...
-} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException) {
     $output->writeln("<error>No content with id $contentId found</error>");
-} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException) {
     $output->writeln("<error>Permission denied on content with id $contentId</error>");
 }
 ```

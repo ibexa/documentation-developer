@@ -18,6 +18,10 @@ The `CurrencyCodeCriterion` Criterion isn't available in Solr or Elasticsearch e
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new \Ibexa\Contracts\ProductCatalog\Values\Currency\Query\Criterion\CurrencyCodeCriterion('EUR');
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyQuery;
+
+$query = new CurrencyQuery(
+    new \Ibexa\Contracts\ProductCatalog\Values\Currency\Query\Criterion\CurrencyCodeCriterion('EUR')
+);
 ```

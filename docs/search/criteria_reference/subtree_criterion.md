@@ -15,7 +15,11 @@ It returns the content item and all the content items below it in the subtree.
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\Subtree('/1/2/71/72/');
 ```
 

@@ -24,7 +24,7 @@ It also modifies the permission system to account for the new functionality.
 
 Then, if not using Symfony Flex, add the following code to the `config/bundles.php` file:
 
-``` php {skip-validation}
+``` php
 <?php
 
 return [

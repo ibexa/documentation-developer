@@ -14,7 +14,10 @@ The `ProductCode` Search Criterion searches for products by their codes.
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCode(['ergo_desk', 'alter_desk'])

@@ -13,12 +13,18 @@ The `TaxonomyEntryIdAggregation` aggregates search results by the content item's
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Taxonomy\Search\Query\Aggregation as Aggregation;
+
 $query = new Query();
 $query->aggregations[] = new Aggregation\TaxonomyEntryIdAggregation('taxonomy', 'tags');
 ```
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\Taxonomy\Search\Query\Aggregation\TaxonomyEntryIdAggregation;
+
 $query = new ProductQuery();
-$query->aggregations[] = new Aggregation\TaxonomyEntryIdAggregation('categories', 'product_categories');
+$query->setAggregations([new TaxonomyEntryIdAggregation('categories', 'product_categories')]);
 ```

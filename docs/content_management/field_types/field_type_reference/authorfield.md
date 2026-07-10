@@ -18,17 +18,19 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 Example:
 
-``` php {skip-validation}
-$authorList = Author\Value([
+``` php
+use Ibexa\Core\FieldType\Author;
+
+$authorList = new Author\Value([
    new Author\Author([
        'id' => 1,
        'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com'
+       'email' => 'boba.fett@example.com',
    ]),
    new Author\Author([
        'id' => 2,
        'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com'
+       'email' => 'darth.vader@example.com',
    ]),
 ]);
 ```
@@ -39,19 +41,19 @@ The hash format mostly matches the value object. It has the following key `autho
 
 Example
 
-``` php {skip-validation}
+``` php
 [
     [
        'id' => 1,
        'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com'
+       'email' => 'boba.fett@example.com',
     ],
     [
        'id' => 2,
        'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com'
-    ]
-]
+       'email' => 'darth.vader@example.com',
+    ],
+];
 ```
 
 #### String representation
@@ -79,12 +81,12 @@ Following `defaultAuthor` default value options are available as constants in 
 | `DEFAULT_VALUE_EMPTY`  | Default value is empty.                   |
 | `DEFAULT_CURRENT_USER` | Default value uses currently logged user. |
 
-``` php {skip-validation}
+``` php
 // Author field type example settings
 
 use Ibexa\Core\FieldType\Author\Type;
 
 $settings = [
-    "defaultAuthor" => Type::DEFAULT_VALUE_EMPTY
+    'defaultAuthor' => Type::DEFAULT_VALUE_EMPTY,
 ];
 ```

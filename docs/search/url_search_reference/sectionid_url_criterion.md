@@ -12,6 +12,10 @@ The [`SectionId` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php {skip-validation}
-$query->filter = new Criterion\SectionId(['1', '3']);
+``` php
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+
+$query = new URLQuery();
+$query->filter = new Criterion\SectionId([1, 3]);
 ```

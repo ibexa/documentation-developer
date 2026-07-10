@@ -8,7 +8,9 @@ The `UserCriterion` Activity Log Criterion matches log groups that have an activ
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\UserCriterion([10, 14]),
 ]);
