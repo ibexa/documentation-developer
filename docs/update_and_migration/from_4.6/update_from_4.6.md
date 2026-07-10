@@ -168,7 +168,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 ``` php
 return [
     // ...
-    IbexaCoreSearchBundle::class => ['all' => true],
+    Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
 ];
 ```
 

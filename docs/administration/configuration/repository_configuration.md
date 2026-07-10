@@ -347,6 +347,6 @@ final class AcmeFeatureBundle extends Bundle
 To access the configuration settings, use the `Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
 
 ``` php
-/** @var RepositoryConfigurationProviderInterface $repositoryConfigProvider */
+/** @var \Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface $repositoryConfigProvider */
 $acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];
 ```

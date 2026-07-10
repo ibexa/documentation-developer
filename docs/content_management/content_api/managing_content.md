@@ -118,9 +118,9 @@ You can also provide a different location to restore in as a second argument:
 
 ``` php
 /**
- * @var TrashItem $trashItem
- * @var LocationService $locationService
- * @var TrashService $trashService
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\TrashItem $trashItem
+ * @var \Ibexa\Contracts\Core\Repository\LocationService $locationService
+ * @var \Ibexa\Contracts\Core\Repository\TrashService $trashService
  */
 $locationId = 12345;
 $newParent = $locationService->loadLocation($locationId);

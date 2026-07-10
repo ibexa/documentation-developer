@@ -108,7 +108,7 @@ Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
 ``` php
 return [
     // ...
-    IbexaConnectorGeminiBundle::class => ['all' => true],
+    Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
 ];
 ```
 

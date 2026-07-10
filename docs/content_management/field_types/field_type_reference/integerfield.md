@@ -26,7 +26,7 @@ The Value class of this field type contains the following properties:
 
 ``` php
 // Value object content example
-/** @var Value $integer */
+/** @var \Ibexa\Core\FieldType\Integer\Value $integer */
 $integer->value = 8;
 ```
 

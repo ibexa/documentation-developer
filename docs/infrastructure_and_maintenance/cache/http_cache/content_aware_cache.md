@@ -173,9 +173,9 @@ Examples for adding specific content tags using the autowireable `ContentTagInte
 
 ``` php
 /**
- * @var ContentTagInterface $tagHandler
- * @var Content $content
- * @var Location $location
+ * @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
  */
 
 // Example for tagging everything needed for Content:
@@ -211,7 +211,7 @@ For custom or built-in controllers (for example, REST) that still use `X-Locatio
 It supports singular and comma-separated location ID value(s):
 
 ``` php
-/** @var Response $response */
+/** @var \Symfony\Component\HttpFoundation\Response $response */
 $response->headers->set('X-Location-Id', '123');
 
 // Alternatively using several Location ID values

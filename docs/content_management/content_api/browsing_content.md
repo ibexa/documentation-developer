@@ -115,8 +115,8 @@ You can also specify the version number as the second argument to get Relations 
 
 ``` php
 /**
- * @var ContentInfo $contentInfo
- * @var ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
  */
 $versionInfo = $contentService->loadVersionInfo($contentInfo, 2);
 ```
@@ -187,7 +187,7 @@ To load a specific language, provide its language code when loading the content 
 ``` php
 /**
  * @var int $contentId
- * @var ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
  */
 $content = $contentService->loadContent($contentId, ['ger-DE']);
 ```
@@ -230,7 +230,7 @@ You can do it through the `getMainLocation` method of the ContentInfo object.
 Next, use the `getParentLocation` method of the location object to access the parent location:
 
 ``` php
-/** @var ContentInfo $contentInfo */
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
 $mainLocation = $contentInfo->getMainLocation();
 $parentLocation = $mainLocation?->getParentLocation();
 if ($parentLocation !== null) {
@@ -255,11 +255,11 @@ For example, to get the comparison between the `name` field of two versions:
 
 ``` php
 /**
- * @var ContentInfo $contentInfo
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
  * @var int $versionFromId
  * @var int $versionToId
- * @var ContentService $contentService
- * @var VersionComparisonServiceInterface $comparisonService
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\VersionComparison\Service\VersionComparisonServiceInterface $comparisonService
  */
 $versionFrom = $contentService->loadVersionInfo($contentInfo, $versionFromId);
 $versionTo = $contentService->loadVersionInfo($contentInfo, $versionToId);

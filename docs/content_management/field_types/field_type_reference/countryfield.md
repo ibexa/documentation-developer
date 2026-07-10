@@ -51,7 +51,7 @@ It's also available when setting value on the content field, by setting the valu
 
 ``` php
 // Value object content example
-/** @var Content $content */
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
 $content->fields['countries'] = ['JP', 'NO'];
 ```
 
@@ -69,7 +69,7 @@ The Value class of this field type contains the following properties:
 
 ``` php
 // Value object content example
-/** @var Value $value */
+/** @var \Ibexa\Core\FieldType\Country\Value $value */
 $value->countries = [
     'JP' => [
         'Name' => 'Japan',

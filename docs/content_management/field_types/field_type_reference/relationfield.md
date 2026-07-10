@@ -29,8 +29,8 @@ The Value class of this field type contains the following properties:
 /**
  * Value object content example.
  *
- * @var Value $relation
- * @var ContentInfo $contentInfo
+ * @var \Ibexa\Core\FieldType\Relation\Value $relation
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
  */
 $relation->destinationContentId = $contentInfo->id;
 ```

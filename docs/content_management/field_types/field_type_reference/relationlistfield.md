@@ -31,9 +31,9 @@ This field type makes it possible to store and retrieve values of a relation to 
 /**
  * Value object content example.
  *
- * @var Value $relationList
- * @var ContentInfo $contentInfo1
- * @var ContentInfo $contentInfo2
+ * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
  */
 $relationList->destinationContentIds = [
     $contentInfo1->id,

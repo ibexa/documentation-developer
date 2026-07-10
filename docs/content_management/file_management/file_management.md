@@ -10,8 +10,8 @@ To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterfa
 
 ``` php
 /**
- * @var Field $field
- * @var IOServiceInterface $ioService
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $field
+ * @var \Ibexa\Core\IO\IOServiceInterface $ioService
  */
 $file = $ioService->loadBinaryFile($field->value->id);
 $fileContent = $ioService->getFileContents($file);

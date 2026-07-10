@@ -139,6 +139,7 @@ class RideController extends Controller
     public function viewRideWithLandmarksAction(ContentView $view): ContentView
     {
         $currentContent = $view->getContent();
+        /** @var \Ibexa\Core\FieldType\RelationList\Value $landmarksListId */
         $landmarksListId = $currentContent->getFieldValue('landmarks');
         $landmarksList = [];
 

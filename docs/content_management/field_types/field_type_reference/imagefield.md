@@ -151,9 +151,9 @@ It expects a VersionInfo, the Image field, and the variation name as a string (`
 
 ``` php
 /**
- * @var VariationHandler $imageVariationHandler
- * @var Field $imageField
- * @var VersionInfo $versionInfo
+ * @var \Ibexa\Contracts\Core\Variation\VariationHandler $imageVariationHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $imageField
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo
  */
 $variation = $imageVariationHandler->getVariation(
     $imageField,
@@ -173,8 +173,8 @@ For an Image, the quickest is to call `setField()` on the ContentStruct:
 
 ``` php
 /**
- * @var ContentService $contentService
- * @var ContentTypeService $contentTypeService
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
  */
 $createStruct = $contentService->newContentCreateStruct(
     $contentTypeService->loadContentTypeByIdentifier('image'),
@@ -189,15 +189,15 @@ For that, you can use the `Image\Value::fromString()` method that accepts the pa
 
 ``` php
 /**
- * @var ContentService $contentService
- * @var ContentTypeService $contentTypeService
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
  */
 $createStruct = $contentService->newContentCreateStruct(
     $contentTypeService->loadContentTypeByIdentifier('image'),
     'eng-GB'
 );
 
-$imageField = Value::fromString('/tmp/image.png');
+$imageField = \Ibexa\Core\FieldType\Image\Value::fromString('/tmp/image.png');
 $imageField->alternativeText = 'My alternative text';
 $createStruct->setField('image', $imageField);
 ```
@@ -205,8 +205,8 @@ $createStruct->setField('image', $imageField);
 You can also provide a hash of `Image\Value` properties, either to `setField()`, or to the constructor:
 
 ``` php
-/** @var ContentCreateStruct $createStruct */
-$imageValue = new Value(
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct $createStruct */
+$imageValue = new \Ibexa\Core\FieldType\Image\Value(
     [
         'id' => '/tmp/image.png',
         'fileSize' => 37931,

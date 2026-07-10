@@ -33,8 +33,8 @@ Value object of `ibexa_image_asset` contains the following properties:
 /**
  * Value object content example.
  *
- * @var Value $imageAssetValue
- * @var ContentInfo $contentInfo
+ * @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
  */
 $imageAssetValue->destinationContentId = $contentInfo->id;
 $imageAssetValue->alternativeText = 'Picture of an apple.';

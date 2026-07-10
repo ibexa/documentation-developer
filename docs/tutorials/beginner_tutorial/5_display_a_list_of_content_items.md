@@ -86,6 +86,7 @@ class RideQueryType implements QueryType
         ]);
     }
 
+    /** @return array<int, string> */
     public function getSupportedParameters(): array
     {
         return [];

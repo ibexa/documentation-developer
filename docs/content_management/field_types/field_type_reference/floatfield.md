@@ -64,7 +64,7 @@ This field type supports `FloatValueValidator`, defining maximum and minimum flo
 ``` php
 // Validator configuration example in PHP
 
-/** @var Repository $repository */
+/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
 $contentTypeService = $repository->getContentTypeService();
 $floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('float', 'ibexa_float');
 

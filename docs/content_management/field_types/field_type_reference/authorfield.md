@@ -42,18 +42,20 @@ The hash format mostly matches the value object. It has the following key `autho
 Example
 
 ``` php
-[
-    [
-        'id' => 1,
-        'name' => 'Boba Fett',
-        'email' => 'boba.fett@example.com',
-    ],
-    [
-        'id' => 2,
-        'name' => 'Darth Vader',
-        'email' => 'darth.vader@example.com',
-    ],
-];
+use Ibexa\Core\FieldType\Author;
+
+$authorList = new Author\Value([
+   new Author\Author([
+       'id' => 1,
+       'name' => 'Boba Fett',
+       'email' => 'boba.fett@example.com',
+   ]),
+   new Author\Author([
+       'id' => 2,
+       'name' => 'Darth Vader',
+       'email' => 'darth.vader@example.com',
+   ]),
+]);
 ```
 
 #### String representation
