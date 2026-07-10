@@ -15,7 +15,11 @@ The [`IsUserEnabled` Search Criterion](/api/php_api/php_api_reference/classes/Ib
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\IsUserEnabled();
 ```
 

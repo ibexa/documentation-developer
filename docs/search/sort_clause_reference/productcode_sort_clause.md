@@ -12,12 +12,14 @@ The `ProductCode` Sort Clause sorts search results by the product code.
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+
 $query = new ProductQuery(
     null,
     null,
     [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductCode()
+        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductCode(),
     ]
 );
 ```

@@ -74,16 +74,16 @@ It enables you to add a thumbnail URL in the text field.
 
 Add `FieldValueUrl.php` in `src/Thumbnails`.
 
-``` php {skip-validation}
+``` php
 <?php
 
 declare(strict_types=1);
 
 namespace App\Thumbnails;
 
+use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
 use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
-use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
 use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
 
 class FieldValueUrl implements FieldTypeBasedThumbnailStrategy

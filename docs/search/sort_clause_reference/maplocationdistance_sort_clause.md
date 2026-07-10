@@ -19,7 +19,10 @@ The `MapLocationDistance` Sort Clause isn't available in [Repository filtering](
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\MapLocationDistance('place', 'location', 49.542889, 20.111349)];
 ```

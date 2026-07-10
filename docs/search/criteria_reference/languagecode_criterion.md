@@ -15,7 +15,11 @@ The [`LanguageCode` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\LanguageCode('ger-DE', false);
 ```
 
@@ -46,23 +50,26 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
 You can use the `LanguageCode` Criterion to search for articles that are lacking a translation
 into a specific language:
 
-``` php {skip-validation hl_lines="5"}
-$query = new LocationQuery;
-$query->query = new Criterion\LogicalAnd([
+``` php hl_lines="9"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new LocationQuery();
+$query->query = new Criterion\LogicalAnd(
+    [
     new Criterion\ContentTypeIdentifier('article'),
     new Criterion\LogicalNot(
         new Criterion\LanguageCode('ger-DE', false)
-    )
+    ),
     ]
 );
 
-$results = $this->searchService->findContent($query);
-$articles = [];
+/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
+$results = $searchService->findContent($query);
+$articlesToTranslate = [];
 foreach ($results->searchHits as $searchHit) {
-    $articles[] = $searchHit;
+    $articlesToTranslate[] = $searchHit;
 }
 
-return $this->render('list/articles_to_translate.html.twig', [
-    'articles' => $articles,
-]);
+return $articlesToTranslate;
 ```

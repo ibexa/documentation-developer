@@ -27,12 +27,18 @@ This field type makes it possible to store and retrieve values of a relation to 
 |------|------|------|------|
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
-``` php {skip-validation}
-// Value object content example
-$relationList->destinationContentId = [
+``` php
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
+$relationList->destinationContentIds = [
     $contentInfo1->id,
     $contentInfo2->id,
-    170
+    170,
 ];
 ```
 
@@ -41,15 +47,20 @@ $relationList->destinationContentId = [
 The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.
 
-``` php {skip-validation}
+``` php
 //Constructor example
+use Ibexa\Core\FieldType\RelationList as RelationList;
 
+/**
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
 // Instantiates a RelationList Value object
 $relationListValue = new RelationList\Value(
     [
         $contentInfo1->id,
         $contentInfo2->id,
-        170
+        170,
     ]
 );
 ```
@@ -90,21 +101,21 @@ Following selection methods are available:
 |------|------|------|------|
 |`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the field. When set to 0, any number can be selected.|
 
-``` php {skip-validation}
+``` php
 // Example of using settings and validators configuration in PHP
 
 use Ibexa\Core\FieldType\RelationList\Type;
 
 $fieldSettings = [
-    "selectionMethod" => Type::SELECTION_BROWSE,
-    "selectionDefaultLocation" => null,
-    "selectionContentTypes" => []
+    'selectionMethod' => Type::SELECTION_BROWSE,
+    'selectionDefaultLocation' => null,
+    'selectionContentTypes' => [],
  ];
 
 $validators = [
-    "RelationListValueValidator" => [
-        "selectionLimit" => 0,
-    ]
+    'RelationListValueValidator' => [
+        'selectionLimit' => 0,
+    ],
 ];
 ```
 

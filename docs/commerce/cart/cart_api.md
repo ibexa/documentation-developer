@@ -64,11 +64,16 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 
 You can also use this method to change cart ownership:
 
-``` php {skip-validation}
+``` php
 use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
 
 // ...
 
+/**
+ * @var \Ibexa\Contracts\Core\Repository\UserService $userService
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var \Ibexa\Contracts\Cart\Value\CartInterface $cart
+ */
 $updateMetadataStruct = new CartMetadataUpdateStruct();
 $updateMetadataStruct->setOwner($userService->loadUserByLogin('user'));
 
@@ -150,8 +155,16 @@ It can include any relevant information that you want to associate with a partic
 
 To add context data to a cart, follow this example:
 
-``` php {skip-validation}
-$createStruct = new CartCreateStruct(...);
+``` php
+use Ibexa\Contracts\Cart\Value\CartCreateStruct;
+use Ibexa\Contracts\Core\Collection\ArrayMap;
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
+
+/**
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var CurrencyInterface $currency
+ */
+$createStruct = new CartCreateStruct('My Cart', $currency);
 $createStruct->setContext(new ArrayMap([
     'coupon_code' => 'X1MF7699',
 ]));
@@ -166,8 +179,17 @@ You also add "X1MF7699" coupon code as context data to the cart.
 
 To attach context data to a cart entry, proceed as follows:
 
-``` php {skip-validation}
-$entryAddStruct = new EntryAddStruct(...);
+``` php
+use Ibexa\Contracts\Cart\Value\EntryAddStruct;
+use Ibexa\Contracts\Core\Collection\ArrayMap;
+use Ibexa\ProductCatalog\Local\Repository\Values\Product;
+
+/**
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var \Ibexa\Contracts\Cart\Value\CartInterface $cart
+ * @var Product $product
+ */
+$entryAddStruct = new EntryAddStruct($product);
 $entryAddStruct->setContext(new ArrayMap([
     'tshirt_text' => 'EqEqEqEq',
 ]));

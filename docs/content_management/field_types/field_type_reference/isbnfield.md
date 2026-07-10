@@ -32,9 +32,8 @@ It accepts a string as argument and sets it to the `isbn` attribute.
 The input passed into this field type is subject of ISBN validation depending on the field settings in its FieldDefinition stored in the content type.
 An example of this field setting is shown below and controls if input is validated as ISBN-13 or ISBN-10:
 
-``` php {skip-validation}
-Array
-(
-    [isISBN13] => true
-)
+``` php
+[
+    'isISBN13' => true,
+];
 ```

@@ -42,28 +42,32 @@ As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value
 
 Depending on the selected input type, the object resembles the following examples:
 
-``` php {skip-validation}
+``` php
 // Simple input (single value) example
 
-// @var MeasurementServiceInterface $measurementService
+use Ibexa\Measurement\FieldType\MeasurementValue;
+
+/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
 
 // Instantiates a Measurement Value object
-$measurementValue = new Measurement\Value(
+$measurementValue = new MeasurementValue(
     $measurementService->buildSimpleValue(
-                    'length',
-                    13.5,
-                    'centimeter'
+        'length',
+        13.5,
+        'centimeter'
     )
 );
 ```
 
-``` php {skip-validation}
+``` php
 // Range input value example
 
-// @var MeasurementServiceInterface $measurementService
+use Ibexa\Measurement\FieldType\MeasurementValue;
+
+/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
 
 // Instantiates a Measurement Value object
-$measurementValue = new Measurement\Value(
+$measurementValue = new MeasurementValue(
     $measurementService->buildRangeValue(
         'volume',
         0.5,

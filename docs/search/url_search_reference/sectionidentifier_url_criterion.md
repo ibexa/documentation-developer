@@ -12,6 +12,10 @@ The [SectionIdentifier URL Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+
+$query = new URLQuery();
 $query->filter = new Criterion\SectionIdentifier(['standard', 'media']);
 ```

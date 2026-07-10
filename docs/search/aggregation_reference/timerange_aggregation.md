@@ -14,11 +14,24 @@ The field-based [TimeRangeAggregation](/api/php_api/php_api_reference/classes/Ib
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+
+$timestamp = mktime(14, 0, 0);
+if ($timestamp === false) {
+    throw new RuntimeException('Failed to create timestamp with mktime.');
+}
+
 $query = new Query();
-$query->aggregations[] = new Aggregation\Field\TimeRangeAggregation('date', 'event', 'event_time',
-[
-    new Query\Aggregation\Range(null, new DateTime('T14:00')),
-    new Query\Aggregation\Range(new DateTime('T14:003'), null),
-]);
+$query->aggregations[] = new Aggregation\Field\TimeRangeAggregation(
+    'date',
+    'event',
+    'event_time',
+    [
+    Range::ofInt(null, $timestamp),
+    Range::ofInt($timestamp, null),
+]
+);
 ```

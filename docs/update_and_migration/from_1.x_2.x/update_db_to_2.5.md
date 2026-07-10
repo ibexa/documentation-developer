@@ -146,7 +146,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
-    ``` php {skip-validation}
+    ```html+twig
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -399,7 +399,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
-    ``` php {skip-validation}
+    ```html+twig
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }} data-ez-zone-id="{{ zones[0].id }}">
             {% if zones[0].blocks %}

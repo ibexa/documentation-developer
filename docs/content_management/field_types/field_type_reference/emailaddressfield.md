@@ -18,16 +18,16 @@ The `Value` class of this field type contains the following properties:
 |----------|----------|-----------------------------------------------------------------------|
 | `$email` | `string` | This property is used for the input string provided as email address. |
 
-``` php {skip-validation}
+``` php
 // Value object content example
 
-use Ibexa\Core\FieldType\EmailAddress\Type;
+use Ibexa\Core\FieldType\EmailAddress\Value;
 
 // Instantiates an EmailAddress Value object with default value (empty string)
-$emailaddressValue = new Type\Value();
+$emailaddressValue = new Value();
 
 // Email definition
-$emailaddressValue->email = "someuser@example.com";
+$emailaddressValue->email = 'someuser@example.com';
 ```
 
 ##### Constructor
@@ -35,13 +35,13 @@ $emailaddressValue->email = "someuser@example.com";
 The `EmailAddress\Value` constructor initializes a new value object with the value provided.
 It accepts a string as input.
 
-``` php {skip-validation}
+``` php
 // Constructor example
 
-use Ibexa\Core\FieldType\EmailAddress\Type;
+use Ibexa\Core\FieldType\EmailAddress\Value;
 
 // Instantiates an EmailAddress Value object
-$emailaddressValue = new Type\Value( "someuser@example.com" );
+$emailaddressValue = new Value('someuser@example.com');
 ```
 
 ##### String representation

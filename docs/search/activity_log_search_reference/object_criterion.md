@@ -9,14 +9,18 @@ The `ObjectCriterion` Activity Log Criterion matches log group with a log entry 
 
 ## Examples
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\ObjectCriterion(Ibexa\Contracts\Core\Repository\Values\Content\Content::class),
 ]);
 ```
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+
 $query = new ActivityLog\Query([
-    new ActivityLog\Criterion\ObjectCriterion(Ibexa\Contracts\ProductCatalog\Values\ProductVariantInterface::class, [123, 234, 345]),
+    new ActivityLog\Criterion\ObjectCriterion(Ibexa\Contracts\ProductCatalog\Values\ProductVariantInterface::class, ['123', '234', '345']),
 ]);
 ```

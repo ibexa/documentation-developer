@@ -15,11 +15,19 @@ The [`ObjectStateIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ObjectStateIdentifier(['ready']);
 ```
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock');
 ```
 

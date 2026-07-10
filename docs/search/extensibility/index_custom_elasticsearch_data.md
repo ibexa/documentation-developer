@@ -18,7 +18,7 @@ You can pass the event to a subscriber which gives you access to the document th
 
 In the following example, when an index in created for a content or a location document, the event subscriber adds a `custom_field` of the type [`StringField`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-FieldType-StringField.html) to the index:
 
-``` php {skip-validation hl_lines="19 20 21"}
+``` php hl_lines="19 20 21"
 --8<--
 code_samples/search/custom/src/EventSubscriber/CustomIndexDataSubscriber.php
 --8<--

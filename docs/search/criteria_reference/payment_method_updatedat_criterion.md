@@ -16,7 +16,10 @@ The `UpdatedAt` Search Criterion searches for payment methods based on the date 
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+
 $criteria = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\UpdatedAt(
     new DateTime('2023-03-01')
 );

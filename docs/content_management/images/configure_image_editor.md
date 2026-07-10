@@ -67,8 +67,10 @@ By default, additional information stores the coordinates of the [focal point]([
 
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 
-``` php {skip-validation}
-new FieldValue([
+``` php
+use Ibexa\Core\FieldType\Image\Value as FieldValue;
+
+$value = new FieldValue([
      'data' => [
          'width' => '100',
          'height' => '200',
@@ -82,5 +84,5 @@ new FieldValue([
              'author' => 'John Smith',
          ],
      ],
- ]),
+ ]);
 ```

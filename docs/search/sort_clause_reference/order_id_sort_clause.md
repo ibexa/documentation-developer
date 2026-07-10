@@ -13,12 +13,17 @@ The `Id` Sort Clause sorts search results by order Id.
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+
+$criteria = null;
+
 $orderQuery = new OrderQuery(
     $criteria,
     [
         new \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Id(
-            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Id::SORT_ASC)
+            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Id::SORT_ASC
+        ),
     ]
 );
 ```

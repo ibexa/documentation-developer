@@ -18,7 +18,10 @@ The field-based [IntegerStatsAggregation](/api/php_api/php_api_reference/classes
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\IntegerStatsAggregation('integer', 'product', 'amount');
 ```

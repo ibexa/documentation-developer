@@ -103,6 +103,9 @@ Only one language can still be set as a version's initial language:
 You can delete a single translation from a content item's version using [`ContentService::deleteTranslationFromDraft`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_deleteTranslationFromDraft).
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
-``` php {skip-validation}
-$this->contentService->deleteTranslationFromDraft($versionInfo, $language);
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo */
+$languageCode = 'ger-DE';
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+$contentService->deleteTranslationFromDraft($versionInfo, $languageCode);
 ```

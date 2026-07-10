@@ -16,7 +16,10 @@ The `CreatedAt` Search Criterion searches for payment methods based on the date 
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
 $criteria = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt(
     new DateTime('2023-03-01')
 );
