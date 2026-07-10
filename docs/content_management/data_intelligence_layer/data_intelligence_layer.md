@@ -20,5 +20,6 @@ TODO:
 - API:
     - PHP API
     - REST API
+    - GraphQL API
     - MCP tools
 - Extend
