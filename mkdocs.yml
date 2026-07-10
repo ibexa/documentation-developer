@@ -990,6 +990,7 @@ extra:
 
   symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/4.6'
+  symfony_version: '5.4' 
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
