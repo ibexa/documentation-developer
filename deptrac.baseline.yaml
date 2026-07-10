@@ -120,8 +120,6 @@ deptrac:
       - Ibexa\Discounts\Value\AbstractDiscountExpressionAware
     App\Discounts\Rule\PurchasingPowerParityRuleFactory:
       - Ibexa\Discounts\Repository\DiscountRule\DiscountRuleFactoryInterface
-    App\Dispatcher\SomeClassThatSchedulesExecutionInTheBackground:
-      - Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp
     App\EventListener\TextAnchorMenuTabListener:
       - Ibexa\AdminUi\Menu\ContentEditAnchorMenuBuilder
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
