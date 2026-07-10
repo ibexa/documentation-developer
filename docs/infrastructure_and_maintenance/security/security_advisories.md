@@ -72,6 +72,6 @@ This way, you'll still be warned if the package is affected by a new security ad
                 }
             }
         }
-    }   
+    }
 }
 ```
