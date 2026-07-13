@@ -1,5 +1,6 @@
 ---
 description: Use [[=product_name_base=]]  Rector, an optional package based on Rector, to remove PHP and JavaScript code deprecations.
+month_change: true
 ---
 
 # [[= product_name_base =]] Rector
