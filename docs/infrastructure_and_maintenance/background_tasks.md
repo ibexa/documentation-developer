@@ -119,13 +119,6 @@ Use [Stamps available in Symfony](https://github.com/symfony/symfony/tree/[[= sy
 
 [`SudoStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html) causes the handler to [use sudo mode](php_api.md#using-sudo), bypassing all permission checks when processing the message.
 
-It's automatically attached to every dispatched message.
-
-!!! caution
-
-    Starting with Ibexa DXP 5.0.9, the behavior of automatically attaching a `SudoStamp` to every message is deprecated and will be removed in 6.0.
-    For messages that should be processed without taking permissions into account, always attach the `SudoStamp` manually to keep your code forward-compatible.
-
 The following example shows how you can attach the `SudoStamp` to the message:
 
 ``` php
