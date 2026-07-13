@@ -79,19 +79,20 @@ ibexa_tracking_track_event(
 
 ### `websiteId` parameter
 
-The `websiteId` (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
+The `websiteId`, also known as a **Login ID**, (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
 
-Example:
+When storing customer data in an external Customer Relationship Management (CRM) system, set the `websiteId` to an identifier of the customer stored there.
+
+The following example shows how you pass that value, assuming a custom Twig function `get_custom_crm_identifier` integrating with that CRM exists:
 
 ``` html+twig
 {{ ibexa_tracking_track_event('visit', product, {
-    websiteId: 'ibexa_user_get_current().login'
+    websiteId: get_custom_crm_identifier(ibexa_user_get_current().login)
 }) }}
-```
 
-The website ID, also known as a **Login ID**, is available for logged-in users.
-It serves as a persistent, cross-device identifier.
-Both the User ID and the Cookie ID can be used to personalize website modules.
+Set the `websiteId` parameter for logged-id users, for which you have data uniquely identifying them.
+The value of this parameter serves as a persistent, cross-device identifier of the user.
+Example values are [User ID](https://content.raptorservices.com/help-center/user-tracking-understanding-soft-ids-hard-ids-raptor-identity-matching#:~:text=IDs%3A-,UserId%20%28Website%20ID) or the Cookie ID.
 
 The value of `websiteId` parameter is resolved in the following order:
 
@@ -104,27 +105,42 @@ If no value is resolved, the event is sent without the `p7` parameter.
 To resolve `websiteId` on the project level, implement the interface as follows:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
 namespace App\Tracking;
-
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface;
-
-final class MyWebsiteIdProvider implements WebsiteIdContextProviderInterface
+final class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterface
 {
-    private const string WEBSITE_ID = 'ibexa_user_get_current().login';
-
-    public function getWebsiteId(): string
+    public function __construct(
+        private ConfigResolverInterface $configResolver, 
+        private PermissionResolver $permissionResolver,
+    )
     {
-        return self::WEBSITE_ID;
+    }
+    public function getWebsiteId(): ?string
+    {
+        $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
+        // Don't resolve for anynomous user
+        if ($this->isAnonymousUser($currentUserId)) {
+            return null;
+        }
+        return $this->getWebsiteUserIdForCurrentUser($currentUserId);
+    }
+    /**
+     * @phpstan-return non-empty-string
+     */
+    private function getWebsiteUserIdForCurrentUser(int $userId): string
+    {
+        // Implement custom logic resolving user identifier from the CRM
+        return 'custom-identifier-for-the-user-retrieved from-the-CRM';
+    }
+    private function isAnonymousUser(int $userId): bool
+    {
+        return (int) $this->configResolver->getParameter('anonymous_user_id') === $userId;
     }
 }
 ```
 
-Since this provider always returns a value, it narrows the return type to `string`.
-If your provider resolves the value conditionally, declare the return type as `?string` and return `null` to allow the next provider in the chain to handle the request.
 The provider is registered automatically.
 Implementing the interface is sufficient, no service configuration is required.
 
