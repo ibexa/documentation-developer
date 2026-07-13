@@ -110,7 +110,7 @@ Directory structure is not modified during the transformation.
 You can provide the path to your own configuration file, otherwise [the default file](https://github.com/ibexa/eslint-config-ibexa/blob/main/prettier.mjs) is used.
 
 #### `plugins`
-**
+
 Use it to modify enabled plugins.
 To learn more about plugins, see [the list of plugins](#list-of-plugins).
 

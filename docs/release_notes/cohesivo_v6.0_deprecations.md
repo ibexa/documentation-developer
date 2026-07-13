@@ -28,7 +28,6 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | N/A | `\Ibexa\HttpCache\ResponseTagger\Delegator\DispatcherTagger`  | With `kernel.debug` enabled, [`DispatcherTagger`](content_aware_cache.md#dispatchertagger) will throw an exception when you pass an unsupported value instead of silently ignoring it. |
 | v5.0.7 | <nobr>`\Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger::supports`</nobr> | Method added to the interface. All implementations must specify [the value they support for tagging](content_aware_cache.md#delegator-and-value-taggers). |
 
-
 ### ibexa/messenger
 
 | Deprecated since | Entity                                                                          | Change                                              |
