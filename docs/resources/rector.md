@@ -68,7 +68,7 @@ Once you're satisfied with the proposed changes, apply them by running:
 vendor/bin/rector
 ```
 
-## Refactor JavaScipt code
+## Refactor JavaScript code
 
 [[= product_name_base =]] Rector also comes with transform module to help you maintain your JavaScript code.
 
