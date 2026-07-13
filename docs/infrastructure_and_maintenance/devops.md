@@ -16,7 +16,7 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 [System cache]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) stores information derivable from source code like compiled container, routes, or optimized classes.
 
-To clear the persistence cache, execute the following command on [every web server](clustering.md) running [[= product_name =]]:
+To clear the system cache, execute the following command on [every web server](clustering.md) running [[= product_name =]]:
 
 ```bash
 php bin/console --env=prod cache:clear

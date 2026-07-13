@@ -56,7 +56,7 @@ They can be manually removed from `composer.json` now.
 
 ## How to clear the cache properly?
 
-See [Cache clearing](devops.md#cache-clearing) for information how to clear system, application, and HTTP caches.
+See [Cache clearing](devops.md#cache-clearing) for information how to clear system, persistence, and HTTP caches.
 
 ## Where should I place my configuration files?
 

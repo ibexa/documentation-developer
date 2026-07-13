@@ -48,7 +48,7 @@ To see where and how to contribute additional caches, refer to the [source code]
     It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
     [[= product_name =]] officially supports only using Filesystem for single server and Redis/Valkey for clustered setups.
 
-Use of [Redis/Vakley](#redisvalkey) as shared cache backend is a requirement for use in clustering setup.
+Use of [Redis/Valkey](#redisvalkey) as shared cache backend is a requirement for use in clustering setup.
 For an overview of this feature, see [Clustering](clustering.md).
 Filesystem adapters, for example, are **not** intended to be used over a shared filesystem.
 
@@ -292,4 +292,4 @@ $pool->deleteItems(["ibx-ci-$contentId"]);
 $pool->invalidateTags(["c-$contentId"]);
 ```
 
-To learn how to clear persistence cache when not using the PHP API, see [Clear persistence cache](devops.md#clear-pesistence-cache).
+To learn how to clear persistence cache when not using the PHP API, see [Clear persistence cache](devops.md#clear-persistence-cache).
