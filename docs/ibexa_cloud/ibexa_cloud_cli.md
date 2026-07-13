@@ -6,7 +6,7 @@ month_change: true
 # [[= product_name_cloud =]] CLI
 
 The [[= product_name_cloud =]] CLI (`ibexa_cloud`) is a command-line tool for managing your [[= product_name_cloud =]] projects.
-It's based on the [Upsun CLI](https://docs.upsun.com/administration/cli.html) and shares the same commands.
+It's based on the [Upsun CLI](https://developer.upsun.com/cli) and shares the same commands.
 
 ## Installation
 
