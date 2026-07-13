@@ -32,5 +32,5 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
 | Deprecated since | Entity                                                                          | Change                                              |
 | --- |------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| v5.0.9 | [`SudoStamp`](background_tasks.md#sudostamp)     | No longer attached automatically to every dispatched message. For messages that should be processed without taking permissions into account, always attach the SudoStamp manually.                                             |
+| v5.0.9 | [`\Ibexa\Contracts\Messenger\Stamp\SudoStamp`](background_tasks.md#sudostamp)     | No longer attached automatically to every dispatched message. For messages that should be processed without taking permissions into account, always attach the SudoStamp manually.                                             |
 | v5.0.9 | <nobr>`\Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp`</nobr>                                     | Moved to [`\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html). Covered by [[[= product_name_base =]] Rector](../resources/rector.md) refactoring rules. |

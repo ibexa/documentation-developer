@@ -13,7 +13,7 @@ Use it to get rid of PHP and JavaScript code deprecations and prepare your proje
 Add the Composer dependency:
 
 ``` bash
-composer require --dev ibexa/rector:[[= latest_tag_5_0 =]]
+composer require --dev ibexa/rector
 ```
 
 ## Refactor PHP code
