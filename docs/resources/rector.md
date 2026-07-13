@@ -5,7 +5,7 @@ description: Use [[=product_name_base=]]  Rector, an optional package based on R
 # [[= product_name_base =]] Rector
 
 [[= product_name_base =]] Rector is an optional package based on [Rector](https://getrector.com/) that comes with additional rule sets for working with [[= product_name =]] code.
-You can use it to get rid of PHP code deprecations and to help prepare your project for the next major release.
+Use it to get rid of PHP and JavaScript code deprecations and prepare your project for the next major release.
 
 ## Installation
 
@@ -51,6 +51,8 @@ return RectorConfig::configure()
 ;
 ```
 
+For more information, see [Rector documentatation](https://getrector.com/documentation).
+
 ### Usage
 
 Run Rector in dry-run mode to preview the changes it would make:
@@ -59,7 +61,7 @@ Run Rector in dry-run mode to preview the changes it would make:
 vendor/bin/rector --dry-run
 ```
 
-Once you're satisfied with the proposed changes, apply them:
+Once you're satisfied with the proposed changes, apply them by running:
 
 ``` bash
 vendor/bin/rector
@@ -108,7 +110,7 @@ Directory structure is not modified during the transformation.
 You can provide the path to your own configuration file, otherwise [the default file](https://github.com/ibexa/eslint-config-ibexa/blob/main/prettier.mjs) is used.
 
 #### `plugins`
-
+**
 Use it to modify enabled plugins.
 To learn more about plugins, see [the list of plugins](#list-of-plugins).
 
@@ -175,9 +177,9 @@ Values specifies in the `shared` configuration can be overwritten by using confi
 
 #### Rename eZ global variables
 
-This plugin changes all `eZ` variables to `ibexa`.
-
 Identifier: `ibexa-rename-ez-global`
+
+This plugin changes all `eZ` variables to `ibexa`.
 
 Configuration: none
 
@@ -187,7 +189,7 @@ This plugin allows to rename any variable.
 
 Identifier: `ibexa-rename-variables`
 
-Configuration example:
+##### Configuration example
 
 ``` json
 {
@@ -202,7 +204,7 @@ Configuration example:
 }
 ```
 
-**Example:**
+##### Example output
 
 | Before | After |
 |---|---|
@@ -215,7 +217,7 @@ This plugin changes any string value except translations. You can use it to tran
 
 Identifier: `ibexa-rename-string-values`
 
-Configuration example:
+##### Configuration example
 
 ``` json
 {
@@ -231,7 +233,7 @@ Configuration example:
 }
 ```
 
-**Example output:**
+##### Example output
 
 | Before | After |
 |---|---|
@@ -245,7 +247,7 @@ Extract translations after running this transformation.
 
 Identifier: `ibexa-rename-trans-id`
 
-Configuration example:
+##### Configuration example
 
 ``` json
 {
@@ -256,7 +258,7 @@ Configuration example:
 }
 ```
 
-**Example output:**
+##### Example output
 
 | Before | After |
 |---|---|
@@ -269,7 +271,7 @@ Extract translations after running this transformation.
 
 Identifier: `ibexa-rename-in-translations`
 
-Configuration example:
+##### Configuration example
 
 ``` json
 {
@@ -282,7 +284,7 @@ Configuration example:
 If the `selectors-only` property is set to `true`, this plugin changes only strings inside HTML tags.
 Set to `false` or remove property to change text values as well.
 
-**Example output:**
+##### Example output
 
 | `selectors-only` value | Before | After |
 |---|---|---|
@@ -295,7 +297,7 @@ This plugin allows you to rename any icon name that is passed as an argument to 
 
 Identifier: `ibexa-rename-icons`
 
-Configuration example:
+##### Configuration example
 
 In this plugin, the `exactMatch` default value is set `true` when using the shorthand expression.
 
@@ -309,7 +311,7 @@ In this plugin, the `exactMatch` default value is set `true` when using the shor
 }
 ```
 
-**Example:**
+##### Example output
 
 | Before | After |
 |---|---|
