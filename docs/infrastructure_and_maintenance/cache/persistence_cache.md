@@ -248,11 +248,9 @@ Example usage of the cache service:
 
 ``` php
 use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @var TagAwareAdapterInterface $pool
- * @var ContainerInterface $container
  * @var int $id
  */
 $cacheItem = $pool->getItem("myApp-object-{$id}");
