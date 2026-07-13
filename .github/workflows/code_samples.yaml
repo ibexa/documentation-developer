@@ -45,33 +45,9 @@ jobs:
               with:
                   dependency-versions: highest
 
-            - name: Run PHPStan analysis
+            - name: Run code sample quality tests
               id: phpstan
-              continue-on-error: true
-              run: composer phpstan
-
-            - name: Run Deptrac analysis
-              id: deptrac
-              continue-on-error: true
-              run: composer deptrac
-
-            - name: Run Rector check
-              id: rector
-              continue-on-error: true
-              run: composer check-rector
-
-            - name: Run YAML snippet tests
-              id: check-yaml
-              continue-on-error: true
-              run: composer check-yaml
-
-            - name: Fail job if any check failed
-              if: always()
-              run: |
-                  if [[ "${{ steps.phpstan.outcome }}" == "failure" || "${{ steps.deptrac.outcome }}" == "failure" || "${{ steps.rector.outcome }}" == "failure" || "${{ steps.check-yaml.outcome }}" == "failure" ]]; then
-                      echo "One or more checks failed: PHPStan=${{ steps.phpstan.outcome }}, Deptrac=${{ steps.deptrac.outcome }}, Rector=${{ steps.rector.outcome }}, YAML=${{ steps.check-yaml.outcome }}"
-                      exit 1
-                  fi
+              run: composer test
 
 
     code-samples-inclusion-check:

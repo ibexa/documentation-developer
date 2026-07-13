@@ -124,6 +124,8 @@
         "check-yaml": "phpunit --group yaml",
         "phpunit": "phpunit --exclude-group=yaml",
         "yaml-update-baseline": "php tests/generate-yaml-baseline.php",
+        "phpstan-update-baseline": "@phpstan --generate-baseline",
+        "deptrac-update-baseline": "@deptrac --formatter=baseline",
         "composer-update": "[ -d vendor ] || composer update",
         "yarn-install": "[ -d node_modules ] || yarn install",
         "markdownlint": [
@@ -144,6 +146,8 @@
         "check-rector": "Check for code refactoring opportunities",
         "check-yaml": "Run PHPUnit tests (YAML validation)",
         "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures",
+        "phpstan-update-baseline": "Regenerate PHPStan baseline from current failures",
+        "deptrac-update-baseline": "Regenerate Deptrac baseline from current failures",
         "composer-update": "Install composer dependencies if not already installed",
         "yarn-install": "Install yarn dependencies if not already installed",
         "markdownlint": "Run Markdownlint on all documentation files",
