@@ -6,34 +6,72 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 ## Cache clearing
 
-### Clearing file cache using the Symfony cache:clear command
+[[= product_name =]] contains multiple layer of caching that you can clear independently from each other:
 
-Symfony provides a command for clearing cache.
-It deletes all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder.
-Out of the box on a single-server setup this includes Content cache.
+- [Clear system cache](#clear-system-cache)
+- [Clear persistence cache](#clear-persistence-cache)
+- [Clear HTTP cache](#clear-http-cache)
 
-For further information on the command's use, see its help text:
+### Clear system cache
 
-``` bash
-php bin/console --env=prod cache:clear -h
+[System cache]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) stores information derivable from source code like compiled container, routes, or optimized classes.
+
+To clear the persistence cache, execute the following command on [every web server](clustering.md) running [[= product_name =]]:
+
+```bash
+php bin/console --env=prod cache:clear
 ```
 
-!!! note
+If you don't specify an environment, by default `cache:clear` clears the cache for the `dev` environment.
+If you want to clear it for `prod` you need to use the `--env=prod` option.
 
-    If you don't specify an environment, by default `cache:clear` clears the cache for the `dev` environment.
-    If you want to clear it for `prod` you need to use the `--env=prod` option.
+Don't run `cache:clear` as root as it can lead to issues with file ownership.
 
-!!! caution "Clustering"
+!!! caution "Symfony 7.4 behavior change"
 
-    In [clustering](clustering.md) setup (with several web servers), the command to clear file cache needs to be executed on every web server.
+    Starting with Symfony 7.4, running `php bin/console cache:clear` or `rm -rf var/cache/*` clears only the system cache, even when you use a filesystem-based cache pool for [persistence cache](#clear-persistence-cache).
+    You must always clear the persistence cache separately.
 
-### Clearing content cache on a cluster setup
+#### Clearing system cache manually
 
-For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers.
-While all relevant cache is cleared for you on repository changes when using the APIs, there might be times where you need to clear cache manually:
+During development, you can clear the system cache manually by running:
 
-- Varnish: [Cache purge](reverse_proxy.md#using-varnish-or-fastly)
-- Persistence Cache: [Using Cache service](persistence_cache.md#using-cache-service)
+``` bash
+rm -rf var/cache/*
+```
+
+!!! caution "Don't clear system cache manually on production"
+
+    Manually clearing the system cache doesn't warm up the cache, resulting in a significant performance drop on the first request.
+    To avoid this, you must not clear the cache manually in a production environment.
+
+### Clear persistence cache
+
+[Persistence cache](persistence_cache.md) stores information about application data.
+
+To clear the persistence cache, you must run:
+
+``` bash
+php bin/console cache:pool:clear <cache-pool>
+```
+
+The default cache pool is named `cache.tagaware.filesystem`.
+The default cache pool when running Redis or Valkey is named `cache.redis`.
+If you have customized the persistence cache configuration, the name of your cache pool might be different.
+
+#### Clearing persistence cache manually
+
+During development, when using a filesystem-based cache pool, you can clear the application cache by running:
+
+```bash
+rm -rf var/share/*
+```
+
+### Clear HTTP cache
+
+[HTTP cache](http_cache.md) uses reverse proxies like Varnish or Fastly to store application responses controlled by [HTTP Cache headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control).
+
+To clear the HTTP cache, see [Purging from command line](content_aware_cache.md#purging-from-command-line).
 
 ## Web Debug Toolbar
 
@@ -41,7 +79,7 @@ As of [[= product_name =]] v4.5, the [Symfony Web Debug Toolbar]([[= symfony_doc
 To install it, run the following command:
 
 ```bash
-composer require symfony/debug-pack
+composer require --dev symfony/debug-pack
 ```
 
 After you have installed Symfony Web Debug Toolbar, it's available when running [[= product_name =]] in the `dev` environment.

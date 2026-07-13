@@ -56,34 +56,7 @@ They can be manually removed from `composer.json` now.
 
 ## How to clear the cache properly?
 
-Clearing cache is covered by our [documentation](devops.md#cache-clearing), it applies to file and content (HTTP/persistence) cache.
-
-Useful commands:
-
-- clearing Symfony cache
-
-```bash
-php bin/console cache:clear --env prod
-```
-
-- clearing Redis/Valkey cache
-
-```bash
-php bin/console cache:pool:clear cache.redis
-```
-
-- clearing the Symfony cache manually
-
-```bash
-rm -rf var/cache/*
-rm -rf var/share/*
-```
-
-!!! caution "Clearing cache manually"
-
-    Manual cache clearing should be executed with caution, as it doesn't warm up the cache.
-    It results in a significant performance drop on first request, so it shouldn't be called on a production environment.
-    Besides, it could lead to issues with file ownership after running `cache:clear` as a root.
+See [Cache clearing](devops.md#cache-clearing) for information how to clear system, application, and HTTP caches.
 
 ## Where should I place my configuration files?
 
