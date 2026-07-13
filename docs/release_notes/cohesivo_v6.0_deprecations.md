@@ -17,6 +17,8 @@ month_change: true
 
 As announced during Ibexa Summit 2026, [Ibexa DXP will be renamed to Cohesivo](https://www.ibexa.co/blog/redefining-the-dxp-from-execution-to-orchestration) to support the new [orchestration platform approach](https://www.ibexa.co/blog/the-orchestration-era).
 
+To learn more about the new brand, visit the [Cohesivo official site](https://cohesivo.com).
+
 This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
 ## PHP API changes
