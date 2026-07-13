@@ -51,7 +51,7 @@ return RectorConfig::configure()
 ;
 ```
 
-For more information, see [Rector documentatation](https://getrector.com/documentation).
+For more information, see [Rector documentation](https://getrector.com/documentation).
 
 ### Usage
 
