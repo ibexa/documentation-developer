@@ -326,19 +326,38 @@ In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), 
 ### Custom purging from code
 
 While the system purges tags whenever API is used to change data, you may need to purge directly from code.
-For that you can use the built-in purge client:
+For that you can inject the built-in [`PurgeClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-PurgeClient-PurgeClientInterface.html) by using the `ibexa.http_cache.purge_client` service name:
 
-``` php
+``` php hl_lines="12-13 19-21 23-25"
 use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+use Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
-/** @var \Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface $purgeClient */
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location */
+#[AsCommand(name: 'app:purge-cache')]
+class MyCustomCacheCommand
+{
+    public function __construct(
+        #[Autowire(service: 'ibexa.http_cache.purge_client')]
+        private readonly PurgeClientInterface $purgeClient
+    ) {
+    }
 
-// Example for purging by Location ID:
-$purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
+    public function __invoke(SymfonyStyle $io): int
+    {
+        // Example for purging by Location ID:
+        $locationId = 2;
+        $this->purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $locationId]);
 
-// Example for purging all cache for instance for full re-deploy cases, usually this triggers an expiry (soft purge):
-$purgeClient->purgeAll();
+        // Example for purging all cache for instance for full re-deploy cases
+        // Usually this triggers an expiry (soft purge):
+        $this->purgeClient->purgeAll();
+
+        return Command::SUCCESS;
+    }
+}
 ```
 
 ### Purging from command line
