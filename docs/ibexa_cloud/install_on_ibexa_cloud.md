@@ -82,7 +82,7 @@ In **Settings** (top right gear icon) -> **Project Settings** -> **Variables** -
 
 ### Composer authentication using the CLI command
 
-Use [Ibexa Cloud CLI](ibexa_cloud_cli.md) to create the variable:
+Use [[[= product_name_cloud =]] CLI](ibexa_cloud_cli.md) to create the variable:
 
 ```bash
 ibexa_cloud variable:create --level project --name env:COMPOSER_AUTH \
