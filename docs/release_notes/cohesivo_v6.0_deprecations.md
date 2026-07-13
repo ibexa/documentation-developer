@@ -1,8 +1,13 @@
+---
+description: Adapt your project for the Cohesivo v6.0 release.
+month_change: true
+---
+
 <!-- vale VariablesVersion = NO -->
 
 # Cohesivo v6.0 renames, deprecations and removals
 
-## About Cohesivo 6.0
+## About Cohesivo v6.0
 
 !!! note "Cohesivo v6.0 is not released yet"
 
@@ -19,7 +24,7 @@ This page lists backwards compatibility breaks and deprecations introduced in Co
 ### ibexa/http-cache
 
 | Class                                                                   | Change                                                                                                                                                                                                    |
-|:---------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <nobr>`\Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger::supports`</nobr>       | Method added to the interface. All implementations must now specify the value they support for tagging.                                                                                           |
 | `\Ibexa\HttpCache\ResponseTagger\Delegator\DispatcherTagger`  | `DispatcherTagger` will now log a warning (in Symfony `prod` environment) or throw an exception (in Symfony `dev` environment) when an unsupported value is passed instead of silently ignoring it. |
 

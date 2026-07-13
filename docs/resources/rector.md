@@ -105,7 +105,7 @@ Directory structure is not modified during the transformation.
 #### `prettierConfigPath`
 
 [Prettier](https://prettier.io/) is run at the end of the transformation.
-You can provide the path to your own configuration file, otherwise [the default file](https://github.com/ibexa/eslint-config-ibexa/blob/main/prettier.js) is used.
+You can provide the path to your own configuration file, otherwise [the default file](https://github.com/ibexa/eslint-config-ibexa/blob/main/prettier.mjs) is used.
 
 #### `plugins`
 
