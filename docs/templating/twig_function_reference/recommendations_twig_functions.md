@@ -111,7 +111,7 @@ namespace App\Tracking;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface;
-final class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterface
+final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterface
 {
     public function __construct(
         private ConfigResolverInterface $configResolver, 
