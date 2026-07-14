@@ -186,14 +186,54 @@ def _autoclean(soup: Soup) -> None:
 # Inline edition badge spans (from snippet includes)
 # ---------------------------------------------------------------------------
 
+def _pill_edition(node) -> str:
+    """Return the edition name of an inline pill span, or '' if not one."""
+    if getattr(node, "name", None) != "span":
+        return ""
+    classes = node.get("class") or []
+    if "pill--inline" not in classes:
+        return ""
+    for pill_cls, edition_name in PILL_CLASS_TO_EDITION.items():
+        if pill_cls in classes:
+            return edition_name
+    return ""
+
+
 def _process_inline_pills(soup: Soup) -> None:
-    """Replace inline edition pill spans with readable text, e.g. '(Experience)'."""
+    """Replace inline edition pill spans with readable text.
+
+    Consecutive pills (possibly separated by whitespace) are merged into a
+    single parenthetical, e.g. ' (Experience, Commerce)' instead of
+    ' (Experience) (Commerce)'.
+    """
     for span in soup.find_all("span", class_="pill--inline"):
-        span_classes = span.get("class", [])
-        for pill_cls, edition_name in PILL_CLASS_TO_EDITION.items():
-            if pill_cls in span_classes:
-                span.replace_with(soup.new_string(f" ({edition_name})"))
+        if span.parent is None:  # already consumed as part of a previous run
+            continue
+        edition = _pill_edition(span)
+        if not edition:
+            continue
+
+        # Collect the run of pills that follow, skipping whitespace between them.
+        editions = [edition]
+        consumed = []
+        node = span.next_sibling
+        pending_whitespace = []
+        while node is not None:
+            if isinstance(node, NavigableString) and not node.strip():
+                pending_whitespace.append(node)
+                node = node.next_sibling
+                continue
+            next_edition = _pill_edition(node)
+            if not next_edition:
                 break
+            editions.append(next_edition)
+            consumed += pending_whitespace + [node]
+            pending_whitespace = []
+            node = node.next_sibling
+
+        for extra_node in consumed:
+            extra_node.extract()
+        span.replace_with(soup.new_string(f" ({', '.join(editions)})"))
 
 
 def _process_release_note_tags(soup: Soup) -> None:
@@ -366,21 +406,40 @@ def editions_from_frontmatter(frontmatter: dict) -> list:
     return [FRONTMATTER_EDITION_DISPLAY.get(e, e) for e in all_editions if e]
 
 
-def inject_edition_badges(content: str, editions: list) -> str:
-    """Insert an 'Editions: X, Y' line after the first h1 heading."""
-    if not editions:
-        return content
+_MACRO_RE = re.compile(r"\[\[=\s*(\w+)\s*=\]\]")
 
-    badge_line = "Editions: " + ", ".join(editions)
+
+def expand_macros(text: str, variables: dict) -> str:
+    """Expand simple ``[[= name =]]`` macro variables (mkdocs-macros syntax).
+
+    Only plain scalar variables are substituted; unknown or complex macros are
+    left untouched so callers can detect and handle them.
+    """
+
+    def _substitute(match: re.Match) -> str:
+        value = variables.get(match.group(1))
+        return str(value) if isinstance(value, (str, int, float)) else match.group(0)
+
+    return _MACRO_RE.sub(_substitute, text)
+
+
+def inject_page_metadata(content: str, description: str = "", editions: list = ()) -> str:
+    """Insert the page description and an 'Editions: X, Y' line after the first h1 heading."""
+    metadata_lines = []
+    if description:
+        metadata_lines += ["", description]
+    if editions:
+        metadata_lines += ["", "Editions: " + ", ".join(editions)]
+    if not metadata_lines:
+        return content
 
     lines = content.split("\n")
     for i, line in enumerate(lines):
         if line.startswith("# "):
-            lines.insert(i + 1, "")
-            lines.insert(i + 2, badge_line)
+            lines[i + 1:i + 1] = metadata_lines
             return "\n".join(lines)
 
-    return badge_line + "\n\n" + content
+    return "\n".join(metadata_lines).lstrip("\n") + "\n\n" + content
 
 
 # ![alt](url) or ![alt](url "title")

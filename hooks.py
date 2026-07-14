@@ -22,7 +22,8 @@ if str(_here) not in sys.path:
 from llmstxt_preprocess import (
     absolutize_image_urls,
     editions_from_frontmatter,
-    inject_edition_badges,
+    expand_macros,
+    inject_page_metadata,
     renumber_ordered_lists,
 )
 from update_llmstxt_config import convert_nav_to_llmstxt_sections
@@ -67,8 +68,13 @@ def on_page_content(html: str, *, page: "Page", config: "MkDocsConfig", **kwargs
     if page_info is None:
         return
 
-    editions = editions_from_frontmatter(_read_frontmatter(page, config))
-    content = inject_edition_badges(page_info.content, editions)
+    frontmatter = _read_frontmatter(page, config)
+    editions = editions_from_frontmatter(frontmatter)
+    description = expand_macros(str(frontmatter.get("description") or ""), config.get("extra") or {})
+    if "[[=" in description:
+        # Unresolved macros must not leak into the output.
+        description = ""
+    content = inject_page_metadata(page_info.content, description, editions)
     content = renumber_ordered_lists(content)
     # Same base URL and page directory the plugin uses for making link hrefs absolute.
     page_dir = PurePosixPath(page.file.dest_uri).parent.as_posix()

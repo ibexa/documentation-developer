@@ -35,7 +35,6 @@ def test_checkmark_only_cell_becomes_yes():
 
 
 def test_checkmark_mixed_with_other_nodes():
-    # Regression: raised NameError (NavigableString not imported) before the fix.
     html = "<table><tr><th>H</th></tr><tr><td>✔ <code>option</code></td></tr></table>"
     result = to_markdown(html)
     assert "Yes `option`" in result
@@ -97,6 +96,29 @@ def test_inline_pill_becomes_parenthetical():
     assert "Feature (Experience) is available." in to_markdown(html)
 
 
+def test_adjacent_inline_pills_merged():
+    # Structure from update_from_5.0: pills separated by a space in a heading.
+    html = (
+        '<h3 id="db">Database update '
+        '<span class="pill pill--inline pill--experience"></span> '
+        '<span class="pill pill--inline pill--commerce"></span>'
+        '<a class="headerlink" href="#db">&para;</a></h3>'
+    )
+    result = to_markdown(html)
+    assert "### Database update (Experience, Commerce)" in result
+    assert ") (" not in result
+
+
+def test_three_adjacent_inline_pills_merged():
+    html = (
+        "<p>Feature"
+        '<span class="pill--inline pill--headless"></span> '
+        '<span class="pill--inline pill--experience"></span> '
+        '<span class="pill--inline pill--commerce"></span> is available.</p>'
+    )
+    assert "Feature (Headless, Experience, Commerce) is available." in to_markdown(html)
+
+
 def test_ol_start_attribute_preserved():
     # <ol start="N"> (a list interrupted by other content) keeps its numbering.
     html = "<ol><li>a</li><li>b</li></ol><p>note</p><ol start='3'><li>c</li><li>d</li></ol>"
@@ -133,9 +155,6 @@ def test_headerlink_removed():
 
 
 def test_headerlink_after_image_removed():
-    # Regression: replacing the <img> from inside the find_all() predicate made
-    # the traversal skip the following elements, leaving their headerlinks in
-    # (e.g. '## How it works[¶](#how-it-works "Permanent link")' on the CDP page).
     html = (
         '<p><img src="cdp.png" alt="Ibexa CDP control panel"></p>'
         '<h2 id="how-it-works">How it works'

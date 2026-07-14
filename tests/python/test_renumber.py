@@ -6,8 +6,6 @@ def test_flat_list():
 
 
 def test_nested_bullets_do_not_reset_numbering():
-    # Regression: https://github.com/ibexa/documentation-developer/pull/3161
-    # numbering restarted at 1 after the nested "- " bullets.
     content = "\n".join([
         "1. Sets a variable with the desired Varnish version",
         "1. Copies and customizes `parameters.vcl` file:",
