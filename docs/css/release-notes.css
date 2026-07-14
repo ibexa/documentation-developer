@@ -2,10 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
+  padding: 0;
 }
 .release-notes-header h1 {
-  line-height: 1.5;
   margin: 0;
 }
 

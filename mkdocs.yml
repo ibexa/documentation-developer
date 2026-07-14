@@ -1091,6 +1091,9 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       linenums: true
+      # Emit language-* classes so the Markdown conversion (llmstxt) can
+      # restore the language on fenced code blocks.
+      pygments_lang_class: true
       extend_pygments_lang:
         - name: php
           lang: php

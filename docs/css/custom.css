@@ -653,7 +653,7 @@ div.path {
 .page-actions {
     display: none;
     gap: 0;
-    margin: 12px 0 0 0;
+    margin: 12px 0 2rem 0;
     padding-bottom: 6px;
     border-bottom: 1px solid var(--ibexa-snow);
 }

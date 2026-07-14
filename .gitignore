@@ -1,7 +1,7 @@
 /vendor/
 **/.DS_Store
 __pycache__/*
-hooks/__pycache__/*
+**/__pycache__
 /site/
 **/.idea/
 .php-cs-fixer.cache

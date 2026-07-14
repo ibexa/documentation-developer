@@ -82,7 +82,7 @@
                     <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-latest-release.svg" alt="The latest release" />
+                    <img src="images/notification-latest-release.svg" alt="" />
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
+                    <img src="images/notification-lts-update.svg" alt="" />
                 </div>
             </div>
         </div>

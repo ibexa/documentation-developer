@@ -7,6 +7,9 @@ Files can be excluded from the llmstxt output by adding the following to their Y
 
     exclude_from_llmstxt: true
 
+This excludes the page from both llms.txt and llms-full.txt, skips generating its Markdown
+version, and hides the page action buttons. There is no per-file control for excluding a page
+from llms.txt only (both files are derived from the same `sections` config).
 Files without this property are included by default.
 """
 
