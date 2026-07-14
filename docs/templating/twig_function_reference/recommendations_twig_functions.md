@@ -86,9 +86,11 @@ When storing customer data in an external Customer Relationship Management (CRM)
 The following example shows how you pass that value, assuming a custom Twig function `get_custom_crm_identifier` integrating with that CRM exists:
 
 ``` html+twig
+{# Section rendered only for logged-in users #}
 {{ ibexa_tracking_track_event('visit', product, {
     websiteId: get_custom_crm_identifier(ibexa_user_get_current().login)
 }) }}
+```
 
 Set the `websiteId` parameter for logged-id users, for which you have data uniquely identifying them.
 The value of this parameter serves as a persistent, cross-device identifier of the user.
@@ -132,7 +134,7 @@ final class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterf
     private function getWebsiteUserIdForCurrentUser(int $userId): string
     {
         // Implement custom logic resolving user identifier from the CRM
-        return 'custom-identifier-for-the-user-retrieved from-the-CRM';
+        return 'custom-identifier-for-the-user-retrieved-from-the-CRM';
     }
     private function isAnonymousUser(int $userId): bool
     {
