@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #DCDDDE;
   padding: 8px 0;
 }
 .release-notes-header h1 {

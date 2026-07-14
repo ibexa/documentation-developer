@@ -1,6 +1,7 @@
 ---
 description: Integrate tracking with a Google-style JavaScript.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Track events with ibexa-tracker.js

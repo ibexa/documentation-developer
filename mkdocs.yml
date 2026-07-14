@@ -1107,3 +1107,6 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
+
+hooks:
+  - hooks.py

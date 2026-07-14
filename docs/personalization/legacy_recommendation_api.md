@@ -1,5 +1,6 @@
 ---
 description: An old method of fetching recommendations from the system using recommendation requests.
+exclude_from_llmstxt: true
 ---
 
 # Legacy Recommendation API
