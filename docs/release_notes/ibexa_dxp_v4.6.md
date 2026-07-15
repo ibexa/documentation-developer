@@ -606,7 +606,7 @@ In addition, you can now use the [Taxonomy limitation](https://doc.ibexa.co/en/4
 
 #### Pagination for ezobjectrelationlist in GraphQL
 
-To improve performance and gain greater control over the returned responses from the [GraphQL API](https://doc.ibexa.co/en/4.6/api/graphql/graphql/), you can now [enable pagination]((https://doc.ibexa.co/en/4.6/content_management/field_types/field_type_reference/relationlistfield#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+To improve performance and gain greater control over the returned responses from the [GraphQL API](https://doc.ibexa.co/en/4.6/api/graphql/graphql/), you can now [enable pagination](https://doc.ibexa.co/en/4.6/content_management/field_types/field_type_reference/relationlistfield#enable-pagination-in-graphql) of relations specified using the RelationList field type.
 
 #### Breaking changes
 
