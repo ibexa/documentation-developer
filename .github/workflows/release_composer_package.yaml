@@ -40,8 +40,10 @@ jobs:
             - uses: actions/checkout@v4
               with:
                   ref: ${{ matrix.branch }}
-                  # Full history + tags, so we can compare against the previous release.
+                  # Full history + tags: the generated Markdown is never pushed to the branch
+                  # itself (see below), only tagged, so tags are the only place to diff against.
                   fetch-depth: 0
+                  fetch-tags: true
 
             - name: Set up Python
               uses: actions/setup-python@v3
@@ -69,11 +71,26 @@ jobs:
                   cp site/llms.txt llms.txt
                   cp site/llms-full.txt llms-full.txt
 
-            - name: Check for content changes
-              id: changes
+            - name: Find the last tag for this branch
+              id: last_tag
+              env:
+                  BRANCH: ${{ matrix.branch }}
               run: |
+                  latest_tag=$(git tag --list "${BRANCH}.*" | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
+                  echo "latest_tag=${latest_tag}" >> "$GITHUB_OUTPUT"
+
+            - name: Check for content changes since the last tag
+              id: changes
+              env:
+                  LATEST_TAG: ${{ steps.last_tag.outputs.latest_tag }}
+              run: |
+                  # The generated Markdown is never committed/pushed to the branch itself (only
+                  # tagged), so there's nothing on the branch to diff against — compare the freshly
+                  # built content to what the last tag captured instead.
                   git add doc llms.txt llms-full.txt
-                  if git diff --cached --quiet; then
+                  if [[ -z "$LATEST_TAG" ]]; then
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  elif git diff --cached --quiet "$LATEST_TAG" -- doc llms.txt llms-full.txt; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
                   else
                       echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -89,10 +106,10 @@ jobs:
             - name: Tag release
               if: steps.changes.outputs.changed == 'true'
               env:
-                  BRANCH: ${{ matrix.branch }}
                   BASE_VERSION: ${{ steps.base_version.outputs.base_version }}
-                  CHANGED: ${{ steps.changes.outputs.changed }}
               run: |
+                  # Push only the tag, never the branch — the branch stays exactly as authored,
+                  # the generated Markdown exists solely as the commit this tag points to.
                   tag="${BASE_VERSION}.$(date -u +%Y%m%d)"
 
                   if git rev-parse "$tag" >/dev/null 2>&1; then
@@ -101,8 +118,4 @@ jobs:
                   fi
 
                   git tag "$tag"
-                  if [[ "$CHANGED" == "true" ]]; then
-                      git push origin "$BRANCH" "$tag"
-                  else
-                      git push origin "$tag"
-                  fi
+                  git push origin "$tag"
