@@ -1,4 +1,4 @@
-from llmstxt_preprocess import absolutize_image_urls
+from llms_txt.llmstxt_preprocess import absolutize_image_urls
 
 BASE = "https://doc.ibexa.co/en/latest/"
 
