@@ -21,7 +21,7 @@ jobs:
                       # Scheduled runs always execute in the default branch's context, so they must
                       # explicitly check out each maintained version branch instead of relying on
                       # GITHUB_REF. Extend this list as new branches become active / drop EOL ones.
-                      branches='["5.0", "4.6"]'
+                      branches='["5.0"]'
                   fi
                   echo "branches=${branches}" >> "$GITHUB_OUTPUT"
 
@@ -79,25 +79,6 @@ jobs:
                       echo "changed=true" >> "$GITHUB_OUTPUT"
                   fi
 
-            - name: Check for a DXP version bump
-              id: version_bump
-              env:
-                  BRANCH: ${{ matrix.branch }}
-                  BASE_VERSION: ${{ steps.base_version.outputs.base_version }}
-              run: |
-                  # Compare against the last tag pushed for this branch (regardless of its date
-                  # segment) to detect whether latest_tag_X_Y moved since then, even if the
-                  # generated Markdown happens to be unchanged.
-                  latest_tag=$(git tag --list "${BRANCH}.*" | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
-                  if [[ -z "$latest_tag" ]]; then
-                      bumped=true
-                  elif [[ "${latest_tag%.*}" != "$BASE_VERSION" ]]; then
-                      bumped=true
-                  else
-                      bumped=false
-                  fi
-                  echo "bumped=${bumped}" >> "$GITHUB_OUTPUT"
-
             - name: Commit generated Markdown
               if: steps.changes.outputs.changed == 'true'
               run: |
@@ -106,14 +87,12 @@ jobs:
                   git commit -m "Update generated Markdown docs for ${{ steps.base_version.outputs.base_version }}"
 
             - name: Tag release
-              if: steps.changes.outputs.changed == 'true' || steps.version_bump.outputs.bumped == 'true'
+              if: steps.changes.outputs.changed == 'true'
               env:
                   BRANCH: ${{ matrix.branch }}
                   BASE_VERSION: ${{ steps.base_version.outputs.base_version }}
                   CHANGED: ${{ steps.changes.outputs.changed }}
               run: |
-                  # 4-segment version (base + date): Composer resolves/orders this correctly, unlike
-                  # semver "+build" metadata, which is ignored for precedence.
                   tag="${BASE_VERSION}.$(date -u +%Y%m%d)"
 
                   if git rev-parse "$tag" >/dev/null 2>&1; then
