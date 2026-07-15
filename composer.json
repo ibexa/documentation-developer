@@ -138,7 +138,7 @@
         ],
         "test": [
             "@composer-update",
-            "EXIT=0; composer check-cs || EXIT=1; composer phpstan || EXIT=1; composer deptrac || EXIT=1; composer check-rector || EXIT=1; composer markdownlint || EXIT=1; composer check-yaml || EXIT=1; exit $EXIT"
+            "EXIT=0; FAILED=''; { composer check-cs; } || { EXIT=1; FAILED="$FAILED check-cs"; }; { composer phpstan; } || { EXIT=1; FAILED="$FAILED phpstan"; }; { composer deptrac; } || { EXIT=1; FAILED="$FAILED deptrac"; }; { composer check-rector; } || { EXIT=1; FAILED="$FAILED check-rector"; }; { composer markdownlint; } || { EXIT=1; FAILED="$FAILED markdownlint"; }; { composer check-yaml; } || { EXIT=1;  FAILED="$FAILED markdownlint"; }; if [ 1 -eq $EXIT ]; then echo "Failed:$FAILED"; fi; exit $EXIT;"
         ],
         "fix": [
             "@composer-update",
