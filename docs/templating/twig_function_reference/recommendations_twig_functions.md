@@ -74,8 +74,90 @@ ibexa_tracking_track_event(
 
 - **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-parameters-reference).
 - **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, see [tracking event examples](#tracking-events).
-- **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
+- **context** (optional)- type: array, additional event data, such as quantity, basket details, [website ID](#websiteid-parameter), or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
+
+### `websiteId` parameter
+
+The `websiteId`, also known as a **Login ID**, (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
+
+When storing customer data in an external Customer Relationship Management (CRM) system, set the `websiteId` to an identifier of the customer stored there.
+
+The following example shows how you pass that value, assuming a custom Twig function `get_custom_crm_identifier` integrating with that CRM exists:
+
+``` html+twig
+{# Section rendered only for logged-in users #}
+{{ ibexa_tracking_track_event('visit', product, {
+    websiteId: get_custom_crm_identifier(ibexa_user_get_current().login)
+}) }}
+```
+
+Set the `websiteId` parameter for logged-id users, for which you have data uniquely identifying them.
+The value of this parameter serves as a persistent, cross-device identifier of the user.
+Example values are [User ID](https://content.raptorservices.com/help-center/user-tracking-understanding-soft-ids-hard-ids-raptor-identity-matching#:~:text=IDs%3A-,UserId%20%28Website%20ID) or the Cookie ID.
+
+The value of `websiteId` parameter is resolved in the following order:
+
+1. Explicit `websiteId` passed in the `ibexa_tracking_track_event()` context.
+2. Custom [`WebsiteIdContextProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html) implementations (the first one returning a non-null value wins).
+3. The built-in provider, which uses the logged-in user's identifier (`ruid`).
+
+If no value is resolved, the event is sent without the `p7` parameter.
+
+To resolve `websiteId` on the project level, implement the interface as follows:
+
+``` php
+namespace App\Tracking;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface;
+final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterface
+{
+    public function __construct(
+        private ConfigResolverInterface $configResolver, 
+        private PermissionResolver $permissionResolver,
+    )
+    {
+    }
+    public function getWebsiteId(): ?string
+    {
+        $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
+        // Don't resolve for anynomous user
+        if ($this->isAnonymousUser($currentUserId)) {
+            return null;
+        }
+        return $this->getWebsiteUserIdForCurrentUser($currentUserId);
+    }
+    /**
+     * @phpstan-return non-empty-string
+     */
+    private function getWebsiteUserIdForCurrentUser(int $userId): string
+    {
+        // Implement custom logic resolving user identifier from the CRM
+        return 'custom-identifier-for-the-user-retrieved-from-the-CRM';
+    }
+    private function isAnonymousUser(int $userId): bool
+    {
+        return (int) $this->configResolver->getParameter('anonymous_user_id') === $userId;
+    }
+}
+```
+
+The provider is registered automatically.
+Implementing the interface is sufficient, no service configuration is required.
+
+!!! note
+
+    Custom provider takes precedence over the built-in one.
+    A provider must return either `null` or a non-empty string.
+
+If you register multiple providers, control their order by tagging the service with a priority (higher priority is checked first):
+
+``` yaml
+App\Tracking\MyWebsiteIdProvider:
+    tags:
+        - { name: ibexa.connector.raptor.tracking.website_id_context_provider, priority: 50 }
+```
 
 ### Tracking events
 
