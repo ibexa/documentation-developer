@@ -22,14 +22,9 @@ parameters:
 ## MCP server configuration
 
 The MCP server `data_intelligence_layer` is already configured for the path `/mcp/data-intelligence`.
-It's enabled by default but not assigned to any SiteAccess.
-Assign it to the `admin_group`:
+It's enabled by default but not assigned to any SiteAccess and not allowing other hosts than `localhost`, `127.0.0.1`, and `[::1]`.
+Assign it to the `admin_group`, allow your admin domain and optionally development domains:
 
 ```yaml
-ibexa:
-    system:
-        admin_group:
-            mcp:
-                servers:
-                    - data_intelligence_layer
+[[= include_code('code_samples/mcp/config/packages/mcp.dil.yaml') =]]
 ```

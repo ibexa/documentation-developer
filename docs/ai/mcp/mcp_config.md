@@ -84,7 +84,7 @@ php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
 Some MCP servers are already defined on default installation.
 
 - `data_intelligence_layer` (`/mcp/data-intelligence`) - The [Data Intelligence Layer](data_intelligence_layer.md) MCP server is bundled with tool sets from `Ibexa\Bundle\DataIntelligenceLayer\Mcp\` namespace and expose metrics about content to AI agent TODO: like the Orchestration chat one.
-  By default, it's enabled but not assigned to any SiteAccess scope. TODO: confirm; maybe it will be assigned to admin_group?
+  It's enabled by default but not assigned to any SiteAccess and not allowing other hosts than local. For more information, see [DIL MCP server configuration](dil_config.md#mcp-server-configuration).
 
 ### MCP server options
 
@@ -240,7 +240,7 @@ In this example, only requests from `admin.example.com` domain, `my-ddev-project
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
-                        - 'admin.example.com'
+                        - 'www.example.com'
                         - '127.0.0.1'
                         - 'my-ddev-project.ddev.site'
 ```

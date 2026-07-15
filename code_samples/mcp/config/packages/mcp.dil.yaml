@@ -1,0 +1,14 @@
+ibexa:
+    repositories:
+        default:
+            mcp:
+                data_intelligence_layer:
+                    allowed_hosts:
+                        - 'admin.example.com'
+                        - '127.0.0.1'
+                        - 'my-ddev-project.ddev.site'
+    system:
+        admin_group:
+            mcp:
+                servers:
+                    - data_intelligence_layer
