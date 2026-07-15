@@ -7,6 +7,6 @@ def on_config(config, **kwargs):
         ref = os.environ.get("GITHUB_HEAD_REF")
 
     if ref:
-        config["edit_uri"] = f"edit/{ref}/docs/"
+        config["edit_uri"] = f"blob/{ref}/docs/"
 
     return config

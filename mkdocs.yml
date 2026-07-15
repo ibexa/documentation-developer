@@ -2,7 +2,7 @@ INHERIT: plugins.yml
 
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
-edit_uri: edit/5.0/docs
+edit_uri: blob/5.0/docs
 site_url: https://doc.ibexa.co/en/latest/
 hooks:
     - hooks/edit_uri.py
