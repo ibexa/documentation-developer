@@ -47,7 +47,7 @@ jobs:
 
             - name: Run code sample quality tests
               id: phpstan
-              run: composer test
+              run: composer test --ansi
               env:
                   PHP_CS_FIXER_IGNORE_ENV: ${{ matrix.php == '8.4' && '1' || '' }}
 
