@@ -1,10 +1,14 @@
 name: "Release Composer package"
 
 on:
-    schedule:
-        # Daily at 03:17 UTC. Only tags/commits if the generated Markdown actually changed.
-        - cron: "17 3 * * *"
-    workflow_dispatch: ~
+    workflow_dispatch:
+        inputs:
+            version:
+                # The DXP version this doc release should match (e.g. v5.0.9 or 5.0.9).
+                # The branch to build from is derived from it (5.0.9 -> 5.0).
+                description: 'Version (e.g. v5.0.9 or 5.0.9)'
+                required: true
+                type: string
 
 jobs:
     release:
@@ -14,10 +18,31 @@ jobs:
             contents: write
 
         steps:
+            - name: Set version and branch
+              id: version_and_branch
+              run: |
+                  # Strip leading 'v' to get a plain version number (e.g. 5.0.9)
+                  version="${{ inputs.version }}"
+                  version="${version#v}"
+                  base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+
+                  echo "version=${version}" >> "$GITHUB_OUTPUT"
+                  echo "base_branch=${base_branch}" >> "$GITHUB_OUTPUT"
+
             - uses: actions/checkout@v4
               with:
-                  # Full history + tags, so we can diff against the previous release commit.
+                  ref: ${{ steps.version_and_branch.outputs.base_branch }}
+                  # Full history + tags, so we can tell whether this version was already tagged.
                   fetch-depth: 0
+
+            - name: Check tag doesn't already exist
+              env:
+                  VERSION: ${{ steps.version_and_branch.outputs.version }}
+              run: |
+                  if git rev-parse "$VERSION" >/dev/null 2>&1; then
+                      echo "::error::Tag $VERSION already exists — refusing to overwrite it."
+                      exit 1
+                  fi
 
             - name: Set up Python
               uses: actions/setup-python@v3
@@ -53,29 +78,19 @@ jobs:
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
-                  git commit -m "Update generated Markdown docs for Composer package"
+                  git commit -m "Update generated Markdown docs for ${{ steps.version_and_branch.outputs.version }}"
 
             - name: Tag release
-              if: steps.changes.outputs.changed == 'true'
+              env:
+                  VERSION: ${{ steps.version_and_branch.outputs.version }}
+                  BASE_BRANCH: ${{ steps.version_and_branch.outputs.base_branch }}
               run: |
-                  branch="${GITHUB_REF_NAME}"
-                  if [[ ! "$branch" =~ ^[0-9]+\.[0-9]+$ ]]; then
-                      echo "::error::Branch '$branch' is not a version branch (X.Y) — refusing to tag."
-                      exit 1
-                  fi
-
-                  # Base version is the latest existing tag for this branch with its date segment
-                  # stripped (or "X.Y.0" if none exists yet), so patch bumps made elsewhere are picked
-                  # up automatically instead of being hardcoded here.
-                  latest_tag=$(git tag --list "${branch}.*" | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
-                  if [[ -z "$latest_tag" ]]; then
-                      base_version="${branch}.0"
+                  # The tag matches the DXP product version exactly (e.g. 5.0.9) — no derived or
+                  # date-based suffix — so the doc package version always lines up 1:1 with the
+                  # ibexa/* package versions it documents.
+                  git tag "$VERSION"
+                  if [[ "${{ steps.changes.outputs.changed }}" == "true" ]]; then
+                      git push origin "$BASE_BRANCH" "$VERSION"
                   else
-                      base_version="${latest_tag%.*}"
+                      git push origin "$VERSION"
                   fi
-
-                  # 4-segment version (base + date): Composer resolves/orders this correctly, unlike
-                  # semver "+build" metadata, which is ignored for precedence.
-                  tag="${base_version}.$(date -u +%Y%m%d)"
-                  git tag "$tag"
-                  git push origin "$branch" "$tag"
