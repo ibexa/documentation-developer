@@ -1,5 +1,5 @@
 /* export-ignore
-/markdown export-ignore=false
+/doc export-ignore=false
 /llms.txt export-ignore=false
 /llms-full.txt export-ignore=false
 /composer.json export-ignore=false
