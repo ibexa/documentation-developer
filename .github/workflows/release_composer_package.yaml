@@ -1,10 +1,6 @@
 name: "Release Composer package"
 
 on:
-    push:
-        branches:
-            - master
-            - "[0-9]+.[0-9]+"
     schedule:
         # Daily at 03:17 UTC. Only tags/commits if the generated Markdown actually changed.
         - cron: "17 3 * * *"
@@ -38,14 +34,14 @@ jobs:
 
             - name: Sync generated Markdown into tracked directory
               run: |
-                  rsync -a --delete --include='*/' --include='*.md' --exclude='*' site/ markdown/
+                  rsync -a --delete --include='*/' --include='*.md' --exclude='*' site/ doc/
                   cp site/llms.txt llms.txt
                   cp site/llms-full.txt llms-full.txt
 
             - name: Check for changes
               id: changes
               run: |
-                  git add markdown llms.txt llms-full.txt
+                  git add doc llms.txt llms-full.txt
                   if git diff --cached --quiet; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
                   else
@@ -63,14 +59,23 @@ jobs:
               if: steps.changes.outputs.changed == 'true'
               run: |
                   branch="${GITHUB_REF_NAME}"
-                  # Version branches look like "5.0"; anything else (e.g. master) falls back to "0.0" for testing.
-                  if [[ "$branch" =~ ^[0-9]+\.[0-9]+$ ]]; then
-                      version_prefix="$branch"
-                  else
-                      version_prefix="0.0"
+                  if [[ ! "$branch" =~ ^[0-9]+\.[0-9]+$ ]]; then
+                      echo "::error::Branch '$branch' is not a version branch (X.Y) — refusing to tag."
+                      exit 1
                   fi
-                  # 4-segment version (X.Y.Z.BUILD): Composer resolves/orders this correctly, unlike
+
+                  # Base version is the latest existing tag for this branch with its date segment
+                  # stripped (or "X.Y.0" if none exists yet), so patch bumps made elsewhere are picked
+                  # up automatically instead of being hardcoded here.
+                  latest_tag=$(git tag --list "${branch}.*" | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
+                  if [[ -z "$latest_tag" ]]; then
+                      base_version="${branch}.0"
+                  else
+                      base_version="${latest_tag%.*}"
+                  fi
+
+                  # 4-segment version (base + date): Composer resolves/orders this correctly, unlike
                   # semver "+build" metadata, which is ignored for precedence.
-                  tag="${version_prefix}.0.$(date -u +%Y%m%d)"
+                  tag="${base_version}.$(date -u +%Y%m%d)"
                   git tag "$tag"
                   git push origin "$branch" "$tag"
