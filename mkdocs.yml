@@ -294,6 +294,7 @@ nav:
             - Data Intelligence Layer: content_management/data_intelligence_layer/data_intelligence_layer.md
             - DIL product guide: content_management/data_intelligence_layer/dil_guide.md
             - DIL configuration: content_management/data_intelligence_layer/dil_config.md
+            - DIL MCP server: content_management/data_intelligence_layer/dil_mcp.md
         - Collaborative editing:
             - Collaborative editing: content_management/collaborative_editing/collaborative_editing.md
             - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
