@@ -154,8 +154,8 @@ You can use a shorthand form to specify the configuration:
 When not using the shorthand configuration, the following options are available:
 
 - `"to": "ibexa-selection-settings"` - specifies the new value
-- `"regexp": true/false` - use regexp to find the matching values. Use capture groups to reuse parts of the original value in the new value
-- `"exactMatch": true` - replace matching values only when the whole value is matched. Using the example configuration, `ez-selection-settings__field` would not be replaced as it doesn't match `ez-selection-settings` exactly
+- `"regexp": true/false` - uses regexp to find the matching values. Use capture groups to reuse parts of the original value in the new value
+- `"exactMatch": true` - replaces matching values only when the whole value is matched. Using the example configuration, `ez-selection-settings__field` would not be replaced as it doesn't match `ez-selection-settings` exactly
 
 #### Shared configuration
 
@@ -214,7 +214,8 @@ Identifier: `ibexa-rename-variables`
 
 #### Rename string values
 
-This plugin changes any string value except translations. You can use it to transform selectors and other values.
+This plugin changes any string value except translations.
+You can use it to transform selectors and other values.
 
 Identifier: `ibexa-rename-string-values`
 
@@ -243,7 +244,7 @@ Identifier: `ibexa-rename-string-values`
 
 #### Rename translation IDs
 
-This plugin allows to change translation ids.
+This plugin allows to change translation IDs.
 Extract translations after running this transformation.
 
 Identifier: `ibexa-rename-trans-id`
@@ -300,7 +301,7 @@ Identifier: `ibexa-rename-icons`
 
 ##### Configuration example
 
-In this plugin, the `exactMatch` default value is set `true` when using the shorthand expression.
+In this plugin, the `exactMatch` default value is set to `true` when using the shorthand expression.
 
 ``` json
 {
