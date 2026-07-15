@@ -1,5 +1,6 @@
 ---
 description: Personalization server can use external information about the items. Use HTTP methods to create, update or get items from the data store.
+exclude_from_llmstxt: true
 ---
 
 # Content API

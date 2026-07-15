@@ -65,6 +65,25 @@ jobs:
                         exit 1
                     fi
 
+    python-tests:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v3
+              with:
+                  python-version: "3.13"
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements-dev.txt
+
+            - name: Run pytest
+              run: pytest
+
     markdownlint:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'

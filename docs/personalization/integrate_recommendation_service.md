@@ -1,6 +1,7 @@
 ---
 description: Integrate recommendation service into your website.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Integrate recommendation service

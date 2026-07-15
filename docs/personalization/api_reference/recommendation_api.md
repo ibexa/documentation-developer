@@ -1,6 +1,7 @@
 ---
 description: Use HTTP GET request method to render recommendations.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Recommendation API
