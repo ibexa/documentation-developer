@@ -108,17 +108,19 @@ To resolve `websiteId` on the project level, implement the interface as follows:
 
 ``` php
 namespace App\Tracking;
-use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
+
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
+
 final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterface
 {
     public function __construct(
-        private ConfigResolverInterface $configResolver, 
+        private ConfigResolverInterface $configResolver,
         private PermissionResolver $permissionResolver,
-    )
-    {
+    ) {
     }
+
     public function getWebsiteId(): ?string
     {
         $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
@@ -126,8 +128,10 @@ final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProvi
         if ($this->isAnonymousUser($currentUserId)) {
             return null;
         }
+
         return $this->getWebsiteUserIdForCurrentUser($currentUserId);
     }
+
     /**
      * @phpstan-return non-empty-string
      */
@@ -136,6 +140,7 @@ final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProvi
         // Implement custom logic resolving user identifier from the CRM
         return 'custom-identifier-for-the-user-retrieved-from-the-CRM';
     }
+
     private function isAnonymousUser(int $userId): bool
     {
         return (int) $this->configResolver->getParameter('anonymous_user_id') === $userId;
