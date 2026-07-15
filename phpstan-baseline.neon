@@ -67,10 +67,10 @@ parameters:
 			path: code_samples/_inline_php/content_management/field_types/type_and_value/4d9e52e02d6e226f71015653d598f662f6b4d4eb0af9e99b4c49d5389af19671.php
 
 		-
-			message: '#^Call to an undefined method object\:\:loadObject\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Variable \$myAppCustomService might not be defined\.$#'
+			identifier: variable.undefined
 			count: 1
-			path: code_samples/_inline_php/infrastructure_and_maintenance/cache/persistence_cache/2f333548247830523074f882c44ffb2c58e158accf9fdcd50dcb4e2e86209b1f.php
+			path: code_samples/_inline_php/infrastructure_and_maintenance/cache/persistence_cache/c27a2fe1c12bba3e9271acc67ae3a2e2d4596bf58f4d9b791aec4e564ae88259.php
 
 		-
 			message: '#^Property App\\MyService\:\:\$contentService is never read, only written\.$#'
