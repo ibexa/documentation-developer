@@ -592,3 +592,14 @@ plugins:
             'ai_actions/extend_ai_actions.md': 'ai/ai_actions/extend_ai_actions.md'
 
             'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'cdp/cdp_activation/cdp_add_tracking.md'
+
+
+    - llmstxt:
+        preprocess: llmstxt_preprocess.py
+
+        autoclean: false
+        full_output: llms-full.txt
+        sections:
+          # Built automatically when running MkDocs build based on MkDocs nav configuration, don't change
+          Ibexa DXP developer documentation:
+          - index.md

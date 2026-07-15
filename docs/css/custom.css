@@ -158,7 +158,7 @@ body {
 }
 
 .md-typeset h1 {
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
     font-size: 24px;
     line-height: 34px;
 }
@@ -648,4 +648,74 @@ div.path {
 
 [hidden] {
     display: none !important;
+}
+
+.page-actions {
+    display: none;
+    gap: 0;
+    margin: 12px 0 2rem 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--ibexa-snow);
+}
+
+.md-typeset .page-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--ibexa-dusk-black);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+    position: relative;
+}
+
+.page-action-btn+.page-action-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 1px;
+    background: var(--ibexa-snow);
+}
+
+.page-action-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.page-action-btn.external::after,
+.page-action-btn[rel="nofollow"]::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .page-actions {
+        gap: 0;
+    }
+}
+
+.page-actions--visible {
+    display: flex;
+}
+
+.page-action-btn.page-action-btn--success {
+    background: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.page-action-btn.page-action-btn--info {
+    background: color-mix(in srgb, var(--turquoise-pearl) 25%, white);
+    border-color: color-mix(in srgb, var(--turquoise-pearl) 40%, white);
+    color: var(--sherpa-blue);
 }

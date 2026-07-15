@@ -1,5 +1,6 @@
 ---
 description: Attribute search uses Elasticsearch database to display dynamically taken values in scenario and model previews.
+exclude_from_llmstxt: true
 ---
 
 # Attribute search in Elasticsearch database
