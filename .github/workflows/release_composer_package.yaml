@@ -1,0 +1,76 @@
+name: "Release Composer package"
+
+on:
+    push:
+        branches:
+            - master
+            - "[0-9]+.[0-9]+"
+    schedule:
+        # Daily at 03:17 UTC. Only tags/commits if the generated Markdown actually changed.
+        - cron: "17 3 * * *"
+    workflow_dispatch: ~
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        permissions:
+            # Needed to commit the generated Markdown and push a tag.
+            contents: write
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  # Full history + tags, so we can diff against the previous release commit.
+                  fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v3
+              with:
+                  python-version: "3.13"
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
+
+            - name: Build documentation
+              run: mkdocs build --strict
+
+            - name: Sync generated Markdown into tracked directory
+              run: |
+                  rsync -a --delete --include='*/' --include='*.md' --exclude='*' site/ markdown/
+                  cp site/llms.txt llms.txt
+                  cp site/llms-full.txt llms-full.txt
+
+            - name: Check for changes
+              id: changes
+              run: |
+                  git add markdown llms.txt llms-full.txt
+                  if git diff --cached --quiet; then
+                      echo "changed=false" >> "$GITHUB_OUTPUT"
+                  else
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Commit generated Markdown
+              if: steps.changes.outputs.changed == 'true'
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git commit -m "Update generated Markdown docs for Composer package"
+
+            - name: Tag release
+              if: steps.changes.outputs.changed == 'true'
+              run: |
+                  branch="${GITHUB_REF_NAME}"
+                  # Version branches look like "5.0"; anything else (e.g. master) falls back to "0.0" for testing.
+                  if [[ "$branch" =~ ^[0-9]+\.[0-9]+$ ]]; then
+                      version_prefix="$branch"
+                  else
+                      version_prefix="0.0"
+                  fi
+                  # 4-segment version (X.Y.Z.BUILD): Composer resolves/orders this correctly, unlike
+                  # semver "+build" metadata, which is ignored for precedence.
+                  tag="${version_prefix}.0.$(date -u +%Y%m%d)"
+                  git tag "$tag"
+                  git push origin "$branch" "$tag"
