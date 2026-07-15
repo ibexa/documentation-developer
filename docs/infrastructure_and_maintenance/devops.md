@@ -14,16 +14,17 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 ### Clear system cache
 
-[System cache]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) stores information derivable from source code like compiled container, routes, or optimized classes.
+[System cache]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) is separate for every [Symfony environment](environments.md) and stores information derivable from source code like compiled container, routes, or optimized classes.
 
-To clear the system cache, execute the following command on [every web server](clustering.md) running [[= product_name =]]:
+To clear the system cache, execute the `cache:clear` command on [every web server](clustering.md) running [[= product_name =]].
 
-```bash
-php bin/console --env=prod cache:clear
-```
+To specify an environment, pass it by using either the `--env` option or the `APP_ENV` variable.
+Both the examples below clear the system cache for the `prod` environment:
 
-If you don't specify an environment, by default `cache:clear` clears the cache for the `dev` environment.
-If you want to clear it for `prod` you need to use the `--env=prod` option.
+- `APP_ENV=prod php bin/console cache:clear`
+- `php bin/console cache:clear --env=prod`
+
+When neither the `--env` option nor the `APP_ENV` variable is set, `cache:clear` clears the system cache for the `dev` environment by default.
 
 Don't run `cache:clear` as root as it can lead to issues with file ownership.
 
