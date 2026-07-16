@@ -55,14 +55,46 @@ jobs:
                   python -m pip install --upgrade pip
                   pip install -r requirements.txt
 
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.3"
+                  coverage: none
+
+            - name: Generate token
+              id: generate_token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ${{ github.repository_owner }}
+
+            - name: Add composer keys for private packagist
+              run: |
+                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  composer config --global github-oauth.github.com $GITHUB_TOKEN
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+            # Needed to resolve the PHP API classes referenced by the docs to
+            # their vendor/ source paths (dump_class_paths.php).
+            - uses: ramsey/composer-install@v3
+              with:
+                  dependency-versions: highest
+
             - name: Build documentation
               run: mkdocs build --strict
 
-            - name: Sync generated Markdown into tracked directory
-              run: |
-                  rsync -a --delete --include='*/' --include='*.md' --exclude='*' site/ doc/
-                  cp site/llms.txt llms.txt
-                  cp site/llms-full.txt llms-full.txt
+            - name: Resolve PHP API classes to vendor paths
+              run: php tools/llm_package/dump_class_paths.php site class_paths.json
+
+            - name: Build package Markdown (doc/, llms.txt)
+              run: python build_package_docs.py --version "${{ matrix.branch }}"
+
+            - name: Copy package README
+              run: cp tools/llm_package/README.package.md README.md
 
             - name: Find the last tag for this branch
               id: last_tag
@@ -79,11 +111,13 @@ jobs:
               run: |
                   # The generated Markdown is never committed/pushed to the branch itself (only
                   # tagged), so there's nothing on the branch to diff against — compare the freshly
-                  # built content to what the last tag captured instead.
-                  git add doc llms.txt llms-full.txt
+                  # built content to what the last tag captured instead. -f because doc/ and
+                  # llms.txt are gitignored to keep local builds out of the working tree.
+                  git add -f doc llms.txt
+                  git add README.md
                   if [[ -z "$LATEST_TAG" ]]; then
                       echo "changed=true" >> "$GITHUB_OUTPUT"
-                  elif git diff --cached --quiet "$LATEST_TAG" -- doc llms.txt llms-full.txt; then
+                  elif git diff --cached --quiet "$LATEST_TAG" -- doc llms.txt README.md; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
                   else
                       echo "changed=true" >> "$GITHUB_OUTPUT"
