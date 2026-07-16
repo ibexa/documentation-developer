@@ -1,21 +1,43 @@
 from build_package_docs import (
+    DocSet,
     check_relative_doc_links,
     rewrite_llms_txt,
     rewrite_page,
 )
 
-PAGES = {
-    "index.md",
-    "search/search/index.md",
-    "search/search_api/index.md",
-    "administration/back_office/back_office_menus/add_menu_item/index.md",
-    "administration/back_office/back_office_menus/back_office_menus/index.md",
-    "content_management/images/images/index.md",
-}
+DEVELOPER = DocSet(
+    root="developer",
+    base_urls=("https://doc.ibexa.co/en/latest/", "https://doc.ibexa.co/en/5.0/"),
+    pages=frozenset(
+        {
+            "index.md",
+            "search/search/index.md",
+            "search/search_api/index.md",
+            "administration/back_office/back_office_menus/add_menu_item/index.md",
+            "administration/back_office/back_office_menus/back_office_menus/index.md",
+            "content_management/images/images/index.md",
+        }
+    ),
+    redirects={"guide/images/": "content_management/images/images/"},
+)
 
-REDIRECTS = {
-    "guide/images/": "content_management/images/images/",
-}
+USER = DocSet(
+    root="user",
+    base_urls=(
+        "https://doc.ibexa.co/projects/userguide/en/latest/",
+        "https://doc.ibexa.co/projects/userguide/en/5.0/",
+    ),
+    pages=frozenset(
+        {
+            "index.md",
+            "image_management/edit_images/index.md",
+            "getting_started/get_started/index.md",
+        }
+    ),
+    redirects={"getting_started/": "getting_started/get_started/"},
+)
+
+DOCSETS = (DEVELOPER, USER)
 
 CLASS_PATHS = {
     "Ibexa\\Contracts\\AdminUi\\Tab\\AbstractTab": "ibexa/admin-ui/src/contracts/Tab/AbstractTab.php",
@@ -23,11 +45,8 @@ CLASS_PATHS = {
 }
 
 
-BASE_URLS = ("https://doc.ibexa.co/en/latest/", "https://doc.ibexa.co/en/5.0/")
-
-
-def rewrite(content, page_rel="search/search/index.md"):
-    return rewrite_page(content, page_rel, PAGES, REDIRECTS, CLASS_PATHS, BASE_URLS)
+def rewrite(content, page_path="developer/search/search/index.md"):
+    return rewrite_page(content, page_path, DOCSETS, CLASS_PATHS)
 
 
 class TestInternalLinks:
@@ -49,9 +68,10 @@ class TestInternalLinks:
             == "[home](../../index.md)"
         )
 
-    def test_link_from_root_page(self):
+    def test_link_from_set_root_page(self):
         assert (
-            rewrite("[search](https://doc.ibexa.co/en/latest/search/search/)", page_rel="index.md")
+            rewrite("[search](https://doc.ibexa.co/en/latest/search/search/)",
+                    page_path="developer/index.md")
             == "[search](search/search/index.md)"
         )
 
@@ -61,26 +81,18 @@ class TestInternalLinks:
             == "[images](../../content_management/images/images/index.md)"
         )
 
-    def test_unknown_page_stays_absolute(self):
-        content = "[gone](https://doc.ibexa.co/en/latest/no/such/page/)"
-        assert rewrite(content) == content
-
-    def test_other_doc_sites_stay_absolute(self):
-        content = "[user docs](https://doc.ibexa.co/projects/userguide/en/latest/)"
-        assert rewrite(content) == content
-
     def test_own_version_is_rewritten_like_latest(self):
         assert (
             rewrite("[Search API](https://doc.ibexa.co/en/5.0/search/search_api/)")
             == "[Search API](../search_api/index.md)"
         )
 
-    def test_other_versions_stay_absolute(self):
-        content = "[4.6 docs](https://doc.ibexa.co/en/4.6/search/search/)"
+    def test_unknown_page_stays_absolute(self):
+        content = "[gone](https://doc.ibexa.co/en/latest/no/such/page/)"
         assert rewrite(content) == content
 
-    def test_other_version_api_links_stay_absolute(self):
-        content = "[`X`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractTab.html)"
+    def test_other_versions_stay_absolute(self):
+        content = "[4.6 docs](https://doc.ibexa.co/en/4.6/search/search/)"
         assert rewrite(content) == content
 
     def test_external_links_stay_absolute(self):
@@ -110,19 +122,66 @@ class TestInternalLinks:
         )
 
 
+class TestCrossSetLinks:
+    def test_developer_page_links_to_user_doc(self):
+        content = "[edit images](https://doc.ibexa.co/projects/userguide/en/latest/image_management/edit_images/)"
+        assert rewrite(content) == "[edit images](../../../user/image_management/edit_images/index.md)"
+
+    def test_user_page_links_to_developer_doc(self):
+        content = "[Search API](https://doc.ibexa.co/en/latest/search/search_api/)"
+        assert (
+            rewrite(content, page_path="user/getting_started/get_started/index.md")
+            == "[Search API](../../../developer/search/search_api/index.md)"
+        )
+
+    def test_user_internal_link_with_version_and_redirect(self):
+        content = "[start](https://doc.ibexa.co/projects/userguide/en/5.0/getting_started/)"
+        assert (
+            rewrite(content, page_path="user/image_management/edit_images/index.md")
+            == "[start](../../getting_started/get_started/index.md)"
+        )
+
+    def test_developer_link_to_user_doc_with_matching_version(self):
+        content = "[edit images](https://doc.ibexa.co/projects/userguide/en/5.0/image_management/edit_images/)"
+        assert rewrite(content) == "[edit images](../../../user/image_management/edit_images/index.md)"
+
+    def test_developer_link_to_user_doc_with_other_version_stays_absolute(self):
+        content = "[old](https://doc.ibexa.co/projects/userguide/en/4.6/image_management/edit_images/)"
+        assert rewrite(content) == content
+
+    def test_user_link_to_developer_doc_with_matching_version(self):
+        content = "[Search API](https://doc.ibexa.co/en/5.0/search/search_api/)"
+        assert (
+            rewrite(content, page_path="user/index.md")
+            == "[Search API](../developer/search/search_api/index.md)"
+        )
+
+    def test_user_link_to_developer_doc_with_other_version_stays_absolute(self):
+        content = "[old](https://doc.ibexa.co/en/4.6/search/search_api/)"
+        assert rewrite(content, page_path="user/index.md") == content
+
+    def test_unknown_user_page_stays_absolute(self):
+        content = "[gone](https://doc.ibexa.co/projects/userguide/en/latest/no/such/)"
+        assert rewrite(content) == content
+
+    def test_other_projects_stay_absolute(self):
+        content = "[connect](https://doc.ibexa.co/projects/connect/en/latest/)"
+        assert rewrite(content) == content
+
+
 class TestApiLinks:
     URL = "https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractTab.html"
 
     def test_resolved_class_links_to_vendor_source_with_fqcn_text(self):
-        # From doc/search/search/index.md: 3 dirs inside the package + 2 up to vendor/.
+        # From developer/search/search/index.md: 3 dirs inside the package + 2 up to vendor/.
         assert rewrite(f"[`AbstractTab`]({self.URL})") == (
             "[`Ibexa\\Contracts\\AdminUi\\Tab\\AbstractTab`]"
             "(../../../../../ibexa/admin-ui/src/contracts/Tab/AbstractTab.php)"
         )
 
     def test_depth_follows_page_location(self):
-        page = "administration/back_office/back_office_menus/add_menu_item/index.md"
-        result = rewrite(f"[`AbstractTab`]({self.URL})", page_rel=page)
+        page = "developer/administration/back_office/back_office_menus/add_menu_item/index.md"
+        result = rewrite(f"[`AbstractTab`]({self.URL})", page_path=page)
         assert result.endswith("(../../../../../../../ibexa/admin-ui/src/contracts/Tab/AbstractTab.php)")
 
     def test_method_anchor_is_dropped_and_text_kept(self):
@@ -137,41 +196,50 @@ class TestApiLinks:
             f"[`Ibexa\\Contracts\\Connect\\ConnectClientInterface`]({url})"
         )
 
+    def test_other_version_api_links_stay_absolute(self):
+        content = "[`X`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractTab.html)"
+        assert rewrite(content) == content
+
 
 class TestLlmsTxt:
-    def test_page_links_point_into_doc(self):
+    def test_page_links_are_relative_to_set_root(self):
         content = "- [Search](https://doc.ibexa.co/en/latest/search/search/index.md)"
-        assert rewrite_llms_txt(content, PAGES) == "- [Search](doc/search/search/index.md)"
+        assert rewrite_llms_txt(content, DEVELOPER) == "- [Search](search/search/index.md)"
 
-    def test_root_page(self):
+    def test_set_root_page(self):
         content = "- [Home](https://doc.ibexa.co/en/latest/index.md)"
-        assert rewrite_llms_txt(content, PAGES) == "- [Home](doc/index.md)"
+        assert rewrite_llms_txt(content, DEVELOPER) == "- [Home](index.md)"
+
+    def test_user_set_uses_its_own_base(self):
+        content = "- [Edit images](https://doc.ibexa.co/projects/userguide/en/latest/image_management/edit_images/index.md)"
+        assert rewrite_llms_txt(content, USER) == "- [Edit images](image_management/edit_images/index.md)"
 
     def test_unknown_page_stays_absolute(self):
         content = "- [Gone](https://doc.ibexa.co/en/latest/no/such/index.md)"
-        assert rewrite_llms_txt(content, PAGES) == content
+        assert rewrite_llms_txt(content, DEVELOPER) == content
 
 
 class TestSelfCheck:
     def test_valid_links_pass(self):
         pages = {
-            "a/b/index.md": "[ok](../c/index.md)",
-            "a/c/index.md": "[ok](../b/index.md#anchor)",
+            "developer/a/index.md": "[ok](../b/index.md) [cross](../../user/c/index.md)",
+            "developer/b/index.md": "[ok](../a/index.md#anchor)",
+            "user/c/index.md": "[cross](../../developer/a/index.md)",
         }
         assert check_relative_doc_links(pages) == []
 
     def test_broken_link_is_reported(self):
-        pages = {"a/b/index.md": "[broken](../missing/index.md)"}
+        pages = {"developer/a/index.md": "[broken](../missing/index.md)"}
         errors = check_relative_doc_links(pages)
         assert len(errors) == 1
-        assert "a/b/index.md" in errors[0]
+        assert "developer/a/index.md" in errors[0]
 
-    def test_link_escaping_doc_tree_is_reported(self):
-        pages = {"a/index.md": "[escape](../../outside.md)"}
+    def test_link_escaping_package_tree_is_reported(self):
+        pages = {"developer/a/index.md": "[escape](../../../outside.md)"}
         assert len(check_relative_doc_links(pages)) == 1
 
     def test_vendor_and_external_links_are_skipped(self):
         pages = {
-            "a/index.md": "[php](../../../ibexa/core/src/S.php) [web](https://example.com/x.md)"
+            "developer/a/index.md": "[php](../../../ibexa/core/src/S.php) [web](https://example.com/x.md)"
         }
         assert check_relative_doc_links(pages) == []

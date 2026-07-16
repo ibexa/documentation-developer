@@ -45,6 +45,13 @@ jobs:
               with:
                   ref: ${{ matrix.branch }}
 
+            - name: Check out user documentation
+              uses: actions/checkout@v4
+              with:
+                  repository: ibexa/documentation-user
+                  ref: ${{ matrix.branch }}
+                  path: user-docs
+
             - name: Set up Python
               uses: actions/setup-python@v3
               with:
@@ -53,7 +60,7 @@ jobs:
             - name: Install dependencies
               run: |
                   python -m pip install --upgrade pip
-                  pip install -r requirements.txt
+                  pip install -r requirements.txt -r user-docs/requirements.txt
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
@@ -84,13 +91,17 @@ jobs:
               with:
                   dependency-versions: highest
 
-            - name: Build documentation
+            - name: Build developer documentation
               run: mkdocs build --strict
 
-            - name: Resolve PHP API classes to vendor paths
-              run: php tools/llm_package/dump_class_paths.php site class_paths.json
+            - name: Build user documentation
+              run: mkdocs build --strict
+              working-directory: user-docs
 
-            - name: Build package Markdown (doc/, llms.txt)
+            - name: Resolve PHP API classes to vendor paths
+              run: php tools/llm_package/dump_class_paths.php site user-docs/site class_paths.json
+
+            - name: Build package Markdown (developer/, user/)
               run: python build_package_docs.py --version "${{ matrix.branch }}"
 
             - name: Copy package README
@@ -118,15 +129,15 @@ jobs:
               run: |
                   # The generated Markdown is never committed/pushed to the branch itself (only
                   # tagged), so there's nothing on the branch to diff against — compare the freshly
-                  # built content to what the last tag captured instead. -f because doc/ and
-                  # llms.txt are gitignored to keep local builds out of the working tree.
-                  git add -f doc llms.txt
+                  # built content to what the last tag captured instead. -f because developer/ and
+                  # user/ are gitignored to keep local builds out of the working tree.
+                  git add -f developer user
                   git add README.md
                   if [[ -z "$LATEST_TAG" ]]; then
                       echo "changed=true" >> "$GITHUB_OUTPUT"
                   # .agents (agent skills, tracked on the branch) is part of the package too;
                   # include it so skill-only edits also produce a release.
-                  elif git diff --cached --quiet "$LATEST_TAG" -- doc llms.txt README.md .agents; then
+                  elif git diff --cached --quiet "$LATEST_TAG" -- developer user README.md .agents; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
                   else
                       echo "changed=true" >> "$GITHUB_OUTPUT"

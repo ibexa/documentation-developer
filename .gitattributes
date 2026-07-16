@@ -1,7 +1,7 @@
 /* export-ignore
 /.agents export-ignore=false
-/doc export-ignore=false
-/llms.txt export-ignore=false
+/developer export-ignore=false
+/user export-ignore=false
 /composer.json export-ignore=false
 /LICENSE export-ignore=false
 /README.md export-ignore=false

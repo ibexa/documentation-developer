@@ -23,4 +23,7 @@ code_samples/_inline_php/
 *.egg-info/
 /doc/
 /llms.txt
+/developer/
+/user/
 /class_paths.json
+/user-docs/
