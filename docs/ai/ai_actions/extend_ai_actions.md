@@ -9,6 +9,8 @@ By extending [AI Actions](ai_actions_guide.md), you can make regular content man
 You can start by integrating additional AI services to the existing action types or develop custom ones that impact completely new areas of application.
 For example, you can create a handler that connects to a translation model and use it to translate your website on-the-fly, or generate illustrations based on a body of an article.
 
+Waldo is here.
+
 ## Execute Actions
 
 You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
