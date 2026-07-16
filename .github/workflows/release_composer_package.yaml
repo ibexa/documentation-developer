@@ -55,13 +55,6 @@ jobs:
                   python -m pip install --upgrade pip
                   pip install -r requirements.txt
 
-            - name: Determine base version from mkdocs.yml
-              id: base_version
-              run: |
-                  key="latest_tag_$(echo '${{ matrix.branch }}' | tr '.' '_')"
-                  base_version=$(python3 -c "import yaml; print(yaml.safe_load(open('mkdocs.yml'))['extra']['$key'])")
-                  echo "base_version=${base_version}" >> "$GITHUB_OUTPUT"
-
             - name: Build documentation
               run: mkdocs build --strict
 
@@ -101,16 +94,16 @@ jobs:
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
-                  git commit -m "Update generated Markdown docs for ${{ steps.base_version.outputs.base_version }}"
+                  git commit -m "Update generated Markdown docs for ${{ matrix.branch }}"
 
             - name: Tag release
               if: steps.changes.outputs.changed == 'true'
               env:
-                  BASE_VERSION: ${{ steps.base_version.outputs.base_version }}
+                  BRANCH: ${{ matrix.branch }}
               run: |
                   # Push only the tag, never the branch — the branch stays exactly as authored,
                   # the generated Markdown exists solely as the commit this tag points to.
-                  tag="${BASE_VERSION}.$(date -u +%Y%m%d)"
+                  tag="${BRANCH}.$(date -u +%Y%m%d)"
 
                   if git rev-parse "$tag" >/dev/null 2>&1; then
                       echo "Tag $tag already exists, skipping."
