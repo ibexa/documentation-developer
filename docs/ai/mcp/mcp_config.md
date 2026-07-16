@@ -91,7 +91,7 @@ php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
 | [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
 | [`session`](#session-storage)                                                                                   | object  | Yes      |                                                                          | Session storage configuration                                    |
-| [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers |
+| [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers                                          |
 
 !!! note "New servers are disabled by default"
 
@@ -233,6 +233,6 @@ In this example, only requests from `admin.example.com` domain, `my-ddev-project
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
                         - 'admin.example.com'
-                        - '127.0.0.1'
                         - 'my-ddev-project.ddev.site'
+                        - '127.0.0.1'
 ```
