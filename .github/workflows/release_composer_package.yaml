@@ -37,13 +37,13 @@ jobs:
                 branch: ${{ fromJson(needs.determine-branches.outputs.branches) }}
 
         steps:
+            # Shallow checkout of the branch tip only. The generated Markdown is never
+            # pushed to the branch itself (see below), only tagged, so the diff target is
+            # the latest tag — fetched individually in "Find the last tag" instead of
+            # pulling the full history + every daily tag snapshot (which took minutes).
             - uses: actions/checkout@v4
               with:
                   ref: ${{ matrix.branch }}
-                  # Full history + tags: the generated Markdown is never pushed to the branch
-                  # itself (see below), only tagged, so tags are the only place to diff against.
-                  fetch-depth: 0
-                  fetch-tags: true
 
             - name: Set up Python
               uses: actions/setup-python@v3
@@ -61,13 +61,13 @@ jobs:
                   php-version: "8.3"
                   coverage: none
 
-            - name: Generate token
-              id: generate_token
-              uses: actions/create-github-app-token@v2
-              with:
-                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
-                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
-                  owner: ${{ github.repository_owner }}
+            # - name: Generate token
+            #   id: generate_token
+            #   uses: actions/create-github-app-token@v2
+            #   with:
+            #       app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+            #       private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+            #       owner: ${{ github.repository_owner }}
 
             - name: Add composer keys for private packagist
               run: |
@@ -76,7 +76,7 @@ jobs:
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+                  GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} #${{ steps.generate_token.outputs.token }}
 
             # Needed to resolve the PHP API classes referenced by the docs to
             # their vendor/ source paths (dump_class_paths.php).
@@ -101,7 +101,14 @@ jobs:
               env:
                   BRANCH: ${{ matrix.branch }}
               run: |
-                  latest_tag=$(git tag --list "${BRANCH}.*" | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
+                  # List tag names on the remote (no object download), then fetch only the
+                  # latest one — the single commit the change check diffs against.
+                  latest_tag=$(git ls-remote --tags origin "refs/tags/${BRANCH}.*" \
+                      | awk '{print $2}' | sed 's|^refs/tags/||' | grep -v '\^{}$' \
+                      | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
+                  if [[ -n "$latest_tag" ]]; then
+                      git fetch --depth=1 origin "refs/tags/${latest_tag}:refs/tags/${latest_tag}"
+                  fi
                   echo "latest_tag=${latest_tag}" >> "$GITHUB_OUTPUT"
 
             - name: Check for content changes since the last tag
