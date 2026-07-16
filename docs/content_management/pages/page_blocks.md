@@ -45,13 +45,20 @@ For example:
 The `name` setting accepts either a single translation key, or an array with `text` and `help` keys.
 Both `text` and `help` are translatable using the `ibexa_page_fieldtype` translation domain.
 
+Scalar form (still supported):
+
 ``` yaml
 ibexa_fieldtype_page:
     blocks:
         my_block:
-            # legacy scalar form (still supported)
             name: my_block.name.key
-            # new structured form
+```
+
+Structured form with a helper text:
+
+```yaml
+ibexa_fieldtype_page:
+    blocks:
             name:
                 text: my_block.name.key
                 help: my_block.name.help.key
