@@ -3,9 +3,13 @@ description: TODO.
 month_change: true
 ---
 
+# DIL MCP server
+
+The Data Intelligence Layer come with a built-in MCP server helpin AI agents to fetch metrics and use them to provide content improvement suggestions or take actions.
+
 ## MCP server configuration
 
-You can check  the service existence with the following command:
+You can check the service existence with the following command:
 
 ```bash
 php bin/console debug:container ibexa.mcp.server.default.data_intelligence_layer
