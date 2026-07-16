@@ -1,12 +1,31 @@
+when@dev:
+    ibexa:
+        repositories:
+            default:
+                mcp:
+                    data_intelligence_layer:
+                        allowed_hosts:
+                            - 'my-ddev-project.ddev.site'
+                            - '127.0.0.1'
+when@prod:
+    ibexa:
+        repositories:
+            default:
+                mcp:
+                    data_intelligence_layer:
+                        allowed_hosts:
+                            - 'admin.example.com'
 ibexa:
     repositories:
         default:
             mcp:
                 data_intelligence_layer:
-                    allowed_hosts:
-                        - 'admin.example.com'
-                        - '127.0.0.1'
-                        - 'my-ddev-project.ddev.site'
+                    discovery_cache: ibexa.cache_pool
+                    session:
+                        type: psr16
+                        service: ibexa.cache_pool
+                        prefix: dil_mcp_session_
+                        ttl: 3600
     system:
         admin_group:
             mcp:

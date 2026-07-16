@@ -21,9 +21,15 @@ parameters:
 
 ## MCP server configuration
 
-The MCP server `data_intelligence_layer` is already configured for the path `/mcp/data-intelligence`.
-It's enabled by default but not assigned to any SiteAccess and not allowing other hosts than `localhost`, `127.0.0.1`, and `[::1]`.
-Assign it to the `admin_group`, allow your admin domain and optionally development domains:
+The MCP server `data_intelligence_layer` is already configured for the path `/mcp/data-intelligence` and is enabled by default.
+It needs
+
+- to be associated to some SiteAccesses
+- to be allowed to be accessed from other hosts than `localhost`, `127.0.0.1`, and `[::1]`
+- to have discovery cache enabled in production (by default, it's disabled for development)
+- to have another session storage than the default `public/var/` directory
+
+For example, assign it to the `admin_group`, allow your production admin domain and development domains, use a shared session storage in production and file system in development:
 
 ```yaml
 [[= include_code('code_samples/mcp/config/packages/mcp.dil.yaml') =]]
