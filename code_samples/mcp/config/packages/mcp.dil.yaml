@@ -25,7 +25,6 @@ ibexa:
                         type: psr16
                         service: ibexa.cache_pool
                         prefix: dil_mcp_session_
-                        ttl: 3600
     system:
         admin_group:
             mcp:
