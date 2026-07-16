@@ -29,7 +29,7 @@ It needs
 - to have discovery cache enabled in production (by default, it's disabled for development)
 - to have another session storage than the default `public/var/` directory
 
-For example, assign it to the `admin_group`, allow your production admin domain and development domains, use a shared session storage in production and file system in development:
+For example, assign it to the `admin_group`, allow your production admin domain and development domains, use the default cache pool for discovery cache and sessions:
 
 ```yaml
 [[= include_code('code_samples/mcp/config/packages/mcp.dil.yaml') =]]
