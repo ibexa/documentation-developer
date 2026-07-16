@@ -59,6 +59,7 @@ Structured form with a helper text:
 ```yaml
 ibexa_fieldtype_page:
     blocks:
+        my_block:
             name:
                 text: my_block.name.key
                 help: my_block.name.help.key
