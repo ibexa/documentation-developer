@@ -192,7 +192,7 @@ php bin/console cache:pool:clear cache.redis.mcp
 
     Use `ibexa.cache_pool` as service identifier to have the default [cache service](persistence_cache.md#cache-service).
 
-It can be set to `null` to disable caching to ease development. This is not recommended for production environments.
+It can be set to `null` to disable caching to ease development, which isn't recommended for production environment.
 
 See another example of configuration in [Work with MCP servers](mcp_usage.md#configure-mcp-server).
 
