@@ -21,3 +21,6 @@ lychee-report.md
 code_samples/_inline_php/
 /build/
 *.egg-info/
+/doc/
+/llms.txt
+/class_paths.json
