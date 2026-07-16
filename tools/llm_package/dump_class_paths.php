@@ -4,9 +4,9 @@
  * Dump a map of PHP API classes referenced by the generated Markdown docs to
  * their vendor-relative source paths.
  *
- * Usage: php tools/llm_package/dump_class_paths.php [<site_dir>] [<output_json>]
+ * Usage: php tools/llm_package/dump_class_paths.php [<site_dir>...] [<output_json>]
  *
- * Scans the MkDocs build output for `php_api_reference/classes/<Slug>.html`
+ * Scans the MkDocs build output(s) for `php_api_reference/classes/<Slug>.html`
  * links, converts each slug to a FQCN (dashes become namespace separators;
  * PHP class names cannot contain dashes, so this is unambiguous) and resolves
  * it through this repository's Composer autoloader. The resulting JSON maps
@@ -20,30 +20,33 @@
 
 declare(strict_types=1);
 
-$siteDir = $argv[1] ?? 'site';
-$outputPath = $argv[2] ?? 'class_paths.json';
+$args = array_slice($argv, 1);
+$outputPath = count($args) >= 2 ? array_pop($args) : 'class_paths.json';
+$siteDirs = $args !== [] ? $args : ['site'];
 
 $root = dirname(__DIR__, 2);
 $loader = require $root . '/vendor/autoload.php';
 $vendorDir = realpath($root . '/vendor');
 
-if (!is_dir($siteDir)) {
-    fwrite(STDERR, "Site directory not found: $siteDir (run mkdocs build first)\n");
-    exit(1);
-}
-
 $slugs = [];
-$iterator = new RecursiveIteratorIterator(
-    new RecursiveDirectoryIterator($siteDir, FilesystemIterator::SKIP_DOTS)
-);
-foreach ($iterator as $file) {
-    if ($file->getExtension() !== 'md') {
-        continue;
+foreach ($siteDirs as $siteDir) {
+    if (!is_dir($siteDir)) {
+        fwrite(STDERR, "Site directory not found: $siteDir (run mkdocs build first)\n");
+        exit(1);
     }
-    $content = file_get_contents($file->getPathname());
-    if (preg_match_all('~php_api_reference/classes/([A-Za-z0-9-]+)\.html~', $content, $matches)) {
-        foreach ($matches[1] as $slug) {
-            $slugs[$slug] = true;
+
+    $iterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($siteDir, FilesystemIterator::SKIP_DOTS)
+    );
+    foreach ($iterator as $file) {
+        if ($file->getExtension() !== 'md') {
+            continue;
+        }
+        $content = file_get_contents($file->getPathname());
+        if (preg_match_all('~php_api_reference/classes/([A-Za-z0-9-]+)\.html~', $content, $matches)) {
+            foreach ($matches[1] as $slug) {
+                $slugs[$slug] = true;
+            }
         }
     }
 }
