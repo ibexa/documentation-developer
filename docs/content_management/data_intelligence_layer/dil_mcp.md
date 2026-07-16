@@ -24,7 +24,7 @@ php bin/console debug:router ibexa.mcp.data_intelligence_layer
 This MCP server need to be associated to some SiteAccesses and allowed to be accessed from some hosts.
 For details, see [Data Intelligence Layer configuration](dil_config.md#mcp-server-configuration).
 
-## MCP server test 
+## MCP server test
 
 You can use the MCP server from an agent CLI command.
 Like in the [Work with MCP servers example](mcp_usage.md#fully-scripted-variant), you can use a wrapper script to ease JWT token acquisition.
