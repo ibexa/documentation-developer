@@ -16,6 +16,10 @@ The `Height` Search Criterion searches for image with specified height.
 
 ### PHP
 
-``` php {skip-validation}
-$query->query = new Criterion\Height('image', 0, 1500);
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+$query->query = new Criterion\Image\Height('image', 0, 1500);
 ```

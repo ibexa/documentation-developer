@@ -14,8 +14,12 @@ The `Currency` Search Criterion searches for prices based on the given currency.
 
 ### PHP
 
-``` php {skip-validation}
-$currency = $priceService->getPriceById('EUR');
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
+
+/** @var \Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface $currencyService */
+$currency = $currencyService->getCurrencyByCode('EUR');
 
 $query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency($currency)

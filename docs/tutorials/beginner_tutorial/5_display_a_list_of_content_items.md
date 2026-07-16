@@ -57,7 +57,7 @@ For more information, see [Built-In Query Types](built-in_query_types.md).
 Here, you need to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
 
-``` php {skip-validation hl_lines="21 22"}
+``` php hl_lines="22-23"
 <?php
 
 namespace App\QueryType;
@@ -68,12 +68,13 @@ use Ibexa\Core\QueryType\QueryType;
 
 class RideQueryType implements QueryType
 {
-    public static function getName()
+    public static function getName(): string
     {
         return 'Ride';
     }
 
-    public function getQuery(array $parameters = [])
+    /** @param array<string, mixed> $parameters */
+    public function getQuery(array $parameters = []): \Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery
     {
         return new LocationQuery([
             'filter' => new Criterion\LogicalAnd(
@@ -81,12 +82,13 @@ class RideQueryType implements QueryType
                     new Criterion\Visibility(Criterion\Visibility::VISIBLE),
                     new Criterion\ContentTypeIdentifier(['ride']),
                 ]
-            )
+            ),
         ]);
     }
 
-    public function getSupportedParameters()
+    public function getSupportedParameters(): array
     {
+        return [];
     }
 }
 ```

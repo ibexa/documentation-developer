@@ -20,17 +20,17 @@ First level key is the module name which is limited to characters within the set
 Function value is an array of available limitations, identified by the alias declared in `LimitationType` service tag.
 If no limitation is provided, value can be `null` or an empty array.
 
-``` php {skip-validation}
-[
-    "content" => [
-        "read" => ["Class", "ParentClass", "Node", "Language"],
-        "edit" => ["Class", "ParentClass", "Language"]
+``` php
+$config = [
+    'content' => [
+        'read' => ['Class', 'ParentClass', 'Node', 'Language'],
+        'edit' => ['Class', 'ParentClass', 'Language'],
     ],
-    "custom_module" => [
-        "custom_function_1" => null,
-        "custom_function_2" => ["CustomLimitation"]
+    'custom_module' => [
+        'custom_function_1' => null,
+        'custom_function_2' => ['CustomLimitation'],
     ],
-]
+];
 ```
 
 Limitations need to be implemented as *Limitation types* and declared as services identified with `ibexa.permissions.limitation_type` tag.
@@ -38,8 +38,10 @@ Name provided in the hash for each limitation is the same value set in the `alia
 
 For example:
 
-``` php {skip-validation}
-<?php declare(strict_types=1);
+``` php
+<?php
+
+declare(strict_types=1);
 
 namespace App\Security;
 
@@ -48,12 +50,12 @@ use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProvider
 
 class MyPolicyProvider implements PolicyProviderInterface
 {
-    public function addPolicies(ConfigBuilderInterface $configBuilder)
+    public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-             "custom_module" => [
-                 "custom_function_1" => null,
-                 "custom_function_2" => ["CustomLimitation"],
+             'custom_module' => [
+                 'custom_function_1' => null,
+                 'custom_function_2' => ['CustomLimitation'],
              ],
          ]);
     }
@@ -95,26 +97,31 @@ For example, `translations/forms.en.yaml`:
 
 You can also implement `TranslationContainerInterface` to provide those translations in your policy provider class:
 
-``` php {skip-validation}
-<?php declare(strict_types=1);
+``` php
+<?php
+
+declare(strict_types=1);
 
 namespace App\Security;
 
 use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
 use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
+use JMS\TranslationBundle\Model\Message;
+use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 
 class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerInterface
 {
-    public function addPolicies(ConfigBuilderInterface $configBuilder)
+    public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-             "custom_module" => [
-                 "custom_function_1" => null,
-                 "custom_function_2" => ["CustomLimitation"],
+             'custom_module' => [
+                 'custom_function_1' => null,
+                 'custom_function_2' => ['CustomLimitation'],
              ],
          ]);
     }
 
+    /** @return array<\JMS\TranslationBundle\Model\Message> */
     public static function getTranslationMessages(): array
     {
         return [

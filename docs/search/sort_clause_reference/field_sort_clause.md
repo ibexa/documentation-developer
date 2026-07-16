@@ -20,7 +20,10 @@ The `Field` Sort Clause isn't available in [Repository filtering](search_api.md#
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Field('article', 'title')];
 ```

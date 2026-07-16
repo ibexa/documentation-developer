@@ -105,8 +105,11 @@ composer require ibexa/connector-gemini
 
 Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
-``` php {skip-validation}
+``` php
+return [
+    // ...
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
+];
 ```
 
 This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.

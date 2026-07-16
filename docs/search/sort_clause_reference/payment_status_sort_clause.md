@@ -13,12 +13,17 @@ The `Status` Sort Clause sorts search results by payment status.
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+$criteria = null;
+
 $paymentQuery = new PaymentQuery(
     $criteria,
     [
         new \Ibexa\Contracts\Payment\Payment\Query\SortClause\Status(
-            \Ibexa\Contracts\Payment\Payment\Query\SortClause\Status::SORT_ASC)
+            \Ibexa\Contracts\Payment\Payment\Query\SortClause\Status::SORT_ASC
+        ),
     ]
 );
 ```

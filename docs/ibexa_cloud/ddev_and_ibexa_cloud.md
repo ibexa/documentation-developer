@@ -13,6 +13,7 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 !!! note
 
     The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    For more information and examples, see [[[= product_name_cloud =]] CLI](ibexa_cloud_cli.md).
 
 ## With Ibexa Cloud add-ons
 

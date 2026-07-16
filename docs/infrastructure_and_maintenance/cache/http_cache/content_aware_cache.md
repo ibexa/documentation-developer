@@ -147,13 +147,12 @@ The built-in taggers support the following value types:
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
 
-!!! caution
-
-    If a value of any other type is passed (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), no tagger matches and the call has no effect.
-
 ## DispatcherTagger
 
-Accepts any value and passes it on to every tagger registered with the service tag `ibexa.cache.http.response.tagger`.
+Accepts any value and passes it on to taggers registered with the service tag `ibexa.cache.http.response.tagger` supporting given type.
+
+If you pass a value which no tagger supports (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), the system logs a warning.
+When [`kernel.debug`]([[= symfony_doc=]]/reference/configuration/kernel.html#kernel-debug) is enabled, an exception is thrown to help you catch unsupported types early.
 
 ## Response tagging in controllers
 
@@ -171,8 +170,12 @@ Examples for tagging everything needed for content using the autowireable [`Resp
 
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
-``` php {skip-validation}
-/** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
+``` php
+/**
+ * @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
+ */
 
 // Example for tagging everything needed for Content:
 $tagHandler->addContentTags([$content->id]);
@@ -191,7 +194,9 @@ In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` s
 
 The following example adds minimal tags when ID 33 and 34 are rendered in ESI, but parent response needs these tags to get refreshed if they're deleted:
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
@@ -203,9 +208,9 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 For custom or built-in controllers (for example, REST) that still use `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
 It supports singular and comma-separated location ID value(s):
 
-``` php {skip-validation}
+``` php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
-$response->headers->set('X-Location-Id', 123);
+$response->headers->set('X-Location-Id', '123');
 
 // Alternatively using several Location ID values
 $response->headers->set('X-Location-Id', '123,212,42');
@@ -320,16 +325,38 @@ In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), 
 ### Custom purging from code
 
 While the system purges tags whenever API is used to change data, you may need to purge directly from code.
-For that you can use the built-in purge client:
+For that you can inject the built-in [`PurgeClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-PurgeClient-PurgeClientInterface.html) by using the `ibexa.http_cache.purge_client` service name:
 
-``` php {skip-validation}
-/** @var \Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface $purgeClient */
+``` php hl_lines="12-13 19-21 23-25"
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+use Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
-// Example for purging by Location ID:
-$purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
+#[AsCommand(name: 'app:purge-cache')]
+class MyCustomCacheCommand
+{
+    public function __construct(
+        #[Autowire(service: 'ibexa.http_cache.purge_client')]
+        private readonly PurgeClientInterface $purgeClient
+    ) {
+    }
 
-// Example for purging all cache for instance for full re-deploy cases, usually this triggers an expiry (soft purge):
-$purgeClient->purgeAll();
+    public function __invoke(SymfonyStyle $io): int
+    {
+        // Example for purging by Location ID:
+        $locationId = 2;
+        $this->purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $locationId]);
+
+        // Example for purging all cache for instance for full re-deploy cases
+        // Usually this triggers an expiry (soft purge):
+        $this->purgeClient->purgeAll();
+
+        return Command::SUCCESS;
+    }
+}
 ```
 
 ### Purging from command line

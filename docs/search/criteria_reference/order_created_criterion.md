@@ -16,7 +16,10 @@ The `CreatedAtCriterion` Search Criterion searches for orders based on the date 
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
 $criteria = new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CreatedAtCriterion(
     new DateTime('2023-03-01'),
     'GTE'

@@ -23,7 +23,9 @@ The following example query returns all shopping lists available to the current 
 If the user’s permissions include the [`ShoppingListOwner` `self` limitation](limitation_reference.md#shopping-list-limitation), the query returns only lists created by that user.
 Otherwise, it returns all shopping lists in the system.
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
+
 $query = new ShoppingListQuery();
 ```
 

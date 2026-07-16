@@ -151,7 +151,7 @@ You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used 
 
 === "[[= product_name_content =]]"
 
-    ``` php {skip-validation}
+    ``` text
     FOS\CommentBundle\FOSCommentBundle
     Tedivm\StashBundle\TedivmStashBundle
     WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
@@ -178,7 +178,7 @@ You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used 
 
 === "[[= product_name_exp =]]"
 
-    ``` php {skip-validation}
+    ``` text
     FOS\CommentBundle\FOSCommentBundle
     Tedivm\StashBundle\TedivmStashBundle
     WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
@@ -205,7 +205,7 @@ You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used 
 
 === "[[= product_name_com =]]"
 
-    ``` php {skip-validation}
+    ``` text
     FOS\CommentBundle\FOSCommentBundle
     Tedivm\StashBundle\TedivmStashBundle
     WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle

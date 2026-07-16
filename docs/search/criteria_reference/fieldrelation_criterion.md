@@ -22,6 +22,10 @@ The `FieldRelation` Criterion isn't available in [Repository filtering](search_a
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FieldRelation('relations', Criterion\Operator::CONTAINS, [55, 63]);
 ```

@@ -46,7 +46,8 @@ The hash format mostly matches the value object. It has the following keys:
 
 Example:
 
-``` php {skip-validation}
+``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct $fileContentCreateStruct */
 $fileContentCreateStruct->setField('file', new Ibexa\Core\FieldType\BinaryFile\Value([
     'fileName' => 'example.pdf',
     'inputUri' => '/tmp/example_for_website.pdf',

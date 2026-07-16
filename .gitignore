@@ -1,6 +1,7 @@
 /vendor/
 **/.DS_Store
 __pycache__/*
+**/__pycache__
 /site/
 **/.idea/
 .php-cs-fixer.cache
@@ -18,3 +19,5 @@ lychee.toml
 lychee-report.md
 .phpunit.result.cache
 code_samples/_inline_php/
+/build/
+*.egg-info/

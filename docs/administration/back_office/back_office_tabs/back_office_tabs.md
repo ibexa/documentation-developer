@@ -18,7 +18,7 @@ A custom tab can extend one of the following classes:
 - [`AbstractControllerBasedTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractControllerBasedTab.html) - embeds the results of a controller action in the tab
 - [`AbstractRouteBasedTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractRouteBasedTab.html) - embeds the results of the selected route, passing applicable parameters
 
-``` php {skip-validation}
+``` php
 //...
 [[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 16, 18) =]]
     //...

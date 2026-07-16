@@ -91,9 +91,12 @@ This a low effort solution, and can be enough for one fragment that is reused ac
 
 Example:
 
-``` php {skip-validation}
-    // Inside a custom controller action, or even a Content View controller
-    $response->setVary('Cookie');
+``` php
+use Symfony\Component\HttpFoundation\Response;
+
+// Inside a custom controller action, or even a Content View controller
+/** @var Response $response */
+$response->setVary('Cookie');
 ```
 
 2\. Ajax/JS lookup to "uncached" custom Symfony controllers:
@@ -139,15 +142,28 @@ To avoid overloading any application code, take advantage of Symfony's event sys
 
 1\. Add a [Response event (`kernel.response`)]([[= symfony_doc =]]/reference/events.html#kernel-response) [listener or subscriber]([[= symfony_doc =]]/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
-``` php {skip-validation}
-public function addPreferenceHash(FilterResponseEvent $event)
+``` php
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
+
+final class MyEventSubscriber implements EventSubscriberInterface
 {
-    $response = $event->getResponse();
-    if ($response->headers->get('Content-Type') !== 'application/vnd.fos.user-context-hash') {
-        return;
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ResponseEvent::class => 'addPreferenceHash',
+        ];
     }
 
-    $response->headers->set('X-User-Preference-Hash', '<your-hash>');
+    public function addPreferenceHash(ResponseEvent $event): void
+    {
+        $response = $event->getResponse();
+        if ($response->headers->get('Content-Type') !== 'application/vnd.fos.user-context-hash') {
+            return;
+        }
+
+        $response->headers->set('X-User-Preference-Hash', '<your-hash>');
+    }
 }
 ```
 
@@ -186,7 +202,10 @@ public function addPreferenceHash(FilterResponseEvent $event)
 
 3\. Add `Vary` in your custom controller or content view controller:
 
-``` php {skip-validation}
+``` php
+use Symfony\Component\HttpFoundation\Response;
+
+/** @var Response $response */
 $response->setVary('X-User-Preference-Hash');
 
 // If you _also_ need to vary on [[= product_name =]] permissions, instead use:

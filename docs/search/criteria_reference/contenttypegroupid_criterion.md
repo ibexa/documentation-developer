@@ -14,7 +14,11 @@ The [`ContentTypeGroupId` Search Criterion](/api/php_api/php_api_reference/class
 
 ### PHP
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 ```
 
@@ -45,13 +49,18 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 You can use the `ContentTypeGroupId` Criterion to query all Media content items
 (the default ID for the Media content type group is 3):
 
-``` php {skip-validation hl_lines="1"}
-        $query->query = new Criterion\ContentTypeGroupId([3]);
+``` php hl_lines="6"
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
-        $results = $this->searchService->findContent($query);
-        $media = [];
-        foreach ($results->searchHits as $searchHit) {
-            $media[] = $searchHit;
-        }
-    }
+$query = new Query();
+$query->query = new Criterion\ContentTypeGroupId([3]);
+
+/** @var SearchService $searchService */
+$results = $searchService->findContent($query);
+$media = [];
+foreach ($results->searchHits as $searchHit) {
+    $media[] = $searchHit;
+}
 ```

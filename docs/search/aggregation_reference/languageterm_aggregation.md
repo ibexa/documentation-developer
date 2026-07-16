@@ -12,7 +12,10 @@ The [LanguageTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contr
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new Query();
 $query->aggregations[] = new Aggregation\LanguageTermAggregation('language');
 ```

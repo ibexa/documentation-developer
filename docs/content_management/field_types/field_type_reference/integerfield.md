@@ -24,9 +24,10 @@ The Value class of this field type contains the following properties:
 |----------|-------|------------|
 | `$value` | `int` | This property is used to store the value provided as an integer. |
 
-``` php {skip-validation}
+``` php
 // Value object content example
-$integer->value = 8
+/** @var \Ibexa\Core\FieldType\Integer\Value $integer */
+$integer->value = 8;
 ```
 
 #### Constructor
@@ -34,12 +35,12 @@ $integer->value = 8
 The `Integer\Value` constructor initializes a new value object with the value provided.
 It expects a numeric, integer value.
 
-``` php {skip-validation}
+``` php
 // Constructor example
 use Ibexa\Core\FieldType\Integer;
 
 // Instantiates a Integer Value object
-$integerValue = new Integer\Value( 8 );
+$integerValue = new Integer\Value(8);
 ```
 
 #### Hash format
@@ -63,11 +64,11 @@ This field type supports `IntegerValueValidator`, defining maximum and minimum f
 |`minIntegerValue`|`int`|`0`|This setting defines the minimum value this field type which is allowed as input.|
 |`maxIntegerValue`|`int`|`null`|This setting defines the maximum value this field type which is allowed as input.|
 
-``` php {skip-validation}
+``` php
 // Example of validator configuration in PHP
 $validatorConfiguration = [
-    "minIntegerValue" => 1,
-    "maxIntegerValue" => 24
+    'minIntegerValue' => 1,
+    'maxIntegerValue' => 24,
 ];
 ```
 

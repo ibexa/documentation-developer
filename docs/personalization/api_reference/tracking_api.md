@@ -1,5 +1,6 @@
 ---
 description: Allows to track items based on an ID. It covers many content types with the same ID configured for tracking.
+exclude_from_llmstxt: true
 ---
 
 # Tracking API

@@ -1,5 +1,6 @@
 ---
 description: Use historical user tracking data to build user profiles and generate better recommendations.
+exclude_from_llmstxt: true
 ---
 
 # Importing historical user tracking data

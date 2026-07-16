@@ -12,11 +12,15 @@ The [`LogicalOr` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+
+$query = new URLQuery();
 $query->filter = new Criterion\LogicalOr(
     [
         new Criterion\SectionIdentifier(['sports', 'news']),
-        new Criterion\Pattern('ibexa.co')
+        new Criterion\Pattern('ibexa.co'),
     ]
 );
 ```

@@ -87,8 +87,9 @@ composer phpstan
 ```
 
 Regenerate the baseline by running:
+
 ```bash
-composer phpstan -- --generate-baseline
+composer phpstan-update-baseline
 ```
 
 #### Skipping validation of inline PHP snippets
@@ -120,8 +121,9 @@ composer deptrac
 ```
 
 Regenerate the baseline by running:
+
 ```bash
-vendor/bin/deptrac --formatter=baseline
+composer deptrac-update-baseline
 ```
 
 ## Checking links

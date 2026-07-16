@@ -13,12 +13,17 @@ The `Updated` Sort Clause sorts search results by the date and time when order s
 
 ## Example
 
-``` php {skip-validation}
+``` php
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+
+$criteria = null;
+
 $orderQuery = new OrderQuery(
     $criteria,
     [
         new \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Updated(
-            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Updated::SORT_ASC)
+            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Updated::SORT_ASC
+        ),
     ]
 );
 ```
