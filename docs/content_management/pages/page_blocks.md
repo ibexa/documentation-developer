@@ -45,7 +45,7 @@ For example:
 The `name` setting accepts either a single translation key, or an array with `text` and `help` keys.
 Both `text` and `help` are translatable using the `ibexa_page_fieldtype` translation domain.
 
-Scalar form (still supported):
+Scalar form:
 
 ``` yaml
 ibexa_fieldtype_page:
