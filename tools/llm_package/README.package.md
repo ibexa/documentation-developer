@@ -16,6 +16,9 @@ composer require --dev ibexa/documentation-developer:~5.0
 - `doc/` — one Markdown file per documentation page, mirroring the URL
   structure of the website: `doc/<section>/.../<page>/index.md` corresponds to
   `https://doc.ibexa.co/en/latest/<section>/.../<page>/`.
+- `.agents/skills/external/` — agent skills for working with Ibexa DXP. When
+  the package is installed with Symfony Flex, its recipe copies them into your
+  project's `.agents/skills/ibexa/` directory.
 
 ## Conventions
 
