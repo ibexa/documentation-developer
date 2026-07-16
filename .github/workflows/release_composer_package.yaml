@@ -117,7 +117,9 @@ jobs:
                   git add README.md
                   if [[ -z "$LATEST_TAG" ]]; then
                       echo "changed=true" >> "$GITHUB_OUTPUT"
-                  elif git diff --cached --quiet "$LATEST_TAG" -- doc llms.txt README.md; then
+                  # .agents (agent skills, tracked on the branch) is part of the package too;
+                  # include it so skill-only edits also produce a release.
+                  elif git diff --cached --quiet "$LATEST_TAG" -- doc llms.txt README.md .agents; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
                   else
                       echo "changed=true" >> "$GITHUB_OUTPUT"
