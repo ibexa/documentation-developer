@@ -1,4 +1,4 @@
-from llmstxt_preprocess import (
+from llms_txt.llmstxt_preprocess import (
     editions_from_frontmatter,
     expand_macros,
     inject_page_metadata,

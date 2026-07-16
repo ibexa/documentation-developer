@@ -8,3 +8,4 @@ mkdocs-redirects==1.2.2
 mkdocs-autolinks-plugin==0.7.1
 Jinja2==3.1.6
 mkdocs-llmstxt
+-e .
