@@ -2,8 +2,8 @@ import mdformat
 from bs4 import BeautifulSoup
 from mkdocs_llmstxt._internal.plugin import _converter
 
-import llmstxt_preprocess
-from llmstxt_preprocess import renumber_ordered_lists
+import llms_txt.llmstxt_preprocess as llmstxt_preprocess
+from llms_txt.llmstxt_preprocess import renumber_ordered_lists
 
 
 def to_markdown(html: str) -> str:

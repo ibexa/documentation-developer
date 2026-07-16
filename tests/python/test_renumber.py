@@ -1,4 +1,4 @@
-from llmstxt_preprocess import renumber_ordered_lists
+from llms_txt.llmstxt_preprocess import renumber_ordered_lists
 
 
 def test_flat_list():
