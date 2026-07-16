@@ -26,7 +26,7 @@ You can use the MCP server from an agent CLI command.
 Like in the [Work with MCP servers example](mcp_usage.md#fully-scripted-variant), you can use a wrapper script to ease JWT token acquisition.
 
 ```bash hl_lines="7 11 25"
-[[= insert_code('code_samples/mcp/mcp-data-intelligence-wrapper.sh') =]]
+[[= include_code('code_samples/mcp/mcp-data-intelligence-wrapper.sh') =]]
 ```
 
 Notice:
