@@ -11,7 +11,6 @@
 
   {% block extrahead %}
     <meta name="google-site-verification" content="AN8DVQKzis4rL9Fr3J9g3dOzY7h2jFyhqfC6ySmcgSc" />
-    <script>window.eol_versions = {{ config.extra.eol_versions|tojson }};</script>
     <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-KKQR5LG');</script> <!-- End Google Tag Manager -->
     
     {% if config.repo_url and page.edit_url %}
@@ -72,6 +71,11 @@
         {% endfor %}
 
         <div class="{{ ns.bootstrap_extra_css }}">
+          <div style="position:absolute;width:1px;height:1px;clip:rect(0 0 0 0);overflow:hidden">
+            For AI agents: the complete documentation index is available at
+            <a href="{{ 'llms.txt' | url }}">llms.txt</a>{% if page and not page.meta.exclude_from_llmstxt %}; this page is also available as
+            markdown at <a href="index.md">index.md</a>{% endif %}.
+          </div>
           <ul class="breadcrumbs">
                   <li class="breadcrumb-item">Documentation &#62;</li>
               {% for ancestor in page.ancestors|reverse %}
@@ -91,7 +95,9 @@
             {% endif %}
             </div>
           {% endif %}
-          {% include "partials/eol_warning.html" %}
+          {% if config.extra.current_version_is_eol %}
+            {% include "partials/eol_warning.html" %}
+          {% endif %}
 
           <div class="content-with-actions">
             {{ page.content }}

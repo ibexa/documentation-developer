@@ -7,10 +7,10 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateLocationEvent`|`LocationService::createLocation`|`ContentInfo $contentInfo`</br>`LocationCreateStruct $locationCreateStruct`</br>`?Location $location`|
-|`CreateLocationEvent`|`LocationService::createLocation`|`Location $location`</br>`ContentInfo $contentInfo`</br>`LocationCreateStruct $locationCreateStruct`|
-|`BeforeUpdateLocationEvent`|`LocationService::updateLocation`|`Location $location`</br>`LocationUpdateStruct $locationUpdateStruct`</br>`?Location $updatedLocation`|
-|`UpdateLocationEvent`|`LocationService::updateLocation`|`Location $updatedLocation`</br>`Location $location`</br>`LocationUpdateStruct $locationUpdateStruct`|
+|`BeforeCreateLocationEvent`|`LocationService::createLocation`|`ContentInfo $contentInfo`<br>`LocationCreateStruct $locationCreateStruct`<br>`?Location $location`|
+|`CreateLocationEvent`|`LocationService::createLocation`|`Location $location`<br>`ContentInfo $contentInfo`<br>`LocationCreateStruct $locationCreateStruct`|
+|`BeforeUpdateLocationEvent`|`LocationService::updateLocation`|`Location $location`<br>`LocationUpdateStruct $locationUpdateStruct`<br>`?Location $updatedLocation`|
+|`UpdateLocationEvent`|`LocationService::updateLocation`|`Location $updatedLocation`<br>`Location $location`<br>`LocationUpdateStruct $locationUpdateStruct`|
 |`BeforeDeleteLocationEvent`|`LocationService::deleteLocation`|`Location $location`|
 |`DeleteLocationEvent`|`LocationService::deleteLocation`|`Location $location`|
 
@@ -18,18 +18,18 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeHideLocationEvent`|`LocationService::hideLocation`|`Location $location`</br>`?Location $hiddenLocation`|
-|`HideLocationEvent`|`LocationService::hideLocation`|`Location $hiddenLocation`</br>`Location $location`|
-|`BeforeUnhideLocationEvent`|`LocationService::unhideLocation`|`Location $location`</br>`?Location $revealedLocation`|
-|`UnhideLocationEvent`|`LocationService::unhideLocation`|`Location $revealedLocation`</br>`Location $location`|
+|`BeforeHideLocationEvent`|`LocationService::hideLocation`|`Location $location`<br>`?Location $hiddenLocation`|
+|`HideLocationEvent`|`LocationService::hideLocation`|`Location $hiddenLocation`<br>`Location $location`|
+|`BeforeUnhideLocationEvent`|`LocationService::unhideLocation`|`Location $location`<br>`?Location $revealedLocation`|
+|`UnhideLocationEvent`|`LocationService::unhideLocation`|`Location $revealedLocation`<br>`Location $location`|
 
 ## Subtree and Location management
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCopySubtreeEvent`|`LocationService::copySubtree`|`Location $subtree`</br>`Location $targetParentLocation`</br>`?Location $location`|
-|`CopySubtreeEvent`|`LocationService::copySubtree`|`Location $location`</br>`Location $subtree`</br>`Location $targetParentLocation`|
-|`BeforeMoveSubtreeEvent`|`LocationService::moveSubtree`|`Location $location`</br>`Location $newParentLocation`|
-|`MoveSubtreeEvent`|`LocationService::moveSubtree`|`Location $location`</br>`Location $newParentLocation`|
-|`BeforeSwapLocationEvent`|`LocationService::swapLocation`|`Location $location1`</br>`Location $location2`|
-|`SwapLocationEvent`|`LocationService::swapLocation`|`Location $location1`</br>`Location $location2`|
+|`BeforeCopySubtreeEvent`|`LocationService::copySubtree`|`Location $subtree`<br>`Location $targetParentLocation`<br>`?Location $location`|
+|`CopySubtreeEvent`|`LocationService::copySubtree`|`Location $location`<br>`Location $subtree`<br>`Location $targetParentLocation`|
+|`BeforeMoveSubtreeEvent`|`LocationService::moveSubtree`|`Location $location`<br>`Location $newParentLocation`|
+|`MoveSubtreeEvent`|`LocationService::moveSubtree`|`Location $location`<br>`Location $newParentLocation`|
+|`BeforeSwapLocationEvent`|`LocationService::swapLocation`|`Location $location1`<br>`Location $location2`|
+|`SwapLocationEvent`|`LocationService::swapLocation`|`Location $location1`<br>`Location $location2`|

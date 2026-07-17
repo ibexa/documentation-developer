@@ -7,19 +7,10 @@ $(document).ready(function() {
     // replace edit url
     let branchName = '5.0';
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
-    const eolVersions = window.eol_versions ?? [];
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
-
-    // Show warning box for versions that have reached End Of Life
-    if (eolVersions.includes(branchName)) {
-        const warningBox = document.querySelector('#eol-warning-box');
-
-        warningBox.hidden = false;
-    }
-
     if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
         branchName = '5.0';
     }
