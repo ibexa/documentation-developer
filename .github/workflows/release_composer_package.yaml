@@ -97,10 +97,16 @@ jobs:
 
             - name: Build developer documentation
               run: mkdocs build --strict
+              env:
+                  # The cards() macro versions its links from this (as on RTD);
+                  # without it they'd point at en/latest instead of this branch.
+                  READTHEDOCS_VERSION_NAME: ${{ matrix.branch }}
 
             - name: Build user documentation
               run: mkdocs build --strict
               working-directory: user-docs
+              env:
+                  READTHEDOCS_VERSION_NAME: ${{ matrix.branch }}
 
             - name: Resolve PHP API classes to vendor paths
               run: php tools/llm_package/dump_class_paths.php site user-docs/site class_paths.json
