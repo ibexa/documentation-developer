@@ -101,7 +101,7 @@ ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
 
 You can [schedule tasks](install_ibexa_dxp.md#schedule-tasks) using [DDEV Cron add-on](https://addons.ddev.com/addons/ddev/ddev-cron).
 
-```
+```bash
 ddev add-on get ddev/ddev-cron
 basedir='/var/www/html'
 echo "* * * * * cd $basedir && php bin/console ibexa:cron:run --quiet --env=prod" >> .ddev/web-build/ibexa.cron
