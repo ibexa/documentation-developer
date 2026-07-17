@@ -5,9 +5,20 @@ month_change: true
 
 # Data Intelligence Layer configuration
 
+## Install
+
+TODO: How is it packaged? Is it installed within regular edition?
+
+```bash
+composer require ibexa/data-intelligence-layer
+php bin/console doctrine:query:sql "$(php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/data-intelligence-layer/src/bundle/Resources/config/schema.yaml)"
+```
+
 ## Background tasks
 
-Metric data are computed as a [background task using Ibexa Messenger](background_tasks.md).
+Metric data are computed as a [background task using Ibexa Messenger](background_tasks.md), so, make sure it's running.
+
+You can set the interval between computations of metrics with the following parameters:
 
 - `ibexa.data_intelligence_layer.freshness.default_interval_days`: Number of days between computation of the metrics - default is 90 days
 - `ibexa.data_intelligence_layer.freshness.content_type_intervals`: Custom number of days per content type - default is empty
