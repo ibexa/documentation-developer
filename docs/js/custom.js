@@ -7,6 +7,7 @@ $(document).ready(function() {
     // replace edit url
     let branchName = '5.0';
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    const eolVersions = window.eol_versions ?? [];
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
