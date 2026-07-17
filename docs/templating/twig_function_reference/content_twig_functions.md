@@ -81,7 +81,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 ``` html+twig
 {{ ibexa_content_name(product) }}
 
-{{ ibexa_content_name(product, 'fr-FR') }}
+{{ ibexa_content_name(product, 'fre-FR') }}
 ```
 
 ### `ibexa_seo_is_empty()`
