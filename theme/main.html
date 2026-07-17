@@ -33,7 +33,10 @@
   {% endblock %}
     {% block site_nav %}
     {% if nav %}
-      <div class="main_nav">
+      {# The single <nav> landmark wrapping the whole sidebar. Keep it the only <nav> in this
+         subtree: nested <nav> tags break the HTML->Markdown converters used by AI agents
+         (e.g. behind RTD's "Accept: text/markdown"), leaking nav items into the output. #}
+      <nav class="main_nav" aria-label="Site navigation">
         <div class="main_nav_content">
           <div class="site-header" id="site-name">
             {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
@@ -50,7 +53,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     {% endif %}
     {% if page.toc %}
       <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
@@ -63,15 +66,6 @@
     {% endif %}
     {% endblock %}
 
-
-    {# TEMP: probes for the RTD/Cloudflare HTML->Markdown converter, remove after experiment #}
-    {% block hero %}
-      {% if page and page.file.src_uri == 'product_catalog/product_catalog.md' %}
-        <div>MARKER_DIV_OUTSIDE_MAIN</div>
-        <nav aria-label="probe-nav-outside">MARKER_NAV_OUTSIDE_MAIN</nav>
-        <aside>MARKER_ASIDE_OUTSIDE_MAIN</aside>
-      {% endif %}
-    {% endblock %}
 
     {% block content %}
         {% set ns = namespace(bootstrap_extra_css='') %}
@@ -137,30 +131,6 @@
             </div>
             {% endif %}
           </div>
-
-          {# TEMP: probes for the RTD/Cloudflare HTML->Markdown converter, remove after experiment #}
-          {% if page and page.file.src_uri == 'product_catalog/product_catalog.md' %}
-            <div>MARKER_DIV_IN_MAIN</div>
-            <nav aria-label="probe-nav-in">MARKER_NAV_IN_MAIN</nav>
-            <aside>MARKER_ASIDE_IN_MAIN</aside>
-            <header>MARKER_HEADER_IN_MAIN</header>
-            <footer>MARKER_FOOTER_IN_MAIN</footer>
-            <div hidden>MARKER_HIDDEN_ATTR</div>
-            <div aria-hidden="true">MARKER_ARIA_HIDDEN</div>
-            <div style="display:none">MARKER_DISPLAY_NONE</div>
-            <div role="navigation">MARKER_ROLE_NAV</div>
-            <div class="sidebar navigation">MARKER_CLASS_SIDEBAR</div>
-            <div><ul><li><a href="../..">MARKER_DIV_RICH</a></li><li>MARKER_DIV_RICH_2</li></ul></div>
-            <nav aria-label="probe-rich"><ul><li><a href="../..">MARKER_NAV_RICH</a></li><li>MARKER_NAV_RICH_2</li></ul></nav>
-            <header><ul><li><a href="../..">MARKER_HEADER_RICH</a></li><li>MARKER_HEADER_RICH_2</li></ul></header>
-            <footer><ul><li><a href="../..">MARKER_FOOTER_RICH</a></li><li>MARKER_FOOTER_RICH_2</li></ul></footer>
-            <aside><ul><li><a href="../..">MARKER_ASIDE_RICH</a></li><li>MARKER_ASIDE_RICH_2</li></ul></aside>
-            <nav class="md-nav md-nav--primary" aria-label="probe-clone" data-md-level="0">
-              <ul class="md-nav__list" data-md-scrollfix>
-                <li class="md-nav__item"><a href="../.." class="md-nav__link level-1">MARKER_MDNAV_CLONE</a></li>
-              </ul>
-            </nav>
-          {% endif %}
 
           {% include "partials/tags.html" %}
         </div>
