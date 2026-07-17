@@ -21,7 +21,7 @@ Each configured block has an identifier and the following settings:
 
 | Setting                               | Description                                                                                                                                                             |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                                | Name of the block used in the Page Builder interface. Translatable using the `ibexa_page_fieldtype` translation domain. Also accepts a [`help` key](#block-name-help-text) that adds a helper text under the **Name** field in the block configuration form. |
+| `name`                                | Name of the block used in the Page Builder interface. Translatable using the `ibexa_page_fieldtype` translation domain. Also accepts a [`help` key](#block-name-and-help-text) that adds a helper text under the **Name** field in the block configuration form. |
 | `category`                            | Category in the Page Builder **Page blocks** toolbox that the block is shown in. Translatable using the `ibexa_page_fieldtype` translation domain.                      |
 | `thumbnail`                           | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `views`                               | Available [templates for the block](#block-templates).                                                                                                                  |
@@ -40,9 +40,9 @@ For example:
 
     For a full example of block configuration, see [Create custom Page block](create_custom_page_block.md).
 
-### Block name help text
+### Block name and help text
 
-The `name` setting accepts either a single translation key, or an array with `text` and `help` keys.
+The `name` setting accepts either a single translation key, a hard coded string of text that won't be translated, or an object with `text` and `help` property keys.
 Both `text` and `help` are translatable using the `ibexa_page_fieldtype` translation domain.
 
 Scalar form:
@@ -67,6 +67,8 @@ ibexa_fieldtype_page:
 
 - `text` - corresponds to the block name.
 - `help` - is an optional translation key whose translation is rendered as a helper text under the **Name** field in the block configuration form.
+
+![Help text](help_text.png)
 
 The same format is available for [React App blocks](react_app_block.md).
 
