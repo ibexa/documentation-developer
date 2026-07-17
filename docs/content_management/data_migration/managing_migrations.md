@@ -167,6 +167,20 @@ The order of migration steps matters - they are executed sequentially from top t
     filename: 'references/new_references.yaml'
 ```
 
+You can also set a reference value manually with the `set` mode, and use the `list` mode to print all references collected so far to the migration log:
+
+```yaml
+-
+    type: reference
+    mode: set
+    name: parent_location_id
+    value: 2
+
+-
+    type: reference
+    mode: list
+```
+
 ## Available reference types
 
 - `content`
@@ -177,7 +191,12 @@ The order of migration steps matters - they are executed sequentially from top t
     - content_type_id
 - `language`
     - language_id
+    - language_code
 - `role`
     - role_id
+- `section`
+    - section_id
+- `user`
+    - user_id
 - `user_group`
     - user_group_id

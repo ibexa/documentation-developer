@@ -1,0 +1,16 @@
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: options_folder
+    metadata:
+        mainLanguageCode: eng-GB
+        name: 'Updated folder'
+        ownerId: 14
+        alwaysAvailable: false
+        modificationDate: '2025-06-15T10:00:00+00:00'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Updated folder'

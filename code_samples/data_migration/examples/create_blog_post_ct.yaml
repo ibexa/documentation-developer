@@ -4,6 +4,12 @@
     metadata:
         identifier: blog_post
         mainTranslation: eng-GB
+        nameSchema: '<title>'
+        urlAliasSchema: '<title>'
+        container: true
+        defaultAlwaysAvailable: true
+        defaultSortField: 2 # Location::SORT_FIELD_PUBLISHED
+        defaultSortOrder: 0 # Location::SORT_ORDER_DESC
         contentTypeGroups:
             - Content
         translations:
