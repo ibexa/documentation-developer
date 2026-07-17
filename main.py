@@ -7,6 +7,10 @@ from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
 from typing import List
 
+def _absolute_page_url(site, language, version, *parts):
+    return 'https://' + '/'.join((site, language, version) + parts)
+
+
 CARDS_TEMPLATE = """
 <div class="card-wrapper">
     <div>
@@ -109,25 +113,12 @@ def define_env(env):
             elif re.search(".html$", path):
                 html = True
                 content = open("docs/%s" % path, "r").read()
-                page = 'https:/' + '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    page
-                ))
+                page = _absolute_page_url(site, language, version, page)
             else:
                 html = False
                 path = path.rstrip('/')
                 content = open("docs/%s.md" % path, "r").read()
-                page = 'https:/' + '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    path,
-                    hash
-                ))
+                page = _absolute_page_url(site, language, version, path, hash)
 
             if html:
                 match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
