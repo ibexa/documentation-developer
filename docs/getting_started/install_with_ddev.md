@@ -97,6 +97,23 @@ You can configure [Symfony Mailer]([[= symfony_doc =]]/mailer.html) to use the [
 ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
 ```
 
+#### Configure background tasks (optional)
+
+You can launch [Ibexa Messenger](background_tasks.md) on DDEV project start.
+Create or edit a DDEV config file, for example `.ddev/config.hooks.yaml`, and add the following [hook](https://docs.ddev.com/en/stable/users/configuration/hooks/):
+
+```yaml
+hooks:
+  post-start:
+    - exec-host: ddev exec "php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=admin --silent" &
+```
+
+You can change the verbosity and redirect the output if you want to log into a file:
+
+```yaml
+    - exec-host: ddev exec "php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=admin -vv > var/log/messenger.log 2>&1" &
+```
+
 #### Enable Mutagen (optional)
 
 If you're using macOS or Windows, you might want to enable [Mutagen](https://docs.ddev.com/en/stable/users/install/performance/#mutagen) to improve performance.
