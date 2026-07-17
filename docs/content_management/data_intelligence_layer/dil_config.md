@@ -12,6 +12,8 @@ TODO: How is it packaged? Is it installed within regular edition?
 ```bash
 composer require ibexa/data-intelligence-layer
 php bin/console doctrine:query:sql "$(php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/data-intelligence-layer/src/bundle/Resources/config/schema.yaml)"
+php bin/console doctrine:query:sql "$(php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/data-intelligence-layer/src/bundle/Resources/config/schema.translation.yaml)"
+php bin/console ibexa:dil:translation:backfill-baseline
 ```
 
 ## Background tasks
