@@ -22,7 +22,7 @@ month_change: true
 <!-- markdownlint-disable-next-line heading-increment -->
 ### Tools
 
-- Added `create_content_type_draft` tool to create a draft for an existing content type.
+- Added `create_content_type_draft` [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) to create a draft for an existing content type.
 
 ### PHP API
 
