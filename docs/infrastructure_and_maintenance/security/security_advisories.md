@@ -1,5 +1,6 @@
 ---
 description: Find [[= product_name_base =]] security advisories, and learn how to handle Composer package security advisories.
+month_change: true
 ---
 
 # Security advisories
