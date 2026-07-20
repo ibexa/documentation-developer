@@ -897,6 +897,7 @@ nav:
             - Development security: infrastructure_and_maintenance/security/development_security.md
             - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
             - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
+            - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
     - Update and migration:
         - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
