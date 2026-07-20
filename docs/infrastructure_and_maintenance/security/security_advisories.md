@@ -41,7 +41,7 @@ For example, when trying to install [[= product_name =]] 4.6 on PHP 7.4 you migh
 - twig/twig[v3.27.0, ..., v3.28.0] require php >=8.1.0 -> your php version (7.4.33) does not satisfy that requirement.
 ```
 
-To gather more information, check package information on [Packagist](packagist.org) and try installing a specific version of the package blocking installation.
+To gather more information, check package information on [Packagist](https://packagist.org/) and try installing a specific version of the package blocking installation.
 
 In this case, trying to install [`twig/twig:3.11.3`](https://packagist.org/packages/twig/twig#v3.11.3) shows explicitly that this version is blocked by a security advisory:
 ```terminal
