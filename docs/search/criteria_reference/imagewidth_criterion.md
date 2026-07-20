@@ -17,5 +17,9 @@ The `Width` Search Criterion searches for image with specified width.
 ### PHP
 
 ``` php
-$query->query = new Criterion\Width('image', 150, 1000);
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+$query->query = new Criterion\Image\Width('image', 150, 1000);
 ```

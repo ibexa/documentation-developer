@@ -67,12 +67,12 @@ You can solve this issue in one of the following ways:
 
 Varnish configuration:
 
-- [`http_resp_hdr_len`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
-- [`http_max_hdr`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
-- [`http_resp_size`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
-- [`workspace_backend`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
+- [`http_resp_hdr_len`](https://www.varnish.org/docs/reference/varnishd/#http_resp_hdr_len) (default 8k, change to for example, 32k)
+- [`http_max_hdr`](https://www.varnish.org/docs/reference/varnishd/#http_max_hdr) (default 64, change to for example, 128)
+- [`http_resp_size`](https://www.varnish.org/docs/reference/varnishd/#http_resp_size) (default 23k, change to for example, 96k)
+- [`workspace_backend`](https://www.varnish.org/docs/reference/varnishd/#workspace_backend) (default 64k, change to for example, 128k)
 
-If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
+If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://www.varnish.org/docs/reference/varnishd/#vsl_reclen) setting.
 
 Nginx has a default limit of 4k/8k when buffering responses:
 
@@ -172,7 +172,11 @@ Examples for tagging everything needed for content using the autowireable [`Resp
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
 ``` php
-/** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
+/**
+ * @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
+ */
 
 // Example for tagging everything needed for Content:
 $tagHandler->addContentTags([$content->id]);
@@ -192,6 +196,8 @@ In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` s
 The following example adds minimal tags when ID 33 and 34 are rendered in ESI, but parent response needs these tags to get refreshed if they're deleted:
 
 ``` php
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
@@ -203,9 +209,9 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 For custom or built-in controllers (for example, REST) that still use `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
 It supports singular and comma-separated location ID value(s):
 
-```php
+``` php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
-$response->headers->set('X-Location-Id', 123);
+$response->headers->set('X-Location-Id', '123');
 
 // Alternatively using several Location ID values
 $response->headers->set('X-Location-Id', '123,212,42');
@@ -294,7 +300,7 @@ With the same content structure as above, the `[Child]` location is moved below 
 
 The new structure is then:
 
-```yaml
+```text
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -320,16 +326,38 @@ In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), 
 ### Custom purging from code
 
 While the system purges tags whenever API is used to change data, you may need to purge directly from code.
-For that you can use the built-in purge client:
+For that you can inject the built-in [`PurgeClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-PurgeClient-PurgeClientInterface.html) by using the `ibexa.http_cache.purge_client` service name:
 
-```php
-/** @var \Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface $purgeClient */
+``` php hl_lines="12-13 19-21 23-25"
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+use Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
-// Example for purging by Location ID:
-$purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
+#[AsCommand(name: 'app:purge-cache')]
+class MyCustomCacheCommand
+{
+    public function __construct(
+        #[Autowire(service: 'ibexa.http_cache.purge_client')]
+        private readonly PurgeClientInterface $purgeClient
+    ) {
+    }
 
-// Example for purging all cache for instance for full re-deploy cases, usually this triggers an expiry (soft purge):
-$purgeClient->purgeAll();
+    public function __invoke(SymfonyStyle $io): int
+    {
+        // Example for purging by Location ID:
+        $locationId = 2;
+        $this->purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $locationId]);
+
+        // Example for purging all cache for instance for full re-deploy cases
+        // Usually this triggers an expiry (soft purge):
+        $this->purgeClient->purgeAll();
+
+        return Command::SUCCESS;
+    }
+}
 ```
 
 ### Purging from command line
@@ -403,7 +431,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname

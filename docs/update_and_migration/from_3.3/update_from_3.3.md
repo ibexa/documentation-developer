@@ -417,8 +417,7 @@ On Experience or Commerce edition, run the following scripts:
 #### Ensure password safety
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
-unless you can verify based on your log files that the vulnerability hasn't been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+unless you can verify based on your log files that the vulnerability hasn't been exploited, you should revoke passwords for all affected users.
 
 ### v3.3.34
 
@@ -449,7 +448,7 @@ No additional steps needed.
 This release contains security fixes.
 For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
 For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
-If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+If so, take appropriate action, for example by revoking passwords for all affected users.
 
 ##### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
 

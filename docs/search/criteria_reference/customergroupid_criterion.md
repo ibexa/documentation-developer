@@ -15,5 +15,9 @@ The `CustomerGroupId` Search Criterion searches for content based on the ID of i
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\ProductCatalog\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\CustomerGroupId(1);
 ```

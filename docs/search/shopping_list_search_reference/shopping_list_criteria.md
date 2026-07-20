@@ -23,13 +23,15 @@ The following example query returns all shopping lists available to the current 
 If the user’s permissions include the [`ShoppingListOwner` `self` limitation](limitation_reference.md#shopping-list-limitation), the query returns only lists created by that user.
 Otherwise, it returns all shopping lists in the system.
 
-```php
+``` php
+use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
+
 $query = new ShoppingListQuery();
 ```
 
 The following example query returns current user's shopping lists, excluding the default one, and sorts them by name:
 
-```php hl_lines="7-8"
+``` php hl_lines="7-8"
 [[= include_code('code_samples/shopping_list/search/criteria.php', 3, remove_indent=True) =]]
 ```
 

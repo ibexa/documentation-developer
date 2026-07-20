@@ -21,16 +21,16 @@ Function value is an array of available limitations, identified by the alias dec
 If no limitation is provided, value can be `null` or an empty array.
 
 ``` php
-[
-    "content" => [
-        "read" => ["Class", "ParentClass", "Node", "Language"],
-        "edit" => ["Class", "ParentClass", "Language"]
+$config = [
+    'content' => [
+        'read' => ['Class', 'ParentClass', 'Node', 'Language'],
+        'edit' => ['Class', 'ParentClass', 'Language'],
     ],
-    "custom_module" => [
-        "custom_function_1" => null,
-        "custom_function_2" => ["CustomLimitation"]
+    'custom_module' => [
+        'custom_function_1' => null,
+        'custom_function_2' => ['CustomLimitation'],
     ],
-]
+];
 ```
 
 Limitations need to be implemented as *Limitation types* and declared as services identified with `ibexa.permissions.limitation_type` tag.
@@ -39,7 +39,9 @@ Name provided in the hash for each limitation is the same value set in the `alia
 For example:
 
 ``` php
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Security;
 
@@ -48,12 +50,12 @@ use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProvider
 
 class MyPolicyProvider implements PolicyProviderInterface
 {
-    public function addPolicies(ConfigBuilderInterface $configBuilder)
+    public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-             "custom_module" => [
-                 "custom_function_1" => null,
-                 "custom_function_2" => ["CustomLimitation"],
+             'custom_module' => [
+                 'custom_function_1' => null,
+                 'custom_function_2' => ['CustomLimitation'],
              ],
          ]);
     }
@@ -96,25 +98,30 @@ For example, `translations/forms.en.yaml`:
 You can also implement `TranslationContainerInterface` to provide those translations in your policy provider class:
 
 ``` php
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Security;
 
 use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
 use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
+use JMS\TranslationBundle\Model\Message;
+use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 
 class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerInterface
 {
-    public function addPolicies(ConfigBuilderInterface $configBuilder)
+    public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-             "custom_module" => [
-                 "custom_function_1" => null,
-                 "custom_function_2" => ["CustomLimitation"],
+             'custom_module' => [
+                 'custom_function_1' => null,
+                 'custom_function_2' => ['CustomLimitation'],
              ],
          ]);
     }
 
+    /** @return array<\JMS\TranslationBundle\Model\Message> */
     public static function getTranslationMessages(): array
     {
         return [
@@ -158,7 +165,7 @@ The type class implements `Ibexa\Contracts\Core\Limitation\Type`.
 - `accept`, `validate` and `buildValue` implement the value class usage logic.
 - `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user that has access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
-```php
+``` php
 [[= include_code('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
 ```
 
@@ -250,7 +257,7 @@ For example, `translations/ibexa_content_forms_policies.en.yaml`:
 
 Check if current user has this custom limitation set to true from a custom controller:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
 ```
 
@@ -277,7 +284,7 @@ With this setup, users with `content/read` permission can view the form, but can
 
 First, create the `FormPolicyProvider.php` policy provider that registers the new `form` module and the `read_submissions` function by injecting the custom permission into the configuration tree:
 
-```php hl_lines="14-18 26"
+``` php hl_lines="14-18 26"
 [[= include_code('code_samples/back_office/limitation/src/Security/FormPolicyProvider.php') =]]
 ```
 
@@ -304,14 +311,14 @@ Finally, add the policy definition  in `src/Resources/config/policies.yaml`:
 [[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml', 3, 5) =]]
 ```
 
-This way, after you clean the cache, the new policy becomes available when you [edit the policies assigned to a Role](https://doc.ibexa.co/projects/userguide/en/latest/permission_management/work_with_permissions/).
+This way, after you clean the cache, the new policy becomes available when you [edit the policies assigned to a Role]([[= user_doc =]]/permission_management/work_with_permissions/).
 
 ### Secure access on PHP API level
 
 To enforce the policy on the PHP API level, decorate the form submission service to enforce permission checks.
 In `src/Security`, create the `FormSubmissionServiceDecorator.php` file:
 
-```php hl_lines="19 33 40 41 44"
+``` php hl_lines="19 33 40 41 44"
 [[= include_code('code_samples/back_office/limitation/src/Security/Form/FormSubmissionServiceDecorator.php') =]]
 ```
 
@@ -335,7 +342,7 @@ This way, users can't access the submission data unless they have the `form/read
 To enforce the policy in the back office, decorate the **Submissions** tab to hide it when the user lacks permission.
 In `src/Security`, create the `FormSubmissionsTabDecorator.php` file:
 
-```php hl_lines="19 30 60-61"
+``` php hl_lines="19 30 60-61"
 [[= include_code('code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php') =]]
 ```
 

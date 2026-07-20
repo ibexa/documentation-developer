@@ -13,6 +13,9 @@ The [ContentTypeGroupTermAggregation](/api/php_api/php_api_reference/classes/Ibe
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new Query();
 $query->aggregations[] = new Aggregation\ContentTypeGroupTermAggregation('content_type_group');
 ```

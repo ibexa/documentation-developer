@@ -76,14 +76,15 @@ The field type supports `FileSizeValidator`, defining maximum size of media file
 
 use Ibexa\Core\FieldType\Media\Type;
 
+/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
 $contentTypeService = $repository->getContentTypeService();
-$mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ibexa_media" );
+$mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('media', 'ibexa_media');
 
 // Setting maximum file size to 5 megabytes
 $mediaFieldCreateStruct->validatorConfiguration = [
-    "FileSizeValidator" => [
-        "maxFileSize" => 5 * 1024 * 1024
-    ]
+    'FileSizeValidator' => [
+        'maxFileSize' => 5 * 1024 * 1024,
+    ],
 ];
 ```
 
@@ -112,11 +113,12 @@ List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldT
 
 use Ibexa\Core\FieldType\Media\Type;
 
+/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
 $contentTypeService = $repository->getContentTypeService();
-$mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ibexa_media" );
+$mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('media', 'ibexa_media');
 
 // Setting Adobe Flash as the media type
 $mediaFieldCreateStruct->fieldSettings = [
-    "mediaType" => Type::TYPE_FLASH,
+    'mediaType' => Type::TYPE_FLASH,
 ];
 ```

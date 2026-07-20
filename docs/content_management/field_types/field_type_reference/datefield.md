@@ -64,8 +64,8 @@ Hash value of this field type is an array with two keys:
 ``` php
 // Example of the hash value in PHP
 $hash = [
-    "timestamp" => 1400856992,
-    "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
+    'timestamp' => 1400856992,
+    'rfc850' => 'Friday, 23-May-14 14:56:14 GMT+0000',
 ];
 ```
 
@@ -94,7 +94,7 @@ Following `defaultType` default value options are available as constants in the 
 use Ibexa\Core\FieldType\Date\Type;
 
 $settings = [
-    "defaultType" => Type::DEFAULT_EMPTY
+    'defaultType' => Type::DEFAULT_EMPTY,
 ];
 ```
 

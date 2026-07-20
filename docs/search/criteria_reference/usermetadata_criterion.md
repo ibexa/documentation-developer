@@ -17,6 +17,10 @@ The [`UserMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, 12);
 ```
 
@@ -56,14 +60,18 @@ $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criter
 
 You can use the `UserMetadata` Criterion to search for blog posts created by the Contributor user group:
 
-``` php hl_lines="7"
+``` php hl_lines="11"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
 // ID of your custom Contributor User Group
 $contributorGroupId = 32;
 
-$query = new LocationQuery;
-$query->query = new Criterion\LogicalAnd([
+$query = new LocationQuery();
+$query->query = new Criterion\LogicalAnd(
+    [
         new Criterion\ContentTypeIdentifier('blog_post'),
-        new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, $contributorGroupId)
+        new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, $contributorGroupId),
     ]
 );
 ```

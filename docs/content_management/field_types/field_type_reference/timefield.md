@@ -75,7 +75,7 @@ The Field definition of this field type can be configured with several options:
 use Ibexa\Core\FieldType\Time\Type;
 
 $settings = [
-    "defaultType" => DateAndTime::DEFAULT_EMPTY
+    'defaultType' => Type::DEFAULT_EMPTY,
 ];
 ```
 

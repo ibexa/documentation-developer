@@ -23,7 +23,7 @@ eZ Platform has become a pure Symfony application, based on Symfony 3, which bri
 
 !!! note
 
-    The move to [Symfony 3](https://symfony.com/roadmap?version=3.4) causes some changes, for example to the project's directory structure.
+    The move to [Symfony 3](https://symfony.com/releases/3.4) causes some changes, for example to the project's directory structure.
 
     Among others, the `var` directory now contains cache and logs.
     The `bin` directory is now used to call the `console` command, so use `bin/console` instead of `app/console`.
@@ -47,6 +47,6 @@ eZ Platform v2.0.0 requires PHP version 7.1, instead of 5.6, as before. Together
 
 ## Installation
 
-[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/)
 
-[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/)

@@ -578,7 +578,7 @@ To use the script, do the following:
 
 **2.** Add `ezflow-migration-toolkit` to `AppKernel.php`.
 
-``` php
+``` php {skip-validation}
 // AppKernel.php
 new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle()
 ```
@@ -612,7 +612,7 @@ You can see a report summarizing the results of the migration.
 
 **6.** Add `MigrationBundle` to `AppKernel.php`.
 
-``` php
+``` php {skip-validation}
 // AppKernel.php
 new MigrationBundle\MigrationBundle()
 ```

@@ -14,11 +14,15 @@ The `Identifier` Sort Clause sorts search results by shipment identifier.
 ## Example
 
 ``` php
+use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+
+/** @var \Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface $criteria */
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
         new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Identifier(
-            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Identifier::SORT_ASC)
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Identifier::SORT_ASC
+        ),
     ]
 );
 ```

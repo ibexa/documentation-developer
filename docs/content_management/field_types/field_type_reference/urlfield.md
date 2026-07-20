@@ -30,8 +30,9 @@ The Value class of this field type contains the following properties:
 ``` php
 // Value object content example
 
-$url->link = "https://www.ibexa.co";
-$url->text = "Ibexa";
+/** @var \Ibexa\Core\FieldType\Url\Value $url */
+$url->link = 'https://www.ibexa.co';
+$url->text = 'Ibexa';
 ```
 
 #### Constructor
@@ -41,9 +42,10 @@ It expects two comma-separated strings, corresponding to the link and text.
 
 ``` php
 // Constructor example
+use Ibexa\Core\FieldType\Url;
 
 // Instantiates an Url Value object
-$UrlValue = new Url\Value( "https://www.ibexa.co/", "Ibexa" );
+$UrlValue = new Url\Value('https://www.ibexa.co/', 'Ibexa');
 ```
 
 ### Hash format
@@ -53,11 +55,11 @@ $UrlValue = new Url\Value( "https://www.ibexa.co/", "Ibexa" );
 | `link` | `string` | Link content. | "https://www.ibexa.co/" |
 | `text` | `string` | Text content. | "Ibexa"                 |
 
-```php
+``` php
 // Example of the hash value in PHP
 $hash = [
-    "link" => "https://www.ibexa.co/",
-    "text" => "Ibexa"
+    'link' => 'https://www.ibexa.co/',
+    'text' => 'Ibexa',
 ];
 ```
 

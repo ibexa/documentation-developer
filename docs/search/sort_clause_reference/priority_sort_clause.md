@@ -13,6 +13,9 @@ The [`Location\Priority` Sort Clause](/api/php_api/php_api_reference/classes/Ibe
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
 $query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\Priority()];
 ```

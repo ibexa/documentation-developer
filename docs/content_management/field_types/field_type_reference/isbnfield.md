@@ -33,8 +33,7 @@ The input passed into this field type is subject of ISBN validation depending on
 An example of this field setting is shown below and controls if input is validated as ISBN-13 or ISBN-10:
 
 ``` php
-Array
-(
-    [isISBN13] => true
-)
+[
+    'isISBN13' => true,
+];
 ```

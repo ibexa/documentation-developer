@@ -43,9 +43,18 @@ You can also use [`SearchService::findContent`](/api/php_api/php_api_reference/c
 To query for a single result, for example by providing a Content ID, use the [`SearchService::findSingle`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findSingle) method:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\Console\Output\OutputInterface;
+
+$contentId = 12345;
 $criterion = new Criterion\ContentId($contentId);
-$result = $this->searchService->findSingle($criterion);
-$output->writeln($result->getName());
+
+/** @var SearchService $searchService */
+$result = $searchService->findSingle($criterion);
+
+/** @var OutputInterface $output */
+$output->writeln($result->getName() ?? '');
 ```
 
 !!! tip
@@ -58,6 +67,9 @@ $output->writeln($result->getName());
     You can change it by setting a different limit to the query:
 
     ``` php
+    use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+
+    $query = new LocationQuery();
     $query->limit = 100;
     ```
 
@@ -94,11 +106,19 @@ This enables iterating over results that are too large to handle due to memory c
 `BatchIterator` takes one of the available adapters ([`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-iterator-batchiteratoradapter.html)) and optional batch size. For example:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Iterator\BatchIterator;
+use Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Symfony\Component\Console\Output\OutputInterface;
+
 $query = new LocationQuery();
 
-$iterator = new BatchIterator(new BatchIteratorAdapter\LocationSearchAdapter($this->searchService, $query));
+/** @var SearchService $searchService */
+$iterator = new BatchIterator(new BatchIteratorAdapter\LocationSearchAdapter($searchService, $query));
 
 foreach ($iterator as $result) {
+    /** @var OutputInterface $output */
     $output->writeln($result->valueObject->getContentInfo()->name);
 }
 ```
@@ -173,6 +193,11 @@ You can use the following methods of the Filter:
 The following example filters for Folder content items under the parent location 2, sorts them by publication date and returns 10 results, starting from the third one:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+
 $filter = new Filter();
 $filter
     ->withCriterion(new Criterion\ContentTypeIdentifier('folder'))
@@ -234,7 +259,7 @@ Pagination can then be rendered for example using the following template:
 [[= include_code('code_samples/api/public_php_api/templates/themes/standard/full/custom_pagination.html.twig') =]]
 ```
 
-For more information and examples, see [PagerFanta documentation](https://www.babdev.com/open-source/packages/pagerfanta/docs/2.x/usage).
+For more information and examples, see [PagerFanta documentation](https://www.babdev.com/open-source/packages/pagerfanta/docs/3.x/usage).
 
 #### Pagerfanta adapters
 
@@ -291,6 +316,13 @@ For example, a content item has two locations: visible location A and hidden loc
 You perform the following query:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LocationId;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Visibility;
+
+$query = new LocationQuery();
+$bLocationId = 12345;
 $query->filter = new Criterion\LogicalAnd([
     new LocationId($bLocationId),
     new Visibility(Visibility::VISIBLE),
@@ -365,12 +397,18 @@ The following example limits the number of terms returned to 5 and only consider
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.
 
 ``` php
-$query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
-[
-    new Query\Aggregation\Range(1,30),
-    new Query\Aggregation\Range(30,60),
-    new Query\Aggregation\Range(60,null),
-]);
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\IntegerRangeAggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+
+$ranges = [
+    Range::ofInt(1, 30),
+    Range::ofInt(30, 60),
+    Range::ofInt(60, null),
+];
+
+$query = new LocationQuery();
+$query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age', $ranges);
 ```
 
 !!! note

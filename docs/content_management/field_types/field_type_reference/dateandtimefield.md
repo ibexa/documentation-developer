@@ -61,8 +61,8 @@ Hash value of this field type is an array with two keys:
 
 ``` php
 $hash = [
-    "timestamp" => 1400856992,
-    "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
+    'timestamp' => 1400856992,
+    'rfc850' => 'Friday, 23-May-14 14:56:14 GMT+0000',
 ];
 ```
 
@@ -94,10 +94,17 @@ Following `defaultType` default value options are available as constants in the 
 use Ibexa\Core\FieldType\DateAndTime\Type;
 
 $settings = [
-    "useSeconds" => false,
-    "defaultType" => Type::DEFAULT_EMPTY,
-    "dateInterval" => null
+    'useSeconds' => false,
+    'defaultType' => Type::DEFAULT_EMPTY,
+    'dateInterval' => null,
 ];
+
+/** @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService */
+$dateAndTimeFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct(
+    'my_date_and_time_field',
+    'ibexa_datetime'
+);
+$dateAndTimeFieldCreateStruct->fieldSettings = $settings;
 ```
 
 ## Template rendering
@@ -110,6 +117,6 @@ The template called by the [`ibexa_render_field()` Twig function](field_twig_fun
 
 Example:
 
-``` php
+``` html+twig
 {{ ibexa_render_field(content, 'datetime') }}
 ```

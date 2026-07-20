@@ -22,6 +22,6 @@ Content Type Search Criteria are only supported by [Content Type Search (`Conten
 
 The following example shows how to use them to search for content types:
 
-```php hl_lines="29-31"
+``` php hl_lines="29-31"
 [[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```

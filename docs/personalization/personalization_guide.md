@@ -1,5 +1,6 @@
 ---
 description: Discover Personalization - a cloud-based service that tracks and analyzes customer behaviors.
+exclude_from_llmstxt: true
 ---
 
 # Personalization product guide

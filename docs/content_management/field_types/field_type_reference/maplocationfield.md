@@ -38,13 +38,14 @@ Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`strin
 
 ``` php
 // Constructor example
+use Ibexa\Core\FieldType\MapLocation as MapLocation;
 
 // Instantiates a MapLocation Value object
 $MapLocationValue = new MapLocation\Value(
     [
         'latitude' => 59.928732,
         'longitude' => 10.777888,
-        'address' => "Ibexa Nordics"
+        'address' => 'Ibexa Nordics',
     ]
 );
 ```

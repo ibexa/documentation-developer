@@ -9,7 +9,7 @@ month_change: false
 As [[= pim_product_name =]] products are represented as [[= product_name =]] products, you can use the existing [Product APIs](product_api.md) to retrieve the product information.
 
 [[= pim_product_name =]] is the source of truth about products and categories and you should only use the [[= product_name =]] APIs to read the information coming from [[= pim_product_name =]], but you can't use them to modify it.
-To modify the information, use the [[[= pim_product_name =]] interface](https://quable.com) or the dedicated [[[= pim_product_name =]] APIs](https://developers.quable.com/quable-api/).
+To modify the information, use the [[[= pim_product_name =]] interface](https://www.quable.com) or the dedicated [[[= pim_product_name =]] APIs](https://developers.quable.com/quable-api/).
 
 ## REST API Usage
 
@@ -37,7 +37,7 @@ The following example shows how you can retrieve a single product:
 Use [`ProductQuery`](product_api.md#getting-product-information) to search for multiple products:
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 59, 68, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 59, 69, remove_indent=True) =]]
 ```
 
 When working with [[= pim_product_name =]] products, the following search criteria are supported:
@@ -68,7 +68,8 @@ For information stored outside of [[= pim_product_name =]], such as [product ava
 
 ``` php hl_lines="6 14"
 // Manage availability
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 84, 89, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 86, 90, remove_indent=True) =]]
+
 // Manage prices
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75, remove_indent=True) =]]
 ```

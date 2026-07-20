@@ -70,7 +70,7 @@ Run the following scripts:
 ### Notification config update
 
 The configuration of the package `ibexa/notifications` has changed.
-This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
+This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/4.6/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
 
 If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
 
@@ -161,8 +161,11 @@ merge with your custom settings if needed, and commit them to Git.
 
 If the new bundle `ibexa/core-search` has not been added by the recipes, enable it by adding the following line in `config/bundles.php`:
 
-```php
+``` php
+return [
+    // ...
     Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
+];
 ```
 
 ## v4.6.13
@@ -192,7 +195,7 @@ You can customize the behavior of the command with the following options:
 This release contains security fixes.
 For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
 For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
-If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
 
 #### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
 
@@ -478,7 +481,7 @@ composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]] --with-all-dependen
 Upgrade your Elasticsearch server to version 8.19 or higher.
 For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://developer.upsun.com/docs/add-services/elasticsearch) for a list of supported versions.
 
 #### Update configuration
 
@@ -1010,7 +1013,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
 
-    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/latest/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
 
     If you're already using it, run the following command to get the latest version of this feature:
 

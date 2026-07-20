@@ -28,11 +28,17 @@ This field type makes it possible to store and retrieve values of a relation to 
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
 ``` php
-// Value object content example
-$relationList->destinationContentId = [
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
+$relationList->destinationContentIds = [
     $contentInfo1->id,
     $contentInfo2->id,
-    170
+    170,
 ];
 ```
 
@@ -43,13 +49,18 @@ It expects a mixed array as value.
 
 ``` php
 //Constructor example
+use Ibexa\Core\FieldType\RelationList as RelationList;
 
+/**
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
 // Instantiates a RelationList Value object
 $relationListValue = new RelationList\Value(
     [
         $contentInfo1->id,
         $contentInfo2->id,
-        170
+        170,
     ]
 );
 ```
@@ -96,15 +107,15 @@ Following selection methods are available:
 use Ibexa\Core\FieldType\RelationList\Type;
 
 $fieldSettings = [
-    "selectionMethod" => Type::SELECTION_BROWSE,
-    "selectionDefaultLocation" => null,
-    "selectionContentTypes" => []
+    'selectionMethod' => Type::SELECTION_BROWSE,
+    'selectionDefaultLocation' => null,
+    'selectionContentTypes' => [],
  ];
 
 $validators = [
-    "RelationListValueValidator" => [
-        "selectionLimit" => 0,
-    ]
+    'RelationListValueValidator' => [
+        'selectionLimit' => 0,
+    ],
 ];
 ```
 

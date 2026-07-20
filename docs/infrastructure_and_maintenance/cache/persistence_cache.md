@@ -17,10 +17,8 @@ For details on how to reuse this Cache service in your own custom code, see belo
 
 ## Transparent cache
 
-With the persistence cache, like with the HTTP cache, [[= product_name =]] tries to follow principles of transparent caching.
-This can shortly be described as a cache which is invisible to the end user (admin/editors) of [[= product_name =]] where content is always returned *fresh*.
-In other words, there should be no need to manually clear the cache like it was frequently the case with eZ Publish 4.x.
-This is possible thanks to an interface that follows CRUD (Create Read Update Delete) operations per domain.
+With the persistence cache, like with the HTTP cache, [[= product_name =]] follows the principles of transparent caching.
+The cache is invisible to the end user (admin/editors) of [[= product_name =]] and content is always returned *fresh*.
 
 ## What is cached?
 
@@ -46,11 +44,11 @@ To see where and how to contribute additional caches, refer to the [source code]
 
 !!! note
 
-    Current implementation uses Symfony cache.
+    Current implementation uses [Symfony application cache]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache).
     It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
-    [[= product_name =]] officially supports only using Filesystem for single server and Redis for clustered setups.
+    [[= product_name =]] officially supports only using Filesystem for single server and Redis/Valkey for clustered setups.
 
-Use of Redis as shared cache back end is a requirement for use in clustering setup.
+Use of [Redis/Valkey](#redisvalkey) as shared cache backend is a requirement for use in clustering setup.
 For an overview of this feature, see [Clustering](clustering.md).
 Filesystem adapters, for example, are **not** intended to be used over a shared filesystem.
 
@@ -126,7 +124,7 @@ parameters:
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis PECL extension](https://pecl.php.net/package/redis).
 
-See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
+See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection) for information on how to connect to Redis.
 
 [Valkey](https://valkey.io/), an alternative data structure store compatible with Redis, is also supported.
 To set it up with [[= product_name =]], follow the same steps as for Redis.
@@ -233,7 +231,7 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
 
 #### With dependency injection
 
-In your Symfony services configuration you can define that you require the cache service in your configuration like so:
+In your Symfony services configuration you can inject the cache service in your configuration like so:
 
 ``` yaml
 # yml configuration
@@ -244,29 +242,23 @@ In your Symfony services configuration you can define that you require the cache
 
 This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
-#### With service container
-
-Like any other service, you can also get the cache service with the [service container](php_api.md#service-container) like so:
-
-``` php
-// Getting the cache service in PHP
-
-/** @var \Symfony\Component\Cache\Adapter\TagAwareAdapterInterface */
-$pool = $container->get('ibexa.cache_pool');
-```
-
 ### Using the cache service
 
 Example usage of the cache service:
 
 ``` php
-// Example
-$cacheItem = $pool->getItem("myApp-object-${id}");
+use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
+
+/**
+ * @var TagAwareAdapterInterface $pool
+ * @var int $id
+ */
+$cacheItem = $pool->getItem("myApp-object-{$id}");
 if ($cacheItem->isHit()) {
     return $cacheItem->get();
 }
 
-$myObject = $container->get('my_app.backend_service')->loadObject($id)
+$myObject = $myAppCustomService->loadObject($id);
 $cacheItem->set($myObject);
 $cacheItem->tag(['myApp-category-' . $myObject->categoryId]);
 $pool->save($cacheItem);
@@ -278,23 +270,16 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
 
 ### Clearing persistence cache
 
-!!! caution "Always clear the persistence with `cache:pool:clear` command"
-
-    Running `php bin/console cache:clear` doesn't clear the persistence cache, even when you use a filesystem-based cache pool.
-
-    You must always clear the persistence cache by running:
-
-    ```bash
-    php bin/console cache:pool:clear <cache-pool>
-    ```
-
-    The default cache pool is named `cache.tagaware.filesystem`.
-    The default cache pool when running Redis or Valkey is named `cache.redis`.
-    If you have customized the persistence cache configuration, the name of your cache pool might be different.
-
-Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
+Persistence cache uses the `ibx-` prefix, declared as a container parameter called `ibexa.core.persistence.cache.tag_prefix`.
+You can clear the cache as in the following example:
 
 ``` php
+use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
+
+/**
+ * @var TagAwareAdapterInterface $pool
+ * @var int $contentId
+ */
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
@@ -304,3 +289,5 @@ $pool->deleteItems(["ibx-ci-$contentId"]);
 // Symfony cache is tag-based, so you can clear all cache related to a content item like this:
 $pool->invalidateTags(["c-$contentId"]);
 ```
+
+To learn how to clear persistence cache when not using the PHP API, see [Clear persistence cache](devops.md#clear-persistence-cache).

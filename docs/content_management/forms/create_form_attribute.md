@@ -90,7 +90,7 @@ Now you have to implement the field, and make sure the value from the Rich Text 
 
 Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` file.
 
-```php
+``` php
 [[= include_code('code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php') =]]
 ```
 
@@ -98,7 +98,7 @@ Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` fil
 
 To implement a field mapper, create a `src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
 
-```php
+``` php
 [[= include_code('code_samples/forms/custom_form_attribute/src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php') =]]
 ```
 
@@ -110,7 +110,7 @@ The new field is based on a checkbox, so to display the submissions of this fiel
 
 Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php` file.
 
-```php
+``` php
 [[= include_code('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php') =]]
 ```
 

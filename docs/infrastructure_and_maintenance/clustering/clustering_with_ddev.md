@@ -137,7 +137,7 @@ For more information on topics such as available configurations, command lines, 
 
 ### Fastly
 
-For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)), the instance must be visible from Internet.
+For Fastly (as for [[[= product_name_connect =]]]([[= connect_doc =]]/)), the instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 

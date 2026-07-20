@@ -27,8 +27,11 @@ For more information about the ConfigResolver, namespaces and scopes, see [confi
 The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
 
-``` php
-Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+``` php {skip-validation}
+return [
+    // ...
+    Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+];
 ```
 
 ## Parsing semantic configuration

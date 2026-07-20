@@ -15,8 +15,14 @@ It takes only one Criterion in the array parameter.
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$contentTypeIdentifier = 'article';
+
+$query = new Query();
 $query->filter = new Criterion\LogicalNot(
-    new Criterion\ContentTypeIdentifier($contentTypeId)
+    new Criterion\ContentTypeIdentifier($contentTypeIdentifier)
 );
 ```
 

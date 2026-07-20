@@ -30,10 +30,14 @@ Value object of `ibexa_image_asset` contains the following properties:
 | `alternativeText`      | `string` | The alternative image text (for example "Picture of an apple."). |
 
 ``` php
-// Value object content example
-
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ */
 $imageAssetValue->destinationContentId = $contentInfo->id;
-$imageAssetValue->alternativeText = "Picture of an apple.";
+$imageAssetValue->alternativeText = 'Picture of an apple.';
 ```
 
 #### Constructor
@@ -44,8 +48,11 @@ It expects an ID of a content item representing asset and the alternative text.
 ``` php
 // Constructor example
 
+use Ibexa\Core\FieldType\ImageAsset as ImageAsset;
+
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
 // Instantiates a ImageAsset Value object
-$imageAssetValue  = new ImageAsset\Value($contentInfo->id, "Picture of an apple.");
+$imageAssetValue = new ImageAsset\Value($contentInfo->id, 'Picture of an apple.');
 ```
 
 ### Validation

@@ -1,6 +1,7 @@
 ---
 description: See the methods of event tracking integration using tracking from server or from client-side.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Tracking integration

@@ -199,7 +199,7 @@ If you choose to upgrade to Elasticsearch 8, follow these steps:
 Upgrade your Elasticsearch server to version 8.19 or higher.
 For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://developer.upsun.com/docs/add-services/elasticsearch) for a list of supported versions.
 
 #### Update configuration
 
@@ -363,6 +363,23 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
         Symfony 7.4 introduces a new [share directory](https://symfony.com/blog/new-in-symfony-7-4-share-directory), dedicated for storing application cache on the file system.
         If you decide to configure it (for example, by setting the `APP_SHARE_DIR` environment variable), review your existing scripts for explicit `var/cache` usage (for example, `rm -rf var/cache`) and decide whether to include `var/share` in the script.
+
+        If you use [[= product_name_cloud =]], add a mount for the `var/share` directory to your `.platform.app.yaml` file, next to the existing `var/cache` and `var/log` mounts:
+
+        ```yaml hl_lines="5-7"
+        mounts:
+            'var/cache':
+                source: local
+                source_path: cache
+            'var/share':
+                source: local
+                source_path: share
+            'var/log':
+                source: local
+                source_path: log
+        ```
+
+        Without this mount, the `var/share` directory is read-only and all writes to the `cache.app` cache pool fail.
 
         !!! caution "Always clear the persistence cache with `cache:pool:clear` command"
 

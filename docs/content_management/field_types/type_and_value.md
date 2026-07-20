@@ -172,12 +172,12 @@ An example schema could look like this:
 [
     'backupData' => [
         'type' => 'bool',
-        'default' => false
+        'default' => false,
     ],
     'defaultValue' => [
         'type' => 'string',
-        'default' => 'Default Value'
-    ]
+        'default' => 'Default Value',
+    ],
 ];
 ```
 

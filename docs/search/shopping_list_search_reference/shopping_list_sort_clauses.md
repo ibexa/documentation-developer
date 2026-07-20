@@ -18,7 +18,7 @@ The sort clauses are in the [`Ibexa\Contracts\ShoppingList\Value\Query\SortClaus
 The following example returns all the shopping lists available to the current user.
 The returned shopping list are sorted with the default shopping list on top, followed by the rest sorted by their name.
 
-```php hl_lines="10-11"
+``` php hl_lines="10-11"
 [[= include_code('code_samples/shopping_list/search/sort_clauses.php', 3, remove_indent=True) =]]
 ```
 

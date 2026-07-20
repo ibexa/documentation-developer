@@ -151,7 +151,7 @@ You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used 
 
 === "[[= product_name_content =]]"
 
-    ``` php
+    ``` text
     FOS\CommentBundle\FOSCommentBundle
     Tedivm\StashBundle\TedivmStashBundle
     WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
@@ -178,7 +178,7 @@ You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used 
 
 === "[[= product_name_exp =]]"
 
-    ``` php
+    ``` text
     FOS\CommentBundle\FOSCommentBundle
     Tedivm\StashBundle\TedivmStashBundle
     WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
@@ -205,7 +205,7 @@ You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used 
 
 === "[[= product_name_com =]]"
 
-    ``` php
+    ``` text
     FOS\CommentBundle\FOSCommentBundle
     Tedivm\StashBundle\TedivmStashBundle
     WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
@@ -410,7 +410,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish code update
 

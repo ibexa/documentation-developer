@@ -50,13 +50,13 @@ ibexa:
             url_checker:
                 handlers:
                     http:
-                    	enabled: true
-                    	batch_size: 64
+                        enabled: true
+                        batch_size: 64
                     https:
-                    	enabled: true
-                    	ignore_certificate: false
+                        enabled: true
+                        ignore_certificate: false
                     mailto:
-                    	enabled: false
+                        enabled: false
 ```
 
 Available options are protocol-specific.
@@ -83,36 +83,13 @@ For more information about [[= product_name_base =]] configuration, see [Configu
 ### Custom protocol support
 
 You can extend the external URL address validation with a custom protocol.
-To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
-s
-
-```php
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-
-namespace Ibexa\Bundle\Core\URLChecker;
-
-interface URLHandlerInterface
-{
-    /**
-     * Validates given list of URLs.
-     *
-     * @param \Ibexa\Contracts\Core\Repository\Values\URL\URL[] $urls
-     */
-    public function validate(array $urls);
-}
-```
+To do this, you must provide a service that implements the [`Ibexa\Bundle\Core\URLChecker\URLHandlerInterface`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/URLChecker/URLHandlerInterface.php) interface.
 
 Then you must register the service with an `ibexa.url_checker.handler` tag, like in the following example:
 
 ```yaml
 app.url_checker.handler.custom:
     class: 'App\URLChecker\Handler\CustomHandler'
-    ...
     tags:
         - { name: ibexa.url_checker.handler, scheme: custom }
 ```
@@ -232,12 +209,13 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
 
 ``` php
+/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
 $source = 'pictures/*/*';
 $destination = 'media/images/{1}/{2}';
 $redirect = true;
 
 $urlWildcardService = $repository->getURLWildcardService();
-$repository->sudo(function ($repository) use ($urlWildcardService, $source, $destination, $redirect) {
+$repository->sudo(static function ($repository) use ($urlWildcardService, $source, $destination, $redirect): void {
     $urlWildcardService->create($source, $destination, $redirect);
 });
 ```

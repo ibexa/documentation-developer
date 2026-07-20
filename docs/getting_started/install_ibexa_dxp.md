@@ -24,7 +24,7 @@ You can install it by following your favorite tutorial, for example: [Install LA
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/) for asset management
 - `git` for version control
 
 For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
@@ -367,7 +367,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "Apache"
 
-    You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template)
+    You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/apache2/vhost.template)
     to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
     Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
@@ -394,7 +394,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "nginx"
 
-    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
     Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
@@ -521,6 +521,8 @@ This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and t
 Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:
 
 ```yaml
+services:
+
     Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
         tags:
             - { name: ibexa.cron.job, schedule: '* * * * *' }

@@ -23,7 +23,7 @@ You can edit a link in the manager and it's updated automatically in all content
 
 You can now copy a content item with all of its sub-items in the back office.
 
-The maximum number of content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
+The maximum number of content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_configuration/#copy-subtree-limit).
 
 ![Copy subtree option in the menu](copy_subtree_button.png)
 
@@ -38,7 +38,7 @@ Made ezplatform-http-cache extensible in third party bundles.
 
 ### Fastly
 
-You can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
+You can [serve Varnish through Fastly](https://doc.ibexa.co/en/2.2/guide/http_cache/#serving-varnish-through-fastly).
 
 ## Full list of new features, improvements and bug fixes since v1.12.0
 
@@ -48,21 +48,11 @@ You can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastruc
 | [List of changes for rc1 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
 | [List of changes for beta2 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

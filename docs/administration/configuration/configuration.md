@@ -74,7 +74,8 @@ parameters:
 
 ``` php
 // Usage inside a controller
-$myParameter = $this->container->getParameter( 'myapp.parameter.name' );
+/** @var \Symfony\Component\DependencyInjection\ContainerInterface $container */
+$myParameter = $container->getParameter('myapp.parameter.name');
 ```
 
 ## Configuration settings

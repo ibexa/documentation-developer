@@ -94,7 +94,7 @@ When the location of a content item is hidden, the system doesn't display it on 
 
 !!! caution "Visibility and permissions"
 
-    The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+    The [visibility switcher](locations.md#location-visibility) is a convenient feature for withdrawing content from the frontend.
     It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
     It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 

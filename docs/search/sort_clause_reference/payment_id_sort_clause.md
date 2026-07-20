@@ -14,11 +14,16 @@ The `Id` Sort Clause sorts search results by payment ID.
 ## Example
 
 ``` php
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+$criteria = null;
+
 $paymentQuery = new PaymentQuery(
     $criteria,
     [
         new \Ibexa\Contracts\Payment\Payment\Query\SortClause\Id(
-            \Ibexa\Contracts\Payment\Payment\Query\SortClause\Id::SORT_ASC)
+            \Ibexa\Contracts\Payment\Payment\Query\SortClause\Id::SORT_ASC
+        ),
     ]
 );
 ```

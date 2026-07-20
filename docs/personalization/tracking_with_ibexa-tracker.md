@@ -1,6 +1,7 @@
 ---
 description: Integrate tracking with a Google-style JavaScript.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Track events with ibexa-tracker.js
@@ -88,7 +89,7 @@ _ycq.push(['_trackEvent', '1', 'click', '10', '']);
 | `_trackEvent` | - Executed with four additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) | capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', '10', '']);` |
 | `_trackTimedEvent` | - Executed with five additional parameters:`ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', '10', '20000', '']);` |
 | `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> | |
-| `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://mydomain.com/mypage.html?ycreco=true](https://mydomain.com/mypage.html?ycreco=true) or <br />[https://mydomain.com/mypage.html?myparameter=x&ycreco=true](https://mydomain.com/mypage.html?myparameter=x&ycreco=true) |
+| `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://example.com/mypage.html?ycreco=true](https://example.com/mypage.html?ycreco=true) or <br />[https://example.com/mypage.html?myparameter=x&ycreco=true](https://example.com/mypage.html?myparameter=x&ycreco=true) |
 
 ## Tracking with HTML event handlers
 

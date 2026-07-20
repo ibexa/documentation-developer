@@ -50,17 +50,20 @@ It's recommended to activate one rule set at a time and preview the output by ru
 
 Your configuration could look like the following example:
 
-```php
+``` php
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
+
 return RectorConfig::configure()
     ->withPaths(
-       [
+        [
            __DIR__ . '/src',
-       ]
+        ]
     )
     ->withSets(
-       [
+        [
            IbexaSetList::IBEXA_46->value,
-       ]
+        ]
     )
     ->withPhpSets(php83: true)
     ->withComposerBased(symfony: true)
@@ -109,7 +112,7 @@ rm -r config/graphql
 
 [[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
 Your development packages must be updated as well.
-The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` are installed.
+The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/debug-pack) and `ibexa/rector` are installed.
 Adjust the list based on your project requirements.
 Notice the use of the `--no-update` option to only edit the `composer.json` entries and avoid triggering the package update and Composer scripts.
 
@@ -463,11 +466,15 @@ Again, it's recommended to activate one rule set at a time and preview the outpu
 
 As this update spans across a broad range of versions, multiple rules can be considered as in the example below.
 
-```php
+``` php
 //…
-use Rector\Symfony\Set\SymfonySetList;
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
 use Rector\Symfony\Set\SensiolabsSetList;
-//…
+use Rector\Symfony\Set\SymfonySetList;
+
+return RectorConfig::configure()
+    // ...
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value,
@@ -507,7 +514,7 @@ use Rector\Symfony\Set\SensiolabsSetList;
 In the following example, you can see optimization thanks to the following features:
 
 - [Constructor parameter promoted as properties](https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion) (available since PHP 8.0)
-- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.3/console.html#console_registering-the-command) (available since Symfony 6.2)
+- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.4/console.html#creating-a-command) (available since Symfony 6.2)
 
 ```diff
 +#[AsCommand(name: 'app:test', description: 'Command to test something.')]
