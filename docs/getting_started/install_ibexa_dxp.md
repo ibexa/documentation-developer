@@ -13,7 +13,7 @@ month_change: true
 
 !!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide shows in details how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    This installation guide shows in detail how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
     If you want to install [[= product_name_oss =]], you don't need authentication tokens or an account on updates.ibexa.co, but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
@@ -29,7 +29,7 @@ Additional requirements:
 
 For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
 
-Before getting started, make sure you review other [requirements](requirements.md) to see the systems that is supported and used for testing.
+Before getting started, make sure you review other [requirements](requirements.md) to see the systems that are supported and used for testing.
 
 ### Get Composer
 
@@ -68,12 +68,12 @@ Log in to your Service portal on [support.ibexa.co](https://support.ibexa.co/), 
 1. Select **Create token** (this requires the **Portal administrator** access level).
 2. Fill in a label describing the use of the token.
 This allows you to revoke access later.
-3. Save the password, **you aren't able to access it again**.
+3. Save the password. **You won't be able to access it again**.
 
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
     Composer asks whether you want to save the token every time you perform an update.
-    If you prefer, you can decline and create an `auth.json` file globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    If you prefer, you can decline and create an `auth.json` file globally in the [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
     composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -164,7 +164,11 @@ To use Composer to instantly create a project in the current folder with all the
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
-!!! tip
+!!! caution "Security advisories"
+
+    If you encounter security advisories that prevent the install, see [Package security advisories](security_advisories.md#package-security-advisories).
+
+!!! tip "Version constraint"
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
 
@@ -193,7 +197,7 @@ git init; git add . > /dev/null; git commit -m "init" > /dev/null
 
 ### Change installation parameters
 
-At this point configure your database via the `DATABASE_URL` in the `.env` file, depending of the database you're using:
+At this point, configure your database via the `DATABASE_URL` in the `.env` file, depending on the database you're using:
 
 `DATABASE_URL=mysql://user:password@host:port/database_name`.
 
@@ -217,7 +221,7 @@ It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/
 
     The app secret is crucial to the security of your installation.
     Be careful about how you generate it, and how you store it.
-    Here's one way to generate a 64 characters long, secure random string as your secret, from command line:
+    Here's one way to generate a secure random string of 64 characters as your secret, from the command line:
 
     ``` bash
     php -r "print bin2hex(random_bytes(32));"
@@ -227,13 +231,13 @@ It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, and more.
 
-    After changing the app secret, make sure that you clear the application cache and log out all the users.
+    After changing the app secret, make sure that you clear the application cache and log out all users.
 
     For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).
 
-    It's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+    It's recommended that you store the database credentials in your `.env.local` file, and not commit that file to the Version Control System.
 
-In `DATABASE_VERSION` you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
+In `DATABASE_VERSION`, you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
 
 !!! tip "Using PostgreSQL"
 
@@ -267,12 +271,23 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
 Install [[= product_name =]] and create a database with:
 
-``` bash
-php bin/console ibexa:install
-php bin/console ibexa:graphql:generate-schema
-```
+=== "PHP 8.4"
 
-Before executing the command make sure that the database user has sufficient permissions.
+    Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation fails due to errors such as "headers have already been sent".
+
+    ``` bash
+    php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
+    php bin/console ibexa:graphql:generate-schema
+    ```
+
+=== "PHP 8.3 and older"
+
+    ``` bash
+    php bin/console ibexa:install
+    php bin/console ibexa:graphql:generate-schema
+    ```
+
+Before executing the command, make sure that the database user has sufficient permissions.
 
 ### Run post-installation script
 
@@ -290,7 +305,7 @@ For development you can use the built-in PHP server.
 php -S 127.0.0.1:8000 -t public
 ```
 
-Your PHP web server is accessible at `http://127.0.0.1:8000`
+Your PHP web server is accessible at `http://127.0.0.1:8000`.
 
 You can also use [Symfony CLI](https://symfony.com/download):
 
@@ -300,7 +315,7 @@ symfony serve
 
 ## Prepare installation for development
 
-Consider adding the Symfony DebugBundle which fixes memory outage when dumping objects with circular references.
+Consider adding the Symfony DebugBundle, which prevents running out of memory when dumping objects with circular references.
 The DebugBundle contains the [VarDumper]([[= symfony_doc =]]/components/var_dumper.html) and [its Twig integration]([[= symfony_doc =]]/components/var_dumper.html#debugbundle-and-twig-integration).
 
 ``` bash
@@ -313,7 +328,7 @@ For detailed information about request treatment, you can also install [Symfony 
 composer require --dev symfony/profiler-pack
 ```
 
-To get both features in one go use:
+To get both features in one go, use:
 
 ``` bash
 composer require --dev symfony/debug-pack
@@ -325,7 +340,7 @@ To use [[= product_name =]] with an HTTP server, you need to [set up directory p
 
 ### Set up permissions
 
-For development needs, the web user can be made the owner of all your files (for example with the `www-data` web user):
+For development needs, the web user can be made the owner of all your files (for example, with the `www-data` web user):
 
 ``` bash
 chown -R www-data:www-data <your installation directory>
@@ -336,7 +351,7 @@ Future files and directories created by these two users need to inherit those pe
 
 !!! caution
 
-    For security reasons, in production, the web server cannot have write access to other directories than `var`.
+    For security reasons, in production, the web server mustn't have write access to any directory other than `var`.
     Skip the step above and follow the link below for production needs instead.
 
     You must also make sure that the web server cannot interpret the files in the `var` directory through PHP.
@@ -370,7 +385,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
     Finally, restart the Apache server.
     The command may vary depending on your Linux distribution.
-    For example, on Ubuntu use:
+    For example, on Ubuntu, use:
 
     ``` bash
     service apache2 restart
@@ -378,10 +393,10 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "nginx"
 
-    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files, which should reside in a subdirectory below the main file, [as shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
-    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
+    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on which environment you're configuring, and uncomment the line that starts with `#if [APP_ENV]`.
 
     When the virtual host file is ready, enable the virtual host and disable the default.
     Finally, restart the nginx server.
