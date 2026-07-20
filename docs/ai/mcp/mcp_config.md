@@ -113,7 +113,8 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `get_content_type` - gets a content type by its ID.
     - `get_content_type_by_identifier` - gets a content type by its identifier.
     - `get_content_type_list` - gets content types by their IDs.
-    - `create_content_type` - creates a content type draft.
+    - `create_content_type` - creates a draft for a new content type.
+    - `create_content_type_draft` - creates a draft for an existing content type.
     - `get_content_type_draft` - gets a content type draft by content type ID.
     - `publish_content_type_draft` - publishes a content type draft by content type ID.
 - `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
