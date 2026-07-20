@@ -12,7 +12,7 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
 
 ## With Ibexa Cloud add-ons
 
@@ -32,7 +32,7 @@ To use an `auth.json` file for this purpose, see [Using `auth.json`](install_wit
 The following sequence of commands:
 
 1. Downloads the [[= product_name_cloud =]] project from the default environment "production"
-   into a new directory (for example `my-ddev-project`), using the [`ibexa_cloud` command](https://cli.ibexa.co/).
+   into a new directory (for example `my-ddev-project`), using the [`ibexa_cloud` command](https://cli.ibexa.cloud/).
    (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://fixed.docs.upsun.com/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
@@ -77,7 +77,7 @@ The following example adapts the [manual method to run an already existing proje
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Upsun project from the default environment "production" into a new directory, using the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/).
+1. Downloads the [[= product_name_cloud =]] Upsun project from the default environment "production" into a new directory, using the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/).
 (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://fixed.docs.upsun.com/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
 1. Ignores `.ddev/` directory from Git.
