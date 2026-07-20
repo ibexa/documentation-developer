@@ -14,6 +14,23 @@ month_change: true
 [[% set date = 'YYYY-MM-DD' %]]
 
 [[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Tools
+
+- Added `create_content_type_draft` tool to create a draft for an existing content type.
+
+### PHP API
+
+- [`Ibexa\Contracts\Mcp\Test`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-test.html) namespace contains traits and classes helping to write MCP tool unit tests.
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
     product_name + ' ' + version,
     date,
     []
