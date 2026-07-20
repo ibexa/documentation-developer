@@ -1,5 +1,6 @@
 ---
 description: Find [[= product_name_base =]] security advisories, and learn how to handle Composer package security advisories.
+month_change: true
 ---
 
 # Security advisories
@@ -44,6 +45,7 @@ For example, when trying to install [[= product_name =]] 4.6 on PHP 7.4 you migh
 To gather more information, check package information on [Packagist](https://packagist.org/) and try installing a specific version of the package blocking installation.
 
 In this case, trying to install [`twig/twig:3.11.3`](https://packagist.org/packages/twig/twig#v3.11.3) shows explicitly that this version is blocked by a security advisory:
+
 ```terminal
 % composer require twig/twig:3.11.3
 Your requirements could not be resolved to an installable set of packages.
