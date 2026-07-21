@@ -1,5 +1,6 @@
 ---
 description: TaxonomySubtree Search Criterion
+month_change: true
 ---
 
 # TaxonomySubtree Criterion

@@ -1,5 +1,6 @@
 ---
 description: Install Ibexa DXP with Docker and DDEV to use it for development.
+month_change: true
 ---
 
 # Install with DDEV
@@ -87,6 +88,14 @@ Depending on your database of choice (MySQL or PostgreSQL), use the appropriate 
     ```bash
     ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
     ```
+
+#### Configure mailer (optional)
+
+You can configure [Symfony Mailer]([[= symfony_doc =]]/mailer.html) to use the [integrated mail catcher Mailpit](https://docs.ddev.com/en/stable/users/usage/developer-tools/#email-capture-and-review-mailpit):
+
+```bash
+ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
+```
 
 #### Enable Mutagen (optional)
 

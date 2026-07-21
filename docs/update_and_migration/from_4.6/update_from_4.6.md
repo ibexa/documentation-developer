@@ -32,7 +32,7 @@ First, run:
 
 Then execute the instructions below starting from the version you're upgrading from.
 
-!!! caution
+!!! caution "Deprecation messages on PHP 8.2 and newer"
 
     To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
 
@@ -42,6 +42,10 @@ Then execute the instructions below starting from the version you're upgrading f
     ```
 
 <!-- vale Ibexa.VariablesVersion = NO -->
+
+!!! caution "Security advisories"
+
+    If you encounter security advisories that prevent the update, see [Package security advisories](security_advisories.md#package-security-advisories).
 
 ## v4.6.1
 
@@ -672,23 +676,31 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 
 For more information, see the following security advisories:
 
-* [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
-* [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
-* [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
-* [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
-* [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
-* [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
-* [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
-* [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
-* [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
-* [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
-* [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
-* [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
-* [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
-* [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
-* [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
-* [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
-* [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+* PHP 8.0 and PHP 7.4
+    * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
+    * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
+    * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
+    * [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
+    * [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
+    * [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
+    * [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
+    * [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
+    * [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
+    * [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
+    * [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
+    * [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
+    * [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
+    * [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
+    * [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
+    * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
+    * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+    * [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
+* PHP 7.4 only
+    * [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
+    * [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
+    * [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
+    * [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
+    * [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
 To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
 
@@ -706,35 +718,14 @@ Then, update Ibexa DXP.
 
 If updating the Twig packages isn't possible, for example, because the project is using PHP 7.4 or 8.0 where the fixes are not available, review the security issues carefully and assess the danger.
 
-If you choose to implement countermeasures without upgrading PHP and updating Twig, you can silence the advisories in `composer.json`:
-
-```json
-"config": {
-    "audit": {
-        "ignore": {
-            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
-        }
-    }
-}
-```
+If you choose to implement countermeasures without upgrading PHP and updating Twig, you can silence the advisories in `composer.json`.
+For more information, see [Package security advisories](security_advisories.md#package-security-advisories).
 
 In addition, consider upgrading your project to one of [the actively supported PHP versions](requirements.md#php).
+
+## v4.6.31
+
+No additional steps needed.
 
 ## LTS Updates
 

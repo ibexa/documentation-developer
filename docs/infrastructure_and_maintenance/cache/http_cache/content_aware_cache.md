@@ -400,7 +400,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname

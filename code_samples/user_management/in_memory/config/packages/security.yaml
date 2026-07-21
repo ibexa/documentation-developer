@@ -1,0 +1,17 @@
+# config/packages/security.yaml
+security:
+    providers:
+        # Chaining in_memory and ibexa user providers
+        chain_provider:
+            chain:
+                providers: [in_memory, ibexa]
+        ibexa:
+            id: ibexa.security.user_provider
+        in_memory:
+            memory:
+                users:
+                    # You will then be able to login with username "user" and password "userpass"
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+    # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
+    password_hashers:
+        Symfony\Component\Security\Core\User\User: plaintext
