@@ -3,9 +3,38 @@
 {% block content %}
 <div class="page-not-found">
     <h1>Page not found.</h1>
-    <img src="/images/404.png" alt="" />
+    <img src="{{ base_url }}{% if base_url|last != '/' %}/{% endif %}images/404.png" alt="" />
     {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
     <p>This link might be out-of-date. Go to the <a href="{{ site_url }}">main documentation page</a> or <a id="search-link"href="{{ site_url }}search_results/?sq=&p=1">use the search</a> to find what you are looking for.</p>
 </div>
+{% endblock %}
 
+{% block scripts %}
+{{ super() }}
+<script>
+    if (location.host.endsWith('.readthedocs.build')) {
+        let basePart = '/en/latest/';
+        let readthedocsPart = location.pathname.split('/').slice(0, 3).join('/')+'/';
+        let urlElements = document.querySelectorAll('[href*="/en/latest/"], [src*="/en/latest/"]');
+        let head = document.getElementsByTagName('head')[0];
+        for (let urlElement of urlElements) {
+            switch (urlElement.tagName.toLowerCase()) {
+                case 'script':
+                    let script = document.createElement('script');
+                    script.setAttribute('src', urlElement.getAttribute('src').replace(basePart, readthedocsPart));
+                    head.appendChild(script);
+                    console.log(script);
+                    break;
+                default:
+                    let attributeName, attributeValue;
+                    for (attributeName of ['href', 'src']) {
+                        if (null !== (attributeValue = urlElement.getAttribute(attributeName))) {
+                            break;
+                        }
+                    }
+                    urlElement.setAttribute(attributeName, attributeValue.replace(basePart, readthedocsPart));
+            }
+        }
+    }
+</script>
 {% endblock %}

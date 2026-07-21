@@ -8,7 +8,7 @@ To create a new tab in the dashboard, create an `EveryoneArticleTab.php` file in
 This adds a tab to the **Common content** dashboard block that displays all articles in the repository.
 
 ``` php hl_lines="17 38 50-53 64-66"
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php') =]]
+[[= include_code('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php') =]]
 ```
 
 This tab searches for content with content type "Article" (lines 50-53) and uses the built-in `all_content.html.twig` template to render the results, which ensures that the tab looks the same as the existing tabs (lines 64-66).

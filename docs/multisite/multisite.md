@@ -9,7 +9,6 @@ A multisite setup enables you to create more than one site in one installation o
 
 Multisite configuration is done using [SiteAccesses](siteaccess.md).
 
-
 To quickly set up new sites with predefined site templates, use [Site Factory](site_factory.md).
 
 [[= cards([

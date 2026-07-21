@@ -124,7 +124,7 @@ cURL can follow those redirections. On CLI, there is the `--location` option (or
 In PHP, you can achieve the same effect with `CURLOPT_FOLLOWLOCATION`.
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
-```shell
+```bash
 curl --head --location --header "Accept: application/vnd.ibexa.api.Content+json" "https://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
 ```
 
@@ -137,7 +137,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 
 [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
 
-For more information about CORS, see [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol) and [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+For more information about CORS, see [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol) and [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS).
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
@@ -159,7 +159,7 @@ The Response body is often a serialization in XML or JSON of an object as it cou
 
 For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 
-```shell
+```bash
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';
 ```
 

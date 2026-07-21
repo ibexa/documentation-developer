@@ -48,7 +48,7 @@ First, create a Blog content type that contains a Content query field with the i
 In the Field definition, select "Children" as the Query type.
 Provide the `content` parameter that the Query type requires:
 
-```
+```yaml
 content: '@=content'
 ```
 
@@ -64,7 +64,7 @@ Then, in the content view configuration, add the configuration under `content_qu
 
 The `match` configuration matches both the content type and the identifier of the Content query field.
 
-Finally, in the template `templates/themes/<my_theme/content_query/blog_posts.html.twig`, render all results of the query:
+Finally, in the template `templates/themes/<my_theme>/content_query/blog_posts.html.twig`, render all results of the query:
 
 ``` html+twig
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/blog_post.html.twig') =]]

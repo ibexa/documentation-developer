@@ -28,7 +28,7 @@ jobs:
 
             -   name: Create comment for changed files
                 run: |
-                    file_limit=100
+                    file_limit=150
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
                     md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")

@@ -1,6 +1,7 @@
 ---
 description: See the methods of event tracking integration using tracking from server or from client-side.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Tracking integration
@@ -8,7 +9,7 @@ month_change: false
 There are several ways to integrate event reporting into the webpage.
 The simplest way is to generate code of a tiny image and put it on the webpage where the event must be sent [pixel tracking](integrate_recommendation_service.md#track-events).
 
-For example, with HTML: 
+For example, with HTML:
 
 ``` html
 <img href="https://event.perso.ibexa.co/api/00000/click/johndoe/1/100?categorypath=/a/ab/abc" width="1" height="1">

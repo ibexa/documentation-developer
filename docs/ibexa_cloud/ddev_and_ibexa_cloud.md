@@ -12,7 +12,8 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
+    For more information and examples, see [[[= product_name_cloud =]] CLI](ibexa_cloud_cli.md).
 
 ## With Ibexa Cloud add-ons
 
@@ -32,7 +33,7 @@ To use an `auth.json` file for this purpose, see [Using `auth.json`](install_wit
 The following sequence of commands:
 
 1. Downloads the [[= product_name_cloud =]] project from the default environment "production"
-   into a new directory (for example `my-ddev-project`), using the [`ibexa_cloud` command](https://cli.ibexa.co/).
+   into a new directory (for example `my-ddev-project`), using the [`ibexa_cloud` command](https://cli.ibexa.cloud/).
    (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://fixed.docs.upsun.com/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
@@ -40,7 +41,7 @@ See [`ibexa_cloud help get`](https://fixed.docs.upsun.com/administration/cli.htm
    and application name (for example, `app` from `name: app` line in `.platform.app.yaml` file).
 1. Configures `ibexa_cloud` command token. See [Create an API token](https://fixed.docs.upsun.com/administration/cli/api-tokens.html#2-create-an-api-token) for more information.
 1. Ignores `.ddev/` directory from Git.
-   (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
+   (Some DDEV config could be committed like in [this documentation](https://docs.ddev.com/en/stable/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Sets Composer authentication by using an already existing `auth.json` file.
 1. Installs the `ddev/ddev-upsun` add-on which prompts for the Upsun API token, project ID and environment name.
 1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
@@ -77,15 +78,15 @@ The following example adapts the [manual method to run an already existing proje
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Upsun project from the default environment "production" into a new directory, using the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/).
+1. Downloads the [[= product_name_cloud =]] Upsun project from the default environment "production" into a new directory, using the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/).
 (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://fixed.docs.upsun.com/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
 1. Ignores `.ddev/` directory from Git.
-(Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
+(Some DDEV config could be committed like in [this documentation](https://docs.ddev.com/en/stable/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Starts the DDEV project.
 1. Sets Composer authentication.
 1. [Gets the database content from Upsun](https://fixed.docs.upsun.com/add-services/mysql.html#exporting-data).
-1. [Imports this database content into DDEV project's database](https://ddev.readthedocs.io/en/latest/users/usage/database-management/#database-imports).
+1. [Imports this database content into DDEV project's database](https://docs.ddev.com/en/stable/users/usage/database-management/#database-imports).
 1. [Downloads the Upsun public/var locally](https://fixed.docs.upsun.com/development/file-transfer.html#transfer-a-file-from-a-mount) to have the content binary files.
 1. Install the dependencies and run post-install scripts.
 1. Displays information about the project services.

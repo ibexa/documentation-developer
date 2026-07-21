@@ -18,11 +18,18 @@ The `IsFieldEmpty` Criterion isn't available in [Repository filtering](search_ap
 
 The Richtext field type (`ibexa_richtext`) isn't searchable in the Legacy search engine.
 
+The `IsFieldEmpty` criterion doesn't work for [Taxonomy entry assignment](taxonomyentryassignmentfield.md) fields.
+For this use case, use [`TaxonomyNoEntries`](taxonomy_no_entries.md) instead.
+
 ## Example
 
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\IsFieldEmpty('title');
 ```
 
@@ -30,9 +37,13 @@ $query->query = new Criterion\IsFieldEmpty('title');
 
 You can use the `IsFieldEmpty` Criterion to search for articles that don't have an image:
 
-``` php hl_lines="4"
-$query = new LocationQuery;
-$query->query = new Criterion\LogicalAnd([
+``` php hl_lines="8"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new LocationQuery();
+$query->query = new Criterion\LogicalAnd(
+    [
         new Criterion\ContentTypeIdentifier('article'),
         new Criterion\IsFieldEmpty('image'),
     ]

@@ -22,7 +22,7 @@ A content item consists of:
 - [Fields](#fields), defined by the [content type](content_types.md).
 The fields can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
-#### Content information
+### Content information
 
 General information about a content item is stored in a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 `ContentInfo` doesn't include fields. It contains following information:
@@ -139,6 +139,6 @@ A new version is also created when a new [language](languages.md) is added to th
 
 ## Products
 
-Products are a special type of content that holds products you can manage in the built-in PIM system.
+Products are a special type of content that holds products you can manage with the product catalog capabilities.
 
-For more information, see [PIM](pim.md).
+For more information, see [Product catalog](../product_catalog/product_catalog.md).

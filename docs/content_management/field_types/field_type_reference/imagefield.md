@@ -14,7 +14,7 @@ A **variation service** handles the conversion of the original image into differ
 
 The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
 
-##### Properties
+#### Properties
 
 | Property          | Type   | Example                                                          | Description                                                                                                                                                                                                                                                          |
 |-------------------|--------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -150,8 +150,15 @@ The variation service, `ibexa.field_type.ibexa_image.variation_service`, can be 
 It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, and more.):
 
 ``` php
+/**
+ * @var \Ibexa\Contracts\Core\Variation\VariationHandler $imageVariationHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $imageField
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo
+ */
 $variation = $imageVariationHandler->getVariation(
-    $imageField, $versionInfo, 'large'
+    $imageField,
+    $versionInfo,
+    'large'
 );
 
 echo $variation->uri;
@@ -165,41 +172,50 @@ As for any field type, there are several ways to input content to a field.
 For an Image, the quickest is to call `setField()` on the ContentStruct:
 
 ``` php
+/**
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
+ */
 $createStruct = $contentService->newContentCreateStruct(
-    $contentTypeService->loadContentType( 'image' ),
+    $contentTypeService->loadContentTypeByIdentifier('image'),
     'eng-GB'
 );
 
-$createStruct->setField( 'image', '/tmp/image.png' );
+$createStruct->setField('image', '/tmp/image.png');
 ```
 
 To customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property.
 For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
 
 ``` php
+/**
+ * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
+ */
 $createStruct = $contentService->newContentCreateStruct(
-    $contentTypeService->loadContentType( 'image' ),
+    $contentTypeService->loadContentTypeByIdentifier('image'),
     'eng-GB'
 );
 
-$imageField = \Ibexa\Core\FieldType\Image\Value::fromString( '/tmp/image.png' );
+$imageField = \Ibexa\Core\FieldType\Image\Value::fromString('/tmp/image.png');
 $imageField->alternativeText = 'My alternative text';
-$createStruct->setField( 'image', $imageField );
+$createStruct->setField('image', $imageField);
 ```
 
 You can also provide a hash of `Image\Value` properties, either to `setField()`, or to the constructor:
 
 ``` php
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct $createStruct */
 $imageValue = new \Ibexa\Core\FieldType\Image\Value(
     [
         'id' => '/tmp/image.png',
         'fileSize' => 37931,
         'fileName' => 'image.png',
-        'alternativeText' => 'My alternative text'
+        'alternativeText' => 'My alternative text',
     ]
 );
 
-$createStruct->setField( 'image', $imageValue );
+$createStruct->setField('image', $imageValue);
 ```
 
 ### From REST
@@ -210,7 +226,7 @@ In addition, image data can be provided using the `data` property, with the imag
 
 #### Creating an Image field
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentCreate>
     <!-- [...metadata...] -->

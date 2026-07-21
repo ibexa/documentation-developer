@@ -1,6 +1,7 @@
 ---
 description: Configure your project files to enable Personalization and set up items you want to track.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Enable Personalization
@@ -16,9 +17,9 @@ First, either you or another [[= product_name_base =]] user responsible for mana
 
 When you receive the credentials, add them to your configuration.
 
-In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key: 
+In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key:
 
-```
+```bash
 PERSONALIZATION_CUSTOMER_ID=12345
 PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
 PERSONALIZATION_HOST_URI=https://server_uri
@@ -163,7 +164,6 @@ The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and 
 
 You can use this token to check what is provided to the Personalization Engine:
 
-
 ```bash
 curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/content/id/{contentId}?lang={comma_separated_languages}' \
 --header 'Accept: application/vnd.ibexa.api.Content+json' \
@@ -220,6 +220,7 @@ The `content` endpoint returns one item and the `contentlist` endpoint returns m
     }
 }
 ```
+
 ### Export item information
 
 To get recommendations you must first export the item information to the Personalization server.
@@ -319,7 +320,7 @@ In the back office, go to **Personalization** > **Import** and review the list o
 
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
-Every time an editor creates, updates or deletes content in the back office, a notification is sent to https://admin.perso.ibexa.co/.
+Every time an editor creates, updates or deletes content in the back office, a notification is sent to the personalization server.
 The personalization service also notifies other components of the Personalization server and it eventually fetches the affected content and updates it internally.
 
 ![Subsequent content exports](incremental_content_export.png)
@@ -491,7 +492,7 @@ You can retrieve data returned from the Personalization server and modify it bef
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
 See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
 
-``` php
+``` php {skip-validation}
 public static function getSubscribedEvents(): array
 {
     return [

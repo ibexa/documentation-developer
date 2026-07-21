@@ -1,6 +1,7 @@
 ---
 description: Integrate recommendation service into your website.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Integrate recommendation service
@@ -34,7 +35,7 @@ The following examples show how you can integrate a CLICK event:
 
 PHP:
 
-``` php
+``` php {skip-validation}
 $mandator_id = '00000';
 $content_type_id = '1';
 $product_id = '123';
@@ -57,7 +58,7 @@ ycimg.src=url;
 
 A similar tracking image can be placed on a confirmation page that ends the payment process.
 
-``` php
+``` php {skip-validation}
 $server = '//event.perso.ibexa.co';
 foreach ($just_bought_products as $product_id) {
    $tracking = $server.'/api/'.$mandator_id.'/buy/'.urlencode(user_id()).$content_type_id.$product_id;
@@ -122,7 +123,7 @@ A response with two recommendations resembles the following object:
 
 You can use the following code to make requests and parse results:
 
-``` php
+``` php {skip-validation}
 $mandator_id = '00000';
 $license_key = '67890-1234-5678-90123-4567';
 $server = "https://reco.perso.ibexa.co";
@@ -170,8 +171,8 @@ To let your visitors receive emails with recommendations:
 Out of many options, it could be an [[= product_name_connect =]] [webhook]([[= connect_doc =]]/tools/webhooks/).
 The endpoint must meet the following requirements:
 
- - must support POST requests
- - must accept JSON objects in a format that resembles the following example:
+- must support POST requests
+- must accept JSON objects in a format that resembles the following example:
 
 ``` json
 {

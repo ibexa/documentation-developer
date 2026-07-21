@@ -20,11 +20,11 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
 !!! tip
 
-    - [`ddev describe`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#describe) displays a cluster summary that include accesses from inside and outside DDEV services
-    - [`ddev ssh`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#ssh) opens a terminal inside a service
-    - [`ddev exec`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#exec) executes a command inside a service
+    - [`ddev describe`](https://docs.ddev.com/en/stable/users/usage/commands/#describe) displays a cluster summary that include accesses from inside and outside DDEV services
+    - [`ddev ssh`](https://docs.ddev.com/en/stable/users/usage/commands/#ssh) opens a terminal inside a service
+    - [`ddev exec`](https://docs.ddev.com/en/stable/users/usage/commands/#exec) executes a command inside a service
 
-   Discover more commands in [DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
+   Discover more commands in [DDEV documentation](https://docs.ddev.com/en/stable/users/usage/commands/).
 
 To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) instead.
 
@@ -67,7 +67,7 @@ fi
 cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
 ddev dotenv set .ddev/.env.varnish --varnish-docker-image=varnish:$VARNISH_VERSION --varnish-varnishd-params " -p $vcl_path=/etc/varnish -f /etc/varnish/$vcl_file"
 
-ddev get ddev/ddev-varnish
+ddev add-on get ddev/ddev-varnish
 
 ddev config --web-environment-add HTTPCACHE_PURGE_SERVER=http://varnish
 ddev config --web-environment-add HTTPCACHE_PURGE_TYPE=varnish
@@ -137,7 +137,7 @@ For more information on topics such as available configurations, command lines, 
 
 ### Fastly
 
-For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)), the instance must be visible from Internet.
+For Fastly (as for [[[= product_name_connect =]]]([[= connect_doc =]]/)), the instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 
@@ -218,9 +218,9 @@ You can now check whether Solr works.
 
 For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` command:
 
- - checks whether the `web` server can access the `solr` server
- - checks whether `collection1` exists and its status
- - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
+- checks whether the `web` server can access the `solr` server
+- checks whether `collection1` exists and its status
+- displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
 You can access the Solr admin UI from the host by:
 
@@ -243,7 +243,7 @@ In the following examples:
 ### Install Redis or Valkey
 
 DDEV supports multiple Redis-compatible implementation, including Redis itself and Valkey.
-You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on. 
+You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on.
 For example, you can switch to Valkey by running `ddev add-on get ddev/ddev-redis; ddev redis-backend valkey/valkey:9`.
 For more information, see [Swappable Redis backends](https://github.com/ddev/ddev-redis?tab=readme-ov-file#swappable-redis-backends) in DDEV's `dddev-redis` add-on documentation.
 

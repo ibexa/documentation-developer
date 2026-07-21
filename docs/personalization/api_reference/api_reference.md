@@ -1,6 +1,7 @@
 ---
 description: Explore Personalization API sets that let you manage item data, track events, combine tracking data with users and render recommendations.
 page_type: landing_page
+exclude_from_llmstxt: true
 ---
 
 # Personalization API

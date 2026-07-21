@@ -51,8 +51,8 @@ ibexa:
             languages: [ eng-GB ]
             content:
                 tree_root:
-                    location_id: location_id_of_customer_portal
-                    excluded_uri_prefixes: [ /media, /images ]
+                    location_id: 12345 # location_id_of_customer_portal
+                    excluded_uri_prefixes: [ /media/, /images/ ]
 ```
 
 Next, under the `ibexa.system.admin.page_builder` [configuration key](configuration.md#configuration-files), add `custom_portal` to [the SiteAccess list available to Page Builder](multisite_configuration.md#siteaccesses-and-page-builder):
@@ -135,8 +135,8 @@ ibexa:
             languages: [ eng-GB ]
             content:
                 tree_root:
-                    location_id: location_id_of_customer_portals_root_folder
-                    excluded_uri_prefixes: [ /media, /images ]
+                    location_id: 12345 # location_id_of_customer_portals_root_folder
+                    excluded_uri_prefixes: [ /media/, /images/ ]
 ```
 
 Next, under the `ibexa.system.admin.page_builder` [configuration key](configuration.md#configuration-files), add `custom_portal` to [the SiteAccess list available to Page Builder](multisite_configuration.md#siteaccesses-and-page-builder):
@@ -233,8 +233,8 @@ ibexa:
             page_layout: "@App/my_page_layout.html.twig"
             content:
                 tree_root:
-                    location_id: location_id_of_customer_portals_root_folder
-                    excluded_uri_prefixes: [ /media, /images ]
+                    location_id: 12345 #location_id_of_customer_portals_root_folder
+                    excluded_uri_prefixes: [ /media/, /images/ ]
 ```
 
 To generate the Customer Portal menu you should use `customer_portal.menu.main` key:
@@ -254,4 +254,5 @@ To generate the Customer Portal menu you should use `customer_portal.menu.main` 
     </div>
 {% endblock %}
 ```
+
 To learn more about creating a menu, see [Add navigation menu](add_navigation_menu.md).

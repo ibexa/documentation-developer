@@ -26,20 +26,20 @@ It's also possible to directly pass an instance of `\DateTime`.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
-| Property | Type           | Description                                                                       |
-|----------|----------------|-----------------------------------------------------------------------------------|
-| `$time`  | `integer|null` | Holds the time information as a number of seconds since the beginning of the day. |
+| Property | Type                | Description                                                                       |
+|----------|---------------------|-----------------------------------------------------------------------------------|
+| `$time`  | `integer` or `null` | Holds the time information as a number of seconds since the beginning of the day. |
 
-##### Constructor
+#### Constructor
 
 The constructor for this value object initializes a new value object with the value provided.
 It accepts an integer representing the number of seconds since the beginning of the day.
 
-##### String representation
+#### String representation
 
 String representation of the date value generates the date string in the format "H:i:s" as accepted by [PHP's built-in `date()` function](https://www.php.net/manual/en/function.date.php).
 
@@ -51,7 +51,7 @@ String representation of the date value generates the date string in the format 
 
 Example: `"12:14:56"`
 
-### Hash format
+#### Hash format
 
 Value in hash format is an integer representing a number of seconds since the beginning of the day.
 
@@ -75,7 +75,7 @@ The Field definition of this field type can be configured with several options:
 use Ibexa\Core\FieldType\Time\Type;
 
 $settings = [
-    "defaultType" => DateAndTime::DEFAULT_EMPTY
+    'defaultType' => Type::DEFAULT_EMPTY,
 ];
 ```
 

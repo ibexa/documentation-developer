@@ -5,7 +5,7 @@ info:
     url: https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png
   title: Ibexa DXP REST API
   description: ""
-  version: 5.0.6
+  version: 5.0.9
 servers:
 - url: /api/ibexa/v2
   description: Current server
@@ -964,11 +964,17 @@ paths:
           application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json:
             schema:
               $ref: '#/components/schemas/UnscheduleActionWrapper'
-            x-ibexa-example-file: '@IbexaCalendarBundle/Resources/api_platform/examples/calendar/event/eventType/POST/future_publication.UnscheduleAction.json.example'
+            example:
+              UnscheduleAction:
+                events:
+                - future_publication:2
           application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json:
             schema:
               $ref: '#/components/schemas/UnscheduleActionWrapper'
-            x-ibexa-example-file: '@IbexaCalendarBundle/Resources/api_platform/examples/calendar/event/eventType/POST/future_publication.UnscheduleAction.json.example'
+            example:
+              UnscheduleAction:
+                events:
+                - future_publication:2
         required: false
       deprecated: false
   /cart:
@@ -1037,7 +1043,12 @@ paths:
           application/vnd.ibexa.api.CartCreate+json:
             schema:
               $ref: '#/components/schemas/CartCreateWrapper'
-            x-ibexa-example-file: '@IbexaCartBundle/Resources/api_platform/examples/cart/POST/CartCreate.json.example'
+            example:
+              CartCreate:
+                name: Default
+                currencyCode: EUR
+                context:
+                  foo: bar
           application/vnd.ibexa.api.CartCreate+xml:
             schema:
               $ref: '#/components/schemas/CartCreate'
@@ -1093,7 +1104,13 @@ paths:
           application/vnd.ibexa.api.CartViewInput+json:
             schema:
               $ref: '#/components/schemas/CartViewInputWrapper'
-            x-ibexa-example-file: '@IbexaCartBundle/Resources/api_platform/examples/cart/view/CartViewInput.json.example'
+            example:
+              CartViewInput:
+                identifier: loadUserCarts
+                CartQuery:
+                  offset: 0
+                  limit: 10
+                  ownerId: 123
           application/vnd.ibexa.api.CartViewInput+xml:
             schema:
               $ref: '#/components/schemas/CartViewInput'
@@ -1110,7 +1127,7 @@ paths:
       - Cart
       responses:
         200:
-          description: "200"
+          description: OK - return the cart
           content:
             application/vnd.ibexa.api.Cart+json:
               schema:
@@ -2137,7 +2154,7 @@ paths:
       - Collaboration Sessions
       responses:
         201:
-          description: "201"
+          description: Session created
           content:
             application/vnd.ibexa.api.ExampleSession+json:
               schema:
@@ -2222,11 +2239,49 @@ paths:
           application/vnd.ibexa.api.ExampleSessionCreate+json:
             schema:
               $ref: '#/components/schemas/ExampleSessionCreate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/POST/SessionCreate.json.example'
+            example:
+              ExampleSessionCreate:
+                Owner:
+                  _media-type: application/vnd.ibexa.api.User+json
+                  _href: /api/ibexa/v2/user/users/14
+                ParticipantListCreate:
+                  _media-type: application/vnd.ibexa.api.ParticipantListCreate+json
+                  ParticipantCreate:
+                  - _media-type: application/vnd.ibexa.api.InternalParticipantCreate+json
+                    User:
+                      _media-type: application/vnd.ibexa.api.User+json
+                      _href: /api/ibexa/v2/user/users/14
+                    scope: view
+                  - _media-type: application/vnd.ibexa.api.ExternalParticipantCreate+json
+                    email: user@link.invalid
+                    scope: view
+                subject: example
           application/vnd.ibexa.api.ExampleSessionCreate+xml:
             schema:
               $ref: '#/components/schemas/ExampleSessionCreate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/POST/SessionCreate.xml.example'
+            example: |+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ExampleSessionCreate>
+                  <Owner media-type="application/vnd.ibexa.api.User+xml"
+                         href="/api/ibexa/v2/user/users/14"
+                  >
+                  </Owner>
+                  <ParticipantListCreate media-type="application/vnd.ibexa.api.ParticipantListCreate+xml">
+                      <ParticipantCreate media-type="application/vnd.ibexa.api.InternalParticipantCreate+xml">
+                          <scope>view</scope>
+                          <User media-type="application/vnd.ibexa.api.User+xml"
+                                href="/api/ibexa/v2/user/users/14"
+                          >
+                          </User>
+                      </ParticipantCreate>
+                      <ParticipantCreate media-type="application/vnd.ibexa.api.ExternalParticipantCreate+xml">
+                          <email>user@link.invalid</email>
+                          <scope>view</scope>
+                      </ParticipantCreate>
+                  </ParticipantListCreate>
+                  <subject>example</subject>
+              </ExampleSessionCreate>
+
         required: false
       deprecated: false
   /collaboration/sessions/{sessionToken}:
@@ -2236,7 +2291,7 @@ paths:
       - Collaboration Sessions
       responses:
         200:
-          description: "200"
+          description: Session
           content:
             application/vnd.ibexa.api.ExampleSession+json:
               schema:
@@ -2358,7 +2413,7 @@ paths:
       - Collaboration Sessions
       responses:
         200:
-          description: "200"
+          description: Updated session
           content:
             application/vnd.ibexa.api.ExampleSession+json:
               schema:
@@ -2455,11 +2510,18 @@ paths:
           application/vnd.ibexa.api.ExampleSessionUpdate+json:
             schema:
               $ref: '#/components/schemas/ExampleSessionUpdate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/PATCH/SessionUpdate.json.example'
+            example:
+              ExampleSessionUpdate:
+                hasPublicLink: true
           application/vnd.ibexa.api.ExampleSessionUpdate+xml:
             schema:
               $ref: '#/components/schemas/ExampleSessionUpdate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/PATCH/SessionUpdate.xml.example'
+            example: |+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ExampleSessionUpdate>
+                  <hasPublicLink>true</hasPublicLink>
+              </ExampleSessionUpdate>
+
         required: false
       deprecated: false
   /collaboration/sessions/{sessionToken}/invitations:
@@ -2505,11 +2567,54 @@ paths:
           application/vnd.ibexa.api.InvitationCreate+json:
             schema:
               $ref: '#/components/schemas/InvitationCreate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/POST/InvitationCreate.json.example'
+            example:
+              InvitationCreate:
+                email: external.user@example.com
+                Sender:
+                  _media-type: application/vnd.ibexa.api.User+json
+                  _href: /api/ibexa/v2/user/users/14
+                context:
+                  single_value: value
+                  simple_array:
+                  - test
+                  - value1
+                  - value2
+                  - value3
+                  - value4
+                  - value5
+                  extended_array:
+                    foo: foo_value
+                    bar: bar_value
+                    baz: baz_value
           application/vnd.ibexa.api.InvitationCreate+xml:
             schema:
               $ref: '#/components/schemas/InvitationCreate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/POST/InvitationCreate.xml.example'
+            example: |+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <InvitationCreate>
+                  <Sender media-type="application/vnd.ibexa.api.User+xml"
+                          href="/api/ibexa/v2/user/users/14"
+                  >
+                  </Sender>
+                  <email>anonymous@link.invalid</email>
+                  <context>
+                      <simple_array>
+                          <element>test</element>
+                          <element>value1</element>
+                          <element>value2</element>
+                          <element>value3</element>
+                          <element>value4</element>
+                          <element>value5</element>
+                      </simple_array>
+                      <single_value>value</single_value>
+                      <extended_array>
+                          <bar>bar_value</bar>
+                          <baz>baz_value</baz>
+                          <foo>foo_value</foo>
+                      </extended_array>
+                  </context>
+              </InvitationCreate>
+
         required: false
       deprecated: false
   /collaboration/sessions/{sessionToken}/participants:
@@ -2519,7 +2624,7 @@ paths:
       - Collaboration Sessions
       responses:
         200:
-          description: "200"
+          description: Participants list
           content:
             application/vnd.ibexa.api.ParticipantList+json:
               schema:
@@ -2593,7 +2698,7 @@ paths:
       - Collaboration Sessions
       responses:
         200:
-          description: "200"
+          description: Participants list
           content:
             application/vnd.ibexa.api.ParticipantList+json:
               schema:
@@ -2668,11 +2773,36 @@ paths:
           application/vnd.ibexa.api.ParticipantListCreate+json:
             schema:
               $ref: '#/components/schemas/ParticipantListCreate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/POST/ParticipantListCreate.json.example'
+            example:
+              ParticipantListCreate:
+                ParticipantCreate:
+                - _media-type: application/vnd.ibexa.api.InternalParticipantCreate+json
+                  User:
+                    _media-type: application/vnd.ibexa.api.User+json
+                    _href: /api/ibexa/v2/user/users/14
+                  scope: view
+                - _media-type: application/vnd.ibexa.api.ExternalParticipantCreate+json
+                  email: user@link.invalid
+                  scope: view
           application/vnd.ibexa.api.ParticipantListCreate+xml:
             schema:
               $ref: '#/components/schemas/ParticipantListCreate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/POST/ParticipantListCreate.xml.example'
+            example: |+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ParticipantListCreate>
+                  <ParticipantCreate media-type="application/vnd.ibexa.api.InternalParticipantCreate+xml">
+                      <scope>view</scope>
+                      <User media-type="application/vnd.ibexa.api.User+xml"
+                            href="/api/ibexa/v2/user/users/14"
+                      >
+                      </User>
+                  </ParticipantCreate>
+                  <ParticipantCreate media-type="application/vnd.ibexa.api.ExternalParticipantCreate+xml">
+                      <email>user@link.invalid</email>
+                      <scope>view</scope>
+                  </ParticipantCreate>
+              </ParticipantListCreate>
+
         required: false
       deprecated: false
   /collaboration/sessions/{sessionToken}/participants/{participantId}:
@@ -2770,19 +2900,33 @@ paths:
           application/vnd.ibexa.api.ExternalParticipantUpdate+json:
             schema:
               $ref: '#/components/schemas/ExternalParticipantUpdate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/PATCH/ExternalParticipantUpdate.json.example'
+            example:
+              ExternalParticipantUpdate:
+                scope: view
           application/vnd.ibexa.api.ExternalParticipantUpdate+xml:
             schema:
               $ref: '#/components/schemas/ExternalParticipantUpdate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/PATCH/ExternalParticipantUpdate.xml.example'
+            example: |+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ExternalParticipantUpdate>
+                  <scope>view</scope>
+              </ExternalParticipantUpdate>
+
           application/vnd.ibexa.api.InternalParticipantUpdate+json:
             schema:
               $ref: '#/components/schemas/InternalParticipantUpdate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/PATCH/InternalParticipantUpdate.json.example'
+            example:
+              InternalParticipantUpdate:
+                scope: view
           application/vnd.ibexa.api.InternalParticipantUpdate+xml:
             schema:
               $ref: '#/components/schemas/InternalParticipantUpdate'
-            x-ibexa-example-file: '@IbexaCollaborationBundle/Resources/api_platform/examples/collaboration/PATCH/InternalParticipantUpdate.xml.example'
+            example: |+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <InternalParticipantUpdate>
+                  <scope>view</scope>
+              </InternalParticipantUpdate>
+
         required: false
       deprecated: false
   /ai/action-types:
@@ -3434,11 +3578,25 @@ paths:
           application/vnd.ibexa.api.ai.ActionConfigurationListInput+json:
             schema:
               $ref: '#/components/schemas/ActionConfigurationListInput'
-            x-ibexa-example-file: '@IbexaConnectorAiBundle/Resources/api_platform/examples/actions/POST/ActionConfigurationListInput.json.example'
+            example:
+              ActionConfigurationListInput:
+                query: Rewrite
+                action_type_identifier: refine_text
+                enabled: true
+                limit: 25
+                page: 1
           application/vnd.ibexa.api.ai.ActionConfigurationListInput+xml:
             schema:
               $ref: '#/components/schemas/ActionConfigurationListInput'
-            x-ibexa-example-file: '@IbexaConnectorAiBundle/Resources/api_platform/examples/actions/POST/ActionConfigurationListInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ActionConfigurationListInput>
+                  <query>Rewrite</query>
+                  <action_type_identifier>refine_text</action_type_identifier>
+                  <enabled>1</enabled>
+                  <limit>25</limit>
+                  <page>1</page>
+              </ActionConfigurationListInput>
         required: false
       deprecated: false
   /ai/actions/{actionConfigurationIdentifier}/execute:
@@ -3548,19 +3706,42 @@ paths:
           application/vnd.ibexa.api.ai.GenerateAltText+json:
             schema:
               $ref: '#/components/schemas/GenerateAltText'
-            x-ibexa-example-file: '@IbexaConnectorAiBundle/Resources/api_platform/examples/actions/action_configuration_identifier/execute/POST/GenerateAltText.json.example'
+            example:
+              GenerateAltText:
+                Image:
+                  base64: data:image/jpeg;base64,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
+                RuntimeContext: []
           application/vnd.ibexa.api.ai.GenerateAltText+xml:
             schema:
               $ref: '#/components/schemas/GenerateAltText'
-            x-ibexa-example-file: '@IbexaConnectorAiBundle/Resources/api_platform/examples/actions/action_configuration_identifier/execute/POST/GenerateAltText.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <GenerateAltText xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <Image>
+                      <base64>data:image/jpeg;base64,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</base64>
+                  </Image>
+                  <RuntimeContext />
+              </GenerateAltText>
           application/vnd.ibexa.api.ai.RefineText+json:
             schema:
               $ref: '#/components/schemas/RefineText'
-            x-ibexa-example-file: '@IbexaConnectorAiBundle/Resources/api_platform/examples/actions/action_configuration_identifier/execute/POST/RefineText.json.example'
+            example:
+              RefineText:
+                Text:
+                  text:
+                  - Hey, wassup. What you've been doing the whole day?
+                RuntimeContext: []
           application/vnd.ibexa.api.ai.RefineText+xml:
             schema:
               $ref: '#/components/schemas/RefineText'
-            x-ibexa-example-file: '@IbexaConnectorAiBundle/Resources/api_platform/examples/actions/action_configuration_identifier/execute/POST/RefineText.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RefineText xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <Text>
+                      <text>Hey, wassup. What you've been doing the whole day?</text>
+                  </Text>
+                  <RuntimeContext />
+              </RefineText>
         required: false
       deprecated: false
   /ai/actions/{identifier}:
@@ -3656,7 +3837,7 @@ paths:
       - Corporate Account
       responses:
         200:
-          description: "200"
+          description: List of Link objects to specific Corporate Account REST resources
           content:
             application/vnd.ibexa.api.CorporateAccountRoot+json:
               schema:
@@ -3733,7 +3914,7 @@ paths:
       - Corporate Account
       responses:
         200:
-          description: "200"
+          description: Company list containing Company objects.
           content:
             application/vnd.ibexa.api.CompanyList+json:
               schema:
@@ -4888,11 +5069,88 @@ paths:
           application/vnd.ibexa.api.CompanyCreate+json:
             schema:
               $ref: '#/components/schemas/CompanyCreateWrapper'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/POST/CompanyCreate.json.example'
+            example:
+              CompanyCreate:
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: active
+                    fieldValue: true
+                  - fieldDefinitionIdentifier: name
+                    fieldValue: Ibexa Sp. z o. o.
+                  - fieldDefinitionIdentifier: vat
+                    fieldValue: 123 456 789
+                  - fieldDefinitionIdentifier: website
+                    fieldValue: https://ibexa.co
+                  - fieldDefinitionIdentifier: customer_group
+                    fieldValue:
+                      customer_group_id: 1
+                  - fieldDefinitionIdentifier: sales_rep
+                    fieldValue:
+                      destinationContentId: 14
+                  - fieldDefinitionIdentifier: billing_address
+                    fieldValue:
+                      name: HQ
+                      country: PL
+                      fields:
+                        region: Silesia
+                        locality: Katowice
+                        street: Gliwicka 6/5
+                        postal_code: 40-079
+                        email: company@email.invalid
+                        phone_number: +48 000 000 000
           application/vnd.ibexa.api.CompanyCreate+xml:
             schema:
               $ref: '#/components/schemas/CompanyCreate'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/POST/CompanyCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <CompanyCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <User/>
+                <fields>
+                  <field>
+                    <fieldDefinitionIdentifier>active</fieldDefinitionIdentifier>
+                    <fieldValue>true</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                    <fieldValue>Ibexa Sp. z o. o.</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>vat</fieldDefinitionIdentifier>
+                    <fieldValue>123 456 789</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>website</fieldDefinitionIdentifier>
+                    <fieldValue>https://ibexa.co</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>customer_group</fieldDefinitionIdentifier>
+                    <fieldValue>
+                      <value key="customer_group_id">1</value>
+                    </fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>sales_rep</fieldDefinitionIdentifier>
+                    <fieldValue>
+                      <value key="destinationContentId">14</value>
+                    </fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>billing_address</fieldDefinitionIdentifier>
+                    <fieldValue>
+                      <value key="name">HQ</value>
+                      <value key="country">PL</value>
+                      <value key="fields">
+                        <value key="region">Silesia</value>
+                        <value key="locality">Katowice</value>
+                        <value key="street">Gliwicka 6/5</value>
+                        <value key="postal_code">40-079</value>
+                        <value key="email">company@email.invalid</value>
+                        <value key="phone_number">+48 000 000 000</value>
+                      </value>
+                    </fieldValue>
+                  </field>
+                </fields>
+              </CompanyCreate>
         required: false
       deprecated: false
       x-badges:
@@ -5389,7 +5647,7 @@ paths:
       - Corporate Account
       responses:
         200:
-          description: "200"
+          description: OK - company updated.
           content:
             application/vnd.ibexa.api.Company+json:
               schema:
@@ -5819,11 +6077,28 @@ paths:
           application/vnd.ibexa.api.CompanyUpdate+json:
             schema:
               $ref: '#/components/schemas/CompanyUpdateWrapper'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/company_id/PATCH/CompanyUpdate.json.example'
+            example:
+              CompanyUpdate:
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: contact
+                    fieldValue:
+                      destinationContentId: 144
           application/vnd.ibexa.api.CompanyUpdate+xml:
             schema:
               $ref: '#/components/schemas/CompanyUpdate'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/company_id/PATCH/CompanyUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <CompanyUpdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <fields>
+                  <field>
+                    <fieldDefinitionIdentifier>contact</fieldDefinitionIdentifier>
+                    <fieldValue>
+                      <value key="destinationContentId">144</value>
+                    </fieldValue>
+                  </field>
+                </fields>
+              </CompanyUpdate>
         required: false
       deprecated: false
       x-badges:
@@ -6568,7 +6843,7 @@ paths:
       - Corporate Account
       responses:
         201:
-          description: "201"
+          description: OK - company member created and returned.
           content:
             application/vnd.ibexa.api.Member+json:
               schema:
@@ -7213,11 +7488,47 @@ paths:
           application/vnd.ibexa.api.MemberCreate+json:
             schema:
               $ref: '#/components/schemas/MemberCreateWrapper'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/company_id/members/POST/MemberCreate.json.example'
+            example:
+              MemberCreate:
+                login: jay.kowalski
+                email: jay.kowalski@email.invalid
+                password: Ibexa123#
+                Role:
+                  _media-type: application/vnd.ibexa.api.Role+json
+                  _href: /api/ibexa/v2/user/roles/12
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: first_name
+                    fieldValue: Jay
+                  - fieldDefinitionIdentifier: last_name
+                    fieldValue: Kowalski
+                  - fieldDefinitionIdentifier: phone_number
+                    fieldValue: +48 123 123 456
           application/vnd.ibexa.api.MemberCreate+xml:
             schema:
               $ref: '#/components/schemas/MemberCreate'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/company_id/members/POST/MemberCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <MemberCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <login>jay.kowalski</login>
+                  <email>jay.kowalski@email.invalid</email>
+                  <password>Ibexa123#</password>
+                  <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/14"/>
+                  <fields>
+                      <field>
+                          <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+                          <fieldValue>Jay</fieldValue>
+                      </field>
+                      <field>
+                          <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+                          <fieldValue>Kowalski</fieldValue>
+                      </field>
+                      <field>
+                          <fieldDefinitionIdentifier>phone_number</fieldDefinitionIdentifier>
+                          <fieldValue>+48 123 123 456</fieldValue>
+                      </field>
+                  </fields>
+              </MemberCreate>
         required: false
       deprecated: false
       x-badges:
@@ -7952,7 +8263,7 @@ paths:
       - Corporate Account
       responses:
         200:
-          description: "200"
+          description: OK - company member updated.
           content:
             application/vnd.ibexa.api.Member+json:
               schema:
@@ -8621,11 +8932,50 @@ paths:
           application/vnd.ibexa.api.MemberUpdate+json:
             schema:
               $ref: '#/components/schemas/MemberUpdateWrapper'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/company_id/members/member_id/PATCH/MemberUpdate.json.example'
+            example:
+              MemberUpdate:
+                login: jay.kowalski
+                email: jay.kowalski@email.invalid
+                password: Ibexa123#
+                maxLogin: 5
+                enabled: false
+                Role:
+                  _media-type: application/vnd.ibexa.api.Role+json
+                  _href: /api/ibexa/v2/user/roles/15
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: first_name
+                    fieldValue: Jay
+                  - fieldDefinitionIdentifier: last_name
+                    fieldValue: Kowalski
+                  - fieldDefinitionIdentifier: phone_number
+                    fieldValue: +48 123 123 456
           application/vnd.ibexa.api.MemberUpdate+xml:
             schema:
               $ref: '#/components/schemas/MemberUpdate'
-            x-ibexa-example-file: '@IbexaCorporateAccountBundle/Resources/api_platform/examples/corporate/companies/company_id/members/member_id/PATCH/MemberUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <MemberUpdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <email>jay.kowalski@updated.email</email>
+                  <password>Publish123#</password>
+                  <enabled>false</enabled>
+                  <maxLogin>5</maxLogin>
+                  <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/15"/>
+                  <fields>
+                      <field>
+                          <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+                          <fieldValue>Jay</fieldValue>
+                      </field>
+                      <field>
+                          <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+                          <fieldValue>Kowalski</fieldValue>
+                      </field>
+                      <field>
+                          <fieldDefinitionIdentifier>phone_number</fieldDefinitionIdentifier>
+                          <fieldValue>+48 123 123 456</fieldValue>
+                      </field>
+                  </fields>
+              </MemberUpdate>
         required: false
       deprecated: false
       x-badges:
@@ -8641,7 +8991,7 @@ paths:
       - Corporate Account
       responses:
         200:
-          description: "200"
+          description: Sales representatives list containing Company objects.
           content:
             application/vnd.ibexa.api.SalesRepresentativesList+json:
               schema:
@@ -9061,7 +9411,35 @@ paths:
           application/vnd.ibexa.api.DiscountCreate+json:
             schema:
               $ref: '#/components/schemas/DiscountCreate'
-            x-ibexa-example-file: '@IbexaDiscountsBundle/Resources/api_platform/examples/discounts/POST/DiscountCreate.json.example'
+            example:
+              DiscountCreate:
+                identifier: my_discount_identifier
+                type: cart
+                priority: 1
+                isEnabled: true
+                userId: 14
+                rule:
+                  type: fixed_amount
+                  amount: "12"
+                conditions:
+                - class: \Ibexa\Discounts\Value\DiscountCondition\IsInCurrency
+                  parameters:
+                  - PLN
+                startDate: "2025-08-01 00:00:00"
+                endDate: "2025-08-31 23:59:59"
+                createdAt: "2025-07-31 12:00:00"
+                updatedAt: "2025-07-31 12:10:02"
+                translations:
+                - languageCode: eng-GB
+                  name: My Discount
+                  description: My Discount description
+                  label: My Discount label
+                  labelDescription: My Discount description
+                context:
+                  arbitrary_foo_key: arbitrary_foo_value
+                  arbitrary_bar_key:
+                  - arbitrary_bar_value1
+                  - arbitrary_bar_value2
         required: false
       deprecated: false
       x-badges:
@@ -9259,7 +9637,35 @@ paths:
           application/vnd.ibexa.api.DiscountUpdate+json:
             schema:
               $ref: '#/components/schemas/DiscountUpdate'
-            x-ibexa-example-file: '@IbexaDiscountsBundle/Resources/api_platform/examples/discounts/PATCH/DiscountUpdate.json.example'
+            example:
+              DiscountUpdate:
+                identifier: my_discount_identifier
+                priority: 1
+                isEnabled: true
+                userId: 14
+                lastContributorId: 14
+                rule:
+                  type: fixed_amount
+                  amount: "20"
+                conditions:
+                - class: \Ibexa\Discounts\Value\DiscountCondition\IsInCurrency
+                  parameters:
+                  - PLN
+                startDate: "2025-08-01 00:00:00"
+                endDate: "2025-08-31 23:59:59"
+                createdAt: "2025-07-31 12:00:00"
+                updatedAt: "2025-07-31 12:10:02"
+                translations:
+                - languageCode: eng-GB
+                  name: My Discount
+                  description: My Discount description
+                  label: My Discount label
+                  labelDescription: My Discount description
+                context:
+                  arbitrary_foo_key: arbitrary_foo_value
+                  arbitrary_bar_key:
+                  - arbitrary_bar_value1
+                  - arbitrary_bar_value2
         required: false
       deprecated: false
       x-badges:
@@ -9423,6 +9829,123 @@ paths:
         explode: false
         allowReserved: false
         example: 1
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+  /discounts_codes/{cartIdentifier}/apply:
+    post:
+      operationId: ibexa.rest.discounts_codes.apply
+      tags:
+      - Discounts
+      responses:
+        200:
+          description: OK - The discount code has been applied and is returned.
+          content:
+            application/vnd.ibexa.api.DiscountCode+json:
+              schema:
+                $ref: '#/components/schemas/DiscountCodeWrapper'
+              example:
+                DiscountCode:
+                  _media-type: application/vnd.ibexa.api.DiscountCode+json
+                  id: 1
+                  code: summer10
+                  created_at:
+                    date: "2025-06-10 14:14:06.000000"
+                    timezone_type: 3
+                    timezone: UTC
+        404:
+          description: Not Found - the cart does not exist, or, the requested discount
+            code has not been found or is already applied.
+        429:
+          description: Too Many Requests - rate limit exceeded, next requests are
+            temporarily blocked as a security measure.
+      summary: Apply discount code
+      description: Apply a discount code on a cart given by its identifier.
+      parameters:
+      - name: X-CSRF-Token
+        in: header
+        description: ""
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: cartIdentifier
+        in: path
+        description: ""
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The discount code to apply
+        content:
+          application/vnd.ibexa.api.DiscountCode+json:
+            schema:
+              $ref: '#/components/schemas/DiscountCodeWrapper'
+            example:
+              DiscountCode:
+                code: summer10
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+  /discounts_codes/{cartIdentifier}/drop:
+    post:
+      operationId: ibexa.rest.discounts_codes.drop
+      tags:
+      - Discounts
+      responses:
+        204:
+          description: No Content - the discount code has been dropped.
+        404:
+          description: Not Found - the cart does not exist.
+      summary: Drop discount code
+      description: Unapply a discount code from a cart given by its identifier.
+      parameters:
+      - name: X-CSRF-Token
+        in: header
+        description: ""
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: cartIdentifier
+        in: path
+        description: ""
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The discount code to drop
+        content:
+          application/vnd.ibexa.api.DiscountCode+json:
+            schema:
+              $ref: '#/components/schemas/DiscountCodeWrapper'
+            example:
+              DiscountCode:
+                code: summer10
+        required: false
       deprecated: false
       x-badges:
       - name: Commerce
@@ -10046,11 +10569,25 @@ paths:
           application/vnd.ibexa.api.LocationUpdate+json:
             schema:
               $ref: '#/components/schemas/LocationUpdateStructWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/locations/location_id/PATCH/LocationUpdate.json.example'
+            example:
+              LocationUpdate:
+                priority: "3"
+                hidden: true
+                remoteId: remoteId-qwert999
+                sortField: NAME
+                sortOrder: DESC
           application/vnd.ibexa.api.LocationUpdate+xml:
             schema:
               $ref: '#/components/schemas/LocationUpdateStruct'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/locations/location_id/PATCH/LocationUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <LocationUpdate>
+                <priority>3</priority>
+                <hidden>true</hidden>
+                <remoteId>remoteId-qwert999</remoteId>
+                <sortField>CLASS</sortField>
+                <sortOrder>DESC</sortOrder>
+              </LocationUpdate>
         required: false
       deprecated: false
   /content/locations/{path}/children:
@@ -10110,7 +10647,7 @@ paths:
       - Location
       responses:
         200:
-          description: "200"
+          description: OK - returns the list of URL aliases.
           content:
             application/vnd.ibexa.api.UrlAliasRefList+json:
               schema:
@@ -10161,7 +10698,7 @@ paths:
       - Object State Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns a list of Object state groups.
           content:
             application/vnd.ibexa.api.ObjectStateGroupList+json:
               schema:
@@ -10303,7 +10840,7 @@ paths:
       - Object State Groups
       responses:
         201:
-          description: "201"
+          description: Object state group created.
           content:
             application/vnd.ibexa.api.ObjectStateGroup+json:
               schema:
@@ -10385,11 +10922,33 @@ paths:
           application/vnd.ibexa.api.ObjectStateGroupCreate+json:
             schema:
               $ref: '#/components/schemas/ObjectStateGroupCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/POST/ObjectStateGroupCreate.json.example'
+            example:
+              ObjectStateGroupCreate:
+                identifier: custom-states
+                defaultLanguageCode: eng-GB
+                names:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': Custom State
+                descriptions:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': Custom Object state
           application/vnd.ibexa.api.ObjectStateGroupCreate+xml:
             schema:
               $ref: '#/components/schemas/ObjectStateGroupCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/POST/ObjectStateGroupCreate.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ObjectStateGroupCreate>
+                  <identifier>custom</identifier>
+                  <defaultLanguageCode>eng-GB</defaultLanguageCode>
+                  <names>
+                      <value languageCode="eng-GB">Custom State</value>
+                  </names>
+                  <descriptions>
+                      <value languageCode="eng-GB">Custom Object state</value>
+                  </descriptions>
+              </ObjectStateGroupCreate>
         required: false
       deprecated: false
   /content/objectstategroups/{objectStateGroupId}:
@@ -10399,7 +10958,7 @@ paths:
       - Object State Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns the Object state group.
           content:
             application/vnd.ibexa.api.ObjectStateGroup+json:
               schema:
@@ -10516,7 +11075,7 @@ paths:
       - Object State Groups
       responses:
         200:
-          description: "200"
+          description: OK - Object stated group updated.
           content:
             application/vnd.ibexa.api.ObjectStateGroup+json:
               schema:
@@ -10624,11 +11183,22 @@ paths:
           application/vnd.ibexa.api.ObjectStateGroupUpdate+json:
             schema:
               $ref: '#/components/schemas/ObjectStateGroupUpdateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.json.example'
+            example:
+              ObjectStateGroupUpdate:
+                names:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': New Custom State name
           application/vnd.ibexa.api.ObjectStateGroupUpdate+xml:
             schema:
               $ref: '#/components/schemas/ObjectStateGroupUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ObjectStateGroupUpdate>
+                  <names>
+                      <value languageCode="eng-GB">New Custom State name</value>
+                  </names>
+              </ObjectStateGroupUpdate>
         required: false
       deprecated: false
   /content/objectstategroups/{objectStateGroupId}/objectstates:
@@ -10638,7 +11208,7 @@ paths:
       - Object State Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns a list of Object states.
           content:
             application/vnd.ibexa.api.ObjectStateList+json:
               schema:
@@ -10764,7 +11334,7 @@ paths:
       - Object State Groups
       responses:
         201:
-          description: "201"
+          description: Object state created.
           content:
             application/vnd.ibexa.api.ObjectState+json:
               schema:
@@ -10857,11 +11427,36 @@ paths:
           application/vnd.ibexa.api.ObjectStateCreate+json:
             schema:
               $ref: '#/components/schemas/ObjectStateCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.json.example'
+            example:
+              ObjectStateCreate:
+                identifier: new-state
+                priority: "1"
+                defaultLanguageCode: eng-GB
+                languageCodes: eng-GB
+                names:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': New State
+                descriptions:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': New Object State
           application/vnd.ibexa.api.ObjectStateCreate+xml:
             schema:
               $ref: '#/components/schemas/ObjectStateCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ObjectStateCreate>
+                <identifier>new-state</identifier>
+                <priority>1</priority>
+                <defaultLanguageCode>eng-GB</defaultLanguageCode>
+                <names>
+                  <value languageCode="eng-GB">New State</value>
+                </names>
+                <descriptions>
+                  <value languageCode="eng-GB">New Object State</value>
+                </descriptions>
+              </ObjectStateCreate>
         required: false
       deprecated: false
   /content/objectstategroups/{objectStateGroupId}/objectstates/{objectStateId}:
@@ -10871,7 +11466,7 @@ paths:
       - Object State Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns the Object state.
           content:
             application/vnd.ibexa.api.ObjectState+json:
               schema:
@@ -11010,7 +11605,7 @@ paths:
       - Object State Groups
       responses:
         200:
-          description: "200"
+          description: OK - Object State updated
           content:
             application/vnd.ibexa.api.ObjectState+json:
               schema:
@@ -11129,11 +11724,24 @@ paths:
           application/vnd.ibexa.api.ObjectStateUpdate+json:
             schema:
               $ref: '#/components/schemas/ObjectStateUpdateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.json.example'
+            example:
+              ObjectStateUpdate:
+                names:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': New Object State name
           application/vnd.ibexa.api.ObjectStateUpdate+xml:
             schema:
               $ref: '#/components/schemas/ObjectStateUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ObjectStateUpdate>
+                <priority>3</priority>
+                <defaultLanguageCode>eng-GB</defaultLanguageCode>
+                <names>
+                  <value languageCode="eng-GB">New Object State name</value>
+                </names>
+              </ObjectStateUpdate>
         required: false
       deprecated: false
   /content/objects:
@@ -11454,11 +12062,80 @@ paths:
           application/vnd.ibexa.api.ContentCreate+json:
             schema:
               $ref: '#/components/schemas/ContentCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/POST/ContentCreate.json.example'
+            example:
+              ContentCreate:
+                ContentType:
+                  _href: /api/ibexa/v2/content/types/2
+                mainLanguageCode: eng-GB
+                LocationCreate:
+                  _media-type: application/vnd.ibexa.api.LocationCreate
+                  ParentLocation:
+                    _href: /api/ibexa/v2/content/locations/1/2
+                  priority: "0"
+                  hidden: "false"
+                  sortField: PATH
+                  sortOrder: ASC
+                Section:
+                  _href: /api/ibexa/v2/content/sections/1
+                alwaysAvailable: "true"
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: title
+                    languageCode: eng-GB
+                    fieldTypeIdentifier: ibexa_string
+                    fieldValue: draft article
+                  - fieldDefinitionIdentifier: intro
+                    languageCode: eng-GB
+                    fieldTypeIdentifier: ibexa_richtext
+                    fieldValue:
+                      xml: <section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit"><p>draft
+                        draft</p></section>
+                  - fieldDefinitionIdentifier: body
+                    languageCode: eng-GB
+                    fieldTypeIdentifier: ibexa_richtext
+                    fieldValue:
+                      xml: <section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit"><p>draft
+                        draft draft </p></section>
           application/vnd.ibexa.api.ContentCreate+xml:
             schema:
               $ref: '#/components/schemas/ContentCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/POST/ContentCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ContentType href="/api/ibexa/v2/content/types/2"/>
+                <mainLanguageCode>eng-GB</mainLanguageCode>
+                <LocationCreate>
+                  <ParentLocation href="/api/ibexa/v2/content/locations/1/2"/>
+                  <priority>0</priority>
+                  <hidden>false</hidden>
+                  <sortField>PATH</sortField>
+                  <sortOrder>ASC</sortOrder>
+                </LocationCreate>
+                <Section href="/api/ibexa/v2/content/sections/1"/>
+                <alwaysAvailable>true</alwaysAvailable>
+                <remoteId></remoteId>
+                <fields>
+                  <field>
+                    <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>draft article</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>intro</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>
+                      <value key="xml"><![CDATA[<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit"><p>draft draft</p></section>]]></value>
+                    </fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>body</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>
+                      <value key="xml"><![CDATA[<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit"><p>draft draft draft</p></section>]]></value>
+                    </fieldValue>
+                  </field>
+                </fields>
+              </ContentCreate>
         required: false
       deprecated: false
   /content/objects/{contentId}:
@@ -11883,7 +12560,24 @@ paths:
           application/vnd.ibexa.api.ContentUpdate+json:
             schema:
               $ref: '#/components/schemas/ContentInfoWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/PATCH/ContentInfo.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/80" remoteId="69848aeb86164c35e5c98202eebe9e05" id="80">
+                  <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/2"/>
+                  <Name>article1</Name>
+                  <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/80/versions"/>
+                  <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/80/currentversion"/>
+                  <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+                  <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/63/66"/>
+                  <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/80/locations"/>
+                  <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/11"/>
+                  <lastModificationDate>2019-02-19T15:00:34+01:00</lastModificationDate>
+                  <publishedDate>2019-02-19T15:00:34+01:00</publishedDate>
+                  <mainLanguageCode>eng-GB</mainLanguageCode>
+                  <currentVersionNo>1</currentVersionNo>
+                  <alwaysAvailable>false</alwaysAvailable>
+                  <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/80/objectstates"/>
+              </Content>
           application/vnd.ibexa.api.ContentUpdate+xml:
             schema:
               $ref: '#/components/schemas/ContentInfo'
@@ -12073,7 +12767,7 @@ paths:
       - Objects
       responses:
         201:
-          description: "201"
+          description: Created
           content:
             application/vnd.ibexa.api.Version+json:
               schema:
@@ -12527,11 +13221,27 @@ paths:
           application/vnd.ibexa.api.LocationCreate+json:
             schema:
               $ref: '#/components/schemas/LocationCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/locations/POST/LocationCreate.json.example'
+            example:
+              LocationCreate:
+                _media-type: application/vnd.ibexa.api.LocationCreate
+                ParentLocation:
+                  _href: /api/ibexa/v2/content/locations/1/59
+                priority: "0"
+                hidden: false
+                sortField: PATH
+                sortOrder: ASC
           application/vnd.ibexa.api.LocationCreate+xml:
             schema:
               $ref: '#/components/schemas/LocationCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/locations/POST/LocationCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <LocationCreate>
+                <ParentLocation href="/api/ibexa/v2/content/locations/1/42" />
+                <priority>0</priority>
+                <hidden>false</hidden>
+                <sortField>PATH</sortField>
+                <sortOrder>ASC</sortOrder>
+              </LocationCreate>
         required: false
       deprecated: false
   /content/objects/{contentId}/objectstates:
@@ -12594,7 +13304,7 @@ paths:
       - Objects
       responses:
         204:
-          description: "204"
+          description: OK - Object state updated.
           content:
             application/vnd.ibexa.api.ContentObjectStates+json:
               schema:
@@ -12685,11 +13395,26 @@ paths:
           application/vnd.ibexa.api.ContentObjectStates+json:
             schema:
               $ref: '#/components/schemas/ContentObjectStatesWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/objectstates/GET/ContentObjectStates.json.example'
+            example:
+              ContentObjectStates:
+                _media-type: application/vnd.ibexa.api.ContentObjectStates+json
+                ObjectState:
+                - _media-type: application/vnd.ibexa.api.ObjectState+json
+                  _href: /api/ibexa/v2/content/objectstategroups/2/objectstates/1
+                - _media-type: application/vnd.ibexa.api.ObjectState+json
+                  _href: /api/ibexa/v2/content/objectstategroups/3/objectstates/3
+                - _media-type: application/vnd.ibexa.api.ObjectState+json
+                  _href: /api/ibexa/v2/content/objectstategroups/7/objectstates/7
+                - _media-type: application/vnd.ibexa.api.ObjectState+json
+                  _href: /api/ibexa/v2/content/objectstategroups/8/objectstates/8
           application/vnd.ibexa.api.ContentObjectStates+xml:
             schema:
               $ref: '#/components/schemas/ContentObjectStates'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml">
+               <ObjectState media-type="application/vnd.ibexa.api.ObjectState+xml" href="/api/ibexa/v2/content/objectstategroups/2/objectstates/2"/>
+              </ContentObjectStates>
         required: false
       deprecated: false
   /content/objects/{contentId}/relations:
@@ -13211,7 +13936,7 @@ paths:
       - Objects
       responses:
         201:
-          description: "201"
+          description: Created.
           content:
             application/vnd.ibexa.api.Version+json:
               schema:
@@ -13687,7 +14412,28 @@ paths:
           application/vnd.ibexa.api.VersionUpdate+xml:
             schema:
               $ref: '#/components/schemas/VersionUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <VersionUpdate xmlns:p="http://ibexa.co/API/Values"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://ibexa.co/API/Values ../VersionUpdate.xsd ">
+                <modificationDate>2012-02-20T12:00:00</modificationDate>
+                <initialLanguageCode>ger-DE</initialLanguageCode>
+                <fields>
+                  <field>
+                    <id>1234</id>
+                    <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                    <languageCode>ger-DE</languageCode>
+                    <fieldValue>Neuer Titel</fieldValue>
+                  </field>
+                  <field>
+                    <id>1235</id>
+                    <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                    <languageCode>ger-DE</languageCode>
+                    <fieldValue>Dies ist eine neuse Zusammenfassungy</fieldValue>
+                  </field>
+                </fields>
+              </VersionUpdate>
         required: false
       deprecated: false
   /content/objects/{contentId}/versions/{versionNo}/relations:
@@ -13854,11 +14600,18 @@ paths:
           application/vnd.ibexa.api.RelationCreate+json:
             schema:
               $ref: '#/components/schemas/RelationCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.json.example'
+            example:
+              RelationCreate:
+                Destination:
+                  _href: /api/ibexa/v2/content/objects/59
           application/vnd.ibexa.api.RelationCreate+xml:
             schema:
               $ref: '#/components/schemas/RelationCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RelationCreate>
+                <Destination href="/api/ibexa/v2/content/objects/59"/>
+              </RelationCreate>
         required: false
       deprecated: false
   /content/objects/{contentId}/versions/{versionNo}/relations/{relationId}:
@@ -13868,7 +14621,7 @@ paths:
       - Objects
       responses:
         200:
-          description: "200"
+          description: OK - loads a Relation for the given content item.
           content:
             application/vnd.ibexa.api.Relation+json:
               schema:
@@ -14100,7 +14853,7 @@ paths:
       - Orders
       responses:
         200:
-          description: "200"
+          description: OK - loads the order.
           content:
             application/vnd.ibexa.api.Order+json:
               schema:
@@ -14216,7 +14969,7 @@ paths:
       - Orders
       responses:
         200:
-          description: "200"
+          description: OK - loads the order.
           content:
             application/vnd.ibexa.api.Order+json:
               schema:
@@ -14454,7 +15207,10 @@ paths:
           application/vnd.ibexa.api.OrderUpdate+json:
             schema:
               $ref: '#/components/schemas/OrderUpdateWrapper'
-            x-ibexa-example-file: '@IbexaOrderManagementBundle/Resources/api_platform/examples/orders/PATCH/OrderUpdate.json.example'
+            example:
+              OrderUpdate:
+                status: cancelled
+                transition: cancel
         required: false
       deprecated: false
       x-badges:
@@ -14468,7 +15224,7 @@ paths:
       - Orders
       responses:
         200:
-          description: "200"
+          description: OK - loads orders.
           content:
             application/vnd.ibexa.api.OrderList+json:
               schema:
@@ -14746,7 +15502,42 @@ paths:
           application/vnd.ibexa.api.OrderCreate+json:
             schema:
               $ref: '#/components/schemas/OrderCreateWrapper'
-            x-ibexa-example-file: '@IbexaOrderManagementBundle/Resources/api_platform/examples/orders/POST/OrderCreate.json.example'
+            example:
+              OrderCreate:
+                OrderUser:
+                  id: 14
+                  name: Administrator
+                  email: test@ibexa.co
+                OrderCurrency:
+                  id: 1
+                  code: EUR
+                OrderValue:
+                  vat: "10"
+                  total_gross: "11"
+                  total_net: "10"
+                OrderCompany:
+                  id: 68
+                  name: Apple
+                source: local
+                items:
+                - OrderItem:
+                    OrderItemValue:
+                      unit_price_gross: "110"
+                      unit_price_net: "100"
+                      vat_rate: "10"
+                      subtotal_price_gross: "1100"
+                      subtotal_price_net: "1000"
+                    OrderItemProduct:
+                      id: 1
+                      code: test
+                      name: Test
+                    quantity: 10
+                    context:
+                      foo: bar
+                      baz: true
+                context:
+                  foo: bar
+                  baz: 123
         required: false
       deprecated: false
       x-badges:
@@ -14760,7 +15551,7 @@ paths:
       - Payments
       responses:
         200:
-          description: "200"
+          description: OK
           content:
             application/vnd.ibexa.api.PaymentMethod+json:
               schema:
@@ -14814,11 +15605,23 @@ paths:
           application/vnd.ibexa.api.PaymentMethodCreateStruct+json:
             schema:
               $ref: '#/components/schemas/PaymentMethodCreateStructWrapper'
-            x-ibexa-example-file: '@IbexaPaymentBundle/Resources/api_platform/examples/payment-methods/POST/PaymentMethodCreateStruct.json.example'
+            example:
+              PaymentMethodCreateStruct:
+                identifier: bank_transfer
+                type: offline
+                names:
+                  eng-GB: Bank Transfer
           application/vnd.ibexa.api.PaymentMethodCreateStruct+xml:
             schema:
               $ref: '#/components/schemas/PaymentMethodCreateStruct'
-            x-ibexa-example-file: '@IbexaPaymentBundle/Resources/api_platform/examples/payment-methods/POST/PaymentMethodCreateStruct.xml.example'
+            example: |-
+              <PaymentMethodCreateStruct>
+                  <identifier>bank_transfer</identifier>
+                  <type>offline</type>
+                  <names>
+                      <eng-GB>Bank transfer</eng-GB>
+                  </names>
+              </PaymentMethodCreateStruct>
         required: false
       deprecated: false
       x-badges:
@@ -14906,7 +15709,12 @@ paths:
           application/vnd.ibexa.api.PaymentMethodViewInput+json:
             schema:
               $ref: '#/components/schemas/PaymentMethodViewInputWrapper'
-            x-ibexa-example-file: '@IbexaPaymentBundle/Resources/api_platform/examples/payment-methods/view/POST/PaymentMethodViewInput.json.example'
+            example:
+              PaymentMethodViewInput:
+                identifier: example
+                PaymentMethodQuery:
+                  offset: 0
+                  limit: 10
           application/vnd.ibexa.api.PaymentMethodViewInput+xml:
             schema:
               $ref: '#/components/schemas/PaymentMethodViewInput'
@@ -14923,7 +15731,7 @@ paths:
       - Payments
       responses:
         200:
-          description: "200"
+          description: OK - loads the payment method.
           content:
             application/vnd.ibexa.api.PaymentMethod+json:
               schema:
@@ -15010,7 +15818,7 @@ paths:
       - Payments
       responses:
         200:
-          description: "200"
+          description: OK
           content:
             application/vnd.ibexa.api.PaymentMethod+json:
               schema:
@@ -15075,11 +15883,20 @@ paths:
           application/vnd.ibexa.api.PaymentMethodUpdateStruct+json:
             schema:
               $ref: '#/components/schemas/PaymentMethodUpdateStructWrapper'
-            x-ibexa-example-file: '@IbexaPaymentBundle/Resources/api_platform/examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.json.example'
+            example:
+              PaymentMethodUpdateStructParser:
+                names:
+                  eng-GB: Bank transfer (updated)
           application/vnd.ibexa.api.PaymentMethodUpdateStruct+xml:
             schema:
               $ref: '#/components/schemas/PaymentMethodUpdateStruct'
-            x-ibexa-example-file: '@IbexaPaymentBundle/Resources/api_platform/examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <PaymentMethodUpdateStructParser>
+                  <names>
+                      <eng-GB>Bank transfer (updated)</eng-GB>
+                  </names>
+              </PaymentMethodUpdateStructParser>
         required: false
       deprecated: false
       x-badges:
@@ -15093,7 +15910,7 @@ paths:
       - Payments
       responses:
         200:
-          description: "200"
+          description: OK - loads the payment method.
           content:
             application/vnd.ibexa.api.PaymentMethod+json:
               schema:
@@ -15329,7 +16146,12 @@ paths:
           application/vnd.ibexa.api.ProductListGet+json:
             schema:
               $ref: '#/components/schemas/ProductListGetWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/GET/ProductListGet.json.example'
+            example:
+              ProductListGet:
+                offset: 0
+                limit: 10
+                languages:
+                - eng-GB
         required: false
       deprecated: false
   /product/catalog/products/view:
@@ -15842,7 +16664,26 @@ paths:
           application/vnd.ibexa.api.ProductViewInput+json:
             schema:
               $ref: '#/components/schemas/ProductViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/POST/ProductViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                ProductQuery:
+                  limit: "10"
+                  offset: "0"
+                  Filter:
+                    ProductTypeCriterion: desk
+                    ProductAvailabilityCriterion: false
+                  SortClauses:
+                    ProductName: descending
+                  Aggregations:
+                  - ProductPriceRange:
+                      name: price
+                      currencyCode: EUR
+                      ranges:
+                      - from: 0
+                        to: 10000
+                      - from: 10000
+                        to: ~
           application/vnd.ibexa.api.ProductViewInput+xml:
             schema:
               $ref: '#/components/schemas/ProductViewInput'
@@ -16029,7 +16870,10 @@ paths:
           application/vnd.ibexa.api.ProductGet+json:
             schema:
               $ref: '#/components/schemas/ProductGetWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/code/GET/ProductGet.json.example'
+            example:
+              ProductGet:
+                languages:
+                - eng-GB
         required: false
       deprecated: false
     patch:
@@ -16217,7 +17061,17 @@ paths:
           application/vnd.ibexa.api.ProductUpdate+json:
             schema:
               $ref: '#/components/schemas/ProductUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/code/PATCH/ProductUpdate.json.example'
+            example:
+              ProductUpdate:
+                ContentUpdate:
+                  __url: /api/ibexa/v2/content/objects/67
+                  fields:
+                    field:
+                    - fieldDefinitionIdentifier: name
+                      languageCode: eng-GB
+                      fieldTypeIdentifier: ibexa_string
+                      fieldValue: IN6.1200tze205
+                code: NEWCODE
         required: false
       deprecated: false
   /product/catalog/products/{code}/prices:
@@ -16227,7 +17081,7 @@ paths:
       - Product
       responses:
         200:
-          description: "200"
+          description: OK - loads the list of product prices.
           content:
             application/vnd.ibexa.api.PriceList+json:
               schema:
@@ -16296,7 +17150,7 @@ paths:
       - Product
       responses:
         200:
-          description: "200"
+          description: OK - creates product price.
           content:
             application/vnd.ibexa.api.CustomPrice+json:
               schema:
@@ -16381,11 +17235,19 @@ paths:
           application/vnd.ibexa.api.CustomPriceCreateStruct+json:
             schema:
               $ref: '#/components/schemas/CustomPriceCreateStructWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/code/prices/POST/CustomPriceCreateStruct.json.example'
+            example:
+              CustomPriceCreateStruct:
+                customerGroup: test
+                amount: 2500
+                customAmount: 1500
+                currency: EUR
           application/vnd.ibexa.api.PriceCreateStruct+json:
             schema:
               $ref: '#/components/schemas/PriceCreateStructWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/code/prices/POST/PriceCreateStruct.json.example'
+            example:
+              PriceCreateStruct:
+                amount: 9
+                currency: CHF
         required: false
       deprecated: false
   /product/catalog/products/{code}/prices/{currencyCode}:
@@ -16395,7 +17257,7 @@ paths:
       - Product
       responses:
         200:
-          description: "200"
+          description: OK - gets price in given currency.
           content:
             application/vnd.ibexa.api.Price+json:
               schema:
@@ -16462,7 +17324,7 @@ paths:
       - Product
       responses:
         200:
-          description: "200"
+          description: OK - gets price in given currency and customer group.
           content:
             application/vnd.ibexa.api.CustomPrice+json:
               schema:
@@ -16601,7 +17463,7 @@ paths:
       - Product
       responses:
         200:
-          description: "200"
+          description: OK - updates product price.
           content:
             application/vnd.ibexa.api.CustomPrice+json:
               schema:
@@ -16697,11 +17559,18 @@ paths:
           application/vnd.ibexa.api.CustomPriceUpdateStruct+json:
             schema:
               $ref: '#/components/schemas/CustomPriceUpdateStructWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdate.json.example'
+            example:
+              CustomPriceUpdateStruct:
+                amount: 2500
+                customAmount: 1700
+                currency: USD
           application/vnd.ibexa.api.PriceUpdateStruct+json:
             schema:
               $ref: '#/components/schemas/PriceUpdateStructWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/code/prices/id/PATCH/PriceUpdate.json.example'
+            example:
+              PriceUpdateStruct:
+                amount: 3500
+                currency: USD
         required: false
       deprecated: false
   /product/catalog/products/{identifier}:
@@ -16915,7 +17784,34 @@ paths:
           application/vnd.ibexa.api.ProductCreate+json:
             schema:
               $ref: '#/components/schemas/ProductCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product/POST/ProductCreate.json.example'
+            example:
+              ProductCreate:
+                ContentCreate:
+                  ContentType:
+                    _href: /api/ibexa/v2/content/types/46
+                    FieldDefinitions:
+                      _media-type: application/vnd.ibexa.api.FieldDefinitionList+json
+                      _href: /api/ibexa/v2/content/types/260/fieldDefinitions
+                      FieldDefinition: []
+                  LocationCreate:
+                    _media-type: application/vnd.ibexa.api.LocationCreate
+                    ParentLocation:
+                      _href: /api/ibexa/v2/content/locations/1/2
+                    priority: "0"
+                    hidden: "false"
+                    sortField: PATH
+                    sortOrder: ASC
+                  alwaysAvailable: "true"
+                  fields:
+                    field:
+                    - fieldDefinitionIdentifier: name
+                      languageCode: eng-GB
+                      fieldTypeIdentifier: ibexa_string
+                      fieldValue: new PT
+                  mainLanguageCode: eng-GB
+                code: ggg
+                attributes:
+                  attr1: fffffff
         required: false
       deprecated: false
   /product/catalog/attributes:
@@ -17046,7 +17942,18 @@ paths:
           application/vnd.ibexa.api.AttributeCreate+json:
             schema:
               $ref: '#/components/schemas/AttributeCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attributes/POST/AttributeCreate.json.example'
+            example:
+              AttributeCreate:
+                identifier: foo
+                type: checkbox
+                group: attr_group_test
+                names:
+                  eng-GB: Attribute
+                descriptions:
+                  eng-GB: description
+                position: 0
+                options:
+                  foo: bar
         required: false
       deprecated: false
   /product/catalog/attributes/translation/{id}/{languageCode}:
@@ -17163,7 +18070,15 @@ paths:
           application/vnd.ibexa.api.AttributeViewInput+json:
             schema:
               $ref: '#/components/schemas/AttributeViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attributes/POST/AttributeViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                AttributeQuery:
+                  limit: "10"
+                  offset: "0"
+                  Query:
+                    AttributeNameCriterion: measure
+                    AttributeGroupIdentifierCriterion: test_attribute_group
           application/vnd.ibexa.api.AttributeViewInput+xml:
             schema:
               $ref: '#/components/schemas/AttributeViewInput'
@@ -17335,7 +18250,16 @@ paths:
           application/vnd.ibexa.api.AttributeUpdate+json:
             schema:
               $ref: '#/components/schemas/AttributeUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attributes/id/group_id/PATCH/AttributeUpdate.json.example'
+            example:
+              AttributeUpdate:
+                identifier: attr_group
+                names:
+                  eng-GB: Attribute Group
+                descriptions:
+                  eng-GB: description
+                position: 0
+                options:
+                  foo: bar
         required: false
       deprecated: false
   /product/catalog/attribute_groups:
@@ -17399,7 +18323,11 @@ paths:
           application/vnd.ibexa.api.AttributeGroupListGet+json:
             schema:
               $ref: '#/components/schemas/AttributeGroupListGetWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attribute_groups/GET/AttributeGroupListGet.json.example'
+            example:
+              AttributeGroupListGet:
+                prefix: s
+                offset: 0
+                limit: 10
         required: false
       deprecated: false
     post:
@@ -17458,7 +18386,12 @@ paths:
           application/vnd.ibexa.api.AttributeGroupCreate+json:
             schema:
               $ref: '#/components/schemas/AttributeGroupCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attribute_groups/POST/AttributeGroupCreate.json.example'
+            example:
+              AttributeGroupCreate:
+                identifier: attr_group_test
+                names:
+                  eng-GB: Attribute Group Test
+                position: 0
         required: false
       deprecated: false
   /product/catalog/attribute_groups/translation/{id}/{languageCode}:
@@ -17563,7 +18496,13 @@ paths:
           application/vnd.ibexa.api.AttributeGroupViewInput+json:
             schema:
               $ref: '#/components/schemas/AttributeGroupViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attribute_groups/POST/AttributeGroupViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                AttributeGroupQuery:
+                  limit: "10"
+                  offset: "0"
+                  name_prefix: test
           application/vnd.ibexa.api.AttributeGroupViewInput+xml:
             schema:
               $ref: '#/components/schemas/AttributeGroupViewInput'
@@ -17634,7 +18573,10 @@ paths:
           application/vnd.ibexa.api.AttributeGroupGet+json:
             schema:
               $ref: '#/components/schemas/AttributeGroupGetWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attributes/id/GET/AttributeGet.json.example'
+            example:
+              AttributeGroupGet:
+                languages:
+                - eng-GB
           application/vnd.ibexa.api.AttributeGroupGet+xml:
             schema:
               $ref: '#/components/schemas/AttributeGroupGet'
@@ -17738,7 +18680,12 @@ paths:
           application/vnd.ibexa.api.AttributeGroupUpdate+json:
             schema:
               $ref: '#/components/schemas/AttributeGroupUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/attribute_groups/id/PATCH/AttributeGroupUpdate.json.example'
+            example:
+              AttributeGroupUpdate:
+                identifier: ag_colors
+                names:
+                  eng-GB: Colors Group
+                position: 0
           application/vnd.ibexa.api.AttributeGroupUpdate+xml:
             schema:
               $ref: '#/components/schemas/AttributeGroupUpdate'
@@ -17898,7 +18845,32 @@ paths:
           application/vnd.ibexa.api.CatalogCreate+json:
             schema:
               $ref: '#/components/schemas/CatalogCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/catalog/POST/CatalogCreate.json.example'
+            example:
+              CatalogCreate:
+                identifier: test_catalog
+                criteria:
+                  ProductCodeCriterion:
+                  - ski
+                  - snowboard
+                  ProductAvailabilityCriterion: true
+                  ColorAttributeCriterion:
+                    identifier: color
+                    value:
+                    - '#000000'
+                    - '#FFFFFF'
+                  CreatedAtCriterion:
+                    operator: '>='
+                    created_at: 12-09-2022
+                  FloatAttributeCriterion:
+                    identifier: width
+                    value: 16.6
+                  IntegerAttributeRangeCriterion:
+                    identifier: length
+                    min: 180
+                    max: 230
+                names:
+                  eng-GB: Snow Equipment
+                status: draft
         required: false
       deprecated: false
   /product/catalog/catalogs/copy/{identifier}:
@@ -17993,7 +18965,10 @@ paths:
           application/vnd.ibexa.api.CatalogCopy+json:
             schema:
               $ref: '#/components/schemas/CatalogCopyWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/catalog/identifier/POST/CatalogCopy.json.example'
+            example:
+              CatalogCopy:
+                identifier: test_catalog_copied
+                creator_id: 14
         required: false
       deprecated: false
   /product/catalog/catalogs/filters:
@@ -18173,7 +19148,13 @@ paths:
           application/vnd.ibexa.api.CatalogViewInput+json:
             schema:
               $ref: '#/components/schemas/CatalogViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/catalog/POST/CatalogViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                CatalogQuery:
+                  Query:
+                    CatalogIdentifierCriterion: test
+                    CatalogNameCriterion: test
           application/vnd.ibexa.api.CatalogViewInput+xml:
             schema:
               $ref: '#/components/schemas/CatalogViewInput'
@@ -18369,7 +19350,21 @@ paths:
           application/vnd.ibexa.api.CatalogUpdate+json:
             schema:
               $ref: '#/components/schemas/CatalogUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/catalog/identifier/PATCH/CatalogUpdate.json.example'
+            example:
+              CatalogUpdate:
+                identifier: test_catalog_updated
+                criteria:
+                  ProductCodeCriterion:
+                  - ski
+                  ProductAvailabilityCriterion: false
+                  CreatedAtCriterion:
+                    operator: '>='
+                    created_at: 12-12-2022
+                names:
+                  eng-GB: Snow Equipment updated
+                descriptions:
+                  eng-GB: Snow Equipment catalog for 2022
+                transition: publish
         required: false
       deprecated: false
   /product/catalog/catalogs/{identifier}/products/view:
@@ -18893,7 +19888,13 @@ paths:
           application/vnd.ibexa.api.ProductViewInput+json:
             schema:
               $ref: '#/components/schemas/ProductViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/catalog/POST/CatalogProductsViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                ProductQuery:
+                  Query:
+                    ProductCodeCriterion: test
+                    ProductAvailabilityCriterion: true
           application/vnd.ibexa.api.ProductViewInput+xml:
             schema:
               $ref: '#/components/schemas/ProductViewInput'
@@ -18906,7 +19907,7 @@ paths:
       - Product Currency
       responses:
         200:
-          description: "200"
+          description: OK - loads currencies.
           content:
             application/vnd.ibexa.api.CurrencyList+json:
               schema:
@@ -19018,7 +20019,11 @@ paths:
           application/vnd.ibexa.api.CurrencyCreate+json:
             schema:
               $ref: '#/components/schemas/CurrencyCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/currency/POST/CurrencyCreate.json.example'
+            example:
+              CurrencyCreate:
+                code: cur
+                subunits: 1
+                enabled: true
         required: false
       deprecated: false
   /product/catalog/currencies/view:
@@ -19132,7 +20137,12 @@ paths:
           application/vnd.ibexa.api.CurrencyViewInput+json:
             schema:
               $ref: '#/components/schemas/CurrencyViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/currency/POST/CurrencyViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                CurrencyQuery:
+                  limit: "10"
+                  offset: "0"
           application/vnd.ibexa.api.CurrencyViewInput+xml:
             schema:
               $ref: '#/components/schemas/CurrencyViewInput'
@@ -19145,7 +20155,7 @@ paths:
       - Product Currency
       responses:
         200:
-          description: "200"
+          description: OK - loads the currency.
           content:
             application/vnd.ibexa.api.Currency+json:
               schema:
@@ -19279,7 +20289,10 @@ paths:
           application/vnd.ibexa.api.CurrencyUpdate+json:
             schema:
               $ref: '#/components/schemas/CurrencyUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/currency/currency_id/PATCH/CurrencyUpdate.json.example'
+            example:
+              CurrencyUpdate:
+                subunits: 1
+                enabled: false
         required: false
       deprecated: false
   /product/catalog/customer_groups:
@@ -19387,7 +20400,14 @@ paths:
           application/vnd.ibexa.api.CustomerGroupCreate+json:
             schema:
               $ref: '#/components/schemas/CustomerGroupCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/customer_groups/POST/CustomerGroupCreate.json.example'
+            example:
+              CustomerGroupCreate:
+                identifier: customer_group
+                names:
+                  eng-GB: Customer Group
+                descriptions:
+                  eng-GB: Customer Group description
+                global_price_rate: "1"
         required: false
       deprecated: false
   /product/catalog/customer_groups/view:
@@ -19459,7 +20479,12 @@ paths:
           application/vnd.ibexa.api.CustomerGroupViewInput+json:
             schema:
               $ref: '#/components/schemas/CustomerGroupViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/customer_groups/POST/CustomerGroupViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                CustomerGroupQuery:
+                  limit: "10"
+                  offset: "0"
           application/vnd.ibexa.api.CustomerGroupViewInput+xml:
             schema:
               $ref: '#/components/schemas/CustomerGroupViewInput'
@@ -19606,7 +20631,12 @@ paths:
           application/vnd.ibexa.api.CustomerGroupUpdate+json:
             schema:
               $ref: '#/components/schemas/CustomerGroupUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/customer_groups/identifier/PATCH/CustomerGroupUpdate.json.example'
+            example:
+              CustomerGroupUpdate:
+                identifier: customer_group
+                names:
+                  eng-GB: Customer Group
+                global_price_rate: "1"
         required: false
       deprecated: false
   /product/catalog/customer_groups/{id}:
@@ -19665,7 +20695,7 @@ paths:
       - Product Region
       responses:
         200:
-          description: "200"
+          description: OK - loads regions.
           content:
             application/vnd.ibexa.api.RegionList+json:
               schema:
@@ -19770,7 +20800,12 @@ paths:
           application/vnd.ibexa.api.RegionViewInput+json:
             schema:
               $ref: '#/components/schemas/RegionViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/regions/POST/RegionViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                RegionQuery:
+                  limit: "10"
+                  offset: "0"
           application/vnd.ibexa.api.RegionViewInput+xml:
             schema:
               $ref: '#/components/schemas/RegionViewInput'
@@ -19876,7 +20911,11 @@ paths:
           application/vnd.ibexa.api.ProductTypeListGet+json:
             schema:
               $ref: '#/components/schemas/ProductTypeListGetWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_types/GET/ProductTypeListGet.json.example'
+            example:
+              ProductTypeListGet:
+                name_prefix: s
+                offset: 0
+                limit: 10
           application/vnd.ibexa.api.ProductTypeListGet+xml:
             schema:
               $ref: '#/components/schemas/ProductTypeListGet'
@@ -19952,7 +20991,66 @@ paths:
           application/vnd.ibexa.api.ProductTypeCreate+json:
             schema:
               $ref: '#/components/schemas/ProductTypeCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_types/POST/ProductTypeCreate.json.example'
+            example:
+              ProductTypeCreate:
+                ContentTypeCreateStruct:
+                  _media-type: application/vnd.ibexa.api.ContentType+json
+                  _href: /api/ibexa/v2/content/types/2
+                  id: 2
+                  status: DEFINED
+                  identifier: test_pt321
+                  names:
+                    value:
+                    - _languageCode: eng-GB
+                      '#text': Article
+                  descriptions:
+                    value:
+                    - _languageCode: eng-GB
+                      '#text': ~
+                  creationDate: "2002-06-18T09:21:38+00:00"
+                  modificationDate: "2021-06-28T11:31:22+00:00"
+                  remoteId: c15b600eb9198b1924063b5a68758232
+                  urlAliasSchema: ""
+                  nameSchema: <short_title|title>
+                  isContainer: true
+                  mainLanguageCode: eng-GB
+                  defaultAlwaysAvailable: false
+                  defaultSortField: PATH
+                  defaultSortOrder: ASC
+                  FieldDefinitions:
+                    _media-type: application/vnd.ibexa.api.FieldDefinitionList+json
+                    _href: /api/ibexa/v2/content/types/2/fieldDefinitions
+                    FieldDefinition:
+                    - _media-type: application/vnd.ibexa.api.FieldDefinition+json
+                      _href: /api/ibexa/v2/content/types/2/fieldDefinitions/1
+                      id: 1
+                      identifier: title
+                      fieldType: ibexa_string
+                      fieldGroup: ""
+                      position: 1
+                      isTranslatable: true
+                      isRequired: true
+                      isInfoCollector: false
+                      defaultValue: New article
+                      isSearchable: true
+                      names:
+                        value:
+                        - _languageCode: eng-GB
+                          '#text': Title
+                      descriptions:
+                        value:
+                        - _languageCode: eng-GB
+                          '#text': ~
+                      fieldSettings: []
+                      validatorConfiguration:
+                        StringLengthValidator:
+                          maxStringLength: 255
+                          minStringLength: ~
+                main_language_code: eng-GB
+                assigned_attributes:
+                - identifier: testAttr
+                  is_required: false
+                  is_discriminator: true
         required: false
       deprecated: false
   /product/catalog/product_types/is_used/{identifier}:
@@ -20098,7 +21196,13 @@ paths:
           application/vnd.ibexa.api.ProductTypeViewInput+json:
             schema:
               $ref: '#/components/schemas/ProductTypeViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_types/POST/ProductTypeViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                ProductTypeQuery:
+                  limit: "10"
+                  offset: "0"
+                  name_prefix: new
           application/vnd.ibexa.api.ProductTypeViewInput+xml:
             schema:
               $ref: '#/components/schemas/ProductTypeViewInput'
@@ -20253,7 +21357,21 @@ paths:
           application/vnd.ibexa.api.ProductTypeUpdate+json:
             schema:
               $ref: '#/components/schemas/ProductTypeUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_types/id/PATCH/ProductTypeUpdate.json.example'
+            example:
+              ProductTypeUpdate:
+                ContentTypeUpdateStruct:
+                  names:
+                    value:
+                    - _languageCode: eng-GB
+                      '#text': pt_1_updated
+                  descriptions:
+                    value:
+                    - _languageCode: eng-GB
+                      '#text': updated
+                assigned_attributes:
+                - identifier: size
+                  is_required: false
+                  is_discriminator: true
         required: false
       deprecated: false
   /product/catalog/product_variant/{code}:
@@ -20524,7 +21642,16 @@ paths:
           application/vnd.ibexa.api.ProductVariantGenerate+json:
             schema:
               $ref: '#/components/schemas/ProductVariantGenerateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_variants/POST/ProductVariantGenerate.json.example'
+            example:
+              ProductVariantGenerate:
+                attributes:
+                  width:
+                  - 123
+                  colors:
+                  - '#000000'
+                  - '#ffffff'
+                  - '#d4d400'
+                  - '#ff0000'
         required: false
       deprecated: false
   /product/catalog/product_variants/view/{baseProductCode}:
@@ -20979,7 +22106,12 @@ paths:
           application/vnd.ibexa.api.ProductVariantViewInput+json:
             schema:
               $ref: '#/components/schemas/ProductVariantViewInputWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_variants/POST/ProductVariantViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                ProductVariantQuery:
+                  offset: "0"
+                  limit: "10"
           application/vnd.ibexa.api.ProductVariantViewInput+xml:
             schema:
               $ref: '#/components/schemas/ProductVariantViewInput'
@@ -21043,7 +22175,13 @@ paths:
           application/vnd.ibexa.api.ProductVariantCreate+json:
             schema:
               $ref: '#/components/schemas/ProductVariantCreateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_variants/POST/ProductVariantCreate.json.example'
+            example:
+              ProductVariantCreate:
+                attributes:
+                  width: 100
+                  height: 50
+                  color: '#000000'
+                code: macbook_pro
         required: false
       deprecated: false
   /product/catalog/product_variants/{code}:
@@ -21300,7 +22438,12 @@ paths:
           application/vnd.ibexa.api.ProductVariantUpdate+json:
             schema:
               $ref: '#/components/schemas/ProductVariantUpdateWrapper'
-            x-ibexa-example-file: '@IbexaProductCatalogBundle/Resources/api_platform/examples/product/catalog/product_variants/code/PATCH/ProductVariantUpdate.json.example'
+            example:
+              ProductVariantUpdate:
+                code: test
+                attributes:
+                  number: 2
+                  testattr: 10
         required: false
       deprecated: false
   /product/catalog/vat/{region}:
@@ -21591,11 +22734,19 @@ paths:
           application/vnd.ibexa.api.SectionInput+json:
             schema:
               $ref: '#/components/schemas/SectionInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/sections/POST/SectionInput.json.example'
+            example:
+              SectionInput:
+                identifier: restricted
+                name: Restricted
           application/vnd.ibexa.api.SectionInput+xml:
             schema:
               $ref: '#/components/schemas/SectionInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/sections/POST/SectionInput.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <SectionInput>
+                <identifier>restricted</identifier>
+                <name>Restricted</name>
+              </SectionInput>
         required: false
       deprecated: false
   /content/sections/{sectionId}:
@@ -21700,7 +22851,7 @@ paths:
       - Section
       responses:
         200:
-          description: "200"
+          description: OK - Section updated.
           content:
             application/vnd.ibexa.api.Section+json:
               schema:
@@ -21785,11 +22936,19 @@ paths:
           application/vnd.ibexa.api.SectionInput+json:
             schema:
               $ref: '#/components/schemas/SectionInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/sections/POST/SectionInput.json.example'
+            example:
+              SectionInput:
+                identifier: restricted
+                name: Restricted
           application/vnd.ibexa.api.SectionInput+xml:
             schema:
               $ref: '#/components/schemas/SectionInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/sections/POST/SectionInput.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <SectionInput>
+                <identifier>restricted</identifier>
+                <name>Restricted</name>
+              </SectionInput>
         required: false
       deprecated: false
   /segment_groups:
@@ -21799,7 +22958,7 @@ paths:
       - Segmentation
       responses:
         200:
-          description: "200"
+          description: OK - list the segment groups.
           content:
             application/vnd.ibexa.api.SegmentGroupList+json:
               schema:
@@ -21864,7 +23023,7 @@ paths:
       - Segmentation
       responses:
         200:
-          description: "200"
+          description: OK - return the segment group.
           content:
             application/vnd.ibexa.api.SegmentGroup+json:
               schema:
@@ -21929,7 +23088,7 @@ paths:
       - Segmentation
       responses:
         200:
-          description: "200"
+          description: OK - list the group's segments.
           content:
             application/vnd.ibexa.api.SegmentList+json:
               schema:
@@ -22039,7 +23198,7 @@ paths:
       - Shipping
       responses:
         200:
-          description: "200"
+          description: OK - loads the shipments.
           content:
             application/vnd.ibexa.api.ShipmentRefList+json:
               schema:
@@ -22098,7 +23257,7 @@ paths:
       - Shipping
       responses:
         200:
-          description: "200"
+          description: OK - loads the shipment.
           content:
             application/vnd.ibexa.api.Shipment+json:
               schema:
@@ -22325,11 +23484,30 @@ paths:
           application/vnd.ibexa.api.ShipmentUpdate+json:
             schema:
               $ref: '#/components/schemas/ShipmentUpdateWrapper'
-            x-ibexa-example-file: '@IbexaShippingBundle/Resources/api_platform/examples/shipments/identifier/PATCH/ShipmentUpdate.json.example'
+            example:
+              ShipmentUpdate:
+                identifier: new_identifier
+                transition: prepare
+                Owner:
+                  _media-type: application/vnd.ibexa.api.User+json
+                  _href: /api/ibexa/v2/user/users/14
+                Context:
+                  item1: value1
+                  item2: value2
           application/vnd.ibexa.api.ShipmentUpdate+xml:
             schema:
               $ref: '#/components/schemas/ShipmentUpdate'
-            x-ibexa-example-file: '@IbexaShippingBundle/Resources/api_platform/examples/shipments/identifier/PATCH/ShipmentUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8" ?>
+              <ShipmentUpdate>
+                  <identifier>new_identifier</identifier>
+                  <transition>prepare</transition>
+                  <Owner media-type='application/vnd.ibexa.api.User+json' href='/api/ibexa/v2/user/users/14'/>
+                  <Context>
+                      <item1>value1</item1>
+                      <item2>value2</item2>
+                  </Context>
+              </ShipmentUpdate>
         required: false
       deprecated: false
       x-badges:
@@ -22343,7 +23521,7 @@ paths:
       - Shipping
       responses:
         200:
-          description: "200"
+          description: OK - loads the shipping method.
           content:
             application/vnd.ibexa.api.ShippingMethodTypesList+json:
               schema:
@@ -22408,7 +23586,7 @@ paths:
       - Shipping
       responses:
         200:
-          description: "200"
+          description: OK - loads the shipping method.
           content:
             application/vnd.ibexa.api.ShippingMethodType+json:
               schema:
@@ -22470,7 +23648,7 @@ paths:
       - Shipping
       responses:
         200:
-          description: "200"
+          description: OK - list the shipping methods.
           content:
             application/vnd.ibexa.api.ShippingMethodRefList+json:
               schema:
@@ -22522,7 +23700,7 @@ paths:
       - Shipping
       responses:
         200:
-          description: "200"
+          description: OK - loads the shipping method.
           content:
             application/vnd.ibexa.api.ShippingMethod+json:
               schema:
@@ -22629,7 +23807,7 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: Shopping list collection returned.
           content:
             application/vnd.ibexa.api.ShoppingListCollection+json:
               schema:
@@ -22862,7 +24040,7 @@ paths:
       - Shopping List
       responses:
         201:
-          description: "201"
+          description: Shopping list created.
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -22935,11 +24113,17 @@ paths:
           application/vnd.ibexa.api.ShoppingListCreate+json:
             schema:
               $ref: '#/components/schemas/ShoppingListCreateWrapper'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListCreate.json.example'
+            example:
+              ShoppingListCreate:
+                name: My Shopping List
           application/vnd.ibexa.api.ShoppingListCreate+xml:
             schema:
               $ref: '#/components/schemas/ShoppingListCreate'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>My Shopping List</name>
+              </ShoppingListCreate>
         required: false
       deprecated: false
       x-badges:
@@ -22956,7 +24140,7 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: Entries added successfully. Returns the default shopping list.
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -23031,11 +24215,26 @@ paths:
           application/vnd.ibexa.api.ShoppingListEntriesAdd+json:
             schema:
               $ref: '#/components/schemas/ShoppingListEntriesAddWrapper'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.json.example'
+            example:
+              ShoppingListEntriesAdd:
+                entries:
+                - productCode: PRODUCT-001
+                - productCode: PRODUCT-002
           application/vnd.ibexa.api.ShoppingListEntriesAdd+xml:
             schema:
               $ref: '#/components/schemas/ShoppingListEntriesAdd'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListEntriesAdd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <entries>
+                      <Entry>
+                          <productCode>PRODUCT-001</productCode>
+                      </Entry>
+                      <Entry>
+                          <productCode>PRODUCT-002</productCode>
+                      </Entry>
+                  </entries>
+              </ShoppingListEntriesAdd>
         required: false
       deprecated: false
       x-badges:
@@ -23052,7 +24251,7 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: OK - returns the shopping list
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -23192,7 +24391,7 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: Shopping list updated.
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -23278,11 +24477,17 @@ paths:
           application/vnd.ibexa.api.ShoppingListUpdate+json:
             schema:
               $ref: '#/components/schemas/ShoppingListUpdateWrapper'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/PATCH/ShoppingListUpdate.json.example'
+            example:
+              ShoppingListUpdate:
+                name: Updated Shopping List Name
           application/vnd.ibexa.api.ShoppingListUpdate+xml:
             schema:
               $ref: '#/components/schemas/ShoppingListUpdate'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/PATCH/ShoppingListUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListUpdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>Updated Shopping List Name</name>
+              </ShoppingListUpdate>
         required: false
       deprecated: false
       x-badges:
@@ -23581,7 +24786,8 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: Shopping list cleared successfully. Returns the updated shopping
+            list with no entries.
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -23662,7 +24868,7 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: Entries added successfully. Returns the updated shopping list.
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -23749,11 +24955,26 @@ paths:
           application/vnd.ibexa.api.ShoppingListEntriesAdd+json:
             schema:
               $ref: '#/components/schemas/ShoppingListEntriesAddWrapper'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.json.example'
+            example:
+              ShoppingListEntriesAdd:
+                entries:
+                - productCode: PRODUCT-001
+                - productCode: PRODUCT-002
           application/vnd.ibexa.api.ShoppingListEntriesAdd+xml:
             schema:
               $ref: '#/components/schemas/ShoppingListEntriesAdd'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListEntriesAdd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <entries>
+                      <Entry>
+                          <productCode>PRODUCT-001</productCode>
+                      </Entry>
+                      <Entry>
+                          <productCode>PRODUCT-002</productCode>
+                      </Entry>
+                  </entries>
+              </ShoppingListEntriesAdd>
         required: false
       deprecated: false
       x-badges:
@@ -23770,7 +24991,8 @@ paths:
       - Shopping List
       responses:
         200:
-          description: "200"
+          description: Entries removed successfully. Returns the updated shopping
+            list.
           content:
             application/vnd.ibexa.api.ShoppingList+json:
               schema:
@@ -23856,11 +25078,22 @@ paths:
           application/vnd.ibexa.api.ShoppingListEntriesRemove+json:
             schema:
               $ref: '#/components/schemas/ShoppingListEntriesRemoveWrapper'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesRemove.json.example'
+            example:
+              ShoppingListEntriesRemove:
+                identifiers:
+                - 650e8400-e29b-41d4-a716-446655440001
+                - 650e8400-e29b-41d4-a716-446655440002
           application/vnd.ibexa.api.ShoppingListEntriesRemove+xml:
             schema:
               $ref: '#/components/schemas/ShoppingListEntriesRemove'
-            x-ibexa-example-file: '@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesRemove.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListEntriesRemove>
+                  <identifiers>
+                      <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                      <identifier>650e8400-e29b-41d4-a716-446655440002</identifier>
+                  </identifiers>
+              </ShoppingListEntriesRemove>
         required: false
       deprecated: false
       x-badges:
@@ -23912,7 +25145,11 @@ paths:
           application/vnd.ibexa.api.TaxonomyEntryBulkRemove+json:
             schema:
               $ref: '#/components/schemas/TaxonomyEntryBulkRemoveWrapper'
-            x-ibexa-example-file: '@IbexaTaxonomyBundle/Resources/api_platform/examples/taxonomy/entries/DELETE/TaxonomyEntryBulkRemove.json.example'
+            example:
+              TaxonomyEntryBulkRemove:
+                entries:
+                - 2
+                - 3
           application/vnd.ibexa.api.TaxonomyEntryBulkRemove+xml:
             schema:
               $ref: '#/components/schemas/TaxonomyEntryBulkRemove'
@@ -23963,7 +25200,15 @@ paths:
           application/vnd.ibexa.api.TaxonomyEntryBulkMove+json:
             schema:
               $ref: '#/components/schemas/TaxonomyEntryBulkMoveWrapper'
-            x-ibexa-example-file: '@IbexaTaxonomyBundle/Resources/api_platform/examples/taxonomy/entries/move/POST/TaxonomyEntryBulkMove.json.example'
+            example:
+              TaxonomyEntryBulkMove:
+                entries:
+                - entry: 2
+                  sibling: 1
+                  position: next
+                - entry: 3
+                  sibling: 1
+                  position: prev
           application/vnd.ibexa.api.TaxonomyEntryBulkMove+xml:
             schema:
               $ref: '#/components/schemas/TaxonomyEntryBulkMove'
@@ -24066,7 +25311,12 @@ paths:
           application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
             schema:
               $ref: '#/components/schemas/TaxonomyEntryAssignToContentWrapper'
-            x-ibexa-example-file: '@IbexaTaxonomyBundle/Resources/api_platform/examples/taxonomy/POST/TaxonomyEntryAssignToContent.json.example'
+            example:
+              TaxonomyEntryAssignToContent:
+                content: 130
+                entries:
+                - 2
+                - 3
         required: false
       deprecated: false
   /taxonomy/{taxonomyName}/entry-assignments/content-id/{contentId}:
@@ -24076,7 +25326,7 @@ paths:
       - Taxonomy
       responses:
         200:
-          description: "200"
+          description: OK - returns the assigment collection.
           content:
             application/vnd.ibexa.api.EntryAssignmentCollection+json:
               schema:
@@ -24315,7 +25565,12 @@ paths:
           application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json:
             schema:
               $ref: '#/components/schemas/TaxonomyEntryUnassignFromContentWrapper'
-            x-ibexa-example-file: '@IbexaTaxonomyBundle/Resources/api_platform/examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example'
+            example:
+              TaxonomyEntryUnassignFromContent:
+                content: 130
+                entries:
+                - 2
+                - 3
         required: false
       deprecated: false
   /taxonomy/{taxonomyName}/entry/content-id/{contentId}:
@@ -24493,7 +25748,7 @@ paths:
       - Trash
       responses:
         200:
-          description: "200"
+          description: OK - returns the list of items in the Trash.
           content:
             application/vnd.ibexa.api.Trash+json:
               schema:
@@ -24854,7 +26109,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: OK - returns a list of content types.
           content:
             application/vnd.ibexa.api.ContentTypeInfoList+json:
               schema:
@@ -26983,11 +28238,51 @@ paths:
           application/vnd.ibexa.api.ContentTypeViewInput+json:
             schema:
               $ref: '#/components/schemas/ContentTypeViewInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/POST/ContentTypeCreateView.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ViewInput>
+                  <identifier>ContentTypeView</identifier>
+                  <ContentTypeQuery>
+                      <limit>10</limit>
+                      <offset>1</offset>
+                      <Query>
+                          <ContentTypeIdCriterion>1</ContentTypeIdCriterion>
+                          <ContentTypeIdCriterion>2</ContentTypeIdCriterion>
+                          <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
+                          <IsSystemCriterion>true</IsSystemCriterion>
+                          <ContentTypeGroupIdCriterion>1</ContentTypeGroupIdCriterion>
+                          <ContainsFieldDefinitionIdCriterion>2</ContainsFieldDefinitionIdCriterion>
+                      </Query>
+                      <SortClauses>
+                          <Identifier>descending</Identifier>
+                          <Id>ascending</Id>
+                      </SortClauses>
+                  </ContentTypeQuery>
+              </ViewInput>
           application/vnd.ibexa.api.ContentTypeViewInput+xml:
             schema:
               $ref: '#/components/schemas/ContentTypeViewInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/POST/ContentTypeCreateView.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ViewInput>
+                  <identifier>ContentTypeView</identifier>
+                  <ContentTypeQuery>
+                      <limit>10</limit>
+                      <offset>1</offset>
+                      <Query>
+                          <ContentTypeIdCriterion>1</ContentTypeIdCriterion>
+                          <ContentTypeIdCriterion>2</ContentTypeIdCriterion>
+                          <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
+                          <IsSystemCriterion>true</IsSystemCriterion>
+                          <ContentTypeGroupIdCriterion>1</ContentTypeGroupIdCriterion>
+                          <ContainsFieldDefinitionIdCriterion>2</ContainsFieldDefinitionIdCriterion>
+                      </Query>
+                      <SortClauses>
+                          <Identifier>descending</Identifier>
+                          <Id>ascending</Id>
+                      </SortClauses>
+                  </ContentTypeQuery>
+              </ViewInput>
         required: false
       deprecated: false
   /content/types/{contentTypeId}:
@@ -26997,7 +28292,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: OK - returns the content type.
           content:
             application/vnd.ibexa.api.ContentType+json:
               schema:
@@ -27320,7 +28615,7 @@ paths:
       - Type
       responses:
         201:
-          description: "201"
+          description: Draft created.
           content:
             application/vnd.ibexa.api.ContentTypeInfo+json:
               schema:
@@ -27442,11 +28737,18 @@ paths:
           application/vnd.ibexa.api.ContentTypeUpdate+json:
             schema:
               $ref: '#/components/schemas/ContentTypeUpdateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/POST/ContentTypeUpdate.json.example'
+            example:
+              ContentTypeUpdate:
+                _media-type: application/vnd.ibexa.api.ContentTypeUpdate
+                defaultAlwaysAvailable: "true"
           application/vnd.ibexa.api.ContentTypeUpdate+xml:
             schema:
               $ref: '#/components/schemas/ContentTypeUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentTypeUpdate>
+                  <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
+              </ContentTypeUpdate>
         required: false
       deprecated: false
     delete:
@@ -27484,7 +28786,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: OK - returns the content type.
           content:
             application/vnd.ibexa.api.ContentType+json:
               schema:
@@ -27824,7 +29126,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: Draft metadata updated.
           content:
             application/vnd.ibexa.api.ContentTypeInfo+json:
               schema:
@@ -27949,11 +29251,18 @@ paths:
           application/vnd.ibexa.api.ContentTypeUpdate+json:
             schema:
               $ref: '#/components/schemas/ContentTypeUpdateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/POST/ContentTypeUpdate.json.example'
+            example:
+              ContentTypeUpdate:
+                _media-type: application/vnd.ibexa.api.ContentTypeUpdate
+                defaultAlwaysAvailable: "true"
           application/vnd.ibexa.api.ContentTypeUpdate+xml:
             schema:
               $ref: '#/components/schemas/ContentTypeUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentTypeUpdate>
+                  <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
+              </ContentTypeUpdate>
         required: false
       deprecated: false
   /content/types/{contentTypeId}/draft/fieldDefinitions:
@@ -28005,7 +29314,7 @@ paths:
       - Type
       responses:
         201:
-          description: "201"
+          description: Field definition created.
           content:
             application/vnd.ibexa.api.FieldDefinition+json:
               schema:
@@ -28122,7 +29431,19 @@ paths:
           application/vnd.ibexa.api.FieldDefinitionCreate+xml:
             schema:
               $ref: '#/components/schemas/FieldDefinitionCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <FieldDefinitionCreate>
+                  <identifier>name</identifier>
+                  <fieldType>ibexa_string</fieldType>
+                  <isRequired>true</isRequired>
+                  <validatorConfiguration>
+                  <value key="StringLengthValidator">
+                      <value key="maxStringLength">32</value>
+                      <value key="minStringLength">8</value>
+                  </value>
+              </validatorConfiguration>
+              </FieldDefinitionCreate>
         required: false
       deprecated: false
   /content/types/{contentTypeId}/draft/fieldDefinitions/{fieldDefinitionId}:
@@ -28132,7 +29453,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: OK - returns the Field definition.
           content:
             application/vnd.ibexa.api.FieldDefinition+json:
               schema:
@@ -28279,7 +29600,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: OK - attributes updated.
           content:
             application/vnd.ibexa.api.FieldDefinition+json:
               schema:
@@ -28404,7 +29725,12 @@ paths:
           application/vnd.ibexa.api.FieldDefinitionUpdate+xml:
             schema:
               $ref: '#/components/schemas/FieldDefinitionUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <FieldDefinitionUpdate>
+                  <fieldGroup>new_field_group</fieldGroup>
+                  <position>10</position>
+              </FieldDefinitionUpdate>
         required: false
       deprecated: false
   /content/types/{contentTypeId}/fieldDefinitions:
@@ -28457,7 +29783,7 @@ paths:
       - Type
       responses:
         200:
-          description: "200"
+          description: OK - returns the Field definition.
           content:
             application/vnd.ibexa.api.FieldDefinition+json:
               schema:
@@ -28802,7 +30128,7 @@ paths:
       - Type Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns a list of content type groups.
           content:
             application/vnd.ibexa.api.ContentTypeGroupList+json:
               schema:
@@ -28921,7 +30247,7 @@ paths:
       - Type Groups
       responses:
         201:
-          description: "201"
+          description: Content type group created.
           content:
             application/vnd.ibexa.api.ContentTypeGroup+json:
               schema:
@@ -28997,11 +30323,17 @@ paths:
           application/vnd.ibexa.api.ContentTypeGroupInput+json:
             schema:
               $ref: '#/components/schemas/ContentTypeGroupInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/typegroups/POST/ContentTypeGroupInput.json.example'
+            example:
+              ContentTypeGroupInput:
+                identifier: newContentTypeGroup
           application/vnd.ibexa.api.ContentTypeGroupInput+xml:
             schema:
               $ref: '#/components/schemas/ContentTypeGroupInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/typegroups/POST/ContentTypeGroupInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentTypeGroupInput>
+                  <identifier>newContentTypeGroup</identifier>
+              </ContentTypeGroupInput>
         required: false
       deprecated: false
   /content/typegroups/{contentTypeGroupId}:
@@ -29011,7 +30343,7 @@ paths:
       - Type Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns the content type group.
           content:
             application/vnd.ibexa.api.ContentTypeGroup+json:
               schema:
@@ -30120,7 +31452,7 @@ paths:
       - Type Groups
       responses:
         200:
-          description: "200"
+          description: Content type group updated.
           content:
             application/vnd.ibexa.api.ContentTypeGroup+json:
               schema:
@@ -30223,11 +31555,17 @@ paths:
           application/vnd.ibexa.api.ContentTypeGroupInput+json:
             schema:
               $ref: '#/components/schemas/ContentTypeGroupInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/typegroups/POST/ContentTypeGroupInput.json.example'
+            example:
+              ContentTypeGroupInput:
+                identifier: newContentTypeGroup
           application/vnd.ibexa.api.ContentTypeGroupInput+xml:
             schema:
               $ref: '#/components/schemas/ContentTypeGroupInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/typegroups/POST/ContentTypeGroupInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentTypeGroupInput>
+                  <identifier>newContentTypeGroup</identifier>
+              </ContentTypeGroupInput>
         required: false
       deprecated: false
   /content/typegroups/{contentTypeGroupId}/types:
@@ -30237,7 +31575,7 @@ paths:
       - Type Groups
       responses:
         200:
-          description: "200"
+          description: OK - returns a list on content types.
           content:
             application/vnd.ibexa.api.ContentTypeInfoList+json:
               schema:
@@ -31903,7 +33241,7 @@ paths:
       - Type Groups
       responses:
         201:
-          description: "201"
+          description: Content type created.
           content:
             application/vnd.ibexa.api.ContentType+json:
               schema:
@@ -32015,11 +33353,120 @@ paths:
           application/vnd.ibexa.api.ContentTypeCreate+json:
             schema:
               $ref: '#/components/schemas/ContentTypeCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.json.example'
+            example:
+              ContentTypeCreate:
+                identifier: new_content_type
+                names:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': New content type
+                descriptions:
+                  value:
+                  - _languageCode: eng-GB
+                    '#text': This is a description
+                remoteId: remoteId-qwerty548
+                urlAliasSchema: <title>
+                nameSchema: <title>
+                isContainer: true
+                mainLanguageCode: eng-GB
+                defaultAlwaysAvailable: true
+                defaultSortField: PATH
+                defaultSortOrder: ASC
+                FieldDefinitions:
+                  FieldDefinition:
+                  - identifier: title
+                    fieldType: ibexa_string
+                    fieldGroup: content
+                    position: 1
+                    isTranslatable: true
+                    isRequired: true
+                    isInfoCollector: false
+                    defaultValue: New Title
+                    isSearchable: true
+                    names:
+                      value:
+                      - _languageCode: eng-GB
+                        '#text': Title
+                    descriptions:
+                      value:
+                      - _languageCode: eng-GB
+                        '#text': This is the title
+                  - identifier: summary
+                    fieldType: ibexa_richtext
+                    fieldGroup: content
+                    position: 2
+                    isTranslatable: true
+                    isRequired: false
+                    isInfoCollector: false
+                    isSearchable: true
+                    names:
+                      value:
+                      - _languageCode: eng-GB
+                        '#text': Summary
+                    descriptions:
+                      value:
+                      - _languageCode: eng-GB
+                        '#text': This is the summary
           application/vnd.ibexa.api.ContentTypeCreate+xml:
             schema:
               $ref: '#/components/schemas/ContentTypeCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ContentTypeCreate>
+                <identifier>newContentType</identifier>
+                <names>
+                  <value languageCode="eng-US">New content type</value>
+                </names>
+                <descriptions>
+                  <value languageCode="eng-US">This is a description</value>
+                </descriptions>
+                <remoteId>remoteId-qwert548</remoteId>
+                <urlAliasSchema>&lt;title&gt;</urlAliasSchema>
+                <nameSchema>&lt;title&gt;</nameSchema>
+                <isContainer>true</isContainer>
+                <mainLanguageCode>eng-US</mainLanguageCode>
+                <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
+                <defaultSortField>PATH</defaultSortField>
+                <defaultSortOrder>ASC</defaultSortOrder>
+                <FieldDefinitions>
+                  <FieldDefinition>
+                    <identifier>title</identifier>
+                    <fieldType>ibexa_string</fieldType>
+                    <fieldGroup>content</fieldGroup>
+                    <position>1</position>
+                    <isTranslatable>true</isTranslatable>
+                    <isRequired>true</isRequired>
+                    <isInfoCollector>false</isInfoCollector>
+                    <defaultValue>New Title</defaultValue>
+                    <isSearchable>true</isSearchable>
+                    <names>
+                      <value languageCode="eng-US">Title</value>
+                    </names>
+                    <descriptions>
+                      <value languageCode="eng-US">This is the title</value>
+                    </descriptions>
+                  </FieldDefinition>
+                  <FieldDefinition>
+                    <identifier>summary</identifier>
+                    <fieldType>ezxmltext</fieldType>
+                    <fieldGroup>content</fieldGroup>
+                    <position>2</position>
+                    <isTranslatable>true</isTranslatable>
+                    <isRequired>false</isRequired>
+                    <isInfoCollector>false</isInfoCollector>
+                    <defaultValue>
+                      <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;section/&gt;</value>
+                    </defaultValue>
+                    <isSearchable>true</isSearchable>
+                    <names>
+                      <value languageCode="eng-US">Summary</value>
+                    </names>
+                    <descriptions>
+                      <value languageCode="eng-US">This is the summary</value>
+                    </descriptions>
+                  </FieldDefinition>
+                 </FieldDefinitions>
+              </ContentTypeCreate>
         required: false
       deprecated: false
   /content/urlaliases:
@@ -32029,7 +33476,7 @@ paths:
       - Url Alias
       responses:
         200:
-          description: "200"
+          description: OK - returns the list of URL aliases.
           content:
             application/vnd.ibexa.api.UrlAliasRefList+json:
               schema:
@@ -32073,7 +33520,7 @@ paths:
       - Url Alias
       responses:
         201:
-          description: "201"
+          description: URL alias created.
           content:
             application/vnd.ibexa.api.UrlAlias+json:
               schema:
@@ -32142,11 +33589,26 @@ paths:
           application/vnd.ibexa.api.UrlAliasCreate+json:
             schema:
               $ref: '#/components/schemas/UrlAliasCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/urlaliases/POST/UrlAliasCreate.json.example'
+            example:
+              UrlAliasCreate:
+                _type: GLOBAL
+                resource: module:content/view/full
+                path: example-global
+                languageCode: eng-GB
+                alwaysAvailable: "true"
+                forward: "true"
           application/vnd.ibexa.api.UrlAliasCreate+xml:
             schema:
               $ref: '#/components/schemas/UrlAliasCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/urlaliases/POST/UrlAliasCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <UrlAliasCreate type="LOCATION">
+                <location href='/api/ibexa/v2/content/locations/1/2/59' />
+                <path>example-global</path>
+                <languageCode>eng-GB</languageCode>
+                <alwaysAvailable>true</alwaysAvailable>
+                <forward>true</forward>
+              </UrlAliasCreate>
         required: false
       deprecated: false
   /content/urlaliases/{urlAliasId}:
@@ -32156,7 +33618,7 @@ paths:
       - Url Alias
       responses:
         200:
-          description: "200"
+          description: OK - returns the URL alias.
           content:
             application/vnd.ibexa.api.UrlAlias+json:
               schema:
@@ -32251,7 +33713,7 @@ paths:
       - Url Wildcard
       responses:
         200:
-          description: "200"
+          description: OK - returns a list of URL wildcards.
           content:
             application/vnd.ibexa.api.UrlWildcardList+json:
               schema:
@@ -32302,7 +33764,7 @@ paths:
       - Url Wildcard
       responses:
         201:
-          description: "201"
+          description: URL wildcard created.
           content:
             application/vnd.ibexa.api.UrlWildcard+json:
               schema:
@@ -32362,11 +33824,17 @@ paths:
           application/vnd.ibexa.api.UrlWildcardCreate+json:
             schema:
               $ref: '#/components/schemas/UrlWildcardCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/urlwildcards/POST/UrlWildcardCreate.json.example'
+            example:
+              URLWildcardCreate:
+                sourceUrl: /api/ibexa/v2/content/location/2
+                destinationUrl: /api/ibexa/v2/content/location/59
+                forward: true
           application/vnd.ibexa.api.UrlWildcardCreate+xml:
             schema:
               $ref: '#/components/schemas/UrlWildcardCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/content/urlwildcards/POST/UrlWildcardCreate.xml.example'
+            example: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <UrlWildcardCreate>\n
+              \   \t<sourceUrl>/api/ibexa/v2/content/location/2</sourceUrl>\n    \t<destinationUrl>/api/ibexa/v2/content/location/59</destinationUrl>\n
+              \   \t<forward>true</forward>\n</UrlWildcardCreate>\n"
         required: false
       deprecated: false
   /content/urlwildcards/{wildcardId}:
@@ -32376,7 +33844,7 @@ paths:
       - Url Wildcard
       responses:
         200:
-          description: "200"
+          description: OK - returns the URL wildcard.
           content:
             application/vnd.ibexa.api.UrlWildcard+json:
               schema:
@@ -32462,7 +33930,7 @@ paths:
       - User
       responses:
         200:
-          description: "200"
+          description: OK - the User with the given ID.
           content:
             application/vnd.ibexa.api.User+json:
               schema:
@@ -32686,7 +34154,18 @@ paths:
             Anonymous user can't load oneself.
       summary: Load current User
       description: Loads the current user.
-      parameters: []
+      parameters:
+      - name: Accept
+        in: header
+        description: If set, the User is returned in XML or JSON format.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
       deprecated: false
   /user/users:
     get:
@@ -32695,7 +34174,7 @@ paths:
       - User
       responses:
         200:
-          description: "200"
+          description: OK - Loads Users either for a given remote ID or Role.
           content:
             application/vnd.ibexa.api.UserList+json:
               schema:
@@ -32964,7 +34443,7 @@ paths:
       - User
       responses:
         200:
-          description: "200"
+          description: OK - the User with the given ID.
           content:
             application/vnd.ibexa.api.User+json:
               schema:
@@ -33258,7 +34737,7 @@ paths:
       - User
       responses:
         200:
-          description: "200"
+          description: OK - User updated.
           content:
             application/vnd.ibexa.api.User+json:
               schema:
@@ -33534,11 +35013,19 @@ paths:
           application/vnd.ibexa.api.UserUpdate+json:
             schema:
               $ref: '#/components/schemas/UserUpdateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/users/user_id/PATCH/UserUpdate.json.example'
+            example:
+              UserUpdate:
+                login: josevargas
+                enabled: false
           application/vnd.ibexa.api.UserUpdate+xml:
             schema:
               $ref: '#/components/schemas/UserUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/users/user_id/PATCH/UserUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <UserUpdate>
+                <login>josevargas</login>
+                <enabled>false</enabled>
+              </UserUpdate>
         required: false
       deprecated: false
   /user/users/{userId}/drafts:
@@ -33971,11 +35458,33 @@ paths:
           application/vnd.ibexa.api.RoleAssignInput+json:
             schema:
               $ref: '#/components/schemas/RoleAssignInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/users/user_id/roles/POST/RoleAssignInput.json.example'
+            example:
+              RoleAssignInput:
+                Role:
+                  _href: /api/ibexa/v2/user/roles/2
+                  _media-type: application/vnd.ibexa.api.RoleAssignInput+xml
+                limitation:
+                  _identifier: Section
+                  values:
+                    ref:
+                    - _href: /api/ibexa/v2/content/sections/1
+                      _media-type: application/vnd.ibexa.api.Section+xml
+                    - _href: /api/ibexa/v2/content/sections/2
+                      _media-type: application/vnd.ibexa.api.Section+xml
           application/vnd.ibexa.api.RoleAssignInput+xml:
             schema:
               $ref: '#/components/schemas/RoleAssignInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/users/user_id/roles/POST/RoleAssignInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RoleAssignInput>
+                  <Role href="/api/ibexa/v2/user/roles/2" media-type="application/vnd.ibexa.api.RoleAssignInput+xml"/>
+                  <limitation identifier="Section">
+                      <values>
+                          <ref href="/api/ibexa/v2/content/sections/1" media-type="application/vnd.ibexa.api.Section+xml" />
+                          <ref href="/api/ibexa/v2/content/sections/2" media-type="application/vnd.ibexa.api.Section+xml" />
+                      </values>
+                  </limitation>
+              </RoleAssignInput>
         required: false
       deprecated: false
   /user/users/{userId}/roles/{roleId}:
@@ -33985,7 +35494,7 @@ paths:
       - User
       responses:
         200:
-          description: "200"
+          description: OK - Role assignment to the given User Group.
           content:
             application/vnd.ibexa.api.RoleAssignment+json:
               schema:
@@ -34256,11 +35765,17 @@ paths:
           application/vnd.ibexa.api.UserSegmentAssignInput+json:
             schema:
               $ref: '#/components/schemas/UserSegmentAssignInputWrapper'
-            x-ibexa-example-file: '@IbexaSegmentationBundle/Resources/api_platform/examples/user/users/user_id/segments/UserSegmentAssignInput.json.example'
+            example:
+              UserSegmentAssignInput:
+                segments:
+                - corporate_account
           application/vnd.ibexa.api.UserSegmentAssignInput+xml:
             schema:
               $ref: '#/components/schemas/UserSegmentAssignInput'
-            x-ibexa-example-file: '@IbexaSegmentationBundle/Resources/api_platform/examples/user/users/user_id/segments/UserSegmentAssignInput.xml.example'
+            example: |
+              <UserSegmentAssignInput>
+                  <segments>corporate_account</segments>
+              </UserSegmentAssignInput>
         required: false
       deprecated: false
   /user/users/{userId}/segments/{segmentIdentifier}:
@@ -34588,7 +36103,7 @@ paths:
       - User Group
       responses:
         201:
-          description: "201"
+          description: Created - the User Group has been created
           content:
             application/vnd.ibexa.api.UserGroup+json:
               schema:
@@ -34783,11 +36298,39 @@ paths:
           application/vnd.ibexa.api.UserGroupCreate+json:
             schema:
               $ref: '#/components/schemas/UserGroupCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example'
+            example:
+              UserGroupCreate:
+                mainLanguageCode: eng-GB
+                remoteId: remoteId-qwert098
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: name
+                    languageCode: eng-GB
+                    fieldValue: UserGroup2
+                  - fieldDefinitionIdentifier: description
+                    languageCode: eng-GB
+                    fieldValue: This is the description of the user group
           application/vnd.ibexa.api.UserGroupCreate+xml:
             schema:
               $ref: '#/components/schemas/UserGroupCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <UserGroupCreate>
+                <mainLanguageCode>eng-GB</mainLanguageCode>
+                <remoteId>remoteId-qwert098</remoteId>
+                <fields>
+                  <field>
+                    <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>UserGroup</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>This is the description of the user group</fieldValue>
+                  </field>
+                </fields>
+              </UserGroupCreate>
         required: false
       deprecated: false
   /user/groups/{path}:
@@ -34797,7 +36340,7 @@ paths:
       - User Group
       responses:
         200:
-          description: "200"
+          description: OK - loads User Groups.
           content:
             application/vnd.ibexa.api.UserGroup+json:
               schema:
@@ -35029,7 +36572,7 @@ paths:
       - User Group
       responses:
         200:
-          description: "200"
+          description: OK - updated User Group.
           content:
             application/vnd.ibexa.api.UserGroup+json:
               schema:
@@ -35250,11 +36793,15 @@ paths:
           application/vnd.ibexa.api.UserGroupUpdate+json:
             schema:
               $ref: '#/components/schemas/UserGroupUpdateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/PATCH/UserGroupUpdate.json.example'
+            example:
+              UserGroupUpdate:
+                Section:
+                  _href: /api/ibexa/v2/content/sections/2
           application/vnd.ibexa.api.UserGroupUpdate+xml:
             schema:
               $ref: '#/components/schemas/UserGroupUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/PATCH/UserGroupUpdate.xml.example'
+            example: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<UserGroupUpdate>\n\t<Section
+              href=\"/api/ibexa/v2/content/sections/2\" />\n</UserGroupUpdate>\n"
         required: false
       deprecated: false
   /user/groups/{path}/roles:
@@ -35411,11 +36958,33 @@ paths:
           application/vnd.ibexa.api.RoleAssignInput+json:
             schema:
               $ref: '#/components/schemas/RoleAssignInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/users/user_id/roles/POST/RoleAssignInput.json.example'
+            example:
+              RoleAssignInput:
+                Role:
+                  _href: /api/ibexa/v2/user/roles/2
+                  _media-type: application/vnd.ibexa.api.RoleAssignInput+xml
+                limitation:
+                  _identifier: Section
+                  values:
+                    ref:
+                    - _href: /api/ibexa/v2/content/sections/1
+                      _media-type: application/vnd.ibexa.api.Section+xml
+                    - _href: /api/ibexa/v2/content/sections/2
+                      _media-type: application/vnd.ibexa.api.Section+xml
           application/vnd.ibexa.api.RoleAssignInput+xml:
             schema:
               $ref: '#/components/schemas/RoleAssignInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/roles/POST/RoleAssignInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RoleAssignInput>
+                <Role href="/api/ibexa/v2/user/roles/10" media-type="application/vnd.ibexa.api.RoleAssignInput+xml"/>
+                <limitation identifier="Section">
+                    <values>
+                        <ref href="/api/ibexa/v2/content/sections/1" media-type="application/vnd.ibexa.api.Section+xml" />
+                        <ref href="/api/ibexa/v2/content/sections/4" media-type="application/vnd.ibexa.api.Section+xml" />
+                    </values>
+                </limitation>
+              </RoleAssignInput>
         required: false
       deprecated: false
   /user/groups/{path}/roles/{roleId}:
@@ -35425,7 +36994,7 @@ paths:
       - User Group
       responses:
         200:
-          description: "200"
+          description: OK - returns a Role assignment of the given User Group.
           content:
             application/vnd.ibexa.api.RoleAssignment+json:
               schema:
@@ -35581,7 +37150,7 @@ paths:
       - User Group
       responses:
         200:
-          description: "200"
+          description: OK - list of the subgroups.
           content:
             application/vnd.ibexa.api.UserGroupList+json:
               schema:
@@ -36065,11 +37634,39 @@ paths:
           application/vnd.ibexa.api.UserGroupCreate+json:
             schema:
               $ref: '#/components/schemas/UserGroupCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example'
+            example:
+              UserGroupCreate:
+                mainLanguageCode: eng-GB
+                remoteId: remoteId-qwert098
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: name
+                    languageCode: eng-GB
+                    fieldValue: UserGroup2
+                  - fieldDefinitionIdentifier: description
+                    languageCode: eng-GB
+                    fieldValue: This is the description of the user group
           application/vnd.ibexa.api.UserGroupCreate+xml:
             schema:
               $ref: '#/components/schemas/UserGroupCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <UserGroupCreate>
+                <mainLanguageCode>eng-GB</mainLanguageCode>
+                <remoteId>remoteId-qwert098</remoteId>
+                <fields>
+                  <field>
+                    <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>UserGroup</fieldValue>
+                  </field>
+                  <field>
+                    <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldValue>This is the description of the user group</fieldValue>
+                  </field>
+                </fields>
+              </UserGroupCreate>
         required: false
       deprecated: false
   /user/groups/{path}/users:
@@ -36079,7 +37676,7 @@ paths:
       - User Group
       responses:
         200:
-          description: "200"
+          description: OK - the Users of the Group with the given ID.
           content:
             application/vnd.ibexa.api.UserList+json:
               schema:
@@ -36408,11 +38005,66 @@ paths:
           application/vnd.ibexa.api.UserCreate+json:
             schema:
               $ref: '#/components/schemas/UserCreateWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/users/POST/UserCreate.json.example'
+            example:
+              UserCreate:
+                mainLanguageCode: eng-GB
+                remoteId: remoteId-23456789
+                login: johnsmith2
+                email: example@example.com
+                password: Secrepassword5!
+                fields:
+                  field:
+                  - fieldDefinitionIdentifier: first_name
+                    languageCode: eng-GB
+                    fieldValue: John
+                  - fieldDefinitionIdentifier: last_name
+                    languageCode: eng-GB
+                    fieldValue: Smith
+                  - fieldDefinitionIdentifier: user_account
+                    languageCode: eng-GB
+                    fieldValue:
+                      hasStoredLogin: true
+                      contentId: 14
+                      login: johnsmith
+                      email: example@example.com
+                      enabled: true
+                      maxLogin: 10
           application/vnd.ibexa.api.UserCreate+xml:
             schema:
               $ref: '#/components/schemas/UserCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/groups/path/users/POST/UserCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <UserCreate>
+                <mainLanguageCode>eng-GB</mainLanguageCode>
+                <remoteId>remoteId-23456789</remoteId>
+                <login>johnsmith</login>
+                <email>example@example.com</email>
+                <password>Secrepassword5!</password>
+                  <fields>
+                    <field>
+                      <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+                      <languageCode>eng-GB</languageCode>
+                      <fieldValue>John</fieldValue>
+                    </field>
+                    <field>
+                      <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+                      <languageCode>eng-GB</languageCode>
+                      <fieldValue>Smith</fieldValue>
+                    </field>
+                    <field>
+                      <fieldDefinitionIdentifier>user_account</fieldDefinitionIdentifier>
+                      <languageCode>eng-GB</languageCode>
+                      <fieldValue>
+                        <value key="hasStoredLogin">true</value>
+                        <value key="contentId">14</value>
+                        <value key="login">johnsmith</value>
+                        <value key="email">example@example.com</value>
+                        <value key="enabled">true</value>
+                        <value key="maxLogin">10</value>
+                      </fieldValue>
+                    </field>
+                  </fields>
+              </UserCreate>
         required: false
       deprecated: false
   /user/policies:
@@ -36422,7 +38074,7 @@ paths:
       - User Policy
       responses:
         200:
-          description: "200"
+          description: OK - Policies which are applied to a given User.
           content:
             application/vnd.ibexa.api.PolicyList+json:
               schema:
@@ -36567,7 +38219,7 @@ paths:
       - User Role
       responses:
         200:
-          description: "200"
+          description: OK - list of all Roles.
           content:
             application/vnd.ibexa.api.RoleList+json:
               schema:
@@ -36735,11 +38387,17 @@ paths:
           application/vnd.ibexa.api.RoleInput+json:
             schema:
               $ref: '#/components/schemas/RoleInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/POST/RoleInput.json.example'
+            example:
+              RoleInput:
+                identifier: NewRole
           application/vnd.ibexa.api.RoleInput+xml:
             schema:
               $ref: '#/components/schemas/RoleInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/POST/RoleInput.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RoleInput>
+                  <identifier>NewRole</identifier>
+              </RoleInput>
         required: false
       deprecated: false
   /user/roles/{id}:
@@ -36749,7 +38407,7 @@ paths:
       - User Role
       responses:
         200:
-          description: "200"
+          description: OK - Role for the given ID.
           content:
             application/vnd.ibexa.api.Role+json:
               schema:
@@ -36915,7 +38573,7 @@ paths:
       - User Role
       responses:
         200:
-          description: "200"
+          description: OK - Role updated
           content:
             application/vnd.ibexa.api.Role+json:
               schema:
@@ -36999,11 +38657,17 @@ paths:
           application/vnd.ibexa.api.RoleInput+json:
             schema:
               $ref: '#/components/schemas/RoleInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/POST/RoleInput.json.example'
+            example:
+              RoleInput:
+                identifier: NewRole
           application/vnd.ibexa.api.RoleInput+xml:
             schema:
               $ref: '#/components/schemas/RoleInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/POST/RoleInput.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RoleInput>
+                  <identifier>NewRole</identifier>
+              </RoleInput>
         required: false
       deprecated: false
   /user/roles/{id}/draft:
@@ -37013,7 +38677,7 @@ paths:
       - User Role
       responses:
         200:
-          description: "200"
+          description: OK - Role draft by original Role ID.
           content:
             application/vnd.ibexa.api.Role+json:
               schema:
@@ -37106,7 +38770,7 @@ paths:
       - User Role
       responses:
         200:
-          description: "200"
+          description: OK - Role draft updated.
           content:
             application/vnd.ibexa.api.Role+json:
               schema:
@@ -37192,11 +38856,17 @@ paths:
           application/vnd.ibexa.api.RoleInput+json:
             schema:
               $ref: '#/components/schemas/RoleInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/POST/RoleInput.json.example'
+            example:
+              RoleInput:
+                identifier: NewRole
           application/vnd.ibexa.api.RoleInput+xml:
             schema:
               $ref: '#/components/schemas/RoleInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/POST/RoleInput.xml.example'
+            example: |-
+              <?xml version="1.0" encoding="UTF-8"?>
+              <RoleInput>
+                  <identifier>NewRole</identifier>
+              </RoleInput>
         required: false
       deprecated: false
   /user/roles/{id}/policies:
@@ -37448,7 +39118,24 @@ paths:
           application/vnd.ibexa.api.PolicyCreate+xml:
             schema:
               $ref: '#/components/schemas/PolicyCreate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/id/policies/POST/PolicyCreate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <PolicyCreate>
+                  <module>content</module>
+                  <function>create</function>
+                  <limitations>
+                      <limitation identifier="Class">
+                          <values>
+                              <ref href="2"/>
+                          </values>
+                      </limitation>
+                      <limitation identifier="ParentClass">
+                          <values>
+                              <ref href="1"/>
+                          </values>
+                      </limitation>
+                  </limitations>
+              </PolicyCreate>
         required: false
       deprecated: false
     delete:
@@ -37722,7 +39409,22 @@ paths:
           application/vnd.ibexa.api.PolicyUpdate+xml:
             schema:
               $ref: '#/components/schemas/PolicyUpdate'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/roles/id/policies/id/PATCH/PolicyUpdate.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <PolicyUpdate>
+                  <limitations>
+                      <limitation identifier="Class">
+                          <values>
+                              <ref href="2"/>
+                          </values>
+                      </limitation>
+                      <limitation identifier="ParentClass">
+                          <values>
+                              <ref href="1"/>
+                          </values>
+                      </limitation>
+                  </limitations>
+              </PolicyUpdate>
         required: false
       deprecated: false
   /user/sessions:
@@ -37732,7 +39434,7 @@ paths:
       - User Session
       responses:
         200:
-          description: "200"
+          description: Session already exists.
           content:
             application/vnd.ibexa.api.Session+json:
               schema:
@@ -37758,7 +39460,7 @@ paths:
                   <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
                 </Session>
         201:
-          description: "201"
+          description: Session is created.
           content:
             application/vnd.ibexa.api.Session+json:
               schema:
@@ -37795,10 +39497,32 @@ paths:
         the session and session cookie. The client will need to remember both session
         name/ID and CSRF token as this is for security reasons not exposed via GET.
       parameters:
+      - name: Accept
+        in: header
+        description: If set, the session is returned in XML or JSON format.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: Content-Type
+        in: header
+        description: The SessionInput schema encoded in XML or JSON format.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
       - name: Cookie
         in: header
         description: Only needed for session's checking {sessionName}={sessionID}.
-        required: false
+        required: true
         deprecated: false
         allowEmptyValue: false
         schema:
@@ -37810,7 +39534,7 @@ paths:
         in: header
         description: Only needed for session's checking. The {csrfToken} needed on
           all unsafe HTTP methods with session.
-        required: false
+        required: true
         deprecated: false
         allowEmptyValue: false
         schema:
@@ -37824,11 +39548,19 @@ paths:
           application/vnd.ibexa.api.SessionInput+json:
             schema:
               $ref: '#/components/schemas/SessionInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/sessions/POST/SessionInput.json.example'
+            example:
+              SessionInput:
+                login: admin
+                password: secret
           application/vnd.ibexa.api.SessionInput+xml:
             schema:
               $ref: '#/components/schemas/SessionInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/sessions/POST/SessionInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <SessionInput>
+                <login>admin</login>
+                <password>secret</password>
+              </SessionInput>
         required: false
       deprecated: false
   /user/sessions/current:
@@ -37838,7 +39570,7 @@ paths:
       - User Session
       responses:
         200:
-          description: "200"
+          description: User is currently logged in and has a valid session.
           content:
             application/vnd.ibexa.api.Session+json:
               schema:
@@ -37871,7 +39603,18 @@ paths:
       - name: Cookie
         in: header
         description: Only needed for session's checking {sessionName}={sessionID}.
-        required: false
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: Accept
+        in: header
+        description: If set, the session is returned in XML or JSON format.
+        required: true
         deprecated: false
         allowEmptyValue: false
         schema:
@@ -38021,7 +39764,7 @@ paths:
       - User Token
       responses:
         200:
-          description: "200"
+          description: OK - returns the JWT in JSON format.
           content:
             application/vnd.ibexa.api.JWT+json:
               schema:
@@ -38031,52 +39774,22 @@ paths:
                   _media-type: application/vnd.ibexa.api.JWT+json
                   _token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3ODAsImV4cCI6MTYwMjg0NDM4MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.0LHa799HwSwwfDBZd2V0q2xHwGt86PpyZamKnXHQyYI
                   token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3ODAsImV4cCI6MTYwMjg0NDM4MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.0LHa799HwSwwfDBZd2V0q2xHwGt86PpyZamKnXHQyYI
-            application/vnd.ibexa.api.JWT+xml:
-              schema:
-                $ref: '#/components/schemas/JWT'
-              example: |
-                <?xml version="1.0" encoding="UTF-8"?>
-                <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3NjEsImV4cCI6MTYwMjg0NDM2MSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.LsmdVjad7wMwVQUo4vSftT0zHbJyArOMd23b417E2jI">
-                    <token>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3NjEsImV4cCI6MTYwMjg0NDM2MSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.LsmdVjad7wMwVQUo4vSftT0zHbJyArOMd23b417E2jI</token>
-                </JWT>
         401:
           description: Error - Unauthorized
       summary: Create JWT token
       description: Creates JWT authentication token.
-      parameters:
-      - name: Accept
-        in: header
-        description: If set, the token is returned in XML or JSON format.
-        required: true
-        deprecated: false
-        allowEmptyValue: false
-        schema:
-          type: string
-        style: simple
-        explode: false
-        allowReserved: false
-      - name: Content-Type
-        in: header
-        description: The SessionInput schema encoded in XML or JSON format.
-        required: true
-        deprecated: false
-        allowEmptyValue: false
-        schema:
-          type: string
-        style: simple
-        explode: false
-        allowReserved: false
+      parameters: []
       requestBody:
-        description: The new JWT resource
+        description: The credentials in JWTInput JSON format.
         content:
           application/vnd.ibexa.api.JWTInput+json:
             schema:
               $ref: '#/components/schemas/JWTInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/token/jwt/POST/JWTInput.json.example'
-          application/vnd.ibexa.api.JWTInput+xml:
-            schema:
-              $ref: '#/components/schemas/JWTInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/user/token/jwt/POST/JWTInput.xml.example'
+            example:
+              JWTInput:
+                _media-type: application/vnd.ibexa.api.JWTInput
+                username: admin
+                password: publish
         required: false
       deprecated: false
   /views:
@@ -38195,11 +39908,55 @@ paths:
           application/vnd.ibexa.api.ViewInput+json:
             schema:
               $ref: '#/components/schemas/ViewInputWrapper'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/views/POST/ViewInput.json.example'
+            example:
+              ViewInput:
+                identifier: TitleView
+                Query:
+                  Filter:
+                    ContentTypeIdentifierCriterion: image
+                    SectionIdentifierCriterion: media
+                    DateMetadataCriterion:
+                      Target: modified
+                      Value: 1675681020
+                      Operator: gte
+                  limit: 10
+                  offset: 0
+                  SortClauses:
+                    ContentName: ascending
+                  Aggregations:
+                  - ContentTypeTermAggregation:
+                      name: some name
           application/vnd.ibexa.api.ViewInput+xml:
             schema:
               $ref: '#/components/schemas/ViewInput'
-            x-ibexa-example-file: '@IbexaRestBundle/Resources/api_platform/examples/views/POST/ViewInput.xml.example'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ViewInput>
+                <identifier>TitleView</identifier>
+                <Query>
+                  <Filter>
+                    <ContentTypeIdentifierCriterion>image</ContentTypeIdentifierCriterion>
+                    <SectionIdentifierCriterion>media</SectionIdentifierCriterion>
+                    <DateMetadataCriterion>
+                      <Target>modified</Target>
+                      <Value>1675681020</Value>
+                      <Operator>gte</Operator>
+                    </DateMetadataCriterion>
+                  </Filter>
+                  <limit>10</limit>
+                  <offset>0</offset>
+                  <SortClauses>
+                    <ContentName>ascending</ContentName>
+                  </SortClauses>
+                  <Aggregations>
+                    <Aggregation>
+                      <ContentTypeTermAggregation>
+                        <name>some name</name>
+                      </ContentTypeTermAggregation>
+                    </Aggregation>
+                  </Aggregations>
+                </Query>
+              </ViewInput>
         required: false
       deprecated: false
 components:
@@ -45862,6 +47619,32 @@ components:
         context:
           type: object
           additionalProperties: true
+    DiscountCode:
+      type: object
+      required:
+      - code
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+        created_at:
+          type: object
+          properties:
+            date:
+              type: string
+              format: date-time
+            timezone_type:
+              type: integer
+            timezone:
+              type: string
+    DiscountCodeWrapper:
+      type: object
+      required:
+      - DiscountCode
+      properties:
+        DiscountCode:
+          $ref: '#/components/schemas/DiscountCode'
     ShoppingList:
       allOf:
       - $ref: '#/components/schemas/BaseObject'

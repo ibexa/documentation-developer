@@ -1,5 +1,4 @@
 ---
-title: Ibexa Commerce
 description: Explore all of the key features, functionalities, and advantages of Ibexa Commerce, the most powerful edition that Ibexa DXP has to offer.
 month_change: false
 ---
@@ -84,7 +83,7 @@ You can set up your search engine using [[= product_name_com =]] to help clients
 
 #### Catalog management
 
-[[= product_name_com =]] gives you the ability to manage your product repository - [PIM](pim_guide.md), and construct an infinite number of product catalogs, each with unique prices, to further customize the experience for your customers.
+[[= product_name_com =]] gives you the ability to manage your product repository - [Product catalog](product_catalog_guide.md), and construct an infinite number of catalogs, each with unique prices, to further customize the experience for your customers.
 
 #### Transactional emails
 

@@ -23,8 +23,8 @@ Sort Clauses are found in the [`Ibexa\Contracts\Discounts\Value\Query\SortClause
 
 The following example shows how to use them to sort the searched discounts:
 
-```php hl_lines="22-24"
-[[= include_file('code_samples/discounts/src/Query/Search.php') =]]
+``` php hl_lines="22-24"
+[[= include_code('code_samples/discounts/src/Query/Search.php') =]]
 ```
 
 The returned active discounts are sorted by:

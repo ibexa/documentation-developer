@@ -11,7 +11,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new I
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
-**Update**: [v4.3.x to v4.4](https://doc.ibexa.co/en/latest/update_and_migration/from_4.3/update_from_4.3/)
+**Update**: [v4.3.x to v4.4](https://doc.ibexa.co/en/4.4/update_and_migration/from_4.3/update_from_4.3/)
 
 ## Notable changes
 
@@ -29,7 +29,7 @@ This release deprecates all Commerce packages that you've known from previous re
 - `ibexa/checkout`
 - `ibexa/storefront`
 
-As part of this effort, two all-new components have been created: Cart and Checkout, that you can use to build your own e-commerce presence. 
+As part of this effort, two all-new components have been created: Cart and Checkout, that you can use to build your own e-commerce presence.
 
 ![The new cart view](img/4.4_new_cart.png "The new cart view")
 
@@ -42,13 +42,13 @@ For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commer
 Another addition is the Storefront package that provides a starting kit for the developers.
 It's a working set of components, which you can use to test the new capabilities, and then customize and extend to create your own implementation of a web store.
 
-For more information, see [Storefront](https://doc.ibexa.co/en/4.4/commerce/storefront/storefront).
+For more information, see [Storefront](https://doc.ibexa.co/en/4.4/commerce/storefront/storefront/).
 
 ### Fastly Image Optimizer (Fastly IO)
 
 You can now use Fastly IO to serve optimized versions of your images in real time and cache them.
 Fastly can perform multiple transformations on your image, for example, cropping, resizing, and trimming before serving it to end user.
-Fastly is an external service that requires a separate subscription, to learn more see, [Fastly Image Optimizer website](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
+Fastly is an external service that requires a separate subscription, to learn more see, [Fastly Image Optimizer website](https://www.fastly.com/documentation/guides/full-site-delivery/image-optimization/about-fastly-image-optimizer/).
 
 If you already have Fastly IO subscription, you can move to [Fastly IO configuration in [[= product_name =]]](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
 
@@ -59,13 +59,13 @@ For example, you can define formats or source path for images.
 
 ### New page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This release introduces new page blocks that rely on Personalization and PIM features to let editors visually organize products on a page:
+This release introduces new page blocks that rely on Personalization and product catalog features to let editors visually organize products on a page:
 
 - [Catalog block](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#catalog-block) displays products from a specific catalog to a selected customer group.
 - [Last purchased](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
 - [Last viewed](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
 - [Product collection](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
-- [Recently added](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block) displays a list of products that were recently added to PIM.
+- [Recently added](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block) displays a list of products that were recently added to the product catalog.
 
 ### Personalization improvements
 
@@ -85,7 +85,7 @@ provide the best recommendations.
 
 ## [[= product_name_connect =]]
 
-You can now take advantage of [[[= product_name_connect =]]](https://www.ibexa.co/products/ibexa-connect),
+You can now take advantage of [[[= product_name_connect =]]](https://www.ibexa.co/products/features/integration-and-automation),
 an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
 [[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services that help you automate business processes.
 

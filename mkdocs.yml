@@ -2,7 +2,10 @@ INHERIT: plugins.yml
 
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
+edit_uri: blob/5.0/docs
 site_url: https://doc.ibexa.co/en/latest/
+hooks:
+    - hooks/edit_uri.py
 copyright: "Copyright 1999-2026 Ibexa AS and others"
 validation:
     omitted_files: warn
@@ -84,7 +87,7 @@ nav:
             - Content events: api/event_reference/content_events.md
             - Content type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
-            - Catalog events: api/event_reference/catalog_events.md
+            - Product catalog events: api/event_reference/product_catalog_events.md
             - Cart events: api/event_reference/cart_events.md
             - Shopping list events: api/event_reference/shopping_list_events.md
             - Order management events: api/event_reference/order_management_events.md
@@ -104,7 +107,9 @@ nav:
             - AI Action events: api/event_reference/ai_action_events.md
             - Discounts events: api/event_reference/discounts_events.md
             - Collaboration events: api/event_reference/collaboration_events.md
+            - Integrated help events: api/event_reference/integrated_help_events.md
             - Other events: api/event_reference/other_events.md
+        - Notification channels: api/notification_channels.md
     - Administration:
         - Administration: administration/administration.md
         - Project organization:
@@ -165,6 +170,9 @@ nav:
             - Integrated help:
                 - Integrated help: administration/back_office/integrated_help.md
                 - Customize integrated help: administration/back_office/customize_integrated_help.md
+                - Product tour: administration/back_office/product_tour.md
+                - Configure product tour: administration/back_office/configure_product_tour.md
+                - Customize product tour: administration/back_office/customize_product_tour.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
@@ -306,23 +314,25 @@ nav:
         - Image variations: templating/image_variations.md
         - Twig function reference:
             - Twig function reference: templating/twig_function_reference/twig_function_reference.md
+            - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
             - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
             - Component Twig functions: templating/twig_function_reference/component_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
+            - Discounts Twig functions: templating/twig_function_reference/discounts_twig_functions.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
-            - Page Twig functions: templating/twig_function_reference/page_twig_functions.md
             - Icon Twig functions: templating/twig_function_reference/icon_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
+            - Page Twig functions: templating/twig_function_reference/page_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Quable functions: templating/twig_function_reference/quable_twig_functions.md
+            - Recommendations Twig functions: templating/twig_function_reference/recommendations_twig_functions.md
             - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
-            - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
-            - Discounts functions: templating/twig_function_reference/discounts_twig_functions.md
         - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
@@ -346,32 +356,48 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
-    - AI Actions:
-        - AI Actions: ai_actions/ai_actions.md
-        - AI Actions guide: ai_actions/ai_actions_guide.md
-        - Configure AI Actions: ai_actions/configure_ai_actions.md
-        - Extend AI Actions: ai_actions/extend_ai_actions.md
-    - PIM (Product management):
-        - PIM (Product management): pim/pim.md
-        - PIM guide: pim/pim_guide.md
-        - PIM configuration: pim/pim_configuration.md
-        - Products: pim/products.md
+    - AI:
+        - AI: ai/ai.md
+        - AI Actions:
+            - AI Actions: ai/ai_actions/ai_actions.md
+            - AI Actions guide: ai/ai_actions/ai_actions_guide.md
+            - Configure AI Actions: ai/ai_actions/configure_ai_actions.md
+            - Extend AI Actions: ai/ai_actions/extend_ai_actions.md
+        - MCP Servers:
+            - MCP Servers: ai/mcp/mcp.md
+            - MCP Servers guide: ai/mcp/mcp_guide.md
+            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Work with MCP servers: ai/mcp/mcp_usage.md
+    - Product catalog:
+        - Product catalog: product_catalog/product_catalog.md
+        - Product catalog guide: product_catalog/product_catalog_guide.md
+        - Quable PIM integration:
+            - Quable PIM Integration: product_catalog/quable/quable.md
+            - Quable product guide: product_catalog/quable/quable_guide.md
+            - Install Quable: product_catalog/quable/install_quable.md
+            - Configure Quable: product_catalog/quable/configure_quable_connector.md
+            - Quable API: product_catalog/quable/quable_api.md
+        - Product catalog configuration: product_catalog/product_catalog_configuration.md
+        - Products: product_catalog/products.md
         - Attributes:
-            - Date and Time attribute: pim/attributes/date_and_time.md
-            - Symbol attribute type: pim/attributes/symbol_attribute_type.md
-        - Product API: pim/product_api.md
-        - Catalogs: pim/catalogs.md
-        - Catalog API: pim/catalog_api.md
-        - Enable purchasing products: pim/enable_purchasing_products.md
-        - Prices: pim/prices.md
-        - Price API: pim/price_api.md
-        - Customize PIM:
-            - Customize PIM: pim/customize_pim.md
-            - Create custom attribute type: pim/create_custom_attribute_type.md
-            - Create product code generator: pim/create_product_code_generator.md
-            - Create custom catalog filter: pim/create_custom_catalog_filter.md
-            - Create custom name schema: pim/create_custom_name_schema_strategy.md
-        - Add remote PIM support: pim/add_remote_pim_support.md
+            - Date and Time attribute: product_catalog/attributes/date_and_time.md
+            - Symbol attribute type: product_catalog/attributes/symbol_attribute_type.md
+        - Product API: product_catalog/product_api.md
+        - Catalogs: product_catalog/catalogs.md
+        - Catalog API: product_catalog/catalog_api.md
+        - Enable purchasing products: product_catalog/enable_purchasing_products.md
+        - Prices: product_catalog/prices.md
+        - Price API: product_catalog/price_api.md
+        - Customize product catalog:
+            - Create custom attribute type: product_catalog/create_custom_attribute_type.md
+            - Create custom availability strategy: product_catalog/create_custom_availability_strategy.md
+            - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
+            - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
+            - Create product code generator: product_catalog/create_product_code_generator.md
+            - Customize product attribute templates: product_catalog/customize_product_attribute_templates.md
+            - Customize product catalog: product_catalog/customize_product_catalog.md
+            - Customize product embed templates: product_catalog/customize_product_embed_templates.md
+        - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
@@ -497,6 +523,16 @@ nav:
         - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
         - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
+    - Recommendations:
+        - Integration with Raptor:
+            - Raptor connector: recommendations/raptor_integration/raptor_connector.md
+            - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
+            - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
+            - Tracking functions: recommendations/raptor_integration/tracking_functions.md
+            - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
+            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
+            - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
+            - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP guide: cdp/cdp_guide.md
@@ -505,7 +541,7 @@ nav:
             - CDP activation: cdp/cdp_activation/cdp_activation.md
             - CDP configuration: cdp/cdp_activation/cdp_configuration.md
             - CDP data export: cdp/cdp_activation/cdp_data_export.md
-            - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
+            - CDP add tracking: cdp/cdp_activation/cdp_add_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
     - Search:
@@ -573,6 +609,8 @@ nav:
             - Sibling: search/criteria_reference/sibling_criterion.md
             - Subtree: search/criteria_reference/subtree_criterion.md
             - TaxonomyEntryID: search/criteria_reference/taxonomy_entry_id.md
+            - TaxonomyNoEntries: search/criteria_reference/taxonomy_no_entries.md
+            - TaxonomySubtree: search/criteria_reference/taxonomy_subtree.md
             - UserEmail: search/criteria_reference/useremail_criterion.md
             - UserId: search/criteria_reference/userid_criterion.md
             - UserLogin: search/criteria_reference/userlogin_criterion.md
@@ -606,6 +644,7 @@ nav:
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
             - ProductCategory: search/criteria_reference/productcategory_criterion.md
+            - ProductCategorySubtree: search/criteria_reference/productcategorysubtree_criterion.md
             - ProductCode: search/criteria_reference/productcode_criterion.md
             - ProductName: search/criteria_reference/productname_criterion.md
             - ProductType: search/criteria_reference/producttype_criterion.md
@@ -614,7 +653,9 @@ nav:
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
             - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
-        - Order Search Criteria: 
+            - UpdatedAt: search/criteria_reference/updated_at_criterion.md
+            - UpdatedAtRange: search/criteria_reference/updated_at_range_criterion.md
+        - Order Search Criteria:
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
             - CreatedAt: search/criteria_reference/order_created_criterion.md
@@ -824,6 +865,7 @@ nav:
         - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
         - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
         - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
+        - Ibexa Cloud CLI: ibexa_cloud/ibexa_cloud_cli.md
         - Environment variables: ibexa_cloud/environment_variables.md
         - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
@@ -855,6 +897,7 @@ nav:
             - Development security: infrastructure_and_maintenance/security/development_security.md
             - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
             - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
+            - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
     - Update and migration:
         - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
@@ -987,8 +1030,9 @@ extra:
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Ibexa Engage'
+  pim_product_name: 'Quable'
 
-  eol_versions: ['2.5']
+  eol_versions: ['2.5', '3.3']
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
@@ -999,10 +1043,11 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.28'
-  latest_tag_5_0: '5.0.6'
+  latest_tag_4_6: '4.6.31'
+  latest_tag_5_0: '5.0.9'
 
-  symfony_doc: 'https://symfony.com/doc/7.3'
+  symfony_version: '7.4' 
+  symfony_doc: 'https://symfony.com/doc/7.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
@@ -1047,6 +1092,9 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       linenums: true
+      # Emit language-* classes so the Markdown conversion (llmstxt) can
+      # restore the language on fenced code blocks.
+      pygments_lang_class: true
       extend_pygments_lang:
         - name: php
           lang: php
@@ -1063,3 +1111,6 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
+
+hooks:
+  - hooks.py

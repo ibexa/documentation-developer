@@ -16,10 +16,14 @@ The `LogicalOr` Search Criterion matches payments if at least one of the provide
 ### PHP
 
 ``` php
-$query->query = new Criterion\LogicalOr(
-    [
-        new \Ibexa\Contracts\Payment\Payment\Query\Criterion\CreatedAt(new DateTime('2023-03-01'));
-        new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Currency('USD');
-    ]
-);
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+use Ibexa\Contracts\Payment\Payment\Query\Criterion\CreatedAt;
+use Ibexa\Contracts\Payment\Payment\Query\Criterion\Currency;
+use Ibexa\Contracts\Payment\Payment\Query\Criterion\LogicalOr;
+
+$query = new PaymentQuery();
+$query->setQuery(new LogicalOr(
+    new CreatedAt(new DateTime('2023-03-01')),
+    new Currency('USD'),
+));
 ```

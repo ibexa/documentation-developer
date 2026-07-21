@@ -1,5 +1,6 @@
 ---
 description: Use blocks to customize the content of a Page with dynamic content.
+edition: experience
 ---
 
 # Page blocks
@@ -102,7 +103,7 @@ The following events are available:
 For example, to modify a block by adding a new parameter to it, you can create the following listener:
 
 ``` php
-[[= include_file('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
+[[= include_code('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
 ```
 
 Before the block is rendered, the listener adds `my_parameter` to it with value `parameter_value`.
@@ -112,7 +113,7 @@ You can use this parameter, for example, in block template:
 [[= include_file('code_samples/page/page_listener/templates/themes/standard/block/my_block.html.twig') =]]
 ```
 
-#### Exposing content relations from blocks
+### Exposing content relations from blocks
 
 Page blocks, for example Embed block or Collection block, can embed other content items.
 Publishing a page with such blocks creates Relations to those content items.

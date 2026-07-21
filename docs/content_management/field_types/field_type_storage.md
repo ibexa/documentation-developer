@@ -65,7 +65,7 @@ Just like a Type, a Legacy Converter needs to be registered and tagged in the [s
 
 #### Registering a converter
 
-The registration of a `Converter` currently works through the `$config` parameter of [`Ibexa\Core\Persistence\Legacy\Handler`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Handler.php).
+The registration of a `Converter` currently works through the `$config` parameter of [`Ibexa\Core\Persistence\Legacy\Handler`](https://github.com/ibexa/core/blob/5.0/src/lib/Persistence/Legacy/Handler.php).
 
 Those converters also need to be correctly exposed as services and tagged with `ibexa.field_type.storage.legacy.converter`:
 
@@ -84,7 +84,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
+    Converter configuration for built-in field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/5.0/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
 ## Storing data externally
 
@@ -147,14 +147,14 @@ services:
         autoconfigure: true
         public: false
 
-    App\FieldType\MyField\Storage\MyFieldStorage: ~
+    App\FieldType\MyField\Storage\MyFieldStorage:
         tags:
             - {name: ibexa.field_type.storage.external.handler, alias: myfield}
 ```
 
 The configuration requires providing the `ibexa.field_type.storage.external.handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see Gateway-based storage](#gateway-based-storage).
 
-External storage configuration for basic field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
+External storage configuration for basic field types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/5.0/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
 Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-data-externally)).
 
@@ -170,13 +170,12 @@ services:
 
 The `ibexa.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ibexa.api.storage_engine.legacy.connection`, you can pass the `ibexa.api.storage_engine.legacy.dbhandler` service.
 
-
 Also there can be several gateways per field type (one per storage engine).
 In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.
 
 !!! tip
 
-    Gateway configuration for built-in field types is located in [`core/src/lib/Resources/settings/storage_engines/`](https://github.com/ibexa/core/tree/main/src/lib/Resources/settings/storage_engines).
+    Gateway configuration for built-in field types is located in [`core/src/lib/Resources/settings/storage_engines/`](https://github.com/ibexa/core/tree/5.0/src/lib/Resources/settings/storage_engines).
 
 ## Storing field type settings externally
 

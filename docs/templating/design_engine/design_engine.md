@@ -52,7 +52,7 @@ Do this, for example, when you create a SiteAccess with a special design for a c
 
     You can check the final design theme lists with the following command:
 
-    ```shell
+    ```bash
     php bin/console debug:container --parameter=ibexa.design.list --format=json
     ```
 
@@ -90,7 +90,7 @@ ibexa_design_engine:
 
     You can check the final template directory list per theme with the following command:
 
-    ```shell
+    ```bash
     php bin/console debug:container --parameter=ibexa.design.templates.path_map --format=json
     ```
     `_override` is a theme added at the beginning of the current design theme list at template path resolution time.

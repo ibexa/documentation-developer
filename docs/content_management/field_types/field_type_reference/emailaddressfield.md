@@ -10,7 +10,7 @@ The EmailAddress field type represents an email address, in the form of a string
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The `Value` class of this field type contains the following properties:
 
@@ -21,13 +21,13 @@ The `Value` class of this field type contains the following properties:
 ``` php
 // Value object content example
 
-use Ibexa\Core\FieldType\EmailAddress\Type;
+use Ibexa\Core\FieldType\EmailAddress\Value;
 
 // Instantiates an EmailAddress Value object with default value (empty string)
-$emailaddressValue = new Type\Value();
+$emailaddressValue = new Value();
 
 // Email definition
-$emailaddressValue->email = "someuser@example.com";
+$emailaddressValue->email = 'someuser@example.com';
 ```
 
 ##### Constructor
@@ -38,10 +38,10 @@ It accepts a string as input.
 ``` php
 // Constructor example
 
-use Ibexa\Core\FieldType\EmailAddress\Type;
+use Ibexa\Core\FieldType\EmailAddress\Value;
 
 // Instantiates an EmailAddress Value object
-$emailaddressValue = new Type\Value( "someuser@example.com" );
+$emailaddressValue = new Value('someuser@example.com');
 ```
 
 ##### String representation

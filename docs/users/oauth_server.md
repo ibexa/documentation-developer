@@ -34,7 +34,7 @@ Add the tables needed by the bundle:
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
-```php
+``` php
 <?php
 
 return [
@@ -58,7 +58,7 @@ For more information, see [Generating encryption keys](https://oauth2.thephpleag
 
 Set the following environment variables:
 
-```
+```bash
 OAUTH2_PUBLIC_KEY_PATH=/somewhere/safe/key.public
 OAUTH2_PRIVATE_KEY_PATH=/somewhere/safe/key.private
 OAUTH2_PRIVATE_KEY_PASSPHRASE=some_passphrase_or_empty
@@ -89,7 +89,7 @@ In `config/packages/security.yaml`, uncomment the three following lines under th
 ```yaml
 security:
     #…
-    firewall:
+    firewalls:
         #…
 
         # Uncomment oauth2_token firewall if you wish to use product as an OAuth2 Server.
@@ -142,7 +142,7 @@ Other commands let you list all the configured clients (`league:oauth2-server:li
     For a list of all the commands that you can use maintain your clients, in a terminal, run `bin/console list league:oauth2-server`.
     To see usage details for each of the commands, run `bin/console help <command>` .
 
-    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
+    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/1.x/docs/basic-setup.md).
 
 ### Information needed by the client
 

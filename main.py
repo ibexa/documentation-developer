@@ -1,10 +1,15 @@
 import os
 import pprint
 import re
+import urllib.error
 import urllib.request
 from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
 from typing import List
+
+def _absolute_page_url(site, language, version, *parts):
+    return 'https://' + '/'.join((site, language, version) + parts)
+
 
 CARDS_TEMPLATE = """
 <div class="card-wrapper">
@@ -31,6 +36,7 @@ def define_env(env):
     @env.macro
     def include_file(filename, start_line=0, end_line=None, glue='', remove_indent=False):
         """
+        DEPRECATED: Use include_code instead.
         Include a file,
         optionally indicating start_line and end_line (start counting from 0)
         optionally set a glue string to lead every string except the first one (can be used for indent)
@@ -52,6 +58,18 @@ def define_env(env):
         return glue.join(line_range)
 
     @env.macro
+    def include_code(file_path, start_line=1, end_line=None, indent_level=0, remove_indent=False):
+        """
+        Include a file
+        file_path (string): The path to the file from project root
+        start_line (int): The line number to start including from (start counting from 1) - default is 1 (include first line)
+        end_line (int or None): The line number to end including to. If None, include until the end of the file - default is None (include end of file)
+        indent_level (int): The number of indent (4 spaces) to add to the beginning of each line - default is 0 (no indent added).
+        remove_indent (bool): Whether to remove absolute indent, the maximum of leading whitespaces without breaking relative indent - default is False (no indent removed)
+        """
+        return include_file(file_path, start_line-1, end_line, '    ' * indent_level, remove_indent).rstrip()
+
+    @env.macro
     def cards(pages, columns=1, style="cards", force_version=False):
         current_page = env.variables.page
         absolute_url = current_page.abs_url
@@ -62,8 +80,17 @@ def define_env(env):
         version = force_version or version
         version = os.getenv("READTHEDOCS_VERSION_NAME", version)
 
+        rtd_canonical = os.getenv("READTHEDOCS_CANONICAL_URL", "")
+        if rtd_canonical:
+            rtd_domain = re.search("//([^/]+)/", rtd_canonical)
+            if rtd_domain:
+                site = rtd_domain.group(1)
+
         if isinstance(pages, str):
             pages = [pages]
+        variables = env.conf.get('extra', {})
+        var_start = env.config['j2_variable_start_string']
+        var_end = env.config['j2_variable_end_string']
         cards = []
         for page_data in pages:
             if isinstance(page_data, tuple):
@@ -77,31 +104,21 @@ def define_env(env):
             if hash:
                 hash = '#' + hash
 
-            if re.search("^https://[^@/]+.ibexa.co", path):
+            if re.search(r"^https?://", path):
                 html = True
-                content = urllib.request.urlopen(path).read().decode('utf-8')
+                try:
+                    content = urllib.request.urlopen(path).read().decode('utf-8')
+                except urllib.error.URLError:
+                    content = ""
             elif re.search(".html$", path):
                 html = True
                 content = open("docs/%s" % path, "r").read()
-                page = '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    page
-                ))
+                page = _absolute_page_url(site, language, version, page)
             else:
                 html = False
                 path = path.rstrip('/')
                 content = open("docs/%s.md" % path, "r").read()
-                page = '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    path,
-                    hash
-                ))
+                page = _absolute_page_url(site, language, version, path, hash)
 
             if html:
                 match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
@@ -144,6 +161,8 @@ def define_env(env):
                 href = page
                 title = custom_title if custom_title else current_meta['short'] or current_meta['title']
                 description = custom_description if custom_description else current_meta['description'] or "&nbsp;"
+                title = resolve_variables(title, var_start, var_end, variables)
+                description = resolve_variables(description, var_start, var_end, variables)
 
             cards.append(
                 CARDS_TEMPLATE % (
@@ -231,6 +250,16 @@ def define_env(env):
     def release_note_entry_end() -> str:
         return "</div>"
 
+    def resolve_variables(text, var_start, var_end, variables):
+        """Replace variable references (e.g. [[= var =]]) with variables."""
+        pattern = re.escape(var_start) + r'\s*([\w.]+)\s*' + re.escape(var_end)
+        def replacer(match):
+            key = match.group(1).strip()
+            if key not in variables:
+                raise KeyError("Undefined variable '%s' used in cards macro" % key)
+            return str(variables[key])
+        return re.sub(pattern, replacer, text)
+
     def slugify(text: str) -> str:
         return text.lower().replace(' ', '-')
 
@@ -242,3 +271,16 @@ def define_env(env):
                 raise ValueError(
                     "Unknown category: {category}. Available categories are: {available_categories}".format(category=category, available_categories=" ".join(available_categories))
                     )
+
+
+def on_pre_page_macros(env):
+    """
+    Resolve variable references in the page's description front matter field
+    so that they are substituted before MkDocs renders the <meta> tag.
+    """
+    page = env._page
+    if page.meta and 'description' in page.meta:
+        page.meta['description'] = env.render(
+            markdown=page.meta['description'],
+            force_rendering=True
+        )

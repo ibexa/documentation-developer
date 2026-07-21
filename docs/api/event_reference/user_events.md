@@ -7,22 +7,22 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateUserEvent`|`UserService::createUser`|`UserCreateStruct $userCreateStruct`</br>`array $parentGroups`</br>`User|null $user`|
+|`BeforeCreateUserEvent`|`UserService::createUser`|`UserCreateStruct $userCreateStruct`</br>`array $parentGroups`</br>`?User $user`|
 |`CreateUserEvent`|`UserService::createUser`|`UserCreateStruct $userCreateStruct`</br>`array $parentGroups`</br>`User $user`|
-|`BeforeUpdateUserEvent`|`UserService::updateUser`|`User $user`</br>`UserUpdateStruct $userUpdateStruct`</br>`User|null $updatedUser`|
+|`BeforeUpdateUserEvent`|`UserService::updateUser`|`User $user`</br>`UserUpdateStruct $userUpdateStruct`</br>`?User $updatedUser`|
 |`UpdateUserEvent`|`UserService::updateUser`|`User $user`</br>`UserUpdateStruct $userUpdateStruct`</br>`User $updatedUser`|
-|`BeforeDeleteUserEvent`|`UserService::deleteUser`|`User $user`</br>`array|null $locations`|
+|`BeforeDeleteUserEvent`|`UserService::deleteUser`|`User $user`</br>`array or null $locations`|
 |`DeleteUserEvent`|`UserService::deleteUser`|`User $user`</br>`array $locations`|
 
 ## User groups
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateUserGroupEvent`|`UserService::createUserGroup`|`UserGroupCreateStruct $userGroupCreateStruct`</br>`UserGroup $parentGroup`</br>`UserGroup|null $userGroup`|
+|`BeforeCreateUserGroupEvent`|`UserService::createUserGroup`|`UserGroupCreateStruct $userGroupCreateStruct`</br>`UserGroup $parentGroup`</br>`?UserGroup $userGroup`|
 |`CreateUserGroupEvent`|`UserService::createUserGroup`|`UserGroupCreateStruct $userGroupCreateStruct`</br>`UserGroup $parentGroup`</br>`UserGroup $userGroup`|
-|`BeforeUpdateUserGroupEvent`|`UserService::updateUserGroup`|`UserGroup $userGroup`</br>`UserGroupUpdateStruct $userGroupUpdateStruct`</br>`UserGroup|null $updatedUserGroup`|
+|`BeforeUpdateUserGroupEvent`|`UserService::updateUserGroup`|`UserGroup $userGroup`</br>`UserGroupUpdateStruct $userGroupUpdateStruct`</br>`?UserGroup $updatedUserGroup`|
 |`UpdateUserGroupEvent`|`UserService::updateUserGroup`|`UserGroup $userGroup`</br>`UserGroupUpdateStruct $userGroupUpdateStruct`|
-|`BeforeDeleteUserGroupEvent`|`UserService::deleteUserGroup`|`UserGroup $userGroup`</br>`array|null $locations`|
+|`BeforeDeleteUserGroupEvent`|`UserService::deleteUserGroup`|`UserGroup $userGroup`</br>`array or null $locations`|
 |`DeleteUserGroupEvent`|`UserService::deleteUserGroup`|`UserGroup $userGroup`</br>`array $locations`|
 |`BeforeMoveUserGroupEvent`|`UserService::moveUserGroup`|`UserGroup $userGroup`</br>`UserGroup $newParent`|
 |`MoveUserGroupEvent`|`UserService::moveUserGroup`|`UserGroup $userGroup`</br>`UserGroup $newParent`|
@@ -40,7 +40,7 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeUpdateUserPasswordEvent`|`UserService::updateUserPassword`|`User $user`</br>`string $newPassword`</br>`User|null $updatedUser`|
+|`BeforeUpdateUserPasswordEvent`|`UserService::updateUserPassword`|`User $user`</br>`string $newPassword`</br>`?User $updatedUser`|
 |`UpdateUserPasswordEvent`|`UserService::updateUserPassword`|`User $user`</br>`string $newPassword`</br>`User $updatedUser`|
-|`BeforeUpdateUserTokenEvent`|`UserService::updateUserToken`|`User $user`</br>`UserTokenUpdateStruct $userTokenUpdateStruct`</br>`User|null $updatedUser`|
+|`BeforeUpdateUserTokenEvent`|`UserService::updateUserToken`|`User $user`</br>`UserTokenUpdateStruct $userTokenUpdateStruct`</br>`?User $updatedUser`|
 |`UpdateUserTokenEvent`|`UserService::updateUserToken`|`User $user`</br>`UserTokenUpdateStruct $userTokenUpdateStruct`</br>`User $updatedUser`|

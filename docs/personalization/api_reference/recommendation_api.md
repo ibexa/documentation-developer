@@ -1,6 +1,7 @@
 ---
 description: Use HTTP GET request method to render recommendations.
 month_change: false
+exclude_from_llmstxt: true
 ---
 
 # Recommendation API
@@ -39,7 +40,7 @@ For the request to return recommendations, you must provide the following parame
 ### Customizing the recommendation request
 
 You can customize the recommendation request by using additional query string parameters.
-For example, you can send the following request to the Personalization server: 
+For example, you can send the following request to the Personalization server:
 
 `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
 
@@ -61,7 +62,7 @@ You can use the following parameters to customize a request:
 |`recommendCategory`| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field `category`. Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as `Sport/Football` and `America/USA`. Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the `Sport/Cricket` category, it must open with the "field" template. If clicked in the `America/Canada` category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
 |`usetimeslot`| |If set to true, configured time-slots are active. As a result, recommendations are calculated for specific time frames and they have priority over the recommendations from the main model in the hours for which time slots are configured. Time slots must be enabled by and configured [[= product_name_base =]] Team.|true|
 
-##### Submodel parameters
+#### Submodel parameters
 
 If your recommendation model uses submodels to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group.
 
@@ -91,11 +92,11 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 
     `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
 
-##### Segment parameters
+#### Segment parameters
 
 If you have configured segments, you can use them in the recommendation model. Pass the following parameter to request recommendations for a specific segment or segment group.
 
-Parameter|Example|Description|Value|
+|Parameter|Example|Description|Value|
 |---|---|---|---|
 |`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
 
@@ -268,7 +269,7 @@ The recommendation service supports the following HTTP headers to enable cache c
 |Response|`Expires`|Gives the date/time after which the response is outdated|`Expires: Thu, 01 Dec 2013 16:00:00 GMT`|
 
 The last modification timestamp indicates a change that could influence the recommendation response.
-It depends on an updated recommendation calculation, an update of an item or certain scenario configuration changes. 
+It depends on an updated recommendation calculation, an update of an item or certain scenario configuration changes.
 
 The expiration timestamp is a best-effort prediction based on the model configuration and provided context.
 The shortest expiration period is 5 minutes from the request time, the longest is 24 hours.

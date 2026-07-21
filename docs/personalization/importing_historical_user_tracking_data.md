@@ -1,5 +1,6 @@
 ---
 description: Use historical user tracking data to build user profiles and generate better recommendations.
+exclude_from_llmstxt: true
 ---
 
 # Importing historical user tracking data
@@ -36,7 +37,7 @@ Therefore a signature parameter needs to be added, which is calculated like the 
 
 With a license key of "8695-1828-92810-5535-4239" and a purchase of certain products, there can be the following signature values:
 
-```
+```text
 https://event.perso.ibexa.co/api/00000/buy/johndoe/1/11?fullprice=19.99EUR&overridetimestamp=2012-01-01T11%3A00%3A00&quantity=1&signature=d0026f017ae823f19530d93318c5a2f6
 https://event.perso.ibexa.co/api/00000/buy/johndoe/1/94?fullprice=23.99EUR&overridetimestamp=2012-01-02T11%3A00%3A00&quantity=5&signature=53ae5744879d5a3ae833f3ef34109b44
 https://event.perso.ibexa.co/api/00000/buy/johndoe/1/78?fullprice=7.59EUR&overridetimestamp=2012-01-03T11%3A00%3A00&quantity=1&signature=d73e76754fb333e9733936bbd11bb5cd

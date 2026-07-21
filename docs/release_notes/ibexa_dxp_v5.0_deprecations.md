@@ -142,7 +142,6 @@ Several field type identifiers have changed.
 | `ezurl`                           | `ibexa_url`                       |
 | `ezuser`                          | `ibexa_user`                      |
 
-
 ## PHP API classes and methods
 
 !!! note "[[= product_name_base =]] Rector"
@@ -154,7 +153,7 @@ Several field type identifiers have changed.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` | 
+| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` |
 | `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentUpdateLimitations` | `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentUpdateLimitations` |
 | `\Ibexa\Contracts\AdminUi\UniversalDiscovery\Provider::getRestFormat` | Removed |
 | `\Ibexa\AdminUi\Form\Type\Search\DateIntervalType` | `\Ibexa\AdminUi\Form\Type\Date\DateIntervalType`|
@@ -459,6 +458,8 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | `\Ibexa\Rest\Server\Controller\User::refreshSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 | `\Ibexa\Rest\Server\Controller\User::deleteSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 
+To create a [JWT token](rest_api_authentication.md#jwt-authentication), XML isn't supported anymore.
+
 ### ibexa/scheduler
 
 | Old FQN                                              | New FQN / Comment                                                                |
@@ -605,7 +606,6 @@ In `migrations`, it makes it easier to integrate custom data types, especially w
 | `Ibexa\Migration\Generator\UserGroup\StepBuilder\Update` | `build` |
 | `Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver` | `resolve` |
 | `Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface` | `resolve` |
-
 
 ??? note "Changes in `Ibexa\Migration\Generator\StepBuilder\StepFactoryInterface`"
 

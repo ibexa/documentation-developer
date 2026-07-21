@@ -10,30 +10,32 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 ### Value object
 
-##### Properties
+#### Properties
 
 | Attribute | Type                                     | Description      | Example   |
 |-----------|------------------------------------------|------------------|-----------|
-| `authors` | `\Ibexa\Core\FieldType\Author\Author[] ` | List of authors. | See below |
+| `authors` | `\Ibexa\Core\FieldType\Author\Author[]` | List of authors. | See below |
 
 Example:
 
 ``` php
-$authorList = Author\Value([
+use Ibexa\Core\FieldType\Author;
+
+$authorList = new Author\Value([
    new Author\Author([
        'id' => 1,
        'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com'
+       'email' => 'boba.fett@example.com',
    ]),
    new Author\Author([
        'id' => 2,
        'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com'
+       'email' => 'darth.vader@example.com',
    ]),
 ]);
 ```
 
-### Hash format
+#### Hash format
 
 The hash format mostly matches the value object. It has the following key `authors`.
 
@@ -44,17 +46,17 @@ Example
     [
        'id' => 1,
        'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com'
+       'email' => 'boba.fett@example.com',
     ],
     [
        'id' => 2,
        'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com'
-    ]
-]
+       'email' => 'darth.vader@example.com',
+    ],
+];
 ```
 
-##### String representation
+#### String representation
 
 The string contains all the authors with their names and emails.
 
@@ -85,6 +87,6 @@ Following `defaultAuthor` default value options are available as constants in 
 use Ibexa\Core\FieldType\Author\Type;
 
 $settings = [
-    "defaultAuthor" => Type::DEFAULT_VALUE_EMPTY
+    'defaultAuthor' => Type::DEFAULT_VALUE_EMPTY,
 ];
 ```

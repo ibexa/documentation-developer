@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM and SEO.
+description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, product catalog and SEO.
 ---
 <!-- vale VariablesVersion = NO -->
 
@@ -19,7 +19,7 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 #### Company self-registration
 
-Now, a prospective buyer can apply to [create a company account](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/) on a seller's website.
+Now, a prospective buyer can apply to [create a company account](https://doc.ibexa.co/projects/userguide/en/4.3/shop_administration/company_self_registration/) on a seller's website.
 
 The application goes through an approval process
 where admin specifies the customer group and sales representative for the new company account.
@@ -38,10 +38,10 @@ By adding additional steps and options, you can build a process that perfectly m
 ### SEO configuration exposed
 
 SEO configuration gains a more prominent place on the content type editing screen.
-For example, to enable SEO, you now have to edit the content type that you want to modify, 
+For example, to enable SEO, you now have to edit the content type that you want to modify,
 scroll down to the SEO section and switch the **Enable SEO for this content type** toggle.
 
-For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/work_with_seo/).
+For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/4.3/search_engine_optimization/work_with_seo/).
 
 !!! note
 
@@ -49,18 +49,18 @@ For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguid
 
 ## Other changes
 
-### PIM improvements
+### Product catalog improvements
 
 #### Price Sort Clauses
 
 When querying for products, you can now use one of two price-related Sort Clauses:
 
-- [`BasePrice` Sort Clause](https://doc.ibexa.co/en/master/search/sort_clause_reference/baseprice_sort_clause/) sorts results by the products' base prices
-- [`CustomPrice` Sort Clause](https://doc.ibexa.co/en/master/search/sort_clause_reference/customprice_sort_clause/) enables sorting by the custom price configured for the provided customer group.
+- [`BasePrice` Sort Clause](https://doc.ibexa.co/en/5.0/search/sort_clause_reference/baseprice_sort_clause/) sorts results by the products' base prices
+- [`CustomPrice` Sort Clause](https://doc.ibexa.co/en/5.0/search/sort_clause_reference/customprice_sort_clause/) enables sorting by the custom price configured for the provided customer group.
 
 #### Usability improvements
 
-This release also includes a number of usability improvements in PIM,
+This release also includes a number of usability improvements in the product catalog,
 such as full information about available attribute values or improved display of Selection attributes.
 
 You can now move assets between collections by using drag and drop.
@@ -73,7 +73,7 @@ From product's **Completeness** tab you can now jump directly to editing the pro
 
 #### Catalog filters
 
-In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/master/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
+In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/4.3/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
 Built-in filters are also divided into groups now for easier browsing.
 
 Filtering by the Color attribute is now possible.
@@ -94,7 +94,7 @@ For more information, refer to upgrade documentation.
 
 ### API improvements
 
-The catalogs functionality in PIM is now covered in REST API, including:
+The catalogs functionality in the product catalog is now covered in REST API, including:
 
 - [Getting catalog list](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-filter-catalogs)
 - [Creating, modifying, copying and deleting catalogs](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-catalog)
@@ -104,7 +104,7 @@ The catalogs functionality in PIM is now covered in REST API, including:
 ### Personalization improvements
 
 Now, as a Personalization admin, after editing a model in the back office,
-[you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#trigger-model-build), use the **Trigger model build** button to build this model with your modifications.
+[you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/configure_models/#trigger-model-build), use the **Trigger model build** button to build this model with your modifications.
 
 ### Taxonomy improvements
 
@@ -115,8 +115,8 @@ The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ### Other improvements
 
-- You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/master/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
-- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/master/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a content item.
+- You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/5.0/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
+- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a content item.
 
 ## Full changelog
 
@@ -126,7 +126,7 @@ The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ## v4.3.1
 
-### New REST API endpoints 
+### New REST API endpoints
 
 You can now use new REST API routes that confirm whether the User is logged in,
 without invoking any other route:
@@ -150,11 +150,11 @@ You can retrieve the defined languages with:
 The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher`.
 It allows REST API endpoints to work with cookie-based authentication.
 
-### PIM improvements
+### Product catalog improvements
 
 #### HTTP cache support for product-related responses
 
-Customer group is now part of user context, which enables HTTP cache to support 
+Customer group is now part of user context, which enables HTTP cache to support
 product-related responses.
 
 #### Ability to retrieve a customer group
@@ -166,6 +166,6 @@ You can now retrieve customer group by implementing the `Ibexa\Contracts\Product
 - When `UserService::updateUserPassword` method throws `ContentFieldValidationException`,
 it now uses the format accessible via `ContentFieldValidationException::getFieldErrors`:
 
-```
+```text
 array<<int fieldId>, array<<string language code>, array<\Ibexa\Contracts\Core\FieldType\ValidationError>>>
 ```

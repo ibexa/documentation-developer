@@ -65,6 +65,37 @@ jobs:
                         exit 1
                     fi
 
+    python-tests:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v3
+              with:
+                  python-version: "3.13"
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements-dev.txt
+
+            - name: Run pytest
+              run: pytest
+
+    markdownlint:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'pull_request'
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Run markdownlint
+              uses: DavidAnson/markdownlint-cli2-action@v20
+              with:
+                  globs: "docs/**/*.md"
+
     vale-check:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
@@ -77,12 +108,13 @@ jobs:
                   TOKEN: ${{ secrets.EZROBOT_PAT }}
               run: |
                   curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
-                  unzip vale.zip
+                  unzip vale.zip -d vale
                   rm vale.zip
-                  mv vale-styles-main/* vale-styles-main/.vale.ini .
+                  rm -rf vale/vale-styles-main/tests
+                  mv vale/vale-styles-main/* vale/vale-styles-main/.vale.ini .
 
             - name: Run Vale.sh
-              uses: errata-ai/vale-action@reviewdog
+              uses: vale-cli/vale-action@v2
               with:
                   reporter: github-check
                   filter_mode: added

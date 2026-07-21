@@ -1,7 +1,7 @@
 ---
 description: Manage shopping lists from PHP API or REST API.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list APIs
@@ -40,8 +40,12 @@ and with sort clauses from the [`SortClause` namespace](/api/php_api/php_api_ref
 
 To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
-```php
-$lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery());
+``` php
+use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
+use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
+
+/** @var ShoppingListServiceInterface $shoppingListService */
+$lists = $shoppingListService->findShoppingLists(new ShoppingListQuery());
 ```
 
 For more information about the shopping list search,
@@ -56,28 +60,36 @@ If you forgot to retrieve this result in your variable, the local object isn't s
 In the following example, if some assignments (`$list =`) are removed, the dumped `$list` object doesn't contain the stored shopping list at that time.
 If only the middle assignment is removed, the last dumped variable contains the up-to-date shopping list.
 
-```php
-$list = $this->shoppingListService->getOrCreateDefaultShoppingList();
+``` php
+use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
+use Ibexa\Contracts\ShoppingList\Value\EntryAddStruct;
+
+/**
+ * @var ShoppingListServiceInterface $shoppingListService
+ * @var string $productCode
+ */
+$list = $shoppingListService->getOrCreateDefaultShoppingList();
 dump($list);
-$list = $this->shoppingListService->clearShoppingList($list);
+$list = $shoppingListService->clearShoppingList($list);
 dump($list);
-$list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
+$list = $shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
 dump($list);
 ```
+
 When adding array of entries with `ShoppingListService::addEntries()`,
 an exception is thrown if at least product is already in the shopping list and no entries are added to the list.
 
 The following example adds products to a shopping list while avoiding error on duplicated entries.
 In this example the duplicates are ignored, but you could extend it to, for example, notify the user about each found duplicate.
 
-```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 39, 50) =]]
+``` php
+[[= include_code('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 40, 50, remove_indent=True) =]]
 ```
 
 The following example moves products from a source shopping list to a target shopping list after filtering out products already in the target list:
 
-```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 42, 54) =]]
+``` php
+[[= include_code('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 43, 54, remove_indent=True) =]]
 ```
 
 ### Transfer between shopping list and cart
@@ -89,8 +101,8 @@ The following example starts with an empty cart and an empty shopping list,
 then adds a product to the shopping list and copies it twice to the cart.
 It continues with moving the whole cart to an empty list.
 
-```php
-[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 69, 92) =]]
+``` php
+[[= include_code('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 70, 92, remove_indent=True) =]]
 ```
 
 ### Events

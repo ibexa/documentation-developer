@@ -21,11 +21,13 @@ They're described below in further detail.
 
 To be able to query data properly an indexable field type also is required to return search specification. You must return an associative array of `Ibexa\Contracts\Core\Search\FieldType` instances from this method, which could look like:
 
-```
-[
-    'url'  => new Search\FieldType\StringField(),
+``` php
+use Ibexa\Contracts\Core\Search;
+
+return [
+    'url' => new Search\FieldType\StringField(),
     'text' => new Search\FieldType\StringField(),
-]
+];
 ```
 
 This example from the `Url` field type shows that the field type always returns two indexable values, both strings.
@@ -46,7 +48,7 @@ Default field is typically used by the [`Field` Sort Clause](field_sort_clause.m
 ## Register `Indexable` implementations
 
 Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ibexa.field_type.indexable` tag.
-Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
+Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/5.0/src/lib/Resources/settings/indexable_fieldtypes.yml):
 
 ``` yaml
 Ibexa\Core\FieldType\Keyword\SearchField:
@@ -105,7 +107,7 @@ You can define custom `dynamicField` definitions to match, for example, on your 
 
 You could also define a custom field definition for certain fields, like for the name field in an article:
 
-```
+```xml
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>
 ```
 

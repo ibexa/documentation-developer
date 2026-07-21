@@ -117,7 +117,7 @@ You do this manually by following this procedure:
 
 1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the service container.
 
-1. Run the following command to discover the names of the new entity managers. 
+1. Run the following command to discover the names of the new entity managers.
     Take note of the names that you discover:
 
     `php bin/console debug:container --parameter=doctrine.entity_managers --format=json | grep ibexa_`
@@ -178,7 +178,7 @@ mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade
 ### v3.3.4
 
 #### Migration Bundle
-    
+
 Remove `Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],`
 from `config/bundles.php` before running `composer require`.
 
@@ -229,13 +229,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
@@ -279,13 +279,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
@@ -303,7 +303,7 @@ Run the following scripts:
     The following `sed` commands should update the relevant lines.
     Use them with caution and properly check the result:
 
-    ```shell
+    ```bash
     sed -i -E 's/"symfony\/(.+)": "5.3.*"/"symfony\/\1": "5.4.*"/' composer.json;
     sed -i -E 's/"require": "5.3.*"/"require": "5.4.*"/' composer.json;
     ```
@@ -313,7 +313,7 @@ Run the following scripts:
     You may need to adapt configuration to fit the new minor version of Symfony.
     For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
     
-    ```shell
+    ```bash
     sed -i -E '/ *timeout: [0-9]+/d' ./config/packages/nelmio_solarium.yaml ./config/packages/ezcommerce/ezcommerce_advanced.yaml
     composer update "symfony/*"
     ```
@@ -330,7 +330,6 @@ composer ibexa:setup --platformsh
 
 Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
 merge with your custom settings if needed, and commit them to Git.
-
 
 ### v3.3.14
 
@@ -403,13 +402,13 @@ On Experience or Commerce edition, run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.24-to-3.3.25.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.24-to-3.3.25.sql
     ```
 
@@ -418,8 +417,7 @@ On Experience or Commerce edition, run the following scripts:
 #### Ensure password safety
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
-unless you can verify based on your log files that the vulnerability hasn't been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+unless you can verify based on your log files that the vulnerability hasn't been exploited, you should revoke passwords for all affected users.
 
 ### v3.3.34
 
@@ -449,8 +447,8 @@ No additional steps needed.
 
 This release contains security fixes.
 For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
-For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected. 
-If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action, for example by revoking passwords for all affected users.
 
 ##### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
 
@@ -494,6 +492,7 @@ There are no additional update steps to execute.
 This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
+
 ``` bash
 php bin/console ibexa:content:remove-duplicate-fields
 ```

@@ -10,3 +10,18 @@ services:
     App\Security\Limitation\Mapper\CustomLimitationValueMapper:
         tags:
             - { name: 'ibexa.admin_ui.limitation.mapper.value', limitationType: 'CustomLimitation' }
+
+    App\Security\FormPolicyProvider:
+        tags:
+            - { name: ibexa.permissions.limitation_type }
+
+    App\Security\FormSubmissionsTabDecorator:
+        parent: Ibexa\FormBuilder\Tab\LocationView\SubmissionsTab
+        decorates: 'Ibexa\FormBuilder\Tab\LocationView\SubmissionsTab'
+        arguments:
+            $innerTab: '@.inner'
+
+    App\Security\FormSubmissionServiceDecorator:
+        decorates: Ibexa\FormBuilder\FormSubmission\FormSubmissionService
+        arguments:
+            $innerService: '@App\Security\FormSubmissionServiceDecorator.inner'

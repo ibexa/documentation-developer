@@ -11,7 +11,7 @@ The following example shows how to add a Meta tab with automatically assigned Ta
 
 ## Add Meta tab
 
-Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment field type]([[= user_doc =]]/content_management/taxonomy/work_with_tags/#assign-tag-to-content-from-taxonomy-tree).
+Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment field type]([[= user_doc =]]/content_management/taxonomy/work_with_tags/#add-taxonomy-entry-assignment-field-to-content-type).
 
 Next, provide the semantic configuration under the `ibexa.system.<scope>.admin_ui_forms` [configuration key](configuration.md#configuration-files):
 
@@ -32,7 +32,6 @@ ibexa:
 `meta` - when set to `true`, puts the declared field type in the Meta tab
 
 ![Meta tab](tab_switcher.png)
-
 
 ### Configure field groups for Meta tab
 
@@ -66,7 +65,6 @@ ibexa:
                     meta_field_groups_list: []
 ```
 
-
 The `meta_field_groups_list` configuration can be overridden.
 
 ## Add custom tab
@@ -74,7 +72,7 @@ The `meta_field_groups_list` configuration can be overridden.
 First, create an event listener in the `src/EventListener/TextAnchorMenuTabListener.php`:
 
 ``` php hl_lines="28 31"
-[[= include_file('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
+[[= include_code('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
 ```
 
 A new custom tab is defined in the line 28, the line 31 defines items for the second level.

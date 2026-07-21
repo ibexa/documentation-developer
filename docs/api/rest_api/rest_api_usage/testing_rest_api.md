@@ -25,7 +25,7 @@ You can use [Symfony HttpClient]([[= symfony_doc =]]/http_client.html) to test R
 Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
 
 ``` php
-[[= include_file('code_samples/api/rest_api/load_content.php', 2, 9) =]]
+[[= include_code('code_samples/api/rest_api/load_content.php', 3, 9, remove_indent=True) =]]
 ```
 
 `$resource` URI should be edited to address the right domain.
