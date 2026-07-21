@@ -160,7 +160,7 @@ A [search engine](search_engines.md) can be added to the cluster.
 The following sequence of commands:
 
 1. Adds the Elasticsearch container
-2. Sets the Elasticsearch version to supported 8 - a full version number is required, see [Elasticsearch Docker image](https://hub.docker.com/_/elasticsearch)
+2. Sets the Elasticsearch version to 8 (default is 9 which is not supported, 7 is supported) - a full version number is required, see [Elasticsearch Docker image](https://hub.docker.com/_/elasticsearch)
 3. Sets Elasticsearch as the search engine
 4. Restarts the DDEV cluster and clears application cache
 5. Injects the schema and reindexes the content
