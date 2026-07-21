@@ -7,7 +7,12 @@
     metadata:
         mainLanguageCode: eng-GB
         name: 'Updated folder'
+        initialLanguageCode: eng-GB
+        remoteId: f5c88a2209584891056f987fd965b0ba
+        mainLocationId: 5
+        creatorId: 14
         ownerId: 14
+        publishedDate: '2002-10-06T15:19:56+00:00'
         alwaysAvailable: false
         modificationDate: '2025-06-15T10:00:00+00:00'
     fields:

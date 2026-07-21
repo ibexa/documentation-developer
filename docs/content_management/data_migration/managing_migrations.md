@@ -184,19 +184,19 @@ You can also set a reference value manually with the `set` mode, and use the `li
 ## Available reference types
 
 - `content`
-    - content_id
-    - location_id
-    - path
+    - `content_id`
+    - `location_id`
+    - `path`
 - `content_type`
-    - content_type_id
+    - `content_type_id`
 - `language`
-    - language_id
-    - language_code
+    - `language_id`
+    - `language_code`
 - `role`
-    - role_id
+    - `role_id`
 - `section`
-    - section_id
+    - `section_id`
 - `user`
-    - user_id
+    - `user_id`
 - `user_group`
-    - user_group_id
+    - `user_group_id`

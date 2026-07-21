@@ -58,7 +58,7 @@ The following data migration step modes are available:
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |          |
 | `discount`             | &#10004; | &#10004; |          |          |          |
 | `discount_code`        | &#10004; |          |          |          |          |
-| `language`             | &#10004; | &#10004; |          |          |          |
+| `language`             | &#10004; |          |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; | &#10004; |
 | `object_state`         | &#10004; |          |          |          |          |
 | `object_state_group`   | &#10004; |          |          |          |          |
@@ -218,10 +218,10 @@ Non-matching exceptions throw immediately, halting the migration process and ret
 
 ### Service calls
 
-You can call a method on a service from the dependency injection container by using the `service_call` migration type.
+You can call a method of a service by using the `service_call` migration type.
 Use it when a migration requires custom logic that isn't covered by the built-in migration types.
 
-A `service_call` migration requires the `service` and `method` properties, and accepts an optional `arguments` list that is passed to the method:
+A `service_call` migration requires the `service` and `method` properties, and accepts an optional `arguments` list passed to the method:
 
 ```yaml
 [[= include_file('code_samples/data_migration/examples/service_call_step.yaml') =]]
@@ -326,8 +326,7 @@ The following examples show what data you can import using data migrations.
 The following example shows how to create a content type with two field definitions.
 
 The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
-The example also shows the optional metadata keys: `nameSchema`, `urlAliasSchema`, `container`, `defaultAlwaysAvailable`, `defaultSortField`, and `defaultSortOrder`.
-You can additionally set `remoteId` and `creatorId`.
+The example also shows the optional metadata keys: `nameSchema`, `urlAliasSchema`, `container`, `defaultAlwaysAvailable`, `defaultSortField`, `defaultSortOrder`, `remoteId`, and `creatorId`.
 
 The default values of field definition properties mirror the underlying PHP API, for example:
 
@@ -342,7 +341,8 @@ The default values of field definition properties mirror the underlying PHP API,
 
 The following example shows how to create two content items: a folder and an article inside it.
 
-When creating a content item, three metadata keys are required: `contentType`, `mainTranslation`, and `parentLocationId`.
+When creating a content item, three metadata keys are required: `contentType`, `parentLocationId`, and `mainTranslation`.
+The `mainTranslation` property sets content item's main language.
 
 To use the location ID of the folder, which is created automatically by the system, you can use a [reference](managing_migrations.md#references).
 In this case you assign the `parent_folder_location_id` reference name to the location ID, and then use it when creating the article.
@@ -353,7 +353,7 @@ In this case you assign the `parent_folder_location_id` reference name to the lo
 
 The following example shows the optional `metadata` and `location` properties that you can set when creating a content item.
 Instead of `parentLocationId`, you can identify the parent location with `parentLocationRemoteId`.
-`sortField` takes the numeric value of one of the `SORT_FIELD_*` constants from the [`Location` class](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html), and `sortOrder` takes `ASC` or `DESC`:
+`sortField` takes the numeric value of one of the `SORT_FIELD_*` constants from the [`Location` class](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html), and `sortOrder` takes `ASC` or `DESC`, case insensitive:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_content_options.yaml') =]]
@@ -361,7 +361,7 @@ Instead of `parentLocationId`, you can identify the parent location with `parent
 
 Use the `update` mode to modify an existing content item.
 You can match the content item by `content_remote_id`, `location_id`, `parent_location_id`, or `content_type_identifier`.
-All `metadata` keys are optional: `initialLanguageCode`, `creatorId`, `remoteId`, `alwaysAvailable`, `mainLanguageCode`, `mainLocationId`, `modificationDate`, `publishedDate`, `name`, and `ownerId`:
+All `metadata` keys are optional: [`initialLanguageCode`](creating_content.md#translating-content), [`mainLanguageCode`](content_model.md#content-information), `creatorId`, `remoteId`, `alwaysAvailable`, `mainLocationId`, `modificationDate`, `publishedDate`, `name`, and `ownerId`.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_content.yaml') =]]
@@ -473,13 +473,6 @@ The required metadata keys are: `languageCode`, `name`, and `enabled`.
 [[= include_file('code_samples/data_migration/examples/create_language.yaml') =]]
 ```
 
-You can also update an existing language, identified by its `languageCode`.
-Both `metadata` keys are optional:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/update_language.yaml') =]]
-```
-
 ### Product catalog
 
 #### Attributes and attribute groups
@@ -557,12 +550,13 @@ The following example shows how to create a price for a product identified by it
 
 #### Product availability
 
-The following example shows how to define the availability and stock of a product identified by its code.
-When `is_infinite` is set to `true`, `stock` can be `null`:
+The following example shows how to define the availability and stock of a product identified by its code:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_availability.yaml') =]]
 ```
+
+When `is_infinite` is set to `true`, `stock` must be `null`.
 
 #### Customer groups
 

@@ -4,6 +4,8 @@
     metadata:
         identifier: blog_post
         mainTranslation: eng-GB
+        remoteId: blog_post_content_type
+        creatorId: 14
         nameSchema: '<title>'
         urlAliasSchema: '<title>'
         container: true

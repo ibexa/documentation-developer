@@ -1,7 +1,0 @@
--
-    type: language
-    mode: update
-    languageCode: fre-FR
-    metadata:
-        name: French
-        enabled: true

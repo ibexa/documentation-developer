@@ -13,6 +13,7 @@
             identifier: standard
     location:
         parentLocationId: 2
+        # parentLocationRemoteId: root_location
         locationRemoteId: options_folder_location
         hidden: false
         priority: 10
