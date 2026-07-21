@@ -282,10 +282,6 @@ The Payment Owner (`PaymentOwner`) limitation specifies whether the user can mod
 |"self"|"self"|Users can access only their own payments. |
 |"all"| none |Users can access all payments.|
 
-## Personalization access limitation
-
-The Personalization limitation specifies the SiteAccesses for which the user can view or modify the scenario configuration.
-
 ## Product Type limitation
 
 The Product Type (`ProductType`) limitation specifies whether the user has access to products belonging to a specific product type.
