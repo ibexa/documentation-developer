@@ -265,3 +265,6 @@ https://doc.ibexa.co/projects/userguide/en/4.3/shop_administration/company_self_
 
 # Scroll-to-text-fragment (#:~:text=...) not targetting a single HTML element, Lychee cannot resolve this yet
 https://content.raptorservices.com/help-center/user-tracking-understanding-soft-ids-hard-ids-raptor-identity-matching#:~:text=IDs%3A-,UserId%20%28Website%20ID
+
+# Anchor not visible on the page, hidden in an expendable section
+https://packagist.org/packages/twig/twig#v3.11.3
