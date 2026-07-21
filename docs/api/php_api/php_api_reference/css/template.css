@@ -671,7 +671,7 @@ figcaption {
 }
 
 a.external:not(.card) {
-    background: url(../../../../images/open-in-new.svg) no-repeat 100% -67%;
+    background: url(../../../../images/open-in-new.svg) no-repeat 100% -2px;
     padding-right: 12px;
 }
 
