@@ -17,7 +17,7 @@ provided by the `ibexa/fieldtype-address` package.
 
 ## PHP API field type
 
-### Inputs:
+### Inputs
 
 | Type     | Description                                   | Example           |
 |----------|-----------------------------------------------|-------------------|
@@ -27,7 +27,9 @@ provided by the `ibexa/fieldtype-address` package.
 
 ### Example input
 
-```php
+``` php
+use Ibexa\FieldTypeAddress\FieldType;
+
 new FieldType\Value(
     'My home address',
     'PL',
@@ -112,7 +114,7 @@ ibexa.address.field.tax_number.billing_address.DE
 An event listener can also provide validation by using either one of [constraints provided by Symfony]([[= symfony_doc =]]/validation.html#supported-constraints),
 or a custom constraint.
 
-```php
+``` php
 use Ibexa\Contracts\FieldTypeAddress\Event\MapFieldEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;

@@ -2,9 +2,9 @@
 
 This field type stores one or several comma-separated keywords as a string or array of strings.
 
-| Name      | Internal name   | Expected input    |
-|-----------|-----------------|-------------------|
-| `Keyword` | `ibexa_keyword` | `string[]|string` |
+| Name      | Internal name   | Expected input         |
+|-----------|-----------------|------------------------|
+| `Keyword` | `ibexa_keyword` | `string[]` or `string` |
 
 ## PHP API field type
 
@@ -18,13 +18,13 @@ This field type stores one or several comma-separated keywords as a string or ar
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
-| Property | Type       | Description                            |
-|----------|------------|----------------------------------------|
-| `$value` | `string[]` | Holds an array of keywords as strings. |
+| Property  | Type       | Description                            |
+|-----------|------------|----------------------------------------|
+| `$values` | `string[]` | Holds an array of keywords as strings. |
 
 ``` php
 // Value object content example
@@ -34,7 +34,7 @@ use Ibexa\Core\FieldType\Keyword\Value;
 $keywordValue = new Value();
 
 // Sets an array of keywords as a value
-$keyword->value = [ "php", "css3", "html5", "Ibexa Platform" ];
+$keywordValue->values = ['php', 'css3', 'html5', 'Ibexa Platform'];
 ```
 
 #### Constructor
@@ -48,9 +48,9 @@ It expects a list of keywords, either comma-separated in a string or as an array
 use Ibexa\Core\FieldType\Keyword\Value;
 
 // Instantiates a Value object with an array of keywords
-$keywordValue = new Value( [ "php5", "css3", "html5" ] );
+$keywordValue = new Value(['php5', 'css3', 'html5']);
 
 // Instantiates a Value object with a list of keywords in a string
 // This is equivalent to the example above
-$keywordValue = new Value( "php5,css3,html5" );
+$keywordValue = new Value('php5,css3,html5');
 ```

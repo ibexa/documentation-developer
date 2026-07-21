@@ -47,7 +47,7 @@ Here, you define a new class for your event based on `Ibexa\Contracts\Calendar\E
 
 Next, create `src/Calendar/Holidays/EventType.php`:
 
-```php hl_lines="20-23"
+``` php hl_lines="20-23"
 [[= include_code('code_samples/back_office/calendar/src/Calendar/Holidays/EventType.php') =]]
 ```
 
@@ -68,7 +68,7 @@ An event source must implement `Ibexa\Contracts\Calendar\EventSource\EventSource
 One such built-in implementation is `InMemoryEventSource`.
 To add an in-memory collection as an event source, create `src/Calendar/Holidays/EventSourceFactory.php`:
 
-```php
+``` php
 [[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 20) =]]
 [[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 26, 36) =]]
 
@@ -81,10 +81,15 @@ To add an in-memory collection as an event source, create `src/Calendar/Holidays
     For example:
 
     ``` php
+    use App\Calendar\Holidays\Event;
+    use Ibexa\Contracts\Calendar\EventCollection;
+
+    /** @var \App\Calendar\Holidays\EventType $eventType */
     $collection = new EventCollection([
-        $this->createEvent("Event 1", new DateTime("2024-01-01")),
-        $this->createEvent("Event 2", new DateTime("2024-01-02")),
+        new Event('Event 1', new DateTime('2024-01-01'), $eventType),
+        new Event('Event 2', new DateTime('2024-01-02'), $eventType),
         // ...
+    ]);
     ```
 
 Next, register the event source as a service:

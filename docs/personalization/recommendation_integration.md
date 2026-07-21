@@ -1,5 +1,6 @@
 ---
 description: Methods for REST call with Personalization server.
+exclude_from_llmstxt: true
 ---
 
 # Recommendation integration

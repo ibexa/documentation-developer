@@ -17,8 +17,12 @@ composer require ibexa/shopping-list
 The associated Symfony Flex recipe configures the bundle and its routes.
 
 Check that the following line has been added by the recipe to `config/bundles.php` file's array:
-```php
+
+``` php
+return [
+    // ...
     Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle::class => ['all' => true],
+];
 ```
 
 And that you have a `config/routes/ibexa_shopping_list.yaml` file configuring the following routes:

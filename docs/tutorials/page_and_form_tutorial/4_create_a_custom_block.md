@@ -15,7 +15,7 @@ To create a custom block from scratch you need four elements:
 - a listener
 - the listener registered as a service
 
-### Block configuration
+## Block configuration
 
 In `config/packages/ibexa_fieldtype_page.yaml` add the following block under the `blocks` key:
 
@@ -26,7 +26,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following block under the
 This configuration defines one attribute, `parent`.
 Use it to select the folder containing tips.
 
-### Block template
+## Block template
 
 You also need to create the block template, `templates/blocks/random/default.html.twig`:
 
@@ -34,7 +34,7 @@ You also need to create the block template, `templates/blocks/random/default.ht
 [[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/random/default.html.twig') =]]
 ```
 
-### Block listener
+## Block listener
 
 Block listener provides the logic for the block.
 It's contained in `src/Event/RandomBlockListener.php`:

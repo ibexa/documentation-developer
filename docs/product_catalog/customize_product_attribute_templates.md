@@ -1,6 +1,6 @@
 ---
 description: Customize the Twig templates used to render product attribute values.
-month_change: true
+month_change: false
 ---
 
 # Customize product attribute templates

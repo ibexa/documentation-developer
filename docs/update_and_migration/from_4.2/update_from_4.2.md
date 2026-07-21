@@ -146,7 +146,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 ### Clean-up taxonomy database
 
-Run the following command for each of your taxonomies to ensure that there are no [content items orphaned during deletion of subtrees](https://doc.ibexa.co/en/latest/content_management/taxonomy/taxonomy/#remove-orphaned-content-items):
+Run the following command for each of your taxonomies to ensure that there are no [content items orphaned during deletion of subtrees](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy/#remove-orphaned-content-items):
 
 `php bin/console ibexa:taxonomy:remove-orphaned-content <taxonomy> --force`
 
@@ -161,7 +161,7 @@ php bin/console ibexa:taxonomy:remove-orphaned-content product_categories --forc
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish update
 

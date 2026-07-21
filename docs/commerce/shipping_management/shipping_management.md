@@ -19,7 +19,7 @@ The component exposes the following:
 - [Shipping method PHP API](shipping_method_api.md) that allows for managing shipping methods
 - [Shipment PHP API](shipment_api.md) that allows for managing shipments
 
-### Services
+## Services
 
 The Shipping package provides the following services, which are entry points for calling backend APIs:
 

@@ -16,6 +16,10 @@ The `Dimensions` Search Criterion searches for image with specified dimensions.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $imageCriteriaData = [
     'width' => [
         'min' => 100, // (default: 0, optional)
@@ -27,7 +31,7 @@ $imageCriteriaData = [
     ],
 ];
 
-$query->query = new Criterion\Dimensions('image', $imageCriteriaData);
+$query->query = new Criterion\Image\Dimensions('image', $imageCriteriaData);
 ```
 
 ### REST API

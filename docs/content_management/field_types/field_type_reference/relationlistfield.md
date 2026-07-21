@@ -12,14 +12,14 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 |Type|Description|Example|
 |------|------|------|
-|`int|string`|ID of the related content item|`42`|
+|`int` or `string`|ID of the related content item|`42`|
 |`array`|An array of related Content IDs|`[ 24, 42 ]`|
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
 |`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type value object|See below.|
 
 ### Value Object
 
-##### Properties
+#### Properties
 
 `Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
 
@@ -28,28 +28,39 @@ This field type makes it possible to store and retrieve values of a relation to 
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
 ``` php
-// Value object content example
-$relationList->destinationContentId = [
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
+$relationList->destinationContentIds = [
     $contentInfo1->id,
     $contentInfo2->id,
-    170
+    170,
 ];
 ```
 
-##### Constructor
+#### Constructor
 
 The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.
 
 ``` php
 //Constructor example
+use Ibexa\Core\FieldType\RelationList as RelationList;
 
+/**
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
+ */
 // Instantiates a RelationList Value object
 $relationListValue = new RelationList\Value(
     [
         $contentInfo1->id,
         $contentInfo2->id,
-        170
+        170,
     ]
 );
 ```
@@ -74,7 +85,7 @@ The field definition of this field type can be configured with the following opt
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`selectionMethod`|`mixed`|`SELECTION_BROWSE`|Method of selection in the back-end interface.|
-|`selectionDefaultLocation`|`string|integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
+|`selectionDefaultLocation`|`string` or `integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
 |`selectionContentTypes`|`array`|`[]`|An array of content type IDs that are allowed for related Content.|
 
 Following selection methods are available:
@@ -96,15 +107,15 @@ Following selection methods are available:
 use Ibexa\Core\FieldType\RelationList\Type;
 
 $fieldSettings = [
-    "selectionMethod" => Type::SELECTION_BROWSE,
-    "selectionDefaultLocation" => null,
-    "selectionContentTypes" => []
+    'selectionMethod' => Type::SELECTION_BROWSE,
+    'selectionDefaultLocation' => null,
+    'selectionContentTypes' => [],
  ];
 
 $validators = [
-    "RelationListValueValidator" => [
-        "selectionLimit" => 0,
-    ]
+    'RelationListValueValidator' => [
+        'selectionLimit' => 0,
+    ],
 ];
 ```
 

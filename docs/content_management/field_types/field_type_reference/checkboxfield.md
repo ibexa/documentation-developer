@@ -10,7 +10,7 @@ The Checkbox field type stores the current status for a checkbox input, checked 
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -20,16 +20,16 @@ The Value class of this field type contains the following properties:
 
 ``` php
 //Value object content examples
-use Ibexa\Core\FieldType\Checkbox\Type;
+use Ibexa\Core\FieldType\Checkbox;
 
 // Instantiates a checkbox value with a default state (false)
 $checkboxValue = new Checkbox\Value();
 
 // Checked
-$value->bool = true;
+$checkboxValue->bool = true;
 
 // Unchecked
-$value->bool = false;
+$checkboxValue->bool = false;
 ```
 
 ##### Constructor
@@ -38,10 +38,10 @@ The `Checkbox\Value` constructor accepts a boolean value:
 
 ``` php
 // Constructor example
-use Ibexa\Core\FieldType\Checkbox\Type;
+use Ibexa\Core\FieldType\Checkbox;
 
 // Instantiates a checkbox value with a checked state
-$checkboxValue = new Checkbox\Value( true );
+$checkboxValue = new Checkbox\Value(true);
 ```
 
 ##### String representation

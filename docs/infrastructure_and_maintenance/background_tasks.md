@@ -1,6 +1,6 @@
 ---
 description: Use Ibexa Messenger to run processes in the background and conserve system resources.
-month_change: false
+month_change: true
 ---
 
 # Background tasks
@@ -21,7 +21,7 @@ These messages are stored in a queue and picked up by a background worker, which
 The process works as follows:
 
 1. A message PHP object is dispatched, for example, `ProductPriceReindex`.
-2. The message is wrapped in an envelope, which may contain additional metadata, called stamps, for example, `DeduplicateStamp`.
+2. The message is wrapped in an envelope, which may contain additional metadata, called [stamps](#stamps).
 3. The message is placed in the transport queue.
 It can be a Doctrine table, a Redis/Valkey queue, and so on.
 4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
@@ -55,7 +55,7 @@ ibexa_messenger:
 !!! note "Supported transports"
 
     You can define different transports: [[= product_name_base =]] Messenger has been tested to work with Redis, MySQL, PostgreSQL.
-    For more information, see [Symfony Messenger documentation](https://symfony.com/doc/current/messenger.html#transports-async-queued-messages) or [Symfony Messenger tutorial](https://symfonycasts.com/screencast/messenger/install#installing-messenger).
+    For more information, see [Symfony Messenger documentation](https://symfony.com/doc/current/messenger.html#transports-async-queued-messages) or [Symfony Messenger tutorial](https://symfonycasts.com/screencast/messenger/install).
 
 ### Start worker
 
@@ -71,29 +71,104 @@ In [multi-repository setups](repository_configuration.md), the worker process al
 
     Doctrine transport works across multiple repositories without issues, but other transports may need to be adjusted, so that queues across different repositories are not accidentally shared.
 
-!!! note "Deploying [[= product_name_base =]] Messenger"
+#### Configure for production environment
 
-    Additional considerations regarding the deployment of Symfony Messenger to production, which you can find in [Symfony documentation](https://symfony.com/doc/current/messenger.html#deploying-to-production) apply to [[= product_name_base =]] Messenger as well.
+In production, make sure that [[= product_name_base =]] Messenger keeps running.
+You can configure a process manager, such as [Supervisor]([[= symfony_doc =]]/messenger.html#messenger-supervisor) or [systemd]([[= symfony_doc =]]/messenger.html#systemd-configuration), to restart the worker if it stops.
 
-### Dispatch message
+To prevent issues with memory leaks or stale processes, run the worker with execution limits:
 
-Dispatch a message from your code like in the following example:
+- `--limit` limits the number of messages the worker processes before exiting.
+- `--time-limit` limits the execution time in seconds before the worker exits.
+- `--memory-limit` restricts the maximum memory usage.
 
-``` php
-[[= include_code("code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php") =]]
+The following example shows how you can specify these limits:
+
+``` bash
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --limit=100 --time-limit=60 --memory-limit=256M
 ```
 
-### Register handler
+For more information, see [Symfony production recommendation for the Messenger component]([[= symfony_doc =]]/messenger.html#deploying-to-production).
 
-Create the handler class:
+If you deploy your application on [[= product_name_cloud =]], using [Workers](https://fixed.docs.upsun.com/guides/symfony/workers.html) is recommended.
+
+## Dispatch message
+
+To have a task processed in the background, dispatch an appropriate message by using the `\Symfony\Component\Messenger\MessageBusInterfac\MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message):
+
+``` php
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 3) =]]
+
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 13) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 15, 20) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 26) =]]
+```
+
+Additionally, attach message metadata by using [stamps](#stamps).
+
+### Stamps
+
+You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control how the message is processed.
+
+Use [Stamps available in Symfony](https://github.com/symfony/symfony/tree/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp), and combine them with the ones provided by [[= product_name =]]:
+
+- [SudoStamp](#sudostamp)
+- [UserPermissionStamp](#userpermissionstamp)
+
+#### SudoStamp
+
+[`SudoStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html) causes the handler to [use sudo mode](php_api.md#using-sudo), bypassing all permission checks when processing the message.
+
+It's automatically attached to every dispatched message.
+
+!!! caution
+
+    Starting with Ibexa DXP 5.0.9, the behavior of automatically attaching a `SudoStamp` to every message is deprecated and will be removed in 6.0.
+    For messages that should be processed without taking permissions into account, always attach the `SudoStamp` manually to keep your code forward-compatible.
+
+The following example shows how you can attach the `SudoStamp` to the message:
+
+``` php
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 9, remove_indent=True) =]]
+
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 24, 24, remove_indent=True) =]]
+```
+
+#### UserPermissionStamp
+
+[`UserPermissionStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html) allows you to [set the repository user](php_api.md#setting-the-repository-user) to process the message.
+When the user is set, handlers execute actions on their behalf and take their permissions into account.
+
+If you don't attach this stamp, the messages are processed by the default repository user called anonymous user.
+By combing this stamp with [`SudoStamp`](#sudostamp), you can set the repository user and skip the permission checks at the same time.
+
+The following example shows how you can use `UserPermissionStamp` to preserve the current repository user after the message is dispatched.
+
+``` php
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 9, remove_indent=True) =]]
+
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 22, 23, remove_indent=True) =]]
+```
+
+## Extend Ibexa Messenger
+
+### Register custom message and handler
+
+To handle additional use cases with background tasks, you can create [custom message and handler class]([[= symfony_doc =]]/messenger.html#creating-a-message-handler):
+
+``` php
+[[= include_code('code_samples/background_tasks/src/Message/SomeMessage.php') =]]
+```
 
 ``` php
 [[= include_code("code_samples/background_tasks/src/MessageHandler/SomeHandler.php") =]]
 ```
 
-Add a service definition to `config/services.yaml`:
+Add a service definition to `config/services.yaml` and set the `bus` to `ibexa.messenger.bus`:
 
-``` yaml
+``` yaml hl_lines="4-5"
 services:
     App\MessageHandler\SomeHandler:
         tags:

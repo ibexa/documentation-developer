@@ -221,9 +221,9 @@ Suggestions are based on service definitions tagged as `ibexa.query_type`.
 
 Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
 
-* `Ibexa\Core\QueryType\QueryType::getQuery` method calls
-* `Ibexa\Core\QueryType\QueryType::getQuery` method definition
-* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition
+- `Ibexa\Core\QueryType\QueryType::getQuery` method calls
+- `Ibexa\Core\QueryType\QueryType::getQuery` method definition
+- `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition
 
 ![Query Type parameter autocompletion](phpstorm_plugin_query_type_params.png)
 

@@ -86,7 +86,6 @@ The following built-in routes are available for the front of the website.
 
 ### Registration
 
-
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa.user.user_register` | `/user/register` | User registration form |

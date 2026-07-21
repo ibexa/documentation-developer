@@ -54,11 +54,11 @@ framework:
             places:
                 !php/const Ibexa\OrderManagement\Value\Status::COMPLETED_PLACE:
                     metadata:
-                        ...
+                        # ...
                         can_be_reordered: true
                 !php/const Ibexa\OrderManagement\Value\Status::CANCELLED_PLACE:
                     metadata:
-                        ...
+                        # ...
                         can_be_reordered: true
 
 ```

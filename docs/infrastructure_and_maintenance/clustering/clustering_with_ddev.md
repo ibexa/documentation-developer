@@ -137,7 +137,7 @@ For more information on topics such as available configurations, command lines, 
 
 ### Fastly
 
-For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)), the instance must be visible from Internet.
+For Fastly (as for [[[= product_name_connect =]]]([[= connect_doc =]]/)), the instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 
@@ -221,9 +221,9 @@ You can now check whether Solr works.
 
 For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` command:
 
- - checks whether the `web` server can access the `solr` server
- - checks whether `collection1` exists and its status
- - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
+- checks whether the `web` server can access the `solr` server
+- checks whether `collection1` exists and its status
+- displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
 You can access the Solr admin UI from the host by:
 
@@ -246,7 +246,7 @@ In the following examples:
 ### Install Redis or Valkey
 
 DDEV supports multiple Redis-compatible implementation, including Redis itself and Valkey.
-You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on. 
+You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on.
 For example, you can switch to Valkey by running `ddev add-on get ddev/ddev-redis; ddev redis-backend valkey/valkey:9`.
 For more information, see [Swappable Redis backends](https://github.com/ddev/ddev-redis?tab=readme-ov-file#swappable-redis-backends) in DDEV's `dddev-redis` add-on documentation.
 

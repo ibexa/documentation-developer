@@ -10,6 +10,14 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.31' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-07-01', ['Headless', 'Experience', 'Commerce', ]) =]]
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.30' %]]
 [[% set date = '2026-05-21' %]]
 
@@ -19,6 +27,7 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Security
 
 This release includes security fixes.
@@ -49,7 +58,7 @@ For more information, see [available Admin UI Twig Component groups](https://doc
 - `getAvailability()` returns whether the product or variant is manually set as available
 - `getComputedAvailability()` returns whether the product or variant can be ordered, for example, based on its stock level
 
-For more information, see [Availability and computed availability](https://doc.ibexa.co/en/4.6/product_catalog/products/#product-availability-and-stock).
+For more information, see [Availability and computed availability](https://doc.ibexa.co/en/4.6/pim/products/#product-availability-and-stock).
 
 ##### Workflow API: new `loadWorkflowMetadataForVersionInfo` method
 
@@ -93,7 +102,7 @@ For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administrat
 
 #### Taxonomy search
 
-One [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/search) criterion is added:
+One [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/) search criterion is added:
 
 - [`TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
 
@@ -597,7 +606,7 @@ In addition, you can now use the [Taxonomy limitation](https://doc.ibexa.co/en/4
 
 #### Pagination for ezobjectrelationlist in GraphQL
 
-To improve performance and gain greater control over the returned responses from the [GraphQL API](https://doc.ibexa.co/en/4.6/api/graphql/graphql/), you can now [enable pagination]((https://doc.ibexa.co/en/4.6/content_management/field_types/field_type_reference/relationlistfield#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+To improve performance and gain greater control over the returned responses from the [GraphQL API](https://doc.ibexa.co/en/4.6/api/graphql/graphql/), you can now [enable pagination](https://doc.ibexa.co/en/4.6/content_management/field_types/field_type_reference/relationlistfield#enable-pagination-in-graphql) of relations specified using the RelationList field type.
 
 #### Breaking changes
 
@@ -672,13 +681,13 @@ The PHP API has been enhanced with the following new classes:
 
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\Discounts\Admin\Form\DiscountValueFormTypeMapperInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
-- [`Ibexa\Contracts\Discounts\Admin\Form\FormThemeProviderInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-FormThemeProviderInterface.html)
-- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUnusableException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUnusableException.html)
-- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUserInvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUserInvalidArgumentException.html)
-- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUsageInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUsageInterface.html)
-- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUser`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUser.html)
-- [`Ibexa\Contracts\DiscountsCodes\Value\Query\DiscountCodeUsageQuery`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html )
+- [`Ibexa\Contracts\Discounts\Admin\Form\DiscountValueFormTypeMapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
+- [`Ibexa\Contracts\Discounts\Admin\Form\FormThemeProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-FormThemeProviderInterface.html)
+- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUnusableException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUnusableException.html)
+- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUserInvalidArgumentException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUserInvalidArgumentException.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUsageInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUsageInterface.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUser`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUser.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\Query\DiscountCodeUsageQuery`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html )
 
 To update to the latest version, see the [update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#lts-updates).
 
@@ -688,15 +697,15 @@ To update to the latest version, see the [update instructions](https://doc.ibexa
 
 #### Twig Components
 
-- The new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+- The new [Twig Components](https://doc.ibexa.co/en/4.6/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
 
 #### Extending Sub-items view
 
-- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/4.6/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
 
 #### Infrastructure
 
-- MySQL 8.4, Node 20 and Node 22 are now [officially supported](https://doc.ibexa.co/en/latest/getting_started/requirements/)
+- MySQL 8.4, Node 20 and Node 22 are now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/)
 
 #### PHP API
 
@@ -736,7 +745,7 @@ For more information, see [Discounts product guide](https://doc.ibexa.co/en/4.6/
 
 #### Features
 
-AI Actions can now integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
+AI Actions can now integrate with [Ibexa Connect]([[= connect_doc =]]/), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
 To learn more, see the [setup instructions for this integration](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/#configure-access-to-ibexa-connect).
 
 [[= release_note_entry_end() =]]
@@ -753,13 +762,13 @@ To learn more, see the [published security advisory IBEXA-SA-2025-002](https://d
 #### Features
 
 - The [CartSummary endpoint](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts-cart-summary) now supports a new `Accept` header: `application/vnd.ibexa.api.ShortCartSummary`, returning only the essential data about products in the cart
-- Added a new repository setting: [grace period for archived versions](https://doc.ibexa.co/en/latest/administration/configuration/repository_configuration/#grace-period-for-archived-versions)
-- Added a new `group_remote_id` setting for [controlling the user group in which registering users are created](https://doc.ibexa.co/en/latest/users/user_registration/#user-groups)
+- Added a new repository setting: [grace period for archived versions](https://doc.ibexa.co/en/4.6/administration/configuration/repository_configuration/#grace-period-for-archived-versions)
+- Added a new `group_remote_id` setting for [controlling the user group in which registering users are created](https://doc.ibexa.co/en/4.6/users/user_registration/#user-groups)
 
 #### Ibexa Rector
 
 - The [Ibexa Rector package](https://github.com/ibexa/rector/tree/4.6?tab=readme-ov-file#ibexa-dxp-rector) has been released, allowing you to automatically refactor your code and remove deprecations.
-To learn how to use it, see the [update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector)
+To learn how to use it, see the [update instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector)
 
 #### PHP API
 
@@ -824,6 +833,7 @@ For more information, see [Date and time attributes](https://doc.ibexa.co/en/4.6
 [[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Features
+
 You can now [duplicate AI actions]([[= user_doc =]]/ai_actions/work_with_ai_actions/#duplicate-ai-actions) in the AI actions list.
 
 #### PHP API
@@ -848,7 +858,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 #### Features
 
 - New REST API endpoints for [Segments](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
-- PHP API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
+- PHP API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]]/)
 - The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
     - [`ibexa_content_field_identifier_first_filled_image`](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/image_twig_functions/#ibexa_content_field_identifier_first_filled_image)
     - [`ibexa_content_name`](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_content_name)
@@ -955,8 +965,8 @@ The new AI Assistant allows you to use the AI capabilities in additional places,
 
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
-- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+- [`Ibexa\Contracts\Share\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Permission-PermissionCheckContextProviderInterface.html)
+- [`Ibexa\Contracts\Share\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Values-PermissionCheckContext.html)
 - [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
 - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
@@ -1290,7 +1300,7 @@ and helps to make better business decisions based on data.
 
 ![Customizable dashboard](img/4.6_customizable_dashboard.png "Customizable dashboard")
 
-For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/#customizable-dashboard).
+For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/dashboard/dashboard/#customizable-dashboard).
 
 #### UX and UI improvements
 
@@ -1313,7 +1323,7 @@ Here are the most important changes:
 
 ![Page Builder interface](img/4.6_page_builder_interface.png "Page builder interface")
 
-For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
+For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/create_edit_pages/#page-builder-interface).
 
 ##### Editing embedded content items
 
@@ -1323,14 +1333,14 @@ and while adding or modifying a Content relation.
 
 ![Editing embedded content items](img/4.6_editing_embedded_content_items.png "Editing embedded content items")
 
-For more information, see [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
+For more information, see [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/create_edit_content_items/#edit-embedded-content-items).
 
 ##### Focus mode
 
 With multiple changes to the back office UI intended to expose the most important information and actions, editors can now better focus on their work.
 The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
 
-For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
+For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/discover_ui/#focus-mode).
 
 ![Focus mode](img/4.6_focus_mode.png "Focus mode")
 
@@ -1360,7 +1370,7 @@ It expands the workspace to full screen and shows only editor toolbar.
 
 ![Distraction free mode](img/4.6_distraction_free_mode.png "Distraction free mode")
 
-For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#distraction-free-mode).
+For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/create_edit_content_items/#distraction-free-mode).
 
 ##### Simplified user actions
 
@@ -1391,7 +1401,7 @@ With personal touch in mind, editors can now upload their photos (avatar), and p
 
 Also, editors and other users can customize their experience even better, with new preferences that have been added to user settings.
 
-For more information, see [user profile and settings documentation](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile).
+For more information, see [user profile and settings documentation](https://doc.ibexa.co/projects/userguide/en/4.6/getting_started/get_started/#view-and-edit-user-profile).
 
 ##### Recent activity log
 
@@ -1401,7 +1411,7 @@ on the dashboard within Recent activity block, or on the user profile.
 
 ![Recent activity log](img/4.6_activity_list.png "Recent activity log")
 
-For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/5.0/administration/recent_activity/recent_activity/).
+For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/5.0/administration/recent_activity/recent_activity/).
 
 ##### Back office search
 
@@ -1417,7 +1427,7 @@ In the search result page, a spellcheck suggestion can be made.
 For example, if the searched text is "Comany", the result page may ask "Did you mean company?", which is clickable to relaunch the search with this word.
 <!-- vale Ibexa.Spellcheck = YES -->
 
-For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/5.0/administration/back_office/customize_search_suggestion/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/5.0/administration/back_office/customize_search_suggestion/).
 
 ###### Filtering and sorting
 
@@ -1425,7 +1435,7 @@ The search result page can be sorted in other orders than relevance. Name, publi
 
 Filters can be applied to the search page to narrow down the results.
 
-For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/5.0/administration/back_office/customize_search_sorting/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/5.0/administration/back_office/customize_search_sorting/).
 
 ##### New and updated content type icons
 
@@ -1438,7 +1448,7 @@ Also, content type icons have changed slightly.
 
 Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, organizing, distributing, and sharing them across many channels.
 
-For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
+For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/4.6/dam/ibexa_dam/).
 
 #### New features and improvements in product catalog
 
@@ -1470,7 +1480,7 @@ For more information about Remote PIM support and the solution's limitations, se
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
 Default Checkout and Order workflows have been adjusted to allow purchase of virtual products.
 
-For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/).
+For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/4.6/pim/create_virtual_product/).
 
 ##### Product page URLs
 
@@ -1478,7 +1488,7 @@ When you're creating a new product type, you can set up a product URL alias name
 With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
 Customized URLs are easier to remember, help with SEO optimization and reduce bounce rates on the website.
 
-For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
+For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/4.6/pim/work_with_product_page_urls/).
 
 ##### Improved UX of VAT rate assignment
 
@@ -1486,14 +1496,14 @@ Users who are creating or editing a product type are less likely to forget about
 
 ![Assigning VAT rates to a product type](img/4.6_catalog_vat_rates.png "Assigning VAT rates to a product type")
 
-For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
+For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/4.6/pim/create_product_types/).
 
 ##### Updated VAT configuration
 
 VAT rates configuration has been extended to accept additional flags under the `extras` key.
 Developers can use them, for example, to pass additional information to the UI, or define special exclusion rules.
 
-For more information, see [VAT rates](https://doc.ibexa.co/en/5.0/pim/pim_configuration/#vat-rates).
+For more information, see [VAT rates](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_configuration/#vat-rates).
 
 ##### Ability to search through products in a catalog
 
@@ -1501,7 +1511,7 @@ When you're reviewing catalog details, on the **Products** tab, you can now see 
 
 ##### New Twig functions
 
-The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/storefront_twig_functions/#ibexa_is_pim_local), and adjust their behavior accordingly.
+The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/product_twig_functions/#ibexa_is_pim_local), and adjust their behavior accordingly.
 Also, several new Twig functions have been implemented that help [get product availability information](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability).
 
 ##### New and modified query types
@@ -1516,7 +1526,7 @@ With `IsVirtual` criterion that searches for virtual or physical products, produ
 
 [Product variants](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/5.0/content_management/data_migration/data_migration/).
 
-####  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
+#### New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
 ##### Reorder
 
@@ -1532,7 +1542,7 @@ For more information, see [reorder documentation](https://doc.ibexa.co/en/5.0/co
 Orders block displays a list of orders associated with a specific company or an individual customer.
 This block allows users to configure orders statuses, columns, number of orders, and sorting order.
 
-For more information, see [Orders block documentation](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#orders-block).
+For more information, see [Orders block documentation](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#orders-block).
 
 ##### Quick order
 
@@ -1564,7 +1574,7 @@ You can access shipments for your own orders or all the shipments that exist in 
 
 ![Shipments](img/4.6_shipments.png "Shipments")
 
-For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
+For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/4.6/commerce/shipping_management/work_with_shipments/).
 
 ##### Owner criterion
 
@@ -1611,21 +1621,21 @@ The feature requires that your organization exposes an endpoint that passes data
 - Reviving the customer's interest by pushing a message with products that are similar to the ones the customer has already seen.
 - Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
 
-For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/).
+For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/).
 
 ##### Multiple attributes in recommendation computation
 
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Submodel parameters](https://doc.ibexa.co/en/5.0/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+For more information, see [Submodel parameters](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#submodels).
 
 ##### New scenario filter
 
 Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
 This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
 
-For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
+For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/filters/#commerce-specific-filters).
 
 ### Other changes
 
@@ -1636,7 +1646,7 @@ New `project_dir()` expression language function that allows you to reference cu
 #### Site Factory events
 
 Site Factory events have been moved from the `Ibexa\SiteFactory\ServiceEvent\Events` namespace to the `Ibexa\Contracts\SiteFactory\Events` namespace, keeping the backward compatibility.
-For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/event_reference/site_events/).
+For a full list of events, see [Site events](https://doc.ibexa.co/en/4.6/api/event_reference/site_events/).
 
 Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
 New listeners automatically grant permissions to log in to a site, providing a more seamless site management experience.
@@ -1654,7 +1664,7 @@ Use Qualifio Engage integration to create engaging marketing experiences to your
 Unlike conventional streaming services, integration with SeenThis! service provides an adaptive streaming technology with no limitations.
 It allows you to preserve the best video quality with a minimum amount of data transfer.
 
-For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#seenthis-block).
+For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#seenthis-block).
 
 #### API improvements
 
@@ -1694,7 +1704,7 @@ Endpoints that allow you to manage prices in your platform with REST API:
 
 A signature for the `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` method has been updated to the following:
 
-```php
+``` php {skip-validation}
     /**
      * @phpstan-param scalar $value
      * @phpstan-param array<string, scalar> $attributes
@@ -1808,7 +1818,7 @@ The following endpoints have been added in 4.6.0 release (27 endpoints in total)
 - Site Context API (`\Ibexa\Contracts\SiteContext\SiteContextServiceInterface`)
 - Dashboard API (`\Ibexa\Contracts\Dashboard\DashboardServiceInterface`)
 - Price resolver API (`\Ibexa\Contracts\ProductCatalog\PriceResolverInterface`)
-- Location Preview URL resolver (`\Ibexa\Contracts\SiteContext\PreviewUrlResolver\LocationPreviewUrlResolverInterface`, see [GitHub](https://github.com/ibexa/site-context/pull/25))
+- Location Preview URL resolver (`\Ibexa\Contracts\SiteContext\PreviewUrlResolver\LocationPreviewUrlResolverInterface`)
 - ContentAware API (`\Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`)
 - Sorting Definition API (`\Ibexa\Contracts\Search\SortingDefinition`)
 

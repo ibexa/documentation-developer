@@ -51,8 +51,8 @@ php bin/console liip:imagine:cache:remove
 With [image variations](image_variations.md) (image aliases) you can define and use different versions of the same image.
 You generate variations based on [filters](image_variations.md#available-variation-filters) that modify aspects such as size and proportions, quality or effects.
 
-Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/). 
-The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP. 
+Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/).
+The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP.
 Image files are stored by using the `IOService,` and are completely independent from the Image field type.
 They're generated only once and cleared on demand, for example, on content removal).
 
@@ -141,8 +141,8 @@ The [`GenericProvider`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/I
 
 With the [`RemoteProvider`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
 
- - remote sources, for example, <http://placecats.com> (see [example 2](#configuration-examples))
- - live version of a site (see [example 3](#configuration-examples))
+- remote sources, for example, <http://placecats.com> (see [example 2](#configuration-examples))
+- live version of a site (see [example 3](#configuration-examples))
 
 ![Placeholder RemoteProvider - placecats.com](placeholder_remote_provider.jpg "Remote placeholder images on a page")
 
@@ -166,21 +166,21 @@ ibexa:
 
 If there is no configuration assigned to the `binary_handler`, the placeholder generation is disabled.
 
-##### Configuration examples:
+#### Configuration examples
 
-**Example 1 - placeholders with basic information about original image**
+##### Example 1 - placeholders with basic information about original image
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/images_basic.yaml') =]]
 ```
 
-**Example 2 - placeholders from remote source**
+##### Example 2 - placeholders from remote source
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/images_remote.yaml') =]]
 ```
 
-**Example 3 - placeholders from live version of a site**
+##### Example 3 - placeholders from live version of a site
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/images_live.yaml') =]]
@@ -214,13 +214,13 @@ The controller's definition (that you place in the `config/services.yaml` file u
 [[= include_file('code_samples/back_office/images/config/services.yaml', 0, 8) =]]
 ```
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/SvgController.php') =]]
 ```
 
 To be able to use a proper link in your templates, you also need a dedicated Twig extension:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/SvgExtension.php') =]]
 ```
 

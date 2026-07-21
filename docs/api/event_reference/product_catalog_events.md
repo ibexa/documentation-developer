@@ -1,7 +1,7 @@
 ---
 description: Events that are triggered when working with products, prices, currencies, and attribute rendering.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Product catalog events

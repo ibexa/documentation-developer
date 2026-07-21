@@ -38,7 +38,7 @@ You can control access to a custom controller by implementing the `performAccess
 
 In the following example the user doesn't have access to the controller unless they have the `section/view` policy:
 
-``` php
+``` php {skip-validation}
 use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 
 public function performAccessCheck(): void
@@ -63,7 +63,7 @@ public function performAccessCheck(): void
 To check if a user has access to an operation, use the `isGranted()` method.
 For example, to check if content can be assigned to a Section:
 
-``` php
+``` php {skip-validation}
 $hasAccess = $this->isGranted(
     new Attribute('section', 'assign', ['valueObject' => $contentInfo, 'targets' => [$section]])
 );
@@ -79,6 +79,6 @@ checks the `content/edit` permission for the provided content item at the provid
 
 To block access to a specific action of the controller, add the following to the action's definition:
 
-``` php
+``` php {skip-validation}
 $this->denyAccessUnlessGranted(new Attribute('state', 'administrate'));
 ```

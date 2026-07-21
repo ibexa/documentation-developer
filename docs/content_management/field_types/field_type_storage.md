@@ -147,7 +147,7 @@ services:
         autoconfigure: true
         public: false
 
-    App\FieldType\MyField\Storage\MyFieldStorage: ~
+    App\FieldType\MyField\Storage\MyFieldStorage:
         tags:
             - {name: ibexa.field_type.storage.external.handler, alias: myfield}
 ```
@@ -169,7 +169,6 @@ services:
 ```
 
 The `ibexa.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ibexa.api.storage_engine.legacy.connection`, you can pass the `ibexa.api.storage_engine.legacy.dbhandler` service.
-
 
 Also there can be several gateways per field type (one per storage engine).
 In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.

@@ -117,8 +117,14 @@ The content item is restored under its previous location.
 You can also provide a different location to restore in as a second argument:
 
 ``` php
-$newParent = $this->locationService->loadLocation($location);
-$this->trashService->recover($trashItem, $newParent);
+/**
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\TrashItem $trashItem
+ * @var \Ibexa\Contracts\Core\Repository\LocationService $locationService
+ * @var \Ibexa\Contracts\Core\Repository\TrashService $trashService
+ */
+$locationId = 12345;
+$newParent = $locationService->loadLocation($locationId);
+$trashService->recover($trashItem, $newParent);
 ```
 
 You can also search through Trash items and sort the results using several public PHP API Search Criteria and Sort Clauses that have been exposed for `TrashService` queries.
@@ -179,7 +185,7 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 
 The following example shows how you can use the criteria to find content types:
 
-```php hl_lines="28-38"
+``` php hl_lines="28-38"
 [[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 
@@ -194,7 +200,6 @@ When constructing a `ContentTypeQuery`, you can pass the following parameters:
 - `int $offset = 0` — starting offset (for pagination)
 
 - `int $limit = 25` — maximum number of results to return
-
 
 ## Calendar events
 

@@ -206,7 +206,7 @@ Additionally, if you feel comfortable with your technical skills, you can config
 
 ### Increase sales with highly personalized campaigns
 
-Personalized campaigns are one of the factors that can increase your sales. 
+Personalized campaigns are one of the factors that can increase your sales.
 With Page Builder you can achieve it, by using customization and time Scheduler.
 Anytime you can edit your page and change a position of a block to enhance visibility.
 Additionally, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:

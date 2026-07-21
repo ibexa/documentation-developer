@@ -11,8 +11,10 @@ ibexa:
                         - Ibexa\Mcp\Tool\SeoTools
                     discovery_cache: <cache_pool_service>
                     session:
-                        type: <psr16|file|memory>
+                        type: <psr16|file>
                         # Session options…
+                    allowed_hosts:
+                        - '<domain_name>'
                 mcp_psr16:
                     discovery_cache: cache.redis.mcp
                     session:

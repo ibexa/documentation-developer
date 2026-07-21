@@ -37,9 +37,9 @@ In a migration file, a step is an array item starting with the mandatory propert
 
 Then, the step is described by additional properties depending on its type and mode.
 
-* See [Available migrations](#available-migrations) for the modes available for each type.
-* See [Migration examples](#migration-examples) to explore what you can do with each type.
-* For a custom migration step, see [Create data migration step](create_data_migration_step.md).
+- See [Available migrations](#available-migrations) for the modes available for each type.
+- See [Migration examples](#migration-examples) to explore what you can do with each type.
+- For a custom migration step, see [Create data migration step](create_data_migration_step.md).
 
 ## Available migrations
 
@@ -88,7 +88,7 @@ You can run a set of one or more similar migration steps multiple times by using
 
 A repeatable migration performs the defined migration steps as many times as specified:
 
-- with an [interation counter](#repeatable-steps-with-iteration-counter), mimicking the behavior of a [`for` loop](https://www.php.net/manual/en/control-structures.for.php)
+- with an [iteration counter](#repeatable-steps-with-iteration-counter), mimicking the behavior of a [`for` loop](https://www.php.net/manual/en/control-structures.for.php)
 - with a [list of items](#repeatable-steps-with-items), mimicking the behavior of a [`foreach` loop](https://www.php.net/manual/en/control-structures.foreach.php)
 
 !!! tip
@@ -574,7 +574,6 @@ If the content type associated with the tags is changed, the configuration shoul
 !!! note
     If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
 
-
 You can use the following example to assign tags to a Content (content type Article has an additional field):
 
 ``` yaml
@@ -609,13 +608,13 @@ When updating a content type, use:
 
 ### Discounts
 
-- The following example shows how you can create a new [discount](discounts_guide.md) in your system:
+The following example shows how you can create a new [discount](discounts_guide.md) in your system:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
 ```
 
-- Use the `update` mode to modify an existing discount as in the example below.
+Use the `update` mode to modify an existing discount as in the example below.
 The provided conditions overwrite any already existing ones.
 
 ``` yaml

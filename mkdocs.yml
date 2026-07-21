@@ -2,7 +2,10 @@ INHERIT: plugins.yml
 
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
+edit_uri: blob/5.0/docs
 site_url: https://doc.ibexa.co/en/latest/
+hooks:
+    - hooks/edit_uri.py
 copyright: "Copyright 1999-2026 Ibexa AS and others"
 validation:
     omitted_files: warn
@@ -526,6 +529,7 @@ nav:
             - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
             - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
             - Tracking functions: recommendations/raptor_integration/tracking_functions.md
+            - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
             - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
             - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
@@ -861,6 +865,7 @@ nav:
         - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
         - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
         - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
+        - Ibexa Cloud CLI: ibexa_cloud/ibexa_cloud_cli.md
         - Environment variables: ibexa_cloud/environment_variables.md
         - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
@@ -892,6 +897,7 @@ nav:
             - Development security: infrastructure_and_maintenance/security/development_security.md
             - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
             - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
+            - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
     - Update and migration:
         - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
@@ -1026,7 +1032,7 @@ extra:
   product_name_engage: 'Ibexa Engage'
   pim_product_name: 'Quable'
 
-  eol_versions: ['2.5']
+  eol_versions: ['2.5', '3.3']
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
@@ -1037,9 +1043,10 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.30'
-  latest_tag_5_0: '5.0.8'
+  latest_tag_4_6: '4.6.31'
+  latest_tag_5_0: '5.0.9'
 
+  symfony_version: '7.4' 
   symfony_doc: 'https://symfony.com/doc/7.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
@@ -1085,6 +1092,9 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       linenums: true
+      # Emit language-* classes so the Markdown conversion (llmstxt) can
+      # restore the language on fenced code blocks.
+      pygments_lang_class: true
       extend_pygments_lang:
         - name: php
           lang: php
@@ -1101,3 +1111,6 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
+
+hooks:
+  - hooks.py

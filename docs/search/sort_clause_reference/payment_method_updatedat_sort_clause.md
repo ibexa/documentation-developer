@@ -14,11 +14,16 @@ The `UpdatedAt` Sort Clause sorts search results by the date and time when payme
 ## Example
 
 ``` php
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+
+$criteria = null;
+
 $paymentMethodQuery = new PaymentMethodQuery(
     $criteria,
     [
         new \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\UpdatedAt(
-            \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\UpdatedAt::SORT_DESC)
+            \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\UpdatedAt::SORT_DESC
+        ),
     ]
 );
 ```

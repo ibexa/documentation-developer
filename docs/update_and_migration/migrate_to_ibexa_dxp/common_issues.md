@@ -54,6 +54,7 @@ It cleans up redundant Relations rows:
 ```bash
 php bin/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
 ```
+
 The command can be executed in two modes:
 
 - list / dry-run - prints table with all corrupted Relations that are deleted (to be executed first)

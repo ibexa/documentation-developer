@@ -14,11 +14,15 @@ The `Status` Sort Clause sorts search results by shipment status.
 ## Example
 
 ``` php
+use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+
+/** @var \Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface $criteria */
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
         new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status(
-            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status::SORT_ASC)
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status::SORT_ASC
+        ),
     ]
 );
 ```

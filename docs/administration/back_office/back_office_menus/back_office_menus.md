@@ -86,6 +86,7 @@ The following method adds a new menu section under **Content**, and under it, a 
 You can also pass parameters to templates used to render menu items with `template_parameters`:
 
 ``` php
+/** @var \Knp\Menu\ItemInterface $menu */
 $menu->addChild(
     'all_content_list',
     [
@@ -106,6 +107,7 @@ You can then use the variable `custom_parameter` in `templates/themes/admin/list
 To have translatable labels, use `translation.key` from the `messages` domain:
 
 ``` php
+/** @var \Knp\Menu\ItemInterface $menu */
 $menu->addChild(
     'all_content_list',
     [

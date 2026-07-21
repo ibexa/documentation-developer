@@ -1,5 +1,6 @@
 ---
 description: Personalization server can use external information about the items. Use HTTP methods to create, update or get items from the data store.
+exclude_from_llmstxt: true
 ---
 
 # Content API
@@ -118,7 +119,7 @@ The following keys and attributes used in the XML object are available:
     Keys and their values can only contain letters, digits and underscore characters.
     Attribute keys are case-sensitive.
 
-##### Price and currency
+#### Price and currency
 
 The price is given as an integer in the fractional unit of the currency, which ends as removing the decimal separators.
 For example:
@@ -129,13 +130,13 @@ For example:
 
 To check how many digits the fractional unit of a currency has, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes).
 
-##### Validity
+#### Validity
 
 Items with defined validity are recommended only in the specified timeframe.
 Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) and don't include the time zone.
 Time zone is always your time zone.
 
-##### Category path
+#### Category path
 
 With the data import interface, you can upload information about the paths to categories in which the product is located.
 However, the category path can be also updated as a result of the "Click" events.

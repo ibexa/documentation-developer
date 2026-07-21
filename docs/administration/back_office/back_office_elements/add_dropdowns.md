@@ -106,15 +106,15 @@ The following attributes are available:
 
 |Name|Values|Definition|
 |---|------|----------|
-|`source`| - |What is currently defined in the `<select>` input header.|
-|`choices`| - |Elements listed in the drop-down.|
-|`preferred_choices`|Elements listed at the top of the list with a separator.|
+|`source`| |What is currently defined in the `<select>` input header.|
+|`choices`| |Elements listed in the drop-down.|
+|`preferred_choices`| | Elements listed at the top of the list with a separator.|
 |`value`|-|The currently selected element. It is an object with a key `value`. |
 |`multiple`| true</br>false|Boolean. To allow users to select multiple items.|
 |`translation_domain`|true</br>false|Used for translating choices and placeholder.|
 |`custom_form`|true</br>false|For custom form must be set to true.|
-|`class`| - |Additional classes for the element with `ibexa-dropdown` class.|
-|`placeholder`|Placeholder displayed when no option is selected.|
+|`class`| |Additional classes for the element with `ibexa-dropdown` class.|
+|`placeholder`| | Placeholder displayed when no option is selected.|
 |`custom_init`|true</br>false|By default set to `false`. If set to `true`, requires manually initializing drop-down in JavaScript.|
 |`is_disabled`|true</br>false|Disables drop-down.|
 |`is_hidden`|true</br>false|Hides the whole widget.|

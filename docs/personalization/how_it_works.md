@@ -1,5 +1,6 @@
 ---
 description: Integrate recommendation service into your website.
+exclude_from_llmstxt: true
 ---
 
 # How Personalization works

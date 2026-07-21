@@ -1,6 +1,7 @@
 ---
 description: Personalization tracks consumed content and suggests targeted content to your website visitors.
 page_type: landing_page
+exclude_from_llmstxt: true
 ---
 
 # Personalization
@@ -23,8 +24,3 @@ To provide online recommendations, the service must at least:
     "personalization/integrate_recommendation_service",
     "personalization/api_reference/api_reference",
 ], columns=3) =]]
-
-
-
-
-

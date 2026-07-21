@@ -28,7 +28,7 @@ When overriding files, the path inside your application has to correspond to the
 
 ### Removing bundles
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you don't need), see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you don't need), remove the bundle entry from `config/bundles.php`.
 
 ## Core packages
 
@@ -115,7 +115,6 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|
 |ibexa/engage|Enables integration with [Qualifio Engage platform](https://developers.qualifio.com/docs/engage/)|
-
 
 ## [[= product_name_com =]] packages
 

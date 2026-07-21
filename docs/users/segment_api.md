@@ -65,5 +65,5 @@ To update a segment or a segment group, use `SegmentationService::updateSegment(
 To delete a segment or a segment group, use `SegmentationService::removeSegment()` or `SegmentationService::removeSegmentGroup()`:
 
 ``` php
-$this->segmentationService->removeSegmentGroup($group);
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 67, 67, remove_indent=True) =]]
 ```
