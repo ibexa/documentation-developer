@@ -30,7 +30,10 @@ jobs:
                   # Strip leading 'v' to get a plain version number (e.g. 5.0.9)
                   version="${{ inputs.version }}"
                   version="${version#v}"
-                  base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                  base_branch="${{ inputs.base_branch }}"
+                  if [ -z "$base_branch" ]; then
+                    base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                  fi
                   work_branch="api_refs_v${version}"
 
                   if [[ "${{ inputs.use_dev_version }}" == "true" ]]; then
