@@ -36,7 +36,7 @@ In `tools/api_refs/api_refs.sh`:
 
 `PHPDOC_VERSION` should always target the last version of phpDocumentor.
 
-`DXP_VERSION` should target the version of Ibexa DXP Commerce corresponding to the main doc's branch.
+`DXP_VERSION` should target the version of Ibexa DXP Commerce corresponding to the doc's branch.
 
 ### Templates
 
@@ -55,9 +55,27 @@ For example, when working on the design, the set of parsed files can be reduced 
 
 `PHP_BINARY` can be edited, for example, to use a different PHP version than the default, to change verbosity, or to add `-d memory_limit=-1`.
 
+```bash
+PHP_BINARY="/opt/homebrew/opt/php@8.4/bin/php -d memory_limit=-1 -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`";
+```
+
+`COMPOSER_BINARY` can be edited, for example, to add options to `composer`, or change the PHP used with it.
+
+```bash
+COMPOSER_BINARY="$PHP_BINARY $(which composer)";
+```
+
 `FORCE_DXP_INSTALL` can be changed to `0` (zero) to have a persistent `TMP_DXP_DIR`.
 After a first run to create it, the Ibexa DXP won't be rebuilt by Composer by next runs.
 Time is saved. The DXP's code could even be modified for test purpose.
+TMP_DXP_DIR can be set to the path of a running installation.
+
+```bash
+PHP_BINARY='ddev php';
+COMPOSER_BINARY='ddev composer';
+TMP_DXP_DIR=~/my-ddev-project/;
+FORCE_DXP_INSTALL=0;
+```
 
 If you change some of those values, please do not commit those changes, and don't commit their output.
 To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
