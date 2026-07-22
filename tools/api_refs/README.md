@@ -58,8 +58,8 @@ Time is saved. The DXP's code could even be modified for test purpose.
 If you change some of those values, please do not commit those changes, and don't commit their output.
 To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
 ```bash
-cp tools/api_refs/api_refs.sh tools/api_refs/phpdoc.dev.sh
-nano phpdoc.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
+cp tools/api_refs/api_refs.sh tools/api_refs/api_refs.dev.sh
+nano api_refs.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
 nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
 tools/api_refs/api_refs.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
 ```
