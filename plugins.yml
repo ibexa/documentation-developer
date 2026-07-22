@@ -596,7 +596,15 @@ plugins:
 
     - llmstxt:
         preprocess: llmstxt_preprocess.py
+        # The "> " prefix renders the description as a blockquote summary,
+        # as expected by the llms.txt spec (https://llmstxt.org)
+        markdown_description: >-
+          > Developer documentation for Ibexa DXP — architecture, APIs, templating, and extensibility for building and customizing Ibexa DXP projects.
 
+        # Pin links in the generated Markdown (and llms.txt) to this branch's
+        # version instead of site_url's en/latest, without affecting the HTML
+        # site's canonical URLs. Update when branching a new version.
+        base_url: https://doc.ibexa.co/en/5.0/
         autoclean: false
         full_output: llms-full.txt
         sections:

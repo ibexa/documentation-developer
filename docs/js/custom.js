@@ -12,14 +12,6 @@ $(document).ready(function() {
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
-
-    // Show warning box for versions that have reached End Of Life
-    if (eolVersions.includes(branchName)) {
-        const warningBox = document.querySelector('#eol-warning-box');
-
-        warningBox.hidden = false;
-    }
-
     if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
         branchName = '6.0';
     }

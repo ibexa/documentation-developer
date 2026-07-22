@@ -242,7 +242,7 @@ The following HTTP response codes are used by the recommendation controller:
 |---|---|
 |200 OK|Request was processed successfully.|
 |304 Not Modified|Recommendation result wasn't modified since the time specified in the provided `If-Modified-Since` header.|
-|400 Bad Request</br>414 Request-URI Too Long|Wrong request formatting. See response body for more information.|
+|400 Bad Request<br>414 Request-URI Too Long|Wrong request formatting. See response body for more information.|
 |401 Unauthorized|Invalid authentication credentials.|
 |403 Forbidden|Access denied.|
 |404 Not Found|The requested element wasn't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
