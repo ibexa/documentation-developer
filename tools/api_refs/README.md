@@ -1,3 +1,5 @@
+<!-- vale off -->
+
 # PHP API Ref
 
 ## Install/Dependencies
