@@ -117,4 +117,4 @@ gh workflow run api_refs.yaml -f version=<tag> -f use_dev_version=<false|true> -
 
 `-f version=<tag>` to pass the Ibexa DXP version tag for which the API References are built.
 `-f use_dev_version=<false|true>` to use the released version designed by the tag, or to use the development version (`v5.0.x-dev`) for an incoming tag.
-`--ref <branch>` to use a `api_refs.yaml` workflow from a given branch instead of the default branch (`5.0`).
+`--ref <branch>` to use the `api_refs.yaml` workflow from a given branch instead of the default branch (`5.0`).
