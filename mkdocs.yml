@@ -3,7 +3,9 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2024 Ibexa AS and others"
+copyright: "Copyright 1999-2026 Ibexa AS and others"
+hooks:
+    - hooks/eol_status.py
 validation:
     omitted_files: warn
     absolute_links: relative_to_docs
@@ -949,7 +951,7 @@ nav:
 theme:
     name: material
     features:
-        - content.code.annotate 
+        - content.code.annotate
         - content.code.copy
         - navigation.tracking
         - navigation.top
