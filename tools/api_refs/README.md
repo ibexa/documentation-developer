@@ -70,7 +70,7 @@ COMPOSER_BINARY="$PHP_BINARY $(which composer)";
 `FORCE_DXP_INSTALL` can be changed to `0` (zero) to have a persistent `TMP_DXP_DIR`.
 After a first run to create it, the Ibexa DXP won't be rebuilt by Composer by next runs.
 Time is saved. The DXP's code could even be modified for test purpose.
-TMP_DXP_DIR can be set to the path of a running installation.
+`TMP_DXP_DIR` can be set to the path of a running installation.
 
 ```bash
 PHP_BINARY='ddev php';
