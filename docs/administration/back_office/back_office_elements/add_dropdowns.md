@@ -110,19 +110,19 @@ The following attributes are available:
 |`choices`| |Elements listed in the drop-down.|
 |`preferred_choices`| | Elements listed at the top of the list with a separator.|
 |`value`|-|The currently selected element. It is an object with a key `value`. |
-|`multiple`| true</br>false|Boolean. To allow users to select multiple items.|
-|`translation_domain`|true</br>false|Used for translating choices and placeholder.|
-|`custom_form`|true</br>false|For custom form must be set to true.|
+|`multiple`| true<br>false|Boolean. To allow users to select multiple items.|
+|`translation_domain`|true<br>false|Used for translating choices and placeholder.|
+|`custom_form`|true<br>false|For custom form must be set to true.|
 |`class`| |Additional classes for the element with `ibexa-dropdown` class.|
 |`placeholder`| | Placeholder displayed when no option is selected.|
-|`custom_init`|true</br>false|By default set to `false`. If set to `true`, requires manually initializing drop-down in JavaScript.|
-|`is_disabled`|true</br>false|Disables drop-down.|
-|`is_hidden`|true</br>false|Hides the whole widget.|
-|`is_small`|true</br>false|Adjusts height of the widget (from 48px to 32px).|
-|`is_ghost`|true</br>false|Changes layout of the widget, removes all borders and backgrounds (similar to buttons modifier).|
+|`custom_init`|true<br>false|By default set to `false`. If set to `true`, requires manually initializing drop-down in JavaScript.|
+|`is_disabled`|true<br>false|Disables drop-down.|
+|`is_hidden`|true<br>false|Hides the whole widget.|
+|`is_small`|true<br>false|Adjusts height of the widget (from 48px to 32px).|
+|`is_ghost`|true<br>false|Changes layout of the widget, removes all borders and backgrounds (similar to buttons modifier).|
 |`min_search_items`|number, default 5|Minimum number of options that have to be passed to show the search inside the drop-down.|
 |`selected_item_label`|text|Allows setting constant label for widget. By default the visible label shows the currently selected options.|
-|`has_select_all_toggler`|true</br>false|Allows showing a "Select all" option if the minimum number of items is reached.|
+|`has_select_all_toggler`|true<br>false|Allows showing a "Select all" option if the minimum number of items is reached.|
 |`min_select_all_toggler_items`|number, default 5|Minimum number of items the dropdown must have for the "Select all" option to appear.|
 
 ![Drop-down expanded state](dropdown_expanded_state.png)

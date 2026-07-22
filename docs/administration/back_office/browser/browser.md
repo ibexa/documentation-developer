@@ -54,42 +54,42 @@ You can configure UDW under the `ibexa.system.<scope>.universal_discovery_widget
 
 There you can set the following properties:
 
-|YML</br>React props|Values|Required|Definition|
+|YML<br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|multiple</br>`multiple`|true</br>false|no|The possibility to choose multiple locations.|
-|multiple_items_limit</br>`multipleItemsLimit`|number|no|Maximum number of items with configuration `multiple: true`.|
-|root_location_id</br>`rootLocationId`|number|no|UDW displays locations only below this content tree element.|
-|starting_location_id</br>`startingLocationId`|number|no|This location is displayed as a starting location in UDW.|
-|containers_only</br>`containersOnly`|true</br>false|no|When set to `true` only containers can be selected.|
-|allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[`contentTypeIdentifier`]|yes|List of allowed content types:</br>`null` – all content types are allowed,</br>`[]` – empty table, no content types are allowed.|
-|active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Sort Clause by which children in the content tree is sorted.|
-|active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the content tree.|
-|active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
-|active_view</br>`activeView`|finder</br>grid</br>tree|no|Starting view in the UDW.|
-|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another page, for example, to content edit page.|
-|selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that is selected automatically.|
-|allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows confirmations buttons in the UDW. If set to false, it's not possible to confirm selection.|
+|multiple<br>`multiple`|true<br>false|no|The possibility to choose multiple locations.|
+|multiple_items_limit<br>`multipleItemsLimit`|number|no|Maximum number of items with configuration `multiple: true`.|
+|root_location_id<br>`rootLocationId`|number|no|UDW displays locations only below this content tree element.|
+|starting_location_id<br>`startingLocationId`|number|no|This location is displayed as a starting location in UDW.|
+|containers_only<br>`containersOnly`|true<br>false|no|When set to `true` only containers can be selected.|
+|allowed_content_types<br>`allowedContentTypes`|null<br>[]<br>[`contentTypeIdentifier`]|yes|List of allowed content types:<br>`null` – all content types are allowed,<br>`[]` – empty table, no content types are allowed.|
+|active_sort_clause<br>`activeSortClause`|DatePublished<br>ContentName|no|Sort Clause by which children in the content tree is sorted.|
+|active_sort_order<br>`activeSortOrder`|ascending<br>descending|no|Sorting order of the children in the content tree.|
+|active_tab<br>`activeTab`|browse<br>search<br>bookmarks|no|Starting tab in the UDW.|
+|active_view<br>`activeView`|finder<br>grid<br>tree|no|Starting view in the UDW.|
+|allow_redirects<br>`allowRedirects`|true<br>false|yes|Allows to redirect content from the UDW tab to another page, for example, to content edit page.|
+|selected_locations<br>`selectedLocations`|[]<br>[locationId]|no|Location that is selected automatically.|
+|allow_confirmation<br>`allowConfirmation`|true<br>false|yes|Shows confirmations buttons in the UDW. If set to false, it's not possible to confirm selection.|
 
 ### Content on the Fly group
 
-|YML</br>React props|Values|Required|Definition|
+|YML<br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|allowed_languages</br>`allowedLanguages`|null</br>[]</br>[languageCode]|yes|Languages available in Content on the Fly:</br>`null` - all,</br>`[]` - none.|
-|allowed_locations</br>`allowedLocations`|null</br>[]</br>[locationId]|yes|Location under which creating content is allowed:</br>`null` - everywhere,</br>`[]` - nowhere.|
-|preselected_language</br>`preselectedLanguage`|null</br>languageCode|yes|First language on the Content on the Fly language list:</br>null - language order defined in the system.|
-|preselected_content_type</br>`preselectedContentType`|null</br>contentTypeIdentifier|yes|Content selected in Content on the Fly.|
-|hidden</br>`hidden`|true</br>false|yes|Content on the Fly visibility.|
-|auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW is automatically closed after publishing the content.|
+|allowed_languages<br>`allowedLanguages`|null<br>[]<br>[languageCode]|yes|Languages available in Content on the Fly:<br>`null` - all,<br>`[]` - none.|
+|allowed_locations<br>`allowedLocations`|null<br>[]<br>[locationId]|yes|Location under which creating content is allowed:<br>`null` - everywhere,<br>`[]` - nowhere.|
+|preselected_language<br>`preselectedLanguage`|null<br>languageCode|yes|First language on the Content on the Fly language list:<br>null - language order defined in the system.|
+|preselected_content_type<br>`preselectedContentType`|null<br>contentTypeIdentifier|yes|Content selected in Content on the Fly.|
+|hidden<br>`hidden`|true<br>false|yes|Content on the Fly visibility.|
+|auto_confirm_after_publish<br>`autoConfirmAfterPublish`|true<br>false|yes|If set to `true` UDW is automatically closed after publishing the content.|
 
 ### Tabs config group
 
 General configuration for tabs, for example, browse, search, bookmarks.
 
-|YML</br>React props|Values|Required|Definition|
+|YML<br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|items_per_page</br>`itemsPerPage`|number|yes|Number of items shown on one page.|
-|priority</br>`priority`|number|yes|Priority of items shown in the tab list. Item with a highest value is displayed as first.|
-|hidden</br>`hidden`|true</br>false|yes|Hides or reveals specific tabs.|
+|items_per_page<br>`itemsPerPage`|number|yes|Number of items shown on one page.|
+|priority<br>`priority`|number|yes|Priority of items shown in the tab list. Item with a highest value is displayed as first.|
+|hidden<br>`hidden`|true<br>false|yes|Hides or reveals specific tabs.|
 
 ### Configuration available only through JS
 

@@ -6,6 +6,8 @@ edit_uri: blob/5.0/docs
 site_url: https://doc.ibexa.co/en/latest/
 hooks:
     - hooks/edit_uri.py
+    - hooks/eol_status.py
+    - hooks.py
 copyright: "Copyright 1999-2026 Ibexa AS and others"
 validation:
     omitted_files: warn
@@ -991,7 +993,7 @@ nav:
 theme:
     name: material
     features:
-        - content.code.annotate 
+        - content.code.annotate
         - content.code.copy
         - navigation.tracking
         - navigation.top
@@ -1111,6 +1113,3 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
-
-hooks:
-  - hooks.py
