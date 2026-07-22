@@ -3,6 +3,7 @@ from build_package_docs import (
     check_relative_doc_links,
     rewrite_llms_txt,
     rewrite_page,
+    strip_llms_txt_pointer,
 )
 
 DEVELOPER = DocSet(
@@ -217,6 +218,53 @@ class TestLlmsTxt:
     def test_unknown_page_stays_absolute(self):
         content = "- [Gone](https://doc.ibexa.co/en/latest/no/such/index.md)"
         assert rewrite_llms_txt(content, DEVELOPER) == content
+
+
+class TestLlmsTxtPointer:
+    """Mirrors the shapes inject_page_metadata() (tools/llms_txt/llmstxt_preprocess.py) produces."""
+
+    def test_pointer_is_removed_without_leaving_a_double_blank_line(self):
+        content = (
+            "# Getting started\n"
+            "\n"
+            "> For the complete documentation index, see [llms.txt](https://doc.ibexa.co/en/5.0/llms.txt).\n"
+            "\n"
+            "Body text here.\n"
+        )
+        assert strip_llms_txt_pointer(content) == "# Getting started\n\nBody text here.\n"
+
+    def test_description_and_editions_lines_are_kept(self):
+        content = (
+            "# Heading\n"
+            "\n"
+            "> For the complete documentation index, see [llms.txt](https://doc.ibexa.co/en/5.0/llms.txt).\n"
+            "\n"
+            "Some page description.\n"
+            "\n"
+            "Editions: Content, Experience\n"
+        )
+        assert strip_llms_txt_pointer(content) == (
+            "# Heading\n\nSome page description.\n\nEditions: Content, Experience\n"
+        )
+
+    def test_nested_project_url_is_also_stripped(self):
+        content = (
+            "# Edit images\n"
+            "\n"
+            "> For the complete documentation index, see "
+            "[llms.txt](https://doc.ibexa.co/projects/userguide/en/5.0/llms.txt).\n"
+            "\n"
+            "Body.\n"
+        )
+        assert strip_llms_txt_pointer(content) == "# Edit images\n\nBody.\n"
+
+    def test_pointer_without_a_heading_is_stripped_cleanly(self):
+        content = (
+            "> For the complete documentation index, see [llms.txt](https://doc.ibexa.co/en/5.0/llms.txt).\n"
+            "\n"
+            "Just body text.\n"
+        )
+        assert strip_llms_txt_pointer(content) == "Just body text.\n"
 
 
 class TestSelfCheck:

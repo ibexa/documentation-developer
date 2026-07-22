@@ -53,6 +53,10 @@ _API_CLASS_URL_RE = re.compile(r"php_api_reference/classes/([A-Za-z0-9-]+)\.html
 # Same fence detection as llmstxt_preprocess.renumber_ordered_lists.
 _FENCE_OPEN_RE = re.compile(r"^(\s*)(`{3,}|~{3,})")
 
+_LLMS_TXT_POINTER_RE = re.compile(
+    r"(?m)^> For the complete documentation index, see \[llms\.txt\]\([^)]*\)\.\n\n?"
+)
+
 
 class DocSet(NamedTuple):
     """One documentation set shipped in the package."""
@@ -187,6 +191,11 @@ def rewrite_links(line, page_path, docsets, class_paths):
     return _MD_LINK_RE.sub(_replace, line)
 
 
+def strip_llms_txt_pointer(content):
+    """Drop the llmstxt plugin's "see llms.txt" pointer line (see _LLMS_TXT_POINTER_RE)."""
+    return _LLMS_TXT_POINTER_RE.sub("", content)
+
+
 def rewrite_page(content, page_path, docsets, class_paths):
     """Rewrite a page's links, leaving fenced code blocks untouched."""
     lines = content.split("\n")
@@ -289,12 +298,8 @@ def build(dev_site, dev_plugins, user_site, user_plugins, class_map_path, versio
     for docset, site in docsets:
         for page_rel in sorted(docset.pages):
             page_path = f"{docset.root}/{page_rel}"
-            rewritten[page_path] = rewrite_page(
-                (site / page_rel).read_text(encoding="utf-8"),
-                page_path,
-                (developer, user),
-                class_paths,
-            )
+            content = strip_llms_txt_pointer((site / page_rel).read_text(encoding="utf-8"))
+            rewritten[page_path] = rewrite_page(content, page_path, (developer, user), class_paths)
         llms[docset.root] = rewrite_llms_txt(
             (site / "llms.txt").read_text(encoding="utf-8"), docset
         )
