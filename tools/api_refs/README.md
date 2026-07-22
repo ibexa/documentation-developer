@@ -6,16 +6,20 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
 
 ## Basic usage
 
-`tools/api_refs/api_refs.sh` is a script generating PHP API Reference, by default, under `docs/api/php_api/php_api_reference/`.
+`tools/api_refs/api_refs.sh` is a script generating PHP & REST API References, by default, under `docs/api/php_api/php_api_reference/` and `docs/api/rest_api/rest_api_reference/`.
 
-- For Composer, if you do not use a global authentication to retrieve _Commerce_ edition, a path to an auth.json file can be given as first argument. For example:
+- For Composer, if you do not use a global authentication to retrieve _Commerce_ edition, a path to an auth.json file can be given as first optional argument. For example:
   ```
   tools/api_refs/api_refs.sh ~/www/ibexa-dxp-commerce/auth.json
   ```
-- The second argument can be a path to an output directory to use instead of the default one. For example, using the Composer global authentication file as first argument and the path to directory (which is created if it doesn't exist yet):
+- The second optional argument can be a path to an output directory to use instead of the default one. For example, using the Composer global authentication file as first argument and the path to directory (which is created if it doesn't exist yet):
   ```
   tools/api_refs/api_refs.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
   ```
+- The next three optional arguments are the REST API files
+    - 3rd arg is the reference HTML file path
+    - 4th arg is the file path for the OpenAPI specification in YAML format
+    - 5th arg is the file path for the OpenAPI specification in JSON format
 
 ## Rebuild example
 
@@ -100,3 +104,17 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
 fi;
 ```
+
+### Run as GitHub Action
+
+#### Using `gh`
+
+With [GitHub CLI `gh`](https://cli.github.com/), you can trigger a GitHub Action workflow to build the API References
+
+```bash
+gh workflow run api_refs.yaml -f version=<tag> -f use_dev_version=<false|true> --ref <branch>
+```
+
+`-f version=<tag>` to pass the Ibexa DXP version tag for which the API References are built.
+`-f use_dev_version=<false|true>` to use the released version designed by the tag, or to use the development version (`v5.0.x-dev`) for an incoming tag.
+`--ref <branch>` to use a `api_refs.yaml` workflow from a given branch instead of the default branch (`5.0`).
