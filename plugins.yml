@@ -604,7 +604,7 @@ plugins:
         # Pin links in the generated Markdown (and llms.txt) to this branch's
         # version instead of site_url's en/latest, without affecting the HTML
         # site's canonical URLs. Update when branching a new version.
-        base_url: https://doc.ibexa.co/en/5.0/
+        base_url: https://doc.ibexa.co/en/6.0/
         autoclean: false
         full_output: llms-full.txt
         sections:
