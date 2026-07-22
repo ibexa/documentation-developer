@@ -1,0 +1,25 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2025-06-01T10:00:00+00:00'
+        publicationDate: '2025-06-01T10:00:00+00:00'
+        remoteId: options_folder
+        alwaysAvailable: true
+        section:
+            identifier: standard
+    location:
+        parentLocationId: 2
+        # parentLocationRemoteId: root_location
+        locationRemoteId: options_folder_location
+        hidden: false
+        priority: 10
+        sortField: 9 # Location::SORT_FIELD_NAME
+        sortOrder: ASC
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Folder with all options'

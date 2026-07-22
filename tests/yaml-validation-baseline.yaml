@@ -74,62 +74,67 @@ ignoreErrors:
         message: '~Invalid type for path "ibexa\.repositories\.\<repository_name\>\.collaboration\.participants\.auto_invite"\. Expected "bool", but got "string"\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 163
+        line: 171
         hash: 023288ce392e2e051ac32ea3525bdecebc301a860789c8d2128042885122bfa9
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 106
+        line: 114
         hash: 29c25d5ed7cc6b7c435b3d2b6f4e64946ea4f37a27b1e32330a205757a74e56e
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 142
+        line: 150
         hash: 379c053c8d40a701b0931b2e753d1256ece028d3c2e96a86fad3c884d480a48f
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 79
+        line: 80
         hash: 6ebbedc8bf843bdc28aa23e5604ad9795153e5abcf808839229b08a37386f7eb
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 186
+        line: 194
         hash: 93777839119c361b8b3a2708d47240128ef27643dce015decc1bf4edf0e8cb8f
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 119
+        line: 98
+        hash: 9bb6cf8c03a90b8fdf1c8a9e45a4b9d918bfc65afb2e3f31f913cde4042c55d1
+        message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
+    -
+        path: docs/content_management/data_migration/data_migration_actions.md
+        line: 127
         hash: c730d746b624933585bd7f985fc773625750b8385a3755e7735d50e49e4964b2
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 88
+        line: 89
         hash: d330a24eee42024868c98fcffb2c446706570fea05d05ec3b7309297ba49e3b4
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
-        line: 99
+        line: 107
         hash: e4d25af95785fe407cc135a608c778ff3232db0ce36e0bf5ce2039b249e29dc7
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 227
+        line: 253
         hash: 5fff20465655d9e52a258e3c1b1347a62b0f558d9e733bb377c003d5021822eb
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: show_children"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 255
+        line: 281
         hash: 7cec0a6d723dcb0d3d87904910e4870f05b885764116e447b8a4fe19025b8289
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: project_directory"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 247
+        line: 273
         hash: a08babaebc91ceb742a9a81a04be4d9e975291019794a0658bef1f99e62dccea
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: some_field"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 340
+        line: 384
         hash: c94bdd7b27818ae0138b8c5bdba1ff33d77e25918609c1741f2c4d4236dcaff1
         message: '~Unable to parse at line 1 \(near "        \-   fieldDefIdentifier\: image"\)\.~'
     -
@@ -199,12 +204,12 @@ ignoreErrors:
         message: '~The child config "default_siteaccess" under "ibexa\.siteaccess" must be configured\: Name of the default siteaccess~'
     -
         path: docs/infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
-        line: 145
+        line: 148
         hash: 15a7e49dc68c59afa39e10276a448edf6f9e501374b2a75d43c0edaa7882f5e2
         message: '~The child config "fastly" under "ibexa\.system\.my_siteaccess_group\.http_cache" must be configured\.~'
     -
         path: docs/infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
-        line: 128
+        line: 131
         hash: 68ea24e38b23f9efbfe4d689cffb5eb147ea6f332dc334fecc3f25f0117c4fb8
         message: '~The child config "fastly" under "ibexa\.system\.my_siteaccess_group\.http_cache" must be configured\.~'
     -
@@ -319,7 +324,7 @@ ignoreErrors:
         message: '~Unable to parse at line 3 \(near "    ibexa\.api\.role\.limitation_type\.function_list\:"\)\.~'
     -
         path: docs/personalization/attribute_search_in_elasticsearch.md
-        line: 16
+        line: 17
         hash: 4109336477914bb243c21073b32efd591f427b50f63f9305c39386055b915cd4
         message: '~Invalid output type in \{"\<item_type_id\>"\:\{"title"\:"\<item_name\>"\}\}\. Output type id should be type of int\.~'
     -
@@ -364,7 +369,7 @@ ignoreErrors:
         message: '~The child config "list" under "ibexa\.siteaccess" must be configured\: Available SiteAccess list~'
     -
         path: docs/update_and_migration/from_4.6/update_from_4.6.md
-        line: 517
+        line: 520
         hash: a773b166515790f4dbce61a47e2553e73de5c4040e3aa3c21d8b63b3e8bfb688
         message: '~Unrecognized option "trace" under "ibexa_elasticsearch\.connections\.default"\. Available options are "authentication", "connection_pool", "connection_selector", "debug", "elastic_cloud_id", "hosts", "index_templates", "node_pool_resurrect", "node_pool_selector", "retries", "ssl"\.~'
     -

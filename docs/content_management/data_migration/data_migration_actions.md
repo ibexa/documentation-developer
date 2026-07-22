@@ -50,6 +50,7 @@ When executed, this migration:
 
 The following migration actions are available out of the box:
 
+- `assign_dashboard_to_user` (Content Create)
 - `assign_object_state` (Content Create)
 - `assign_parent_location` (Content Create / Update)
 - `assign_section` (Content Update)
@@ -89,6 +90,13 @@ mode: Update
         - { action: assign_parent_location, value: 2 }
         - { action: assign_section, id: 4 }
         - { action: assign_section, identifier: 'media' }
+```
+
+When creating a [dashboard](customize_dashboard.md) content item, you can assign it to a specific user, identified by their login:
+
+``` yaml
+    actions:
+        - { action: assign_dashboard_to_user, value: admin }
 ```
 
 ### Content types
