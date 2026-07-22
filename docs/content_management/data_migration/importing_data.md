@@ -118,7 +118,8 @@ In the example above, the expression is enclosed in `###` and the repeated strin
 !!! note
 
     Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
-    The counter starts at `0` by default. You can change this with the `iteration_counter_starting_value` setting.
+    The counter starts at `0` by default.
+    You can change this with the `iteration_counter_starting_value` setting.
 
 #### Repeatable steps with items
 
