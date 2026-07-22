@@ -17,6 +17,10 @@ on:
                 required: false
                 type: boolean
                 default: false
+            base_branch:
+                description: 'Use this branch of the doc to build the refs'
+                required: false
+                type: string
 
 jobs:
     open_php_api_ref_pr:
