@@ -1,5 +1,8 @@
+import pytest
+
 from build_package_docs import (
     DocSet,
+    _require_local_path,
     check_relative_doc_links,
     rewrite_llms_txt,
     rewrite_page,
@@ -265,6 +268,22 @@ class TestLlmsTxtPointer:
             "Just body text.\n"
         )
         assert strip_llms_txt_pointer(content) == "Just body text.\n"
+
+
+class TestRequireLocalPath:
+    def test_relative_path_under_cwd_is_accepted(self):
+        assert _require_local_path("site", "site") == "site"
+
+    def test_nested_relative_path_is_accepted(self):
+        assert _require_local_path("user-docs/site", "user-site") == "user-docs/site"
+
+    def test_absolute_path_outside_cwd_is_rejected(self):
+        with pytest.raises(SystemExit):
+            _require_local_path("/etc/passwd", "site")
+
+    def test_parent_escape_is_rejected(self):
+        with pytest.raises(SystemExit):
+            _require_local_path("../../../../etc/passwd", "class-map")
 
 
 class TestSelfCheck:

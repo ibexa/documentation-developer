@@ -328,6 +328,19 @@ def build(dev_site, dev_plugins, user_site, user_plugins, class_map_path, versio
     print(f"{remaining} links intentionally left absolute (no local page)")
 
 
+def _require_local_path(path_str, arg_name):
+    """Reject a --site/--plugins/--user-site/--user-plugins/--class-map value
+    that resolves outside the current directory (e.g. an absolute path or a
+    ../ escape), so a wrong or agent-generated argument can't make the script
+    read files from elsewhere on disk.
+    """
+    resolved = Path(path_str).resolve()
+    cwd = Path.cwd().resolve()
+    if resolved != cwd and cwd not in resolved.parents:
+        sys.exit(f"--{arg_name} must stay within the current directory: {path_str}")
+    return path_str
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n", 2)[1])
     parser.add_argument("--site", default="site", help="Developer docs MkDocs build output")
@@ -343,6 +356,11 @@ def main():
                         help="This branch's documentation version (e.g. 5.0): links pinned to "
                              "it (en/5.0/…) are rewritten like en/latest ones")
     args = parser.parse_args()
+
+    for arg_name in ("site", "plugins", "user-site", "user-plugins", "class-map"):
+        value = getattr(args, arg_name.replace("-", "_"))
+        _require_local_path(value, arg_name)
+
     build(args.site, args.plugins, args.user_site, args.user_plugins, args.class_map, args.version)
 
 

@@ -15,7 +15,7 @@ composer require --dev ibexa/documentation-developer:~5.0 --no-scripts
 This package contains two documentation sets:
 
 - `developer` contains content of the [developer documentation](https://doc.ibexa.co/en/latest/).
-- `user` contains content of the [user documentation](https://doc.ibexa.co/en/latest/).
+- `user` contains content of the [user documentation](https://doc.ibexa.co/projects/userguide).
 
 Each set has its own `llms.txt` at its root (`developer/llms.txt`, `user/llms.txt`) with a table of contents with relative links.
 
