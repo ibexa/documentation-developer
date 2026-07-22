@@ -42,8 +42,8 @@ jobs:
 
                   if [[ "${{ inputs.use_dev_version }}" == "true" ]]; then
                     # Dev build: install from the x-dev branch and label output with the target version
-                    dxp_version="v${base_branch}.x-dev"
-                    base_dxp_branch="${base_branch}"
+                    base_dxp_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                    dxp_version="v${base_dxp_branch}.x-dev"
                     virtual_dxp_version="${version}"
                   else
                     # Stable build: install from the released tag
