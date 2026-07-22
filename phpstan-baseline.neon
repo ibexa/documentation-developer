@@ -1,6 +1,120 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Offset ''acme'' does not exist on array\{alias\: string, storage\: array\{engine\: string, connection\: string, config\?\: array\<string, mixed\>\}, search\: array\{engine\: string, connection\: string\}, fields_groups\: array\{default\: string, list\: array\<string\>\}, options\: array\<string, mixed\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: code_samples/_inline_php/administration/configuration/repository_configuration/ab545148cd13f7537467f6c43859d757ba15120b5df7d9933e6236336f1bf5e1.php
+
+		-
+			message: '#^Instantiated class MyValue not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/_inline_php/api/rest_api/extending_rest_api/creating_new_rest_resource/6886002ea53abecb63d61d585bc055fc9df36a19db675e286408a52f40aa794c.php
+
+		-
+			message: '#^Variable \$args might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: code_samples/_inline_php/api/rest_api/extending_rest_api/creating_new_rest_resource/6886002ea53abecb63d61d585bc055fc9df36a19db675e286408a52f40aa794c.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Notifier\\Recipient\\RecipientInterface\:\:getUser\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: code_samples/_inline_php/commerce/transactional_emails/extend_transactional_emails/9512b966ae24a637ff0bba4d63a51f6418567d4c1245ea3d61272890838582a4.php
+
+		-
+			message: '#^Expression "\[\[''id'' \=\> 1, ''name'' \=\> ''Boba Fett'', ''email'' \=\> ''boba\.fett@example\.com''\], \[''id'' \=\> 2, ''name'' \=\> ''Darth Vader'', ''email'' \=\> ''darth\.vader@example\.com''\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/authorfield/41087640467e69b96880fd3bcacebfab85a1983d922fd05e6f2aeffdadb77897.php
+
+		-
+			message: '#^Property Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content\:\:\$fields is not writable\.$#'
+			identifier: assign.propertyReadOnly
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/countryfield/3cd88088ebfaab6dc8aab79fd8d9e380586a05e9a250f208935020a274d6a77f.php
+
+		-
+			message: '#^Expression "\[''JP'' \=\> \[''Name'' \=\> ''Japan'', ''Alpha2'' \=\> ''JP'', ''Alpha3'' \=\> ''JPN'', ''IDC'' \=\> 81\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/countryfield/f00f86b7aae5981123e6212809be54752d5c5faec122aee5b4d4c68152533e3f.php
+
+		-
+			message: '#^Expression "\[''isISBN13'' \=\> \\true\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/isbnfield/678db783359b1c65999e5fed725950d32aaab547ab82f6bda18afcafa3392e8b.php
+
+		-
+			message: '#^Expression "\[''StringLengthValidator'' \=\> \[''maxStringLength'' \=\> 60, ''minStringLength'' \=\> 1\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_reference/textlinefield/abeeb0a02156f9dd413b5f54292d97783f49043458623888d904267ffa60acde.php
+
+		-
+			message: '#^Expression "\[''stringLength'' \=\> \[''minStringLength'' \=\> \[''type'' \=\> ''int'', ''default'' \=\> 0\], ''maxStringLength'' \=\> \[''type'' \=\> ''int'', ''default'' \=\> \\null\]\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/field_type_validation/9ff627c9326c9d9aa0613061d4b96d5e0b22526a04e1c3cf6c671bdc73f537e7.php
+
+		-
+			message: '#^Expression "\[''backupData'' \=\> \[''type'' \=\> ''bool'', ''default'' \=\> \\false\], ''defaultValue'' \=\> \[''type'' \=\> ''string'', ''default'' \=\> ''Default Value''\]\]" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: code_samples/_inline_php/content_management/field_types/type_and_value/4d9e52e02d6e226f71015653d598f662f6b4d4eb0af9e99b4c49d5389af19671.php
+
+		-
+			message: '#^Variable \$myAppCustomService might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: code_samples/_inline_php/infrastructure_and_maintenance/cache/persistence_cache/c27a2fe1c12bba3e9271acc67ae3a2e2d4596bf58f4d9b791aec4e564ae88259.php
+
+		-
+			message: '#^Property App\\MyService\:\:\$contentService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: code_samples/_inline_php/multisite/siteaccess/injecting_siteaccess/ab06aaada31a753d4da4ac9c30d6588608ca390d67846d676de254308b9981e3.php
+
+		-
+			message: '#^Property App\\MyService\:\:\$siteAccessService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: code_samples/_inline_php/multisite/siteaccess/injecting_siteaccess/ab06aaada31a753d4da4ac9c30d6588608ca390d67846d676de254308b9981e3.php
+
+		-
+			message: '#^Variable \$this might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: code_samples/_inline_php/search/criteria_reference/ancestor_criterion/4a5427b7ae43106059e9d543fcbf5e7b66602c10052ab6ff67750e041857c6ad.php
+
+		-
+			message: '#^Variable \$this might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: code_samples/_inline_php/search/criteria_reference/parentlocationid_criterion/c85766351eda977c61c12ab7d00c11cba956bde544bbdff4cad24e0bbf7717d9.php
+
+		-
+			message: '#^Method App\\QueryType\\RideQueryType\:\:getSupportedParameters\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: code_samples/_inline_php/tutorials/beginner_tutorial/5_display_a_list_of_content_items/ccb9d8424978af9df4ec24d732f91c6f7cab90b6879eecd0ea97fef21b833b3b.php
+
+		-
+			message: '#^Cannot access property \$destinationContentIds on Ibexa\\Contracts\\Core\\FieldType\\Value\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: code_samples/_inline_php/tutorials/beginner_tutorial/7_embed_content/d8ad5ae7972b67d11cb172c321b891e268d5a346d166f73c5570d61b9b372a7d.php
+
+		-
+			message: '#^Access to constant ANNOTATIONS_TO_ATTRIBUTES on an unknown class Rector\\Symfony\\Set\\SensiolabsSetList\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/_inline_php/update_and_migration/from_4.6/update_to_5.0/20a5c589183c1b8ee4f67c7a0c9352320eb7349e3f06f89c61e245ea4b7f585f.php
+
+		-
 			message: '#^Class App\\Form\\Type\\TextToTextOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1
@@ -683,3 +797,4 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: code_samples/workflow/custom_workflow/src/EventListener/LegalTransitionListener.php
+

@@ -1,5 +1,8 @@
 {% import "partials/language.html" as lang with context %}
-<nav class="md-nav md-nav--secondary" aria-label="{{ lang.t('toc.title') }}">
+{# toc_wrapper_tag: <nav> when standalone; <div> when embedded inside the sidebar <nav>
+   (toc_inside_nav set by nav-item.html) — nested <nav> tags break HTML->Markdown converters #}
+{% set toc_wrapper_tag = 'div' if toc_inside_nav else 'nav' %}
+<{{ toc_wrapper_tag }} class="md-nav md-nav--secondary" aria-label="{{ lang.t('toc.title') }}">
   {% set toc = page.toc %}
   {% if toc | first is defined and "\x3ch1 id=" in page.content %}
     {% set toc = (toc | first).children %}
@@ -18,7 +21,7 @@
             {{ toc_item.title }}
           </a>
           {% if toc_item.children %}
-              <nav class="md-nav">
+              <div class="md-nav">
                 <ul class="md-nav__list">
                   {% for toc_item in toc_item.children %}
                     <li class="md-nav__item level-2">
@@ -28,10 +31,10 @@
                     </li>
                   {% endfor %}
                 </ul>
-              </nav>
+              </div>
           {% endif %}
         </li>
       {% endfor %}
     </ul>
   {% endif %}
-</nav>
+</{{ toc_wrapper_tag }}>

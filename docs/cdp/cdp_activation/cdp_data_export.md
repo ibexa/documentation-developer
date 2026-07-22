@@ -107,6 +107,7 @@ Go to the **Audience Builder** and select **Build new audience**.
 When naming the audience remember, you need to find it in a drop-down list during activation.
 There, you can choose conditions from `did`, `did not` or `have`.
 The conditions `did` and `did not` allow you to use events like buy, visit or add to a cart from online tracking.
+
 - `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories.
 
 In the Audience Builder, you can also connect created audiences to the activations.

@@ -15,6 +15,7 @@ The available groups for the back office are:
 |---|---|
 |`admin-ui-login-form-after` | `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account/login/index.html.twig` |
 |`admin-ui-login-form-before` | `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account/login/index.html.twig` |
+|`admin-ui-content-column-end`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-content-create-form-before`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/create.html.twig` </li></ul>|
 |`admin-ui-content-create-form-after`|  <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/create.html.twig`</li></ul> |
 |`admin-ui-content-edit-form-after`| <ul><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig` </li><li>  `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/edit.html.twig`</li></ul> |
@@ -22,6 +23,7 @@ The available groups for the back office are:
 |`admin-ui-content-edit-sections`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig`</li></ul> |
 |`admin-ui-content-form-create-header-actions`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig` |
 |`admin-ui-content-form-edit-header-actions`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig` |
+|`admin-ui-content-translations-row-actions`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/tab/translations/tab.html.twig` |
 |`admin-ui-content-tree-after`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/location_view.html.twig` |
 |`admin-ui-content-tree-before`| `vendor/ibexaadmin-ui/src/bundle/Resources/views/themes/admin/content/location_view.html.twig` |
 |`admin-ui-content-type-edit-sections`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content_type/edit.html.twig` |
@@ -73,6 +75,7 @@ For more information, see [this example using few of those components](component
 |`admin-ui-attribute-group-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/attribute_group/view.html.twig` |
 |`admin-ui-catalog-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/catalog/view.html.twig` |
 |`admin-ui-customer-group-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/customer_group/view.html.twig` |
+|`admin-ui-form-product-add-translation-body`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/modal/add_translation.html.twig` |
 |`admin-ui-product-create-form-header-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/create.html.twig` |
 |`admin-ui-product-create-form-after`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/create.html.twig` |
 |`admin-ui-product-edit-form-header-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/edit.html.twig` |

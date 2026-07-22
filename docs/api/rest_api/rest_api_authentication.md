@@ -276,45 +276,57 @@ See [JWT authentication](development_security.md#jwt-authentication) for configu
 
 After you configure JWT authentication for REST, you can get the JWT token through the following request:
 
-=== "JSON"
+```http
+POST /user/token/jwt HTTP/1.1
+Host: <yourdomain>
+Accept: application/vnd.ibexa.api.JWT+json
+Content-Type: application/vnd.ibexa.api.JWTInput+json
+```
 
-    ```
-    POST /user/token/jwt HTTP/1.1
-    Host: <yourdomain>
-    Accept: application/vnd.ibexa.api.JWT+json
-    Content-Type: application/vnd.ibexa.api.JWTInput+json
-    ```
+Provide the username and password in the request body:
 
-    Provide the username and password in the request body:
-
-    ```json
-    {
-        "JWTInput": {
-            "username": "admin",
-            "password": "publish"
-        }
+```json
+{
+    "JWTInput": {
+        "username": "admin",
+        "password": "publish"
     }
-    ```
+}
+```
 
-    If credentials are valid, the server response contains a token:
+If credentials are valid, the server response contains a token:
 
-    ```json
-    {
-        "JWT": {
-            "_media-type": "application/vnd.ibexa.api.JWT+xml",
-            "_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"
-        }
+```json
+{
+    "JWT": {
+        "_media-type": "application/vnd.ibexa.api.JWT+xml",
+        "_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"
     }
-    ```
+}
+```
 
-    You can then use this token in your request instead of username and password.
+You can then use this token in your request instead of username and password.
 
-    ```
-    GET /content/locations/1/5/children
-    Host: <yourdomain>
-    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
-    Accept: application/vnd.ibexa.api.LocationList+json
-    ```
+```http
+GET /content/locations/1/5/children
+Host: <yourdomain>
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
+Accept: application/vnd.ibexa.api.LocationList+json
+```
+
+#### JWT token obtained through REST documentation
+
+To obtain a JWT token with REST, you can use the live API documentation that is available on your development installation.
+This documentation is only accessible when `kernel.debug` is set to `true`, similarly to a development environment.
+
+- open REST API live doc (for example at `http://localhost/api/ibexa/v2/doc`)
+- go to **User Token** section's **POST /user/token/jwt** resource (for example, at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
+- click the **Try it out** button
+- fill in the following adapted payload with the user credentials
+- click the **Execute** button to get a token
+
+![REST API live documentation with a JWTInput payload](jwt-rest-doc-request.png "REST doc JWT token request")
+![REST API live documentation with a JWTInput payload](jwt-rest-doc-response.png "REST doc JWT token response")
 
 ## HTTP basic authentication
 
@@ -325,10 +337,15 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 If the installation has a dedicated host for REST, you can enable HTTP basic authentication only on this host by setting a firewall like in the following example before the `ibexa_front` one:
 
 ```yaml
+security:
+    firewalls:
+        # ...
         ibexa_rest:
             host: ^api\.example\.com$
             http_basic:
                 realm: Ibexa DXP REST API
+        #ibexa_front:
+        # ...
 ```
 
 !!! caution "Back office uses REST API"
@@ -353,7 +370,7 @@ For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 Most HTTP client libraries and REST libraries support this method.
 [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) is an example of using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`.
 
-**Raw HTTP request with basic authentication**
+See the following raw HTTP request with basic authentication example:
 
 ```http
 GET / HTTP/1.1

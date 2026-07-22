@@ -19,6 +19,9 @@ The `Location\IsMainLocation` Sort Clause isn't available in [Repository filteri
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
 $query = new LocationQuery();
-$query->sortClauses = [new SortClause\Location\InMainLocation()];
+$query->sortClauses = [new SortClause\Location\IsMainLocation()];
 ```

@@ -1,5 +1,7 @@
 deptrac:
   skip_violations:
+    AcmeFeatureBundle:
+      - Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension
     App\AutomatedTranslation\ImageFieldEncoder:
       - Ibexa\Core\FieldType\Image\Value
     App\Block\Listener\MyBlockListener:
@@ -92,6 +94,9 @@ deptrac:
       - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\RelationController:
       - Ibexa\Core\MVC\Symfony\View\View
+    App\Controller\RideController:
+      - Ibexa\Bundle\Core\Controller
+      - Ibexa\Core\MVC\Symfony\View\ContentView
     App\Controller\SvgController:
       - Ibexa\Core\Helper\TranslationHelper
       - Ibexa\Core\IO\IOServiceInterface
@@ -115,11 +120,11 @@ deptrac:
       - Ibexa\Discounts\Value\AbstractDiscountExpressionAware
     App\Discounts\Rule\PurchasingPowerParityRuleFactory:
       - Ibexa\Discounts\Repository\DiscountRule\DiscountRuleFactoryInterface
-    App\Dispatcher\SomeClassThatSchedulesExecutionInTheBackground:
-      - Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp
     App\EventListener\TextAnchorMenuTabListener:
       - Ibexa\AdminUi\Menu\ContentEditAnchorMenuBuilder
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
+    App\EventSubscriber\AuthenticationTokenCreatedSubscriber:
+      - Ibexa\Core\MVC\Symfony\Security\UserWrapped
     App\EventSubscriber\BreadcrumbsMenuSubscriber:
       - Ibexa\Bundle\Storefront\Menu\Builder\BreadcrumbsMenuBuilder
     App\EventSubscriber\FormFieldDefinitionSubscriber:
@@ -128,6 +133,10 @@ deptrac:
       - Ibexa\FormBuilder\Event\FormEvents
     App\EventSubscriber\HelpMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
+    App\EventSubscriber\LoginFormViewSubscriber:
+      - Ibexa\Core\MVC\Symfony\Event\PreContentViewEvent
+      - Ibexa\Core\MVC\Symfony\MVCEvents
+      - Ibexa\Core\MVC\Symfony\View\LoginFormView
     App\EventSubscriber\MyMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
       - Ibexa\AdminUi\Menu\MainMenuBuilder
@@ -135,6 +144,8 @@ deptrac:
       - Ibexa\IntegratedHelp\ProductTour\Block\LinkBlock
       - Ibexa\IntegratedHelp\ProductTour\Block\TextBlock
       - Ibexa\IntegratedHelp\ProductTour\ProductTourStep
+    App\EventSubscriber\ResolveCampaginEventSubscriber:
+      - Ibexa\ConnectorActito\Campaign\Campaign
     App\Event\RandomBlockListener:
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
@@ -192,6 +203,8 @@ deptrac:
       - Ibexa\Migration\ValueObject\Step\StepInterface
     App\Migrations\Step\ReplaceNameStepNormalizer:
       - Ibexa\Migration\ValueObject\Step\StepInterface
+    App\MyService:
+      - Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface
     App\Notification\ListRenderer:
       - Ibexa\Core\Notification\Renderer\NotificationRenderer
       - Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface
@@ -200,12 +213,17 @@ deptrac:
       - Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface
     App\OAuth\GoogleResourceOwnerMapper:
       - Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper
+    App\ProductCatalog\Availability\ProductAvailabilityPurchasableWithoutStockStrategy:
+      - Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\HandlerInterface
+      - Ibexa\ProductCatalog\Local\Repository\Values\Availability
     App\QueryType\LatestContentQueryType:
       - Ibexa\Core\QueryType\QueryType
     App\QueryType\MenuQueryType:
       - Ibexa\Core\QueryType\QueryType
     App\QueryType\OptionsBasedLatestContentQueryType:
       - Ibexa\Core\QueryType\OptionsResolverBasedQueryType
+      - Ibexa\Core\QueryType\QueryType
+    App\QueryType\RideQueryType:
       - Ibexa\Core\QueryType\QueryType
     App\Search\Model\Suggestion\ProductSuggestion:
       - Ibexa\ProductCatalog\Local\Repository\Values\Product
@@ -231,6 +249,8 @@ deptrac:
       - Ibexa\AdminUi\Limitation\LimitationValueMapperInterface
     App\Security\MyPolicyProvider:
       - Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider
+    App\Service\MyService:
+      - Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface
     App\Setting\Group\MyGroup:
       - Ibexa\User\UserSetting\Group\AbstractGroup
     App\Setting\Unit:
@@ -249,3 +269,9 @@ deptrac:
       - Ibexa\Core\MVC\Symfony\View\View
     AttributeTypeExtension:
       - Ibexa\PageBuilder\Form\Type\Attribute\AttributeType
+    CustomRepositoryConfigParser:
+      - Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface
+    JohnDoeCanSelectMore:
+      - Ibexa\AdminUi\UniversalDiscovery\Event\ConfigResolveEvent
+    MyMapper:
+      - Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType

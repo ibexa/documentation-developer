@@ -49,15 +49,15 @@ Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the 
 For more information about displaying content, see [Content rendering](render_content.md).
 
 ``` yaml
- ibexa:
-   system:
-     site:
-       content_view:
-         embed:
-           image_dam:
-             template: '@ibexadesign/embed/dam.html.twig'
-             match:
-               Identifier\ContentType: <dam_image_content_type_identifier>
+ibexa:
+    system:
+        site:
+            content_view:
+                embed:
+                    image_dam:
+                        template: '@ibexadesign/embed/dam.html.twig'
+                        match:
+                           Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
 In your [configuration file](configuration.md#configuration-files) add the following configuration:
@@ -93,7 +93,7 @@ To extend the DAM support built into [[= product_name =]], you must create a cus
 
     Before you use Wikimedia Commons assets in a production environment, ensure that you comply with their [license requirements](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia#How_to_comply_with_a_file's_license_requirements).
 
-###  Create DAM handler
+### Create DAM handler
 
 This class handles searching through Wikimedia Commons for images and fetching image assets.
 
@@ -101,7 +101,7 @@ In `src/Connector/Dam/Handler` folder, create the `WikimediaCommonsHandler.php` 
 which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_search) to query the server
 and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_fetchAsset) to return asset objects:
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
 ```
 
@@ -120,7 +120,7 @@ The transformation factory maps [[= product_name =]]'s image variations to corre
 In `src/Connector/Dam/Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example,
 which implements the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
 
-```php
+``` php
 [[= include_code('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
 ```
 
@@ -157,9 +157,8 @@ In this example, the search only uses the main text input.
 The tab and its corresponding panel are a service created by combining existing components, like in the case of other [back office tabs](back_office_tabs.md).
 
 The `commons_search_tab` service uses the `GenericSearchTab` class as a base, and the `GenericSearchType` form for search input.
-It is linked to the `commons` DAM source and uses the identifier `commons`. 
+It is linked to the `commons` DAM source and uses the identifier `commons`.
 The DAM search tab is registered in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups) using the `ibexa.admin_ui.tab` tag.
-
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 22, 33) =]]

@@ -9,7 +9,7 @@ editions: lts-update commerce
 A shopping list allows users to save potential purchases, recurring product sets, and other items for future use in the cart.
 A user can have several shopping lists, including a default one named "My Wishlist".
 
-##  Getting Started
+## Getting Started
 
 [[= cards([
 "commerce/shopping_list/shopping_list_guide",

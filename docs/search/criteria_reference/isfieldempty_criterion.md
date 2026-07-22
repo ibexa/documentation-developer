@@ -26,6 +26,10 @@ For this use case, use [`TaxonomyNoEntries`](taxonomy_no_entries.md) instead.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\IsFieldEmpty('title');
 ```
 
@@ -33,9 +37,13 @@ $query->query = new Criterion\IsFieldEmpty('title');
 
 You can use the `IsFieldEmpty` Criterion to search for articles that don't have an image:
 
-``` php hl_lines="4"
-$query = new LocationQuery;
-$query->query = new Criterion\LogicalAnd([
+``` php hl_lines="8"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new LocationQuery();
+$query->query = new Criterion\LogicalAnd(
+    [
         new Criterion\ContentTypeIdentifier('article'),
         new Criterion\IsFieldEmpty('image'),
     ]

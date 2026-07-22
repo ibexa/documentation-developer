@@ -15,7 +15,7 @@ For more information on Serializer Component, see [Symfony documentation]([[= sy
 
 First, you need to add support for normalization in a `src/Serializer/Point2D/ValueNormalizer.php`:
 
-```php
+``` php
 [[= include_code('code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php') =]]
 ```
 
@@ -27,7 +27,7 @@ First, you need to add support for normalization in a `src/Serializer/Point2D/Va
 
 To accept old versions of the field type you need to add support for denormalization in a `src/Serializer/Point2D/ValueDenormalizer.php`:
 
-```php
+``` php
 [[= include_code('code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueDenormalizer.php') =]]
 ```
 
@@ -35,7 +35,7 @@ To accept old versions of the field type you need to add support for denormaliza
 
 To change the format on the fly, you need to replace the constructor and class properties in `src/FieldType/Point2D/Value.php`:
 
-```php
+``` php
 [[= include_code('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/ValueFinal.php', 11, 24, remove_indent=True) =]]
 ```
 

@@ -27,11 +27,14 @@ For more information about the ConfigResolver, namespaces and scopes, see [confi
 The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
 
-``` php
-Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+``` php {skip-validation}
+return [
+    // ...
+    Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+];
 ```
 
-### Parsing semantic configuration
+## Parsing semantic configuration
 
 To parse semantic configuration, create a `Configuration` class which extends `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration` and then extend its `generateScopeBaseNode()` method:
 
@@ -62,7 +65,7 @@ acme_example:
                 enabled: false
 ```
 
-### Mapping to internal settings
+## Mapping to internal settings
 
 Semantic configuration must always be mapped to internal key/value settings within the service container.
 You usually do it in the [service container](php_api.md#service-container) extension.
@@ -92,7 +95,7 @@ parameters:
         enabled: false
 ```
 
-#### Merging hash values between scopes
+### Merging hash values between scopes
 
 When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
 but enrich them by appending new entries.
@@ -145,7 +148,7 @@ parameters:
         language: javascript
 ```
 
-##### Merging from second level
+#### Merging from second level
 
 In the example above, entries were merged in respect to the scope order of precedence.
 However, because you defined the `os_types` key for `siteaccess1`, it completely overrode the default value, because the merge process is done only at the first level.

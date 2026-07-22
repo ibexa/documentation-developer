@@ -43,30 +43,35 @@ Customize the `rector.php` config file by:
 
 - making it match your directory structure (for example, you may not have the `tests` directory)
 - adding project-specific rules:
-  - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
-  - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
+    - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
+    - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
 
 It's recommended to activate one rule set at a time and preview the output by running Rector with the `--dry-run` option to decide which rulesets should be used and in which order.
 
 Your configuration could look like the following example:
 
-```php
+``` php
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
+
 return RectorConfig::configure()
     ->withPaths(
-       [
+        [
            __DIR__ . '/src',
-       ]
+        ]
     )
     ->withSets(
-       [
+        [
            IbexaSetList::IBEXA_46->value,
-       ]
+        ]
     )
     ->withPhpSets(php83: true)
     ->withComposerBased(symfony: true)
 ;
 ```
+
 Run the following command to preview the changes done by Rector:
+
 ```bash
 php vendor/bin/rector --dry-run
 ```
@@ -107,7 +112,7 @@ rm -r config/graphql
 
 [[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
 Your development packages must be updated as well.
-The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` are installed.
+The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/debug-pack) and `ibexa/rector` are installed.
 Adjust the list based on your project requirements.
 Notice the use of the `--no-update` option to only edit the `composer.json` entries and avoid triggering the package update and Composer scripts.
 
@@ -461,11 +466,15 @@ Again, it's recommended to activate one rule set at a time and preview the outpu
 
 As this update spans across a broad range of versions, multiple rules can be considered as in the example below.
 
-```php
+``` php
 //…
-use Rector\Symfony\Set\SymfonySetList;
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
 use Rector\Symfony\Set\SensiolabsSetList;
-//…
+use Rector\Symfony\Set\SymfonySetList;
+
+return RectorConfig::configure()
+    // ...
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value,
@@ -505,7 +514,7 @@ use Rector\Symfony\Set\SensiolabsSetList;
 In the following example, you can see optimization thanks to the following features:
 
 - [Constructor parameter promoted as properties](https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion) (available since PHP 8.0)
-- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.3/console.html#console_registering-the-command) (available since Symfony 6.2)
+- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.4/console.html#creating-a-command) (available since Symfony 6.2)
 
 ```diff
 +#[AsCommand(name: 'app:test', description: 'Command to test something.')]
@@ -913,10 +922,10 @@ The following example illustrates the update of a custom page block's icon:
 
 Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
-* If you have already installed the feature, its schema has been updated by the previous step.
-* If you haven't installed the feature, you need to add its schema to your database.
+- If you have already installed the feature, its schema has been updated by the previous step.
+- If you haven't installed the feature, you need to add its schema to your database.
   Store the SQL of the schema into a file, **review it carefully**, then run it.
-* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
+- If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
 
@@ -971,7 +980,6 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
     # Pause to review schema_symbol-attribute.sql
     psql <database_name> < schema_symbol-attribute.sql
     ```
-
 
 #### Install collaboration
 

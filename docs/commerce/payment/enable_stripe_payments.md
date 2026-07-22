@@ -43,5 +43,4 @@ ibexa:
         type:
             strp_checkout:
                 name: "Translated Stripe Checkout name"
-
 ```

@@ -41,14 +41,14 @@ Database schema is now created based on [YAML configuration](https://github.com/
 
 ### GraphQL
 
-You can now take advantage of [GraphQL](https://doc.ibexa.co/en/2.5/api/graphql) to query and operate on content.
+You can now take advantage of [GraphQL](https://doc.ibexa.co/en/2.5/api/graphql/) to query and operate on content.
 It uses a domain schema based on your content model.
 
 For more information, see [GraphQL documentation](https://graphql.org/).
 
 ### Matrix field type
 
-The new [Matrix field type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
+The new [Matrix field type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield/) enables you to store a table of data.
 Columns in the matrix are defined in the field definition.
 
 ![Configuring a Matrix field type](2.5_matrix_ft.png)
@@ -90,7 +90,7 @@ You can now create [inline custom tags](https://doc.ibexa.co/en/2.5/guide/extend
 
 #### Custom CK Editor plugins
 
-You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#plugins-configuration) in AlloyEditor.
+You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-plugins) in AlloyEditor.
 
 ### Hiding and revealing content
 
@@ -124,7 +124,6 @@ This release introduced several back office improvements to facilitate editorial
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of object states to content
 
-
 ![Back office improvements](2.5_back_office_improvements.png)
 
 ### Permissions
@@ -155,7 +154,7 @@ New API improvements include:
 
 ## Requirements changes
 
-Due to using Webpack Encore, you now need [Node.js and yarn](https://doc.ibexa.co/en/2.5/updating/updating)
+Due to using Webpack Encore, you now need [Node.js and yarn](https://doc.ibexa.co/en/2.5/update_and_migration/from_1.x_2.x/update_app_to_2.5/#c-fix-other-conflicts)
 to install or update eZ Platform.
 
 This release also changes support for versions of the following third-party software:
@@ -164,7 +163,7 @@ This release also changes support for versions of the following third-party soft
 - Apache 2.2 is no longer supported. Use Apache 2.4 instead.
 - Varnish 4 is no longer supported. Use Varnish 5.1 or higher (6.0LTS recommended).
 
-For full list of supported versions, see [Requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements).
+For full list of supported versions, see [Requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/).
 
 ### Password requirements
 
@@ -243,10 +242,9 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 #### Custom Installers
 
-- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/api/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
+- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its service container definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` service container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
 - `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and isn't used by the installation process anymore.
-
 
 ## eZ Platform v2.5.6
 
@@ -268,7 +266,7 @@ The following PHP API methods have been added:
 With v2.5.6 you can optionally use Solr 7.7. To enable it:
 
 1. Update the `ezplatform-solr-search-engine` package version to ~2.0.
-2. Follow [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html).
+2. Follow [Solr upgrade documentation](https://solr.apache.org/guide/7_7/solr-upgrade-notes.html).
 3. Reindex your content.
 4. Clear cache.
 

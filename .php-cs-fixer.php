@@ -6,12 +6,9 @@
  */
 declare(strict_types=1);
 
-use Ibexa\CodeStyle\PhpCsFixer\InternalConfigFactory;
+[$configFactory, $commonRules] = require __DIR__ . '/.php-cs-fixer-factory.php';
 
-$configFactory = new InternalConfigFactory();
-$configFactory->withRules([
-    'header_comment' => false,
-]);
+$configFactory->withRules($commonRules);
 
 return $configFactory
     ->buildConfig()
@@ -23,5 +20,6 @@ return $configFactory
                     __DIR__ . '/tests',
                 ], 'is_dir')
             )
+            ->exclude('_inline_php') // handled separately by .php-cs-fixer-inline.php
             ->files()->name('*.php')
     );

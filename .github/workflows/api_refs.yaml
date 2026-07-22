@@ -17,6 +17,10 @@ on:
                 required: false
                 type: boolean
                 default: false
+            base_branch:
+                description: 'Use this branch of the doc to build the refs'
+                required: false
+                type: string
 
 jobs:
     open_php_api_ref_pr:
@@ -30,13 +34,16 @@ jobs:
                   # Strip leading 'v' to get a plain version number (e.g. 5.0.9)
                   version="${{ inputs.version }}"
                   version="${version#v}"
-                  base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                  base_branch="${{ inputs.base_branch }}"
+                  if [ -z "$base_branch" ]; then
+                    base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                  fi
                   work_branch="api_refs_v${version}"
 
                   if [[ "${{ inputs.use_dev_version }}" == "true" ]]; then
                     # Dev build: install from the x-dev branch and label output with the target version
-                    dxp_version="v${base_branch}.x-dev"
-                    base_dxp_branch="${base_branch}"
+                    base_dxp_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                    dxp_version="v${base_dxp_branch}.x-dev"
                     virtual_dxp_version="${version}"
                   else
                     # Stable build: install from the released tag

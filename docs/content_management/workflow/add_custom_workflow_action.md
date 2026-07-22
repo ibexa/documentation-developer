@@ -81,7 +81,11 @@ You can also modify the context using the `setContext()` method.
 For example, you can override the message typed by the user:
 
 ``` php
+/**
+ * @var array<string, mixed> $context
+ * @var \Symfony\Component\Workflow\Event\TransitionEvent $event
+ */
 $new_context = $context;
-$new_context['message'] = "This article went through proofreading";
+$new_context['message'] = 'This article went through proofreading';
 $event->setContext($new_context);
 ```

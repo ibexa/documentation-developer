@@ -81,7 +81,6 @@ For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Co
 
     Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` /  `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
 
-
 ## Authentication
 
 One of the responsibilities of the repository is user authentication.
@@ -110,12 +109,15 @@ For example, to [hide a Location](managing_content.md#hiding-and-revealing-locat
 
 ``` php
 use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 
 //...
 
-$hiddenLocation = $repository->sudo(function (Repository $repository) use ($location) {
-    return $repository->getLocationService()->hideLocation($location);
-});
+/**
+ * @var Repository $repository
+ * @var Location $location
+ */
+$hiddenLocation = $repository->sudo(static fn (Repository $repository): Location => $repository->getLocationService()->hideLocation($location));
 ```
 
 ### Setting the repository user
@@ -147,12 +149,12 @@ For example if you're using a command which takes the content ID as a parameter,
 
 Both cases should be covered with error messages:
 
-``` php
+``` php {skip-validation}
 try {
     // ...
-} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException) {
     $output->writeln("<error>No content with id $contentId found</error>");
-} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException) {
     $output->writeln("<error>Permission denied on content with id $contentId</error>");
 }
 ```

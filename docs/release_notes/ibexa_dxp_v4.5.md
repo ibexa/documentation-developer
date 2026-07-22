@@ -12,7 +12,7 @@ description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation com
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
-**Update**: [v4.4.x to v4.5](https://doc.ibexa.co/en/latest/update_and_migration/from_4.4/update_from_4.4/)
+**Update**: [v4.4.x to v4.5](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.4/update_from_4.4/)
 
 ## Notable changes
 
@@ -29,16 +29,16 @@ Modules can interact with each other, for example, to decrease stock as a result
 
 #### Order management
 
-With order management in place, it's now possible to create orders, configure and customize the order processing workflow, and manage orders by using the APIs. 
+With order management in place, it's now possible to create orders, configure and customize the order processing workflow, and manage orders by using the APIs.
 
-New screens added to the back office user interface let [[= product_name =]] users search for orders and filter search results. 
+New screens added to the back office user interface let [[= product_name =]] users search for orders and filter search results.
 Users can also review order details and completion status, and cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
 #### Payment
 
-The all-new Payment module brings a possibility of tracking payment progress and defining a custom payment processing workflow. 
+The all-new Payment module brings a possibility of tracking payment progress and defining a custom payment processing workflow.
 New back office screens allow users to search for payment methods and payments, and also define, enable, and disable offline payment methods.
 
 Additionally, new APIs are available, which can be used for managing payment methods and payments.
@@ -50,7 +50,7 @@ Additionally, new APIs are available, which can be used for managing payment met
 With the arrival of the Shipping module, it's now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated back office screen.
 You can now also configure and customize the shipment workflow.
 
-New APIs enable managing shipping methods and payments, while an extension point can be used to expand the default list of shipping method types. 
+New APIs enable managing shipping methods and payments, while an extension point can be used to expand the default list of shipping method types.
 
 ![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
 
@@ -109,7 +109,7 @@ B2B recurring purchase model anticipates and predicts purchase of products that 
 ### Segment management
 
 Now you can use segmentation logic with operators to build complex segment groups which enable precise filtering.
-With intuitive drag-and-drop interface, define rules, add logic operators and nest segments in segment 
+With intuitive drag-and-drop interface, define rules, add logic operators and nest segments in segment
 groups to get the most accurate, precise and targeted recommendations for your customers.
 
 ![Segment management](img/4.5_segment_management.png "Segment management logic")
@@ -119,7 +119,7 @@ For more information, see [Segment management](https://doc.ibexa.co/projects/use
 ## Other changes
 
 ### Customer Data Platform (CDP) configuration
- 
+
 In this release, the CDP configuration becomes more generic
 and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
@@ -156,7 +156,7 @@ To create a company with proper structure and shipping address by using PHP API,
 This release adds new endpoints that allow you to manage orders by using REST API:
 
 - GET `/orders/orders` - loads a list of orders
-- POST `/orders/orders` - creates an order 
+- POST `/orders/orders` - creates an order
 - GET `/orders/order` - loads an order by its identifier
 - GET `/orders/order/{id}` - loads an order
 - POST `/orders/orders/{id}` - cancels an order
@@ -170,8 +170,8 @@ The Order Management package provides the `Ibexa\Contracts\OrderManagement\Order
 
 The Checkout package provides the following services that are entrypoints to the backend API:
 
-- `Ibexa\Contracts\Shipping\ShipmentServiceInterface` for managing shipments 
-- `Ibexa\Contracts\Shipping\ShippingMethodServiceInterface` for managing shipment methods 
+- `Ibexa\Contracts\Shipping\ShipmentServiceInterface` for managing shipments
+- `Ibexa\Contracts\Shipping\ShippingMethodServiceInterface` for managing shipment methods
 
 #### PHP API for payment methods and payments [[% include 'snippets/commerce_badge.md' %]]
 
@@ -207,7 +207,7 @@ It's no longer necessary to take other taxonomies into account when creating tag
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
 To do it, the system checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
 
-For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords).
+For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users/passwords/#breached-passwords).
 
 ### [[= product_name_connect =]]
 

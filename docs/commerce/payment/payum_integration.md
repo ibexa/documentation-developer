@@ -43,7 +43,7 @@ ibexa_connector_payum:
         refunded: cancelled
         captured: pending
         authorized: authorized
-[...]
+# ...
 ```
 
 ## Payment service name translations
@@ -72,7 +72,6 @@ When you implement the online payment solution, take the following consideration
 - To customize the online payment UI, see [Creating custom views](https://github.com/Payum/Payum/blob/master/docs/symfony/custom-payment-page.md) in Payum documentation.
 - When you modify the payment process, you may need to subscribe to events dispatched by Payum.
 For a list of events, see [Event dispatcher](https://github.com/Payum/Payum/blob/master/docs/event-dispatcher.md) in Payum documentation.
-
 
 !!! caution
 

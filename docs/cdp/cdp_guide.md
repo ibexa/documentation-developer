@@ -1,5 +1,5 @@
 ---
-description: The Ibexa CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
+description: The [[= product_name_cdp =]] product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
 edition: experience
 ---
 
@@ -31,11 +31,11 @@ Customer data is gathered through a system of trackers embedded in various areas
 
 ### Installation and configuration
 
-To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#register-in-ibexa-cdp-dashboard).
+To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](/cdp/cdp_installation.md#register-in-ibexa-cdp-dashboard).
 When you're done with registration process, you're able to access a separate instance with the data needed to configure, activate, and use this feature.
 
-After your account is created, you can [download and install the [[= product_name_cdp =]] package](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#install-cdp-package) that is opt-in and needs to be downloaded separately.
-Last step is to go through the [configuration process](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_configuration/).
+After your account is created, you can [download and install the [[= product_name_cdp =]] package](/cdp/cdp_installation.md#install-cdp-package) that is opt-in and needs to be downloaded separately.
+Last step is to go through the [configuration process](cdp_configuration.md).
 
 ### Customer profile
 
@@ -65,7 +65,7 @@ Remember to add a segment group identifier to the configuration, under the `segm
 ### Data export
 
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting content, users, and products.
-An `ibexa_cdp.data_export` [configuration key](https://doc.ibexa.co/en/latest/cdp/cdp_data_export_schedule/#configuration-key) includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
+An `ibexa_cdp.data_export` [configuration key](cdp_data_export_schedule.md#configuration-key) includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
 - `interval` - sets the frequency at which the command is invoked, uses cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour"
@@ -77,7 +77,7 @@ It's important, because all the types of content/product must have their own par
 
 Regarding data export, currently, only Stream File transport is supported and can be initialized from the configuration.
 
-For more information, see [CDP data export](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_data_export/).
+For more information, see [CDP data export](cdp_data_export.md).
 
 ### Data customization
 
@@ -85,12 +85,12 @@ For more information, see [CDP data export](https://doc.ibexa.co/en/latest/cdp/c
 With [[= product_name_cdp =]], you can export field types and field type values.
 They're exported with metadata and attributes, for example, ID, field definition name, type, or value.
 
-For more information, see [data customization](https://doc.ibexa.co/en/latest/cdp/cdp_data_customization/#data-customization) documentation in Developer Documentation.
+For more information, see [data customization](cdp_data_customization.md#data-customization) documentation in Developer Documentation.
 
 ### Client-side Tracking
 
 The final step is setting up a tracking script.
-For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_add_clientside_tracking/) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
+For more information, see [CDP add client-side tracking](cdp_add_tracking.md) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
 
 ### Audience Builder
 
@@ -102,6 +102,14 @@ The `have` conditions are tied to personal characteristics and can be used to tr
 You can also connect created audiences to the activations.
 
 ![Audience Builder](img/audience_builder.png)
+
+### Anonymous user segmentation
+
+[[= product_name_cdp =]] can build audiences for anonymous users, enabling personalised experiences for not logged-in visitors.
+
+When an anonymous visitor accesses your site, Raptor starts building an [anonymous profile](https://content.raptorservices.com/help-center/introduction-to-person-identifiers-and-profile-unification).
+
+You can segment these anonymous profiles into different audiences, exactly as in case of logged-in users, and use this information in [[= product_name =]] to provide personalized experiences.
 
 ## Benefits
 

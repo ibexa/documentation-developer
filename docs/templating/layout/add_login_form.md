@@ -88,12 +88,12 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
         $view = $event->getContentView();
 
         if (!($view instanceof LoginFormView)) {
-            return ;
+            return;
         }
 
         $view->addParameters([
             'foo' => 'foo',
-            'bar' => 'bar'
+            'bar' => 'bar',
         ]);
 
         if ($view->getLastAuthenticationException() instanceof CredentialsExpiredException) {

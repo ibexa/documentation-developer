@@ -1,0 +1,37 @@
+security:
+    password_hashers:
+        # The in-memory provider requires an encoder
+        Symfony\Component\Security\Core\User\InMemoryUser: plaintext
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory:
+                users:
+                    from_memory_user: { password: from_memory_pass, roles: [ 'ROLE_USER' ] } # Mapped to `generic_customer` user
+                    from_memory_forgotten: { password: from_memory_anonym, roles: [ 'ROLE_USER' ] } # Not mapped so `anonymous` user is loaded
+                    from_memory_admin: { password: from_memory_publish, roles: [ 'ROLE_USER' ] } # Mapped to `admin` user
+        ibexa:
+            id: ibexa.security.user_provider
+        # Chaining in_memory and ibexa user providers
+        chained:
+            chain:
+                providers: [ in_memory, ibexa ]
+
+    firewalls:
+        # …
+        ibexa_front:
+            pattern: ^/
+            provider: chained
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+            context: ibexa
+            form_login:
+                enable_csrf: true
+                login_path: login
+                check_path: login_check
+            custom_authenticators:
+                - Ibexa\PageBuilder\Security\EditorialMode\FragmentAuthenticator
+            entry_point: form_login
+            logout:
+                path: logout

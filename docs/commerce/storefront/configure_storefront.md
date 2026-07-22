@@ -10,7 +10,7 @@ The Storefront is accessible under the `<yourdomain>/product-catalog`.
 
 With the `ibexa/storefront` package, you can configure the product catalog and make it available to your shop users.
 
-Before you start configuring the Storefront, make sure you have created, configured, and published [catalogs]([[= user_doc =]]/pim/work_with_catalogs/#create-catalogs) in the back office.
+Before you start configuring the Storefront, make sure you have created, configured, and published [catalogs]([[= user_doc =]]/product_catalog/work_with_catalogs/#create-catalogs) in the back office.
 
 The configuration is available under the `ibexa.system.<scope>.storefront.catalog` [configuration key](configuration.md#configuration-files).
 It accepts the following values:
@@ -39,7 +39,6 @@ ibexa:
 
 3\. Specific catalog for the defined customer group
 
-
 You can expose different catalogs based on a customer group assigned to the current user.
 
 To do it, provide the following configuration:
@@ -64,22 +63,9 @@ The basic configuration of the Storefront can look as follows:
 
 ## Retrieve catalog assigned to user
 
+The [`\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Storefront-Repository-CatalogResolverInterface.html) interface allows retrieving the product catalog available for a specific user.
 
-The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` interface allows retrieving the product catalog available for a specific user.
-
-```php
-namespace Ibexa\Contracts\Storefront\Repository;
-
-use Ibexa\Contracts\Core\Repository\Values\User\User;
-use Ibexa\Contracts\ProductCatalog\Values\CatalogInterface;
-
-interface CatalogResolverInterface
-{
-    public function resolveCatalog(?User $user = null): ?CatalogInterface;
-}
-```
-
-`null` stands for the current user.
+To retrieve catalog assigned for the current user, pass `null`.
 
 ### Configure user account
 
@@ -94,9 +80,10 @@ Settings for a Storefront user are configured under the `ibexa.system.<scope>.st
 ibexa:
     system:
         site_group:
-            user_settings_groups:
-                - location
-                - custom_group
+            storefront:
+                user_settings_groups:
+                    - location
+                    - custom_group
 ```
 
 By default, only the `location` user settings is provided:

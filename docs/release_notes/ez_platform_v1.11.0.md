@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.11.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of August 24, 2017.**
 
-If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [eZ Platform 1.7 release notes](ez_platform_v1.7.0_lts.md).
 
 ## Notable changes since v1.10.0
 
@@ -43,7 +43,7 @@ It enables you to manually select a set of content items to be displayed.
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which content types can be embedded in it.
 
-    For more information and an example, see [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates).
+    For more information and an example, see [block templates](https://doc.ibexa.co/en/3.3/guide/page/page_blocks/#block-templates).
 
 #### RecommendationBundle adapted for YooChoose v2
 
@@ -80,21 +80,11 @@ full support, maintenance, and priority security patch handling as they're used 
 | [List of changes for rc1 of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-rc1) |
 | [List of changes for beta1 of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-beta1) |
 
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
-
 ### Download
-
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

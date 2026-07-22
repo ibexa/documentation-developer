@@ -131,7 +131,6 @@ For more information and a list of available choices, see [Node pool](https://ww
 
     If you change the node pool settings, it's recommended that you perform load tests to check whether the change doesn't negatively impact the performance of your environment.
 
-
 ##### Number of retries
 
 The `retries` setting configures the number of attempts that [[= product_name =]] makes to connect to the nodes of the cluster before it throws an exception.
@@ -182,7 +181,7 @@ If your Elasticsearch server is protected by HTTP authentication, you must provi
 In the basic authentication, you must pass the following parameters:
 
 ``` yaml
-<connection_name>
+<connection_name>:
     # ...
     authentication:
         type: basic
@@ -306,7 +305,7 @@ To do this, pass the following setting under the `ssl` key:
 verification: false
 ```
 
-For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#ssl-encryption).
+For more information, see [Elasticsearch: Security by default](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#auth-http).
 
 ### Enable debugging
 
@@ -377,14 +376,14 @@ Index names use the following pattern:
     You can create index templates with settings that apply to a specific language only, for example, to eliminate stop words from the index, or help divide concatenations.
     You use patterns to identify index templates that contain settings specific for a given language:
 
-  ``` yaml
-  ibexa_elasticsearch:
+``` yaml
+ibexa_elasticsearch:
     # ...
     index_templates:
         default_en_us:
             patterns: ['default_*', '*eng_us*']
-            # ...
-  ```
+        # ...
+```
 
 - `settings` - Settings under this key control all aspects related to an index.
 
@@ -392,21 +391,21 @@ For more information and a list of available settings, see [Elasticsearch docume
 
     For example, you can define settings that convert text into a format that is optimized for search, like a normalizer that changes a case of all phrases in the index:
 
-  ``` yaml
-    ibexa_elasticsearch:
-        # ...
-            index_templates:
-                default:
-                    # ...
-                    settings:
-                        analysis:
-                            normalizer:
-                                lowercase_normalizer:
-                                    type: custom
-                                    char_filter: []
-                                    filter: lowercase
-                                    # ...
-  ```
+``` yaml
+ibexa_elasticsearch:
+    # ...
+    index_templates:
+        default:
+            # ...
+            settings:
+                analysis:
+                    normalizer:
+                        lowercase_normalizer:
+                            type: custom
+                            char_filter: []
+                            filter: lowercase
+                            # ...
+```
 
 - `mappings` - Settings under this key define mapping for fields in the index.
 
@@ -539,6 +538,6 @@ ibexa_elasticsearch:
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/index-templates.html).
 
-# Extend Elasticsearch
+## Extend Elasticsearch
 
 To learn how you can create document field mappers, custom Search Criteria, custom Sort Clauses and Aggregations, see [Create custom Search Criterion](create_custom_search_criterion.md).

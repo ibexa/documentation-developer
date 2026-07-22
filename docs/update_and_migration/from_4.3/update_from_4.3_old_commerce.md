@@ -156,7 +156,7 @@ Add the following dependencies in the `require` section in `composer.json`:
 
 Next, remove the entries with new packages alongside with routing and configuration in `config/routes/ibexa_cart.yaml`, `config/routes/ibexa_checkout.yaml` and `config/routes/ibexa_storefront.yaml`:
 
-```php
+``` php {skip-validation}
     Ibexa\Bundle\Cart\IbexaCartBundle::class => ['all' => true],
     Ibexa\Bundle\Checkout\IbexaCheckoutBundle::class => ['all' => true],
     Ibexa\Bundle\Storefront\IbexaStorefrontBundle::class => ['all' => true],
@@ -201,7 +201,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish code update
 

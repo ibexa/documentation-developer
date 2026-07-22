@@ -1,0 +1,6 @@
+services:
+    App\EventSubscriber\AuthenticationTokenCreatedSubscriber:
+        arguments:
+            $userMap:
+                from_memory_user: generic_customer
+                from_memory_admin: admin

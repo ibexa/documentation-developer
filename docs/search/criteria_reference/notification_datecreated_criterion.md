@@ -16,6 +16,6 @@ The `DateCreated` Search Criterion searches for notifications based on the date 
 
 ### PHP
 
-```php hl_lines="14-15 17"
+``` php hl_lines="14-15 17"
 [[= include_code('code_samples/notifications/Src/Query/search.php') =]]
 ```

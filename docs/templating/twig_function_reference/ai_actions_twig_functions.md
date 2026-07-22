@@ -8,7 +8,7 @@ month_change: false
 
 AI Actions functions allows you to pass information about AI Actions to the Twig templates.
 
-### `ibexa_ai_config()`
+## `ibexa_ai_config()`
 
 The `ibexa_ai_config` function loads the configuration of an Action Type with given identifier.
 

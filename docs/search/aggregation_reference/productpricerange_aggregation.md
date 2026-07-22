@@ -15,11 +15,15 @@ The ProductPriceRangeAggregation aggregates search results by the value of the p
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductPriceRangeAggregation;
+
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductPriceRangeAggregation('price', 'PLN', [
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(0, 10000),
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(10000, null),
+        Range::ofInt(0, 10000),
+        Range::ofInt(10000, null),
     ]),
 ]);
 ```

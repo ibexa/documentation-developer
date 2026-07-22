@@ -16,5 +16,12 @@ The `PaymentMethod` Search Criterion searches for payments based on a payment me
 ### PHP
 
 ``` php
-$query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\PaymentMethod(2);
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+/** @var \Ibexa\Contracts\Payment\PaymentMethodServiceInterface $paymentMethodService */
+$paymentMethod = $paymentMethodService->getPaymentMethod(2);
+
+$query = new PaymentQuery(
+    new \Ibexa\Contracts\Payment\Payment\Query\Criterion\PaymentMethod($paymentMethod)
+);
 ```

@@ -21,11 +21,13 @@ They're described below in further detail.
 
 To be able to query data properly an indexable field type also is required to return search specification. You must return an associative array of `Ibexa\Contracts\Core\Search\FieldType` instances from this method, which could look like:
 
-```php
-[
-    'url'  => new Search\FieldType\StringField(),
+``` php
+use Ibexa\Contracts\Core\Search;
+
+return [
+    'url' => new Search\FieldType\StringField(),
     'text' => new Search\FieldType\StringField(),
-]
+];
 ```
 
 This example from the `Url` field type shows that the field type always returns two indexable values, both strings.

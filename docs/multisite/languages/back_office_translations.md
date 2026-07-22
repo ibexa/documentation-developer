@@ -58,23 +58,24 @@ The method takes as arguments:
 - domain of the string
 
 Here's an example:
-``` php hl_lines="13 14 15"
-use Symfony\Component\Translation\TranslatorInterface;
 
-private $translator;
+``` php hl_lines="12-14"
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-public function __construct(TranslatorInterface $translator)
+final readonly class MyService
 {
-    $this->translator = $translator;
-}
+    public function __construct(private TranslatorInterface $translator)
+    {
+    }
 
-private function getTranslatedDescription(): string
-{
-    return $this->translator->trans(
-        'custom.extension.description',
-        [],
-        'custom_extension'
-    );
+    public function getTranslatedDescription(): string
+    {
+        return $this->translator->trans(
+            'custom.extension.description',
+            [],
+            'custom_extension'
+        );
+    }
 }
 ```
 

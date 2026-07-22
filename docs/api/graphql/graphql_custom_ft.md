@@ -75,7 +75,7 @@ Only implement methods that you need, the rest is handled by other mappers (conf
 When a mapper method is decorated, you need to call the decorated service method for unsupported types.
 To do that, you need to replace `mapXXX` by the method it's in:
 
-```php
+``` php
 [[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 21, 24, remove_indent=True) =]]
 ```
 
@@ -99,7 +99,7 @@ For example, `ibexa_matrix` generates its own input types depending on the confi
 
 Example of a `MyFieldDefinitionMapper` mapper for a complex field type:
 
-```php
+``` php
 [[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
 ```
 

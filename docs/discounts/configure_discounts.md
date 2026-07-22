@@ -1,6 +1,6 @@
 ---
 description: Customize the behavior of the Discounts feature.
-month_change: false
+month_change: true
 editions:
     - commerce
 ---
@@ -49,11 +49,13 @@ To run discount re-indexing in the background:
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
 ```
 
-3\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
+3\. Run the following command periodically, at least once a day:
 
 ``` bash
 php bin/console ibexa:discounts:reindex
 ```
+
+For more information about command scheduling, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
 
 !!! note "Deploying Symfony Messenger"
 

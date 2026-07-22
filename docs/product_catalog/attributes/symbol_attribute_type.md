@@ -46,6 +46,7 @@ ibexa_product_catalog_symbol_attribute:
                 - 'MSS-24827'
                 - 'SEE-15444'
 ```
+
 This following example specifies the format for a "Manufacturer Part Number", defined with the `manufacturer_part_number` identifier.
 
 The pattern is specified using a regular expression.
@@ -78,6 +79,7 @@ services:
             -   name: ibexa.product_catalog.attribute.symbol.checksum
                 format: my_format
 ```
+
 The format attribute (`my_format`) is the identifier used under the `ibexa_product_catalog_symbol_attribute.formats` key.
 
 ## Search for products with given symbol attribute

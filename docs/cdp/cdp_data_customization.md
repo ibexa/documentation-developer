@@ -4,11 +4,11 @@ edition: experience
 ---
 
 # Data customization
-​
+
 You can customize user, content, and product data exported to CDP and you can control what field type information you want to export.
 By default, custom field types have basic export functionality.
 It casts their `Value` object to string, thanks to `\Stringable` implementation.
-​
+
 ## Export additional user data
 
 You can extend user data exported to CDP by attaching custom information, for example user content fields or user preferences.
@@ -51,7 +51,7 @@ The exported user data includes your custom fields:
 ```
 
 ## Export field types
-​
+
 Field types are exported with metadata, for example, ID, field definition name, type, or value.
 You can also provide your own [`\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-Content-FieldProcessorInterface.html) instance to extend metadata.
 The provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`.
@@ -64,7 +64,7 @@ The interface is plain and has two methods that you need to provide:
 - **process** - takes `Field` instance and then returns a flat array of scalar values that are combined with the payload data.
 ​
 A common field type is serialized to:
-​
+
 ```json
 {
     "field_measurement_simple_id": 1792,
@@ -80,19 +80,20 @@ A common field type is serialized to:
     "field_measurement_simple_value_simple_base_unit": 800000000
 }
 ```
-​
+
 Field identifier is a prefix that is automatically added to each key.
 You can only use scalar values.
-​
+
 ### Built in Field Processors for custom field types
-​
+
 You can provide your own CDP export functionality by using one of the system Field Processors:
 
 #### `\Ibexa\Cdp\Export\Content\FieldProcessor\SkippingFieldProcessor`
-​
+
 It results in the field type being excluded from the exported payload.
 To avoid adding the field type data to the payload, register a new service as follows:
 ​
+
 ```yaml
 custom_fieldtype.cdp.export.field_processor:
     class: Ibexa\Cdp\Export\Content\FieldProcessor\SkippingFieldProcessor
@@ -102,30 +103,31 @@ custom_fieldtype.cdp.export.field_processor:
     tags:
         - { name: 'ibexa.cdp.export.content.field_processor', priority: 0 }
 ```
-​
+
 ## Export field type values
-​
+
 To customize export of field type values, provide your own [`\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-Content-FieldValueProcessorInterface.html) instance.
 New implementation has to be registered as a service manually or by using autoconfiguration.
 The service has to use the tag `ibexa.cdp.export.content.field_value_processor`.
 You can also provide `priority` property to override other Field Value Processors.
-​
-* `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
+
+- `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
 If the field type returns a single value, provides a `value` key in the array.
 You can return multiple values.
 
-* `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
+- `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
 ​
+
 ### Built in Field Value Processors for custom field types
-​
+
 Several system Field Value Processors either work by default or can be registered for custom field types:
-​
+
 #### `\Ibexa\Cdp\Export\Content\FieldValueProcessor\CastToStringFieldValueProcessor`
-​
+
 This Processor is a default one, as long as no other Processor with higher priority is registered. It makes `\Stringable` implementation of the field type `\Ibexa\Core\FieldType\Value` object to use it as a value in the final payload.
-​
+
 #### `\Ibexa\Cdp\Export\Content\FieldValueProcessor\JsonHashFieldValueProcessor`
-​
+
 This Processor generates JSON data from hash representation of the field type (it uses [`\Ibexa\Contracts\Core\FieldType\FieldType::toHash`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_toHash) method).
 
 !!! caution
@@ -134,6 +136,7 @@ This Processor generates JSON data from hash representation of the field type (i
 
 To use `JsonHashFieldValueProcessor`, you need to register a new service:
 ​
+
 ```yaml
 custom_fieldtype.cdp.export.field_processor:
     class: Ibexa\Cdp\Export\Content\FieldValueProcessor\JsonHashFieldValueProcessor
