@@ -1,40 +1,32 @@
 """
 Build the Composer-package Markdown docs from the MkDocs build outputs.
 
-The package bundles two documentation sets, each produced by its own MkDocs
-build with the llmstxt plugin:
+The package bundles two documentation sets, each produced by its own MkDocs build with the llmstxt plugin:
 
-- ``developer/`` — ibexa/documentation-developer (this repository, built into
-  ``site/``)
-- ``user/`` — ibexa/documentation-user (checked out and built next to it, into
-  ``user-docs/site/``)
+- `developer/` — ibexa/documentation-developer
+- `user/` — ibexa/documentation-user
 
-Each set gets its own ``llms.txt`` table of contents at its root. The website
-outputs keep absolute https://doc.ibexa.co URLs; the Composer package must work
-offline inside vendor/ibexa/documentation-developer, so links are rewritten:
+Each set gets its own `llms.txt` table of contents at its root.
 
-- Page links (``https://doc.ibexa.co/en/latest/<path>/[#anchor]`` for the
-  developer docs, ``https://doc.ibexa.co/projects/userguide/en/latest/…`` for
-  the user docs) become relative links to the corresponding
-  ``<set>/<path>/index.md`` file — including cross-set links between the two
-  documentations. URLs matching a mkdocs-redirects entry are resolved through
-  the redirect first. URLs with no local page (other doc.ibexa.co projects,
-  images, the separately hosted API reference HTML) are left untouched.
-- PHP API class links (``…/php_api_reference/classes/<Slug>.html``) become
-  relative links to the class source file in the *installed project's*
-  vendor/ directory, using the FQCN→path map produced by
-  ``tools/llm_package/dump_class_paths.php``. The link text is upgraded to the
-  backticked FQCN (when it was just the short class name) so the class stays
-  greppable even if the target package isn't installed in the user's project.
-  Unmapped classes keep their absolute URL.
+The following transformations are applied to the MkDocs build outputs before writing them into the package::
 
-Run after both ``mkdocs build``s:
+- Page links to developer and user documentation become relative links to the corresponding `<set>/<path>/index.md`` files, including cross-set links between the two documentations:
 
-    php tools/llm_package/dump_class_paths.php site user-docs/site class_paths.json
-    python build_package_docs.py --version 5.0
+    URLs matching a mkdocs-redirects entry are resolved through the redirect first. 
+    URLs with no local page (other doc.ibexa.co projects, images, the separately hosted API reference HTML) are left untouched.
+    Links to versions other than the current branch's version (e.g. en/4.0/…) are also left untouched.
+    
+- PHP API class links (`.../php_api_reference/classes/<Slug>.html`) become relative links to the class source file in the vendor/ director:
 
-Like llmstxt_preprocess.py, all transformations are pure functions so they can
-be unit-tested (tests/python/test_build_package_docs.py).
+    By using the FQCN -> path map produced by `tools/llm_package/dump_class_paths.php`.
+    The link text is upgraded to the FQCN so the class stays greppable even if the target package isn't installed in the user's project.
+
+Run after both documentation sites are built with MkDocs:
+
+``` bash
+php tools/llm_package/dump_class_paths.php site user-docs/site class_paths.json
+python build_package_docs.py --version 5.0
+```
 """
 
 import argparse
@@ -341,7 +333,7 @@ def main():
     parser.add_argument("--user-plugins", default="user-docs/plugins.yml",
                         help="User docs plugins.yml with redirect_maps")
     parser.add_argument("--class-map", default="class_paths.json",
-                        help="FQCN→vendor path map from dump_class_paths.php")
+                        help="FQCN -> vendor path map from dump_class_paths.php")
     parser.add_argument("--version", default=None,
                         help="This branch's documentation version (e.g. 5.0): links pinned to "
                              "it (en/5.0/…) are rewritten like en/latest ones")

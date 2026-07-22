@@ -4,26 +4,53 @@ on:
     schedule:
         # Daily at 03:17 UTC. Fans out to every maintained version branch (see determine-branches).
         - cron: "17 3 * * *"
-    workflow_dispatch: ~
+    workflow_dispatch:
+        inputs:
+            version:
+                description: "Version branch to release"
+                required: true
+                default: "5.0"
+                type: string
+            devdoc_branch:
+                description: "Developer documentation branch to check out (defaults to version)"
+                required: false
+                default: ""
+                type: string
+            userdoc_branch:
+                description: "User documentation branch to check out (defaults to version)"
+                required: false
+                default: ""
+                type: string
 
 jobs:
     determine-branches:
         runs-on: ubuntu-latest
         outputs:
             branches: ${{ steps.set.outputs.branches }}
+            devdoc_branch: ${{ steps.set.outputs.devdoc_branch }}
+            userdoc_branch: ${{ steps.set.outputs.userdoc_branch }}
         steps:
             - id: set
               run: |
                   if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-                      # Manual runs only release the branch the workflow was dispatched from.
-                      branches='["${{ github.ref_name }}"]'
+                      # Manual runs release the branch chosen via the "version" input,
+                      # not necessarily the branch the workflow was dispatched from.
+                      branches='["${{ github.event.inputs.version }}"]'
+                      # Left empty when not overridden; the release job then falls back
+                      # to the version branch (matrix.branch) for the checkout ref.
+                      devdoc_branch="${{ github.event.inputs.devdoc_branch }}"
+                      userdoc_branch="${{ github.event.inputs.userdoc_branch }}"
                   else
                       # Scheduled runs always execute in the default branch's context, so they must
                       # explicitly check out each maintained version branch instead of relying on
                       # GITHUB_REF. Extend this list as new branches become active / drop EOL ones.
                       branches='["5.0"]'
+                      devdoc_branch=""
+                      userdoc_branch=""
                   fi
                   echo "branches=${branches}" >> "$GITHUB_OUTPUT"
+                  echo "devdoc_branch=${devdoc_branch}" >> "$GITHUB_OUTPUT"
+                  echo "userdoc_branch=${userdoc_branch}" >> "$GITHUB_OUTPUT"
 
     release:
         needs: determine-branches
@@ -43,13 +70,13 @@ jobs:
             # pulling the full history + every daily tag snapshot (which took minutes).
             - uses: actions/checkout@v4
               with:
-                  ref: ${{ matrix.branch }}
+                  ref: ${{ needs.determine-branches.outputs.devdoc_branch || matrix.branch }}
 
             - name: Check out user documentation
               uses: actions/checkout@v4
               with:
                   repository: ibexa/documentation-user
-                  ref: ${{ matrix.branch }}
+                  ref: ${{ needs.determine-branches.outputs.userdoc_branch || matrix.branch }}
                   path: user-docs
 
             - name: Set up Python
@@ -72,13 +99,13 @@ jobs:
                   php-version: "8.3"
                   coverage: none
 
-            # - name: Generate token
-            #   id: generate_token
-            #   uses: actions/create-github-app-token@v2
-            #   with:
-            #       app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
-            #       private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
-            #       owner: ${{ github.repository_owner }}
+            - name: Generate token
+              id: generate_token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ${{ github.repository_owner }}
 
             - name: Add composer keys for private packagist
               run: |
@@ -87,7 +114,7 @@ jobs:
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                  GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} #${{ steps.generate_token.outputs.token }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
             # Needed to resolve the PHP API classes referenced by the docs to
             # their vendor/ source paths (dump_class_paths.php).
@@ -116,6 +143,10 @@ jobs:
 
             - name: Copy package README
               run: cp tools/llm_package/README.package.md README.md
+
+            - name: Smoke-test package output
+              run: |
+                  composer validate
 
             - name: Find the last tag for this branch
               id: last_tag

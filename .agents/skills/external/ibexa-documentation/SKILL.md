@@ -16,8 +16,7 @@ It contains two documentation sets:
 
 Use the documentation for what the code cannot tell you:
 
-- Concepts and the content model: content types, fields, locations,
-  versions, languages, and how they relate.
+- Concepts and the content model: content types, fields, locations, versions, languages, and how they relate.
 - Release notes and changes between versions: `developer/release_notes/`.
 - Update and migration instructions: `developer/update_and_migration/`.
 - Project and feature setup, configuration, and best practices: `developer/infrastructure_and_maintenance/`.
