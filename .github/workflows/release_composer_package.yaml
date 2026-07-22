@@ -99,13 +99,14 @@ jobs:
                   php-version: "8.3"
                   coverage: none
 
-            - name: Generate token
-              id: generate_token
-              uses: actions/create-github-app-token@v2
-              with:
-                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
-                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
-                  owner: ${{ github.repository_owner }}
+            # TMP: Uncomment when merging to ibexa repository
+            # - name: Generate token
+            #   id: generate_token
+            #   uses: actions/create-github-app-token@v2
+            #   with:
+            #       app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+            #       private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+            #       owner: ${{ github.repository_owner }}
 
             - name: Add composer keys for private packagist
               run: |
@@ -114,7 +115,7 @@ jobs:
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+                  GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} #${{ steps.generate_token.outputs.token }} #TMP: Revert when merging to ibexa repository
 
             # Needed to resolve the PHP API classes referenced by the docs to
             # their vendor/ source paths (dump_class_paths.php).
