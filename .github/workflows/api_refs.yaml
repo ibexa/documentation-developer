@@ -81,6 +81,7 @@ jobs:
               if: inputs.force == false
               run: |
                   if git ls-remote --exit-code --heads origin "${{ steps.version_and_branches.outputs.work_branch }}"; then
+                    echo "::error title=Branch exists::The branch ${{ steps.version_and_branches.outputs.work_branch }} already exists. You can use the 'force' option to overwrite it."
                     exit 1
                   fi
 
