@@ -133,5 +133,5 @@ gh workflow run api_refs.yaml -f version=v5.0.999 -f use_dev_version=true
 Rebuild references for the released version `v5.0.10` from `my-tools`'s `api_refs.yaml` with `my-tools`'s tools and commit the result into `my-api-refs` even if it already exists:
 
 ```bash
-gh workflow run api_refs.yaml -f version=v5.0.10 --ref my-tools -f base_branch=my-tools -f work_branch=my-api-refs -f force=true
+gh workflow run api_refs.yaml -f version=v5.0.10 --ref my-builder -f base_branch=my-builder -f work_branch=my-api-refs -f force=true
 ```
