@@ -1,0 +1,8 @@
+-
+    type: service_call
+    mode: execute
+    service: App\Migration\ContentImporter
+    method: import
+    arguments:
+        - content.csv
+        - 42
