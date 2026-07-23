@@ -2,7 +2,7 @@
 
 set +x;
 
-AUTH_JSON=$(realpath "${1:-~/.composer/auth.json}"); # Path to an auth.json file allowing to install the targeted edition and version
+AUTH_JSON=$(realpath ${1:-~/.composer/auth.json}); # Path to an auth.json file allowing to install the targeted edition and version
 PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
 REST_API_OPENAPI_FILE_YAML=${4:-./docs/api/rest_api/rest_api_reference/openapi.yaml}; # Path to the REST API OpenAPI spec file
@@ -63,7 +63,7 @@ cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be ab
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
   if [[ "$DXP_VERSION" == *".x-dev" ]]; then
-    COMPOSER_AUTH="$(cat $AUTH_JSON | tr -d '\n')" composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
+    COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;

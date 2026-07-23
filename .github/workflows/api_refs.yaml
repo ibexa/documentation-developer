@@ -22,7 +22,7 @@ on:
                 required: false
                 type: string
             work_branch:
-                description: 'Commit builds to this branch of the doc (default: api_refs_<version>})'
+                description: 'Commit builds to this branch of the doc (default: api_refs_<version>)'
                 required: false
                 type: string
             force:

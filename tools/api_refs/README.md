@@ -17,9 +17,9 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
   tools/api_refs/api_refs.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
   ```
 - The next three optional arguments are the REST API files
-    - 3rd arg is the reference HTML file path
-    - 4th arg is the file path for the OpenAPI specification in YAML format
-    - 5th arg is the file path for the OpenAPI specification in JSON format
+    - 3rd argument is the reference HTML file path
+    - 4th argument is the file path for the OpenAPI specification in YAML format
+    - 5th argument is the file path for the OpenAPI specification in JSON format
 
 ## Rebuild example
 
@@ -63,9 +63,9 @@ If you change some of those values, please do not commit those changes, and don'
 To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
 ```bash
 cp tools/api_refs/api_refs.sh tools/api_refs/api_refs.dev.sh
-nano api_refs.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
-nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
-tools/api_refs/api_refs.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
+nano tools/api_refs/api_refs.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
+nano tools/api_refs/phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
+tools/api_refs/api_refs.dev.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
 ```
 
 ### Creating a build of dev version
