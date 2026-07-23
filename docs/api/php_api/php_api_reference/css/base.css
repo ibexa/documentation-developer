@@ -578,13 +578,9 @@ figcaption {
     text-align: center;
 }
 
-a.external:not(.card):after {
-    content: url(../../../../images/open-in-new.svg);
-    font-style: normal;
-    padding-left: 0px;
-    position: relative;
-    font-size: 11px;
-    top: -5px;
+a.external:not(.card) {
+    background: url(../../../../images/open-in-new.svg) no-repeat 100% -2px;
+    padding-right: 12px;
 }
 
 .md-typeset .md-content__icon {
