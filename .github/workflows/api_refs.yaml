@@ -71,6 +71,11 @@ jobs:
                   echo "base_dxp_branch=${base_dxp_branch}" >> "$GITHUB_OUTPUT"
                   echo "virtual_dxp_version=${virtual_dxp_version}" >> "$GITHUB_OUTPUT"
 
+            - name: Checkout documentation
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ steps.version_and_branches.outputs.base_branch }}
+
             - name: Check if work branch exists
               id: check_work_branch
               if: inputs.force == false
@@ -78,11 +83,6 @@ jobs:
                   if git ls-remote --exit-code --heads origin "${{ steps.version_and_branches.outputs.work_branch }}"; then
                     exit 1
                   fi
-
-            - name: Checkout documentation
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{ steps.version_and_branches.outputs.base_branch }}
 
             - name: Disable PHP coverage
               uses: shivammathur/setup-php@v2
