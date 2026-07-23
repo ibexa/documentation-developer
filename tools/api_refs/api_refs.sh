@@ -61,6 +61,11 @@ fi;
 cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be absolute)
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+  if [ ! -f $AUTH_JSON ]; then
+    echo "Credentials file ${AUTH_JSON} doesn't exist.";
+    exit 3;
+  fi;
+
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
   if [[ "$DXP_VERSION" == *".x-dev" ]]; then
     COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
