@@ -18,9 +18,18 @@ on:
                 type: boolean
                 default: false
             base_branch:
-                description: 'Use this branch of the doc to build the refs'
+                description: 'Start from this branch of the doc to build the refs (default: Maj.min from version)'
                 required: false
                 type: string
+            work_branch:
+                description: 'Commit builds to this branch of the doc (default: api_refs_<version>)'
+                required: false
+                type: string
+            force:
+                description: 'Push to work_branch even if it exists (default: false)'
+                required: false
+                type: boolean
+                default: false
 
 jobs:
     open_php_api_ref_pr:
@@ -30,19 +39,27 @@ jobs:
         steps:
             - name: Set version and branches
               id: version_and_branches
+              env:
+                  INPUT_VERSION: ${{ inputs.version }}
+                  INPUT_BASE_BRANCH: ${{ inputs.base_branch }}
+                  INPUT_WORK_BRANCH: ${{ inputs.work_branch }}
+                  INPUT_USE_DEV_VERSION: ${{ inputs.use_dev_version }}
               run: |
                   # Strip leading 'v' to get a plain version number (e.g. 5.0.9)
-                  version="${{ inputs.version }}"
+                  version="$INPUT_VERSION"
                   version="${version#v}"
-                  base_branch="${{ inputs.base_branch }}"
+                  base_branch="$INPUT_BASE_BRANCH"
                   if [ -z "$base_branch" ]; then
-                    base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                    base_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
                   fi
-                  work_branch="api_refs_v${version}"
+                  work_branch="$INPUT_WORK_BRANCH"
+                  if [ -z "$work_branch" ]; then
+                    work_branch="api_refs_v${version}"
+                  fi
 
-                  if [[ "${{ inputs.use_dev_version }}" == "true" ]]; then
+                  if [[ "$INPUT_USE_DEV_VERSION" == "true" ]]; then
                     # Dev build: install from the x-dev branch and label output with the target version
-                    base_dxp_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                    base_dxp_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
                     dxp_version="v${base_dxp_branch}.x-dev"
                     virtual_dxp_version="${version}"
                   else
@@ -63,6 +80,15 @@ jobs:
               uses: actions/checkout@v4
               with:
                   ref: ${{ steps.version_and_branches.outputs.base_branch }}
+
+            - name: Check if work branch exists
+              id: check_work_branch
+              if: inputs.force == false
+              run: |
+                  if git ls-remote --exit-code --heads origin "${{ steps.version_and_branches.outputs.work_branch }}"; then
+                    echo "::error title=Branch exists::The branch ${{ steps.version_and_branches.outputs.work_branch }} already exists. You can use the 'force' option to overwrite it."
+                    exit 1
+                  fi
 
             - name: Disable PHP coverage
               uses: shivammathur/setup-php@v2
