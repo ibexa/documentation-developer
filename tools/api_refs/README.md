@@ -107,7 +107,7 @@ fi;
 
 ### Run as GitHub Action
 
-#### Using `gh`
+#### By using `gh`
 
 With [GitHub CLI `gh`](https://cli.github.com/), you can trigger a GitHub Action workflow to build the API References.
 
