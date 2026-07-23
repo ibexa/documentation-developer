@@ -25,7 +25,7 @@
     const setWidthOfSecondLevelMenu = () => {
         let secondLevelMenuWidth = getCookie('php-api:menu-width');
 
-        if (!secondLevelMenuWidth) {
+        if (!secondLevelMenuWidth || window.matchMedia('(max-width: 76.1875em)').matches) {
             return;
         }
 
