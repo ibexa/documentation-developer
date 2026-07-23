@@ -3,7 +3,8 @@ description: Adapt your project for the Cohesivo v6.0 release.
 month_change: true
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesGlobal = NO -->
 
 # Cohesivo v6.0 renames, deprecations and removals
 
@@ -18,6 +19,8 @@ month_change: true
 As announced during Ibexa Summit 2026, [Ibexa DXP will be renamed to Cohesivo](https://www.ibexa.co/blog/redefining-the-dxp-from-execution-to-orchestration) to support the new [orchestration platform approach](https://www.ibexa.co/blog/the-orchestration-era).
 
 To learn more about the new brand, visit the [Cohesivo official site](https://cohesivo.com).
+
+To make the update process between v5 and v6 easier, there are no plans for a large-scale renaming of `Ibexa` to `Cohesivo` in the code, database, or other parts of the product.
 
 This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
