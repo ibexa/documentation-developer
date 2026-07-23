@@ -39,22 +39,27 @@ jobs:
         steps:
             - name: Set version and branches
               id: version_and_branches
+              env:
+                  INPUT_VERSION: ${{ inputs.version }}
+                  INPUT_BASE_BRANCH: ${{ inputs.base_branch }}
+                  INPUT_WORK_BRANCH: ${{ inputs.work_branch }}
+                  INPUT_USE_DEV_VERSION: ${{ inputs.use_dev_version }}
               run: |
                   # Strip leading 'v' to get a plain version number (e.g. 5.0.9)
-                  version="${{ inputs.version }}"
+                  version="$INPUT_VERSION"
                   version="${version#v}"
-                  base_branch="${{ inputs.base_branch }}"
+                  base_branch="$INPUT_BASE_BRANCH"
                   if [ -z "$base_branch" ]; then
-                    base_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                    base_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
                   fi
-                  work_branch="${{ inputs.work_branch }}"
+                  work_branch="$INPUT_WORK_BRANCH"
                   if [ -z "$work_branch" ]; then
                     work_branch="api_refs_v${version}"
                   fi
 
-                  if [[ "${{ inputs.use_dev_version }}" == "true" ]]; then
+                  if [[ "$INPUT_USE_DEV_VERSION" == "true" ]]; then
                     # Dev build: install from the x-dev branch and label output with the target version
-                    base_dxp_branch="$(echo $version | sed 's/\(.*\..*\)\..*/\1/')"
+                    base_dxp_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
                     dxp_version="v${base_dxp_branch}.x-dev"
                     virtual_dxp_version="${version}"
                   else
