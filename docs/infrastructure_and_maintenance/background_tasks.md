@@ -139,7 +139,7 @@ For more information, see [Symfony documentation about message deduplication]([[
 
     You must use the `Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp` stamp instead.
 
-The following example shows how you can attach the SudoStamp to the message:
+The following example shows how you can attach the DeduplicateStamp to the message:
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
