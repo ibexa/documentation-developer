@@ -5411,6 +5411,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Collaboration-Invitation-InvitationUpdateStruct.html#method_setContext"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\InvitationUpdateStruct\u003A\u003AgetTranslationMessages\u0028\u0029",
+            "name": "getTranslationMessages",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Invitation-InvitationUpdateStruct.html#method_getTranslationMessages"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\CreatedAt",
             "name": "CreatedAt",
             "summary": "",
@@ -24536,6 +24541,11 @@ Search.appendIndex(
             "summary": "Returns\u0020an\u0020array\u0020of\u0020field\u0020definition\u0020validation\u0020error\u0020messages.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentTypeFieldDefinitionValidationException.html#method_getFieldErrors"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Exceptions\\ContentTypeOwnedBySomeoneElseException",
+            "name": "ContentTypeOwnedBySomeoneElseException",
+            "summary": "Marker\u0020interface\u0020for\u0020all\u0020Repository\u0020related\u0020exceptions.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentTypeOwnedBySomeoneElseException.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Exceptions\\ContentTypeValidationException",
             "name": "ContentTypeValidationException",
             "summary": "This\u0020Exception\u0020is\u0020thrown\u0020on\u0020create\u0020or\u0020update\u0020content\u0020type\u0020when\u0020content\u0020type\u0020is\u0020not\u0020valid.",
@@ -34281,6 +34291,16 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020current\u0020default\u0020namespace.",
             "url": "classes/Ibexa-Contracts-Core-SiteAccess-ConfigResolverInterface.html#method_getDefaultNamespace"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\SiteAccess\\ConfigResolverInterface\u003A\u003ASCOPE_GLOBAL",
+            "name": "SCOPE_GLOBAL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-SiteAccess-ConfigResolverInterface.html#constant_SCOPE_GLOBAL"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\SiteAccess\\ConfigResolverInterface\u003A\u003ASCOPE_DEFAULT",
+            "name": "SCOPE_DEFAULT",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-SiteAccess-ConfigResolverInterface.html#constant_SCOPE_DEFAULT"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Specification\\AbstractSpecification",
             "name": "AbstractSpecification",
             "summary": "",
@@ -41846,6 +41866,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setName"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetNameHelp\u0028\u0029",
+            "name": "getNameHelp",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_getNameHelp"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AsetNameHelp\u0028\u0029",
+            "name": "setNameHelp",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setNameHelp"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetCategory\u0028\u0029",
             "name": "getCategory",
             "summary": "",
@@ -41930,6 +41960,11 @@ Search.appendIndex(
             "name": "name",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024nameHelp",
+            "name": "nameHelp",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_nameHelp"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024category",
             "name": "category",
