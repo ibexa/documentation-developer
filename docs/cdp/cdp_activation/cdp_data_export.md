@@ -67,7 +67,7 @@ In the **Transform & Map** section you transform data and map it to a schema.
 At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
 
 If you have [extended user data export with custom fields](cdp_data_customization.md#export-additional-user-data), those fields appear as additional columns in this section.
-Make sure to add them to your schema in Raptor so they can be used for segmentation and personalization.
+Make sure to add them to your schema in Raptor so they can be used for segmentation and recommendations.
 
 Next, select **Create schema based on the downloaded columns**.
 It moves you to Schema Creator.
