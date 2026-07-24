@@ -77,14 +77,14 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
     $COMPOSER_BINARY config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes-dev/contents/index.json?ref=flex/main";
     $COMPOSER_BINARY require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
   elif [[ "$DXP_VERSION" == *"-rc"* ]]; then
-    COMPOSER_AUTH="$(cat $AUTH_JSON | tr -d '\n')" $COMPOSER_BINARY create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=rc;
+    COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" $COMPOSER_BINARY create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=rc;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
     $COMPOSER_BINARY config repositories.ibexa composer https://updates.ibexa.co;
     $COMPOSER_BINARY require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
   else
-    COMPOSER_AUTH="$(cat $AUTH_JSON | tr -d '\n')" $COMPOSER_BINARY create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
+    COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" $COMPOSER_BINARY create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
