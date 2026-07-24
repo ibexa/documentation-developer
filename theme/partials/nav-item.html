@@ -9,7 +9,8 @@
     <label class="md-nav__link level-{{ level }}" for="{{ path }}">
       {{ nav_item.title }} <span class="pill pill--new" hidden>New</span>
     </label>
-    <nav class="md-nav" aria-label="{{ nav_item.title }}" data-md-level="{{ level }}">
+    {# div instead of nav: nested <nav> tags break HTML->Markdown converters, see nav.html #}
+    <div class="md-nav" aria-label="{{ nav_item.title }}" data-md-level="{{ level }}">
       <label class="md-nav__link-title md-nav__link level-{{ level }}" for="{{ path }}">
         {{ nav_item.title }}
       </label>
@@ -21,7 +22,7 @@
           {% include "partials/nav-item.html"  %}
         {% endfor %}
       </ul>
-    </nav>
+    </div>
   </li>
 {% elif nav_item == page %}
   <li class="{{ class }}">
@@ -40,6 +41,9 @@
       {% if nav_item.meta.month_change %}<span class="pill pill--new">New</span>{% endif %}
     </a>
     {% if toc | first is defined %}
+      {# toc_inside_nav: render the TOC with a <div> wrapper because it sits inside the
+         sidebar <nav> here; a nested <nav> would break HTML->Markdown converters, see nav.html #}
+      {% set toc_inside_nav = true %}
       {% include "partials/toc.html" %}
     {% endif %}
   </li>

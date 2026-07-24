@@ -426,15 +426,21 @@ def expand_macros(text: str, variables: dict) -> str:
     return _MACRO_RE.sub(_substitute, text)
 
 
-def inject_page_metadata(content: str, description: str = "", editions: list = ()) -> str:
-    """Insert the page description and an 'Editions: X, Y' line after the first h1 heading."""
-    metadata_lines = []
+def inject_page_metadata(
+    content: str, description: str = "", editions: list = (), llms_txt_url: str = "/llms.txt"
+) -> str:
+    """Insert the llms.txt pointer, page description, and an 'Editions: X, Y' line after the first h1 heading.
+
+    ``llms_txt_url`` must be the absolute URL of *this site's own* llms.txt
+    (e.g. via ``urljoin(base_url, "llms.txt")``), not a hardcoded root-relative
+    path — sites published under a nested path (e.g. a userguide project under
+    ``/projects/userguide/``) have their llms.txt there, not at the domain root.
+    """
+    metadata_lines = ["", f"> For the complete documentation index, see [llms.txt]({llms_txt_url})."]
     if description:
         metadata_lines += ["", description]
     if editions:
         metadata_lines += ["", "Editions: " + ", ".join(editions)]
-    if not metadata_lines:
-        return content
 
     lines = content.split("\n")
     for i, line in enumerate(lines):

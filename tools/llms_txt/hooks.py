@@ -14,6 +14,7 @@ from __future__ import annotations
 
 from pathlib import Path, PurePosixPath
 from typing import TYPE_CHECKING
+from urllib.parse import urljoin
 
 from llms_txt.llmstxt_preprocess import (
     absolutize_image_urls,
@@ -70,7 +71,11 @@ def on_page_content(html: str, *, page: "Page", config: "MkDocsConfig", **kwargs
     if "[[=" in description:
         # Unresolved macros must not leak into the output.
         description = ""
-    content = inject_page_metadata(page_info.content, description, editions)
+    # base_url already accounts for the site's own nesting (e.g. a
+    # userguide project published under /projects/userguide/), unlike
+    # a hardcoded root-relative "/llms.txt".
+    llms_txt_url = urljoin(llmstxt._base_url, "llms.txt")
+    content = inject_page_metadata(page_info.content, description, editions, llms_txt_url)
     content = renumber_ordered_lists(content)
     # Same base URL and page directory the plugin uses for making link hrefs absolute.
     page_dir = PurePosixPath(page.file.dest_uri).parent.as_posix()
