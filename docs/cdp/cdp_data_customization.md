@@ -12,7 +12,7 @@ It casts their `Value` object to string, thanks to `\Stringable` implementation.
 ## Export additional user data
 
 You can extend user data exported to CDP by attaching custom information, for example user content fields or user preferences.
-Use it for advanced customer segmentation and personalization in marketing campaigns.
+Use it for advanced customer segmentation and recommendations in marketing campaigns.
 
 To add custom data to user exports, create a class that extends [`\Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-User-AbstractUserItemProcessor.html) and implement the `doProcess()` method.
 The base class handles user field validation and provides helper methods for working with user content.

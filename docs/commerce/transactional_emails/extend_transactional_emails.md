@@ -70,7 +70,7 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
 ## Customize Actito end-user profile
 
 The Actito platform offers many features for customer data collection, including segmentation, subscriptions, and interaction tracking.
-This information can be later user for generating statistics, establishing trends, or used to calculate Personalization recommendations.
+This information can be later user for generating statistics, establishing trends, or used to calculate recommendations.
 To use these features you need to provide profile data to API requests yourself.
 You do it by means of events that are triggered during profile building.
 
