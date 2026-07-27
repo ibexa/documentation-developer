@@ -213,18 +213,14 @@ Additionally, Page Builder offers you a selection of ready-to-use page blocks th
 
 A. **Default** blocks:
 
-- Dynamic targeting - embeds recommended items based on the segment the user belongs to.
-- Personalized - displays a list of content items/products that are recommended to end users when specific scenarios are triggered.
 - Targeting - embeds a content item based on the segment the user belongs to.
 
 B. **PIM** blocks:
 
-- Last purchased - displays a list of products that were recently purchased from PIM.
-- Last viewed - displays a list of products from PIM that were recently viewed.
+- Catalog - displays products from a specific catalog to a selected customer group.
 - Product collection - displays a list of specifically selected products.
-- Recently added - displays a list of products that were recently added to PIM.
+- Product embed - displays a specific product.
 
 C. **Commerce** blocks:
 
-- Bestsellers - displays a list of products from PIM that were recently a bestseller.
 - Orders - displays a list of orders associated with a particular company or individual customer.
