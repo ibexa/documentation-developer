@@ -215,19 +215,19 @@ To get a list of events for a specified time period, use the `CalendarServiceInt
 You need to provide the method with an EventQuery, which takes a date range and a count as the minimum of parameters:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 38, 48, remove_indent=True) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 34, 44, remove_indent=True) =]]
 ```
 
 You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`Ibexa\Contracts\Calendar\EventCollection`):
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 50, 51, remove_indent=True) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 46, 47, remove_indent=True) =]]
 ```
 
 You can process the events in a collection using the `find(Closure $predicate)`, `filter(Closure $predicate)`, `map(Closure $callback)` or `slice(int $offset, ?int $length = null)` methods of `EventCollection`, for example:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 53, 56, remove_indent=True) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 49, 52, remove_indent=True) =]]
 ```
 
 ### Performing calendar actions
@@ -237,5 +237,5 @@ You must pass an `Ibexa\Contracts\Calendar\EventAction\EventActionContext` insta
 `EventActionContext` defines events on which the action is performed, and action-specific parameters, for example, a new date:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 58, 61, remove_indent=True) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 54, 57, remove_indent=True) =]]
 ```
