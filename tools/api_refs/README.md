@@ -155,3 +155,8 @@ Rebuild references for the released version `v5.0.10` from `my-tools`'s `api_ref
 ```bash
 gh workflow run api_refs.yaml -f version=v5.0.10 --ref my-builder -f base_branch=my-builder -f work_branch=my-api-refs -f force=true
 ```
+
+#### By using web UI
+
+On the GitHub repository page, go to the "Actions" tab and, in the workflow list, select ["Build API Refs"](https://github.com/ibexa/documentation-developer/actions/workflows/api_refs.yaml).
+On top right of the past workflow table, unfold "Run workflow" menu, set the fields, then click "Run workflow" button.
