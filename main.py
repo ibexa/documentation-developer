@@ -7,8 +7,8 @@ from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
 from typing import List
 
-def _absolute_page_url(site, language, version, *parts):
-    return 'https://' + '/'.join((site, language, version) + parts)
+def _absolute_page_url(scheme, site, language, version, *parts):
+    return scheme + '://' + '/'.join((site, language, version) + parts)
 
 
 CARDS_TEMPLATE = """
@@ -74,8 +74,8 @@ def define_env(env):
         current_page = env.variables.page
         absolute_url = current_page.abs_url
         canonical = current_page.canonical_url
-        url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/", canonical)
-        (site, language, version) = url_parts.groups()
+        url_parts = re.search(r"^(https?)://([^/]+)/([^/]+)/([^/]+)/", canonical)
+        (scheme, site, language, version) = url_parts.groups()
 
         version = force_version or version
         version = os.getenv("READTHEDOCS_VERSION_NAME", version)
@@ -113,12 +113,12 @@ def define_env(env):
             elif re.search(".html$", path):
                 html = True
                 content = open("docs/%s" % path, "r").read()
-                page = _absolute_page_url(site, language, version, page)
+                page = _absolute_page_url(scheme, site, language, version, page)
             else:
                 html = False
                 path = path.rstrip('/')
                 content = open("docs/%s.md" % path, "r").read()
-                page = _absolute_page_url(site, language, version, path, hash)
+                page = _absolute_page_url(scheme, site, language, version, path, hash)
 
             if html:
                 match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
