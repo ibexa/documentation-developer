@@ -17,7 +17,7 @@ You can change that by providing a custom payment identifier in `Ibexa\Contracts
 To access a single payment by using its numerical ID, use the `PaymentServiceInterface::getPayment` method:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 49, 52, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 45, 48, remove_indent=True) =]]
 ```
 
 ### Get single payment by identifier
@@ -25,7 +25,7 @@ To access a single payment by using its numerical ID, use the `PaymentServiceInt
 To access a single payment by using its string identifier, use the `PaymentServiceInterface::getPaymentByIdentifier` method:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 55, 56, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 51, 52, remove_indent=True) =]]
 ```
 
 ## Get multiple payments
@@ -34,7 +34,7 @@ To fetch multiple payments, use the `PaymentServiceInterface::findPayments` meth
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 64, 79, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 60, 75, remove_indent=True) =]]
 ```
 
 ## Create payment
@@ -42,7 +42,7 @@ It follows the same search query pattern as other APIs:
 To create a payment, use the `PaymentServiceInterface::createPayment` method and provide it with the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 82, 95, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 78, 91, remove_indent=True) =]]
 ```
 
 ## Update payment
@@ -53,7 +53,7 @@ The `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct` object takes the follo
 To update payment information, use the `PaymentServiceInterface::updatePayment` method:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 98, 103, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 94, 99, remove_indent=True) =]]
 ```
 
 ## Delete payment
@@ -61,5 +61,5 @@ To update payment information, use the `PaymentServiceInterface::updatePayment` 
 To delete a payment from the system, use the `PaymentServiceInterface::deletePayment` method:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 106, 106, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 102, 102, remove_indent=True) =]]
 ```
