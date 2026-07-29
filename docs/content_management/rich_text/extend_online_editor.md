@@ -41,22 +41,83 @@ Place the `factbox.html.twig` template in the
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ezrichtext/custom_tags/factbox.html.twig') =]]
 ```
 
-!!! tip
+If an attribute isn't required, check if it's defined by adding a check 
+in the template, for example:
 
-    If an attribute isn't required, check if it's defined by adding a check 
-    in the template, for example:
+```html+twig
+{% if params.your_attribute is defined %}
+    ...
+{% endif %}
+```
 
-    ```html+twig
-    {% if params.your_attribute is defined %}
-        ...
-    {% endif %}
-    ```
+In this example, the `style` attribute is a `choice` attribute with `light` and `dark` as possible values.
+The selected value is available as `params.style` in the template.
+Use it to build an `ibexa-factbox--light` or `ibexa-factbox--dark` modifier class on the wrapping `div` element for styling.
 
-Add labels for the new tag by providing translations in `translations/custom_tags.en.yaml`:
+You can then define the corresponding CSS for each choice, for example by using [Webpack Encore and assets](assets.md).
+
+Create a `assets/scss/factbox.scss` file for styling the custom tag:
+
+``` css
+.ibexa-factbox--light {
+    background-color: #f5f5f5;
+    color: #202020;
+}
+
+.ibexa-factbox--dark {
+    background-color: #202020;
+    color: #f5f5f5;
+}
+```
+
+### Provide translations for custom tags
+
+You can provide the label and description displayed for the custom tag and its attributes in the back office in one of two ways.
+
+#### Option 1: Manually add translations
+
+Add labels for the new tag by providing the translations manually in `translations/custom_tags.en.yaml`:
 
 ```yaml
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/translations/custom_tags.en.yaml') =]]
 ```
+
+This approach is quick, but doesn't work when your custom tag is defined in a bundle.
+The configuration and the labels are defined in separate files, making it easier to miss updating them when the custom tag changes.
+
+#### Option 2: Extract translation source texts from configuration
+
+To provide the translations with the custom tag configuration, specify the `label` and `description` keys for the custom tag itself and a `add label` key to each attribute.
+
+```yaml hl_lines="7-8 13 19"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
+```
+
+To make use of them, create a new service with `Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor` as the class.
+
+If it has `choice` attributes, add an additional service with `Ibexa\FieldTypeRichText\Translation\Extractor\ChoiceAttributeExtractor` as the class.
+
+In both cases, add your custom tag's identifier to the `allowlist` argument:
+
+```yaml hl_lines="7 17"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/services.yaml') =]]
+```
+
+Then, create your own translation extraction configuration, and specify the Symfony services created above as extractors:
+
+```yaml hl_lines="7-8"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/jms_translation.yaml') =]]
+```
+
+Run the translation extraction:
+
+```bash
+php bin/console translation:extract -c app_translation_config
+```
+
+This updates `translations/custom_tags.en.yaml` with the translations provided in the configuration itself, for any keys that don't already have a translation.
+
+### Use custom tag
 
 Now you can use the tag.
 In the back office, create or edit a content item that has a RichText field type.
