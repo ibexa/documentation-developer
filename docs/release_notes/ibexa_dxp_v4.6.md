@@ -1621,21 +1621,15 @@ The feature requires that your organization exposes an endpoint that passes data
 - Reviving the customer's interest by pushing a message with products that are similar to the ones the customer has already seen.
 - Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
 
-For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/).
-
 ##### Multiple attributes in recommendation computation
 
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Submodel parameters](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#submodels).
-
 ##### New scenario filter
 
 Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
 This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
-
-For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/filters/#commerce-specific-filters).
 
 ### Other changes
 
