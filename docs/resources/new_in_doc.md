@@ -784,17 +784,13 @@ Enhanced the PHP API with the following new classes and interfaces:
 ## Personalization
 
 - Added dynamic attribute submodels information by:
-    - mentioning them in [customizing the recommendation request](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request) instructions
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#dynamic-attributes)
+    - mentioning them in customizing the recommendation request instructions
+    - describing them in user documentation
 - Added time-slot based models information by:
-    - changing the list of parameters available when [customizing the recommendation request](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request)
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#time-slot-based-models)
+    - changing the list of parameters available when customizing the recommendation request
+    - describing them in user documentation
 
-- Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
-    - [Enable Personalization](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
-    - [Integrate recommendation service](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/)
-    - [Tracking integration](https://doc.ibexa.co/en/4.6/personalization/tracking_integration/)
-    - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/4.6/personalization/tracking_with_ibexa-tracker/)
+- Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles
 
 ### PIM
 
@@ -1030,7 +1026,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Customize recommendation request with segment parameters](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#segment-parameters)
+- Customize recommendation request with segment parameters
 
 ### PIM
 
@@ -1095,8 +1091,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/#trigger-types)
-- [Wishlist and Deletefromwishlist events](https://doc.ibexa.co/en/4.6/personalization/api_reference/tracking_api/#track-events)
+- Post visit and price drop triggers
+- Wishlist and Deletefromwishlist events
 
 ### PIM
 
@@ -1127,9 +1123,9 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Updated configuration for triggers](https://doc.ibexa.co/en/4.6/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
-- [Send messages with recommendations](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/) in User Documentation
+- Updated configuration for triggers
+- Send messages with recommendations
+- Email triggers in User Documentation
 
 ### PIM
 
@@ -1156,7 +1152,7 @@ Enhanced the PHP API with the following new classes and interfaces:
     - [Customer portal](https://doc.ibexa.co/en/4.6/customer_management/customer_portal/)
     - [Form Builder](https://doc.ibexa.co/en/4.6/content_management/forms/form_builder_guide/)
     - [Online editor](https://doc.ibexa.co/en/4.6/content_management/rich_text/online_editor_guide/)
-    - [Personalization](https://doc.ibexa.co/en/4.6/personalization/personalization_guide/)
+    - Personalization
     - [PIM](https://doc.ibexa.co/en/4.6/pim/pim_guide/)
 
 - [Updated bundles list](https://doc.ibexa.co/en/4.6/administration/project_organization/bundles/)
@@ -1225,8 +1221,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#submodel-parameters)
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#submodels) in User Documentation
+- Multiple attributes in submodel computation
+- Multiple attributes in submodel computation in User Documentation
 
 ### PIM
 
@@ -1273,8 +1269,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Email triggers](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/) in User Documentation
+- Email triggers
+- Email triggers in User Documentation
 
 ### Search
 
@@ -1345,7 +1341,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Others
 
 - [Translation comparison](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/translate_content/#translation-comparison)
-- [Managing Segments](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/segment_management/)
+- Managing Segments
 
 ## March 2023
 
