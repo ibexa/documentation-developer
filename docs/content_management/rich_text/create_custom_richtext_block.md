@@ -26,7 +26,7 @@ Then, create a subscriber that converts a string of data into XML code.
 Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 
 In line 28, `my_block` is the same name of the block that you defined in line 3 above.
-Line 28 also implements the `PreRender` method.
+Line 28 links this block `PreRenderEvent` to a method using `BlockRenderEvents::getBlockPreRenderEventName()`.
 Lines 37-47 handle the conversion of content into an XML string:
 
 ``` php hl_lines="28 37-47"
