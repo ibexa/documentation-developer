@@ -4,7 +4,7 @@ page_type: reference
 month_change: false
 ---
 
-# Quable Twig functions
+# [[= pim_product_name =]] Twig functions
 
 The [[[= pim_product_name =]] connector](/product_catalog/quable/quable.md) provides the following Twig functions:
 

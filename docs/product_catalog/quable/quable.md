@@ -1,10 +1,10 @@
 ---
-description: Quable PIM integration with Ibexa DXP
+description: Quable integration with Ibexa DXP
 page_type: landing_page
 month_change: false
 ---
 
-# Quable PIM Integration
+# [[= pim_product_name =]] Integration
 
 [[= product_name =]] integrates with [[[= pim_product_name =]]](https://www.quable.com/en) to provide product information management as part of the [[= product_name_base =]] orchestration platform.
 
@@ -18,7 +18,7 @@ Products can be viewed, selected, and embedded in [[= product_name =]], while al
     "product_catalog/quable/quable_guide",
     ("https://doc.ibexa.co/projects/userguide/en/5.0/product_catalog/quable_pim_integration/"),
     ("https://www.quable.com/en", "Quable - PIM solution for product data management", "Manage your product data and accelerate sales with Quable. Discover the new PIM platform that revolutionizes the product experience"),
-    ("https://docs.quable.com/", "Quable resources", "Find all Quable PIM, DAM, and Portal resources: user guides, training content, product documentation, technical documentation, and the PIM API for developers."),
+    ("https://docs.quable.com/", "Quable resources", "Find all PIM, DAM, and Portal resources: user guides, training content, product documentation, technical documentation, and the PIM API for developers."),
 ]) =]]
 
 ## Development

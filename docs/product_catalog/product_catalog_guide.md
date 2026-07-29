@@ -161,7 +161,7 @@ Besides, the built-in catalog filters, you can also [create custom ones](create_
 In [[= product_name =]], products are created and maintained by using the REST API or the back office, and their data is stored in a local database.
 However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
 To address such needs, [[= product_name =]] provides remote PIM support.
-You can install and configure a readily available [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable.md) add-on, or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
+You can install and configure a readily available [[[= pim_product_name =]] integration](/product_catalog/quable/quable.md) add-on, or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
 
 ![Remote PIM](img/remote_pim_support.png)
 
@@ -192,7 +192,7 @@ In your specific scenario, you can implement the support for availability and pr
 
 The limitation of remote PIM depend on implementation details of specific integration and may arise in areas relying on [content model](content_model.md).
 
-To see the limitations of the [[= pim_product_name =]] PIM integration add-on, see [[[= pim_product_name =]] PIM known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
+To see the limitations of the [[= pim_product_name =]] integration add-on, see [[[= pim_product_name =]] known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
 
 ##### Searching
 

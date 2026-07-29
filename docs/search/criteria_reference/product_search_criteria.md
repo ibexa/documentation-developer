@@ -16,9 +16,9 @@ Search Criterion let you filter product by specific attributes, for example, col
 
 ## Product Search Criteria
 
-To query for products coming from [[= pim_product_name =]] PIM, see [[[= pim_product_name =]] Search API](/product_catalog/quable/quable_api.md#search-for-products) for details about the integration.
+To query for products coming from [[= pim_product_name =]], see [[[= pim_product_name =]] Search API](/product_catalog/quable/quable_api.md#search-for-products) for details about the integration.
 
-|Search Criterion|Search based on|Local product catalog|[[= pim_product_name =]] PIM|
+|Search Criterion|Search based on|Local product catalog|[[= pim_product_name =]]|
 |-----|-----|-----|-----|
 |[AttributeGroupIdentifier](attributegroupidentifier_criterion.md)|Value of product's attribute group identifier| &#10004;| |
 |[AttributeName](attributename_criterion.md)|Value of product's attribute name| &#10004;| |

@@ -278,14 +278,14 @@ This add-on introduces a set of recommendation blocks available in the [Page Bui
 
 For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
-### [[= pim_product_name =]] PIM
+### [[= pim_product_name =]]
 
-The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
+The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]]](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
 [[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 [[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
 
-For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
+For more information, see [[[= pim_product_name =]] Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
 
 ### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
