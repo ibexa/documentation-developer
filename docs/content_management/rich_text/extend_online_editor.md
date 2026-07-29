@@ -26,6 +26,8 @@ Start preparing the tag by adding a configuration file:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
 ```
 
+The example enables the custom tag under the `admin_group` [SiteAccess group](siteaccess.md), which controls where editors can use it.
+The custom tag renders in all SiteAccesses, including the front end.
 Custom tags can have as many attributes as needed.
 Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
@@ -34,8 +36,7 @@ Supported attribute types are:
 Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
 
 You must create your own file for the Twig template.
-Place the `factbox.html.twig` template in the 
-`templates/themes/<your-theme>/field_type/ezrichtext/custom_tags` directory:
+Place the `factbox.html.twig` template in the `templates/themes/<your-theme>/field_type/ezrichtext/custom_tags` directory:
 
 ```html+twig
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ezrichtext/custom_tags/factbox.html.twig') =]]
@@ -70,6 +71,14 @@ Create a `assets/scss/factbox.scss` file for styling the custom tag:
 }
 ```
 
+Then, register the file in `webpack.config.js` as an asset entry called `factbox`:
+
+``` js
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/webpack.config.js') =]]
+```
+
+After you add the configuration, template, and asset files, clear the cache and run `yarn encore <dev|prod>`.
+
 ### Provide translations for custom tags
 
 You can provide the label and description displayed for the custom tag and its attributes in the back office in one of two ways.
@@ -87,11 +96,16 @@ The configuration and the labels are defined in separate files, making it easier
 
 #### Option 2: Extract translation source texts from configuration
 
-To provide the translations with the custom tag configuration, specify the `label` and `description` keys for the custom tag itself and a `add label` key to each attribute.
+To provide the translations with the custom tag configuration, specify the `label` and `description` keys for the custom tag itself, and a `label` key for each attribute.
 
 ```yaml hl_lines="7-8 13 19"
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
 ```
+
+If you omit `label` or `description`, the extraction uses the identifier of the custom tag or attribute as the source text.
+
+To provide translations for values of a `choice` attribute, `ChoiceAttributeExtractor` capitalizes the first letter of the value.
+For example, `light` and `dark` options become `Light` and `Dark`.
 
 To make use of them, create a new service with `Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor` as the class.
 
@@ -105,7 +119,7 @@ In both cases, add your custom tag's identifier to the `allowlist` argument:
 
 Then, create your own translation extraction configuration, and specify the Symfony services created above as extractors:
 
-```yaml hl_lines="7-8"
+```yaml hl_lines="6 8-9"
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/jms_translation.yaml') =]]
 ```
 
@@ -115,7 +129,9 @@ Run the translation extraction:
 php bin/console translation:extract -c app_translation_config
 ```
 
-This updates `translations/custom_tags.en.yaml` with the translations provided in the configuration itself, for any keys that don't already have a translation.
+This updates `translations/custom_tags.en.yaml` with the source texts taken from the configuration.
+
+Run the extraction again whenever you change the labels, descriptions, or attributes of the custom tag.
 
 ### Use custom tag
 
