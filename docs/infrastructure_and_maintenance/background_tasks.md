@@ -118,13 +118,22 @@ Additionally, attach message metadata by using [stamps](#stamps).
 
 ### Stamps
 
-You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control how the message is processed.
+You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control processing of the message.
 
-When using the `ibexa.messenger.bus` message bus, you can use [Stamps available in Symfony](https://github.com/symfony/symfony/tree/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp), and combine them with the ones provided by [[= product_name =]]:
+The `ibexa.messenger.bus` message bus uses the default Symfony Messenger [middleware]([[= symfony_doc =]]/messenger.html#middleware) and doesn't support all stamps that are available in Symfony.
 
-- [DeduplicateStamp](#deduplicatestamp) replaces [DeduplicateStamp](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DeduplicateStamp.php) from Symfony
-- [SudoStamp](#sudostamp)
-- [UserPermissionStamp](#userpermissionstamp)
+You can use the following Symfony stamps:
+
+- [`DelayStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DelayStamp.php)
+- [`DispatchAfterCurrentBusStamp`]([[= symfony_doc =]]/messenger.html#dispatchaftercurrentbusmiddleware-middleware)
+- [`HandlerArgumentsStamp`]([[= symfony_doc =]]/messenger.html#additional-handler-arguments)
+- [`SerializerStamp`]([[= symfony_doc =]]/messenger.html#serializing-messages)
+
+On top of the supported Symfony stamps, [[= product_name =]] provides the following ones:
+
+- [`DeduplicateStamp`](#deduplicatestamp)
+- [`SudoStamp`](#sudostamp)
+- [`UserPermissionStamp`](#userpermissionstamp)
 
 #### DeduplicateStamp
 
