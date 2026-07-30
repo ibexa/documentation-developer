@@ -33,7 +33,7 @@ Supported attribute types are:
 
 Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
 
-You must provide your own file for the Twig template.
+You must create your own file for the Twig template.
 Place the `factbox.html.twig` template in the
 `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
 
@@ -91,7 +91,7 @@ The configuration is:
 
 Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
 
-Provide your own file for the Twig template.
+Use your own file for the Twig template.
 
 The tag has the `url` attribute with the `type` parameter set as `link` (lines 30-31).
 
