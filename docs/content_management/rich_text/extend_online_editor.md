@@ -31,7 +31,7 @@ Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
 `choice` requires that you provide a list of options in the `choices` key.
 
-For an icon from the provided `all-icons.svg` file, you can look into the [Icons reference](icon_twig_functions.md#icons-reference).
+To choose an icon from the provided `all-icons.svg` file, see the [Icons reference](icon_twig_functions.md#icons-reference).
 
 You must provide your own file for the Twig template.
 Place the `factbox.html.twig` template in the
@@ -89,7 +89,7 @@ The configuration is:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/config/packages/custom_tags.yaml') =]]
 ```
 
-For an icon from the provided `all-icons.svg` file, you can look into the [Icons reference](icon_twig_functions.md#icons-reference).
+To choose an icon from the provided `all-icons.svg` file, see the [Icons reference](icon_twig_functions.md#icons-reference).
 
 Provide your own file for the Twig template.
 
