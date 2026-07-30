@@ -28,9 +28,16 @@ Start preparing the tag by adding a configuration file:
 
 The example enables the custom tag under the `admin_group` [SiteAccess group](siteaccess.md), which controls where editors can use it.
 The custom tag renders in all SiteAccesses, including the front end.
+
 Custom tags can have as many attributes as needed.
 Supported attribute types are:
-`string`, `number`, `boolean`, `link`, and `choice`.
+
+- `string`
+- `number`
+- `boolean`
+- `link`
+- `choice`
+
 `choice` requires that you provide a list of options in the `choices` key.
 
 Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
@@ -42,8 +49,7 @@ Place the `factbox.html.twig` template in the `templates/themes/<your-theme>/fie
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ezrichtext/custom_tags/factbox.html.twig') =]]
 ```
 
-If an attribute isn't required, check if it's defined by adding a check 
-in the template, for example:
+If an attribute isn't required, check if it's defined by adding a check in the template, for example:
 
 ```html+twig
 {% if params.your_attribute is defined %}
