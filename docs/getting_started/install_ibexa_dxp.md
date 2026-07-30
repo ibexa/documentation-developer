@@ -237,7 +237,7 @@ It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/
 
     It's recommended that you store the database credentials in your `.env.local` file, and not commit that file to the Version Control System.
 
-In `DATABASE_VERSION`, you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
+In `DATABASE_VERSION`, you can also configure the database server version (for a MariaDB database, use [the version as reported by the server](https://www.doctrine-project.org/projects/doctrine-dbal/en/3.10/reference/configuration.html#mariadb).).
 
 !!! tip "Using PostgreSQL"
 
