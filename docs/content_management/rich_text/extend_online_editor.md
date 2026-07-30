@@ -31,7 +31,7 @@ Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
 `choice` requires that you provide a list of options in the `choices` key.
 
-To choose an icon from the provided `all-icons.svg` file, see the [Icons reference](icon_twig_functions.md#icons-reference).
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
 
 You must provide your own file for the Twig template.
 Place the `factbox.html.twig` template in the
