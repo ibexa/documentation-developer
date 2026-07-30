@@ -1,0 +1,209 @@
+name: "Release Composer package"
+
+on:
+    schedule:
+        # Daily at 03:17 UTC. Fans out to every maintained version branch (see determine-branches).
+        - cron: "17 3 * * *"
+    workflow_dispatch:
+        inputs:
+            version:
+                description: "Version branch to release"
+                required: true
+                default: "5.0"
+                type: string
+            devdoc_branch:
+                description: "Developer documentation branch to check out (defaults to version)"
+                required: false
+                default: ""
+                type: string
+            userdoc_branch:
+                description: "User documentation branch to check out (defaults to version)"
+                required: false
+                default: ""
+                type: string
+
+jobs:
+    determine-branches:
+        runs-on: ubuntu-latest
+        outputs:
+            branches: ${{ steps.set.outputs.branches }}
+            devdoc_branch: ${{ steps.set.outputs.devdoc_branch }}
+            userdoc_branch: ${{ steps.set.outputs.userdoc_branch }}
+        steps:
+            - id: set
+              run: |
+                  if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+                      # Manual runs release the branch chosen via the "version" input,
+                      # not necessarily the branch the workflow was dispatched from.
+                      branches='["${{ github.event.inputs.version }}"]'
+                      # Left empty when not overridden; the release job then falls back
+                      # to the version branch (matrix.branch) for the checkout ref.
+                      devdoc_branch="${{ github.event.inputs.devdoc_branch }}"
+                      userdoc_branch="${{ github.event.inputs.userdoc_branch }}"
+                  else
+                      # Scheduled runs always execute in the default branch's context, so they must
+                      # explicitly check out each maintained version branch instead of relying on
+                      # GITHUB_REF. Extend this list as new branches become active / drop EOL ones.
+                      branches='["5.0"]'
+                      devdoc_branch=""
+                      userdoc_branch=""
+                  fi
+                  echo "branches=${branches}" >> "$GITHUB_OUTPUT"
+                  echo "devdoc_branch=${devdoc_branch}" >> "$GITHUB_OUTPUT"
+                  echo "userdoc_branch=${userdoc_branch}" >> "$GITHUB_OUTPUT"
+
+    release:
+        needs: determine-branches
+        runs-on: ubuntu-latest
+        permissions:
+            # Needed to commit the generated Markdown and push a tag.
+            contents: write
+        strategy:
+            fail-fast: false
+            matrix:
+                branch: ${{ fromJson(needs.determine-branches.outputs.branches) }}
+
+        steps:
+            # Shallow checkout of the branch tip only. The generated Markdown is never
+            # pushed to the branch itself (see below), only tagged, so the diff target is
+            # the latest tag — fetched individually in "Find the last tag" instead of
+            # pulling the full history + every daily tag snapshot (which took minutes).
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ needs.determine-branches.outputs.devdoc_branch || matrix.branch }}
+
+            - name: Check out user documentation
+              uses: actions/checkout@v4
+              with:
+                  repository: ibexa/documentation-user
+                  ref: ${{ needs.determine-branches.outputs.userdoc_branch || matrix.branch }}
+                  path: user-docs
+
+            - name: Set up Python
+              uses: actions/setup-python@v3
+              with:
+                  python-version: "3.13"
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  # user-docs pins ibexa-llms-txt from the upstream git repo; drop that line —
+                  # the editable install from this checkout (requirements.txt: -e .) already
+                  # provides the plugin, and pip refuses two direct references to one package.
+                  grep -v '^ibexa-llms-txt @' user-docs/requirements.txt > user-reqs-filtered.txt
+                  pip install -r requirements.txt -r user-reqs-filtered.txt
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 #2.37.2
+              with:
+                  php-version: "8.3"
+                  coverage: none
+
+            - name: Generate token
+              id: generate_token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ${{ github.repository_owner }}
+
+            - name: Add composer keys for private packagist
+              run: |
+                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  composer config --global github-oauth.github.com $GITHUB_TOKEN
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+            # Needed to resolve the PHP API classes referenced by the docs to
+            # their vendor/ source paths (dump_class_paths.php).
+            - uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f #v3.2.1
+              with:
+                  dependency-versions: highest
+
+            - name: Build developer documentation
+              run: mkdocs build --strict
+              env:
+                  # The cards() macro versions its links from this (as on RTD);
+                  # without it they'd point at en/latest instead of this branch.
+                  READTHEDOCS_VERSION_NAME: ${{ matrix.branch }}
+
+            - name: Build user documentation
+              run: mkdocs build --strict
+              working-directory: user-docs
+              env:
+                  READTHEDOCS_VERSION_NAME: ${{ matrix.branch }}
+
+            - name: Resolve PHP API classes to vendor paths
+              run: php tools/llm_package/dump_class_paths.php site user-docs/site class_paths.json
+
+            - name: Build package Markdown (developer/, user/)
+              run: python build_package_docs.py --version "${{ matrix.branch }}"
+
+            - name: Copy package README
+              run: cp tools/llm_package/README.package.md README.md
+
+            - name: Smoke-test package output
+              run: |
+                  composer validate
+
+            - name: Find the last tag for this branch
+              id: last_tag
+              env:
+                  BRANCH: ${{ matrix.branch }}
+              run: |
+                  # List tag names on the remote (no object download), then fetch only the
+                  # latest one — the single commit the change check diffs against.
+                  latest_tag=$(git ls-remote --tags origin "refs/tags/${BRANCH}.*" \
+                      | awk '{print $2}' | sed 's|^refs/tags/||' | grep -v '\^{}$' \
+                      | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1)
+                  if [[ -n "$latest_tag" ]]; then
+                      git fetch --depth=1 origin "refs/tags/${latest_tag}:refs/tags/${latest_tag}"
+                  fi
+                  echo "latest_tag=${latest_tag}" >> "$GITHUB_OUTPUT"
+
+            - name: Check for content changes since the last tag
+              id: changes
+              env:
+                  LATEST_TAG: ${{ steps.last_tag.outputs.latest_tag }}
+              run: |
+                  # The generated Markdown is never committed/pushed to the branch itself (only
+                  # tagged), so there's nothing on the branch to diff against — compare the freshly
+                  # built content to what the last tag captured instead. -f because developer/ and
+                  # user/ are gitignored to keep local builds out of the working tree.
+                  git add -f developer user
+                  git add README.md
+                  if [[ -z "$LATEST_TAG" ]]; then
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  # .agents (agent skills, tracked on the branch) is part of the package too;
+                  # include it so skill-only edits also produce a release.
+                  elif git diff --cached --quiet "$LATEST_TAG" -- developer user README.md .agents; then
+                      echo "changed=false" >> "$GITHUB_OUTPUT"
+                  else
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Commit generated Markdown
+              if: steps.changes.outputs.changed == 'true'
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git commit -m "Update generated Markdown docs for ${{ matrix.branch }}"
+
+            - name: Tag release
+              if: steps.changes.outputs.changed == 'true'
+              env:
+                  BRANCH: ${{ matrix.branch }}
+              run: |
+                  # Push only the tag, never the branch — the branch stays exactly as authored,
+                  # the generated Markdown exists solely as the commit this tag points to.
+                  tag="${BRANCH}.$(date -u +%Y%m%d)"
+
+                  if git rev-parse "$tag" >/dev/null 2>&1; then
+                      echo "Tag $tag already exists, skipping."
+                      exit 0
+                  fi
+
+                  git tag "$tag"
+                  git push origin "$tag"
