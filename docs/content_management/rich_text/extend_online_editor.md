@@ -31,7 +31,9 @@ Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
 `choice` requires that you provide a list of options in the `choices` key.
 
-You must provide your own files for the Twig template and the icon.
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
+
+You must create your own file for the Twig template.
 Place the `factbox.html.twig` template in the 
 `templates/themes/<your-theme>/field_type/ezrichtext/custom_tags` directory:
 
@@ -87,7 +89,9 @@ The configuration is:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/config/packages/custom_tags.yaml') =]]
 ```
 
-Provide your own files for the Twig template and the icon.
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
+
+Use your own file for the Twig template.
 
 The tag has the `url` attribute with the `type` parameter set as `link` (lines 30-31).
 
