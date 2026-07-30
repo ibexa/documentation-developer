@@ -89,7 +89,7 @@ The configuration is:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/config/packages/custom_tags.yaml') =]]
 ```
 
-To choose an icon from the provided `all-icons.svg` file, see the [Icons reference](icon_twig_functions.md#icons-reference).
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
 
 Provide your own file for the Twig template.
 
