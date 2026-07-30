@@ -1,5 +1,5 @@
 ---
-description: Data export schedule in Ibexa CDP.
+description: Data export schedule in Raptor CDP.
 edition: experience
 month_change: true
 ---

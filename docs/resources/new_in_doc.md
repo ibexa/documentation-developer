@@ -111,9 +111,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### CDP
 
-- Illustrated how to [export additional user data](cdp_data_customization.md#export-additional-user-data)
-- Detailed [Ibexa Messenger support for large batches of data](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
-- Introduced the [CDP Monolog channel](cdp_data_export.md#cdp-monolog-channel)
+- Illustrated how to [export additional user data](raptor_cdp_data_customization.md#export-additional-user-data)
+- Detailed [Ibexa Messenger support for large batches of data](raptor_cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- Introduced the [CDP Monolog channel](raptor_cdp_data_export.md#cdp-monolog-channel)
 - Added [`Ibexa\Contracts\Cdp` PHP API reference](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp.html)
 
 ### Infrastructure

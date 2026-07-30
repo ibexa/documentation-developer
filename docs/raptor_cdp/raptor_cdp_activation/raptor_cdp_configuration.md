@@ -1,5 +1,5 @@
 ---
-description: Step-by-step configuration procedure of Ibexa CDP.
+description: Step-by-step configuration procedure of Raptor CDP.
 edition: experience
 ---
 
@@ -53,11 +53,11 @@ ibexa:
 Now, fill in the account number.
 Log in to [[= product_name_cdp =]] and in the top right corner, select available accounts.
 
-![List of available accounts](cdp_accounts.png)
+![List of available accounts](../img/raptor_cdp_accounts.png)
 
 A pop-up window displays a list of all available accounts and their numbers.
 
-![Account number](cdp_account_number.png)
+![Account number](../img/raptor_cdp_account_number.png)
 
 ## Segment group
 
@@ -71,13 +71,13 @@ Choose wisely, as once connected to CDP segment group cannot be changed.
 
     After you create the segment group in the back office and connect it to [[= product_name_cdp =]], you cannot change it in any way, including edit its name.
 
-![Creating a new segment group](cdp_create_segment_group.png)
+![Creating a new segment group](../img/raptor_cdp_create_segment_group.png)
 
 Next, add a segment group identifier to the configuration.
 
 ## Anonymous user segmentation
 
-To set up [segmentation for anonymous users](cdp_guide.md#anonymous-user-segmentation), take the following steps:
+To set up [segmentation for anonymous users](raptor_cdp_guide.md#anonymous-user-segmentation), take the following steps:
 
 ### Set up CDP API activation
 

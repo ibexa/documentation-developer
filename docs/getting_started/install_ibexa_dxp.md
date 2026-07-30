@@ -443,7 +443,7 @@ rm ibexa_cron.txt
 For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and runs every minute (`* * * * *`) by default.
 You can redefine this service to change the frequency.
 
-The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
+The [[[= product_name_cdp =]] data export schedule](/raptor_cdp/raptor_cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
 You can add other commands to scheduled tasks in one of two ways:
 
@@ -551,7 +551,7 @@ Make sure that its [worker starts with the server](background_tasks.md#start-wor
 
 A list of processes that use [[= product_name_base =]] Messenger includes at least these two:
 
-- [CDP data export](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- [[[= product_name_cdp =]] data export](/raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
 - [Discount re-indexing](configure_discounts.md#discount-re-indexing)
 
 ## [[= product_name_cloud =]]

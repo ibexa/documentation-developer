@@ -608,7 +608,16 @@ plugins:
             'ai_actions/configure_ai_actions.md': 'ai/ai_actions/configure_ai_actions.md'
             'ai_actions/extend_ai_actions.md': 'ai/ai_actions/extend_ai_actions.md'
 
-            'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'cdp/cdp_activation/cdp_add_tracking.md'
+            'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
+            'cdp/cdp.md': 'raptor_cdp/raptor_cdp.md'
+            'cdp/cdp_guide.md': 'raptor_cdp/raptor_cdp_guide.md'
+            'cdp/cdp_installation.md': 'raptor_cdp/raptor_cdp_installation.md'
+            'cdp/cdp_data_customization.md': 'raptor_cdp/raptor_cdp_data_customization.md'
+            'cdp/cdp_data_export_schedule.md': 'raptor_cdp/raptor_cdp_data_export_schedule.md'
+            'cdp/cdp_activation/cdp_activation.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_activation.md'
+            'cdp/cdp_activation/cdp_configuration.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md'
+            'cdp/cdp_activation/cdp_data_export.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md'
+            'cdp/cdp_activation/cdp_add_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
 
 
     - llmstxt:

@@ -1,5 +1,5 @@
 ---
-description: Step-by-step activation procedure of Ibexa CDP.
+description: Step-by-step activation procedure of Raptor CDP.
 page_type: landing_page
 edition: experience
 ---
@@ -11,7 +11,7 @@ Follow a step-by-step procedure that allows you to activate [[= product_name_cdp
 Activation includes configuration, data export and adding tracking.
 
 [[= cards([
-    "cdp/cdp_activation/cdp_configuration",
-    "cdp/cdp_activation/cdp_data_export",
-    "cdp/cdp_activation/cdp_add_tracking",
+    "raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration",
+    "raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export",
+    "raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking",
 ], columns=3) =]]

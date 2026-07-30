@@ -579,7 +579,7 @@ composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 
 ### Messenger support in CDP
 
-If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.
+If you're using [CDP](raptor_cdp.md) and haven't configured Ibexa Messenger yet, do so now.
 Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
 
 <!-- End of update instructions -->

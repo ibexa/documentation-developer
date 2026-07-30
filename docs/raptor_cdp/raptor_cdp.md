@@ -1,5 +1,5 @@
 ---
-description: Ibexa CDP is a software system designed to collect and organize customer data from multiple sources to build comprehensive customer profiles.
+description: Raptor CDP is a software system designed to collect and organize customer data from multiple sources to build comprehensive customer profiles.
 edition: experience
 ---
 
@@ -11,7 +11,7 @@ edition: experience
 With [[= product_name_cdp =]] you're able to track and aggregate data of your customers' activity on multiple channels.
 It allows you to create individual customer profiles that enable you to personalize their experience on your platform.
 
-![Ibexa CDP control panel](img/cdp_control_panel.png)
+![[[= product_name_cdp =]] control panel](img/raptor_cdp_control_panel.png)
 
 ## How it works
 
@@ -19,4 +19,4 @@ It allows you to create individual customer profiles that enable you to personal
 With defined audiences you can target your user segments at the right time, through the most used channel, with the relevant message, content, or products.
 
 The customer data are collected through the system of trackers embedded in different parts of your page.
-For more information on activation and trackers, see [CDP activation documentation](cdp_activation.md).
+For more information on activation and trackers, see [CDP activation documentation](raptor_cdp_activation.md).

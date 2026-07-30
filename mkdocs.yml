@@ -519,16 +519,16 @@ nav:
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
             - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
     - CDP (Customer Data Platform):
-        - Customer Data Platform: cdp/cdp.md
-        - CDP guide: cdp/cdp_guide.md
-        - CDP installation: cdp/cdp_installation.md
-        - CDP activation:
-            - CDP activation: cdp/cdp_activation/cdp_activation.md
-            - CDP configuration: cdp/cdp_activation/cdp_configuration.md
-            - CDP data export: cdp/cdp_activation/cdp_data_export.md
-            - CDP add tracking: cdp/cdp_activation/cdp_add_tracking.md
-        - CDP data export schedule: cdp/cdp_data_export_schedule.md
-        - CDP data customization: cdp/cdp_data_customization.md
+        - Raptor CDP: raptor_cdp/raptor_cdp.md
+        - Raptor CDP guide: raptor_cdp/raptor_cdp_guide.md
+        - Raptor CDP installation: raptor_cdp/raptor_cdp_installation.md
+        - Raptor CDP activation:
+            - Raptor CDP activation: raptor_cdp/raptor_cdp_activation/raptor_cdp_activation.md
+            - Raptor CDP configuration: raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md
+            - Raptor CDP data export: raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md
+            - Raptor CDP add tracking: raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md
+        - Raptor CDP data export schedule: raptor_cdp/raptor_cdp_data_export_schedule.md
+        - Raptor CDP data customization: raptor_cdp/raptor_cdp_data_customization.md
     - Search:
         - Search: search/search.md
         - Search engines: 
@@ -1010,7 +1010,7 @@ extra:
   product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
-  product_name_cdp: 'Ibexa CDP'
+  product_name_cdp: 'Raptor CDP'
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'

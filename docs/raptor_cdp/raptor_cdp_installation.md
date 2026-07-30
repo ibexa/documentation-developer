@@ -1,5 +1,5 @@
 ---
-description: Installation of standalone [[= product_name_cdp =]] package.
+description: Installation of standalone Raptor CDP package.
 edition: experience
 ---
 
@@ -38,4 +38,4 @@ security:
 ```
 
 Now, you can configure [[= product_name_cdp =]].
-Go to [the activation documentation](cdp_activation.md) and follow the steps.
+Go to [the activation documentation](raptor_cdp_activation.md) and follow the steps.

@@ -20,7 +20,7 @@ The base class handles user field validation and provides helper methods for wor
 The following example adds a custom date of birth field to the exported data:
 
 ``` php
-[[= include_code('code_samples/cdp/date_of_birth_export/src/Export/User/DateOfBirthUserItemProcessor.php') =]]
+[[= include_code('code_samples/raptor_cdp/date_of_birth_export/src/Export/User/DateOfBirthUserItemProcessor.php') =]]
 ```
 
 Register your processor as a Symfony service and tag it with `ibexa.cdp.export.user.item_processor`:
