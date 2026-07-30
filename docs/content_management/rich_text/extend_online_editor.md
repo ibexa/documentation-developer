@@ -108,11 +108,6 @@ To provide the translations with the custom tag configuration, specify the `labe
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
 ```
 
-If you omit `label` or `description`, the extraction uses the identifier of the custom tag or attribute as the source text.
-
-To provide translations for values of a `choice` attribute, `ChoiceAttributeExtractor` capitalizes the first letter of the value.
-For example, `light` and `dark` options become `Light` and `Dark`.
-
 To make use of them, create a new service with `Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor` as the class.
 
 If it has `choice` attributes, add an additional service with `Ibexa\FieldTypeRichText\Translation\Extractor\ChoiceAttributeExtractor` as the class.
@@ -136,6 +131,11 @@ php bin/console translation:extract -c app_translation_config
 ```
 
 This updates `translations/custom_tags.en.yaml` with the source texts taken from the configuration.
+
+If you omit `label` or `description`, the extraction uses the identifier of the custom tag or attribute as the source text.
+
+To provide translations for values of a `choice` attribute, `ChoiceAttributeExtractor` capitalizes the first letter of the value.
+For example, `light` and `dark` options become `Light` and `Dark`.
 
 Run the extraction again whenever you change the labels, descriptions, or attributes of the custom tag.
 
