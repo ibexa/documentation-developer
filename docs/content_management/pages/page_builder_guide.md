@@ -219,7 +219,6 @@ B. **PIM** blocks:
 
 - Catalog - displays products from a specific catalog to a selected customer group.
 - Product collection - displays a list of specifically selected products.
-- Product embed - displays a specific product.
 
 C. **Commerce** blocks:
 
