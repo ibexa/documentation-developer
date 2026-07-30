@@ -49,13 +49,6 @@ Each role you assign to user or user group consists of policies which define, wh
 |                               | <nobr>`edit`</nobr>   | edit a customer group   |
 |                               | <nobr>`view`</nobr>   | view customer groups    |
 
-#### Personalization
-
-| Module                         | Function            | Effect                                                            | Possible limitations                                                                |
-|--------------------------------|---------------------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| <nobr>`personalization`</nobr> | <nobr>`edit`</nobr> | modify scenario configuration for selected SiteAccesses           | [Personalization access](limitation_reference.md#personalization-access-limitation) |
-|                                | <nobr>`view`</nobr> | view scenario configuration and results for selected SiteAccesses | [Personalization access](limitation_reference.md#personalization-access-limitation) |
-
 #### Roles
 
 | Module              | Function              | Effect                                                                     | Possible limitations |

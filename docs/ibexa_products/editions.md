@@ -30,7 +30,6 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Editorial workflow]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/) | &#10004; | &#10004; | &#10004; |
 | [Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/) | &#10004; | &#10004; | &#10004; |
 | [Product Information Management]([[= user_doc =]]/pim/pim/) | &#10004; | &#10004; | &#10004; |
-| [Personalization](personalization_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Migrations](managing_migrations.md) | &#10004; | &#10004; | &#10004; |
 | [[[= product_name_connect =]]]([[= connect_doc =]]/) | &#10004; | &#10004; | &#10004; |
 | [OAuth client](oauth_client.md) | &#10004; | &#10004; | &#10004; |
