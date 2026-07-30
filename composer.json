@@ -65,7 +65,7 @@
         "ibexa/form-builder": "4.6.x-dev",
         "ibexa/solr": "4.6.x-dev",
         "ibexa/version-comparison": "4.6.x-dev",
-        "league/oauth2-google": "^4.0"
+        "league/oauth2-google": "^4.0",
         "ibexa/connector-dam": "~4.6.x-dev"
     },
     "scripts": {
