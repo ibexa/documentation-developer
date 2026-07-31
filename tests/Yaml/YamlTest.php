@@ -41,7 +41,7 @@ final class YamlTest extends TestCase
             }
 
             self::fail(sprintf(
-                'YAML parse error in %s:%d [hash:%s]: %s',
+                'YAML parse error at %s:%d [hash:%s]: %s',
                 $filePath,
                 $line,
                 $bodyHash,
