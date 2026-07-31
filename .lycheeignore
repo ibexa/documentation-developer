@@ -40,6 +40,8 @@ https://eur-lex\.europa\.eu/
 
 # MCP doc that doesn't need to be versioned (307)
 https://modelcontextprotocol.io/docs/tools/inspector
+https://modelcontextprotocol.io/docs/learn/server-concepts
+https://modelcontextprotocol.io/docs/getting-started/intro
 
 # GitHub release tag URLs with unresolved MkDocs macro (releases/tag/ with no version)
 # These come from snippets using [[= version =]] which does not expand during link-check builds.
