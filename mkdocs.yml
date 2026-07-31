@@ -374,7 +374,7 @@ nav:
         - Product catalog: product_catalog/product_catalog.md
         - Product catalog guide: product_catalog/product_catalog_guide.md
         - Quable integration:
-            - Quable Integration: product_catalog/quable/quable.md
+            - Quable integration: product_catalog/quable/quable.md
             - Quable product guide: product_catalog/quable/quable_guide.md
             - Install Quable: product_catalog/quable/install_quable.md
             - Configure Quable: product_catalog/quable/configure_quable_connector.md
@@ -461,11 +461,11 @@ nav:
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
-    - Ibexa Engage:
-        - Ibexa Engage: ibexa_engage/ibexa_engage.md
-        - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
-        - Create campaign with Ibexa Engage: ibexa_engage/create_campaign.md
-        - Integrate Ibexa Engage with Ibexa Connect: ibexa_engage/integrate_ibexa_connect.md
+    - Data collection:
+        - Qualifio integration: qualifio/qualifio.md
+        - Install Qualifio: qualifio/install_qualifio.md
+        - Create campaign with Qualifio: qualifio/create_campaign.md
+        - Integrate Qualifio with Ibexa Connect: qualifio/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
@@ -509,17 +509,16 @@ nav:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
     - Recommendations:
-        - Integration with Raptor:
-            - Raptor connector: recommendations/raptor_integration/raptor_connector.md
-            - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
-            - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
-            - Tracking functions: recommendations/raptor_integration/tracking_functions.md
-            - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
-            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
-            - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
-            - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
+        - Raptor integration: recommendations/raptor_integration/raptor_connector.md
+        - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
+        - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
+        - Tracking functions: recommendations/raptor_integration/tracking_functions.md
+        - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
+        - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
+        - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
+        - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
     - Customer Data Platform:
-        - Raptor CDP: raptor_cdp/raptor_cdp.md
+        - Raptor CDP integration: raptor_cdp/raptor_cdp.md
         - Raptor CDP guide: raptor_cdp/raptor_cdp_guide.md
         - Raptor CDP installation: raptor_cdp/raptor_cdp_installation.md
         - Raptor CDP activation:
@@ -1014,7 +1013,7 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
-  product_name_engage: 'Ibexa Engage'
+  product_name_engage: 'Qualifio'
   pim_product_name: 'Quable'
 
   eol_versions: ['2.5', '3.3']

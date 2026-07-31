@@ -100,7 +100,7 @@ You can assign users to different recommendation groups and create advanced logi
 
 ![Segments](segments.png)
 
-#### Customer Data Platform (CDP)
+#### [[= product_name_cdp =]] (Customer Data Platform)
 
 [[[= product_name_cdp =]]](/raptor_cdp/raptor_cdp_guide.md) is an add-on available for both Experience and [Commerce](ibexa_commerce.md) editions of [[= product_name =]].
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration.
@@ -114,13 +114,13 @@ This central data storage supports business growth with a scalable infrastructur
 
 #### [[= product_name_engage =]]
 
-Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [Ibexa Engage](ibexa_engage.md).
+Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [[[= product_name_engage =]]](/qualifio/qualifio.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
 [[= product_name_engage =]] is a data collection tool.
 It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
 To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
 
-![Ibexa Engage](ibexa_engage.png)
+![Qualifio](qualifio.png)
 
 ### Use cases
 

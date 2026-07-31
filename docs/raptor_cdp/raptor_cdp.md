@@ -3,7 +3,7 @@ description: Raptor CDP is a software system designed to collect and organize cu
 edition: experience
 ---
 
-# [[= product_name_cdp =]]
+# [[= product_name_cdp =]] integration
 
 ## What is [[= product_name_cdp =]]
 

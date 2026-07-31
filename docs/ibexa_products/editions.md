@@ -48,7 +48,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Customer Portal](customer_portal_guide.md) |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
 | [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
-| [[[= product_name_engage =]] add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
+| [[[= product_name_engage =]] add-on]([[= user_doc =]]/qualifio/qualifio/) |  | &#10004; | &#10004; |
 | [[[= product_name_cdp =]] (Customer Data Platform) add-on](/raptor_cdp/raptor_cdp_guide.md) |  | &#10004; | &#10004; |
 | [Order management](order_management.md) |  |  | &#10004; |
 | [Payment management](payment.md) |  |  | &#10004; |

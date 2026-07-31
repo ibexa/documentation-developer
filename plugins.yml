@@ -609,6 +609,10 @@ plugins:
             'ai_actions/extend_ai_actions.md': 'ai/ai_actions/extend_ai_actions.md'
 
             'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
+            'ibexa_engage/ibexa_engage.md': 'qualifio/qualifio.md'
+            'ibexa_engage/install_ibexa_engage.md': 'qualifio/install_qualifio.md'
+            'ibexa_engage/create_campaign.md': 'qualifio/create_campaign.md'
+            'ibexa_engage/integrate_ibexa_connect.md': 'qualifio/integrate_ibexa_connect.md'
             'cdp/cdp.md': 'raptor_cdp/raptor_cdp.md'
             'cdp/cdp_guide.md': 'raptor_cdp/raptor_cdp_guide.md'
             'cdp/cdp_installation.md': 'raptor_cdp/raptor_cdp_installation.md'
