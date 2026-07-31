@@ -60,7 +60,7 @@ For more information, see [Commerce](https://doc.ibexa.co/en/4.5/commerce/commer
 
 This release introduces new page blocks:
 
-- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/block_reference/#bestsellers-block) displays a list of products from the product catalog that were recently a bestseller.
+- Bestsellers block displays a list of products from the product catalog that were recently a bestseller.
 
 ![Bestsellers block](img/4.5_bestsellers_block.png "Bestsellers block")
 
