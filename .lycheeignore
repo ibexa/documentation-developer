@@ -38,6 +38,9 @@ https://console\.aws\.amazon\.com/
 # EU legislation portal — fragment (#d1e...) is a JavaScript-rendered anchor
 https://eur-lex\.europa\.eu/
 
+# MCP doc which don't need to be versioned (307)
+https://modelcontextprotocol.io/docs/tools/inspector
+
 # GitHub release tag URLs with unresolved MkDocs macro (releases/tag/ with no version)
 # These come from snippets using [[= version =]] which does not expand during link-check builds.
 https://github\.com/ibexa/(commerce|experience|headless)/releases/tag/$
@@ -263,7 +266,7 @@ https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/product_categ
 https://doc.ibexa.co/projects/userguide/en/4.3/search_engine_optimization/work_with_seo/
 https://doc.ibexa.co/projects/userguide/en/4.3/shop_administration/company_self_registration/
 
-# Scroll-to-text-fragment (#:~:text=...) not targetting a single HTML element, Lychee cannot resolve this yet
+# Scroll-to-text-fragment (#:~:text=...) not targeting a single HTML element, Lychee cannot resolve this yet
 https://content.raptorservices.com/help-center/user-tracking-understanding-soft-ids-hard-ids-raptor-identity-matching#:~:text=IDs%3A-,UserId%20%28Website%20ID
 
 # Anchor not visible on the page, hidden in an expendable section
