@@ -3,7 +3,7 @@ description: To configure the Raptor integration, follow the step-by-step proced
 month_change: true
 ---
 
-# Configuration procedure
+# Install and configure Raptor
 
 To configure the [Raptor](https://www.raptorservices.com/) integration add-on, follow the step-by-step procedure below.
 

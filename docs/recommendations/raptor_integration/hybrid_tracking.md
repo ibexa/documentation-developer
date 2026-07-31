@@ -3,7 +3,7 @@ description: Enable hybrid tracking to avoid ad blockers and proxy events throug
 month_change: true
 ---
 
-# Raptor hybrid tracking
+# Hybrid tracking
 
 Hybrid tracking mode is an additional tracking mode available alongside [`client` and `server`](tracking_functions.md).
 In hybrid mode, the bundle includes a client-side [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that captures Raptor tracking events and sends them to a same-origin endpoint instead of communicating directly with Raptor SaaS.

@@ -3,7 +3,7 @@ description: Installation of standalone Raptor CDP package.
 edition: experience
 ---
 
-# [[= product_name_cdp =]] installation
+# Install [[= product_name_cdp =]]
 
 There are three steps required to install [[= product_name_cdp =]].
 First, you need to register your [[= product_name_cdp =]] account, then you can download a CDP package and update the configuration.

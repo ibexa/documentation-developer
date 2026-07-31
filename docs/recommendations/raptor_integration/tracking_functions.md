@@ -3,7 +3,7 @@ description: Integrate the tracking script to collect user interactions.
 month_change: true
 ---
 
-# Raptor tracking functions
+# Tracking functions
 
 [Raptor connector](raptor_connector.md) introduces [visit tracking functionality](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) for collecting user interactions with products and content.
 The implementation includes product visit tracking with mapping to tracking parameters, and Twig functions for straightforward integration.

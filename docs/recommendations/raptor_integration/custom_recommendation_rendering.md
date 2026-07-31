@@ -3,7 +3,7 @@ description: Use existing controllers to render recommendations outside the Page
 month_change: true
 ---
 
-# Custom recommendation rendering
+# Render recommendations
 
 You can use existing controllers to render [recommendations](recommendation_blocks.md) outside the Page Builder.
 The controllers responsible for rendering block recommendations on the front-end are independent and can be used to render recommendations for specific strategies.

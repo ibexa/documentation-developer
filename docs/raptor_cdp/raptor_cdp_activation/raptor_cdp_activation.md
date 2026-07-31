@@ -4,7 +4,7 @@ page_type: landing_page
 edition: experience
 ---
 
-# [[= product_name_cdp =]] Activation
+# Activate [[= product_name_cdp =]]
 
 Follow a step-by-step procedure that allows you to activate [[= product_name_cdp =]].
 

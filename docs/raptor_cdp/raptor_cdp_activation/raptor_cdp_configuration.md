@@ -3,7 +3,7 @@ description: Step-by-step configuration procedure of Raptor CDP.
 edition: experience
 ---
 
-# [[= product_name_cdp =]] configuration
+# Configure [[= product_name_cdp =]]
 
 To configure [[= product_name_cdp =]], use the `ibexa.system.<scope>.cdp` [configuration key](configuration.md#configuration-files):
 
