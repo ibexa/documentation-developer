@@ -77,8 +77,8 @@ You can list them by running the following command:
 | `path`                                                                                                          | string  | Yes      |                                                                          | MCP server endpoint path (appended to SiteAccess-aware base URL) |
 | `enabled`                                                                                                       | boolean | No       | `false`                                                                  | Server state: decides whether it is enabled or disabled          |
 | `version`                                                                                                       | string  | No       | `1.0.0`                                                                  | MCP server version                                               |
-| [`description`](https://modelcontextprotocol.io/specification/2026-07-28/schema#implementation-description)     | string  | No       | `null`                                                                   | Server implementation description                                |
-| [`instructions`](https://modelcontextprotocol.io/specification/2026-07-28/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
+| [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`                                                                   | Server implementation description                                |
+| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
 | [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
 | [`session`](#session-storage)                                                                                   | object  | Yes      |                                                                          | Session storage configuration                                    |
@@ -90,7 +90,7 @@ You can list them by running the following command:
 
 ### Tool configuration
 
-The main capabilities of an MCP server are called [tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools).
+The main capabilities of an MCP server are called [tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools).
 They are the actions that an AI agent can invoke on the system.
 
 !!! note "MCP server design best practices"
