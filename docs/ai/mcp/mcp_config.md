@@ -68,7 +68,7 @@ Servers are automatically registered as services with an ID following the patter
 You can list all defined servers by running the following command:
 
 ```bash
-ddev php bin/console debug:container ibexa.mcp.server
+php bin/console debug:container ibexa.mcp.server
 ```
 
 Routes are built automatically from MCP server `path` configs.
@@ -232,7 +232,7 @@ In this example, only requests from `admin.example.com` domain, `my-ddev-project
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
-                        - 'admin.example.com'
+                        - 'www.example.com'
                         - 'my-ddev-project.ddev.site'
                         - '127.0.0.1'
 ```
