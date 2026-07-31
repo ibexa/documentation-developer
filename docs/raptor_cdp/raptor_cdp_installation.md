@@ -13,7 +13,7 @@ First, you need to register your [[= product_name_cdp =]] account, then you can 
 If you decide to acquire [[= product_name_cdp =]], contact your sales representative to receive a registration link to [[= product_name_cdp =]].
 After registration, you get access to a separate instance where you can find data required for configuring, activating, and using this feature.
 
-## Install CDP package
+## Install package
 
 [[= product_name_cdp =]] comes in an additional package that is opt-in and needs to be downloaded separately.
 

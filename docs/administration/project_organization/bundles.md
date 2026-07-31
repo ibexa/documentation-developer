@@ -113,7 +113,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/permissions|Additional permission functionalities|
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|
-|ibexa/engage|Enables integration with [Qualifio Engage platform](https://developers.qualifio.com/docs/engage/)|
+|ibexa/engage|Enables integration with [[[= product_name_engage =]]](https://developers.qualifio.com/docs/engage/)|
 
 ## [[= product_name_com =]] packages
 
@@ -138,7 +138,7 @@ The following packages are optional and can be installed independently.
 |Bundle|Description|
 |---------|-----------|
 |[ibexa/automated-translation](https://github.com/ibexa/automated-translation)|Automated translation of content using [Google Translate or DeepL](automated_translations.md)|
-|ibexa/cdp|Integration with [Raptor CDP](raptor_cdp.md)|
+|ibexa/cdp|Integration with [[[= product_name_cdp =]]](raptor_cdp.md)|
 |[ibexa/cloud](https://github.com/ibexa/cloud)|Integration with [[[= product_name_cloud =]]](/ibexa_cloud/ibexa_cloud.md)|
 
 In addition, you can extend the capabilities of your project by installing additional [LTS Updates](editions.md#lts-updates).

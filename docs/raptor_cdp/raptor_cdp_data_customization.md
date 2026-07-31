@@ -1,5 +1,5 @@
 ---
-description: Data customization in Ibexa CDP.
+description: Data customization in Raptor CDP.
 edition: experience
 ---
 
