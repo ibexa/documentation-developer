@@ -3,11 +3,11 @@ description: Raptor CDP is a software system designed to collect and organize cu
 edition: experience
 ---
 
-# Customer Data Platform (CDP)
+# [[= product_name_cdp =]]
 
 ## What is [[= product_name_cdp =]]
 
-[[= product_name_cdp =]] helps you solve one of the hardest challenges facing business world today: building unique experiences for your customers.
+[[= product_name_cdp =]] (Customer Data Platform) helps you solve one of the hardest challenges facing business world today: building unique experiences for your customers.
 With [[= product_name_cdp =]] you're able to track and aggregate data of your customers' activity on multiple channels.
 It allows you to create individual customer profiles that enable you to personalize their experience on your platform.
 

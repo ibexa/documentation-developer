@@ -3,7 +3,7 @@ description: Adding tracking in Raptor CDP.
 edition: experience
 ---
 
-# Add tracking
+# Tracking with [[= product_name_cdp =]]
 
 The final step is setting up a tracking script that identifies visitors and records their interactions.
 You can set it up in two ways:

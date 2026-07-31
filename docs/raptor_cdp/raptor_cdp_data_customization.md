@@ -3,7 +3,7 @@ description: Data customization in Ibexa CDP.
 edition: experience
 ---
 
-# Data customization
+# [[= product_name_cdp =]] data customization
 
 You can customize user, content, and product data exported to CDP and you can control what field type information you want to export.
 By default, custom field types have basic export functionality.

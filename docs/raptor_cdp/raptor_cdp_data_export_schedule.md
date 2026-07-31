@@ -4,7 +4,7 @@ edition: experience
 month_change: true
 ---
 
-# CDP data export schedule
+# [[= product_name_cdp =]] data export schedule
 
 ## Configuration key
 

@@ -3,7 +3,7 @@ description: Step-by-step data export procedure in Raptor CDP.
 edition: experience
 ---
 
-# Data export
+# [[= product_name_cdp =]] data export
 
 You need to specify a source of the user data that [[= product_name_cdp =]] connects to.
 To do so, go to **Data Manager** in **Tools** section and select **Create new dataflow**.

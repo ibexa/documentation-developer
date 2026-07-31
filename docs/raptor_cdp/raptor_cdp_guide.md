@@ -3,11 +3,11 @@ description: The Raptor CDP product guide describes all the possibilities that t
 edition: experience
 ---
 
-# Raptor CDP (Customer Data Platform) product guide
+# [[= product_name_cdp =]] product guide
 
 ## What is [[= product_name_cdp =]]
 
-[[= product_name_cdp =]] is a Customer Data Platform module that helps you build unique and memorable experiences for your customers.
+[[= product_name_cdp =]] (Customer Data Platform) module helps you build unique and memorable experiences for your customers.
 By using [[= product_name_cdp =]] you can monitor and compile data about your customers' activity on multiple channels.
 It also allows you to create individual customer profiles so you can customize their experience on your platform.
 
