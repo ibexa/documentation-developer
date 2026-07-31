@@ -38,7 +38,7 @@ https://console\.aws\.amazon\.com/
 # EU legislation portal — fragment (#d1e...) is a JavaScript-rendered anchor
 https://eur-lex\.europa\.eu/
 
-# MCP doc which don't need to be versioned (307)
+# MCP doc that doesn't need to be versioned (307)
 https://modelcontextprotocol.io/docs/tools/inspector
 
 # GitHub release tag URLs with unresolved MkDocs macro (releases/tag/ with no version)
