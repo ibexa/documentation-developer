@@ -792,7 +792,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles
 
-### PIM
+### Product catalog
 
 - Updated the [Product API](https://doc.ibexa.co/en/4.6/pim/product_api/) article by fixing method signatures and adding links to the PHP API reference
 
@@ -980,7 +980,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/4.6/dam/ibexa_dam/)
 
-### PIM
+### Product catalog
 
 - [Price engine REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-load-the-list-of-product-prices)
 
@@ -1028,7 +1028,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - Customize recommendation request with segment parameters
 
-### PIM
+### Product catalog
 
 - Product search Aggregations:
     - [BasePriceStatsAggregation](https://doc.ibexa.co/en/4.6/search/aggregation_reference/basepricestats_aggregation/)
@@ -1042,7 +1042,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - [Checkbox page block attribute type](https://doc.ibexa.co/en/4.6/content_management/pages/page_block_attributes/#block-attribute-types)
 - [Updated Create Form Builder Form attribute procedure](https://doc.ibexa.co/en/4.6/content_management/forms/create_form_attribute/#create-form-builder-form-attribute)
 
-### PIM
+### Product catalog
 
 - [Reorganized and updated information in User Documentation](https://doc.ibexa.co/projects/userguide/en/4.6/pim/pim/)
 
@@ -1094,7 +1094,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Post visit and price drop triggers
 - Wishlist and Deletefromwishlist events
 
-### PIM
+### Product catalog
 
 - [VAT category configuration update](https://doc.ibexa.co/en/4.6/pim/pim_configuration/#vat-rates)
 - [Payment Method Name Criterion](https://doc.ibexa.co/en/4.6/search/criteria_reference/payment_method_name_criterion/)
@@ -1127,7 +1127,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Send messages with recommendations
 - Email triggers in User Documentation
 
-### PIM
+### Product catalog
 
 - [Product availability Twig extension](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability)
 - [PriceQuery with its criteria](https://doc.ibexa.co/en/4.6/search/criteria_reference/price_search_criteria/)
@@ -1153,7 +1153,7 @@ Enhanced the PHP API with the following new classes and interfaces:
     - [Form Builder](https://doc.ibexa.co/en/4.6/content_management/forms/form_builder_guide/)
     - [Online editor](https://doc.ibexa.co/en/4.6/content_management/rich_text/online_editor_guide/)
     - Personalization
-    - [PIM](https://doc.ibexa.co/en/4.6/pim/pim_guide/)
+    - [Product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/)
 
 - [Updated bundles list](https://doc.ibexa.co/en/4.6/administration/project_organization/bundles/)
 
@@ -1186,7 +1186,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 - [Add CKEditor plugins](https://doc.ibexa.co/en/4.6/content_management/rich_text/extend_online_editor/#add-ckeditor-plugins)
 
-### PIM
+### Product catalog
 
 - [Custom name schema strategy](https://doc.ibexa.co/en/4.6/pim/create_custom_name_schema_strategy/)
 - [IsVirtual Search Criterion](https://doc.ibexa.co/en/4.6/search/criteria_reference/isvirtual_criterion/)
@@ -1224,7 +1224,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Multiple attributes in submodel computation
 - Multiple attributes in submodel computation in User Documentation
 
-### PIM
+### Product catalog
 
 - Updated [Enable purchasing products](https://doc.ibexa.co/en/4.6/pim/enable_purchasing_products/#region-and-currency)
 - [Virtual products](https://doc.ibexa.co/en/4.6/pim/products/#product-types)

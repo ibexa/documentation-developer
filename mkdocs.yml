@@ -391,13 +391,13 @@ nav:
         - Prices: product_catalog/prices.md
         - Price API: product_catalog/price_api.md
         - Customize product catalog:
+            - Customize product catalog: product_catalog/customize_product_catalog.md
             - Create custom attribute type: product_catalog/create_custom_attribute_type.md
             - Create custom availability strategy: product_catalog/create_custom_availability_strategy.md
             - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
             - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
             - Create product code generator: product_catalog/create_product_code_generator.md
             - Customize product attribute templates: product_catalog/customize_product_attribute_templates.md
-            - Customize product catalog: product_catalog/customize_product_catalog.md
             - Customize product embed templates: product_catalog/customize_product_embed_templates.md
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Commerce:
@@ -1011,7 +1011,7 @@ extra:
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
   product_name_cdp: 'Raptor CDP'
-  product_name_connect: 'Ibexa Connect'
+  product_name_cdp_base: 'Raptor'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Qualifio'
