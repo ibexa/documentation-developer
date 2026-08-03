@@ -163,46 +163,6 @@ You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to 
 
 Use [Stamps available in Symfony](https://github.com/symfony/symfony/tree/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp), and combine them with the ones provided by [[= product_name =]]:
 
-- [SudoStamp](#sudostamp)
-- [UserPermissionStamp](#userpermissionstamp)
-
-#### SudoStamp
-
-[`SudoStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html) causes the handler to [use sudo mode](php_api.md#using-sudo), bypassing all permission checks when processing the message.
-
-It's automatically attached to every dispatched message.
-
-!!! caution
-
-    Starting with Ibexa DXP 5.0.9, the behavior of automatically attaching a `SudoStamp` to every message is deprecated and will be removed in 6.0.
-    For messages that should be processed without taking permissions into account, always attach the `SudoStamp` manually to keep your code forward-compatible.
-
-The following example shows how you can attach the `SudoStamp` to the message:
-
-``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 9, remove_indent=True) =]]
-
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 24, 24, remove_indent=True) =]]
-```
-
-#### UserPermissionStamp
-
-[`UserPermissionStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html) allows you to [set the repository user](php_api.md#setting-the-repository-user) to process the message.
-When the user is set, handlers execute actions on their behalf and take their permissions into account.
-
-If you don't attach this stamp, the messages are processed by the default repository user called anonymous user.
-By combing this stamp with [`SudoStamp`](#sudostamp), you can set the repository user and skip the permission checks at the same time.
-
-The following example shows how you can use `UserPermissionStamp` to preserve the current repository user after the message is dispatched.
-
-``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 9, remove_indent=True) =]]
-
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 22, 23, remove_indent=True) =]]
-```
-
 ## Extend Ibexa Messenger
 
 ### Register custom message and handler
