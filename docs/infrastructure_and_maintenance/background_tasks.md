@@ -94,26 +94,68 @@ If you deploy your application on [[= product_name_cloud =]], using [Workers](ht
 
 ## Dispatch message
 
-To have a task processed in the background, dispatch an appropriate message by using the `\Symfony\Component\Messenger\MessageBusInterfac\MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message):
+To have a task processed in the background by [[= product_name_base =]] Messenger:
+
+1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
+2. Dispatch an appropriate message by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
+
+``` yaml
+services:
+    SomeClassThatSchedulesExecutionInTheBackground:
+        arguments:
+            $bus: '@ibexa.messenger.bus'
+```
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 3) =]]
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 13) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 15, 20) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 26) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 14) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 16, 21) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 29, 30) =]]
 ```
 
 Additionally, attach message metadata by using [stamps](#stamps).
 
 ### Stamps
 
-You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control how the message is processed.
+You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control processing of the message.
 
-Use [Stamps available in Symfony](https://github.com/symfony/symfony/tree/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp), and combine them with the ones provided by [[= product_name =]]:
+The `ibexa.messenger.bus` message bus uses the default Symfony Messenger [middleware]([[= symfony_doc =]]/messenger.html#middleware) and doesn't support all stamps that are available in Symfony.
 
-- [SudoStamp](#sudostamp)
-- [UserPermissionStamp](#userpermissionstamp)
+You can use the following Symfony stamps:
+
+- [`DelayStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DelayStamp.php)
+- [`DispatchAfterCurrentBusStamp`]([[= symfony_doc =]]/messenger.html#dispatchaftercurrentbusmiddleware-middleware)
+- [`HandlerArgumentsStamp`]([[= symfony_doc =]]/messenger.html#additional-handler-arguments)
+- [`SerializerStamp`]([[= symfony_doc =]]/messenger.html#serializing-messages)
+
+On top of the supported Symfony stamps, [[= product_name =]] provides the following ones:
+
+- [`DeduplicateStamp`](#deduplicatestamp)
+- [`SudoStamp`](#sudostamp)
+- [`UserPermissionStamp`](#userpermissionstamp)
+
+#### DeduplicateStamp
+
+[`DeduplicateStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html) prevents duplicate messages from being processed.
+When you attach it to a message, the system uses a lock to ensure that only one message with the same key is handled at a time.
+
+For more information, see [Symfony documentation about message deduplication]([[= symfony_doc =]]/messenger.html#message-deduplication).
+
+!!! caution
+
+    The `ibexa.messenger.bus` bus doesn't support the [`Symfony\Component\Messenger\Stamp\DeduplicateStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DeduplicateStamp.php) stamp.
+
+    You must use the `Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp` stamp instead.
+
+The following example shows how you can attach the `DeduplicateStamp` to the message:
+
+``` php
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 9, remove_indent=True) =]]
+
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 27, 28, remove_indent=True) =]]
+```
 
 #### SudoStamp
 
@@ -129,10 +171,10 @@ It's automatically attached to every dispatched message.
 The following example shows how you can attach the `SudoStamp` to the message:
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 9, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 7, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 10, remove_indent=True) =]]
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 24, 24, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 25, remove_indent=True) =]]
 ```
 
 #### UserPermissionStamp
@@ -147,9 +189,9 @@ The following example shows how you can use `UserPermissionStamp` to preserve th
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 9, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 10, remove_indent=True) =]]
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 22, 23, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, remove_indent=True) =]]
 ```
 
 ## Extend Ibexa Messenger
