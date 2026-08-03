@@ -520,7 +520,8 @@ plugins:
             'community_resources/translations.md': 'resources/contributing/contribute_translations.md'
             'community_resources/package_structure.md': 'resources/contributing/package_structure.md'
 
-            'updating/update_ibexa_dxp.md': 'update_and_migration/update_ibexa_dxp.md'
+            'updating/update_ibexa_dxp.md': 'update_and_migration/update_system.md'
+            'update_and_migration/update_ibexa_dxp.md': 'update_and_migration/update_system.md'
             'updating/from_1.x_2.x/update_from_1.x_2.x.md': 'update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md'
             'updating/from_1.x_2.x/update_app_to_2.5.md': 'update_and_migration/from_1.x_2.x/update_app_to_2.5.md'
             'updating/from_1.x_2.x/update_db_to_2.5.md': 'update_and_migration/from_1.x_2.x/update_db_to_2.5.md'

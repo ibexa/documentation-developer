@@ -6,7 +6,7 @@ month_change: true
 # Update from v5.0.x to v5.0.latest
 
 To update from v4.6.x, see [Update from v4.6 to v5.0](update_to_5.0.md).
-To update from an older version, visit [the update page](update_ibexa_dxp.md) and choose the applicable path.
+To update from an older version, visit [the update page](update_system.md) and choose the applicable path.
 
 ## Update the application
 

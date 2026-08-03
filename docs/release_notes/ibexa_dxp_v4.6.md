@@ -83,7 +83,7 @@ For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_man
 
 ### Product tour
 
-The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
+The product tour is a new Integrated help feature that helps back office contributors to discover Ibexa DXP.
 
 With product tours, you can create customized onboarding journeys.
 This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
@@ -270,7 +270,7 @@ The PHP API has been enhanced with the following classes and interfaces:
 
 [[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-Integrated help, a new [LTS Update](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates), brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
+Integrated help, a new [LTS Update](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates), brings contextual documentation, guidance, and partner-specific resources right into the user interface of Ibexa DXP.
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
 
 The default help menu can be modified to include links to internal editorial guidelines, custom tutorials, or support pages.
@@ -290,7 +290,7 @@ Real-time editing is now part of the [Collaborative editing](https://doc.ibexa.c
 By using it, users can edit and review content in real time, making teamwork faster, more efficient, and streamlining the content review process.
 The system automatically tracks changes, allowing seamless collaboration within a single content item.
 
-This extends the already existing capabilities allowing editors to work on the same content created in [[= product_name =]] simultaneously, streamlining the content creation and review process.
+This extends the already existing capabilities allowing editors to work on the same content created in Ibexa DXP simultaneously, streamlining the content creation and review process.
 
 ![Participants list](img/participants_list.png)
 
@@ -428,7 +428,7 @@ With improved reasoning and greater accuracy in mind, the AI Connector package h
 #### Discount indexing
 
 Discounts now allow scheduling a re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
-Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
+Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to Ibexa DXP's needs.
 
 Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
 
@@ -461,7 +461,7 @@ Developers can now create and configure their own notification types, while user
 
 ##### New packages
 
-The only package that has been introduced in [[= product_name =]] v4.6.24 is ibexa/messenger.
+The only package that has been introduced in Ibexa DXP v4.6.24 is ibexa/messenger.
 
 ##### New version of PHP Storm Plugin
 
@@ -576,7 +576,7 @@ It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/late
 
 #### Support for Solr 9
 
-With this release, [[= product_name =]] starts supporting [Solr 9](https://doc.ibexa.co/en/4.6/getting_started/requirements/#search).
+With this release, Ibexa DXP starts supporting [Solr 9](https://doc.ibexa.co/en/4.6/getting_started/requirements/#search).
 
 Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/ai_actions/) feature.
 
@@ -697,7 +697,7 @@ To update to the latest version, see the [update instructions](https://doc.ibexa
 
 #### Twig Components
 
-- The new [Twig Components](https://doc.ibexa.co/en/4.6/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+- The new [Twig Components](https://doc.ibexa.co/en/4.6/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in Ibexa DXP
 
 #### Extending Sub-items view
 
@@ -1454,16 +1454,16 @@ For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en
 
 ##### Remote PIM support
 
-This release introduces a foundation for connecting [[= product_name =]]'s product catalog capabilities to external Product Information Management (PIM) systems.
+This release introduces a foundation for connecting Ibexa DXP's product catalog capabilities to external Product Information Management (PIM) systems.
 You can use it to implement a custom solution and connect to external PIM or ERP systems, import product data, and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
 
 Here are the most important benefits of Remote PIM support:
 
-- Integration with external data sources: your organization can utilize [[= product_name =]]'s features, without having to migrate data to a new environment.
-- Increased accessibility of product information: customers and users can access product data through different channels, including [[= product_name =]].
+- Integration with external data sources: your organization can utilize Ibexa DXP's features, without having to migrate data to a new environment.
+- Increased accessibility of product information: customers and users can access product data through different channels, including Ibexa DXP.
 - Centralized product data management: product information can be maintained and edited in one place, which then serves as a single source of truth for different applications.
 
-Among other things, the Remote PIM support feature allows [[= product_name =]] customers to:
+Among other things, the Remote PIM support feature allows Ibexa DXP customers to:
 
 - let their users purchase products by following a regular or quick order path,
 - manage certain aspects of product data,
@@ -1565,7 +1565,7 @@ For more information, see [Define cancel order](https://doc.ibexa.co/en/5.0/comm
 
 ##### Integrate with payment gateways
 
-[[= product_name =]] can now be configured to integrate with various payment gateways, like Stripe and PayPal, by using the solution provided by [Payum](https://github.com/Payum).
+Ibexa DXP can now be configured to integrate with various payment gateways, like Stripe and PayPal, by using the solution provided by [Payum](https://github.com/Payum).
 
 ##### Shipments
 
@@ -1726,9 +1726,9 @@ For more information, see [[[= product_name_connect =]] scenario block](https://
 
 #### DDEV
 
-[[[= product_name =]] can officially be run on DDEV](https://docs.ddev.com/en/stable/users/quickstart/#ibexa-dxp).
+[Ibexa DXP can officially be run on DDEV](https://docs.ddev.com/en/stable/users/quickstart/#ibexa-dxp).
 
-For more information, see the [DDEV guide](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
+For more information, see the [DDEV guide](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing Ibexa DXP.
 
 #### Customer Data Platform (CDP)
 
@@ -1741,7 +1741,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/5.0/cdp/cdp_a
 
 #### New packages
 
-The following packages have been introduced in [[= product_name =]] v4.6.0:
+The following packages have been introduced in Ibexa DXP v4.6.0:
 
 - [ibexa/oauth2-server](https://doc.ibexa.co/en/4.6/users/oauth_server/) (optional)
 - ibexa/site-context
@@ -1762,7 +1762,7 @@ The following packages have been introduced in [[= product_name =]] v4.6.0:
 
 #### REST APIs
 
-[[= product_name =]] v4.6.0 adds REST API coverage for the following features:
+Ibexa DXP v4.6.0 adds REST API coverage for the following features:
 
 - Price engine
 - Shipping
@@ -1927,7 +1927,7 @@ The following events have been added in the v4.6.0 release (39 events in total):
 
 #### View matchers
 
-The following view matchers have been introduced in [[= product_name =]] v4.6.0:
+The following view matchers have been introduced in Ibexa DXP v4.6.0:
 
 - `\Ibexa\Core\MVC\Symfony\Matcher\ContentBased\IsPreview`
 - `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id`

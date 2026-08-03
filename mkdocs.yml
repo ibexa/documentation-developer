@@ -20,15 +20,15 @@ not_in_nav: |
     /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
-    - Ibexa DXP editions:
+    - Cohesivo editions:
         - Editions: ibexa_products/editions.md
-        - Ibexa Headless: ibexa_products/ibexa_headless.md
-        - Ibexa Experience: ibexa_products/ibexa_experience.md
-        - Ibexa Commerce: ibexa_products/ibexa_commerce.md
+        - Cohesivo Headless: ibexa_products/ibexa_headless.md
+        - Cohesivo Experience: ibexa_products/ibexa_experience.md
+        - Cohesivo Commerce: ibexa_products/ibexa_commerce.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
-        - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
+        - Install Cohesivo: getting_started/install_cohesivo.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
         - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
@@ -885,7 +885,7 @@ nav:
             - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
     - Update and migration:
-        - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
+        - Update your system: update_and_migration/update_system.md
         - Update from v1.13 and v2.x:
             - Update from v1.13 and v2.x: update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md
             - Update app to v2.5: update_and_migration/from_1.x_2.x/update_app_to_2.5.md
@@ -934,7 +934,7 @@ nav:
     - Resources:
         - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
-        - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
+        - Ibexa PhpStorm plugin: resources/phpstorm_plugin.md
         - New in documentation: resources/new_in_doc.md
         - Contributing:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
@@ -1005,7 +1005,7 @@ extra:
     # Global variables
   site_display_name: 'Ibexa Documentation'
   product_name_base: 'Ibexa'
-  product_name: 'Ibexa DXP'
+  product_name: 'Cohesivo'
   product_name_content: 'Ibexa Content'
   product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'

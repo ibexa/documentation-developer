@@ -31,7 +31,7 @@ Modules can interact with each other, for example, to decrease stock as a result
 
 With order management in place, it's now possible to create orders, configure and customize the order processing workflow, and manage orders by using the APIs.
 
-New screens added to the back office user interface let [[= product_name =]] users search for orders and filter search results.
+New screens added to the back office user interface let Ibexa DXP users search for orders and filter search results.
 Users can also review order details and completion status, and cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
@@ -122,7 +122,7 @@ In this release, the CDP configuration becomes more generic
 and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
 
-[[= product_name =]] v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+Ibexa DXP v4.5 adds the abstraction that allows you to implement other transport types from third parties.
 
 For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
 

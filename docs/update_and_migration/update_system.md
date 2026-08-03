@@ -2,9 +2,9 @@
 description: Update your installation to the latest supported version.
 ---
 
-# Updating [[= product_name =]]
+# Updating Ibexa DXP and [[= product_name =]]
 
-To update [[= product_name =]] to a newer version, select the version you're currently using:
+To update Ibexa DXP and [[= product_name =]] to a newer version, select the version you're currently using:
 
 === "I am using v1.13 or v2.x"
 

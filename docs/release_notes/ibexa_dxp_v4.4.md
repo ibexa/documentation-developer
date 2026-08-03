@@ -50,7 +50,7 @@ You can now use Fastly IO to serve optimized versions of your images in real tim
 Fastly can perform multiple transformations on your image, for example, cropping, resizing, and trimming before serving it to end user.
 Fastly is an external service that requires a separate subscription, to learn more see, [Fastly Image Optimizer website](https://www.fastly.com/documentation/guides/full-site-delivery/image-optimization/about-fastly-image-optimizer/).
 
-If you already have Fastly IO subscription, you can move to [Fastly IO configuration in [[= product_name =]]](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
+If you already have Fastly IO subscription, you can move to [Fastly IO configuration in Ibexa DXP](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
 
 #### Fastly VCL upload
 
@@ -84,7 +84,7 @@ provide the best recommendations.
 ## [[= product_name_connect =]]
 
 You can now take advantage of [[[= product_name_connect =]]](https://www.ibexa.co/products/features/integration-and-automation),
-an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
+an iPaaS (integration platform-as-a-service) which allows you to connect Ibexa DXP with third-party applications.
 [[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services that help you automate business processes.
 
 See [[[= product_name_connect =]] documentation]([[= connect_doc =]]/).

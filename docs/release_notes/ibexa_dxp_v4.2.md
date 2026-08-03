@@ -209,7 +209,7 @@ You can now hide and reveal content items in data migrations by using the [`hide
 
 ### Fastly shielding
 
-[[= product_name =]] now supports Fastly shielding.
+Ibexa DXP now supports Fastly shielding.
 
 ## Deprecations
 

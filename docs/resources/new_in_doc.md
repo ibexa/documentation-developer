@@ -5,7 +5,7 @@ month_change: true
 
 # New in documentation
 
-This page contains recent highlights and notable changes in [[= product_name =]] documentation.
+This page contains recent highlights and notable changes in Ibexa DXP and [[= product_name =]] documentation.
 
 ## June 2026
 
@@ -148,7 +148,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Discounts
 
-- Added Ibexa Messenger instructions for [[= product_name =]] 4.6
+- Added Ibexa Messenger instructions for Ibexa DXP 4.6
     - Modified [discounts configuration](https://doc.ibexa.co/en/4.6/discounts/configure_discounts/#discount-re-indexing)
     - Added [installation instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#installation)
 
@@ -183,7 +183,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Infrastructure
 
-- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/) for [[= product_name =]] 4.6 and 5.0: PostgreSQL 18 is now officially supported
+- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/) for Ibexa DXP 4.6 and 5.0: PostgreSQL 18 is now officially supported
 
 ### Ibexa Cloud
 
@@ -232,7 +232,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### PHP API
 
-- Enhanced the PHP API reference with the following new classes for [[= product_name =]] 4.6 and 5.0:
+- Enhanced the PHP API reference with the following new classes for Ibexa DXP 4.6 and 5.0:
 
     - [`Ibexa\Contracts\Elasticsearch\Query\EmbeddingVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-EmbeddingVisitor.html)
     - [`Ibexa\Contracts\AdminUi\ContentType\ContentTypeFieldsByExpressionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html)
@@ -304,7 +304,7 @@ We want to thank
 
 ### Trainings
 
-- The [Advanced Developer training](https://learn.ibexa.co) for [[= product_name =]] v5 is now available
+- The [Advanced Developer training](https://learn.ibexa.co) for Ibexa DXP v5 is now available
 
 ### Documentation improvements
 
@@ -342,7 +342,7 @@ We want to thank
 ### Collaborative editing
 
 - Added the [Collaborative editing product guide](collaborative_editing_guide.md), describing the high-level overview of this feature
-- Described collaborative editing endpoints to the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#collaborative-editing) for [[= product_name =]] v4.6
+- Described collaborative editing endpoints to the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#collaborative-editing) for Ibexa DXP v4.6
 
 ### Infrastructure
 
@@ -350,7 +350,7 @@ We want to thank
 
 ### PHP API
 
-- Enhanced the PHP API reference with the following new classes for [[= product_name =]] 4.6 and 5.0:
+- Enhanced the PHP API reference with the following new classes for Ibexa DXP 4.6 and 5.0:
     - [`Ibexa\Contracts\AdminUi\Event\ResolveVersionPreviewUrlEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Event-ResolveVersionPreviewUrlEvent.html)
     - [`Ibexa\Contracts\AdminUi\Exception\UnresolvedPreviewUrlException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Exception-UnresolvedPreviewUrlException.html)
     - [`Ibexa\Contracts\AdminUi\PreviewUrlResolver\VersionPreviewUrlResolverInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-PreviewUrlResolver-VersionPreviewUrlResolverInterface.html)
@@ -490,7 +490,7 @@ Discounts documentation includes:
 
 ### Twig Components
 
-- Documented new [Twig Components](https://doc.ibexa.co/en/4.6/templating/components/) feature that allows you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+- Documented new [Twig Components](https://doc.ibexa.co/en/4.6/templating/components/) feature that allows you to effortlessly build customizable and reusable Twig templates in Ibexa DXP
 
 ### Extending Sub-items view
 
@@ -509,7 +509,7 @@ Discounts documentation includes:
 
 ### Requirements update
 
-- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/) for [[= product_name =]] 4.6: MySQL 8.4, Node 20 and Node 22 are now officially supported
+- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/) for Ibexa DXP 4.6: MySQL 8.4, Node 20 and Node 22 are now officially supported
 
 ### AI Actions Connect handler
 
@@ -546,11 +546,11 @@ We want to thank [todomagichere](https://github.com/todomagichere) and [hgieseno
 
 ### Requirements update
 
-- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/#operating-system) for [[= product_name =]]: RHEL 9.5 and CentOS Stream 9 are now supported for v4.6
+- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/#operating-system) for Ibexa DXP: RHEL 9.5 and CentOS Stream 9 are now supported for v4.6
 
 ### AI Actions
 
-- Specified minimum [[= product_name =]] version supported while working with AI Actions
+- Specified minimum Ibexa DXP version supported while working with AI Actions
     - AI Actions product guide: [Availability](https://doc.ibexa.co/en/4.6/ai_actions/ai_actions_guide/#availability)
     - AI Actions section: [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)
 
@@ -851,7 +851,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Getting started
 
-- Added instructions in [Install [[= product_name =]]](https://doc.ibexa.co/en/4.6/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
+- Added instructions in [Install Ibexa DXP](https://doc.ibexa.co/en/4.6/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
 - Updated the [requirements for running v3.3.x on PHP 8.3](https://doc.ibexa.co/en/4.6/getting_started/requirements/#php)
 
 ### Infrastructure and maintenance
@@ -1165,7 +1165,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Administration
 
-- [Install [[= product_name =]] with DDEV](https://doc.ibexa.co/en/4.6/getting_started/install_with_ddev/)
+- [Install Ibexa DXP with DDEV](https://doc.ibexa.co/en/4.6/getting_started/install_with_ddev/)
 - [Update from v3.3.x to v3.3.latest](https://doc.ibexa.co/en/4.6/update_and_migration/from_3.3/update_from_3.3/)
 
 ### Commerce
