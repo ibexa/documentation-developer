@@ -31,7 +31,13 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | Deprecated since | Entity                                                                   | Change                                                                                                                                                                                                    |
 | --- |---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | N/A | `\Ibexa\HttpCache\ResponseTagger\Delegator\DispatcherTagger`  | With `kernel.debug` enabled, [`DispatcherTagger`](content_aware_cache.md#dispatchertagger) will throw an exception when you pass an unsupported value instead of silently ignoring it. |
-| v5.0.7 | <nobr>`\Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger::supports`</nobr> | Method added to the interface. All implementations must specify [the value they support for tagging](content_aware_cache.md#delegator-and-value-taggers). |
+| v5.0.7 | [`ResponseTagger::supports`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html#) | Method added to the interface. All implementations must specify [the value they support for tagging](content_aware_cache.md#delegator-and-value-taggers). |
+
+### ibexa/core
+
+| Deprecated since | Entity                                                                                                                                                      | Change                                                                                                                                                          |
+| --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| N/A | <nobr>[`ValidationError::getTranslatableMessage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-ValidationError.html#method_getTranslatableMessage)</nobr> | Return type narrowed from [`Translation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Translation.html) to [`Message`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Translation-Message.html) \| [`Plural`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Translation-Plural.html). Custom `ValidationError` implementations must update their return type. |
 
 ### ibexa/messenger
 
