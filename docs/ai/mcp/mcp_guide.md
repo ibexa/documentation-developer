@@ -8,10 +8,10 @@ month_change: false
 
 ## What is MCP Servers
 
-MCP ([Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)) is a protocol that standardizes how AI systems interact with external systems.
+MCP ([Model Context Protocol](https://modelcontextprotocol.io/docs/2025-11-25/getting-started/intro)) is a protocol that standardizes how AI systems interact with external systems.
 
 While [AI actions](ai_actions_guide.md) integrate AI with the back office,
-[[= product_name =]]'s [MCP Servers](https://modelcontextprotocol.io/docs/learn/server-concepts) offer an API that can be used by AI agents from the outside of the system.
+[[= product_name =]]'s [MCP Servers](https://modelcontextprotocol.io/docs/2025-11-25/learn/server-concepts) offer an API that can be used by AI agents from the outside of the system.
 
 Because MCP is a standard protocol, many agents are already trained to use it.
 
