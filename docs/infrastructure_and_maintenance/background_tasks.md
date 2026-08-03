@@ -96,7 +96,7 @@ If you deploy your application on [[= product_name_cloud =]], using [Workers](ht
 
 To have a task processed in the background by [[= product_name_base =]] Messenger:
 
-1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface
+1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
 2. Dispatch an appropriate message by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
 
 ``` yaml
@@ -148,7 +148,7 @@ For more information, see [Symfony documentation about message deduplication]([[
 
     You must use the `Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp` stamp instead.
 
-The following example shows how you can attach the DeduplicateStamp to the message:
+The following example shows how you can attach the `DeduplicateStamp` to the message:
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
