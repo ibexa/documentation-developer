@@ -144,7 +144,7 @@ For more information, see [Symfony documentation about message deduplication]([[
 
 !!! caution
 
-    In Ibexa DXP v5.0, `ibexa.messenger.bus` doesn't support the [`Symfony\Component\Messenger\Stamp\DeduplicateStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DeduplicateStamp.php) stamp.
+    The `ibexa.messenger.bus` bus doesn't support the [`Symfony\Component\Messenger\Stamp\DeduplicateStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DeduplicateStamp.php) stamp.
 
     You must use the `Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp` stamp instead.
 
