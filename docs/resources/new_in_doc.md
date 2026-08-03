@@ -1336,7 +1336,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### New Page blocks
 
 - [React app Page block](https://doc.ibexa.co/en/4.6/content_management/pages/react_app_block/)
-- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#bestsellers-block)
+- Bestsellers block
 
 ### Others
 
