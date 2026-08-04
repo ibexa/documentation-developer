@@ -1,5 +1,5 @@
 ---
-description: Install Ibexa DXP on a macOS or Windows system to use it for development.
+description: Install Cohesivo on a macOS or Windows system to use it for development.
 ---
 
 # Install [[= product_name =]] on macOS or Windows
@@ -11,7 +11,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
     This procedure is **for development purposes only**.
     Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).
+    For information about installing the product on Linux, see [Install [[= product_name =]]](install_cohesivo.md).
 
 ## Prepare work environment
 
@@ -74,7 +74,7 @@ The instructions below assume that you're using Apache.
 ## Install [[= product_name =]]
 
 At this point the installation procedure is the same as when installing on Linux.
-Follow the steps from the main [Install [[= product_name =]]](install_ibexa_dxp.md#install-ibexa-dxp) page.
+Follow the steps from the main [Install [[= product_name =]]](install_cohesivo.md#install-cohesivo) page.
 
 ## Set up virtual host
 

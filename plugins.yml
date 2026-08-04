@@ -571,7 +571,8 @@ plugins:
             'releases/ez_platform_v1.8.0.md': 'release_notes/ez_platform_v1.8.0.md'
             'releases/ez_platform_v1.7.0_lts.md': 'release_notes/ez_platform_v1.7.0_lts.md'
 
-            'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
+            'getting_started/install_ez_platform.md': 'getting_started/install_cohesivo.md'
+            'getting_started/install_ibexa_dxp.md': 'getting_started/install_cohesivo.md'
 
             'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
             'templating/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'

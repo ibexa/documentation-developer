@@ -1,5 +1,5 @@
 ---
-description: Get started with tutorials to learn how to create a site with Ibexa DXP
+description: Get started with tutorials to learn how to create a site with Cohesivo
 page_type: landing_page
 ---
 

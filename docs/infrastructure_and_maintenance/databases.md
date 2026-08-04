@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP can use MySQL, PostgreSQL or MariaDB as its database.
+description: Cohesivo can use MySQL, PostgreSQL or MariaDB as its database.
 ---
 
 # Databases
@@ -14,7 +14,7 @@ To use PostgreSQL, you need to have the `pdo_pgsql` PHP extension installed.
 
 ### Provide parameters
 
-When you run `composer install`, you're asked to [provide installation parameters](install_ibexa_dxp.md#change-installation-parameters).
+When you run `composer install`, you're asked to [provide installation parameters](install_cohesivo.md#change-installation-parameters).
 
 !!! tip
 

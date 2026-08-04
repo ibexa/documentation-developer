@@ -1,5 +1,5 @@
 ---
-description: Learn more about various Ibexa DXP editions' features to help yourself choose the right one for your project.
+description: Learn more about various Cohesivo editions' features to help yourself choose the right one for your project.
 page_type: landing_page
 ---
 

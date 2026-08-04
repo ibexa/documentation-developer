@@ -1,5 +1,5 @@
 ---
-description: Find out what's user management and check what functions Ibexa DXP offers in this area to effectively manage the digital ecosystem.
+description: Find out what's user management and check what functions Cohesivo offers in this area to effectively manage the digital ecosystem.
 ---
 
 # User management product guide

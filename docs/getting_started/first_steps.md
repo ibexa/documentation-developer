@@ -1,5 +1,5 @@
 ---
-description: Start off working with Ibexa DXP by doing initial configuration and testing system capabilities.
+description: Start off working with Cohesivo by doing initial configuration and testing system capabilities.
 ---
 
 # First steps

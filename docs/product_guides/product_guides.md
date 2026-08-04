@@ -1,5 +1,5 @@
 ---
-description: Discover various Ibexa DXP features.
+description: Discover various Cohesivo features.
 page_type: landing_page
 month_change: false
 ---

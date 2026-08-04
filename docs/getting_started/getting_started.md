@@ -1,5 +1,5 @@
 ---
-description: Get started working with Ibexa DXP by learning about the requirements and installing the platform.
+description: Get started working with Cohesivo by learning about the requirements and installing the platform.
 page_type: landing_page
 ---
 
@@ -9,6 +9,6 @@ To get started working with [[= product_name =]], see how you can get an install
 
 [[= cards([
     "getting_started/requirements",
-    "getting_started/install_ibexa_dxp",
+    "getting_started/install_cohesivo",
     "getting_started/first_steps",
 ], columns=3) =]]

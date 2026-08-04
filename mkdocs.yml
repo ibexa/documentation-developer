@@ -1012,6 +1012,7 @@ extra:
   product_name_com: 'Ibexa Commerce'
   product_name_cdp: 'Raptor CDP'
   product_name_cdp_base: 'Raptor'
+  product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Qualifio'

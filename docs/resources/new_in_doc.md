@@ -21,7 +21,7 @@ This page contains recent highlights and notable changes in Ibexa DXP and [[= pr
 
 ### Background tasks and scheduled tasks
 
-- Reworked documentation about [scheduled tasks](install_ibexa_dxp.md#schedule-tasks)
+- Reworked documentation about [scheduled tasks](install_cohesivo.md#schedule-tasks)
 - Described [Ibexa Messenger configuration for production](background_tasks.md#configure-for-production-environment)
 
 ## May 2026
@@ -140,7 +140,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Getting started
 
-- Added a description of password constraints in [Install Ibexa DXP](install_ibexa_dxp.md#create-a-database) and [Install with DDEV](install_with_ddev.md#6-install-the-platform-and-its-database)
+- Added a description of password constraints in [Install Ibexa DXP](install_cohesivo.md#create-a-database) and [Install with DDEV](install_with_ddev.md#6-install-the-platform-and-its-database)
 
 ### Administration
 

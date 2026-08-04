@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP uses Symfony to handle user sessions, with support for SiteAccess-aware session cookie configuration.
+description: Cohesivo uses Symfony to handle user sessions, with support for SiteAccess-aware session cookie configuration.
 ---
 
 # Sessions

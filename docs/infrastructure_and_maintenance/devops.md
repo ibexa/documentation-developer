@@ -1,5 +1,5 @@
 ---
-description: See various tools that can help you debug your Ibexa DXP installation.
+description: See various tools that can help you debug your Cohesivo installation.
 ---
 
 # DevOps
@@ -86,7 +86,7 @@ composer require --dev symfony/debug-pack
 After you have installed Symfony Web Debug Toolbar, it's available when running [[= product_name =]] in the `dev` environment.
 It's extended with some [[= product_name =]]-specific information:
 
-![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
+![[[= product_name =]] info in Web Debug Toolbar](img/web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 
 ### SPI (persistence)
 

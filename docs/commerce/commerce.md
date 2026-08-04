@@ -1,5 +1,5 @@
 ---
-description: The commerce component of Ibexa DXP covers various steps of making a transaction from listing available products, through adding products to a cart, to checkout and confirmation.
+description: The commerce component of Cohesivo covers various steps of making a transaction from listing available products, through adding products to a cart, to checkout and confirmation.
 edition: commerce
 page_type: landing_page
 ---

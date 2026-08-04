@@ -37,7 +37,7 @@ The following protocols are currently supported:
 
 To enable automatic URL validation, set up a scheduled task to run the `ibexa:check-urls` command periodically.
 
-For more information, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
+For more information, see [Additional scheduled tasks and advanced usage](install_cohesivo.md#additional-scheduled-tasks-and-advanced-usage).
 
 ### Configuration
 

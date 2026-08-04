@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP's content model relies on content items that are instances of content types and contain content fields.
+description: Cohesivo's content model relies on content items that are instances of content types and contain content fields.
 ---
 
 # Content model

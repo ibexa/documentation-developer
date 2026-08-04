@@ -1,5 +1,5 @@
 ---
-description: Ensure that your Ibexa DXP installation performs well by following our set of recommendations.
+description: Ensure that your Cohesivo installation performs well by following our set of recommendations.
 ---
 
 # Performance

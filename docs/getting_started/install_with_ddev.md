@@ -1,5 +1,5 @@
 ---
-description: Install Ibexa DXP with Docker and DDEV to use it for development.
+description: Install Cohesivo with Docker and DDEV to use it for development.
 month_change: false
 ---
 
@@ -63,7 +63,7 @@ Depending on your database of choice (MySQL or PostgreSQL), use the appropriate 
 
 !!! note
 
-    Those commands set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
+    Those commands set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_cohesivo.md#change-installation-parameters).
 
     To use `.env.local` file instead of server-level environment variables, see [Using dotenv](#using-dotenv).
 
@@ -131,7 +131,7 @@ ddev start
 
 ### 4. Composer authentication
 
-Next, you need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
+Next, you need to [set up authentication tokens](install_cohesivo.md#set-up-authentication-tokens) by modifying the Composer configuration.
 You must run the following command **after** executing `ddev start`, because the command runs inside the container.
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password.
 
@@ -387,7 +387,7 @@ To run an existing project, you need to:
     - getting a clean database with `ddev php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
     - injecting a dump with [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
-The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
+The following examples run an already [version-controlled project](install_cohesivo.md#add-project-to-version-control) and have the right content structure (but no content):
 
 ```bash
 # Clone the version-controlled project and enter its local directory

@@ -13,7 +13,7 @@ As a diverse Platform as a Service (PaaS), it's designed to allow you to focus o
 
 [[= product_name_cloud =]] is a part of [[= product_name =]] - a software that is designed to provide your business with all the features, functionality, and support your need to transform your business for the digital age.
 
-![Ibexa Cloud - part of Ibexa DXP](ibexa_cloud_dxp.png)
+![Ibexa Cloud - part of [[= product_name =]]](../getting_started/img/ibexa_cloud_dxp.png)
 
 ## Availability
 
