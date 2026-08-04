@@ -446,7 +446,6 @@ As this update spans across a broad range of versions, multiple rules can be con
 //…
 use Ibexa\Contracts\Rector\Sets\IbexaSetList;
 use Rector\Config\RectorConfig;
-use Rector\Symfony\Set\SensiolabsSetList;
 use Rector\Symfony\Set\SymfonySetList;
 
 return RectorConfig::configure()
@@ -465,7 +464,6 @@ return RectorConfig::configure()
            SymfonySetList::SYMFONY_72, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-72
            SymfonySetList::SYMFONY_73, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-73
            SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
-           SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
    )
    ->withPhpSets()
