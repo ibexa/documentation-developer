@@ -16,7 +16,7 @@
         <mxCell id="F27lulRmEvdANb426zbj-8" value="&lt;b&gt;&lt;font color=&quot;#5f7da8&quot;&gt;RESOURCE&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;&lt;font color=&quot;#5f7da8&quot;&gt;OWNER&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="112.75" y="220" width="167.25" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="F27lulRmEvdANb426zbj-10" value="IBEXA DXP&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;OAUTH 2&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;CLIENT" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#ffe6cc;strokeColor=none;shadow=1;glass=0;verticalAlign=top;" parent="1" vertex="1">
+        <mxCell id="F27lulRmEvdANb426zbj-10" value="COHESIVO&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;OAUTH 2&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;CLIENT" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#ffe6cc;strokeColor=none;shadow=1;glass=0;verticalAlign=top;" parent="1" vertex="1">
           <mxGeometry x="110" y="250" width="170" height="250" as="geometry" />
         </mxCell>
         <mxCell id="F27lulRmEvdANb426zbj-11" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.3rd_party_mail_server;" parent="1" vertex="1">

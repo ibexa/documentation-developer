@@ -563,7 +563,7 @@
         <mxCell id="eNVyImffK5BOn7dZOU2T-1" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
           <mxGeometry x="240" y="350" width="330" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="eNVyImffK5BOn7dZOU2T-2" value="IBEXA DXP" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=18;" vertex="1" parent="1">
+        <mxCell id="eNVyImffK5BOn7dZOU2T-2" value="Cohesivo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=18;" vertex="1" parent="1">
           <mxGeometry x="347.5" y="330" width="115" height="70" as="geometry" />
         </mxCell>
         <mxCell id="eNVyImffK5BOn7dZOU2T-5" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">

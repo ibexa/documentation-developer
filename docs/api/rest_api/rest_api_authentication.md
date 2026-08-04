@@ -343,7 +343,7 @@ security:
         ibexa_rest:
             host: ^api\.example\.com$
             http_basic:
-                realm: Ibexa DXP REST API
+                realm: Cohesivo REST API
         #ibexa_front:
         # ...
 ```
