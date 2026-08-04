@@ -137,7 +137,11 @@ Use a process manager of your choice to run the following command, or make it st
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>`
 ```
 
-In [multi-repository setups](repository_configuration.md), the worker process always works for a [SiteAccess](multisite_configuration.md#siteaccess-configuration) that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
+Use the `--siteaccess` option to set the [SiteAccess](multisite_configuration.md#siteaccess-configuration) and [repository](repository_configuration.md#defining-custom-connection) for the worker process.
+The [`SiteAccessStamp`](#siteaccessstamp) sets the correct SiteAccess configuration for processing the message and one worker process can handle messages coming from different SiteAccesses.
+
+In [multi-repository setups](repository_configuration.md), run one worker process for each repository.
+With this setup, each worker process can connect to the right database.
 
 !!! caution "Multi-repository setups"
 
@@ -184,6 +188,7 @@ You can use the following Symfony stamps:
 On top of the supported Symfony stamps, [[= product_name =]] provides the following ones:
 
 - [`DeduplicateStamp`](#deduplicatestamp)
+- [`SiteAccessStamp`](#siteaccessstamp)
 
 #### DeduplicateStamp
 
@@ -192,6 +197,14 @@ When you attach it to a message, the system uses a lock to ensure that only one 
 
 This stamp is backported from Symfony 7.
 For more information, see [Symfony 7.4 documentation about message deduplication](https://symfony.com/doc/7.4//messenger.html#message-deduplication).
+
+#### SiteAccessStamp
+
+[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://example.com/add-link-when-php-api-reference-is-generated) contains the name of the [SiteAccess](multisite_configuration.md#siteaccess-configuration) that dispatched the message.
+
+You don't need to add this stamp manually, [[= product_name_base =]] Messenger attaches this stamp to each dispatched message automatically.
+
+When processing the message, the worker sets the SiteAccess configuration named in the stamp before calling the handler.
 
 ## Extend Ibexa Messenger
 
