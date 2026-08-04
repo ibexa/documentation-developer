@@ -27,10 +27,6 @@ A package which groups some DXP features can use an additional prefix, for examp
 namespace Ibexa\Commerce;
 ```
 
-``` php {skip-validation}
-namespace Ibexa\Personalization;
-```
-
 ## Packages
 
 The general package directory structure and corresponding PHP namespace mapping are:

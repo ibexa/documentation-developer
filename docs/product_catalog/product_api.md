@@ -255,25 +255,25 @@ To get information about product attribute groups, use the [`AttributeGroupServi
 `AttributeGroupServiceInterface::findAttributeGroups()` gets attribute groups, all of them or filtered with an optional [`AttributeGroupQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html) object:
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 54, 54, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 50, 50, remove_indent=True) =]]
 
-[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 75, 79, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 75, remove_indent=True) =]]
 ```
 
 To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()` and provide it with an [`AttributeGroupCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 49, 52, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 45, 48, remove_indent=True) =]]
 ```
 
 To get information about product attributes, use the [`AttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html), or [`LocalAttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeDefinitionServiceInterface.html) to modify attributes.
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 61, 62, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 57, 58, remove_indent=True) =]]
 ```
 
 To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition()` and provide it with an [`AttributeDefinitionCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html):
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 66, 71, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 62, 67, remove_indent=True) =]]
 ```

@@ -21,10 +21,10 @@ In the Form Builder, add and configure (using the **Basic** and **Validation** t
 |-----|----|--------|---------------------|
 |Single line input|Name|yes|Minimum length = 3|
 |Single line input|Surname|no|Minimum length = 3|
-|Dropdown|Select topic|yes|Options:</br>- News</br>- Tips </br> - Articles|
+|Dropdown|Select topic|yes|Options:<br>- News<br>- Tips <br> - Articles|
 |Email|Email address|yes|—|
 |Captcha|CAPTCHA|—|—|
-|Button|Sign up!|—|Action: Show a message</br>Message to display: Thank you!|
+|Button|Sign up!|—|Action: Show a message<br>Message to display: Thank you!|
 
 The configuration should look like this:
 

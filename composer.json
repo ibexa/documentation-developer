@@ -1,7 +1,8 @@
 {
     "name": "ibexa/documentation-developer",
-    "description": "This repository is the source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP.",
+    "description": "Ibexa DXP developer documentation as Markdown files, for offline reading and AI coding assistants working inside your project.",
     "type": "library",
+    "keywords": ["ibexa", "ibexa-dxp", "documentation", "markdown", "llm", "ai", "agents"],
     "license": "GNU General Public License v2.0",
     "autoload-dev": {
         "psr-4": {
@@ -105,6 +106,9 @@
         "ibexa/measurement": "~6.0.x-dev",
         "ibexa/connector-actito": "~6.0.x-dev",
         "ibexa/fastly": "~6.0.x-dev",
+        "ibexa/connect": "~6.0.x-dev",
+        "ibexa/connector-qualifio": "~6.0.x-dev",
+        "ibexa/design-system-twig": "~6.0.x-dev"
         "ibexa/data-intelligence-layer": "~6.0.x-dev"
     },
     "scripts": {

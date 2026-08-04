@@ -25,11 +25,11 @@ It also sets the attribute type to `richtext` (line 15):
 Then, create a subscriber that converts a string of data into XML code.
 Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 
-In line 32, `my_block` is the same name of the block that you defined in line 3 above.
-Line 32 also implements the `PreRender` method.
-Lines 41-51 handle the conversion of content into an XML string:
+In line 28, `my_block` is the same name of the block that you defined in line 3 above.
+Line 28 links this block `PreRenderEvent` to a method using `BlockRenderEvents::getBlockPreRenderEventName()`.
+Lines 37-47 handle the conversion of content into an XML string:
 
-``` php hl_lines="32 41 42 43 44 45 46 47 48 49 50 51"
+``` php hl_lines="28 37-47"
 [[= include_code('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
 

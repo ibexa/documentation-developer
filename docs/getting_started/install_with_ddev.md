@@ -130,6 +130,8 @@ hooks:
 You can change the verbosity and redirect the output if you want to log into a file:
 
 ```yaml
+hooks:
+  post-start:
     - exec-host: ddev exec "php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=admin -vv > var/log/messenger.log 2>&1" &
 ```
 
