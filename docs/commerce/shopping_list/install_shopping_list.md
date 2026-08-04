@@ -40,6 +40,8 @@ ibexa.rest.shopping_list:
 
 Add the tables needed by the bundle:
 
+TODO: Ibexa Doctrine Migrations
+
 === "MySQL"
 
     ```sql
