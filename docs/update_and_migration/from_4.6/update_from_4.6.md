@@ -738,7 +738,7 @@ No additional steps needed.
 
 ### Database update
 
-v4.6.3X introduces [Ibexa Doctrine Migrations](edition_upgrade.md#ibexa-doctrine-migrations) to manage database schema changes.
+v4.6.3X introduces Ibexa Doctrine Migrations to manage database schema changes.
 It replaces the previous usage of SQL files (like vendor/ibexa/installer/upgrade/db/<server>/ibexa-x.y.a-to-x.y.b.sql).
 
 Run the following to run a basic schema check and store the database status.
@@ -755,12 +755,11 @@ php bin/console ibexa:doctrine:migrations:migrate
 
 ## v4.6.(3X+N)
 
-TODO: Shouldn't `post-update-cmd` be used? There is `--no-scripts` option in `composer require` command, so it's always skipped.
-TODO: If there is missing new config, `php bin/console`might not run.
-
 ### TODO: Add config for new feature, anything needed to have the console running again
 
 ### Database update
+
+Run Ibexa Doctrine Migrations through the following command:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate

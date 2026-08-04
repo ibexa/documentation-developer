@@ -308,7 +308,7 @@ composer run-script post-update-cmd
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
-[Ibexa Doctrine Migrations](edition_upgrade.md#ibexa-doctrine-migrations) manage the database schema update.
+Ibexa Doctrine Migrations manage the database schema updates.
 The following command will migrate from the 4.6's schema to 5.0's one:
 
 ```bash
