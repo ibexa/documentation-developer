@@ -931,7 +931,7 @@ nav:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
             - Common migration issues: update_and_migration/migrate_to_ibexa_dxp/common_issues.md
-        - Edition upgrade: edition_upgrade.md
+        - Edition upgrade: update_and_migration/edition_upgrade.md
     - Resources:
         - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
