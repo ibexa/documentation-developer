@@ -6,7 +6,7 @@ description: Start the tutorial by getting a clean installation of Cohesivo.
 
 To begin the tutorial, you need a clean installation of [[= product_name =]].
 
-Get it by following the [Install [[= product_name =]]](install_cohesivo.md) guide.
+Get it by following the [Install [[= product_name =]]](../../getting_started/install_cohesivo.md) guide.
 You need a web server, a relational database and PHP.
 
 The clean installation contains only a root content item which displays a welcome page.

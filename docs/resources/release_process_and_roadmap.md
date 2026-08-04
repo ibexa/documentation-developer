@@ -1,5 +1,5 @@
 ---
-description: Cohesivo releases new versions periodically in different flavors: Headless, Experience and Commerce, plus open-source OSS.
+description: Cohesivo releases new versions periodically in different flavors - Headless, Experience and Commerce, plus open-source OSS.
 ---
 
 # [[= product_name =]] release process and roadmap
