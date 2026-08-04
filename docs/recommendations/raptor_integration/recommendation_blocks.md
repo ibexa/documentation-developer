@@ -1,7 +1,7 @@
 ---
 description: Recommendation blocks in Page Builder
 edition: experience
-month_change: true
+month_change: false
 ---
 
 # Recommendation blocks in Page Builder

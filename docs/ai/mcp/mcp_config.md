@@ -1,7 +1,7 @@
 ---
 description: Configure an MCP server that exposes built-in and custom tools, prompts, and resources.
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Install and configure MCP Servers

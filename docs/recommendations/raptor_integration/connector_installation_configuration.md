@@ -1,6 +1,6 @@
 ---
 description: To configure the Raptor integration, follow the step-by-step procedure described below.
-month_change: true
+month_change: false
 ---
 
 # Configuration procedure

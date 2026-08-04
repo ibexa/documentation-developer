@@ -1,6 +1,6 @@
 ---
 description: Use existing controllers to render recommendations outside the Page Builder.
-month_change: true
+month_change: false
 ---
 
 # Custom recommendation rendering
