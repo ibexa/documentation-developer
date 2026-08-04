@@ -463,8 +463,8 @@ As this update spans across a broad range of versions, multiple rules can be con
 
 ```php
 //…
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
 use Rector\Symfony\Set\SymfonySetList;
-use Rector\Symfony\Set\SensiolabsSetList;
 //…
    ->withSets(
        [
@@ -480,7 +480,6 @@ use Rector\Symfony\Set\SensiolabsSetList;
            SymfonySetList::SYMFONY_72, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-72
            SymfonySetList::SYMFONY_73, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-73
            SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
-           SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
    )
    ->withPhpSets()
@@ -495,7 +494,6 @@ use Rector\Symfony\Set\SensiolabsSetList;
        naming: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-naming
        instanceOf: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-instanceof
        earlyReturn: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-early-return
-       strictBooleans: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-strict-booleans
        rectorPreset: true,
        symfonyCodeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-code-quality
        symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs
