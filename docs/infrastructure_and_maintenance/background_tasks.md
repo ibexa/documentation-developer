@@ -134,11 +134,14 @@ ibexa_messenger:
 Use a process manager of your choice to run the following command, or make it start together with the server:
 
 ``` bash
-php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>`
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>
 ```
 
-Use the `--siteaccess` option to set the [SiteAccess](multisite_configuration.md#siteaccess-configuration) and [repository](repository_configuration.md#defining-custom-connection) for the worker process.
-The [`SiteAccessStamp`](#siteaccessstamp) sets the correct SiteAccess configuration for processing the message and one worker process can handle messages coming from different SiteAccesses.
+Use the `--siteaccess` option to set the default [SiteAccess](multisite_configuration.md#siteaccess-configuration) and [repository](repository_configuration.md#defining-custom-connection) for the worker process.
+The worker uses this SiteAccess for every message that does not have a [`SiteAccessStamp`](#siteaccessstamp).
+
+If a message has a `SiteAccessStamp`, the worker uses the SiteAccess from the stamp instead to processes this message.
+Thanks to this, one worker process can handle messages coming from different SiteAccesses.
 
 In [multi-repository setups](repository_configuration.md), run one worker process for each repository.
 With this setup, each worker process can connect to the right database.
@@ -158,19 +161,21 @@ To have a task processed in the background by [[= product_name_base =]] Messenge
 1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
 2. Dispatch an appropriate message by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
 
-``` yaml
-services:
-    SomeClassThatSchedulesExecutionInTheBackground:
-        arguments:
-            $bus: '@ibexa.messenger.bus'
-```
+    ``` yaml
+    services:
+        SomeClassThatSchedulesExecutionInTheBackground:
+            arguments:
+                $bus: '@ibexa.messenger.bus'
+    ```
 
-``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 19, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, remove_indent=True) =]]
-```
+    ``` php
+    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 19, indent_level=1) =]]
+    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, indent_level=1) =]]
+    ```
 
-Additionally, attach message metadata by using [stamps](#stamps).
+3. [Route the message to the background queue](#route-message-to-background-queue).
+
+4. Additionally, attach message metadata by using [stamps](#stamps).
 
 ### Stamps
 
@@ -203,8 +208,18 @@ For more information, see [Symfony 7.4 documentation about message deduplication
 [`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://example.com/add-link-when-php-api-reference-is-generated) contains the name of the [SiteAccess](multisite_configuration.md#siteaccess-configuration) that dispatched the message.
 
 You don't need to add this stamp manually, [[= product_name_base =]] Messenger attaches this stamp to each dispatched message automatically.
+The stamp contains the SiteAccess that is current at the moment of dispatch.
 
-When processing the message, the worker sets the SiteAccess configuration named in the stamp before calling the handler.
+Before the worker calls the handler, it changes the configuration scope to the SiteAccess from the stamp.
+The handler then reads [SiteAccess-aware configuration](multisite_configuration.md#siteaccess-configuration) for the SiteAccess that dispatched the message, and not for the SiteAccess that the worker process started with.
+
+!!! caution "The stamp doesn't change the current SiteAccess"
+
+    The stamp changes the configuration scope only.
+    It doesn't change the SiteAccess in the `Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface` service.
+    `SiteAccessServiceInterface::getCurrent()` always returns the SiteAccess that the worker process started with, for all messages.
+
+    To get a SiteAccess-aware value in a handler, use the [`ConfigResolverInterface` service](dynamic_configuration.md).
 
 ## Extend Ibexa Messenger
 
@@ -228,4 +243,31 @@ services:
         tags:
             - name: messenger.message_handler
               bus: ibexa.messenger.bus
+```
+
+### Route message to background queue
+
+To have a message processed in the background, it must be sent to a transport queue.
+[[= product_name_base =]] Messenger uses message providers instead of [Symfony `framework.messenger.routing` configuration]([[= symfony_doc =]]/messenger.html#routing-messages-to-a-transport).
+
+A message provider is a service that implements the [`MessageProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html) interface, and the `getHandledClasses()` method must return the list of message classes that [[= product_name_base =]] Messenger must send to the queue to process in the background.
+
+The `getHandledClasses()` method can also return a parent class or an interface.
+In this case, all messages that extend this class, or implement this interface, go to the background queue.
+
+If no message provider returns the class of your message, the bus calls the handler immediately, in the same process that dispatches the message.
+
+To send `SomeMessage` to the background queue, create the following provider:
+
+``` php hl_lines="12"
+[[= include_file("code_samples/background_tasks/src/Messenger/SomeMessageProvider.php") =]]
+```
+
+If you're not using service autoconfiguration, add the `ibexa.messenger.sender_message_provider` tag to the service:
+
+``` yaml hl_lines="4"
+services:
+    App\Messenger\SomeMessageProvider:
+        tags:
+            - name: ibexa.messenger.sender_message_provider
 ```
