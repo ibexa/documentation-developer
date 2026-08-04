@@ -5,7 +5,7 @@ month_change: false
 
 # Tracking with PHP API
 
-You can interact directly with the [Raptor connector](raptor_connector.md)'s service using the [PHP API](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking.html) for advanced tracking usage.
+You can interact directly with the [[[= product_name_cdp_base =]] connector](raptor_connector.md)'s service using the [PHP API](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking.html) for advanced tracking usage.
 
 ## Advanced usage – direct interaction with the service
 
@@ -41,7 +41,7 @@ Check the following example:
 ### Category parameter for product events
 
 In [[= product_name =]], products can be assigned to multiple categories.
-However, Raptor accepts only a single category value in tracking events.
+However, [[= product_name_cdp_base =]] accepts only a single category value in tracking events.
 
 By default, the connector uses the first category from the list of categories assigned to the product.
 You can override this behavior and define which category is sent in tracking events.

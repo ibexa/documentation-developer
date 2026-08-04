@@ -3,14 +3,14 @@ description:  Discover Raptor integration - an add-on focused on recommendations
 month_change: true
 ---
 
-# Raptor integration product guide
+# [[= product_name_cdp_base =]] integration product guide
 
-Discover [Raptor](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations and tracking customer behaviors.
+Discover [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations and tracking customer behaviors.
 It includes the connector with tracking scripts and events that are used to track and analyze customer behaviors, and a set of Recommendation blocks.
 
-## What is Raptor integration
+## What is [[= product_name_cdp_base =]] integration
 
-The [Raptor integration](raptor_connector.md) provides a seamless integration between [[= product_name =]] and the Raptor recommendation engine.
+The [[[= product_name_cdp_base =]] integration](raptor_connector.md) provides a seamless integration between [[= product_name =]] and the [[= product_name_cdp_base =]] recommendation engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps to increase conversion rates, drive sales, and improve user engagement.
 
@@ -26,11 +26,11 @@ This approach simplifies integration while supporting personalization across dif
 
 ## Availability
 
-Raptor integration elements, such as tracking, Twig functions, and public API, are available in all supported [[= product_name =]] editions starting from v5.0.7 version.
+[[= product_name_cdp_base =]] integration elements, such as tracking, Twig functions, and public API, are available in all supported [[= product_name =]] editions starting from v5.0.7 version.
 
 Recommendation blocks provided in Page Builder, are available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
 
-## How does Raptor tracking work
+## How does [[= product_name_cdp_base =]] tracking work
 
 To start [tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) user interactions, the tracking script needs to be added to the website’s layout.
 Tracking can be set up either on the client-side, server-side, or using hybrid mode, depending on how you want to capture and process the events.
@@ -38,7 +38,7 @@ Tracking can be set up either on the client-side, server-side, or using hybrid m
 The tracking works differently depending on the mode you choose.
 In server-side mode, tracking happens on the server, handling all events without loading scripts in the browser.
 In client-side mode, it inserts script tags so tracking runs directly in the browser.
-In hybrid mode, the browser loads a first-party [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that forwards tracking events to a same-origin proxy endpoint instead of the Raptor SaaS script, helping prevent ad blockers from blocking tracking.
+In hybrid mode, the browser loads a first-party [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that forwards tracking events to a same-origin proxy endpoint instead of the [[= product_name_cdp_base =]] SaaS script, helping prevent ad blockers from blocking tracking.
 For more information, see [Hybrid tracking](hybrid_tracking.md).
 
 You can switch between tracking modes at any time by changing the tracking type to fit your setup and needs.
@@ -47,7 +47,7 @@ You can switch between tracking modes at any time by changing the tracking type 
 
 ### Tracking
 
-Raptor [tracking functions](tracking_functions.md) allow you to collect data about how users interact with your products and content.
+[[= product_name_cdp_base =]] [tracking functions](tracking_functions.md) allow you to collect data about how users interact with your products and content.
 
 You can track product visits to better understand what users are viewing.
 Provided [Twig functions](../../templating/twig_function_reference/recommendations_twig_functions.md) simplify the implementation, allowing developers to quickly add tracking to templates without complex setup.
@@ -56,7 +56,7 @@ This gives you the data you need to better understand user behavior, improve rec
 
 ### Recommendation blocks
 
-The Raptor integration add-on provides a set of ready-to-use recommendation blocks that can be added directly in the [Page Builder](page_builder_guide.md).
+The [[= product_name_cdp_base =]] integration add-on provides a set of ready-to-use recommendation blocks that can be added directly in the [Page Builder](page_builder_guide.md).
 
 These blocks can be configured to adjust how they work and what they display.
 Content, Product, and Commerce recommendations can be placed on landing pages using these components.
@@ -124,7 +124,7 @@ Start building predictions of their behaviors and suggest products your visitors
 
 ### Track performance and increase conversions
 
-Use the Raptor service in your Commerce shop and see how recommendations drive sales.
+Use the [[= product_name_cdp_base =]] service in your Commerce shop and see how recommendations drive sales.
 Keep track of which recommendations are shown to visitors and measure conversion rates to evaluate their effectiveness against your goals.
 
 ### Flexible tracking with PHP API

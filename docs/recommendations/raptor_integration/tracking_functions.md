@@ -5,10 +5,10 @@ month_change: true
 
 # Tracking functions
 
-[Raptor connector](raptor_connector.md) introduces [visit tracking functionality](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) for collecting user interactions with products and content.
+[[[= product_name_cdp_base =]] connector](raptor_connector.md) introduces [visit tracking functionality](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) for collecting user interactions with products and content.
 The implementation includes product visit tracking with mapping to tracking parameters, and Twig functions for straightforward integration.
 
-Raptor integration introduces two Twig functions:
+[[= product_name_cdp_base =]] integration introduces two Twig functions:
 
 - [`ibexa_tracking_script()`](../../templating/twig_function_reference/recommendations_twig_functions.md#ibexa_tracking_script-function) - allows you to embed main tracking script into the website.
 - [`ibexa_tracking_track_event()`](../../templating/twig_function_reference/recommendations_twig_functions.md#ibexa_tracking_track_event-function) - is responsible for sending event data to the service, enabling tracking of user interactions and behaviors.
@@ -45,7 +45,7 @@ connector_raptor:
 
 - **server** - doesn't return anything in the `prod` environment, while returns HTML comments in the `dev` environment or any environment where `kernel.debug` Symfony container parameter is set to `true`. Tracking is performed server-side.
 - **client** - returns `script` tags to load the tracking script in the browser.
-- **hybrid** - returns script tags like `client`, but they load a first-party shim (`raptor-proxy.js`) that forwards events to a same-origin proxy endpoint instead of the Raptor SaaS script. The server then delivers them to Raptor, preventing ad blockers from blocking tracking.
+- **hybrid** - returns script tags like `client`, but they load a first-party shim (`raptor-proxy.js`) that forwards events to a same-origin proxy endpoint instead of the [[= product_name_cdp_base =]] SaaS script. The server then delivers them to [[= product_name_cdp_base =]], preventing ad blockers from blocking tracking.
 
 You can switch tracking mode anytime by changing the `tracking_type` parameter.
 
@@ -67,7 +67,7 @@ For more complex integrations, the [[= product_name_base =]] Design Engine can b
 
 Available variables are:
 
-- **customer_id** - type: string, Raptor account ID used for tracking
+- **customer_id** - type: string, [[= product_name_cdp_base =]] account ID used for tracking
 - **script_url** - type: string, URL of the tracking script, by default `//deliver.raptorstatic.com/script/raptor-3.0.min.js`, configurable through `ibexa.connector.raptor.tracking_script.url` Symfony Dependency Injection container parameter (not SiteAccess-aware)
 - **has_consented** - type: boolean, indicates whether the user has given consent, default value: `false` (unless explicitly passed as function argument)
 - **debug** - type: boolean, `kernel.debug` Symfony dependency injection container parameter, typically `true` in development environments and `false` in production
