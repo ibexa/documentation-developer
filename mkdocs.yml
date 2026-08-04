@@ -989,7 +989,7 @@ extra:
   latest_tag_5_0: '5.0.9'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
-  symfony_version: '5.6' 
+  symfony_version: '5.4' 
 
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/4.6'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
