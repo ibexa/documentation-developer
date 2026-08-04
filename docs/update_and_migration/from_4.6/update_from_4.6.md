@@ -755,7 +755,7 @@ php bin/console ibexa:doctrine:migrations:migrate
 
 ## v4.6.(3X+N)
 
-TODO: Shouldn't `post-update-cmd` be used?
+TODO: Shouldn't `post-update-cmd` be used? There is `--no-scripts` option in `composer require` command, so it's always skipped.
 TODO: If there is missing new config, `php bin/console`might not run.
 
 ### TODO: Add config for new feature, anything needed to have the console running again
