@@ -88,9 +88,9 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ibexa DXP beginner tutorial">
+    <meta name="description" content="Cohesivo beginner tutorial">
 
-    <title>Ibexa DXP Beginner Tutorial</title>
+    <title>Cohesivo Beginner Tutorial</title>
 
     <script src="{{ asset('bundles/ibexaadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
 
@@ -162,7 +162,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with Ibexa DXP.</p>
+                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with Cohesivo.</p>
                 </div>
             </div>
         </div>

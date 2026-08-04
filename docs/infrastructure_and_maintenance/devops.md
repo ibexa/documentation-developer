@@ -86,7 +86,7 @@ composer require --dev symfony/debug-pack
 After you have installed Symfony Web Debug Toolbar, it's available when running [[= product_name =]] in the `dev` environment.
 It's extended with some [[= product_name =]]-specific information:
 
-![[[= product_name =]] info in Web Debug Toolbar](img/web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
+![[[= product_name =]] info in Web Debug Toolbar](img/web_debug_toolbar.png "Cohesivo info in Web Debug Toolbar")
 
 ### SPI (persistence)
 

@@ -33,7 +33,7 @@
                         <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
                     </div>
                     <div>
-                        Install <strong>Ibexa DXP</strong>
+                        Install <strong>Cohesivo</strong>
                     </div>
                 </div>
             </a>
@@ -75,7 +75,7 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest Ibexa DXP is v5.0 LTS</h2>
+                    <h2>The latest Cohesivo is v5.0 LTS</h2>
                     <div>The latest v5.0 LTS release is [[= latest_tag_5_0 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
@@ -90,7 +90,7 @@
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
                     <h2>The newest LTS Update is MCP Servers</h2>
-                    <div>Set up MCP servers to help AI agents interact with Ibexa DXP.</div>
+                    <div>Set up MCP servers to help AI agents interact with Cohesivo.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="ai/mcp/mcp_guide/">Learn more about this LTS Update</a>

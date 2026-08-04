@@ -435,7 +435,7 @@ Use [`cron`](https://en.wikipedia.org/wiki/Cron) to run it every minute.
 The following example creates a temporary crontab entry file and appends it to the existing crontab for the web server user (`www-data`):
 
 ```bash
-echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
 crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
 rm ibexa_cron.txt
 ```
@@ -473,10 +473,10 @@ The following example schedules these commands separately:
 This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
 ```bash
-echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
-echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
-echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
-echo '0 0 * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
+echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '0 0 * * 0 cd <path-to-cohesivo>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
+echo '0 * * * * cd <path-to-cohesivo>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
+echo '0 0 * * * cd <path-to-cohesivo>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
 crontab -u www-data ibexa_cron.txt
 rm ibexa_cron.txt
 ```
@@ -530,7 +530,7 @@ The following example shows how to set up a different schedule for a specific Si
 This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
 
 ```bash
-(crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
+(crontab -u www-data -l; echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
 ```
 
 Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:

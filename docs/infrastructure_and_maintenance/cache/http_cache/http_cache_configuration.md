@@ -36,7 +36,7 @@ To avoid this, the installation ships with configuration to match these specific
 fos_http_cache:
     cache_control:
         rules:
-            # Make sure cacheable (fresh) responses from Ibexa DXP which are errors/redirects get lower TTL than default_ttl
+            # Make sure cacheable (fresh) responses from Cohesivo which are errors/redirects get lower TTL than default_ttl
             -
                 match:
                     match_response: 'response.isFresh() && ( response.isServerError() || response.isClientError() || response.isRedirect() )'

@@ -60,7 +60,7 @@ Symfony can be configured to use custom handlers, or fall back to what is confi
 framework:
     session:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
-        # But in order to use %ibexa.session.save_path%, default Ibexa DXP instead sets %ibexa.session.handler_id% to:
+        # But in order to use %ibexa.session.save_path%, default Cohesivo instead sets %ibexa.session.handler_id% to:
         # - session.handler.native_file (default)
         # - Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler (recommended value for Cluster usage, using php-redis session handler )
         handler_id: '%ibexa.session.handler_id%'
