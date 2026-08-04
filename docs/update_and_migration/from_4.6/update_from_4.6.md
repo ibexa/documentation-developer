@@ -753,6 +753,19 @@ php bin/console ibexa:doctrine:migrations:migrate
     It tests the presence of key elements to determine if a previous change has been applied or not.
     If, in the past, you had incomplete schema upgrades, Ibexa Doctring Migrations command can be misled into considering a change as fully applied while it's only partially applied.
 
+## v4.6.(3X+N)
+
+TODO: Shouldn't `post-update-cmd` be used?
+TODO: If there is missing new config, `php bin/console`might not run.
+
+### TODO: Add config for new feature, anything needed to have the console running again
+
+### Database update
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
