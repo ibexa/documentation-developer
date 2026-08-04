@@ -738,7 +738,7 @@ No additional steps needed.
 
 ### Database update
 
-v4.6.3X introduces [Ibexa Doctrine Migrations](doctrine_migrations.md) to manage database schema changes.
+v4.6.3X introduces [Ibexa Doctrine Migrations](edition_upgrade.md#ibexa-doctrine-migrations) to manage database schema changes.
 It replaces the previous usage of SQL files (like vendor/ibexa/installer/upgrade/db/<server>/ibexa-x.y.a-to-x.y.b.sql).
 
 Run the following to run a basic schema check and store the database status.
