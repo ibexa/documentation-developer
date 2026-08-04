@@ -94,7 +94,7 @@ The process works as follows:
 
 1. A message PHP object is dispatched, for example, `ProductPriceReindex`.
 2. The message is wrapped in an envelope, which may contain additional metadata, called [stamps](#stamps).
-3. The message is placed in the transport queue.
+3. The message is placed in the [transport queue](#route-message-to-background-queue).
 It can be a Doctrine table, a Redis/Valkey queue, and so on.
 4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
 5. A handler service processes the message (executes the command).
@@ -138,7 +138,7 @@ php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenge
 ```
 
 Use the `--siteaccess` option to set the default [SiteAccess](multisite_configuration.md#siteaccess-configuration) and [repository](repository_configuration.md#defining-custom-connection) for the worker process.
-The worker uses this SiteAccess for every message that does not have a [`SiteAccessStamp`](#siteaccessstamp).
+The worker uses this SiteAccess for every message that doesn't have a [`SiteAccessStamp`](#siteaccessstamp).
 
 If a message has a `SiteAccessStamp`, the worker uses the SiteAccess from the stamp instead to processes this message.
 Thanks to this, one worker process can handle messages coming from different SiteAccesses.
@@ -205,7 +205,7 @@ For more information, see [Symfony 7.4 documentation about message deduplication
 
 #### SiteAccessStamp
 
-[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://example.com/add-link-when-php-api-reference-is-generated) contains the name of the [SiteAccess](multisite_configuration.md#siteaccess-configuration) that dispatched the message.
+[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://example.com/add-link-when-php-api-reference-is-generated) contains the name of the [SiteAccess](siteaccess.md) that dispatched the message.
 
 You don't need to add this stamp manually, [[= product_name_base =]] Messenger attaches this stamp to each dispatched message automatically.
 The stamp contains the SiteAccess that is current at the moment of dispatch.
