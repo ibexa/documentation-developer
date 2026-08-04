@@ -16,7 +16,7 @@ Before changing your major version or your edition, move to the latest patch ver
 TODO: For example:
 
 - Headless v4.6.x [→ Headless v4.6.latest](update_from_4.6.md) [→ Headless v5.0.latest](update_to_5.0.md)
-- Headless v5.0.x [→ Headless v5.0.latest](update_from_5.0.md) [→ Commerce v5.0.latest](#)
+- Headless v5.0.x [→ Headless v5.0.latest](update_from_5.0.md) [→ Commerce v5.0.latest](#upgrade-edition)
 - Headless v4.6.x [→ Headless v4.6.latest](update_from_4.6.md) [→ Headless v5.0.latest](update_to_5.0.md) [→ Commerce v5.0.latest](#upgrade-edition)
 
 ## Upgrade edition
