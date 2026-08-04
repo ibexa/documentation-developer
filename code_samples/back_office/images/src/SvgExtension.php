@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\Twig;
 
 use Symfony\Component\Routing\RouterInterface;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
 
-class SvgExtension extends AbstractExtension
+class SvgExtension
 {
     /**
      * SvgExtension constructor.
@@ -17,17 +15,7 @@ class SvgExtension extends AbstractExtension
     {
     }
 
-    /**
-     * @return \Twig\TwigFunction[]
-     */
-    #[\Override]
-    public function getFunctions(): array
-    {
-        return [
-            new TwigFunction('ibexa_svg_link', $this->generateLink(...)),
-        ];
-    }
-
+    #[\Twig\Attribute\AsTwigFunction(name: 'ibexa_svg_link')]
     public function generateLink(int $contentId, string $fieldIdentifier, string $filename): string
     {
         return $this->router->generate('app.svg_download', [
