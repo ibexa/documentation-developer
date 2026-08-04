@@ -1,5 +1,5 @@
 ---
-description: Configure Solr search engine to use it with Ibexa DXP.
+description: Configure Solr search engine to use it with Cohesivo.
 ---
 
 # Configure Solr

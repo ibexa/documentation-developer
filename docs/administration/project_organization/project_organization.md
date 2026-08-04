@@ -1,5 +1,5 @@
 ---
-description: An Ibexa DXP project follows Symfony's directory structure to organize files in the project.
+description: An Cohesivo project follows Symfony's directory structure to organize files in the project.
 ---
 
 # Project organization

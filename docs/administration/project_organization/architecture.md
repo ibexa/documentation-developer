@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP architecture is structured in multiple layers connected by APIs.
+description: Cohesivo architecture is structured in multiple layers connected by APIs.
 ---
 
 # Architecture

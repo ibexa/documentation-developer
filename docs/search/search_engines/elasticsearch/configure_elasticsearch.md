@@ -1,6 +1,6 @@
 ---
 month_change: false
-description: Configure Elasticsearch to use it with Ibexa DXP.
+description: Configure Elasticsearch to use it with Cohesivo.
 ---
 
 # Configure Elasticsearch

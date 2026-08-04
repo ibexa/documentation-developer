@@ -1,5 +1,5 @@
 ---
-description: Quable connector configuration reference for Ibexa DXP
+description: Quable connector configuration reference for Cohesivo
 page_type: reference
 month_change: false
 ---

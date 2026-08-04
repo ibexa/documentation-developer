@@ -1,5 +1,5 @@
 ---
-description: RichText is a type of field that you add in any content item in Ibexa DXP and edit in Online Editor.
+description: RichText is a type of field that you add in any content item in Cohesivo and edit in Online Editor.
 page_type: landing_page
 ---
 

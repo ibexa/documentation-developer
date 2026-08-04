@@ -1,5 +1,5 @@
 ---
-description: The Quable product guide describes how you can use the product data from Quable in Ibexa DXP to create marketing campaigns built around your products.
+description: The Quable product guide describes how you can use the product data from Quable in Cohesivo to create marketing campaigns built around your products.
 month_change: false
 ---
 

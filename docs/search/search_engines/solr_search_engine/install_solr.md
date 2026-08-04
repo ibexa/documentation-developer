@@ -1,5 +1,5 @@
 ---
-description: Install Solr search engine to use it with Ibexa DXP.
+description: Install Solr search engine to use it with Cohesivo.
 ---
 
 # Install Solr search engine

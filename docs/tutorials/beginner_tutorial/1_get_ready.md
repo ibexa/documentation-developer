@@ -1,5 +1,5 @@
 ---
-description: Start the tutorial by getting a clean installation of Ibexa DXP.
+description: Start the tutorial by getting a clean installation of Cohesivo.
 ---
 
 # Step 1 — Get ready

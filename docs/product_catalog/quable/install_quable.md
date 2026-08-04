@@ -1,5 +1,5 @@
 ---
-description: Install and configure Quable connector for Ibexa DXP
+description: Install and configure Quable connector for Cohesivo
 month_change: false
 ---
 

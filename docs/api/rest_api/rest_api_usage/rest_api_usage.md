@@ -1,5 +1,5 @@
 ---
-description: The REST API covers objects in the Ibexa DXP Repository with regular and custom HTTP methods, such as GET or PUBLISH, and HTTP headers.
+description: The REST API covers objects in the Cohesivo Repository with regular and custom HTTP methods, such as GET or PUBLISH, and HTTP headers.
 ---
 
 # REST API usage

@@ -1,5 +1,5 @@
 ---
-description: GraphQL enables making concise, readable requests to Ibexa DXP APIs.
+description: GraphQL enables making concise, readable requests to Cohesivo APIs.
 ---
 
 # GraphQL

@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP is composed of bundles containing different parts of the application.
+description: Cohesivo is composed of bundles containing different parts of the application.
 page_type: reference
 ---
 

@@ -1,5 +1,5 @@
 ---
-description: Configure HTTP cache for Ibexa DXP, including cache header rules and time-to-live. HTTP cache configuration is SiteAccess-aware.
+description: Configure HTTP cache for Cohesivo, including cache header rules and time-to-live. HTTP cache configuration is SiteAccess-aware.
 ---
 
 # HTTP cache configuration

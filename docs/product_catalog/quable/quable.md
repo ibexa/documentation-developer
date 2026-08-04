@@ -1,5 +1,5 @@
 ---
-description: Quable integration with Ibexa DXP
+description: Quable integration with Cohesivo
 page_type: landing_page
 month_change: false
 ---

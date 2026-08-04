@@ -1,5 +1,5 @@
 ---
-description: Overview of major recent additions to Ibexa DXP documentation.
+description: Overview of major recent additions to Ibexa DXP and Cohesivo documentation.
 month_change: true
 ---
 

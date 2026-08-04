@@ -1,5 +1,5 @@
 ---
-description: See how you can manage Ibexa DXP configuration files.
+description: See how you can manage Cohesivo configuration files.
 ---
 
 # Step 6 — Improve configuration

@@ -1,5 +1,5 @@
 ---
-description: Ensure that your Ibexa DXP installation is secure by following our set of recommendations.
+description: Ensure that your Cohesivo installation is secure by following our set of recommendations.
 ---
 
 # Security checklist

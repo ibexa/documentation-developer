@@ -1,5 +1,5 @@
 ---
-description: All code contributions to Ibexa DXP must follow package and bundle structure and namespace standards.
+description: All code contributions to Cohesivo must follow package and bundle structure and namespace standards.
 ---
 
 # Package and bundle structure and namespaces

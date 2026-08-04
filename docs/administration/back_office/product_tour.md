@@ -1,5 +1,5 @@
 ---
-description: Product tours provide interactive guided walkthroughs to help users learn Ibexa DXP features.
+description: Product tours provide interactive guided walkthroughs to help users learn Cohesivo features.
 edition: lts-update
 month_change: false
 ---

@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP back office contains managements options for permissions, users, languages, content types, and system information.
+description: Cohesivo back office contains managements options for permissions, users, languages, content types, and system information.
 page_type: landing_page
 ---
 

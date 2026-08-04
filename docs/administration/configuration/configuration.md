@@ -1,5 +1,5 @@
 ---
-description: In Ibexa DXP you store and manage configuration in project files, typically in YAML format.
+description: In Cohesivo you store and manage configuration in project files, typically in YAML format.
 ---
 
 # Configuration

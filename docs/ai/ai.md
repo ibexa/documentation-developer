@@ -1,5 +1,5 @@
 ---
-description: AI interactions with [[= product_name =]]
+description: AI interactions with Cohesivo
 page_type: landing_page
 month_change: false
 ---

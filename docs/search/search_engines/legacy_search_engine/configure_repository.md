@@ -1,5 +1,5 @@
 ---
-description: Configure Legacy search engine to use it with Ibexa DXP.
+description: Configure Legacy search engine to use it with Cohesivo.
 ---
 
 # Configure repository with Legacy search engine

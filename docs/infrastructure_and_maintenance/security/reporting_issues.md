@@ -1,5 +1,5 @@
 ---
-description: Learn how to report security issues in Ibexa DXP.
+description: Learn how to report security issues in Cohesivo.
 ---
 
 # Reporting security issues in Ibexa products

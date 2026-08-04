@@ -1,5 +1,5 @@
 ---
-description: Configure Fastly for use with Ibexa DXP.
+description: Configure Fastly for use with Cohesivo.
 month_change: false
 ---
 
