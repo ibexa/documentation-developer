@@ -1,5 +1,6 @@
 ---
 description: Install Ibexa DXP with Docker and DDEV to use it for development.
+month_change: false
 ---
 
 # Install with DDEV
@@ -87,6 +88,14 @@ Depending on your database of choice (MySQL or PostgreSQL), use the appropriate 
     ```bash
     ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
     ```
+
+#### Configure mailer (optional)
+
+You can configure [Symfony Mailer]([[= symfony_doc =]]/mailer.html) to use the [integrated mail catcher Mailpit](https://docs.ddev.com/en/stable/users/usage/developer-tools/#email-capture-and-review-mailpit):
+
+```bash
+ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
+```
 
 #### Enable Mutagen (optional)
 
@@ -202,7 +211,6 @@ DDEV offers several ways to get the same result, offering different levels of fl
 
     Learn more about DDEV configuration from [`ddev config` command documentation](https://docs.ddev.com/en/stable/users/usage/commands/#config) and [advanced configuration files documentation](https://docs.ddev.com/en/stable/users/configuration/config/).
 
-
 ### Using `auth.json`
 
 An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://docs.ddev.com/en/stable/users/extend/in-container-configuration/).
@@ -223,6 +231,7 @@ The following example shows the use of `.env.local` with database configuration:
 
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
+
   ```bash
   ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
@@ -344,10 +353,10 @@ ddev restart
 
 #### Scripted procedure
 
-Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
+Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/5.0/scripts/vhost.sh):
 
 ```bash
-curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh
+curl -O https://raw.githubusercontent.com/ibexa/docker/5.0/scripts/vhost.sh
 bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apache2/vhost.template \
   --ip='*' \
   --host-name='my-ddev-project.ddev.site' \

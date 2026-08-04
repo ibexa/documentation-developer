@@ -88,7 +88,7 @@ In v2.2 Page Builder doesn't offer all blocks that landing page editor did. The 
 The Places block has been removed from the clean installation and is only available in the demo out of the box.
 If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
-Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported. 
+Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported.
 
 If there are missing block definitions, such as Form Block or Schedule Block,
 you have an option to continue, but migrated landing pages come without those blocks.
@@ -112,7 +112,7 @@ See [documentation](render_page.md#render-a-layout) for an example on usage of t
 
 ###### Migrate custom blocks
 
-Landing page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+Landing page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`.
 In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](page_blocks.md#block-events).
 Typically, what you previously would do in `getTemplateParameters()`, you now do in the `onBlockPreRender()` event handler.
 
@@ -139,14 +139,14 @@ This converter is only needed when running the `ezplatform:page:migrate` script 
 
 ###### Page migration example
 
-Below is an example how to migrate a landing page Layout and Block to new Page Builder. The code is based on the Random block 
+Below is an example how to migrate a landing page Layout and Block to new Page Builder. The code is based on the Random block
 defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
 ??? tip "Landing page code"
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
-    ```php
+    ```html+twig
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -197,7 +197,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/Block/RandomBlock.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\Block;
@@ -336,7 +336,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/DependencyInjection/AppExtension.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\DependencyInjection;
@@ -399,7 +399,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
-    ```php
+    ```html+twig
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }} data-ez-zone-id="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -456,7 +456,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/Block/Event/Listener/RandomBlockListener.php` in place of `src/AppBundle/Block/RandomBlock.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\Block\Event\Listener;
@@ -576,7 +576,7 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
     `src/AppBundle/DependencyInjection/AppExtension.php`:
 
-    ``` php
+    ``` php {skip-validation}
     <?php
 
     namespace AppBundle\DependencyInjection;
@@ -649,7 +649,6 @@ defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
                 - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: random }
     ```
 
-
 ### B. Update to v2.3
 
 #### Database update script
@@ -718,9 +717,8 @@ ezrichtext:
 
 The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
 
-
 ### D. Update to v2.5
-    
+
 #### Database update script
 
 Apply the following database update script:
@@ -835,6 +833,7 @@ To promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Pl
 It's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:
+
 ``` yaml
 ezplatform_support_tools:
     system_info:
@@ -867,7 +866,7 @@ You do this manually by following this procedure:
 
 1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](php_api.md#service-container).
 
-1. Run the following command to discover the names of the new entity managers. 
+1. Run the following command to discover the names of the new entity managers.
     Take note of the names that you discover:
 
     `php bin/console debug:container --parameter=doctrine.entity_managers --format=json | grep ibexa_`
@@ -894,7 +893,6 @@ Run the following SQL queries to optimize workflow performance:
 CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
 CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 ```
-
 
 ## 5. Finish the update
 

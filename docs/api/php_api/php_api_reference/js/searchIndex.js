@@ -3671,6 +3671,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Cdp-Exception-FieldValueProcessorException.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Exception\\MembershipApiException",
+            "name": "MembershipApiException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Cdp\\Exception\\StreamingApiRequestFailedException",
             "name": "StreamingApiRequestFailedException",
             "summary": "",
@@ -4170,6 +4175,51 @@ Search.appendIndex(
             "name": "getOffset",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Cdp-Export-User-UsersDatasetBuildParameters.html#method_getOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\Membership",
+            "name": "Membership",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-Membership.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\Membership\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-Membership.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\Membership\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-Membership.html#property_id"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\Membership\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-Membership.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\MembershipApiClientInterface",
+            "name": "MembershipApiClientInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-MembershipApiClientInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\MembershipApiClientInterface\u003A\u003AgetMembership\u0028\u0029",
+            "name": "getMembership",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-MembershipApiClientInterface.html#method_getMembership"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\MembershipResponse",
+            "name": "MembershipResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-MembershipResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\MembershipResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-MembershipResponse.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership\\MembershipResponse\u003A\u003A\u0024memberships",
+            "name": "memberships",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Membership-MembershipResponse.html#property_memberships"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\Action\\CreateType",
             "name": "CreateType",
@@ -11121,6 +11171,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Configuration-ProviderInterface.html#method_getCurrentRecommendationsApiUri"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Configuration\\ProviderInterface\u003A\u003AgetCookieIdLifetimeDays\u0028\u0029",
+            "name": "getCookieIdLifetimeDays",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Configuration-ProviderInterface.html#method_getCookieIdLifetimeDays"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Content\\Resolver\\CurrentContentResolverInterface",
             "name": "CurrentContentResolverInterface",
             "summary": "",
@@ -11130,6 +11185,96 @@ Search.appendIndex(
             "name": "resolve",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Content-Resolver-CurrentContentResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage",
+            "name": "TrackProxiedEventMessage",
+            "summary": "Raw\u0020Raptor\u0020tracking\u0020event\u0020from\u0020the\u0020proxy\u0020endpoint,\u0020enriched\u0020with\u0020cookie\u002Dresolved\u0020identifiers.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024parameters",
+            "name": "parameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_parameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024customerId",
+            "name": "customerId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_customerId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_url"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024cookieId",
+            "name": "cookieId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_cookieId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024sessionId",
+            "name": "sessionId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_sessionId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024userId",
+            "name": "userId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_userId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackProxiedEventMessage\u003A\u003A\u0024moduleName",
+            "name": "moduleName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackProxiedEventMessage.html#property_moduleName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage",
+            "name": "TrackServerSideEventMessage",
+            "summary": "Message\u0020for\u0020asynchronous\u0020server\u002Dside\u0020tracking.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024eventData",
+            "name": "eventData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_eventData"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024customerId",
+            "name": "customerId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_customerId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_url"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024cookieId",
+            "name": "cookieId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_cookieId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024sessionId",
+            "name": "sessionId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_sessionId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024userId",
+            "name": "userId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_userId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024moduleName",
+            "name": "moduleName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_moduleName"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\RaptorClient\\Exception\\RaptorClientException",
             "name": "RaptorClientException",
@@ -11366,6 +11511,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ProductRecommendations.html#property_totalCount"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\ContextProvider\\WebsiteIdContextProviderInterface",
+            "name": "WebsiteIdContextProviderInterface",
+            "summary": "Resolves\u0020a\u0020default\u0020value\u0020for\u0020the\u0020Raptor\u0020\u0060websiteId\u0060\u0020\u0028parameter\u0020\u0060p7\u0060\u0029\u0020when\u0020none\nis\u0020supplied\u0020explicitly\u0020through\u0020the\u0020tracking\u0020event\u0020context.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\ContextProvider\\WebsiteIdContextProviderInterface\u003A\u003AgetWebsiteId\u0028\u0029",
+            "name": "getWebsiteId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html#method_getWebsiteId"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\AbstractEventData",
             "name": "AbstractEventData",
             "summary": "Base\u0020class\u0020for\u0020tracking\u0020event\u0020data\u0020with\u0020common\u0020parameter\u0020building\u0020logic.",
@@ -11601,6 +11756,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-ItemClickEventData.html#property_redirectUrl"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData",
+            "name": "PageViewEventData",
+            "summary": "Base\u0020class\u0020for\u0020tracking\u0020event\u0020data\u0020with\u0020common\u0020parameter\u0020building\u0020logic.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003AgetEventType\u0028\u0029",
+            "name": "getEventType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_getEventType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Returns\u0020Raptor\u0020tracking\u0020parameters.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_toArray"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_url"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003A\u0024websiteId",
+            "name": "websiteId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_websiteId"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\VisitEventData",
             "name": "VisitEventData",
             "summary": "Base\u0020class\u0020for\u0020tracking\u0020event\u0020data\u0020with\u0020common\u0020parameter\u0020building\u0020logic.",
@@ -11706,6 +11891,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CATEGORY_IDENTIFIER"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventContext\u003A\u003AURL",
+            "name": "URL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_URL"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventMapperInterface",
             "name": "EventMapperInterface",
             "summary": "Maps\u0020domain\u0020objects\u0020to\u0020tracking\u0020event\u0020data\u0020using\u0020registered\u0020strategies.",
@@ -11781,6 +11971,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#enumcase_ITEM_CLICK"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventType\u003A\u003APAGEVIEW",
+            "name": "PAGEVIEW",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#enumcase_PAGEVIEW"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\PageViewTrackerInterface",
+            "name": "PageViewTrackerInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\PageViewTrackerInterface\u003A\u003AtrackCurrentRequest\u0028\u0029",
+            "name": "trackCurrentRequest",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html#method_trackCurrentRequest"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter",
             "name": "RaptorParameter",
             "summary": "Raptor\u0020tracking\u0020parameter\u0020names.",
@@ -11851,6 +12056,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-RaptorParameter.html#constant_MASTER_PRODUCT_ID"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter\u003A\u003AURL",
+            "name": "URL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-RaptorParameter.html#constant_URL"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter\u003A\u003AMETADATA",
             "name": "METADATA",
             "summary": "",
@@ -11863,8 +12073,33 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\ServerSideTrackingDispatcherInterface\u003A\u003Adispatch\u0028\u0029",
             "name": "dispatch",
-            "summary": "Dispatches\u0020tracking\u0020event\u0020for\u0020asynchronous\u0020processing.",
+            "summary": "Dispatches\u0020a\u0020tracking\u0020event\u0020for\u0020asynchronous\u0020processing.",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ServerSideTrackingDispatcherInterface.html#method_dispatch"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingBehaviorProviderInterface",
+            "name": "TrackingBehaviorProviderInterface",
+            "summary": "Resolves\u0020how\u0020the\u0020configured\u0020\u007B\u0040see\u0020Type\u007D\u0020translates\u0020into\u0020concrete\u0020tracking\u0020actions.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingBehaviorProviderInterface\u003A\u003AshouldRunClientScript\u0028\u0029",
+            "name": "shouldRunClientScript",
+            "summary": "Client\u0020and\u0020hybrid\u0020modes\u0020\u0028Raptor\u0020CDN\u0020script,\u0020or\u0020the\u0020same\u002Dorigin\u0020shim\u0020respectively\u0029.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html#method_shouldRunClientScript"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingBehaviorProviderInterface\u003A\u003AshouldDispatchServerSide\u0028\u0029",
+            "name": "shouldDispatchServerSide",
+            "summary": "Server\u0020mode\u0020only.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html#method_shouldDispatchServerSide"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingBehaviorProviderInterface\u003A\u003AshouldRenderEventsClientSide\u0028\u0029",
+            "name": "shouldRenderEventsClientSide",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html#method_shouldRenderEventsClientSide"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingBehaviorProviderInterface\u003A\u003AshouldProxyClientEvents\u0028\u0029",
+            "name": "shouldProxyClientEvents",
+            "summary": "Hybrid\u0020mode\u0020only.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingBehaviorProviderInterface.html#method_shouldProxyClientEvents"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingClockInterface",
             "name": "TrackingClockInterface",
@@ -11903,7 +12138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingServiceInterface",
             "name": "TrackingServiceInterface",
-            "summary": "Server\u002Dside\u0020tracking\u0020service\u0020for\u0020Raptor.",
+            "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingServiceInterface.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingServiceInterface\u003A\u003AisTrackingEnabled\u0028\u0029",
@@ -11918,8 +12153,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingServiceInterface\u003A\u003Atrack\u0028\u0029",
             "name": "track",
-            "summary": "Track\u0020any\u0020event\u0020type\u0020using\u0020generic\u0020EventDataInterface.",
+            "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingServiceInterface.html#method_track"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingServiceInterface\u003A\u003AtrackRawParameters\u0028\u0029",
+            "name": "trackRawParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingServiceInterface.html#method_trackRawParameters"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Type",
             "name": "Type",
@@ -11935,6 +12175,11 @@ Search.appendIndex(
             "name": "SERVER",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Type.html#enumcase_SERVER"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Type\u003A\u003AHYBRID",
+            "name": "HYBRID",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Type.html#enumcase_HYBRID"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Content\\Form\\Provider\\GroupedContentFormFieldsProviderInterface",
             "name": "GroupedContentFormFieldsProviderInterface",
@@ -42821,6 +43066,301 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-IntegratedHelp-Renderer-BlockRendererInterface.html#method_render"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt",
+            "name": "McpPrompt",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A\u0024servers",
+            "name": "servers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#property_servers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#property_description"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A\u0024title",
+            "name": "title",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#property_title"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A\u0024icons",
+            "name": "icons",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#property_icons"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpPrompt\u003A\u003A\u0024meta",
+            "name": "meta",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html#property_meta"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource",
+            "name": "McpResource",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024servers",
+            "name": "servers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_servers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024uri",
+            "name": "uri",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_uri"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_description"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024title",
+            "name": "title",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_title"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024mimeType",
+            "name": "mimeType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_mimeType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024size",
+            "name": "size",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_size"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024annotations",
+            "name": "annotations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_annotations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024icons",
+            "name": "icons",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_icons"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResource\u003A\u003A\u0024meta",
+            "name": "meta",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResource.html#property_meta"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate",
+            "name": "McpResourceTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024servers",
+            "name": "servers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_servers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024uriTemplate",
+            "name": "uriTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_uriTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_description"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024title",
+            "name": "title",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_title"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024mimeType",
+            "name": "mimeType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_mimeType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024annotations",
+            "name": "annotations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_annotations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpResourceTemplate\u003A\u003A\u0024meta",
+            "name": "meta",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpResourceTemplate.html#property_meta"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool",
+            "name": "McpTool",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024servers",
+            "name": "servers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_servers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_description"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024title",
+            "name": "title",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_title"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024annotations",
+            "name": "annotations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_annotations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024icons",
+            "name": "icons",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_icons"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024meta",
+            "name": "meta",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_meta"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute\\McpTool\u003A\u003A\u0024outputSchema",
+            "name": "outputSchema",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html#property_outputSchema"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpCapabilityInterface",
+            "name": "McpCapabilityInterface",
+            "summary": "Marker\u0020interface\u0020for\u0020classes\u0020containing\u0020MCP\u0020capabilities\u0020\u0028tools,\u0020prompts,\u0020resources\u0029.",
+            "url": "classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration",
+            "name": "McpServerConfiguration",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003ADEFAULT_ALLOWED_HOSTS",
+            "name": "DEFAULT_ALLOWED_HOSTS",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#constant_DEFAULT_ALLOWED_HOSTS"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024identifier",
+            "name": "identifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_identifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_path"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024enabled",
+            "name": "enabled",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_enabled"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024version",
+            "name": "version",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_version"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_description"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024instructions",
+            "name": "instructions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_instructions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024allowedHosts",
+            "name": "allowedHosts",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_allowedHosts"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024tools",
+            "name": "tools",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_tools"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024prompts",
+            "name": "prompts",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_prompts"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024resources",
+            "name": "resources",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_resources"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfiguration\u003A\u003A\u0024resourceTemplates",
+            "name": "resourceTemplates",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html#property_resourceTemplates"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfigurationRegistryInterface",
+            "name": "McpServerConfigurationRegistryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfigurationRegistryInterface\u003A\u003AgetServerConfigurations\u0028\u0029",
+            "name": "getServerConfigurations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfigurations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfigurationRegistryInterface\u003A\u003AgetServerConfiguration\u0028\u0029",
+            "name": "getServerConfiguration",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfiguration"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\McpServerConfigurationRegistryInterface\u003A\u003AhasServerConfiguration\u0028\u0029",
+            "name": "hasServerConfiguration",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_hasServerConfiguration"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter\\UnitConverterInterface",
             "name": "UnitConverterInterface",
             "summary": "",
@@ -43070,6 +43610,51 @@ Search.appendIndex(
             "name": "getUnit",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Measurement-Value-ValueInterface.html#method_getUnit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp",
+            "name": "DeduplicateStamp",
+            "summary": "\u0028c\u0029\u0020Fabien\u0020Potencier\u0020\u003Cfabien\u0040symfony.com\u003E.",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003AonlyDeduplicateInQueue\u0028\u0029",
+            "name": "onlyDeduplicateInQueue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method_onlyDeduplicateInQueue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method_getKey"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003AgetTtl\u0028\u0029",
+            "name": "getTtl",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method_getTtl"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\SudoStamp",
+            "name": "SudoStamp",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\UserPermissionStamp",
+            "name": "UserPermissionStamp",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\UserPermissionStamp\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\UserPermissionStamp\u003A\u003A\u0024userId",
+            "name": "userId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html#property_userId"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Messenger\\Transport\\MessageProviderInterface",
             "name": "MessageProviderInterface",
@@ -52105,6 +52690,16 @@ Search.appendIndex(
             "name": "AvailabilityInterface",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AgetAvailability\u0028\u0029",
+            "name": "getAvailability",
+            "summary": "Returns\u0020the\u0020stored\u0020availability\u0020value\u0020as\u0020persisted\u0020for\u0020the\u0020product.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html#method_getAvailability"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AgetComputedAvailability\u0028\u0029",
+            "name": "getComputedAvailability",
+            "summary": "Returns\u0020the\u0020availability\u0020value\u0020computed\u0020for\u0020the\u0020current\u0020business\u0020context.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html#method_getComputedAvailability"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AisAvailable\u0028\u0029",
             "name": "isAvailable",
@@ -63556,6 +64151,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForContent"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Workflow\\Service\\WorkflowServiceInterface\u003A\u003AloadWorkflowMetadataForVersionInfo\u0028\u0029",
+            "name": "loadWorkflowMetadataForVersionInfo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Workflow\\Service\\WorkflowServiceInterface\u003A\u003Astart\u0028\u0029",
             "name": "start",
             "summary": "",
@@ -63960,6 +64560,11 @@ Search.appendIndex(
             "name": "User",
             "summary": "",
             "url": "namespaces/ibexa-contracts-cdp-export-user.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Membership",
+            "name": "Membership",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-cdp-membership.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\Action",
             "name": "Action",
@@ -64461,6 +65066,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-connectorraptor-content.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message",
+            "name": "Message",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connectorraptor-message.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\RaptorClient\\Exception",
             "name": "Exception",
             "summary": "",
@@ -64485,6 +65095,11 @@ Search.appendIndex(
             "name": "Value",
             "summary": "",
             "url": "namespaces/ibexa-contracts-connectorraptor-recommendations-value.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\ContextProvider",
+            "name": "ContextProvider",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connectorraptor-tracking-contextprovider.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event",
             "name": "Event",
@@ -65856,6 +66471,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-integratedhelp-renderer.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Attribute",
+            "name": "Attribute",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-mcp-attribute.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Mcp",
+            "name": "Mcp",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-mcp.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter",
             "name": "Converter",
             "summary": "",
@@ -65891,15 +66516,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-measurement-value.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Transport",
-            "name": "Transport",
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp",
+            "name": "Stamp",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-messenger-transport.html"
+            "url": "namespaces/ibexa-contracts-messenger-stamp.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Messenger",
             "name": "Messenger",
             "summary": "",
             "url": "namespaces/ibexa-contracts-messenger.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Transport",
+            "name": "Transport",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-messenger-transport.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Event",
             "name": "Event",

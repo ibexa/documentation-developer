@@ -16,6 +16,10 @@ searches for content based on the Location ID of its parent.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ParentLocationId([54, 58]);
 ```
 
@@ -45,14 +49,20 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
 
 You can use the `ParentLocationId` Search Criterion to list blog posts contained in a blog:
 
-``` php hl_lines="4"
+``` php hl_lines="9"
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$locationId = 12345;
+
 $query = new LocationQuery();
 $query->query = new Criterion\LogicalAnd([
     new Criterion\Visibility(Criterion\Visibility::VISIBLE),
     new Criterion\ParentLocationId($locationId),
 ]);
 
-$results = $this->searchService->findLocations($query);
+/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
+$results = $searchService->findLocations($query);
 $posts = [];
 foreach ($results->searchHits as $searchHit) {
     $posts[] = $searchHit;

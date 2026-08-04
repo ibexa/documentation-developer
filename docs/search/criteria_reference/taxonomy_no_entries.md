@@ -19,8 +19,8 @@ It's available for all supported search engines and in [repository filtering](se
 
 The following example searches for articles that have no entries assigned in the `tags` taxonomy:
 
-```php hl_lines="11-16"
-[[= include_file('code_samples/search/content/taxonomy_no_entries_criterion.php') =]]
+``` php hl_lines="11-16"
+[[= include_code('code_samples/search/content/taxonomy_no_entries_criterion.php') =]]
 ```
 
 The criteria limit the results to content that matches all of the conditions listed below:

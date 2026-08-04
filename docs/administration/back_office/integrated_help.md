@@ -1,7 +1,7 @@
 ---
 description: Integrated help provides quick access to documentation, training, and support resources.
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Integrated help
@@ -32,4 +32,4 @@ composer require ibexa/integrated-help
 ```
 
 After installation, the help center is enabled by default for all back office users.
-If needed, they can [disable it in user settings]([[= user_doc =]]/getting_started/discover_ui#disable-help-center).
+If needed, they can [disable it in user settings]([[= user_doc =]]/getting_started/discover_ui/#disable-help-center).

@@ -22,11 +22,16 @@ The `CustomPrice` Criterion isn't available in the Legacy Search engine.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
+/** @var \Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface $customerGroup */
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPrice(
         \Money\Money::EUR(13800),
         \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator::GTE,
-        $customerGroup)
+        $customerGroup
+    )
 );
 ```

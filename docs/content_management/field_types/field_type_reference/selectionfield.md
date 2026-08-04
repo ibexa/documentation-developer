@@ -16,7 +16,7 @@ The Selection field type stores single selections or multiple choices from a lis
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -27,38 +27,40 @@ The Value class of this field type contains the following properties:
 ``` php
 // Value object content examples
 
+/** @var \Ibexa\Core\FieldType\Selection\Value $value */
 // Single selection
-$value->selection = 1;
+$value->selection = [1];
 
 // Multiple selection
-$value->selection = [ 1, 4, 5 ];
+$value->selection = [1, 4, 5];
 ```
 
-##### Constructor
+#### Constructor
 
 The `Selection\Value` constructor accepts an array of selected element identifiers.
 
 ``` php
 // Constructor example
+use Ibexa\Core\FieldType\Selection as Selection;
 
 // Instanciates a selection value with items #1 and #2 selected
-$selectionValue = new Selection\Value( [ 1, 2 ] );
+$selectionValue = new Selection\Value([1, 2]);
 ```
 
-##### String representation
+#### String representation
 
 String representation of this field type is its list of selections as a string, concatenated with a comma.
 
 Example: `"1,2,24,42"`
 
-### Hash format
+#### Hash format
 
 Hash format of this field type is the same as value object's `selection` property.
 
 ``` php
 // Example of value in hash format
 
-$hash = [ 1, 2 ];
+$hash = [1, 2];
 ```
 
 ### Validation
@@ -80,7 +82,7 @@ When option validation fails, a list with the invalid options is also presented.
 use Ibexa\Core\FieldType\Selection\Type;
 
 $settings = [
-    "isMultiple" => true,
-    "options" => [1 => 'One', 2 => 'Two', 3 => 'Three']
+    'isMultiple' => true,
+    'options' => [1 => 'One', 2 => 'Two', 3 => 'Three'],
 ];
 ```

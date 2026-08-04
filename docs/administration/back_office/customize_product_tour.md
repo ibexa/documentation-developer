@@ -1,7 +1,7 @@
 ---
 description: Customize product tour scenarios with custom event listeners
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Customize scenarios with PHP code
@@ -40,8 +40,8 @@ ibexa:
 
 Then, create a subscriber that modifies the scenario.
 
-```php hl_lines="32-34 36-38 40-42 44-55"
-[[= include_file('code_samples/back_office/product_tour/src/EventSubscriber/NotificationScenarioSubscriber.php') =]]
+``` php hl_lines="32-34 36-38 40-42 44-55"
+[[= include_code('code_samples/back_office/product_tour/src/EventSubscriber/NotificationScenarioSubscriber.php') =]]
 ```
 
 The subscriber executes the following actions:

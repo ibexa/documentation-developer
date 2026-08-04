@@ -29,7 +29,7 @@ php bin/console ibexa:openapi --yaml --output=openapi.yaml # YAML output
 
 Use the specification file with [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
 
-!!! info
+!!! note
 
     In [Symfony's `dev` environment](environments.md), you can access a REST API reference generated for your project by visiting the `/api/ibexa/v2/doc` route in the browser.
 
@@ -93,12 +93,12 @@ For details, see the [ISO-3166 glossary](https://www.iso.org/glossary-for-iso-31
 
 ## REST communication summary
 
-* A REST route (URI) leads to a REST controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (for example, `/content/objects/{contentId}`).
-* This controller action returns an `Ibexa\Rest\Value` descendant.
+- A REST route (URI) leads to a REST controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (for example, `/content/objects/{contentId}`).
+- This controller action returns an `Ibexa\Rest\Value` descendant.
     - This controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or the request payload and its `Content-Type` HTTP header.
     - This controller action might wrap its return in a `CachedValue` which contains caching information for the reverse proxies.
-* The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and passes the request and the controller action's result to the `AcceptHeaderVisitorDispatcher`.
-* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the value returned by the controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
-* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
-* `ValueObjectVisitor`s recursively help to transform the controller result thanks to the abstraction layer of the `Generator`.
-* The `Output\Visitor` returns the `Response` to send back to the client.
+- The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and passes the request and the controller action's result to the `AcceptHeaderVisitorDispatcher`.
+- The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the value returned by the controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
+- The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
+- `ValueObjectVisitor`s recursively help to transform the controller result thanks to the abstraction layer of the `Generator`.
+- The `Output\Visitor` returns the `Response` to send back to the client.

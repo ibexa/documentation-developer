@@ -61,24 +61,28 @@ A REST controller should:
 - extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
 
 If the returned value was depending on a location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
 
 `CachedValue` is used in the following way:
 
-```php
+``` php
+use Ibexa\Rest\Server\Values\CachedValue;
+
+$locationId = 12345;
+
 return new CachedValue(
-    new MyValue($args…),
-    ['locationId'=> $locationId]
+    new MyValue($args),
+    ['locationId' => $locationId]
 );
 ```
 
 ## Value and ValueObjectVisitor
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
 ```
 
 A `ValueObjectVisitor` must implement the `visit` method.
@@ -90,7 +94,7 @@ A `ValueObjectVisitor` must implement the `visit` method.
 | `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
 ```
 
 The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the service tag.
@@ -111,7 +115,7 @@ A REST resource could use route parameters to handle input, but this example ill
 For this example, the structure is a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
 ```
 
 Here, this `InputParser` directly returns the right value object.
@@ -190,7 +194,7 @@ ibexa_rest:
 The `router.generate` renders a URI based on the name of the route and its parameters.
 The parameter values can be a real value or a placeholder.
 For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
-This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
+This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
 In this example, `app.rest.greeting` is available in every SiteAccess (`default`):
 

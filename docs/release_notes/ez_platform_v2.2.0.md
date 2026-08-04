@@ -23,7 +23,7 @@ This version introduces the **Page Builder** which replaces the landing page edi
     They will be included again in a future release.
 
     The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box.
-    If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/blocks.yaml).
+    If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/2.2/app/config/blocks.yml).
 
 #### Modifying the Page content type
 
@@ -39,9 +39,9 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 !!! caution "Updating to 2.2"
 
-    Refer to [Updating eZ Platform](https://doc.ibexa.co/en/2.5/updating/5_update_2.2) for a database update script.
+    Refer to [Updating eZ Platform](https://doc.ibexa.co/en/2.2/releases/updating_ez_platform/) for a database update script.
 
-    To update to 2.2 with existing Content you need a [dedicated script for converting the landing page into the new Page](https://doc.ibexa.co/en/2.5/updating/5_update_2.2/#migrate-landing-pages).
+    To update to 2.2 with existing Content you need a [dedicated script for converting the landing page into the new Page](https://doc.ibexa.co/en/2.2/releases/updating_ez_platform/#migrate-landing-pages).
 
 ### Bookmarks
 
@@ -59,7 +59,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ### Standard design
 
-eZ Platform now comes with two designs that use the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the back office.
+eZ Platform now comes with two designs that use the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine/): `standard` for content view and `admin` for the back office.
 For more information, see [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs).
 
 !!! caution
@@ -81,7 +81,7 @@ Database charset is changed from UTF8 to UTF8MB4, to support 4-byte characters.
 
 !!! caution
 
-    To cover this change when upgrading, follow the instructions in the [update guide](https://doc.ibexa.co/en/2.5/updating/5_update_2.2).
+    To cover this change when upgrading, follow the instructions in the [update guide](https://doc.ibexa.co/en/2.5/update_and_migration/from_1.x_2.x/update_db_to_2.5/#a-update-to-v22).
 
 ### URL generation pattern
 
@@ -110,7 +110,7 @@ You can also use the new `composer ezplatform-install` command which automatical
 
 ### Notifications
 
-[Notification Bundle](https://github.com/ezsystems/ezstudio-notifications) is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel).  This allows whole community to get access to eZ notification system.
+Notification Bundle is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel).  This allows whole community to get access to eZ notification system.
 
 ### Bookmarks
 
@@ -133,6 +133,6 @@ This release introduces a few notable simplifications to API use. Here are some 
 
 ## Installation
 
-[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/)
 
-[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/)

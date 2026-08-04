@@ -11,7 +11,7 @@ The following example shows how to create a custom Query type that renders the l
 First, add the following `LatestContentQueryType.php` file to `src/QueryType`:
 
 ``` php
-[[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php') =]]
+[[= include_code('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php') =]]
 ```
 
 !!! tip
@@ -22,7 +22,7 @@ First, add the following `LatestContentQueryType.php` file to `src/QueryType`:
 The name defined in `getName()` is the one you use to identify the Query type in content view configuration.
 
 ``` php
-[[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 10, 14) =]]
+[[= include_code('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 11, 14, remove_indent=True) =]]
 ```
 
 !!! caution
@@ -36,7 +36,7 @@ For more information, see [Content search](search_api.md) and [Search reference]
 The `getSupportedParameters()` method provides the parameters you can set in content view configuration.
 
 ``` php
-[[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 31, 35) =]]
+[[= include_code('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 32, 35, remove_indent=True) =]]
 ```
 
 !!! note
@@ -57,7 +57,7 @@ This gives you more flexibility when defining parameters.
 In the `configureOptions()` method you can define the allowed parameters, their types and default values.
 
 ``` php hl_lines="34 35 36 37 38 39 40"
-[[= include_file('code_samples/front/custom_query_type/src/QueryType/OptionsBasedLatestContentQueryType.php') =]]
+[[= include_code('code_samples/front/custom_query_type/src/QueryType/OptionsBasedLatestContentQueryType.php') =]]
 ```
 
 !!! note

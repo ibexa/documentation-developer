@@ -61,6 +61,9 @@ class WorkflowCommand extends Command
             $output->writeln('Moved ' . $content->getName() . ' through transition ' . $transitionName);
         }
 
+        $versionInfo = $content->getVersionInfo();
+        $workflowMetadataByVersion = $this->workflowService->loadWorkflowMetadataForVersionInfo($versionInfo, $workflowName);
+
         return self::SUCCESS;
     }
 }

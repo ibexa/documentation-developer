@@ -14,7 +14,7 @@
 
     ### Editorial workflow
 
-    [Editorial Workflow](https://doc.ibexa.co/en/2.5/guide/workflow) enables you to pass content through a series of stages.
+    [Editorial Workflow](https://doc.ibexa.co/en/2.5/guide/workflow/) enables you to pass content through a series of stages.
 
     Each step can be used to represent for example contributions and approval of different teams and editors.
     For instance, an article can pass through draft, design and proofreading stages.
@@ -24,7 +24,7 @@
 
     ![Workflow event timeline](2.4_workflow_events_timeline.png "Timeline of workflow stages a content item has gone through")
 
-    Workflow Engine is located in the [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
+    Workflow Engine is located in the ezplatform-workflow bundle.
 
 ### RichText
 
@@ -35,7 +35,7 @@ RichText field type has been extracted to a separate bundle, [ezsystems/ezplatfo
 If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
 Make sure to enable the new eZ Platform RichTextBundle.
 
-See [RichText field type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield).
+See [RichText field type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield/).
 
 #### RichText block
 
@@ -76,7 +76,7 @@ To learn how it works, see [FactBox tag](https://doc.ibexa.co/en/2.5/guide/exten
 You can now translate content type names and Field definitions.
 
 This possibility is available automatically when you have the target language configured
-(in the same way as for translating content, see [Languages](https://doc.ibexa.co/en/2.5/guide/internationalization)).
+(in the same way as for translating content, see [Languages](https://doc.ibexa.co/en/2.5/guide/internationalization/)).
 
 ![Content type with existing translations](2.4_content_type_translations.png "Available translation of a content type")
 
@@ -182,7 +182,7 @@ The biggest benefit of this feature is saving load time on complex landing pages
 
     1\. Register `LexikJWTAuthenticationBundle` bundle in `/app/AppKernel.php`
 
-    ``` php
+    ``` php {skip-validation}
      public function registerBundles()
      {
          $bundles = array(
@@ -197,44 +197,44 @@ The biggest benefit of this feature is saving load time on complex landing pages
     2\. Add the following configuration to `/app/config/config.yml`
 
     ``` yaml
-     lexik_jwt_authentication:
-         secret_key: '%secret%'
-         encoder:
+    lexik_jwt_authentication:
+        secret_key: '%secret%'
+        encoder:
              signature_algorithm: HS256
          # Disabled by default, because Page Builder uses custom extractor
-         token_extractors:
-             authorization_header:
-                 enabled: false
-             cookie:
-                 enabled: false
-             query_parameter:
-                 enabled: false
+        token_extractors:
+            authorization_header:
+                enabled: false
+            cookie:
+                enabled: false
+            query_parameter:
+                enabled: false
     ```
 
     By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys.
     
-    For more information, see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
+    For more information, see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/1.x/Resources/doc/index.md).
 
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 
     ``` yaml
-     security:
+    security:
          # ...
-         firewalls:
-             ezpublish_front:
-                 # ...
-                 simple_preauth:
-                     authenticator: 'EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator'
-                 form_login:
-                     require_previous_session: false
-                 # ...
+        firewalls:
+            ezpublish_front:
+                # ...
+                simple_preauth:
+                    authenticator: 'EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator'
+                form_login:
+                    require_previous_session: false
+                # ...
     ```
 
     4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter isn't present, add it to `/app/config/config.yml`:
 
     ``` yaml
-     # ...
-     parameters:
+    # ...
+    parameters:
         # ...
         page_builder.token_authenticator.enabled: true
     ```

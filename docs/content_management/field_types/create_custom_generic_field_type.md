@@ -28,8 +28,8 @@ The `HelloWorld` Value class should contain:
 - public properties that retrieve `name`
 - an implementation of the `__toString()` method
 
-```php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Value.php') =]]
+``` php
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Value.php') =]]
 ```
 
 ## Define fields and configuration
@@ -37,7 +37,7 @@ The `HelloWorld` Value class should contain:
 Next, implement a definition of a field type extending the Generic field type in the `src/FieldType/HelloWorld/Type.php` class.
 It provides settings for the field type and an implementation of the `Ibexa\Contracts\Core\FieldType\FieldType` abstract class.
 
-```php
+``` php
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 0, 3) =]]
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 6, 8) =]]
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 10, 16) =]][[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 26, 27) =]]
@@ -56,16 +56,16 @@ Next, register the field type as a service and tag it with `ibexa.field_type`:
 Create a `src/Form/Type/HelloWorldType.php` form.
 It enables you to edit the new field type.
 
-```php
-[[= include_file('code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php') =]]
+``` php
+[[= include_code('code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php') =]]
 ```
 
 Now you can map field definitions into Symfony forms with FormMapper.
 Add the `mapFieldValueForm()` method required by `FieldValueFormMapperInterface`
 and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 
-```php hl_lines="6-7 18-26"
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
+``` php hl_lines="6-7 18-26"
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
 ```
 
 For more information about the FormMappers, see [field type form and template](form_and_template.md).

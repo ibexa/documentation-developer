@@ -199,7 +199,7 @@ If you choose to upgrade to Elasticsearch 8, follow these steps:
 Upgrade your Elasticsearch server to version 8.19 or higher.
 For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://developer.upsun.com/docs/add-services/elasticsearch) for a list of supported versions.
 
 #### Update configuration
 
@@ -284,10 +284,6 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
     ```
 
-## v5.0.5
-
-No additional steps needed.
-
 ## v5.0.6
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
@@ -363,15 +359,48 @@ Update Symfony constraints in `composer.json` before updating the packages.
     For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
     Key changes include:
 
-    - Array-based PHP configuration format
-
-        As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
-        You should commit this file to the repository.
-
     - Independent application cache directory
 
         Symfony 7.4 introduces a new [share directory](https://symfony.com/blog/new-in-symfony-7-4-share-directory), dedicated for storing application cache on the file system.
         If you decide to configure it (for example, by setting the `APP_SHARE_DIR` environment variable), review your existing scripts for explicit `var/cache` usage (for example, `rm -rf var/cache`) and decide whether to include `var/share` in the script.
+
+        If you use [[= product_name_cloud =]], add a mount for the `var/share` directory to your `.platform.app.yaml` file, next to the existing `var/cache` and `var/log` mounts:
+
+        ```yaml hl_lines="5-7"
+        mounts:
+            'var/cache':
+                source: local
+                source_path: cache
+            'var/share':
+                source: local
+                source_path: share
+            'var/log':
+                source: local
+                source_path: log
+        ```
+
+        Without this mount, the `var/share` directory is read-only and all writes to the `cache.app` cache pool fail.
+
+        !!! caution "Always clear the persistence cache with `cache:pool:clear` command"
+
+            Starting with Symfony 7.4, running `php bin/console cache:clear` doesn't clear the [[= product_name =]] persistence cache, even when using a filesystem-based cache pool.
+
+            To clear the persistence cache, for example after adding a [custom Page Builder block](create_custom_page_block.md), you must always run:
+
+            ```bash
+            php bin/console cache:pool:clear <cache-pool>
+            ```
+
+            The default cache pool is named `cache.tagaware.filesystem`.
+            The default cache pool when running Redis or Valkey is named `cache.redis`.
+            If you have customized the persistence cache configuration, the name of your cache pool might be different.
+
+            For more information about persistence cache, see [Persistence cache](persistence_cache.md).
+
+    - Array-based PHP configuration format
+
+        As part of the new [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), Symfony creates the `config/reference.php` file.
+        Consider committing this file to the repository.
 
 4. Update Ibexa packages by running:
 
@@ -431,6 +460,25 @@ Run the provided SQL upgrade script to update your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
     ```
 
+## v5.0.8
+
+### VCL configuration
+
+When using Varnish or Fastly, update your [VCL files](reverse_proxy.md#vcl-base-files) to align with the ones from [`vendor/ibexa/http-cache/docs/varnish/vcl/`](https://github.com/ibexa/http-cache/tree/v5.0.8/docs/varnish/vcl) or `vendor/ibexa/fastly/fastly/`,
+especially if you plan to use the [Anonymous user segmentation in [[= product_name_cdp =]]](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
+Make sure it contains the highlighted addition:
+
+``` vcl hl_lines="2 3"
+        set req.http.cookie = regsuball(req.http.cookie, ";(ibexa[-_][^=]*)=", "; \1=");
+        // Keep the Raptor anonymous visitor identifier cookie so CDP segmentation can resolve visitor segments.
+        set req.http.cookie = regsuball(req.http.cookie, ";(rsa)=", "; \1=");
+        set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
+```
+
+## v5.0.9
+
+No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Update requires additional update steps](#mcp-servers) if you're using it.
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
@@ -472,8 +520,21 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
 
-=== "Shopping list"
+=== "MCP Servers"
 
-    ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+    ### MCP Servers
 
-    To learn more about the [Shopping list](shopping_list_guide.md), see the [installation and configuration instructions](install_shopping_list.md).
+    To learn more about the [MCP Servers](mcp_guide.md), see the [installation and configuration instructions](mcp_config.md).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/mcp:[[= latest_tag_5_0 =]]
+    ```
+
+    #### v5.0.9
+
+    Between v5.0.8 and v5.0.9, the following changes were made to the MCP Servers feature:
+
+    - An [`allowed_hosts`](mcp_config.md#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
+    - The [built-in tool](mcp_config.md#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.

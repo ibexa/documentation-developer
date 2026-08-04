@@ -1,8 +1,61 @@
 .main_nav {
     border-right: 1px solid var(--mid-grey);
-    margin-left: -15rem;
     display: flex;
     flex-shrink: 0;
+}
+
+@media only screen and (max-width: 76.1874em) {
+    .main_nav {
+        width: 0 !important;
+        border-right: none;
+    }
+
+    .main_nav .site-header,
+    .main_nav__resize-handler {
+        display: none;
+    }
+
+    .md-sidebar--primary .md-sidebar__scrollwrap {
+        overflow-y: auto;
+    }
+
+    /* Keep the desktop-style nav tree inside the drawer instead of
+       Material's layered sliding panels */
+    .md-nav--primary,
+    .md-nav--primary .md-nav {
+        position: static;
+        display: block;
+        height: auto;
+        z-index: auto;
+    }
+
+    .md-nav--primary .md-nav__item {
+        border-top: none;
+    }
+
+    .md-nav__toggle ~ .md-nav {
+        display: none;
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .md-nav__toggle:checked ~ .md-nav,
+    .md-nav__toggle:indeterminate ~ .md-nav {
+        display: block;
+    }
+
+    .md-typeset h1,
+    .md-typeset h2,
+    .md-typeset h3,
+    .md-typeset h4 {
+        overflow-wrap: anywhere;
+    }
+
+    .md-typeset .method-parameters {
+        display: block;
+        overflow-x: auto;
+    }
 }
 
 .md-sidebar__scrollwrap {
@@ -11,7 +64,6 @@
 
 @media only screen and (min-width: 76.1875em) {
     .main_nav {
-        margin-left: 0;
         position: sticky;
         top: 56px;
         height: calc(100vh - 56px);

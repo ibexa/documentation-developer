@@ -1,6 +1,6 @@
 ---
 description: Customize the templates used to render products embedded in RichText fields.
-month_change: true
+month_change: false
 ---
 
 # Customize product embed templates

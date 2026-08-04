@@ -19,12 +19,12 @@ The following events are dispatched when adding content items to bookmarks.
 
 ## Notifications
 
-The following events refer to [notifications displayed in the user menu](notifications.md#create-custom-notifications).
+The following events refer to [notifications displayed in the user menu](notifications.md#user-notifications).
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|[`BeforeCreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeCreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`CreateStruct $createStruct`</br>`Notification|null $notification`|
-|[`CreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-CreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`Notification $notification`</br>`CreateStruct $createStruct`|
+|[`BeforeCreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeCreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`CreateStruct $createStruct`<br>`?Notification $notification`|
+|[`CreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-CreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`Notification $notification`<br>`CreateStruct $createStruct`|
 |[`BeforeDeleteNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeDeleteNotificationEvent.html)|[`NotificationService::deleteNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_deleteNotification)|`Notification $notification`|
 |[`DeleteNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-DeleteNotificationEvent.html)|[`NotificationService::deleteNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_deleteNotification)|`Notification $notification`|
 |[`BeforeMarkNotificationAsReadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsReadEvent.html)|[`NotificationService::markNotificationAsRead`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsRead)|`Notification $notification`|
@@ -38,10 +38,10 @@ The following events refer to key/value application-wide settings in database.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateSettingEvent`|`SettingService::createSetting`|`SettingCreateStruct $settingCreateStruct`</br>`Setting|null $setting`|
-|`CreateSettingEvent`|`SettingService::createSetting`|`Setting $setting`</br>`SettingCreateStruct $settingCreateStruct`|
-|`BeforeUpdateSettingEvent`|`SettingService::updateSetting`|`Setting $setting`</br>`SettingUpdateStruct $settingUpdateStruct`</br>`Setting|null $updatedSetting`|
-|`UpdateSettingEvent`|`SettingService::updateSetting`|`Setting $updatedSetting`</br>`Setting $setting`</br>`SettingUpdateStruct $settingUpdateStruct`|
+|`BeforeCreateSettingEvent`|`SettingService::createSetting`|`SettingCreateStruct $settingCreateStruct`<br>`?Setting $setting`|
+|`CreateSettingEvent`|`SettingService::createSetting`|`Setting $setting`<br>`SettingCreateStruct $settingCreateStruct`|
+|`BeforeUpdateSettingEvent`|`SettingService::updateSetting`|`Setting $setting`<br>`SettingUpdateStruct $settingUpdateStruct`<br>`?Setting $updatedSetting`|
+|`UpdateSettingEvent`|`SettingService::updateSetting`|`Setting $updatedSetting`<br>`Setting $setting`<br>`SettingUpdateStruct $settingUpdateStruct`|
 |`BeforeDeleteSettingEvent`|`SettingService::deleteSetting`|`Setting $setting`|
 |`DeleteSettingEvent`|`SettingService::deleteSetting`|`Setting $setting`|
 
@@ -58,7 +58,7 @@ The following events are dispatched when changing the user settings available in
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`PublishVersionEvent`|`PublishAssetEventDispatcher::emitPublishAssetEvent`|`Content $content`</br>`Connector\Dam\AssetIdentifier $assetIdentifier`</br>`Connector\Dam\AssetSource $assetSource`|
+|`PublishVersionEvent`|`PublishAssetEventDispatcher::emitPublishAssetEvent`|`Content $content`<br>`Connector\Dam\AssetIdentifier $assetIdentifier`<br>`Connector\Dam\AssetSource $assetSource`|
 
 ## Image Editor
 
@@ -75,8 +75,8 @@ For more information, see [Customizing image optimizers with an event](images.md
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`FieldAttributeDefinitionEvent`|`FieldDefinitionFactory::getAttributesDefinitions`|`FieldAttributeDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FieldDefinitionEvent`|`FieldDefinitionFactory::getFieldDefinition`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FieldValidatorDefinitionEvent`|`FieldDefinitionFactory::getValidatorsDefinitions`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FormActionEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`Ibexa\Contracts\FormBuilder\FieldType\Model\Form  $form`</br>`string $action`</br>`mixed  $data`|
-|`FormSubmitEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`Ibexa\Contracts\FormBuilder\FieldType\Model\Form $form`</br>`array $data`|
+|`FieldAttributeDefinitionEvent`|`FieldDefinitionFactory::getAttributesDefinitions`|`FieldAttributeDefinitionBuilder $definitionBuilder`<br>`array $configuration`|
+|`FieldDefinitionEvent`|`FieldDefinitionFactory::getFieldDefinition`|`FieldDefinitionBuilder $definitionBuilder`<br>`array $configuration`|
+|`FieldValidatorDefinitionEvent`|`FieldDefinitionFactory::getValidatorsDefinitions`|`FieldDefinitionBuilder $definitionBuilder`<br>`array $configuration`|
+|`FormActionEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`<br>`Ibexa\Contracts\FormBuilder\FieldType\Model\Form  $form`<br>`string $action`<br>`mixed  $data`|
+|`FormSubmitEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`<br>`Ibexa\Contracts\FormBuilder\FieldType\Model\Form $form`<br>`array $data`|

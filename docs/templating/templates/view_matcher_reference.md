@@ -34,7 +34,6 @@ You can use the following matchers to [match content views](template_configurati
 | [Taxonomy entry level](#taxonomy-entry-level) | Level of taxonomy entry. |
 | [Taxonomy type](#taxonomy-type) | Taxonomy type. |
 
-
 !!! tip
 
     Each matcher has a scalar value or an array of scalar values. When an array is passed, it matches on one of its values.
@@ -235,7 +234,7 @@ match:
 
 ``` yaml
 match:
-    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id': [1, 2, 3]'
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id': [1, 2, 3]
 ```
 
 ## Taxonomy entry identifier

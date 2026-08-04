@@ -1,6 +1,6 @@
 ---
 description: UpdatedAtRange Search Criterion
-month_change: true
+month_change: false
 ---
 
 # UpdatedAtRange Criterion
@@ -19,7 +19,7 @@ At least one of `min` or `max` must be provided.
 ### PHP
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Query/UpdatedAtRangeQuery.php') =]]
+[[= include_code('code_samples/back_office/search/src/Query/UpdatedAtRangeQuery.php') =]]
 ```
 
 ### REST API

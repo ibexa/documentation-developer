@@ -16,11 +16,10 @@ Sort Clauses are found in the [`Ibexa\Contracts\Core\Repository\Values\ContentTy
 | [Identifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html)| Sort by content type's identifier |
 | [Name](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html)| Sort by content type's name |
 
-
 The following example shows how to use them to sort the searched content types:
 
-```php hl_lines="34-36"
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
+``` php hl_lines="34-36"
+[[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 
 You can change the default sorting order by using the `SORT_ASC` and `SORT_DESC` constants from [`AbstractSortClause`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#constants).

@@ -22,7 +22,7 @@ It's also possible to directly pass an instance of `\DateTime`.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -61,8 +61,8 @@ Hash value of this field type is an array with two keys:
 
 ``` php
 $hash = [
-    "timestamp" => 1400856992,
-    "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
+    'timestamp' => 1400856992,
+    'rfc850' => 'Friday, 23-May-14 14:56:14 GMT+0000',
 ];
 ```
 
@@ -74,11 +74,11 @@ This field type doesn't perform any special validation of the input value.
 
 The field definition of this field type can be configured with several options:
 
-| Name           | Type      | Default value         | Description                                                                                                                             |
-|----------------|-----------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `useSeconds`   | `boolean` | `false`               | Used to control displaying of seconds in the output.                                                                                    |
-| `defaultType`  | `mixed`   | `Type::DEFAULT_EMPTY` | One of the `DEFAULT_*` constants, used by the administration interface for setting the default field value. See below for more details. |
-| `dateInterval` | `null     | \DateInterval`        | `null`                                                                                                                                  |This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface is adjusted by the given `\DateInterval`.|
+| Name           | Type             | Default value         | Description                                                                                                                             |
+|----------------|------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `useSeconds`   | `boolean`        | `false`               | Used to control displaying of seconds in the output.                                                                                    |
+| `defaultType`  | `mixed`          | `Type::DEFAULT_EMPTY` | One of the `DEFAULT_*` constants, used by the administration interface for setting the default field value. See below for more details. |
+| `dateInterval` | `?\DateInterval` | `null`                | This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface is adjusted by the given `\DateInterval`.|
 
 Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\DateAndTime\Type` class:
 
@@ -94,10 +94,17 @@ Following `defaultType` default value options are available as constants in the 
 use Ibexa\Core\FieldType\DateAndTime\Type;
 
 $settings = [
-    "useSeconds" => false,
-    "defaultType" => Type::DEFAULT_EMPTY,
-    "dateInterval" => null
+    'useSeconds' => false,
+    'defaultType' => Type::DEFAULT_EMPTY,
+    'dateInterval' => null,
 ];
+
+/** @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService */
+$dateAndTimeFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct(
+    'my_date_and_time_field',
+    'ibexa_datetime'
+);
+$dateAndTimeFieldCreateStruct->fieldSettings = $settings;
 ```
 
 ## Template rendering
@@ -110,6 +117,6 @@ The template called by the [`ibexa_render_field()` Twig function](field_twig_fun
 
 Example:
 
-``` php
+``` html+twig
 {{ ibexa_render_field(content, 'datetime') }}
 ```

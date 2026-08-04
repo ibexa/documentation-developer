@@ -1,5 +1,5 @@
 ---
-month_change: true
+month_change: false
 description: Embedding queries, embedding configuration, providers, and embedding search fields
 ---
 
@@ -88,11 +88,10 @@ Embedding vectors are stored in dedicated search fields.
 These fields can be used by the search engine to perform vector similarity comparisons when embedding queries are executed.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/embedding_fields.php') =]]
+[[= include_code('code_samples/api/public_php_api/src/embedding_fields.php') =]]
 ```
 
 Once you create a field, subscribe to the `ContentIndexCreateEvent` indexing event that [adds the field to the index](index_custom_elasticsearch_data.md).
-
 
 - [`Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingFieldFactory.html) creates dedicated search fields that store embedding vectors
 

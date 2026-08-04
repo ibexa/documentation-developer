@@ -1,6 +1,6 @@
 ---
 description: Install and configure Quable PIM connector for Ibexa DXP
-month_change: true
+month_change: false
 ---
 
 # Install Quable connector
@@ -9,7 +9,7 @@ To integrate [[= product_name =]] with [[= pim_product_name =]] PIM, you need to
 
 ## Create [[= pim_product_name =]] instance
 
-Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] PIM instance](https://quable.com).
+Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] PIM instance](https://www.quable.com).
 
 ## Install package
 
@@ -172,7 +172,7 @@ ibexa_connector_quable:
     webhook_secret: '<webhook authorization header>'
 ```
 
-!!! warning
+!!! caution
 
     [Quable uses dynamic IP addresses](https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist) to connect to [[= product_name =]].
     If your DXP instance is protected by a firewall, make sure your configuration allows connections from changing IP addresses.

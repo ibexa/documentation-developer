@@ -31,7 +31,7 @@ The available groups for the storefront are:
 
 ## Template customization example
 
-As an example, to change the cart display when it contains no products, you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
+As an example, to change the cart display when it contains no products, you need to override the `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig` template.
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
@@ -201,7 +201,6 @@ JavaScript class:
 
 - `@ibexa-cart/src/bundle/Resources/public/js/component/summary`
 
-
 ### Minicart
 
 You could modify the minicart widget by changing its icon, title or other elements.
@@ -227,7 +226,6 @@ with parameters:
 !!! tip
 
     For templates related to product rendering, see [Customize product view](customize_product_view.md#available-templates).
-
 
 ### Summary
 

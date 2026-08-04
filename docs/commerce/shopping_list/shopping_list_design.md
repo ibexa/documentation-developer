@@ -1,7 +1,7 @@
 ---
 description: Learn how to integrate the shopping list features to your own online store design.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list design
@@ -30,11 +30,13 @@ The following example shows the setup of an "Add to shopping list" widget on a p
 For a base product, the variants are listed with an instance of the widget to demonstrate that it can be used several time on the same page.
 
 Create an `assets/js/add-to-shopping-list.ts` that initializes the `ShoppingList` object and imports the script handling the widget interactions:
+
 ``` ts
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/assets/js/add-to-shopping-list.ts') =]]
 ```
 
 Edit the `webpack.config.js` to enable TypeScript, set the aliases used in `add-to-shopping-list.ts`, and create an entry for it:
+
 ``` js hl_lines="5-14"
 // […]
 
@@ -64,22 +66,26 @@ Then, you can use the component in your template as in the following example:
 To have a more complete example, let's continue with a product full view template which could work on a fresh installation.
 
 In `src/Controller/ProductViewController.php`, create a new controller to add the variants to the product view:
+
 ``` php hl_lines="24-30"
-[[= include_file('code_samples/shopping_list/add_to_shopping_list/src/Controller/ProductViewController.php') =]]
+[[= include_code('code_samples/shopping_list/add_to_shopping_list/src/Controller/ProductViewController.php') =]]
 ```
 
 In `templates/themes/standard/full/product.html.twig`, create a template to render the product in full view:
+
 ``` twig hl_lines="7 8 16-18 31-33 44"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/templates/themes/standard/full/product.html.twig') =]]
 ```
+
 Because the component uses global variables, it can't be used directly in a macro.
 
 In `config/packages/views.yaml`, configure the controller and template used to render the product full view:
+
 ``` yaml hl_lines="7 8"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/config/packages/views.yaml') =]]
 ```
 
-![](img/add_to_shopping_list_widget.png "Preview of this “Add to shopping list” widget example")
+![Preview of this “Add to shopping list” widget example](img/add_to_shopping_list_widget.png "Preview of this “Add to shopping list” widget example")
 
 ## `ShoppingList` JS class and `ibexaShoppingList` global
 
@@ -153,6 +159,7 @@ shoppingLists_Mockup = {
     ]
 };
 ```
+
 Remember that a `ShoppingList` object like the `window.ibexaShoppingList` has its data updated by the `ShoppingList.createShoppingList` and `ShoppingList.loadShoppingLists` methods.
 
 The following script creates a shopping list, adds a product to it, then refreshes the local `window.ibexaShoppingList.shoppingLists` (as `addShoppingListEntries` method doesn't do it):

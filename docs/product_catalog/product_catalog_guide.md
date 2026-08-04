@@ -43,7 +43,7 @@ You can also configure selected product attributes to be used as a basis for var
 
 ![Product attributes](img/product_attributes.png)
 
-For more information, see [Product attributes](products.md#product-attributes) and [Work with product attributes]([[= user_doc =]]/pim/work_with_product_attributes/)
+For more information, see [Product attributes](products.md#product-attributes) and [Work with product attributes]([[= user_doc =]]/product_catalog/work_with_product_attributes/)
 
 ### Product variants
 
@@ -64,7 +64,7 @@ Created collection is automatically assigned to the variant or variants that hav
 ### Availability
 
 Product availability defines whether a product is available in the catalog.
-For each product you can [set availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per variant or per base product.
+For each product you can [set availability]([[= user_doc =]]/product_catalog/manage_availability_and_stock/) per variant or per base product.
 When a product is available, it can have numerical stock defined, that you can set.
 The stock can also be set to infinite, for example, for digital, downloadable products.
 A product can only be ordered when it has either positive stock, or stock set to infinite.
@@ -76,7 +76,7 @@ Each product can belong to multiple categories of, depending on user’s choice,
 Category can also be assigned to multiple products.
 
 One of the reasons for applying product categories is assisting users in searching for products.
-Before you can assign categories to products, you need to [enable product categories]([[= user_doc =]]/pim/work_with_product_categories/#enable-product-categories).
+Before you can assign categories to products, you need to [enable product categories]([[= user_doc =]]/product_catalog/work_with_product_categories/#enable-product-categories).
 
 ![Product categories](img/product_categories.png)
 
@@ -89,7 +89,7 @@ Product types in [[= product_name =]] can be either virtual or physical:
 
 This product type property can affect the checkout process.
 A cart of only virtual products skips the [shipping step](shipping_management.md) during checkout.
-To learn more about working with virtual products, see [Virtual products]([[= user_doc =]]/pim/create_virtual_product/) in the User Documentation.
+To learn more about working with virtual products, see [Virtual products]([[= user_doc =]]/product_catalog/create_virtual_product/) in the User Documentation.
 
 ### Currencies
 
@@ -183,7 +183,7 @@ This versatility allows for a consistent and user-friendly purchasing workflow r
 
 ##### Pricing, stock and availability
 
-A product can only be ordered when it has defined [availability]([[= user_doc =]]/pim/manage_availability_and_stock/), stock and [pricing information]([[= user_doc =]]/pim/manage_prices/).
+A product can only be ordered when it has defined [availability]([[= user_doc =]]/product_catalog/manage_availability_and_stock/), stock and [pricing information]([[= user_doc =]]/product_catalog/manage_prices/).
 
 By default, such information is held in the [[= product_name =]]'s local database.
 In your specific scenario, you can implement the support for availability and pricing information coming from an external source as well, by using a price/availability matching strategy that is an extension point exposed in the Product catalog module.
@@ -200,7 +200,7 @@ Filtering and pagination function the same as with the product catalog, relying 
 However, criteria and sort clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
 
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
-For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
+For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/5.0/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
 
 For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md).
 

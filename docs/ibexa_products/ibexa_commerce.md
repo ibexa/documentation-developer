@@ -1,5 +1,4 @@
 ---
-title: Ibexa Commerce
 description: Explore all of the key features, functionalities, and advantages of Ibexa Commerce, the most powerful edition that Ibexa DXP has to offer.
 month_change: false
 ---
@@ -96,7 +95,7 @@ With this feature you can also [create email campaigns](transactional_emails.md#
 
 #### Create personalized shipping experience
 
-Use [Ibexa Personalization]([[= user_doc =]]/personalization/use_cases/#ecommerce) to transform your online stores and give your consumers great buying experiences, from initial contact to post-purchase support.
+Use [Raptor recommendations connector](raptor_connector_guide.md) to transform your online stores and give your consumers great buying experiences, from initial contact to post-purchase support.
 No matter how complicated your product or sales process are, you can present your offer in an approachable way.
 Creating engaging and personalized shopping experiences with targeted offers and recommendations helps you boost sales.
 Within eCommerce, product recommendations can assist users in finding the exact item that meets their needs.

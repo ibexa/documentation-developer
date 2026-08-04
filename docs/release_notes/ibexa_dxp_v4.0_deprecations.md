@@ -16,7 +16,7 @@ Namespaces in the product which referred to old product names now use the [[= pr
 
 All namespace changes are listed in the `ibexa/compatibility-layer` repository.
 
-Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/tree/main/src/bundle/Resources/mappings)
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/tree/4.0/src/bundle/Resources/mappings)
 for a full comparison of old and new bundle names and namespaces.
 
 !!! tip
@@ -27,7 +27,7 @@ for a full comparison of old and new bundle names and namespaces.
 
 ### Richtext namespace
 
-The internal format of richtext has changed. 
+The internal format of richtext has changed.
 
 All namespace changes are listed in the
 [richtext](https://github.com/ibexa/fieldtype-richtext/blob/bf45e57ea1d2933cc02eb8d8bff76c0925de92de/src/bundle/Resources/config/default_settings.yaml#L60-L67) repository.
@@ -90,7 +90,7 @@ Service names which referred to old product names now use the [[= product_name_b
 
 All service name changes are listed in the `ibexa/compatibility-layer` repository.
 
-Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/services-to-fqcn-map.php)
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/4.0/src/bundle/Resources/mappings/services-to-fqcn-map.php)
 for a full comparison of old and new names.
 
 ## Service tags
@@ -99,7 +99,7 @@ Service tag which referred to old product names now use the [[= product_name_bas
 
 All service tag changes are listed in the `ibexa/compatibility-layer` repository.
 
-Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/symfony-service-tag-name-map.php)
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/4.0/src/bundle/Resources/mappings/symfony-service-tag-name-map.php)
 for a full comparison of old and new service tags.
 
 ## CSS classes for back office
@@ -236,8 +236,8 @@ The following Twig functions and filter have been renamed, including:
     | `unserialize` | `ibexa_commerce_unserialize` |
     | `youtube_video_id` | `ibexa_commerce_youtube_video_id` |
 
-
 ## URL Alias route name
+
 URL Alias route name has changed from `ez_urlalias` to `ibexa.url.alias`.
 
 ## Configuration file names

@@ -31,8 +31,8 @@ Use the `limit` and `offset` properties of [DiscountQuery](/api/php_api/php_api_
 
 The following example shows how you can use the criteria to find all the currently active discounts:
 
-```php hl_lines="13-20"
-[[= include_file('code_samples/discounts/src/Query/Search.php') =]]
+``` php hl_lines="13-20"
+[[= include_code('code_samples/discounts/src/Query/Search.php') =]]
 ```
 
 The criteria limit the result set to discounts matching all of the conditions listed below:

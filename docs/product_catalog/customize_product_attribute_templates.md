@@ -1,6 +1,6 @@
 ---
 description: Customize the Twig templates used to render product attribute values.
-month_change: true
+month_change: false
 ---
 
 # Customize product attribute templates
@@ -89,5 +89,5 @@ You can inject additional templates by listening to the [`ProductAttributeRender
 Use this option when you want to add templates conditionally, for example based on the active catalog engine or region.
 
 ``` php
-[[= include_file('code_samples/product_catalog/src/EventSubscriber/MyAttributeRenderSubscriber.php') =]]
+[[= include_code('code_samples/product_catalog/src/EventSubscriber/MyAttributeRenderSubscriber.php') =]]
 ```

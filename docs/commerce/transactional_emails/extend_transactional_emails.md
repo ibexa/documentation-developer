@@ -30,16 +30,13 @@ framework:
 [[= product_name =]] comes with a predefined [set of variables](transactional_emails_parameters.md) that you can use when building a template for your transactional email campaign at Actito.
 If this list isn't sufficient, you can use Events to include additional variables:
 
-```php
+``` php
 <?php
 
 namespace App\EventSubscriber;
 
 use Ibexa\Contracts\ConnectorActito\Client\TransactionalMail\SimpleParameter;
 use Ibexa\Contracts\ConnectorActito\Event\TransactionalMailRequest\ParametersFactoryEvent;
-use Ibexa\Contracts\OrderManagement\Notification\OrderAwareNotificationInterface;
-use Ibexa\Contracts\Payment\Notification\PaymentAwareNotificationInterface;
-use Ibexa\Contracts\Payment\PaymentMethodServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class TransactionalMailFactoryEventSubscriber implements EventSubscriberInterface
@@ -73,13 +70,13 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
 ## Customize Actito end-user profile
 
 The Actito platform offers many features for customer data collection, including segmentation, subscriptions, and interaction tracking.
-This information can be later user for generating statistics, establishing trends, or used to calculate Personalization recommendations.
+This information can be later user for generating statistics, establishing trends, or used to calculate recommendations.
 To use these features you need to provide profile data to API requests yourself.
 You do it by means of events that are triggered during profile building.
 
 For example, the `Ibexa\Contracts\ConnectorActito\Event\TransactionalMailRequest\ProfileFactoryEvent` event is triggered for every transactional notification, and it lets you set required data that is passed to Actito API:
 
-```php
+``` php
 <?php
 
 namespace App\EventSubscriber;
@@ -102,9 +99,9 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
     {
         $recipient = $event->getRecipient();
         $profile = $event->getProfile();
-      	$user = $recipient->getUser();
-				
-      	// Provide additional data if your profile has more attributes:
+        $user = $recipient->getUser();
+
+        // Provide additional data if your profile has more attributes:
         $attributes = $profile->getAttributes();
         $attributes[] = new Attribute('name', $user->getName());
         $profile->setAttributes($attributes);
@@ -120,8 +117,8 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
         $profile->setSegmentations($segmentations);
 
         // Use the same mechanism to pass other profile data
-        $profile->setSubscriptions(...);
-        $profile->setDataCollection(...);
+        // $profile->setSubscriptions($subscriptions);
+        // $profile->setDataCollection($dataCollection);
     }
 }
 ```
@@ -134,7 +131,7 @@ You could do it by adding a language suffix to a campaign name.
 
 On [[= product_name =]] side, to support this scenario, you must use an Event Subscriber on `Ibexa\Contracts\ConnectorActito\Event\ResolveCampaignEvent`:
 
-```php
+``` php
 <?php
 
 namespace App\EventSubscriber;

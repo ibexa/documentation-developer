@@ -1,7 +1,7 @@
 ---
 description: Product Search Criteria
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Product Search Criteria reference

@@ -16,7 +16,7 @@ This field type represents an integer value.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -26,10 +26,11 @@ The Value class of this field type contains the following properties:
 
 ``` php
 // Value object content example
-$integer->value = 8
+/** @var \Ibexa\Core\FieldType\Integer\Value $integer */
+$integer->value = 8;
 ```
 
-##### Constructor
+#### Constructor
 
 The `Integer\Value` constructor initializes a new value object with the value provided.
 It expects a numeric, integer value.
@@ -39,16 +40,16 @@ It expects a numeric, integer value.
 use Ibexa\Core\FieldType\Integer;
 
 // Instantiates a Integer Value object
-$integerValue = new Integer\Value( 8 );
+$integerValue = new Integer\Value(8);
 ```
 
-### Hash format
+#### Hash format
 
 Hash value of this field type is an integer value as a string.
 
 Example: `"8"`
 
-### String representation
+#### String representation
 
 String representation of the field type's value returns the integer value as a string.
 
@@ -66,8 +67,8 @@ This field type supports `IntegerValueValidator`, defining maximum and minimum f
 ``` php
 // Example of validator configuration in PHP
 $validatorConfiguration = [
-    "minIntegerValue" => 1,
-    "maxIntegerValue" => 24
+    'minIntegerValue' => 1,
+    'maxIntegerValue' => 24,
 ];
 ```
 

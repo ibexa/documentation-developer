@@ -40,33 +40,31 @@ Separate currencies enable you to set different price rules for different curren
 
 ### Taxonomy management
 
-You can now organize content adding tags and create taxonomy categories to make it easy for your 
+You can now organize content adding tags and create taxonomy categories to make it easy for your
 site users to browse and to deliver content appropriate for them.
 
 ### Separate recommendations for different websites
 
-Personalization service has been enhanced to allow returning separate recommendations 
-for different websites. 
-This way you can eliminate irrelevant recommendations when you set up stores that 
+Personalization service has been enhanced to allow returning separate recommendations
+for different websites.
+This way you can eliminate irrelevant recommendations when you set up stores that
 operate on different markets or under different brands.
-
-For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-website-hosting).
 
 ## Other changes
 
 ### Draft locking
 
-You can now configure and use the locking feature to lock a draft of a content item, 
-so that only an assigned person can edit it, and no other user can take it over. 
+You can now configure and use the locking feature to lock a draft of a content item,
+so that only an assigned person can edit it, and no other user can take it over.
 
-For more information, see the [Draft locking](https://doc.ibexa.co/en/latest/guide/workflow/workflow/#draft-locking)
-and relevant [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/publishing/editorial_workflow/#releasing-locked-drafts).
+For more information, see the [Draft locking](https://doc.ibexa.co/en/4.0/guide/workflow/workflow/#draft-locking)
+and relevant [User Documentation](https://doc.ibexa.co/projects/userguide/en/4.0/publishing/editorial_workflow/#releasing-locked-drafts).
 
 ### Online Editor is now based on CKEditor
 
 You can now edit content of RichText Fields using CKEditor and extend its functionality with many elements.
 
-For more information, see [Extend Online Editor](https://doc.ibexa.co/en/latest/extending/extending_online_editor/).
+For more information, see [Extend Online Editor](https://doc.ibexa.co/en/4.0/extending/extending_online_editor/).
 
 ### Enhanced GraphQL location handling
 
@@ -74,10 +72,10 @@ GraphQL now enables better querying of Locations and URLs.
 
 ### Migration API
 
-You can now manage [data migrations](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration/) by using the PHP API,
+You can now manage [data migrations](https://doc.ibexa.co/en/4.0/guide/data_migration/data_migration/) by using the PHP API,
 including getting migration information and running individual migration files.
 
-See [Managing migrations](https://doc.ibexa.co/en/latest/api/public_php_api_managing_migrations/) for more information.
+See [Managing migrations](https://doc.ibexa.co/en/4.0/api/public_php_api_managing_migrations/) for more information.
 
 ### Decide whether alternative text for Image field is optional
 
@@ -88,13 +86,13 @@ You can set it as required when adding the Image field to a content type.
 
 You can now select which page blocks, page layout and what edit mode are available in the Editor mode for the content type.
 
-For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#configure-block-display).
+For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/4.0/site_organization/working_with_page/#configure-block-display).
 
 ### Purge all submissions of given form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can purge all submissions of a given form.
 
-For more information, see [Forms](https://doc.ibexa.co/en/latest/guide/form_builder/forms/#form-submission-purging).
+For more information, see [Forms](https://doc.ibexa.co/en/4.0/guide/form_builder/forms/#form-submission-purging).
 
 ### External datasource handling
 
@@ -103,7 +101,6 @@ Personalization has been given an option to fetch content feed from external sou
 ### Category exclusion
 
 Personalization service has been enhanced with a feature which allows to exclude categories from the recommendation response.
-See [Exclusions](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#exclusions).
 
 ## Deprecations
 

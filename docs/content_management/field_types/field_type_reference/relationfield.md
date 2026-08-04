@@ -17,29 +17,35 @@ This field type makes it possible to store and retrieve the value of a relation 
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
-| Property               | Type              | Description                                                                               |
-|------------------------|-------------------|-------------------------------------------------------------------------------------------|
-| `$destinationContentId` | `string|int|null` | This property is used to store the value provided, which represents the related content. |
+| Property               | Type                        | Description                                                                               |
+|------------------------|-----------------------------|-------------------------------------------------------------------------------------------|
+| `$destinationContentId` | `string`, `int`, or `null` | This property is used to store the value provided, which represents the related content.  |
 
 ``` php
-// Value object content example
-
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\Relation\Value $relation
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ */
 $relation->destinationContentId = $contentInfo->id;
 ```
 
-##### Constructor
+#### Constructor
 
 The `Relation\Value` constructor initializes a new value object with the value provided. It expects a mixed value.
 
 ``` php
 // Constructor example
+use Ibexa\Core\FieldType\Relation as Relation;
 
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
 // Instantiates a Relation Value object
-$relationValue = new Relation\Value( $contentInfo->id );
+$relationValue = new Relation\Value($contentInfo->id);
 ```
 
 ### Validation
@@ -62,8 +68,8 @@ The field definition of this field type can be configured with three options:
 use Ibexa\Core\FieldType\Relation\Type;
 
 $settings = [
-    "selectionMethod" => 1,
-    "selectionRoot" => null,
-    "selectionContentTypes" => []
+    'selectionMethod' => 1,
+    'selectionRoot' => null,
+    'selectionContentTypes' => [],
 ];
 ```

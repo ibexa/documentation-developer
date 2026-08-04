@@ -22,9 +22,13 @@ The [RawRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+
 $query = new LocationQuery();
 $query->aggregations[] = new Aggregation\RawRangeAggregation('priority', 'priority_id', [
-    new Query\Aggregation\Range(1, 10),
-    new Query\Aggregation\Range(10, 100)
+    Range::ofInt(1, 10),
+    Range::ofInt(10, 100),
 ]);
 ```

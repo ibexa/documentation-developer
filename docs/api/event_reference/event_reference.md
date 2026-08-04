@@ -13,7 +13,7 @@ In most cases, two events are dispatched for every action, one before the action
 For example, copying a content item is connected with two events: `BeforeCopyContentEvent` and `CopyContentEvent`.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/EventSubscriber/MyEventSubcriber.php') =]]
+[[= include_code('code_samples/api/public_php_api/src/EventSubscriber/MyEventSubcriber.php') =]]
 ```
 
 [[= cards([

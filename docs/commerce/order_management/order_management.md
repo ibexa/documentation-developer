@@ -15,6 +15,6 @@ The component exposes the following:
 - [PHP API](order_management_api.md) that allows for managing orders
 - [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Orders) that helps get order information over HTTP
 
-### Order management service
+## Order management service
 
 The Order Management package provides the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` service, which is the entrypoint for calling the [backend API](order_management_api.md).

@@ -1,6 +1,7 @@
 ---
 description: Page blocks can contain multiple attributes, of both built-in and custom types.
 month_change: false
+edition: experience
 ---
 
 # Page block attributes
@@ -34,12 +35,12 @@ The following attribute types are available:
 |`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
-|`checkbox`|Checkbox|Selects available option if `value: true`.|
+|`checkbox`|Checkbox|Selects available option if `value: true`. Checkbox appearance in block configuration forms [can be configured](#configure-checkbox-appearance) |
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`contenttypelist`|List of content types|-|
-|`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
+|`schedule_events`,<br>`schedule_snapshots`,<br>`schedule_initial_items`,<br>`schedule_slots`,<br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 |`nested_attribute`|Defines a group of attributes in a block.|<ul><li>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes</li><li>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button</li></ul>|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
@@ -72,7 +73,7 @@ for example `AbstractType` for any custom type or `IntegerType` for numeric type
 To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` file:
 
 ``` php hl_lines="5 6 17"
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
 The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
@@ -97,7 +98,7 @@ To use a custom mapper, create a class that inherits from `Ibexa\Contracts\Field
 for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
 
 ``` php
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
 ```
 
 Then, add a new service definition for your mapper to `config/services.yaml`:
@@ -190,3 +191,23 @@ You can set the options for root or nested attribute, see the example configurat
 ```
 
 ![Help message](../img/page_block_help_message.png "Help message")
+
+## Configure checkbox appearance
+
+For blocks with an attribute of `checkbox` type, you can change the look of the checkbox in block configuration forms.
+
+You can do it by adding the `block_prefix: block_configuration_attribute_checkbox_toggle` option in the block configuration as follows:
+
+``` yaml hl_lines="4 5"
+<attribute_identifier>:
+    name: <name>
+    type: checkbox
+    options:
+        block_prefix: block_configuration_attribute_checkbox_toggle
+```
+
+This setting changes the checkbox appearance to a toggle widget.
+
+![Toggle widget](toggle_widget.png)
+
+If you remove the above setting from the configuration, the attribute reverts to the default checkbox appearance.

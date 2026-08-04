@@ -1,6 +1,6 @@
 ---
 description: ProductCategorySubtree Search Criterion
-month_change: true
+month_change: false
 ---
 
 # ProductCategorySubtree Criterion
@@ -18,6 +18,5 @@ Unlike the [`ProductCategory` criterion](productcategory_criterion.md), which ma
 ### PHP
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Query/ProductCategorySubtreeQuery.php') =]]
+[[= include_code('code_samples/back_office/search/src/Query/ProductCategorySubtreeQuery.php') =]]
 ```
-

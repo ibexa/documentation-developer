@@ -15,11 +15,18 @@ The [DateMetadataRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+
 $query = new Query();
-$query->aggregations[] = new Aggregation\DateMetadataRangeAggregation('date_metadata', Aggregation\DateMetadataRangeAggregation::PUBLISHED,
+$query->aggregations[] = new Aggregation\DateMetadataRangeAggregation(
+    'date_metadata',
+    Aggregation\DateMetadataRangeAggregation::PUBLISHED,
     [
-        new Query\Aggregation\Range(null, new DateTime('2020-06-01')),
-        new Query\Aggregation\Range(new DateTime('2020-06-01'), new DateTime('2020-12-31')),
-        new Query\Aggregation\Range(new DateTime('2020-12-31'), null),
-    ]);
+        Range::ofDateTime(null, new DateTime('2020-06-01')),
+        Range::ofDateTime(new DateTime('2020-06-01'), new DateTime('2020-12-31')),
+        Range::ofDateTime(new DateTime('2020-12-31'), null),
+    ]
+);
 ```

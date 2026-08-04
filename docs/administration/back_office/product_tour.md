@@ -1,7 +1,7 @@
 ---
 description: Product tours provide interactive guided walkthroughs to help users learn Ibexa DXP features.
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Product tour

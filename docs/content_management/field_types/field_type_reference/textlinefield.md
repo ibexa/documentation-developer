@@ -11,7 +11,7 @@ It's capable of handling up to 255 characters.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -35,11 +35,11 @@ The length of the string provided must be between the minimum length defined in 
 The default value for both properties is 0, which means that the validation is disabled by default.
 To set the validation properties, the `validateValidatorConfiguration()` method needs to be inspected, which receives an array with `minStringLength` and `maxStringLength` like in the following representation:
 
-```php
+``` php
 [
   'StringLengthValidator' => [
-    'maxStringLength' => 60
-    'minStringLength' => 1
-  ]
-]
+    'maxStringLength' => 60,
+    'minStringLength' => 1,
+  ],
+];
 ```

@@ -16,6 +16,9 @@ The `Image` Search Criterion searches for image by specified image attributes.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
 $imageCriteriaData = [
     'mimeTypes' => [
        'image/png',
@@ -36,6 +39,8 @@ $imageCriteriaData = [
         'max' => 2, // (default: null, optional)
     ],
 ];
+
+$query = new Query();
 $query->query = new Criterion\Image('image', $imageCriteriaData);
 ```
 

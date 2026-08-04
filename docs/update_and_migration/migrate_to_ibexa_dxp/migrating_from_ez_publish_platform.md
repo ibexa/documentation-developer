@@ -34,6 +34,19 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
         While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system.
         See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
+!!! caution "Unsupported legacy sorting methods"
+
+    In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
+    These sorting methods are no longer supported in [[= product_name =]].
+    After you migrate, trying to render the Sub-items tab of content items that are configured to use the unsupported sorting methods results in an error.
+
+    To mitigate the problem, before you migrate, update the affected content items to use supported sorting methods such as Name, Published, or Priority.
+    You can identify the configurations that use unsupported sorting methods with the following SQL query:
+
+    ```sql
+    SELECT node_id, parent_node_id, sort_field FROM ezcontentobject_tree WHERE sort_field IN (6, 7);
+    ```
+
 !!! note
 
     If you're migrating from a legacy eZ Publish version, this page contains the information you need.
@@ -93,17 +106,16 @@ If you plan to use Legacy Bridge for a while before migrating content, you also 
 
     As of v1.3, be aware this field type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content (in Legacy Bridge setup).
 
-
 ### 2.3. Config
 
 To move over your own custom configurations, follow the conventions below and manually move the settings over:
 
 - `<old-ez-root>/ezpublish/config/parameters.yaml => <new-ez-root>/app/config/parameters.yaml`
-    -  *For parameters like before, for new parameters you'll be prompted on later step.*
+    - *For parameters like before, for new parameters you'll be prompted on later step.*
 - `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
-    -  *For system/framework config, and for defining global db, cache, search settings.*
+    - *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
-    -  *For SiteAccess, site groups and repository settings.*
+    - *For SiteAccess, site groups and repository settings.*
 
 !!! note "Changes to repository configuration"
 
@@ -177,11 +189,10 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 `<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
 
-
 ### 2.5. Optional: Install Legacy Bridge
 
 If you don't plan to migrate content directly to newer eZ Platform field types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards.
-For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
+For more information, see [LegacyBridge installation instructions](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
 !!! note
 
@@ -219,7 +230,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 
     Since writable directories and files have been replaced / copied, their permissions might have changed. You most likely need to reconfigure webserver user permissions as instructed further down.
 
-###  2.6 Binary files
+### 2.6 Binary files
 
 Binary files can simply be copied from the old to the new installation:
 
@@ -229,7 +240,7 @@ Binary files can simply be copied from the old to the new installation:
 
     In the eZ Publish Platform 5.x installation `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files to the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
 
-###  2.7 Re-apply permissions and update composer
+### 2.7 Re-apply permissions and update composer
 
 Since writable directories and files have been replaced / copied, their permissions might have changed. You need to re-apply them.
 
@@ -245,7 +256,7 @@ When that is done, execute the following to update and install all packages from
 
 Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKernel.php`:
 
-`new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),` 
+`new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),`
 
 ## Step 3: Upgrade the database
 
@@ -288,7 +299,7 @@ Run the conversion script on a copy of your production database as the script is
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [memory_limit setting](https://www.php.net/manual/en/ini.core.php#ini.memory-limit).
+- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [`memory_limit` setting](https://www.php.net/manual/en/ini.core.php#ini.memory-limit).
 - `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it's able to convert all the `ezxmltext` documents.
 - `--export-dir` specifies a directory where it dumps the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
@@ -335,7 +346,6 @@ But later realize the last identifier should be `profile`, not ``custom_image``,
 `php bin/console ezxmltext:convert-to-richtext --image-content-types=image,profile -v`
 
 The last command would then ensure embedded objects with content type identifier `custom_image` are no longer tagged as images, while embedded objects with content type identifier `profile` are.
-
 
 Using the option `--export-dir`, the conversion exports problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file is also created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
 
@@ -413,9 +423,11 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 `php -d memory_limit=1536M bin/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
 
+##### Typical problems
+
 Typical problems that needs manual fixing:
 
-**Duplicate XHTML IDs**
+###### Duplicate XHTML ID
 
 XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 
@@ -431,7 +443,7 @@ XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 The conversion tool replaces the duplicate id (`inv5`) with a random value. If you need the ID value to match your CSS, you need to change it manually.
 The conversion tool also complains about IDs which contain invalid characters.
 
-**Links with non-existing `object_remote_id` or `node_remote_id`.**
+###### Links with non-existing `object_remote_id` or `node_remote_id`
 
 In `ezxmltext` you may have links which refer to other objects by their remote ID. This isn't supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it issues a warning about it.
 
@@ -443,7 +455,7 @@ In older eZ Publish databases you may also have invalid links due to lack of ref
 
 When the conversion tool detects links with no reference it issues a warning and rewrite the URL to point to current page (`href="#"`).
 
-**`<literal>`**
+###### `<literal>`
 
 The `<literal>` tag isn't yet supported in eZ Platform.
 
@@ -451,7 +463,7 @@ When you're ready to migrate your eZ Publish XmlText content to the eZ Platform 
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-**Custom tags and attributes**
+###### Custom tags and attributes
 
 eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
@@ -477,7 +489,6 @@ Below is a table of the tags that are currently supported, and their correspondi
 | `csssize`     | Not supported |   Use `string` as workaround |
 | `csssize4`    | Not supported |   Use `string` as workaround |
 | `cssborder`   | Not supported |   Use `string` as workaround |
-
 
 #### 3.2.2 Migrate page field to page (eZ Enterprise only)
 
@@ -514,11 +525,11 @@ php bin/console assetic:dump --env=prod
 
 ## Potential pitfalls
 
-##### Unstyled login screen after upgrade
+### Unstyled login screen after upgrade
 
 It's possible that after the upgrade your admin screen is unstyled. This may happen because the new SiteAccess isn't available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the **Admin** panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
-##### Translating URLs
+### Translating URLs
 
 If your legacy site uses old-style URL aliases, to upgrade them successfully you need to apply a workaround to the slug converter. Where the slug converter service is defined, set second config parameter to use `urlalias_compat` by adding a new argument to the existing settings:
 
@@ -540,7 +551,6 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
             - '@ezpublish.api.storage_engine.transformation_processor'
             - { transformation: urlalias_iri }
 ```
-
 
 ## Migrating legacy page field (ezflow) to new page (Enterprise)
 
@@ -568,7 +578,7 @@ To use the script, do the following:
 
 **2.** Add `ezflow-migration-toolkit` to `AppKernel.php`.
 
-``` php
+``` php {skip-validation}
 // AppKernel.php
 new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle()
 ```
@@ -579,18 +589,16 @@ new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle
 bin/console cache:clear
 ```
 
-**4.** Run the script with the following parameters:
+**4.** Run the script below with the following parameters:
 
 - absolute path of your legacy application
 - list of .ini files which define your legacy blocks
-
-**Script command**
 
 ``` bash
 bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<another block definition> ...]
 ```
 
-**Example of the migration script command**
+Example usage:
 
 ``` bash
 bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
@@ -604,7 +612,7 @@ You can see a report summarizing the results of the migration.
 
 **6.** Add `MigrationBundle` to `AppKernel.php`.
 
-``` php
+``` php {skip-validation}
 // AppKernel.php
 new MigrationBundle\MigrationBundle()
 ```

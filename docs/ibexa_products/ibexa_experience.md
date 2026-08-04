@@ -1,5 +1,4 @@
 ---
-title: Ibexa Experience
 description: Learn about all the main attributes, features, and benefits of the customer-focused Ibexa Experience edition.
 month_change: false
 ---
@@ -64,7 +63,7 @@ Additionally, you can monitor and manage the information obtained from website v
 
 #### Site Factory
 
-[Site Factory ](site_factory.md) is a site management interface, integrated with the back office.
+[Site Factory](site_factory.md) is a site management interface, integrated with the back office.
 It enables you to configure new sites without leaving the administration interface and editing SiteAccess configuration.
 With this feature you can create and deploy multiple websites at lightning speed and at scale.
 It allows you to manage expenses and resources while industrializing your web presence.
@@ -93,10 +92,10 @@ Using this tool, your customers can change their organization details, invite an
 
 #### Segments
 
-[Segmentation](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) allows you to split up the user base.
+[Segmentation](segments_admin_panel.md) allows you to split up the user base.
 By assigning users to segments, you can display specific content to selected visitors and tailor the content that they can see.
 One of the tools that you can use right out of the box is the Targeting block that is available in the Page Builder.
-Segmentation is also useful with the [Personalization](personalization_guide.md).
+Segmentation is also useful with the [Recommendations](raptor_connector_guide.md).
 You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
 
 ![Segments](segments.png)

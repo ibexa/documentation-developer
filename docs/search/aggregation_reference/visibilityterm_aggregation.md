@@ -13,6 +13,9 @@ The [VisibilityTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Con
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new Query();
 $query->aggregations[] = new Aggregation\VisibilityTermAggregation('visibility');
 ```

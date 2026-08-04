@@ -82,22 +82,22 @@
                     <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-latest-release.svg" alt="The latest release" />
+                    <img src="images/notification-latest-release.svg" alt="" />
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is Google Gemini connector</h2>
-                    <div>Integrate Google's AI services into Ibexa DXP.</div>
+                    <h2>The newest LTS Update is MCP Servers</h2>
+                    <div>Set up MCP servers to help AI agents interact with Ibexa DXP.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="ai_actions/configure_ai_actions/#install-google-gemini-connector">Learn more about this LTS Update</a>
+                    <a href="ai/mcp/mcp_guide/">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
+                    <img src="images/notification-lts-update.svg" alt="" />
                 </div>
             </div>
         </div>
@@ -192,7 +192,7 @@
                     </h3>
                     <ul>
                         <li><a href="product_catalog/product_catalog_configuration/">Product catalog configuration</a></li>
-                        <li><a href="product_catalog/quable_integration/">Quable PIM Integration</a></li>
+                        <li><a href="product_catalog/quable/quable/">Quable PIM Integration</a></li>
                         <li><a href="product_catalog/catalogs/">Catalogs</a></li>
                         <li><a href="product_catalog/prices/">Prices</a></li>
                     </ul>

@@ -28,19 +28,12 @@ use Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface;
 
 class MyService
 {
-    /** @var \Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface */
-    private $shortDateTimeFormatter;
-
-    public function __construct(FormatterInterface $shortDateTimeFormatter)
+    public function __construct(private readonly FormatterInterface $shortDateTimeFormatter)
     {
-        // your code
-
-        $this->shortDateTimeFormatter = $shortDateTimeFormatter;
-
         // your code
     }
 
-    public function foo()
+    public function foo(): void
     {
         // your code
 
