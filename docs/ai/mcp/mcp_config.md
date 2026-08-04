@@ -76,7 +76,7 @@ Those routes are identified as `ibexa.mcp.<server_identifier>`.
 You can list them by running the following command:
 
 ```bash
-php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
+php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
 ```
 
 ### MCP server options
