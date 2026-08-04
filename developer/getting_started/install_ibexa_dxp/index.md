@@ -1,0 +1,516 @@
+# Install Ibexa DXP
+
+Install Ibexa DXP on a Linux system and prepare your installation for production.
+
+> **Note: Note**
+>
+> Installation for production is only supported on Linux.
+>
+> To install Ibexa DXP for development on macOS or Windows, see the [installation guide for macOS and Windows](../install_on_mac_os_and_windows/index.md).
+
+> **Note: Installing Ibexa OSS**
+>
+> This installation guide shows in detail how to install Ibexa DXP for users who have a subscription agreement with Ibexa. If you want to install Ibexa OSS, you don't need authentication tokens or an account on updates.ibexa.co, but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
+
+## Prepare work environment
+
+To install Ibexa DXP you need a stack with your operating system, MySQL or MariaDB, and PHP.
+
+You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu).
+
+Additional requirements:
+
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/) for asset management
+- `git` for version control
+
+For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
+
+Before getting started, make sure you review other [requirements](../requirements/index.md) to see the systems that are supported and used for testing.
+
+### Get Composer
+
+Install a recent stable version of Composer, the PHP command line dependency manager. Use the package manager for your Linux distribution. For example, on Ubuntu:
+
+```bash
+apt-get install composer
+```
+
+To verify that you have the most recent stable version of Composer, you can run:
+
+```bash
+composer -V
+```
+
+> **Tip: Install Composer locally**
+>
+> If you want to install Composer inside your project root directory only, follow the instructions for [installing Composer in the current directory](https://getcomposer.org/download/).
+>
+> If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
+
+## Install Ibexa DXP
+
+### Set up authentication tokens
+
+Ibexa DXP subscribers have access to commercial packages at [updates.ibexa.co](https://updates.ibexa.co/). The site is password-protected. You must set up authentication tokens to access the site.
+
+Log in to your Service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+
+![Authentication token](https://doc.ibexa.co/en/5.0/getting_started/img/using_composer_auth_token.png)
+
+1. Select **Create token** (this requires the **Portal administrator** access level).
+2. Fill in a label describing the use of the token. This allows you to revoke access later.
+3. Save the password. **You won't be able to access it again**.
+
+> **Tip: Save the authentication token inauth.jsonto avoid re-typing it**
+>
+> Composer asks whether you want to save the token every time you perform an update. If you prefer, you can decline and create an `auth.json` file globally in the [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+>
+> ```bash
+> composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
+> ```
+>
+> To store your credentials per project, add the credentials to the `COMPOSER_AUTH` variable:
+>
+> ```bash
+> export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
+> ```
+>
+> You then need to [add the contents of this variable to `auth.json`](#authentication-token).
+
+> **Tip: Different tokens for different projects on a single host**
+>
+> If you configure several projects on one machine, make sure that you set different tokens for each of the projects in their respective `auth.json` files.
+
+After this, when running Composer to get updates, you're asked for a username and password. Use:
+
+- as username - your Installation key found on the **Maintenance and Support agreement details** page in the Service portal
+- as password - the token password you retrieved in step 3 above
+
+> **Note: Authentication token validation delay**
+>
+> You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
+
+> **Caution: Support agreement expiry**
+>
+> If your Support agreement expires, your authentication token(s) will no longer work. They will become active again if the agreement is renewed, but this process may take up to 24 hours. *(If the agreement is renewed before the expiry date, there will be no disruption of service.)*
+
+If Composer asks for your GitHub token, you must log in to your GitHub account and generate a new token (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings). This operation is performed only once, when you install Ibexa DXP for the first time.
+
+### Create project
+
+To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
+
+**Ibexa Headless**
+
+```bash
+composer create-project ibexa/headless-skeleton .
+```
+
+**Ibexa Experience**
+
+```bash
+composer create-project ibexa/experience-skeleton .
+```
+
+**Ibexa Commerce**
+
+```bash
+composer create-project ibexa/commerce-skeleton .
+```
+
+Using PHP versions other than 8.3
+
+If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
+
+**Ibexa Headless**
+
+```bash
+composer create-project ibexa/headless-skeleton --no-install .
+composer update
+```
+
+**Ibexa Experience**
+
+```bash
+composer create-project ibexa/experience-skeleton --no-install .
+composer update
+```
+
+**Ibexa Commerce**
+
+```bash
+composer create-project ibexa/commerce-skeleton --no-install .
+composer update
+```
+
+> **Tip: Authentication token**
+>
+> If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
+
+> **Caution: Security advisories**
+>
+> If you encounter security advisories that prevent the install, see [Package security advisories](../../infrastructure_and_maintenance/security/security_advisories/index.md#package-security-advisories).
+
+> **Tip: Version constraint**
+>
+> You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`5.0.9`), version range (`~5.0.1`), or stability (`^5.0@rc`):
+>
+> ```bash
+> composer create-project ibexa/experience-skeleton:5.0.9 .
+> ```
+
+> **Note: Ibexa Cloud**
+>
+> If you're deploying your installation on [Upsun](https://fixed.docs.upsun.com/guides/ibexa/deploy.html), run the following commands:
+>
+> ```bash
+> composer require ibexa/cloud
+> php bin/console ibexa:cloud:setup --upsun
+> ```
+>
+> These commands add the necessary package and provide the required configuration for using Upsun. For more information, see [Install on Ibexa Cloud](../../ibexa_cloud/install_on_ibexa_cloud/index.md).
+
+#### Add project to version control
+
+It's recommended to add your project to version control. Initiate your project repository:
+
+```bash
+git init; git add . > /dev/null; git commit -m "init" > /dev/null
+```
+
+### Change installation parameters
+
+At this point, configure your database via the `DATABASE_URL` in the `.env` file, depending on the database you're using:
+
+`DATABASE_URL=mysql://user:password@host:port/database_name`.
+
+or
+
+`DATABASE_URL=postgresql://user:password@host:port/database_name`.
+
+> **Tip: Encoding database password**
+>
+> The password entered in `DATABASE_URL` must either be URL encoded, or not contain any special characters that would require URL encoding.
+>
+> For more information, see [Encoding database password](../troubleshooting/index.md#encoding-database-password).
+
+### Add entropy to improve cryptographic randomness
+
+Choose a [secret](https://symfony.com/doc/7.4/reference/configuration/framework.html#secret) and provide it in the `APP_SECRET` parameter in `.env`. It should be a random string, made up of at least 32 characters, numbers, and symbols. It's used by Symfony when generating [CSRF tokens](https://symfony.com/doc/7.4/security/csrf.html), [encrypting cookies](https://symfony.com/doc/7.4/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/7.4/http_cache/esi.html).
+
+> **Caution: Caution**
+>
+> The app secret is crucial to the security of your installation. Be careful about how you generate it, and how you store it. Here's one way to generate a secure random string of 64 characters as your secret, from the command line:
+>
+> ```bash
+> php -r "print bin2hex(random_bytes(32));"
+> ```
+>
+> Don't commit the secret to version control systems, or share it with anyone who doesn't strictly need it. If you have any suspicion that the secret may have been exposed, replace it with a new one. The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, and more.
+>
+> After changing the app secret, make sure that you clear the application cache and log out all users.
+>
+> For more information, see [Symfony documentation](https://symfony.com/doc/7.4/reference/configuration/framework.html#secret).
+>
+> It's recommended that you store the database credentials in your `.env.local` file, and not commit that file to the Version Control System.
+
+In `DATABASE_VERSION`, you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
+
+> **Tip: Using PostgreSQL**
+>
+> If you want an installation with PostgreSQL instead of MySQL or MariaDB, refer to [Using PostgreSQL](../../infrastructure_and_maintenance/databases/index.md#using-postgresql).
+
+#### Install and configure a search engine
+
+You may choose to replace the [default search engine](../../search/search_engines/legacy_search_engine/legacy_search_overview/index.md) with either Solr or Elasticsearch.
+
+**Solr**
+
+Follow [How to set up Solr search engine](../../search/search_engines/solr_search_engine/install_solr/index.md) to install Solr.
+
+**Elasticsearch**
+
+Do the following steps to enable Elasticsearch:
+
+1. [Download and install Elasticsearch](../../search/search_engines/elasticsearch/install_elasticsearch/index.md)
+2. [Verify that the Elasticsearch instance is up](../../search/search_engines/elasticsearch/install_elasticsearch/index.md#verify-the-instance)
+3. [Set the default search engine](../../search/search_engines/elasticsearch/install_elasticsearch/index.md#set-the-default-search-engine)
+4. [Configure the search engine](../../search/search_engines/elasticsearch/configure_elasticsearch/index.md)
+5. [Push the templates](../../search/search_engines/elasticsearch/install_elasticsearch/index.md#push-the-templates)
+
+Configure the following parameter in the `.env` file:
+
+```text
+ELASTICSEARCH_DSN=http://localhost:9200
+```
+
+### Create a database
+
+Install Ibexa DXP and create a database with:
+
+**PHP 8.4**
+
+Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation fails due to errors such as "headers have already been sent".
+
+```bash
+php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
+php bin/console ibexa:graphql:generate-schema
+```
+
+**PHP 8.3 and older**
+
+```bash
+php bin/console ibexa:install
+```
+
+Before executing the command, make sure that the database user has sufficient permissions.
+
+The installer will prompt you for a new password for the `admin` user. Make sure to use a [strong password](../../infrastructure_and_maintenance/security/security_checklist/index.md#strong-passwords) meeting all the default [password rules](../../users/passwords/index.md#password-rules):
+
+- a minimum length of 10 characters
+- at least one upper case letter
+- at least one number
+
+> **Note: Note**
+>
+> In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+>
+> ```bash
+> php bin/console ibexa:install --no-interaction
+> ```
+>
+> If doing so, [modify the password for the `admin` user](../../users/update_basic_user_data/index.md#change-password) before [going live with your project](../../infrastructure_and_maintenance/security/security_checklist/index.md).
+
+### Run post-installation script
+
+Run the post-installation script with the following command:
+
+```bash
+composer run post-install-cmd
+```
+
+## Use PHP's built-in server
+
+For development you can use the built-in PHP server.
+
+```bash
+php -S 127.0.0.1:8000 -t public
+```
+
+Your PHP web server is accessible at `http://127.0.0.1:8000`.
+
+You can also use [Symfony CLI](https://symfony.com/download):
+
+```bash
+symfony serve
+```
+
+## Prepare installation for development
+
+Consider adding the Symfony DebugBundle, which prevents running out of memory when dumping objects with circular references. The DebugBundle contains the [VarDumper](https://symfony.com/doc/7.4/components/var_dumper.html) and [its Twig integration](https://symfony.com/doc/7.4/components/var_dumper.html#debugbundle-and-twig-integration).
+
+```bash
+composer require --dev symfony/debug-bundle
+```
+
+For detailed information about request treatment, you can also install [Symfony Profiler](https://symfony.com/doc/7.4/profiler.html):
+
+```bash
+composer require --dev symfony/profiler-pack
+```
+
+To get both features in one go, use:
+
+```bash
+composer require --dev symfony/debug-pack
+```
+
+## Configure an HTTP server
+
+To use Ibexa DXP with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
+
+### Set up permissions
+
+For development needs, the web user can be made the owner of all your files (for example, with the `www-data` web user):
+
+```bash
+chown -R www-data:www-data <your installation directory>
+```
+
+Directories `var` and `public/var` must be writable by CLI and the web server user. Future files and directories created by these two users need to inherit those permissions.
+
+> **Caution: Caution**
+>
+> For security reasons, in production, the web server mustn't have write access to any directory other than `var`. Skip the step above and follow the link below for production needs instead.
+>
+> You must also make sure that the web server cannot interpret the files in the `var` directory through PHP. To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
+
+To set up permissions for production, it's recommended to use an ACL (Access Control List). See [Setting up or Fixing File Permissions](https://symfony.com/doc/7.4/setup/file_permissions.html) in Symfony documentation for information on how to do it on different systems.
+
+### Set up virtual host
+
+Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hosting) for your site.
+
+**Apache**
+
+You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/apache2/vhost.template) to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
+
+Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment. Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you're configuring, or ensure `APP_ENV` is set in the environment.
+
+```text
+SetEnvIf Request_URI ".*" APP_ENV=prod
+```
+
+When the virtual host file is ready, enable the virtual host and disable the default:
+
+```bash
+a2ensite ibexa
+a2dissite 000-default.conf
+```
+
+Finally, restart the Apache server. The command may vary depending on your Linux distribution. For example, on Ubuntu, use:
+
+```bash
+service apache2 restart
+```
+
+**nginx**
+
+You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files, which should reside in a subdirectory below the main file, [as shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
+
+Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment. Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on which environment you're configuring, and uncomment the line that starts with `#if [APP_ENV]`.
+
+When the virtual host file is ready, enable the virtual host and disable the default. Finally, restart the nginx server. The command may vary depending on your Linux distribution.
+
+Open your project in the browser by visiting the domain address, for example `http://localhost:8080`. You should see the welcome page.
+
+## Post-installation steps
+
+> **Note: Security checklist**
+>
+> See the [Security checklist](../../infrastructure_and_maintenance/security/security_checklist/index.md) for a list of security-related issues you should take care of before going live with a project.
+
+### Schedule tasks
+
+The `ibexa:cron:run` command executes all service commands tagged with `ibexa.cron.job`. Use [`cron`](https://en.wikipedia.org/wiki/Cron) to run it every minute.
+
+The following example creates a temporary crontab entry file and appends it to the existing crontab for the web server user (`www-data`):
+
+```bash
+echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
+rm ibexa_cron.txt
+```
+
+For [Scheduled content publications](../../../user/content_management/schedule_publishing/index.md), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and runs every minute (`* * * * *`) by default. You can redefine this service to change the frequency.
+
+The [CDP data export schedule](../../cdp/cdp_data_export_schedule/index.md) dynamically creates services tagged with `ibexa.cron.job`.
+
+You can add other commands to scheduled tasks in one of two ways:
+
+- add their own scheduling line to the crontab
+- tag their service with `ibexa.cron.job`
+
+#### Additional scheduled tasks and advanced usage
+
+Here are some additional tasks that require scheduling:
+
+- To use the [Link manager](../../content_management/url_management/url_management/index.md), schedule the URL validation command `ibexa:check-urls`.
+
+- To control the [recent activity log size](../../administration/recent_activity/recent_activity/index.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
+
+- To re-index [discounts](../../discounts/discounts_guide/index.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command.
+
+  > **Note: Note**
+  >
+  > You must first set up Ibexa Messenger. For more information, see [Discount re-indexing configuration](../../discounts/configure_discounts/index.md#discount-re-indexing).
+
+The following example schedules these commands separately:
+
+- `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
+- `ibexa:check-urls` [every week](https://crontab.guru/weekly) on Sunday at midnight
+- `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) at minute 0
+- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) at midnight
+
+This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
+
+```bash
+echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
+echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
+echo '0 0 * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
+crontab -u www-data ibexa_cron.txt
+rm ibexa_cron.txt
+```
+
+The following alternative example uses service tagging to schedule these commands. It also changes the `ibexa:scheduled:run` frequency to every five minutes.
+
+Add the following to `config/services.yaml`:
+
+```yaml
+services:
+    #…
+
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: ibexa.cron.job, schedule: '*/5 * * * *' }
+
+    Ibexa\Bundle\Core\Command\CheckURLsCommand:
+        arguments:
+            $urlChecker: '@Ibexa\Bundle\Core\URLChecker\URLChecker'
+        tags:
+            - { name: ibexa.cron.job, schedule: '0 0 * * 0', priority: -1 }
+
+    Ibexa\Bundle\ActivityLog\Command\TruncateLogCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 * * * *', priority: -2 }
+
+    Ibexa\Bundle\Discounts\Command\ReIndexDiscountProductCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 0 * * *' }
+```
+
+The `ibexa.cron.job` tag accepts the following options:
+
+- `schedule`: A cron expression representing the period or interval.
+- `options`: Arguments passed to the command. `--env` and `--siteaccess` are inherited from `ibexa:cron:run`.
+- `category`: Commands can be grouped into categories, and a category can be passed with `ibexa:cron:run --category=<CATEGORY>`. By default, the `default` category is used. For example, it can be used to set different jobs and `schedule` for different [SiteAccesses](../../multisite/multisite_configuration/index.md).
+- `priority`: Defines the order in which `ibexa:cron:run` executes commands that are due.
+
+Run the following command to list all command services scheduled with the ibexa.cron.job tag:
+
+```bash
+php bin/console debug:container --tag=ibexa.cron.job
+```
+
+The following example shows how to set up a different schedule for a specific SiteAccess with a category.
+
+This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
+
+```bash
+(crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
+```
+
+Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:
+
+```yaml
+services:
+
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: ibexa.cron.job, schedule: '* * * * *' }
+            - { name: ibexa.cron.job, schedule: '*/5 * * * *', category: 'minor_website' }
+```
+
+### Enable background tasks
+
+Enable Ibexa Messenger for background tasks. Make sure that its [worker starts with the server](../../infrastructure_and_maintenance/background_tasks/index.md#start-worker).
+
+A list of processes that use Ibexa Messenger includes at least these two:
+
+- [CDP data export](../../cdp/cdp_activation/cdp_data_export/index.md#ibexa-messenger-support-for-large-batches-of-data)
+- [Discount re-indexing](../../discounts/configure_discounts/index.md#discount-re-indexing)
+
+## Ibexa Cloud
+
+If you want to host your application on Ibexa Cloud, follow the [Ibexa Cloud](../../ibexa_cloud/install_on_ibexa_cloud/index.md) procedure.
