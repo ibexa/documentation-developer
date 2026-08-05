@@ -3,6 +3,7 @@
 namespace App\Dispatcher;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp;
 use Ibexa\Contracts\Messenger\Stamp\SudoStamp;
 use Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -22,5 +23,8 @@ final readonly class SomeClassThatSchedulesExecutionInTheBackground
         $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
         $this->bus->dispatch($message, [new UserPermissionStamp($currentUserId)]);
         $this->bus->dispatch($message, [new SudoStamp()]);
+
+        $deduplicationKey = 'my_message.project.<key_based_on_message>';
+        $this->bus->dispatch($message, [new DeduplicateStamp($deduplicationKey)]);
     }
 }
