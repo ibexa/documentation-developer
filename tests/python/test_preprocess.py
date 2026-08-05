@@ -1,4 +1,5 @@
 import mdformat
+import pytest
 from bs4 import BeautifulSoup
 from mkdocs_llmstxt._internal.plugin import _converter
 
@@ -89,6 +90,20 @@ def test_cards_become_link_list():
         "</a></div></div>"
     )
     assert "- [Page title](https://example.com/page/): Page description" in to_markdown(html)
+
+
+def test_card_with_empty_title_raises():
+    # An empty title used to produce <a href="..."></a>, which markdownify drops
+    # entirely - the link and its list item disappeared from the generated
+    # Markdown with nothing left to detect. Fail loudly instead.
+    html = (
+        '<div class="cards two-in-row"><div class="card-wrapper">'
+        '<a class="card" href="https://example.com/page/">'
+        '<p class="title"></p><p class="description"></p>'
+        "</a></div></div>"
+    )
+    with pytest.raises(ValueError, match="empty title"):
+        to_markdown(html)
 
 
 def test_inline_pill_becomes_parenthetical():
