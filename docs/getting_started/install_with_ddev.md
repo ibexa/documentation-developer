@@ -99,7 +99,7 @@ ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
 
 #### Configure scheduled tasks (optional)
 
-You can [schedule tasks](install_ibexa_dxp.md#schedule-tasks) using [DDEV Cron add-on](https://addons.ddev.com/addons/ddev/ddev-cron).
+You can [schedule tasks](install_cohesivo.md#schedule-tasks) using [DDEV Cron add-on](https://addons.ddev.com/addons/ddev/ddev-cron).
 
 ```bash
 ddev add-on get ddev/ddev-cron
@@ -108,7 +108,7 @@ echo "* * * * * cd $basedir && php bin/console ibexa:cron:run --quiet --env=prod
 ddev restart
 ```
 
-For more schedulable tasks and ways to schedule them, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
+For more schedulable tasks and ways to schedule them, see [Additional scheduled tasks and advanced usage](install_cohesivo.md#additional-scheduled-tasks-and-advanced-usage).
 
 You can run the following command to check Cron:
 
