@@ -1,5 +1,5 @@
 ---
-description: See what issues you can encounter when installing Ibexa DXP and how to resolve them.
+description: See what issues you can encounter when installing Cohesivo and how to resolve them.
 ---
 
 # Troubleshooting

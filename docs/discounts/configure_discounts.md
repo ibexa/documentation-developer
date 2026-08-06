@@ -55,7 +55,7 @@ php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenge
 php bin/console ibexa:discounts:reindex
 ```
 
-For more information about command scheduling, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
+For more information about command scheduling, see [Additional scheduled tasks and advanced usage](install_cohesivo.md#additional-scheduled-tasks-and-advanced-usage).
 
 !!! note "Deploying Symfony Messenger"
 

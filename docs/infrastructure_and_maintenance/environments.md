@@ -1,5 +1,5 @@
 ---
-description: In Ibexa DXP you can use environment provided by Symfony in virtual host configuration, and to create custom environments.
+description: In Cohesivo you can use environment provided by Symfony in virtual host configuration, and to create custom environments.
 ---
 
 # Environments

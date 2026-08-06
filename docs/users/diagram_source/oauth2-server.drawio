@@ -10,7 +10,7 @@
         <mxCell id="DVZVEU33qGXVSBsWSqa1-4" value="&lt;b&gt;&lt;font color=&quot;#5f7da8&quot;&gt;RESOURCE&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;&lt;font color=&quot;#5f7da8&quot;&gt;OWNER&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="171.38" y="270" width="167.25" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="DVZVEU33qGXVSBsWSqa1-5" value="IBEXA DXP&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;OAUTH 2 SERVER" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#ffe6cc;strokeColor=none;shadow=1;glass=0;verticalAlign=top;" parent="1" vertex="1">
+        <mxCell id="DVZVEU33qGXVSBsWSqa1-5" value="COHESIVO&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;OAUTH 2 SERVER" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#ffe6cc;strokeColor=none;shadow=1;glass=0;verticalAlign=top;" parent="1" vertex="1">
           <mxGeometry x="560" y="250" width="170" height="250" as="geometry" />
         </mxCell>
         <mxCell id="DVZVEU33qGXVSBsWSqa1-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#BAC8D3;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="DVZVEU33qGXVSBsWSqa1-8" target="DVZVEU33qGXVSBsWSqa1-10" edge="1">

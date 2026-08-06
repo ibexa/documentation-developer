@@ -1,5 +1,5 @@
 ---
-description: System, component and package requirements for running Ibexa DXP.
+description: System, component and package requirements for running Cohesivo.
 month_change: false
 ---
 

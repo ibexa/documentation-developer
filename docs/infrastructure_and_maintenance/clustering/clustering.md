@@ -1,5 +1,5 @@
 ---
-description: Clustering enables you to host one installation of Ibexa DXP on multiple servers.
+description: Clustering enables you to host one installation of Cohesivo on multiple servers.
 ---
 
 # Clustering

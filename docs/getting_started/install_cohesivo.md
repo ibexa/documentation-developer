@@ -1,9 +1,9 @@
 ---
-description: Install Ibexa DXP on a Linux system and prepare your installation for production.
+description: Install Cohesivo on a Linux system and prepare your installation for production.
 month_change: false
 ---
 
-# Install Ibexa DXP
+# Install [[= product_name =]]
 
 !!! note
 
@@ -436,7 +436,7 @@ Use [`cron`](https://en.wikipedia.org/wiki/Cron) to run it every minute.
 The following example creates a temporary crontab entry file and appends it to the existing crontab for the web server user (`www-data`):
 
 ```bash
-echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
 crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
 rm ibexa_cron.txt
 ```
@@ -444,7 +444,7 @@ rm ibexa_cron.txt
 For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and runs every minute (`* * * * *`) by default.
 You can redefine this service to change the frequency.
 
-The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
+The [[[= product_name_cdp =]] data export schedule](/raptor_cdp/raptor_cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
 You can add other commands to scheduled tasks in one of two ways:
 
@@ -474,10 +474,10 @@ The following example schedules these commands separately:
 This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
 ```bash
-echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
-echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
-echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
-echo '0 0 * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
+echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '0 0 * * 0 cd <path-to-cohesivo>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
+echo '0 * * * * cd <path-to-cohesivo>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
+echo '0 0 * * * cd <path-to-cohesivo>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
 crontab -u www-data ibexa_cron.txt
 rm ibexa_cron.txt
 ```
@@ -531,7 +531,7 @@ The following example shows how to set up a different schedule for a specific Si
 This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
 
 ```bash
-(crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
+(crontab -u www-data -l; echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
 ```
 
 Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:
@@ -552,7 +552,7 @@ Make sure that its [worker starts with the server](background_tasks.md#start-wor
 
 A list of processes that use [[= product_name_base =]] Messenger includes at least these two:
 
-- [CDP data export](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- [[[= product_name_cdp =]] data export](/raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
 - [Discount re-indexing](configure_discounts.md#discount-re-indexing)
 
 ## [[= product_name_cloud =]]

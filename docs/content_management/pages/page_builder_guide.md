@@ -1,5 +1,5 @@
 ---
-description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
+description: Read about the Page Builder - a powerful tool for creating and modifying pages in Cohesivo.
 edition: experience
 month_change: false
 ---

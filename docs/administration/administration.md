@@ -1,5 +1,5 @@
 ---
-description: Administer and configure your Ibexa DXP installation.
+description: Administer and configure your Cohesivo installation.
 page_type: landing_page
 ---
 

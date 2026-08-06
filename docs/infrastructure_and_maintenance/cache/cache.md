@@ -1,5 +1,5 @@
 ---
-description: For caching, Ibexa DXP offers both HTTP cache for content views, and persistence cache.
+description: For caching, Cohesivo offers both HTTP cache for content views, and persistence cache.
 page_type: landing_page
 ---
 

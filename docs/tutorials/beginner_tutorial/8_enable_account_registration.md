@@ -233,9 +233,9 @@ Now you have created your first website with [[= product_name =]].
 **You learned how to:**
 
 - create a content model
-- organize files in an [[= product_name =]] project
+- organize files in a [[= product_name =]] project
 - configure views for different content types
-- add assets to an [[= product_name =]] project
+- add assets to a [[= product_name =]] project
 - use and configure Webpack Encore
 - use Twig templates and controllers to display content
 - enable user registration

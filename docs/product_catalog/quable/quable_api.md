@@ -4,7 +4,7 @@ month_change: false
 ---
 
 
-# Quable API
+# [[= pim_product_name =]] API
 
 As [[= pim_product_name =]] products are represented as [[= product_name =]] products, you can use the existing [Product APIs](product_api.md) to retrieve the product information.
 

@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Online Editor, a tool that allows you to edit RichText Fields in any content item in Ibexa DXP.
+description: Learn how to use the Online Editor, a tool that allows you to edit RichText Fields in any content item in Cohesivo.
 ---
 
 # Online Editor product guide

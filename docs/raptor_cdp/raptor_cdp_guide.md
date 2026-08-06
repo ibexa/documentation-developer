@@ -1,13 +1,13 @@
 ---
-description: The [[= product_name_cdp =]] product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
+description: The Raptor CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
 edition: experience
 ---
 
-# Ibexa Customer Data Platform (CDP) product guide
+# [[= product_name_cdp =]] product guide
 
 ## What is [[= product_name_cdp =]]
 
-[[= product_name_cdp =]] is a Customer Data Platform module that helps you build unique and memorable experiences for your customers.
+[[= product_name_cdp =]] (Customer Data Platform) module helps you build unique and memorable experiences for your customers.
 By using [[= product_name_cdp =]] you can monitor and compile data about your customers' activity on multiple channels.
 It also allows you to create individual customer profiles so you can customize their experience on your platform.
 
@@ -27,15 +27,15 @@ It helps you activate your users and give them real-time interaction.
 You can target certain user segments with the appropriate message, content, or products at the right time through the most used channels by using specified audiences.
 Customer data is gathered through a system of trackers embedded in various areas of your website.
 
-![CDP - how does it work](img/cdp_how_works.png)
+![CDP - how does it work](img/cdp.png)
 
 ### Installation and configuration
 
-To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](/cdp/cdp_installation.md#register-in-ibexa-cdp-dashboard).
+To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](/raptor_cdp/raptor_cdp_installation.md#register-in-raptor-cdp-dashboard).
 When you're done with registration process, you're able to access a separate instance with the data needed to configure, activate, and use this feature.
 
-After your account is created, you can [download and install the [[= product_name_cdp =]] package](/cdp/cdp_installation.md#install-cdp-package) that is opt-in and needs to be downloaded separately.
-Last step is to go through the [configuration process](cdp_configuration.md).
+After your account is created, you can [download and install the [[= product_name_cdp =]] package](/raptor_cdp/raptor_cdp_installation.md#install-package) that is opt-in and needs to be downloaded separately.
+Last step is to go through the [configuration process](raptor_cdp_configuration.md).
 
 ### Customer profile
 
@@ -65,7 +65,7 @@ Remember to add a segment group identifier to the configuration, under the `segm
 ### Data export
 
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting content, users, and products.
-An `ibexa_cdp.data_export` [configuration key](cdp_data_export_schedule.md#configuration-key) includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
+An `ibexa_cdp.data_export` [configuration key](raptor_cdp_data_export_schedule.md#configuration-key) includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
 - `interval` - sets the frequency at which the command is invoked, uses cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour"
@@ -77,7 +77,7 @@ It's important, because all the types of content/product must have their own par
 
 Regarding data export, currently, only Stream File transport is supported and can be initialized from the configuration.
 
-For more information, see [CDP data export](cdp_data_export.md).
+For more information, see [CDP data export](raptor_cdp_data_export.md).
 
 ### Data customization
 
@@ -85,12 +85,12 @@ For more information, see [CDP data export](cdp_data_export.md).
 With [[= product_name_cdp =]], you can export field types and field type values.
 They're exported with metadata and attributes, for example, ID, field definition name, type, or value.
 
-For more information, see [data customization](cdp_data_customization.md#data-customization) documentation in Developer Documentation.
+For more information, see [data customization](raptor_cdp_data_customization.md) documentation in Developer Documentation.
 
 ### Client-side Tracking
 
 The final step is setting up a tracking script.
-For more information, see [CDP add client-side tracking](cdp_add_tracking.md) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
+For more information, see [CDP add client-side tracking](raptor_cdp_add_tracking.md) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
 
 ### Audience Builder
 

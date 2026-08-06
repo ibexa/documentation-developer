@@ -1,12 +1,12 @@
 ---
-description: All code contributions to Ibexa DXP must follow package and bundle structure and namespace standards.
+description: All code contributions to Cohesivo must follow package and bundle structure and namespace standards.
 ---
 
 # Package and bundle structure and namespaces
 
 If you wish to contribute to [[= product_name =]] development, you need to adhere to the package and bundle structure and namespace standards.
 
-The following conventions apply to contributions to [[= product_name_base =]] core code, not to third party packages.
+The following conventions apply to contributions to [[= product_name =]] core code, not to third party packages.
 
 !!! note
 
@@ -21,7 +21,7 @@ Define [[= product_name =]] core PHP code in a namespace with the following pref
 namespace Ibexa;
 ```
 
-A package which groups some DXP features can use an additional prefix, for example:
+A package which groups some [[= product_name =]] features can use an additional prefix, for example:
 
 ``` php {skip-validation}
 namespace Ibexa\Commerce;

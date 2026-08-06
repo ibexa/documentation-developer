@@ -2,20 +2,20 @@
 
 # Ibexa DXP v5.0 renames, deprecations and removals
 
-This page lists backwards compatibility breaks and deprecations introduced in [[= product_name =]] v5.0.
+This page lists backwards compatibility breaks and deprecations introduced in Ibexa DXP v5.0.
 
 !!! tip "Upgrade to v5"
 
     For a guide on moving your project to v5.0,
     see [Update and migration instructions](../update_and_migration/from_4.6/update_to_5.0.md).
 
-[[= product_name =]] v5.0 introduces further modifications to significant parts of the code to align with the ones introduced in previous versions.
+Ibexa DXP v5.0 introduces further modifications to significant parts of the code to align with the ones introduced in previous versions.
 
 These changes include dropped packages, changing database table and column names, field identifiers, namespaces, function names, and others.
 
 ## Dropped packages
 
-[[= product_name =]] v5.0 no longer includes legacy Commerce packages.
+Ibexa DXP v5.0 no longer includes legacy Commerce packages.
 The solution has been replaced with [Commerce](commerce.md) that is included as standard and has been continuously developed since v4.4.
 
 Also, packages `compatibility-layer` and `icons` have been dropped.

@@ -11,7 +11,7 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 ## Enable shielding
 
-To use Fastly Image Optimizer, you first need a [working setup of Ibexa DXP and Fastly](reverse_proxy.md#using-varnish-or-fastly)
+To use Fastly Image Optimizer, you first need a [working setup of [[= product_name =]] and Fastly](../../infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md#using-varnish-or-fastly)
 with shielding enabled.
 To enable shielding, follow the steps in [Fastly Developer Documentation](https://www.fastly.com/documentation/guides/concepts/shielding/#enabling-and-disabling-shielding).
 Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/#enabling-shielding).

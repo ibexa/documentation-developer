@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP offers the ability to create multiple translations of your website.
+description: Cohesivo offers the ability to create multiple translations of your website.
 ---
 
 # Languages

@@ -520,7 +520,8 @@ plugins:
             'community_resources/translations.md': 'resources/contributing/contribute_translations.md'
             'community_resources/package_structure.md': 'resources/contributing/package_structure.md'
 
-            'updating/update_ibexa_dxp.md': 'update_and_migration/update_ibexa_dxp.md'
+            'updating/update_ibexa_dxp.md': 'update_and_migration/update_system.md'
+            'update_and_migration/update_ibexa_dxp.md': 'update_and_migration/update_system.md'
             'updating/from_1.x_2.x/update_from_1.x_2.x.md': 'update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md'
             'updating/from_1.x_2.x/update_app_to_2.5.md': 'update_and_migration/from_1.x_2.x/update_app_to_2.5.md'
             'updating/from_1.x_2.x/update_db_to_2.5.md': 'update_and_migration/from_1.x_2.x/update_db_to_2.5.md'
@@ -570,7 +571,8 @@ plugins:
             'releases/ez_platform_v1.8.0.md': 'release_notes/ez_platform_v1.8.0.md'
             'releases/ez_platform_v1.7.0_lts.md': 'release_notes/ez_platform_v1.7.0_lts.md'
 
-            'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
+            'getting_started/install_ez_platform.md': 'getting_started/install_cohesivo.md'
+            'getting_started/install_ibexa_dxp.md': 'getting_started/install_cohesivo.md'
 
             'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
             'templating/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
@@ -608,7 +610,20 @@ plugins:
             'ai_actions/configure_ai_actions.md': 'ai/ai_actions/configure_ai_actions.md'
             'ai_actions/extend_ai_actions.md': 'ai/ai_actions/extend_ai_actions.md'
 
-            'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'cdp/cdp_activation/cdp_add_tracking.md'
+            'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
+            'ibexa_engage/ibexa_engage.md': 'qualifio/qualifio.md'
+            'ibexa_engage/install_ibexa_engage.md': 'qualifio/install_qualifio.md'
+            'ibexa_engage/create_campaign.md': 'qualifio/create_campaign.md'
+            'ibexa_engage/integrate_ibexa_connect.md': 'qualifio/integrate_ibexa_connect.md'
+            'cdp/cdp.md': 'raptor_cdp/raptor_cdp.md'
+            'cdp/cdp_guide.md': 'raptor_cdp/raptor_cdp_guide.md'
+            'cdp/cdp_installation.md': 'raptor_cdp/raptor_cdp_installation.md'
+            'cdp/cdp_data_customization.md': 'raptor_cdp/raptor_cdp_data_customization.md'
+            'cdp/cdp_data_export_schedule.md': 'raptor_cdp/raptor_cdp_data_export_schedule.md'
+            'cdp/cdp_activation/cdp_activation.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_activation.md'
+            'cdp/cdp_activation/cdp_configuration.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md'
+            'cdp/cdp_activation/cdp_data_export.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md'
+            'cdp/cdp_activation/cdp_add_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
 
 
     - llmstxt:
@@ -616,7 +631,7 @@ plugins:
         # The "> " prefix renders the description as a blockquote summary,
         # as expected by the llms.txt spec (https://llmstxt.org)
         markdown_description: >-
-          > Developer documentation for Ibexa DXP — architecture, APIs, templating, and extensibility for building and customizing Ibexa DXP projects.
+          > Developer documentation for Cohesivo — architecture, APIs, templating, and extensibility for building and customizing Ibexa DXP projects.
 
         # Pin links in the generated Markdown (and llms.txt) to this branch's
         # version instead of site_url's en/latest, without affecting the HTML
@@ -626,5 +641,5 @@ plugins:
         full_output: llms-full.txt
         sections:
           # Built automatically when running MkDocs build based on MkDocs nav configuration, don't change
-          Ibexa DXP developer documentation:
+          Cohesivo developer documentation:
           - index.md

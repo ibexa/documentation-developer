@@ -5,7 +5,7 @@ page_type: landing_page
 
 # Data migration
 
-Data migration allows exporting and importing selected data from an [[= product_name =]] installation.
+Data migration allows exporting and importing selected data from a [[= product_name =]] installation.
 
 [*Exporting*](exporting_data.md) data consists in saving selected repository information in YAML format.
 [*Importing*](importing_data.md) reads migration YAML files and creates or modifies repository content based on them.

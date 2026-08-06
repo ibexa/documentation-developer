@@ -1,9 +1,9 @@
 ---
-description: Step-by-step data export procedure in Ibexa CDP.
+description: Step-by-step data export procedure in Raptor CDP.
 edition: experience
 ---
 
-# Data export
+# Export [[= product_name_cdp =]] data
 
 You need to specify a source of the user data that [[= product_name_cdp =]] connects to.
 To do so, go to **Data Manager** in **Tools** section and select **Create new dataflow**.
@@ -46,7 +46,7 @@ The first one is used to send the test user data to the Data Manager.
 If it passes a validation test in the **Activation** section, use the latter one to send a full version.
 
 You can extend exported user data with custom fields from your user content, such as date of birth, preferences, or other profile information.
-For more information, see [Data customization](cdp_data_customization.md#export-additional-user-data).
+For more information, see [Data customization](raptor_cdp_data_customization.md#export-additional-user-data).
 
 Next, go back to [[= product_name_cdp =]] and select **Validate & download**.
 If the file passes, you can see a confirmation message.
@@ -66,18 +66,18 @@ If you make any alterations, select the **Parse File** to generate columns with 
 In the **Transform & Map** section you transform data and map it to a schema.
 At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
 
-If you have [extended user data export with custom fields](cdp_data_customization.md#export-additional-user-data), those fields appear as additional columns in this section.
+If you have [extended user data export with custom fields](raptor_cdp_data_customization.md#export-additional-user-data), those fields appear as additional columns in this section.
 Make sure to add them to your schema in Raptor so they can be used for segmentation and recommendations.
 
 Next, select **Create schema based on the downloaded columns**.
 It moves you to Schema Creator.
 There, choose **PersonalData** as a parent and name the schema.
 
-![Create new schema](cdp_create_new_schema.png)
+![Create new schema](../img/raptor_cdp_create_new_schema.png)
 
 Next, select all the columns and set Person Identifier as **userid**.
 
-![Person Identifier](cdp_person_identifier.png)
+![Person Identifier](../img/raptor_cdp_person_identifier.png)
 
 If you used PersonData or Catalog type schemas, the system requires specifying the Write Mode that is applied to them.
 
@@ -88,7 +88,7 @@ For example, if a customer unsubscribes a newsletter, their email remains in the
 
 Next, select **userid** from a **Schema columns section** on the right and map it to **id**.
 
-![Map userid to id](cdp_userid_mapid.png)
+![Map userid to id](../img/raptor_cdp_userid_mapid.png)
 
 ## Activation
 
@@ -114,14 +114,14 @@ In the Audience Builder, you can also connect created audiences to the activatio
 
 ## Activation
 
-Activation synchronises data from [[= product_name_cdp =]] to the [[= product_name =]].
+Activation synchronises data from [[= product_name_cdp =]] to [[= product_name =]].
 When you specify a segment, you can activate it on multiple communication channels, such as newsletters or commercials.
 You can configure multiple activations based data flows.
 
 First, from the menu bar, select **Activations** and create a new **Ibexa** activation.
 Specify name of your activation, select `userid` as **Person Identifier** and click **Next**.
 
-![General Information - Activation](cdp_activation_general_info.png)
+![General Information - Activation](../img/raptor_cdp_activation_general_info.png)
 
 Next, you can fill in **Ibexa information** they must match the ones provided in the YAML configuration:
 
@@ -133,7 +133,7 @@ It points to a segment group where all the CDP audiences are stored.
 
 - **Base URL** - URL of your instance with added `/cdp/webhook` at the end.
 
-![Ibexa Information - Activation](cdp_activation_ibexa_info.png)
+![Ibexa Information - Activation](../img/raptor_cdp_activation_ibexa_info.png)
 
 Finally, you can specify the audiences you wish to include.
 

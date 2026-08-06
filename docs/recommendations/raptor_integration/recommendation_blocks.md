@@ -6,7 +6,7 @@ month_change: true
 
 # Recommendation blocks in Page Builder
 
-One of the Raptor Integration elements is the introduction of recommendation blocks available in the [Page Builder](page_builder_guide.md).
+One of the [[= product_name_cdp_base =]] Integration elements is the introduction of recommendation blocks available in the [Page Builder](page_builder_guide.md).
 
 Content, Product, and Commerce recommendations can be added to a landing page using the blocks.
 
@@ -41,7 +41,7 @@ In the toolbar, corresponding categories for recommendation blocks are available
 ![Recommendation blocks](img/recommendation_blocks.png)
 
 After opening the settings of a recommendation block, a link is available at the bottom of the window.
-It leads to the [Raptor Control Panel](https://controlpanel.raptorsmartadvisor.com/) (opens in a separate tab), where you can configure advanced settings and fine-tune the recommendation strategy.
+It leads to the [[[= product_name_cdp_base =]] Control Panel](https://controlpanel.raptorsmartadvisor.com/) (opens in a separate tab), where you can configure advanced settings and fine-tune the recommendation strategy.
 
 ![Advanced settings](img/advanced_settings.png)
 

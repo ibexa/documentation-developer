@@ -2,7 +2,7 @@
 
 # Ibexa DXP v4.0 deprecations and backwards compatibility breaks
 
-[[= product_name =]] v4.0 introduces changes to significant parts of the code
+Ibexa DXP v4.0 introduces changes to significant parts of the code
 to align with the product name change from earlier eZ Platform.
 
 These changes include changing repository names, namespaces, filenames, function names, and others.

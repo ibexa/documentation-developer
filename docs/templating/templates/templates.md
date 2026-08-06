@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP uses the Twig template engine to customize the rendering of content in the site.
+description: Cohesivo uses the Twig template engine to customize the rendering of content in the site.
 ---
 
 # Templates

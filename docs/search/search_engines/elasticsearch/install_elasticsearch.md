@@ -1,6 +1,6 @@
 ---
 month_change: false
-description: Install Elasticsearch to use it with Ibexa DXP.
+description: Install Elasticsearch to use it with Cohesivo.
 ---
 
 # Install Elasticsearch

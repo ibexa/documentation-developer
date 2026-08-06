@@ -1,5 +1,5 @@
 ---
-description: Manage content in Ibexa DXP by learning about the content model, field types, pages, forms, workflows, and more.
+description: Manage content in Cohesivo by learning about the content model, field types, pages, forms, workflows, and more.
 page_type: landing_page
 ---
 

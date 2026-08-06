@@ -4,7 +4,7 @@ description: Learn how to create a content model consisting of content types and
 
 # Step 2 — Create the content model
 
-How your content is structured is an important part of an [[= product_name =]] project.
+How your content is structured is an important part of a [[= product_name =]] project.
 Think of it as the database design of your application.
 
 To get full information, read the [content model](content_model.md) documentation page.

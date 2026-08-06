@@ -1,5 +1,5 @@
 ---
-description: Learn about different search engines that are supported by Ibexa DXP.
+description: Learn about different search engines that are supported by Cohesivo.
 ---
 
 # Search engines

@@ -104,9 +104,9 @@ There are many paths to access the content in many shapes:
 
 On top of this strong core, [[= product_name_headless =]] brings tools to increase user experience, from final front users to back office contributors.
 
-#### Complete DXP
+#### Complete platform
 
-[[= product_name_headless =]] is a complete Digital Experience Platform (DXP), which comes with the following components to enhance user's journey:
+[[= product_name_headless =]] is a complete platform, which comes with the following components to enhance user's journey:
 
 - [Recommendations](raptor_connector_guide.md) connector, which allows you to recommend content to end users according to their behavior,
   or, when authenticated, by matching with their segment/group.
@@ -150,7 +150,7 @@ Several features help end users collaborate on the content, such as:
 - [[= product_name_connect =]]'s role is to create application interconnections with low code and drag-and-drop, in a compelling visual interface.
   Complex data flows can be easily implemented with a huge library of connectors and actions for famous to specific applications.
   For more information, see [[[= product_name_connect =]] product guide]([[= connect_doc =]]/general/ibexa_connect/).
-- An OAuth 2 server offers the possibility to use the DXP as the authentication service for other applications.
+- An OAuth 2 server offers the possibility to use the platform as the authentication service for other applications.
 - An OAuth 2 client supports authentication with a third-party OAuth 2 server.
 - A DAM Connector, previously mentioned, helps to access any image repository when needing to illustrate a content.
 - [[= product_name_headless =]] supports Elasticsearch and Solr.

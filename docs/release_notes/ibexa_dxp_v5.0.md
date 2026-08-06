@@ -102,7 +102,7 @@ The following additions were made to the PHP API:
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-MCP servers make it easier for AI agents to discover the available interactions with [[= product_name =]].
+MCP servers make it easier for AI agents to discover the available interactions with Ibexa DXP.
 With the MCP Servers feature, you can configure multiple MCP servers with their specific sets of tools.
 
 For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/).
@@ -151,7 +151,7 @@ For more information, see [connector installation and configuration](https://doc
 ### Anonymous user segmentation in [[= product_name_cdp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_cdp =]] can now build audiences for anonymous visitors.
-Use them in [[= product_name =]] to deliver personalized experiences even before users log in.
+Use them in Ibexa DXP to deliver personalized experiences even before users log in.
 
 For more information, see [Anonymous user segmentation](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
 
@@ -237,7 +237,7 @@ For more information, see how to [install and configure the Google Gemini connec
 
 ### Product tour
 
-The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
+The product tour is a new Integrated help feature that helps back office contributors to discover Ibexa DXP.
 
 With product tours, you can create customized onboarding journeys.
 This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
@@ -259,7 +259,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 ### Raptor connector
 
-The Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
 
 For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
 
@@ -278,14 +278,14 @@ This add-on introduces a set of recommendation blocks available in the [Page Bui
 
 For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
-### [[= pim_product_name =]] PIM
+### [[= pim_product_name =]]
 
-The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
+The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]]](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
 
 [[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
-[[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
+Ibexa DXP consumes this data and makes it available for use in content and digital experiences.
 
-For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
+For more information, see [[[= pim_product_name =]] Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
 
 ### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -297,7 +297,7 @@ You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai/ai
 
 Symfony is upgraded from 7.3 to 7.4.
 It's the latest [LTS release](https://symfony.com/releases#long-term-support-release), maintained till November 2029.
-See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
+See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within Ibexa DXP](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
 
 #### Taxonomy search
 
@@ -540,7 +540,7 @@ The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/colla
 
 [[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-Integrated help brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
+Integrated help brings contextual documentation, guidance, and partner-specific resources right into the user interface of Ibexa DXP.
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
 
 The default help menu can be modified to include links to internal editorial guidelines, custom tutorials, or support pages.
@@ -573,7 +573,7 @@ Real-time editing is now part of the [Collaborative editing](https://doc.ibexa.c
 By using it, users can edit and review content in real time, making teamwork faster, more efficient, and streamlining the content review process.
 The system automatically tracks changes, allowing seamless collaboration within a single content item.
 
-This extends the already existing capabilities allowing editors to work on the same content created in [[= product_name =]] simultaneously, streamlining the content creation and review process.
+This extends the already existing capabilities allowing editors to work on the same content created in Ibexa DXP simultaneously, streamlining the content creation and review process.
 
 ![Participants list](img/participants_list.png)
 
@@ -727,7 +727,7 @@ Additionally, shared drafts can be accessed and managed through new dashboard ta
 ### Discount indexing
 
 Discounts now allow scheduling a re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
-Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
+Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to Ibexa DXP's needs.
 
 Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
 
@@ -858,7 +858,7 @@ It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/late
 
 ### Support for Solr 9
 
-With this release, [[= product_name =]] starts supporting [Solr 9](https://doc.ibexa.co/en/5.0/getting_started/requirements/#search).
+With this release, Ibexa DXP starts supporting [Solr 9](https://doc.ibexa.co/en/5.0/getting_started/requirements/#search).
 
 Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](https://doc.ibexa.co/en/5.0/ai/ai_actions/ai_actions/) feature.
 
@@ -904,7 +904,7 @@ This version incorporates into the product numerous features brought by LTS Upda
 
 #### AI Actions
 
-The AI Actions feature enhances the usability and flexibility of [[= product_name =]] by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
+The AI Actions feature enhances the usability and flexibility of Ibexa DXP by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
 By default, the AI Actions feature can help users with their work in following scenarios:
 
 - Refining text: when editing a content item, users can request that a passage selected in online editor is modified, for example, by adjusting the length of the text, changing its tone, or correcting linguistic errors
@@ -957,17 +957,17 @@ For a full list of updated system requirements, see [Requirements](https://doc.i
 
 #### Symfony 7.3
 
-With this release, [[= product_name =]] moves to Symfony 7.3 from the previously used versions of Symfony.
+With this release, Ibexa DXP moves to Symfony 7.3 from the previously used versions of Symfony.
 
 For details, see [Symfony 7.3](https://symfony.com/blog/symfony-7-3-curated-new-features).
 
 #### Doctrine DBAL 3.9
 
-By moving to Doctrine DBAL 3.9, [[= product_name =]] brings developers better performance, cleaner code, and stronger foundation for a more modern and maintainable application.
+By moving to Doctrine DBAL 3.9, Ibexa DXP brings developers better performance, cleaner code, and stronger foundation for a more modern and maintainable application.
 
 #### PHP 8.3
 
-With performance, coding safety and security in mind, with this version, [[= product_name =]] moves to [PHP 8.3](https://www.php.net/releases/8.3/en.php) and drops support for lower versions of the language.
+With performance, coding safety and security in mind, with this version, Ibexa DXP moves to [PHP 8.3](https://www.php.net/releases/8.3/en.php) and drops support for lower versions of the language.
 
 #### OpenAPI support
 
@@ -979,14 +979,14 @@ Support for serialization and deserialization of REST payloads with the [Symfony
 
 #### React 19
 
-[[= product_name =]]'s Back Office now uses [React 19](https://react.dev/blog/2024/12/05/react-19).
+Ibexa DXP's Back Office now uses [React 19](https://react.dev/blog/2024/12/05/react-19).
 This upgrade enhances maintainability, unlocks new UI capabilities, and simplifies future feature development.
 
 ### Developer experience
 
 #### New packages
 
-The following packages have been introduced in [[= product_name =]] v5.0.0:
+The following packages have been introduced in Ibexa DXP v5.0.0:
 
 - ibexa/collaboration
 - ibexa/connector-ai
@@ -999,7 +999,7 @@ The following packages have been introduced in [[= product_name =]] v5.0.0:
 
 #### REST APIs
 
-[[= product_name =]] v5.0.0 adds REST API coverage for the following features:
+Ibexa DXP v5.0.0 adds REST API coverage for the following features:
 
 - AI Actions:
     - Action Configurations
@@ -1225,7 +1225,7 @@ The following Twig functions have been added in the v5.0 release:
 This release brings other minor upgrades intended to improve the developer's experience:
 
 - To improve code clarity, reliability, and error detection, type hint declarations that specify the expected data type have been added in multiple places throughout the product
-- In anticipation of [changes coming with PHP 8.4](https://php.watch/versions/8.4/implicitly-marking-parameter-type-nullable-deprecated), implicit nullable type declarations have been replaced with nullable type declarations throughout the product code. It is recommended that you update your custom code in the same way
+- In anticipation of [changes coming with PHP 8.4](https://php.watch/versions/8.4/implicitly-marking-parameter-type-nullable-deprecated), implicit nullable type declarations have been replaced with nullable type declarations throughout the product code. It's recommended that you update your custom code in the same way
 - Developer experience has improved with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](https://doc.ibexa.co/en/5.0/templating/components/#php-code) of Twig components
 - With protection against breaking changes and easier refactoring in mind, [TypeScript](https://www.typescriptlang.org/) can now be used to extend the Back Office
 - [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) has been introduced that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code. You can use it to get rid of PHP code deprecations

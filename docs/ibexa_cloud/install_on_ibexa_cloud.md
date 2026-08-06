@@ -1,5 +1,5 @@
 ---
-description: Install and configure Ibexa DXP to run in cloud using [[= product_name_cloud =]].
+description: Install and configure Cohesivo to run in cloud using [[= product_name_cloud =]].
 month_change: false
 ---
 
@@ -104,7 +104,7 @@ You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) 
 ibexa_cloud push main
 ```
 
-The [database installer](install_ibexa_dxp.md#create-a-database) runs in non-interactive mode and keeps the default password for the `admin` user.
+The [database installer](install_cohesivo.md#create-a-database) runs in non-interactive mode and keeps the default password for the `admin` user.
 Modify this password after the installation, for example, by using [data migrations](importing_data.md#users) or the [user management command](update_basic_user_data.md#change-password).
 
 !!! note

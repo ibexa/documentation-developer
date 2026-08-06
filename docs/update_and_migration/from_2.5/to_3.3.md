@@ -10,12 +10,12 @@ Before you start this procedure, make sure you have completed the previous step,
 
 ## 5. Update to v3.3
 
-[[= product_name =]] v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
+Ibexa DXP v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 !!! note
 
-    [[= product_name =]] v3.3 requires Composer 2.0.13 or higher.
+    Ibexa DXP v3.3 requires Composer 2.0.13 or higher.
 
 First, create an update branch `update-[[=target_version=]]` in git and commit your work.
 

@@ -205,7 +205,7 @@ If so, take appropriate action, for example by [revoking passwords](https://doc.
 
 The [BREACH](https://www.breachattack.com/) attack is a security vulnerability against HTTPS when using HTTP compression.
 
-If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+If you're using Varnish, update the VCL configuration to stop compressing both the Ibexa DXP's REST API and JSON responses from your backend.
 Fastly users are not affected.
 
 === "Varnish on [[= product_name_cloud =]]"
@@ -362,7 +362,7 @@ No additional steps needed.
 
 ### Security
 
-This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+This security advisory resolves XSS vulnerabilities in several parts of the back office of Ibexa DXP.
 Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
 
 For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
@@ -393,9 +393,9 @@ Run the following scripts:
 
 This release adds support for [Solr 9](requirements.md#search).
 
-To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
+To update Solr within an existing Ibexa DXP project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
 
-Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](/search/search_engines/solr_search_engine/install_solr.md#configure-and-start-solr) and merge them with your custom configuration.
+Then, follow the [instructions for setting up Solr 9 with Ibexa DXP](https://doc.ibexa.co/en/4.6/search/search_engines/solr_search_engine/install_solr/#configure-and-start-solr) and merge them with your custom configuration.
 
 Changes include:
 
@@ -467,9 +467,9 @@ No additional steps needed.
 
 ### Elasticsearch 8 support
 
-As of v4.6.27, [[= product_name =]] adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
+As of v4.6.27, Ibexa DXP adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
 
-By default, [[= product_name =]] continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
+By default, Ibexa DXP continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
 To use Elasticsearch 8, follow these steps:
 
 #### Install Elasticsearch 8 package
@@ -579,7 +579,7 @@ composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 
 ### Messenger support in CDP
 
-If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.
+If you're using [CDP](raptor_cdp.md) and haven't configured Ibexa Messenger yet, do so now.
 Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
 
 <!-- End of update instructions -->
@@ -713,7 +713,7 @@ To use these packages in versions not affected by security vulnerabilities, PHP 
 
 For projects meeting this requirement, you can update the packages with Composer.
 
-If you're using PHP 7.4 or 8.0, to do the [[= product_name =]] update, you have two options:
+If you're using PHP 7.4 or 8.0, to do the Ibexa DXP update, you have two options:
 
 #### Update PHP, the custom code, then the platform (recommended)
 

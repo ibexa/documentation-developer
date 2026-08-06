@@ -113,7 +113,7 @@ php bin/console cache:clear
 
 Apply the following database update script:
 
-### [[= product_name =]]
+### Ibexa DXP
 
 === "MySQL"
     ``` bash
@@ -128,7 +128,7 @@ Apply the following database update script:
 
 ### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
     ``` sql
@@ -220,7 +220,7 @@ For more information, see [Get a content item](graphql_queries.md#get-a-content-
 
 ### Back office customization
 
-The v4 version of [[= product_name =]] is using Bootstrap 5 in the back office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom back office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
+The v4 version of Ibexa DXP is using Bootstrap 5 in the back office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom back office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
 
 ### Online editor
 

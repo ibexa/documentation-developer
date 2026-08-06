@@ -13,7 +13,7 @@ yellow open default_location_eng_gb_46 fSGtpljwTpGfascFechmww 1 1  1 0   21kb   
 (...)
 ```
 
-Create a list containing all indices used by the DXP, including the [custom indices](/search/search_engines/elasticsearch/configure_elasticsearch.md#define-field-type-mapping-templates) as well.
+Create a list containing all indices used by [[= product_name =]], including the [custom indices](/search/search_engines/elasticsearch/configure_elasticsearch.md#define-field-type-mapping-templates) as well.
 
 Then, delete them by using the [delete index endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/indices-delete-index.html) 
 

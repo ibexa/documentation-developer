@@ -1,9 +1,9 @@
 ---
-description: Install and configure [[= product_name_engage =]].
+description: Install and configure Qualifio.
 edition: experience
 ---
 
-# [[= product_name_engage =]]
+# Install [[= product_name_engage =]]
 
 [[= product_name_engage =]] is a data collection tool. It enables you to engage your audiences by using the [Qualifio](https://qualifio.com/) tools.
 You can use interactive content to gather valuable data, for example, customer data or recent orders list, and create connections.
@@ -16,7 +16,7 @@ To use [[= product_name_engage =]], you must make arrangements with [[= product_
 [[= product_name_base =]] team creates and provides user account.
 An invitation link is sent during the setup process.
 
-For more information, see [[[= product_name_engage =]] in User Documentation]([[= user_doc =]]/ibexa_engage/ibexa_engage/#request-access).
+For more information, see [[[= product_name_engage =]] in User Documentation]([[= user_doc =]]/qualifio/qualifio/#request-access).
 
 ## Install [[= product_name_engage =]]
 
@@ -40,7 +40,7 @@ This command adds to your project configuration files required for using [[= pro
 In `config/packages` directory add the following `ibexa_connector_qualifio.yaml` [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
-[[= include_file('code_samples/ibexa_engage/config/packages/ibexa_connector_qualifio.yaml') =]]
+[[= include_file('code_samples/qualifio/config/packages/ibexa_connector_qualifio.yaml') =]]
 ```
 
 - `client_id` - an identifier of the user.

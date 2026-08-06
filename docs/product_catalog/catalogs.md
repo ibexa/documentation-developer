@@ -1,5 +1,5 @@
 ---
-description: Catalogs enable filtering our a selection of products from the PIM.
+description: Catalogs enable filtering out a selection of products from the Product catalog.
 ---
 
 # Catalogs

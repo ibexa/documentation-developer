@@ -119,7 +119,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you're using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
+If you're using Ibexa OSS and have no access to Ibexa DXP's `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Update the app to latest version of v4.1
 

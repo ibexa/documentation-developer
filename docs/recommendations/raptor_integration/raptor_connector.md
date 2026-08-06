@@ -4,9 +4,9 @@ page_type: landing_page
 month_change: false
 ---
 
-# Raptor connector
+# [[= product_name_cdp_base =]] integration
 
-The [Raptor](https://www.raptorservices.com/) connector is an add-on that provides a seamless integration between [[= product_name =]] and Raptor recommendation engine.
+The [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration is an add-on that provides a seamless integration between [[= product_name =]] and [[= product_name_cdp_base =]] recommendation engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps increase conversion rates, drive sales, and improve user engagement.
 
@@ -20,10 +20,10 @@ The connector ensures a smooth and unified integration layer, enabling:
 
 This approach reduces integration complexity while providing a scalable foundation for personalization use cases across multiple sites and markets.
 
-To configure the integration with Raptor, follow a step-by-step procedure that allows you to activate the Raptor connector.
+To configure the integration with [[= product_name_cdp_base =]], follow a step-by-step procedure that allows you to activate the [[= product_name_cdp_base =]] connector.
 Activation includes [configuration](connector_installation_configuration.md), adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
 
-For more information about tracking, check the Raptor documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
+For more information about tracking, check the [[= product_name_cdp_base =]] documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
 
 [[= cards([
     "recommendations/raptor_integration/connector_installation_configuration",

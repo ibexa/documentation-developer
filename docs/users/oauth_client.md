@@ -1,5 +1,5 @@
 ---
-description: Allow users to log into Ibexa DXP through external OAuth2 authorization servers.
+description: Allow users to log into Cohesivo through external OAuth2 authorization servers.
 ---
 
 # OAuth client

@@ -6,7 +6,7 @@ month_change: true
 # Update from v5.0.x to v5.0.latest
 
 To update from v4.6.x, see [Update from v4.6 to v5.0](update_to_5.0.md).
-To update from an older version, visit [the update page](update_ibexa_dxp.md) and choose the applicable path.
+To update from an older version, visit [the update page](update_system.md) and choose the applicable path.
 
 ## Update the application
 
@@ -187,7 +187,7 @@ If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.
 
 ### Elasticsearch 8 support
 
-As of v5.0.5, [[= product_name =]] adds support for Elasticsearch 8.19 or higher.
+As of v5.0.5, Ibexa DXP adds support for Elasticsearch 8.19 or higher.
 You can continue using [unsupported Elasticsearch 7.16.2+](https://www.elastic.co/support/eol), but it's recommended to upgrade to Elasticsearch 8 for improved performance and security features.
 
 When choosing to keep using Elasticsearch 7.16.2, adjust your configuration as described in the [Update configuration](#update-configuration) section below to avoid using deprecated settings.
@@ -334,7 +334,7 @@ curl -fs https://get.symfony.com/cloud/configurator | bash
 
 ### Update Symfony from 7.3 to 7.4
 
-This version of [[= product_name =]] requires [Symfony 7.4](https://symfony.com/releases/7.4).
+This version of Ibexa DXP requires [Symfony 7.4](https://symfony.com/releases/7.4).
 Update Symfony constraints in `composer.json` before updating the packages.
 
 1. In `composer.json`, update `extra.symfony.require` to allow installing a higher Symfony version:
@@ -383,7 +383,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
         !!! caution "Always clear the persistence cache with `cache:pool:clear` command"
 
-            Starting with Symfony 7.4, running `php bin/console cache:clear` doesn't clear the [[= product_name =]] persistence cache, even when using a filesystem-based cache pool.
+            Starting with Symfony 7.4, running `php bin/console cache:clear` doesn't clear the Ibexa DXP's persistence cache, even when using a filesystem-based cache pool.
 
             To clear the persistence cache, for example after adding a [custom Page Builder block](create_custom_page_block.md), you must always run:
 
@@ -477,7 +477,7 @@ Make sure it contains the highlighted addition:
 
 ## v5.0.9
 
-No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Update requires additional update steps](#mcp-servers) if you're using it.
+No additional steps needed for Ibexa DXP, but the [MCP Servers LTS Update requires additional update steps](#mcp-servers) if you're using it.
 
 ## LTS Updates and additional packages
 

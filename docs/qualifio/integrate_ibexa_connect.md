@@ -1,9 +1,9 @@
 ---
-description: Integrate Ibexa Engage with Ibexa Connect.
+description: Integrate Qualifio with Ibexa Connect.
 edition: experience
 ---
 
-# Use Ibexa Connect
+# Integrate with [[= product_name_connect =]]
 
 You can use [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) to create workflows.
 [[= product_name_engage =]] collects user data and passes it directly to [[= product_name_connect =]].
@@ -11,7 +11,7 @@ With this data, you can create scenarios, for example, to add a user to newslett
 
 For more information, see [[[= product_name_connect =]] documentation]([[= connect_doc =]]/).
 
-## Integrate [[= product_name_engage =]] with [[= product_name_connect =]]
+## Use [[= product_name_connect =]]
 
 Webhooks provide a powerful way to transfer data between applications in real-time.
 You can use webhooks to connect [[= product_name_engage =]] with [[= product_name_connect =]] - integration platform (iPaaS).
@@ -52,7 +52,7 @@ To do it, perform the following actions::
 
 3\. Paste the URL from the clipboard into **Webhook Host** field and click **Save**.
 
-![Configure Ibexa Engage](configure_ibexa_engage.png "Configure Ibexa Engage")
+![Configure Qualifio](configure_qualifio.png "Configure Qualifio")
 
 4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website.
 Select the created webhook.

@@ -20,7 +20,7 @@ This release brings a completely reconstructed user interface of the Personaliza
 
 ### Symfony Flex
 
-[[= product_name =]] is now installed using [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
+Ibexa DXP is now installed using [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 
 See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_started/install_ez_platform/) for a new guide to installing the product.
 
@@ -89,6 +89,6 @@ See [list of changes in Symfony 5.2](https://symfony.com/blog/symfony-5-2-curate
 
 ### Symfony 5.4
 
-The version v3.3.15 moves [[= product_name =]] to Symfony 5.4.
+The version v3.3.15 moves Ibexa DXP to Symfony 5.4.
 
 For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](update_from_3.3.md#v3315).

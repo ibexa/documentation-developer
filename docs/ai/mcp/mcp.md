@@ -1,5 +1,5 @@
 ---
-description: Overview of MCP resources in [[= product_name =]]
+description: Overview of MCP resources in Cohesivo
 page_type: landing_page
 edition: lts-update
 month_change: false

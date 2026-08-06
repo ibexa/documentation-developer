@@ -1,10 +1,10 @@
 ---
-description: Data export schedule in Ibexa CDP.
+description: Data export schedule in Raptor CDP.
 edition: experience
 month_change: true
 ---
 
-# CDP data export schedule
+# Schedule [[= product_name_cdp =]] data export
 
 ## Configuration key
 
@@ -70,4 +70,4 @@ php bin/console ibexa:cdp:stream-content-data --help
 
 The configuration is executed by `ibexa:cron:run` command which must be configured as a cron job.
 
-For more information, see [Schedule tasks](install_ibexa_dxp.md#schedule-tasks).
+For more information, see [Schedule tasks](install_cohesivo.md#schedule-tasks).

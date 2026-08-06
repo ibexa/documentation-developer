@@ -109,7 +109,7 @@ Personalization service has been enhanced with a feature which allows to exclude
 v4.0 sees significant code cleanup, including renaming of namespaces, services, REST API endpoints
 and many other internal names.
 
-Refer to [[[= product_name =]] v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md)
+Refer to [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md)
 for full details of changes and how they influence your project.
 
 ## Full changelog

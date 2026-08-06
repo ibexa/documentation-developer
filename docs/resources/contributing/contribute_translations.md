@@ -1,5 +1,5 @@
 ---
-description: You can contribute back office translations to Ibexa DXP by using Crowdin.
+description: You can contribute back office translations to Cohesivo by using Crowdin.
 month_change: false
 ---
 

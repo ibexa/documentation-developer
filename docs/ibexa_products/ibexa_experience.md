@@ -7,7 +7,7 @@ month_change: false
 
 ## What is [[= product_name_exp =]]
 
-[[= product_name_exp =]] is an [[= product_name =]] edition that focuses on the customer.
+[[= product_name_exp =]] is a [[= product_name =]] edition that focuses on the customer.
 It offers smooth consumer journey and great online experience. In everything you do, it places your clients first.
 With Experience edition you can empower Editors to quickly create new pages or personalized content, and improve their daily work.
 It also provides tools for using segmentation and targeting, and it can be widely used in B2B thanks its features and integrations.
@@ -25,7 +25,7 @@ You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one o
 
 ### Technical backstage
 
-With an active license, you can start the [installation process](install_ibexa_dxp.md) that uses the Composer.
+With an active license, you can start the [installation process](install_cohesivo.md) that uses the Composer.
 
 [[= product_name_exp =]] is based on [Symfony]([[= symfony_doc =]]).
 With a help of documentation and trainings, any developer familiar with Symfony or simply PHP may learn how to use available extension points and extend the platform.
@@ -100,9 +100,9 @@ You can assign users to different recommendation groups and create advanced logi
 
 ![Segments](segments.png)
 
-#### Customer Data Platform (CDP)
+#### [[= product_name_cdp =]] (Customer Data Platform)
 
-[Ibexa CDP](cdp_guide.md) is an add-on available for both Experience and [Commerce](ibexa_commerce.md) editions of [[= product_name =]].
+[[[= product_name_cdp =]]](/raptor_cdp/raptor_cdp_guide.md) is an add-on available for both Experience and [Commerce](ibexa_commerce.md) editions of [[= product_name =]].
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration.
 Once you activate [[= product_name_cdp =]], you can create complete customer profiles, including their interactions, behavior, and preferences.
 It helps you improve user engagement, conversion rates, and return on investment by segmenting your audience and delivering tailored campaigns and experiences.
@@ -110,17 +110,17 @@ Additionally, you can manage and analyze campaigns, evaluate customer data, and 
 By using [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner.
 This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business.
 
-![CDP](cdp.png)
+![CDP](../raptor_cdp/img/cdp.png)
 
 #### [[= product_name_engage =]]
 
-Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [Ibexa Engage](ibexa_engage.md).
+Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [[[= product_name_engage =]]](/qualifio/qualifio.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
 [[= product_name_engage =]] is a data collection tool.
 It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
 To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
 
-![Ibexa Engage](ibexa_engage.png)
+![Qualifio](qualifio.png)
 
 ### Use cases
 

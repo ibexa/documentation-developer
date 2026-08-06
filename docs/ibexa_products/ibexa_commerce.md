@@ -1,5 +1,5 @@
 ---
-description: Explore all of the key features, functionalities, and advantages of Ibexa Commerce, the most powerful edition that Ibexa DXP has to offer.
+description: Explore all of the key features, functionalities, and advantages of Ibexa Commerce, the most powerful edition that Cohesivo has to offer.
 month_change: false
 ---
 
@@ -27,7 +27,7 @@ You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one o
 
 ### Technical backstage
 
-With an active license, you can start the [installation process](install_ibexa_dxp.md) that uses the Composer.
+With an active license, you can start the [installation process](install_cohesivo.md) that uses the Composer.
 
 [[= product_name_com =]] is based on [Symfony]([[= symfony_doc =]]).
 With a help of documentation and trainings, any developer familiar with Symfony or even PHP alone can learn how to use available extension points and extend the platform.

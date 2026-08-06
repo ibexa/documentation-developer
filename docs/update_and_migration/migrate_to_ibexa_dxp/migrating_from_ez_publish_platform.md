@@ -4,7 +4,7 @@ description: Migrate an older eZ Publish Platform installation to eZ Platform.
 
 # Migrating from eZ Publish Platform
 
-eZ Publish Platform (5.x) was a transitional version of the Ibexa CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and eZ Platform, the predecessor to [[= product_name =]].
+eZ Publish Platform (5.x) was a transitional version of the Ibexa CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), eZ Platform and Ibexa DXP, the predecessors to [[= product_name =]].
 
 eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform gradually, using the bridging as an intermediary stepping stone.
 
@@ -37,7 +37,7 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 !!! caution "Unsupported legacy sorting methods"
 
     In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
-    These sorting methods are no longer supported in [[= product_name =]].
+    These sorting methods are no longer supported in Ibexa DXP and [[= product_name =]].
     After you migrate, trying to render the Sub-items tab of content items that are configured to use the unsupported sorting methods results in an error.
 
     To mitigate the problem, before you migrate, update the affected content items to use supported sorting methods such as Name, Published, or Priority.

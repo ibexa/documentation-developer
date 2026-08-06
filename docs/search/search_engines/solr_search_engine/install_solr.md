@@ -1,5 +1,5 @@
 ---
-description: Install Solr search engine to use it with Ibexa DXP.
+description: Install Solr search engine to use it with Cohesivo.
 ---
 
 # Install Solr search engine
@@ -22,7 +22,7 @@ Download and extract Solr:
 - [solr-9.8.1.tgz](https://archive.apache.org/dist/solr/solr/9.8.1/solr-9.8.1.tgz)
 
 Copy the necessary configuration files.
-The examples below copy from the root of your DXP project to the place you've extracted Solr:
+The examples below copy from the root of your [[= product_name =]] project to the place you've extracted Solr:
 
 === "Solr 9"
 

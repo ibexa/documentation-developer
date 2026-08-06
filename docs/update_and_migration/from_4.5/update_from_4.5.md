@@ -305,7 +305,7 @@ php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard
 
 ### Ibexa Open Source
 
-If you don't have access to [[= product_name =]]'s `ibexa/installer` package and cannot apply the scripts from `vendor/ibexa/installer` directory, apply the following database update instead:
+If you don't have access to Ibexa DXP's `ibexa/installer` package and cannot apply the scripts from `vendor/ibexa/installer` directory, apply the following database update instead:
 
 === "MySQL"
 
@@ -342,7 +342,7 @@ ibexa:
 
 #### User profile
 
-[[= product_name =]] v4.6 introduced user profile for Backoffice users, allowing users to upload avatars, and provide personal information.
+Ibexa DXP v4.6 introduced user profile for Backoffice users, allowing users to upload avatars, and provide personal information.
 
 This feature is optional, and you can disable it by setting `enabled` flag to `false` in `ibexa.system.<scope>.user_profile` configuration:
 
@@ -370,7 +370,7 @@ ibexa:
                 field_groups: ['about', 'contact']
 ```
 
-You can use your own content type that represents the back office user, or use the default one provided by [[= product_name =]]:
+You can use your own content type that represents the back office user, or use the default one provided by Ibexa DXP:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml

@@ -11,13 +11,13 @@ month_change: false
 It also establishes the framework for the potential growth and improves project delivery.
 As a diverse Platform as a Service (PaaS), it's designed to allow you to focus on the crucial things.
 
-[[= product_name_cloud =]] is a part of [[= product_name =]] - a software that is designed to provide your business with all the features, functionality, and support your need to transform your business for the digital age.
+[[= product_name_cloud =]] complements the capabilities of [[= product_name =]] - a software that is designed to provide your business with all the features, functionality, and support your need to transform your business for the digital age.
 
-![Ibexa Cloud - part of Ibexa DXP](ibexa_cloud_dxp.png)
+![Ibexa Cloud - part of [[= product_name =]]](../getting_started/img/ibexa_cloud_dxp.png)
 
 ## Availability
 
-[[= product_name_cloud =]] is available in all [[= product_name =]] editions.
+[[= product_name_cloud =]] is available for all [[= product_name =]] editions.
 
 ## How does [[= product_name_cloud =]] work
 

@@ -1,5 +1,5 @@
 ---
-description: Ensure the security of your Ibexa DXP installation by using one of the available authentication methods.
+description: Ensure the security of your Cohesivo installation by using one of the available authentication methods.
 ---
 
 # Development security

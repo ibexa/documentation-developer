@@ -1,5 +1,5 @@
 ---
-description: Install Ibexa DXP with Docker and DDEV to use it for development.
+description: Install Cohesivo with Docker and DDEV to use it for development.
 month_change: false
 ---
 
@@ -63,7 +63,7 @@ Depending on your database of choice (MySQL or PostgreSQL), use the appropriate 
 
 !!! note
 
-    Those commands set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
+    Those commands set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_cohesivo.md#change-installation-parameters).
 
     To use `.env.local` file instead of server-level environment variables, see [Using dotenv](#using-dotenv).
 
@@ -99,7 +99,7 @@ ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
 
 #### Configure scheduled tasks (optional)
 
-You can [schedule tasks](install_ibexa_dxp.md#schedule-tasks) using [DDEV Cron add-on](https://addons.ddev.com/addons/ddev/ddev-cron).
+You can [schedule tasks](install_cohesivo.md#schedule-tasks) using [DDEV Cron add-on](https://addons.ddev.com/addons/ddev/ddev-cron).
 
 ```bash
 ddev add-on get ddev/ddev-cron
@@ -108,7 +108,7 @@ echo "* * * * * cd $basedir && php bin/console ibexa:cron:run --quiet --env=prod
 ddev restart
 ```
 
-For more schedulable tasks and ways to schedule them, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
+For more schedulable tasks and ways to schedule them, see [Additional scheduled tasks and advanced usage](install_cohesivo.md#additional-scheduled-tasks-and-advanced-usage).
 
 You can run the following command to check Cron:
 
@@ -169,7 +169,7 @@ ddev start
 
 ### 4. Composer authentication
 
-Next, you need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
+Next, you need to [set up authentication tokens](install_cohesivo.md#set-up-authentication-tokens) by modifying the Composer configuration.
 You must run the following command **after** executing `ddev start`, because the command runs inside the container.
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password.
 
@@ -425,7 +425,7 @@ To run an existing project, you need to:
     - getting a clean database with `ddev php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
     - injecting a dump with [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
-The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
+The following examples run an already [version-controlled project](install_cohesivo.md#add-project-to-version-control) and have the right content structure (but no content):
 
 ```bash
 # Clone the version-controlled project and enter its local directory
@@ -455,7 +455,7 @@ Some DDEV configs can be shared among developers. For example, a common `.ddev/c
 
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
-- In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
+- In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains a [[= product_name =]] project instead of creating an empty directory.
 - In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create-project`.
 - Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db).
 
@@ -472,7 +472,7 @@ If the local project needs to answer to real production domains (for example, to
 You can use DDEV to locally simulate a production cluster.
 
 - See [Clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, or Redis to your DDEV installation.
-- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
+- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run a [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 

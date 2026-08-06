@@ -1,11 +1,11 @@
 ---
-description: Create campaign with Ibexa Engage.
+description: Create a campaign with Qualifio.
 edition: experience
 ---
 
-# Create campaign
+# Create [[= product_name_engage =]] campaign
 
-[Campaign]([[= user_doc =]]/ibexa_engage/ibexa_engage/#campaign) is a set of concepts, divided into steps, that the user can configure.
+[Campaign]([[= user_doc =]]/qualifio/qualifio/#campaign) is a set of concepts, divided into steps, that the user can configure.
 It can contain, for example, a welcome screen, an interaction element, a form step, and an exit screen.
 To create new campaign, you need to use Qualifio Manager.
 You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns.
@@ -18,7 +18,7 @@ For more information about creating and managing campaigns, see [Qualifio docume
 ## Publication channels
 
 Each campaign includes a minimum of one publication channel that you can choose from the three options the platform provides for publishing a campaign.
-For more information about publication channels, see [Publication channel]([[= user_doc =]]/ibexa_engage/ibexa_engage/#publication-channel) in User Documentation.
+For more information about publication channels, see [Publication channel]([[= user_doc =]]/qualifio/qualifio/#publication-channel) in User Documentation.
 
 ## Use Campaign block in Page Builder
 

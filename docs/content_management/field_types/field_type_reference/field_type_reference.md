@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP offers a range of built-in field types that cover most common needs when creating content.
+description: Cohesivo offers a range of built-in field types that cover most common needs when creating content.
 page_type: reference
 month_change: false
 ---

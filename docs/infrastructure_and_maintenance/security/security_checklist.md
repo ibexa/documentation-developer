@@ -1,5 +1,5 @@
 ---
-description: Ensure that your Ibexa DXP installation is secure by following our set of recommendations.
+description: Ensure that your Cohesivo installation is secure by following our set of recommendations.
 ---
 
 # Security checklist
@@ -117,7 +117,7 @@ Reduce your attack surface by exposing only what you must.
 
 - If possible, make the back office unavailable on the open internet.
 - [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It's only required in the back office SiteAccess though, so you can consider blocking it in other SiteAccesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
-- By default, a [Powered-By header](update_db_to_2.5.md#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: [[= product_name_exp =]] v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely by setting `enabled: false`.
+- By default, a [Powered-By header](update_db_to_2.5.md#powered-by-header) is set. It specifies what version of [[= product_name =]] is running. For example, `x-powered-by: [[= product_name_exp =]] v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely by setting `enabled: false`.
 
     ```yaml
     ibexa_system_info:
@@ -223,7 +223,7 @@ For more information, see [PHP's own security manual](https://www.php.net/manual
 ### Block execution of scripts in `var` directory
 
 Make sure that the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_ibexa_dxp.md#set-up-virtual-host).
+See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_cohesivo.md#set-up-virtual-host).
 
 ### Security headers
 

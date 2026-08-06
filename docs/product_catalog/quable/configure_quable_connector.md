@@ -1,10 +1,10 @@
 ---
-description: Quable PIM connector configuration reference for Ibexa DXP
+description: Quable connector configuration reference for Cohesivo
 page_type: reference
 month_change: false
 ---
 
-# Configure Quable connector
+# Configure [[= pim_product_name =]] connector
 
 You can customize the behavior of the [[= pim_product_name =]] integration add-on by using the following [configuration](configuration.md).
 

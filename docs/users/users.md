@@ -1,5 +1,5 @@
 ---
-description: Users in Ibexa DXP refer to all kinds of user accounts, such as administrators, editors, managers or shop customers.
+description: Users in Cohesivo refer to all kinds of user accounts, such as administrators, editors, managers or shop customers.
 page_type: landing_page
 ---
 

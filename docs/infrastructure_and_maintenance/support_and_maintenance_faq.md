@@ -71,7 +71,7 @@ imports:
     - { resource: ../landing_page_blocks.yaml }
 ```
 
-## How can I implement authentication in an [[= product_name =]]-based project?
+## How can I implement authentication in a [[= product_name =]]-based project?
 
 The best approach is to use Symfony authentication.
 Check [development security](development_security.md) page for more detailed instructions.

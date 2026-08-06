@@ -1,5 +1,5 @@
 ---
-description: Discover various Ibexa DXP features.
+description: Discover various Cohesivo features.
 page_type: landing_page
 month_change: false
 ---
@@ -22,7 +22,7 @@ Discover the primary ones with the help of product guides. Condensed content all
     "product_catalog/quable/quable_guide",
     "commerce/shopping_list/shopping_list_guide",
     "ibexa_cloud/ibexa_cloud_guide",
-    "cdp/cdp_guide",
+    "raptor_cdp/raptor_cdp_guide",
     "recommendations/raptor_integration/raptor_connector_guide",
     "ai/ai_actions/ai_actions_guide",
     "ai/mcp/mcp_guide",

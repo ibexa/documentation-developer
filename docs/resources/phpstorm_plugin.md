@@ -2,9 +2,9 @@
 description: The Ibexa DXP PhpStorm plugin helps you speed up your development by providing file templates, autocompletion, a quick installation wizard, and more.
 ---
 
-# Ibexa DXP plugin for PhpStorm
+# Ibexa plugin for PhpStorm
 
-[[= product_name =]] plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation and providing file templates, intentions, autocompletion, and other features.
+Ibexa plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation and providing file templates, intentions, autocompletion, and other features.
 
 ## Requirements
 
@@ -13,13 +13,13 @@ description: The Ibexa DXP PhpStorm plugin helps you speed up your development b
 
 ## Install PhpStorm plugin
 
-You can install the [[= product_name =]] plugin for PhpStorm from the JetBrains Marketplace, or manually, from a downloaded .jar file.
+You can install the Ibexa plugin for PhpStorm from the JetBrains Marketplace, or manually, from a downloaded .jar file.
 
 ### Install from JetBrains Marketplace
 
 To install plugin from JetBrains marketplace:
 
-Look for "[[= product_name =]]" in the plugin browser and click **Install**.
+Look for "Ibexa DXP" in the plugin browser and click **Install**.
 
 ### Install from file
 
@@ -31,7 +31,7 @@ You can also install the plugin manually from a `.jar` file:
 
 ## Configuration
 
-Plugin configuration is available in PhpStorm settings/preferences (depending on your system), under **PHP** > **Frameworks** > **[[= product_name =]]**.
+Plugin configuration is available in PhpStorm settings/preferences (depending on your system), under **PHP** > **Frameworks** > **Ibexa DXP**.
 
 You can use it to:
 
@@ -46,16 +46,16 @@ You can use it to:
     For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.
 
 Plugin configuration is automatically resolved when opening [[= product_name =]] project for the first time.
-If detection is successful, a notification appears with an "Enable [[= product_name =]] support for this project" link.
+If detection is successful, a notification appears with an "Enable Ibexa DXP support for this project" link.
 
-If you created your project by using [[= product_name =]] project wizard, the plugin is automatically enabled and configured based on wizard data.
+If you created your project by using Ibexa DXP project wizard, the plugin is automatically enabled and configured based on wizard data.
 
 ## Features
 
 ### Project wizard
 
 The plugin enables creating a new [[= product_name =]] project directly from PhpStorm.
-To do it, select **File** > **New Project...** > **[[= product_name =]]**.
+To do it, select **File** > **New Project...** > **Ibexa DXP**.
 
 In project settings form you can choose:
 
@@ -99,7 +99,7 @@ The plugin provides the following built-in file templates:
 | Value object visitor | REST value visitor class based on `Ibexa\Contracts\Rest\Output\ValueObjectVisitor` |
 | Workflow action listener | Workflow action listener class based on `Ibexa\Contracts\Workflow\Event\Action\AbstractTransitionWorkflowActionListener` |
 
-The templates are available in, for example, the context menu in **Project window** > **New** > **[[= product_name =]]**.
+The templates are available in, for example, the context menu in **Project window** > **New** > **Ibexa DXP**.
 
 The list of available file templates depends on the [[= product_name =]] edition used by the project.
 

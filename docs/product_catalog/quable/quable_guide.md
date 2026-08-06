@@ -1,13 +1,13 @@
 ---
-description: The Quable product guide describes how you can use the product data from Quable in Ibexa DXP to create marketing campaigns built around your products.
+description: The Quable product guide describes how you can use the product data from Quable in Cohesivo to create marketing campaigns built around your products.
 month_change: false
 ---
 
-# Quable product guide
+# [[= pim_product_name =]] product guide
 
 ## Overview
 
-[[= pim_product_name =]] integration connects [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
+[[= pim_product_name =]] integration connects [[= product_name =]] with [[[= pim_product_name =]]](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
 [[= pim_product_name =]] serves as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 [[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
@@ -16,9 +16,9 @@ This approach eliminates the need to manage product data in multiple systems, wh
 
 ## Availability
 
-The integration with [[= pim_product_name =]] PIM is available as an add-on for all [[= product_name =]] editions, starting with [[= product_name =]] v5.0.7.
+The integration with [[= pim_product_name =]] is available as an add-on for all [[= product_name =]] editions.
 
-Before installing and enabling the add-on, ensure that you have an active [[= pim_product_name =]] PIM instance with defined products, classifications, and channels.
+Before installing and enabling the add-on, ensure that you have an active [[= pim_product_name =]] instance with defined products, classifications, and channels.
 
 Then, [perform the initial configuration](install_quable.md).
 
@@ -28,7 +28,7 @@ The integration is built on [[= product_name =]]'s [Remote PIM framework](add_re
 
 Once configured, the system performs:
 
-- an initial synchronization of product data from Quable
+- an initial synchronization of product data from [[= pim_product_name =]]
 - ongoing updates via webhooks (near real-time)
 
 Product data is mapped to the [[= product_name =]]'s product data model, including variants, attributes and [product categories](product_catalog_guide.md#product-taxonomy).

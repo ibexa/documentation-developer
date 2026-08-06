@@ -1,5 +1,5 @@
 ---
-description: "Ibexa DXP releases new versions periodically in different flavors: Ibexa Headless, Ibexa Experience and Ibexa Commerce, plus open-source Ibexa OSS."
+description: Cohesivo releases new versions periodically in different flavors - Headless, Experience and Commerce, plus open-source OSS.
 ---
 
 # [[= product_name =]] release process and roadmap
@@ -12,7 +12,7 @@ description: "Ibexa DXP releases new versions periodically in different flavors:
 
 - [[= product_name_headless =]] is a multichannel and headless content management system.
 - [[= product_name_exp =]] is a modern modular Digital Experience Platform to build outstanding customer experiences
-- [[= product_name_com =]] is a commerce-ready B2B DXP designed to digitalize your business from customer awareness to purchase and beyond.
+- [[= product_name_com =]] is a commerce-ready B2B platform designed to digitalize your business from customer awareness to purchase and beyond.
 
 Additionally, [[= product_name =]] also has an open-source version called [[= product_name_oss =]].
 [[= product_name_oss =]] is developed by [[= product_name_base =]] together with the open source community.
