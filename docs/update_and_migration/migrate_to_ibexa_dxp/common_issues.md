@@ -4,7 +4,7 @@ description: Check common issues that occur when updating from earlier version t
 
 # Common migration issues
 
-Below you can find cleanup commands from the EzPublishMigrationBundle for the most common issues that can occur after migration to [[= product_name =]].
+Below you can find cleanup commands from the EzPublishMigrationBundle for the most common issues that can occur after migration to Ibexa DXP or [[= product_name =]].
 
 !!! note "Enabling EzPublishMigrationBundle bundle"
 
@@ -63,7 +63,7 @@ The command can be executed in two modes:
 ## Always available flag set on all fields
 
 Always available flag is set on all fields, instead of only on fields in the main language.
-This problem occurs when [[= product_name =]] is used to create content that is both always available and has multiple translations.
+This problem occurs when you create a content item in the platform is both always available and has multiple translations.
 The cleanup script correctly sets always available flag for prioritized language filtering in Legacy search engine.
 
 ```bash

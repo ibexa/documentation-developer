@@ -27,7 +27,7 @@ It helps you activate your users and give them real-time interaction.
 You can target certain user segments with the appropriate message, content, or products at the right time through the most used channels by using specified audiences.
 Customer data is gathered through a system of trackers embedded in various areas of your website.
 
-![CDP - how does it work](img/raptor_cdp_how_works.png)
+![CDP - how does it work](img/cdp.png)
 
 ### Installation and configuration
 

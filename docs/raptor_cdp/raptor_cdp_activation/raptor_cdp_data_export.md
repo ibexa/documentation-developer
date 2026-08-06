@@ -114,7 +114,7 @@ In the Audience Builder, you can also connect created audiences to the activatio
 
 ## Activation
 
-Activation synchronises data from [[= product_name_cdp =]] to the [[= product_name =]].
+Activation synchronises data from [[= product_name_cdp =]] to [[= product_name =]].
 When you specify a segment, you can activate it on multiple communication channels, such as newsletters or commercials.
 You can configure multiple activations based data flows.
 

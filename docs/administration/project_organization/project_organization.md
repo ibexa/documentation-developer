@@ -1,5 +1,5 @@
 ---
-description: An Cohesivo project follows Symfony's directory structure to organize files in the project.
+description: A Cohesivo project follows Symfony's directory structure to organize files in the project.
 ---
 
 # Project organization

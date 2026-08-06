@@ -417,7 +417,7 @@ Some DDEV configs can be shared among developers. For example, a common `.ddev/c
 
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
-- In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
+- In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains a [[= product_name =]] project instead of creating an empty directory.
 - In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create-project`.
 - Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://docs.ddev.com/en/stable/users/usage/commands/#import-db).
 
@@ -434,7 +434,7 @@ If the local project needs to answer to real production domains (for example, to
 You can use DDEV to locally simulate a production cluster.
 
 - See [Clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, or Redis to your DDEV installation.
-- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
+- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run a [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 

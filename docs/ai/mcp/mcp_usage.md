@@ -91,7 +91,7 @@ The server:
 !!! note "Storage choice recommendations"
 
     Filesystem storage is convenient for the sake of this example and for testing.
-    For production, it is recommended that you use Redis or Valkey.
+    For production, it's recommended that you use Redis or Valkey.
 
 In a new `config/packages/mcp.yaml` file, define a new MCP server for the `default` repository and assign it to all SiteAccesses:
 

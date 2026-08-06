@@ -6,7 +6,7 @@ description: Periodically back up your Repository information by making a databa
 
 You should always make sure that your solution is properly backed up.
 The following example shows you how to do this on a Linux-UNIX-based system.
-You should shut down the [[= product_name =]] if it's running before making a backup.
+You should shut down [[= product_name =]] if it's running before making a backup.
 
 !!! note "Externally stored assets"
 

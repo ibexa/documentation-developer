@@ -58,7 +58,7 @@ For more information on Tracking modes, see documentation:
 
 ## Complex integration
 
-For more complex integrations, the [[= product_name_base =]] Design Engine can be used to override parts or entire templates that render the tracking script.
+For more complex integrations, the [Design Engine](design_engine.md) can be used to override parts or entire templates that render the tracking script.
 
 |Template|Description|Example project path|
 |--------|-----------|--------------------|
@@ -79,7 +79,7 @@ You can override the default templates, either individually or both at the same 
 
 ## Extending default templates
 
-It's possible to extend `script.html.twig` by combining the [[= product_name_base =]] Design Engine with standard Symfony template reference in `templates/themes/standard/ibexa/tracking/script.html.twig`:
+It's possible to extend `script.html.twig` by combining the Design Engine with standard Symfony template reference in `templates/themes/standard/ibexa/tracking/script.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/templates/themes/standard/ibexa/tracking/script.html.twig') =]]

@@ -4,7 +4,7 @@ description: Go through a beginner tutorial which presents the Cohesivo content 
 
 # Beginner tutorial
 
-This tutorial is a step-by-step guide to building an [[= product_name =]] website.
+This tutorial is a step-by-step guide to building a [[= product_name =]] website.
 
 You can use it with both [[= product_name_headless =]] and [[= product_name_exp =]].
 

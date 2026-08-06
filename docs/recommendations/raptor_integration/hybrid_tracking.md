@@ -6,7 +6,7 @@ month_change: true
 # Hybrid tracking
 
 Hybrid tracking mode is an additional tracking mode available alongside [`client` and `server`](tracking_functions.md).
-In hybrid mode, the bundle includes a client-side [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that captures [[= product_name_cdp_base =]] tracking events and sends them to a same-origin endpoint instead of communicating directly with [[= product_name_cdp_base =]] SaaS.
+In hybrid mode, the bundle includes a client-side [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that captures [[= product_name_cdp_base =]] tracking events and sends them to a same-origin endpoint instead of communicating directly with [[= product_name_cdp_base =]] servers.
 The server enriches each event with identifiers resolved from request cookies (`cookieId`, `sessionId`, and `userId`) and forwards it to [[= product_name_cdp_base =]] asynchronously through [Ibexa Messenger](background_tasks.md).
 Since the browser never connects to the [[= product_name_cdp_base =]] domain, ad blockers cannot block the requests.
 

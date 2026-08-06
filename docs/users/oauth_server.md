@@ -148,7 +148,7 @@ Other commands let you list all the configured clients (`league:oauth2-server:li
 
 Your OAuth2 client needs the following information to be able to use your OAuth server:
 
-- The URL of the [[= product_name =]] used as an OAuth server
+- The URL of [[= product_name =]] used as an OAuth server
 - The client identifier
 - The client secret
 - The scope (`default`)

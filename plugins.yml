@@ -631,7 +631,7 @@ plugins:
         # The "> " prefix renders the description as a blockquote summary,
         # as expected by the llms.txt spec (https://llmstxt.org)
         markdown_description: >-
-          > Developer documentation for Ibexa DXP — architecture, APIs, templating, and extensibility for building and customizing Ibexa DXP projects.
+          > Developer documentation for Cohesivo — architecture, APIs, templating, and extensibility for building and customizing Ibexa DXP projects.
 
         # Pin links in the generated Markdown (and llms.txt) to this branch's
         # version instead of site_url's en/latest, without affecting the HTML
@@ -641,5 +641,5 @@ plugins:
         full_output: llms-full.txt
         sections:
           # Built automatically when running MkDocs build based on MkDocs nav configuration, don't change
-          Ibexa DXP developer documentation:
+          Cohesivo developer documentation:
           - index.md

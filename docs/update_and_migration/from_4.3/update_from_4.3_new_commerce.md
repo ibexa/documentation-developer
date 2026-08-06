@@ -404,7 +404,7 @@ The tables that can be removed are prefixed with `ses_` and `sve_`.
 
 #### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Ensure password safety
 

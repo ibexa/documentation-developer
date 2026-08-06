@@ -134,7 +134,7 @@ This command imports the product classification structure from [[= pim_product_n
 
 !!! tip
 
-    To keep the classifications aligned, it is recommended that you run the `ibexa:quable:classification:sync` command every night, even when using synchronization with webhooks.
+    To keep the classifications aligned, it's recommended that you run the `ibexa:quable:classification:sync` command every night, even when using synchronization with webhooks.
 
 ## Set up real-time synchronization
 

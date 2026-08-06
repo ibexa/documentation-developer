@@ -140,7 +140,7 @@ For example, if this is your organization's requirement, a developer could write
 
 ## Use cases
 
-Out of the box, after you configure access to the OpenAI service, the [[= product_name_base =]] AI Actions come with two action types that can help your organization with the following tasks.
+Out of the box, after you configure access to the OpenAI service, AI Actions come with two action types that can help your organization with the following tasks.
 
 ### Refining text
 

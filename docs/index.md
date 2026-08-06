@@ -162,7 +162,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h2>Manage your DXP</h2>
+            <h2>Manage your Cohesivo</h2>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <div class="info-tile info-tile--link-card">

@@ -7,7 +7,7 @@ month_change: false
 
 ## What is [[= product_name_exp =]]
 
-[[= product_name_exp =]] is an [[= product_name =]] edition that focuses on the customer.
+[[= product_name_exp =]] is a [[= product_name =]] edition that focuses on the customer.
 It offers smooth consumer journey and great online experience. In everything you do, it places your clients first.
 With Experience edition you can empower Editors to quickly create new pages or personalized content, and improve their daily work.
 It also provides tools for using segmentation and targeting, and it can be widely used in B2B thanks its features and integrations.
@@ -110,7 +110,7 @@ Additionally, you can manage and analyze campaigns, evaluate customer data, and 
 By using [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner.
 This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business.
 
-![CDP](cdp.png)
+![CDP](../raptor_cdp/img/cdp.png)
 
 #### [[= product_name_engage =]]
 

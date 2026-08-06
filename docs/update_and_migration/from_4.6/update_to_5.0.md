@@ -23,17 +23,17 @@ When you have the last version of 4.6, you can update to v5.0.0.
 First, match v5.0's [requirements](requirements.md).
 It supports only PHP 8.3 and above.
 
-### Update custom code for PHP 8.3+ and DXP 4.6
+### Update custom code for PHP 8.3+ and Ibexa DXP 4.6
 
 It's important to stop using deprecated PHP classes as they're removed in 5.0.
 
 The [`ibexa/compatibility-layer`](to_4.0.md#add-compatibility-layer-package) isn't supported in 5.0.
 If you use it, remove it (`composer remove ibexa/compatibility-layer`) and make the necessary changes.
-See [[[= product_name =]] v4.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v4.0_deprecations.md) for the list of changes.
+See [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v4.0_deprecations.md) for the list of changes.
 
 [Rector](https://getrector.com/) and the [[= product_name_base =]] rule sets help to upgrade your code.
 
-Install [`ibexa/rector`](https://github.com/ibexa/rector) which contains rules to ensure custom code is up to date with DXP 4.6:
+Install [`ibexa/rector`](https://github.com/ibexa/rector) which contains rules to ensure custom code is up to date with Ibexa DXP 4.6:
 
 ```bash
 composer require --dev ibexa/rector
@@ -106,11 +106,11 @@ You can do it, for example, with the following command:
 rm -r config/graphql
 ```
 
-### Update [[= product_name =]] application
+### Update Ibexa DXP application
 
 #### Update package requirements
 
-[[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
+Ibexa DXP 5.0 is based on Symfony 7.3 and both must be updated.
 Your development packages must be updated as well.
 The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/debug-pack) and `ibexa/rector` are installed.
 Adjust the list based on your project requirements.
@@ -219,7 +219,7 @@ If you were using the separate `ibexa/elasticsearch8` package in v4.6, you shoul
 composer remove --no-update ibexa/elasticsearch8
 ```
 
-The `ibexa/elasticsearch` package is automatically installed as part of your [[= product_name =]] 5.0 update.
+The `ibexa/elasticsearch` package is automatically installed as part of your Ibexa DXP 5.0 update.
 Your existing Elasticsearch 8 server and configuration continue to work with the `ibexa/elasticsearch` package.
 
 #### Remove PHP 8.2 error handler
@@ -252,7 +252,7 @@ composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 
 Compare with your previous version, merge them together and test your customizations if needed.
 
-#### Apply [[= product_name =]] recipe
+#### Apply Ibexa DXP recipe
 
 === "[[= product_name_headless =]]"
 
@@ -324,7 +324,7 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
 
 ??? note "Ibexa Open Source"
 
-    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+    If you don't have access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
 
     === "MySQL"
 
@@ -442,9 +442,9 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
     ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_mtime TO ibexa_dfs_file_mtime;
     ```
 
-### Update custom code for [[= product_name =]] 5.0
+### Update custom code for Ibexa DXP 5.0
 
-See [[[= product_name =]] v5.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v5.0_deprecations.md) for the list of changes.
+See [Ibexa DXP v5.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v5.0_deprecations.md) for the list of changes.
 The following sections presents some of those changes and how to apply them.
 
 #### Update PHP framework standards
@@ -1058,7 +1058,7 @@ php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_t
 
 ### Generate GraphQL schema
 
-GraphQL usage is no longer required for the [[= product_name =]] back office.
+GraphQL usage is no longer required for the Ibexa DXP back office.
 If you are using GraphQL in your project, you can generate its schema by running:
 
 ```bash
@@ -1109,5 +1109,5 @@ composer ibexa:setup --platformsh
 
 #### Conclusion
 
-Your project is now running the latest major version of [[= product_name =]].
+Your project is now running the latest major version of Ibexa DXP.
 To reach the last patch version, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md)

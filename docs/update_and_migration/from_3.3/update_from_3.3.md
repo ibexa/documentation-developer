@@ -241,7 +241,7 @@ Run the following scripts:
 
 ### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
 
@@ -384,7 +384,7 @@ See [Update Flex server](#update-flex-server).
 
 #### VCL configuration for Fastly
 
-[[= product_name =]] now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
+Ibexa DXP now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 
@@ -454,7 +454,7 @@ If so, take appropriate action, for example by revoking passwords for all affect
 
 The [BREACH](https://www.breachattack.com/) attack is a security vulnerability against HTTPS when using HTTP compression.
 
-If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+If you're using Varnish, update the VCL configuration to stop compressing both the Ibexa DXP's REST API and JSON responses from your backend.
 Fastly users are not affected.
 
 === "Varnish on [[= product_name_cloud =]]"
@@ -543,7 +543,7 @@ There are no additional update steps to execute.
 
 #### Security
 
-This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+This security advisory resolves XSS vulnerabilities in several parts of the back office of Ibexa DXP.
 Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
 
 For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
