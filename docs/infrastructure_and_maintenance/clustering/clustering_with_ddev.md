@@ -157,7 +157,9 @@ A [search engine](search_engines.md) can be added to the cluster.
 
 ### Elasticsearch
 
-The following sequence of commands:
+The installation of Elasticsearch within a DDEV stack is an adaptation of the [on-premise installation](install_elasticsearch.md) procedure using the [`ddev/ddev-elasticsearch` add-on](https://addons.ddev.com/addons/ddev/ddev-elasticsearch)
+
+For example, the following sequence of commands:
 
 1. Adds the Elasticsearch container
 2. Sets the Elasticsearch version to 8 (default is 9 which is not supported, 7 is supported) - a full version number is required, see [Elasticsearch Docker image](https://hub.docker.com/_/elasticsearch)
