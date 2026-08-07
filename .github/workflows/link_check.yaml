@@ -37,17 +37,17 @@ on:
 
 jobs:
     link-check:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
         strategy:
             matrix:
                 python-version: [3.13]
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
 
             - name: Generate token
               id: generate_token
-              uses: actions/create-github-app-token@v2
+              uses: actions/create-github-app-token@v3
               with:
                   app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
                   private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
@@ -59,7 +59,7 @@ jobs:
                       "https://github.com/ibexa/documentation-connect"
 
             - name: Set up Python ${{ matrix.python-version }}
-              uses: actions/setup-python@v5
+              uses: actions/setup-python@v7
               with:
                   python-version: ${{ matrix.python-version }}
 
@@ -82,7 +82,7 @@ jobs:
 
             - name: Restore lychee cache
               if: ${{ !inputs.force_recheck }}
-              uses: actions/cache@v4
+              uses: actions/cache@v6
               with:
                   path: .lycheecache
                   key: lychee-${{ github.ref_name }}-${{ github.sha }}
@@ -106,6 +106,6 @@ jobs:
 
             - name: Comment broken links
               if: always() && github.event_name == 'pull_request'
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@v3
               with:
                 path: lychee-report.md

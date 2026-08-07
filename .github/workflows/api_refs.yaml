@@ -34,7 +34,7 @@ on:
 jobs:
     open_php_api_ref_pr:
         name: "PHP & REST API References' PR"
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
 
         steps:
             - name: Set version and branches
@@ -77,7 +77,7 @@ jobs:
                   echo "virtual_dxp_version=${virtual_dxp_version}" >> "$GITHUB_OUTPUT"
 
             - name: Checkout documentation
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
               with:
                   ref: ${{ steps.version_and_branches.outputs.base_branch }}
 
@@ -96,14 +96,14 @@ jobs:
                   coverage: none
 
             - name: Set up node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v7
             - name: Install Redocly CLI
               run: npm install -g @redocly/cli@latest
 
             - name: Generate token
               id: generate_token
               if: inputs.use_dev_version == true
-              uses: actions/create-github-app-token@v2
+              uses: actions/create-github-app-token@v3
               with:
                   app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
                   private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
@@ -159,7 +159,7 @@ jobs:
                   fi
 
             - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v7
+              uses: peter-evans/create-pull-request@v8
               with:
                   token: ${{ secrets.EZROBOT_PAT }}
                   title: "API Refs ${{ steps.version_and_branches.outputs.version }}"
