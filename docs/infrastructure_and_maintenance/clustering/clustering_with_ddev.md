@@ -157,7 +157,7 @@ A [search engine](search_engines.md) can be added to the cluster.
 
 ### Elasticsearch
 
-The installation of Elasticsearch within a DDEV stack is an adaptation of the [on-premise installation](install_elasticsearch.md) procedure using the [`ddev/ddev-elasticsearch` add-on](https://addons.ddev.com/addons/ddev/ddev-elasticsearch)
+The installation of Elasticsearch within a DDEV stack is an adaptation of the [on-premise installation](install_elasticsearch.md) procedure using the [`ddev/ddev-elasticsearch` add-on](https://addons.ddev.com/addons/ddev/ddev-elasticsearch).
 
 For example, the following sequence of commands:
 
@@ -197,7 +197,9 @@ See [Elasticsearch REST API reference](https://www.elastic.co/docs/reference/ela
 
 ### Solr
 
-The following sequence of commands:
+The installation of Solr within a DDEV stack is an adaptation of the [on-premise installation](install_solr.md) procedure using the [`ddev/ddev-solr` add-on](https://addons.ddev.com/addons/ddev/ddev-solr).
+
+For example, the following sequence of commands:
 
 1. Adds the Solr container
 2. Sets Solr as the search engine
