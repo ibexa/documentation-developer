@@ -27,6 +27,12 @@ jobs:
               with:
                   python-version: ${{ matrix.python-version }}
 
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.3"
+                  coverage: none
+
             - uses: "ramsey/composer-install@v4"
               with:
                   working-directory: "tools/php-cs-fixer"
