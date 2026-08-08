@@ -2,6 +2,7 @@
 set -e
 
 baseUrl='http://localhost' # Adapt to your test case
+mcpServer="$baseUrl/mcp/example"
 
 jwtToken=$(curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
@@ -16,6 +17,6 @@ jwtToken=$(curl -s -X 'POST' \
       }' | jq -r .JWT.token)
 
 exec npx -y supergateway \
-  --streamableHttp "$baseUrl/mcp/example" \
+  --streamableHttp "$mcpServer" \
   --oauth2Bearer "$jwtToken" \
   --logLevel none
