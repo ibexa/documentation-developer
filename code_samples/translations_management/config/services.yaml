@@ -3,7 +3,7 @@ services:
         tags:
             - name: 'ibexa.translations_management.auto_translate.provider'
               identifier: 'my_custom_provider'
-              validation_profile: 'ai_generic'
+              validation_profile: 'my_custom_profile'
     App\TranslationsManagement\MyProviderValidator:
         tags:
             - name: 'ibexa.translations_management.auto_translate.provider.validator'

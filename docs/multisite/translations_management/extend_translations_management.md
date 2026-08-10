@@ -92,13 +92,13 @@ The Translations management package ships with one rule that excludes content ty
 
 To exclude additional content types, for example, content types whose fields render incorrectly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
 The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object and returns `true` if the content item should be excluded.
-Classes that implement this interface are automatically tagged with `autoconfigure`:
+Register the rule with the `ibexa.translations_management.side_by_side.exclusion_rule` tag.
+This interface is not registered for Symfony autoconfiguration, so the tag is required.
 
 ``` php
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomExclusionRule.php') =]]
 ```
 
-If `autoconfigure` is not available, register the tag explicitly:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]

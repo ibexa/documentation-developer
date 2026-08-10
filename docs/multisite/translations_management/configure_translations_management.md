@@ -276,7 +276,7 @@ It's a single server-side operation handled by `SideBySideFieldCopyService::copy
 - Draft conflict warning
 
 When an user opens the translation modal and selects a target language which already has a draft translation, a warning appears in the modal.
-The warning is shown or hidden dynamically by `side-by-side-translation-modal-warning.js` when the user changes the target language selection.
+The warning is shown or hidden dynamically by `add.translation.modal.warning.js` when the user changes the target language selection.
 
 ## Translate content items with CLI
 
