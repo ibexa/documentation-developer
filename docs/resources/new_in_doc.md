@@ -57,7 +57,6 @@ Combined, these changes make the documentation easier to use with AI Agents.
 - Added instructions on how to [schedule tasks](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-scheduled-tasks-optional) with the DDEV Cron add-on
 - Added instructions on how to [launch Ibexa Messenger](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-background-tasks-optional) on DDEV project start
 
-
 ## June 2026
 
 ### Releases
