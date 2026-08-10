@@ -5,38 +5,56 @@ from llms_txt.llmstxt_preprocess import (
 )
 
 
+LLMS_TXT_LINE = "> For the complete documentation index, see [llms.txt](/llms.txt)."
+
+
+def test_llms_txt_pointer_always_inserted_after_first_h1():
+    content = "# Title\n\nBody text."
+    assert inject_page_metadata(content) == (
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nBody text."
+    )
+    assert inject_page_metadata(content, description="", editions=[]) == (
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nBody text."
+    )
+
+
 def test_editions_inserted_after_first_h1():
     content = "# Title\n\nBody text."
     assert inject_page_metadata(content, editions=["Commerce"]) == (
-        "# Title\n\nEditions: Commerce\n\nBody text."
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nEditions: Commerce\n\nBody text."
     )
 
 
 def test_description_inserted_after_first_h1():
     content = "# Title\n\nBody text."
     assert inject_page_metadata(content, description="Configure the Storefront.") == (
-        "# Title\n\nConfigure the Storefront.\n\nBody text."
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nConfigure the Storefront.\n\nBody text."
     )
 
 
 def test_description_comes_before_editions():
     content = "# Title\n\nBody text."
     assert inject_page_metadata(content, description="A description.", editions=["Commerce"]) == (
-        "# Title\n\nA description.\n\nEditions: Commerce\n\nBody text."
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Commerce\n\nBody text."
     )
 
 
 def test_prepended_when_no_h1():
     content = "Body text."
     assert inject_page_metadata(content, description="A description.", editions=["Commerce"]) == (
-        "A description.\n\nEditions: Commerce\n\nBody text."
+        f"{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Commerce\n\nBody text."
     )
 
 
-def test_no_metadata_leaves_content_unchanged():
+def test_llms_txt_url_respects_nested_site_path():
+    # A userguide-style project published under /projects/userguide/ has its
+    # own llms.txt there, not at the domain root.
     content = "# Title\n\nBody text."
-    assert inject_page_metadata(content) == content
-    assert inject_page_metadata(content, description="", editions=[]) == content
+    nested_line = "> For the complete documentation index, see [llms.txt](https://doc.ibexa.co/projects/userguide/en/5.0/llms.txt)."
+    result = inject_page_metadata(
+        content, llms_txt_url="https://doc.ibexa.co/projects/userguide/en/5.0/llms.txt"
+    )
+    assert result == f"# Title\n\n{nested_line}\n\nBody text."
 
 
 def test_frontmatter_edition_string():

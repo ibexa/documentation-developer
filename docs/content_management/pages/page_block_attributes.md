@@ -40,7 +40,7 @@ The following attribute types are available:
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`contenttypelist`|List of content types|-|
-|`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
+|`schedule_events`,<br>`schedule_snapshots`,<br>`schedule_initial_items`,<br>`schedule_slots`,<br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 |`nested_attribute`|Defines a group of attributes in a block.|<ul><li>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes</li><li>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button</li></ul>|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:

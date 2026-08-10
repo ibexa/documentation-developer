@@ -86,9 +86,9 @@ Track the status of invitations, including when they were sent, whether they wer
 
 ![Invitations](users_invitation.png)
 
-### User segmentation and personalization
+### User segmentation and recommendations
 
-[[= product_name_base =]]'s segmentation and personalization features allow organizations to deliver customized user experiences.
+[[= product_name_base =]]'s segmentation and recommendations features allow organizations to deliver customized user experiences.
 Track user behavior, such as page views, search queries, and interactions, to create segments and segment groups for users who share similar behaviors.
 
 ![Segment groups](../administration/img/admin_panel_segment_groups.png)

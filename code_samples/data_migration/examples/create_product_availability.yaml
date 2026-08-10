@@ -1,0 +1,7 @@
+-
+    type: product_availability
+    mode: create
+    product_code: ergo_desk
+    is_available: true
+    is_infinite: false
+    stock: 100
