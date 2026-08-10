@@ -8,7 +8,7 @@ You can manage [workflows](workflow.md) with PHP API by using [`WorkflowServiceI
 
 ## Workflow service
 
-Workflow uses the Symfony [Workflow Component]([[= symfony_doc =]]/components/workflow.html),
+Workflow uses the Symfony [Workflow Component]([[= symfony_doc =]]/workflow.html),
 extended in the workflow service.
 
 The service implements the following methods:
