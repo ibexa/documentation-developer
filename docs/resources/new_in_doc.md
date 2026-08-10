@@ -7,6 +7,56 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## July 2026
+
+### AI
+
+- Expanded the [MCP usage](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_usage/#perform-copilot-or-claude-code-test) examples to include Claude Code
+- Documented how to reuse the default cache service as the [discovery cache](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#discovery-cache), or disable caching to ease development
+- Improved documentation to make it easier to use with AI Agents. For more information, see [Documentation improvements](#documentation-improvements) below.
+
+### Documentation improvements
+
+- Added a **View as Markdown** button to every documentation page
+- Improved page structure so that HTML-to-Markdown converters used by AI agents produce cleaner output
+
+Combined, these changes make the documentation easier to use with AI Agents.
+
+### Background tasks
+
+- Described the [stamps available for Ibexa Messenger](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#stamps)
+
+### Data migration
+
+- Documented the [`service_call` migration type](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#service-calls)
+- Described the `set` and `list` modes of the [`reference` type](https://doc.ibexa.co/en/5.0/content_management/data_migration/managing_migrations/#references), and completed the list of [available reference types](https://doc.ibexa.co/en/5.0/content_management/data_migration/managing_migrations/#available-reference-types) with `section`, `user`, and `language_code`
+- Added the `company` and `shipping_method` entries to the [list of available migrations](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#available-migrations)
+- Documented the [`update` mode for content items](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#content-items), together with the optional `metadata` and `location` properties available when you create one
+- Added an example of defining [product availability and stock](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-availability)
+- Described the [`assign_dashboard_to_user` action](https://doc.ibexa.co/en/5.0/content_management/data_migration/data_migration_actions/#content)
+
+### Caching
+
+- Described [clearing caches](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/devops/#cache-clearing) in more detail, covering the differences between system, [persistence](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/persistence_cache/#clearing-persistence-cache), and HTTP caches
+- Expanded the example showing how to [inject `PurgeClientInterface`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/content_aware_cache/#custom-purging-from-code)
+
+### Security
+
+- Added a [Security advisories](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/security/security_advisories/) page describing where [[= product_name_base =]] advisories are published and how to handle Composer package advisories
+
+### [[= product_name_cloud =]]
+
+- Created a dedicated page for the [[[= product_name_cloud =]] CLI](https://doc.ibexa.co/en/5.0/ibexa_cloud/ibexa_cloud_cli/)
+
+### Recommendations
+
+- Documented the [`websiteId` parameter](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/recommendations_twig_functions/#websiteid-parameter) for tracking
+
+### DDEV
+
+- Added instructions on how to [schedule tasks](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-scheduled-tasks-optional) with the DDEV Cron add-on
+- Added instructions on how to [launch Ibexa Messenger](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-background-tasks-optional) on DDEV project start
+
 ## June 2026
 
 ### Releases
