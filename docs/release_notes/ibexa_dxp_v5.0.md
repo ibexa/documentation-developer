@@ -44,6 +44,18 @@ A new console command translates content items from the command line, enabling b
 
 For more information, see [Translate content items with CLI](configure_translations_management.md#translate-content-items-with-cli).
 
+### Translation review
+
+When a draft is created through automatic translation, it receives the "For review" status.
+Editors can accept or reject the translation in the side-by-side view, which displays a review bar.
+Accepted translations are given the "Translated".
+
+The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
+
+For more information, see [Translation review](configure_translations_management.md#translation-review).
+
+
+
 ### Developer experience
 
 The package exposes multiple extension points for custom translation workflows, including:

@@ -9,7 +9,7 @@ month_change: true
 By extending [Translations management](translations_management_guide.md), you can build custom translation workflows and adapt the package's behavior to your specific requirements.
 The package is designed to be extended in multiple ways.
 You can create custom [translation providers](configure_translations_management.md#configure-translation-providers), field type transformers, exclusion rules, and UI components.
-In all cases, you follow the same pattern: implement an interface or extend a base class, then register the service with a service tag.
+In all cases, you follow the same pattern: implement an interface first, then register the service with a service tag.
 The package discovers and registers tagged services automatically.
 
 ## Add custom translation provider

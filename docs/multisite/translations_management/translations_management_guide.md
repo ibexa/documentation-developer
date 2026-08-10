@@ -81,6 +81,18 @@ Editors can:
 The Translations management package exposes a [console command](configure_translations_management.md#translate-content-items-with-cli) for translating content items from the command line.
 You can use it for batch processing or automated workflows.
 
+### Translation review
+
+When a draft is created by going through the automatic translation process, it is marked as "For review".
+Editors can [accept or reject the translation]([[= user_doc =]]/content_management/translate_content/#review-automatic-translation) directly in the side-by-side view.
+Accepted drafts are marked as "Translated".
+
+The review history is [stored in the database](configure_translations_management.md#database-tables) for audit purposes.
+
+!!! note "No review for manual translations"
+
+    Draft translations that were created manually don't have a review status.
+
 ### Extensibility
 
 Developers can [extend the translations management](extend_translations_management.md) package:

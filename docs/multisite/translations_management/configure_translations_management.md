@@ -176,26 +176,6 @@ This adds as many language pairs as you picked target languages.
     If a language pair already exists and is associated with a translation provider, you can't create another language pair with a different provider.
     Edit the existing language pair instead. 
 
-## Manage language pairs programmatically
-
-To manage language pairs programmatically, create a service class and inject `LanguagePairServiceInterface` into its constructor.
-Symfony autowires it automatically so no manual service configuration is needed.
-
-``` php hl_lines="2"
-[[= include_code('code_samples/translations_management/src/TranslationsManagement/TranslationPairManager.php', 14, 35) =]]
-```
-
-The service exposes the following methods:
-
-| Method | Description |
-|---|---|
-| `createLanguagePair()` | Create a new language pair. Pass `true` as the fourth argument to overwrite an existing pair with the same source and target. |
-| `updateLanguagePair()` | Update an existing language pair by ID. |
-| `syncLanguagePairsForSourceAndProvider()` | Synchronize all target languages for a given source language and provider. |
-| `loadLanguagePairs()` | Load all configured language pairs. |
-| `deleteLanguagePairById()` | Delete a language pair by ID. |
-| `deleteLanguagePairsForProvider()` | Delete all language pairs associated with a given provider. |
-
 ## User settings
 
 The Translations management package adds preferences that editors can configure under their [user settings](getting_started/get_started/#browsing).
@@ -220,8 +200,9 @@ The accepted values are `source_left_target_right` (default) and `source_right_t
 
 The [side-by-side translation view]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view) is a two-column content editing interface where the source column is read-only and the target column is an editable form.
 
-Content types that contain the `ibexa_landing_page` or `ibexa_form` fields are not supported, and editors can open them in the standard single-language editor only.
-You can exclude support for additional content types if needed.
+Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
+However, they can still be automatically translated through the standard translation flow and the CLI command, and editors can open them in the standard single-language editor.
+You can exclude the support for additional content types if needed.
 To do it, [define custom exclusion rules](extend_translations_management.md#define-custom-exclusion-rules).
 
 ### Architecture
@@ -306,3 +287,61 @@ The command uses the same provider configuration and field value transformers as
 | `--to` | Yes | Target language code |
 | `--user-id` | No | Repository user ID to run the translation (default: `14`, which is the Administrator user) |
 | `--draft-only` | No | Create a translated draft without publishing it |
+
+## Translation review
+
+When a draft translation of a content item or product is created by going through the automatic translation process, the system creates a review status record and marks the draft `for_review`.
+This way editors and reviewers can check whether automatically translated drafts have been checked before publishing.
+
+Automatically translated drafts can have one of the following two states:
+- `for_review` - The draft was machine-translated and is awaiting review.
+- `translated` - The translation has been accepted by a reviewer.
+
+The `ibexa_auto_translation_review` [workflow](workflow.md) has two transitions:
+
+| Transition | From | To |
+|---|---|---|
+| `approved` | `for_review` | `translated` |
+| `rejected` | `for_review` | `for_review` (stays, event logged) |
+
+When the editor rejects the translation, the status doesn't change, but the system records that the draft translation requires corrections.
+A draft translation in `translated` state can't be rejected.
+
+!!! note
+
+    This workflow is separate from the [editorial workflow](workflow_management/editorial_workflow.md).
+    Accepting or rejecting draft translations does not trigger editorial workflow transitions or notifications.
+
+
+### Database tables
+
+The review feature uses two tables to the database:
+
+- `ibexa_auto_translation` — One row for each draft translation created automatically. Stores the current review status.
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | integer | ID of the translation draft |
+| `provider_identifier` | string | Identifier of the translation provider used |
+| `content_id` | integer | ID of the translated content item |
+| `version_no` | integer | Version number of the draft |
+| `source_language_id` | bigint | ID of the source language |
+| `target_language_id` | bigint | ID of the target language |
+| `review_status` | string | Current status. Possible values: `for_review` or `translated` |
+| `created_at` | datetime | When the draft translation was created |
+| `updated_at` | datetime | When the status was last changed |
+
+A constraint prevents the creation of duplicate review records for the same draft translation.
+
+- `ibexa_auto_translation_review_log` — An audit log, wit one for each status operation.
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | integer | ID of the operation |
+| `auto_translation_id` | integer (nullable) | An `id` of the translation draft from the `ibexa_auto_translation` table, `SET NULL` on delete |
+| `user_id` | integer | ID of the user who performed the operation |
+| `status` | string | Status at the time of the operation |
+| `operation` | string | `created`, `approved`, or `rejected` |
+| `created_at` | datetime | When the operation was performed |
+
+When an automatically translated draft is deleted, its `ibexa_auto_translation` row is removed, the review log rows remain, but their `auto_translation_id` is set to `null`.
