@@ -124,6 +124,7 @@ The `ibexa.messenger.bus` message bus uses the default Symfony Messenger [middle
 
 You can use the following Symfony stamps:
 
+- [`DeduplicateStamp`]([[= symfony_doc =]]/messenger.html#message-deduplication)
 - [`DelayStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DelayStamp.php)
 - [`DispatchAfterCurrentBusStamp`]([[= symfony_doc =]]/messenger.html#dispatchaftercurrentbusmiddleware-middleware)
 - [`HandlerArgumentsStamp`]([[= symfony_doc =]]/messenger.html#additional-handler-arguments)
@@ -131,31 +132,8 @@ You can use the following Symfony stamps:
 
 On top of the supported Symfony stamps, [[= product_name =]] provides the following ones:
 
-- [`DeduplicateStamp`](#deduplicatestamp)
 - [`SudoStamp`](#sudostamp)
 - [`UserPermissionStamp`](#userpermissionstamp)
-
-#### DeduplicateStamp
-
-[`DeduplicateStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html) prevents duplicate messages from being processed.
-When you attach it to a message, the system uses a lock to ensure that only one message with the same key is handled at a time.
-
-For more information, see [Symfony documentation about message deduplication]([[= symfony_doc =]]/messenger.html#message-deduplication).
-
-!!! caution
-
-    The `ibexa.messenger.bus` bus doesn't support the [`Symfony\Component\Messenger\Stamp\DeduplicateStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DeduplicateStamp.php) stamp.
-
-    You must use the `Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp` stamp instead.
-
-The following example shows how you can attach the `DeduplicateStamp` to the message:
-
-``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 9, remove_indent=True) =]]
-
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 27, 28, remove_indent=True) =]]
-```
 
 #### SudoStamp
 
