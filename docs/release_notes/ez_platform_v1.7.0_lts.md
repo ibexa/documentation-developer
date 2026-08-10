@@ -72,8 +72,6 @@ Community members are more than welcome to contribute to the translation process
 The Studio **Personalization Block** available out of the box lets the editor create a block that renders a list of content items personalized to each and every visitor.
 The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end, and also the template for rendering, should be used.
 
-![](personalizationblock.png)
-
 - You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published.
 All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
 

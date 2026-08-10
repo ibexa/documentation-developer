@@ -16,7 +16,10 @@
   {% endblock %}
     {% block site_nav %}
     {% if nav %}
-      <div class="main_nav">
+      {# The single <nav> landmark wrapping the whole sidebar. Keep it the only <nav> in this
+         subtree: nested <nav> tags break the HTML->Markdown converters used by AI agents
+         (e.g. behind RTD's "Accept: text/markdown"), leaking nav items into the output. #}
+      <nav class="main_nav" aria-label="Site navigation">
         <div class="main_nav_content">
           <div class="site-header" id="site-name">
             {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
@@ -33,7 +36,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     {% endif %}
     {% if page.toc %}
       <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
@@ -74,7 +77,9 @@
             {% endif %}
             </div>
           {% endif %}
-          {% include "partials/eol_warning.html" %}
+          {% if config.extra.current_version_is_eol %}
+            {% include "partials/eol_warning.html" %}
+          {% endif %}
           {{ page.content }}
           {% include "partials/tags.html" %}
         </div>

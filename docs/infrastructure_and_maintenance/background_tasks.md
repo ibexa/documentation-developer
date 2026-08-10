@@ -93,7 +93,7 @@ Run the following SQL script to create the required database tables.
 The process works as follows:
 
 1. A message PHP object is dispatched, for example, `ProductPriceReindex`.
-2. The message is wrapped in an envelope, which may contain additional metadata, called stamps, for example, `DeduplicateStamp`.
+2. The message is wrapped in an envelope, which may contain additional metadata, called [stamps](#stamps).
 3. The message is placed in the transport queue.
 It can be a Doctrine table, a Redis/Valkey queue, and so on.
 4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
@@ -127,7 +127,7 @@ ibexa_messenger:
 !!! note "Supported transports"
 
     You can define different transports: [[= product_name_base =]] Messenger has been tested to work with Redis, MySQL, PostgreSQL.
-    For more information, see [Symfony Messenger documentation](https://symfony.com/doc/current/messenger.html#transports-async-queued-messages) or [Symfony Messenger tutorial](https://symfonycasts.com/screencast/messenger/install#installing-messenger).
+    For more information, see [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#transports-async-queued-messages) or [Symfony Messenger tutorial](https://symfonycasts.com/screencast/messenger/install#installing-messenger).
 
 ### Start worker
 
@@ -147,25 +147,69 @@ In [multi-repository setups](repository_configuration.md), the worker process al
 
     Additional considerations regarding the deployment of Symfony Messenger to production, which you can find in [Symfony documentation](https://symfony.com/doc/current/messenger.html#deploying-to-production) apply to [[= product_name_base =]] Messenger as well.
 
-### Dispatch message
+## Dispatch message
 
-Dispatch a message from your code like in the following example:
+To have a task processed in the background by [[= product_name_base =]] Messenger:
 
-``` php
-[[= include_file("code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php") =]]
+1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
+2. Dispatch an appropriate message by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
+
+``` yaml
+services:
+    SomeClassThatSchedulesExecutionInTheBackground:
+        arguments:
+            $bus: '@ibexa.messenger.bus'
 ```
 
-### Register handler
+``` php
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 19, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, remove_indent=True) =]]
+```
 
-Create the handler class:
+Additionally, attach message metadata by using [stamps](#stamps).
+
+### Stamps
+
+You can attach [Stamps]([[= symfony_doc =]]/messenger.html#envelopes-stamps) to a message envelope to add additional metadata and control processing of the message.
+
+The `ibexa.messenger.bus` message bus uses the default Symfony Messenger [middleware]([[= symfony_doc =]]/messenger.html#middleware) and doesn't support all stamps that are available in Symfony.
+
+You can use the following Symfony stamps:
+
+- [`DelayStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DelayStamp.php)
+- [`DispatchAfterCurrentBusStamp`]([[= symfony_doc =]]/messenger.html#dispatchaftercurrentbusmiddleware-middleware)
+- [`HandlerArgumentsStamp`]([[= symfony_doc =]]/messenger.html#additional-handler-arguments)
+- [`SerializerStamp`]([[= symfony_doc =]]/messenger.html#serializing-messages)
+
+On top of the supported Symfony stamps, [[= product_name =]] provides the following ones:
+
+- [`DeduplicateStamp`](#deduplicatestamp)
+
+#### DeduplicateStamp
+
+`Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp` prevents duplicate messages from being processed.
+When you attach it to a message, the system uses a lock to ensure that only one message with the same key is handled at a time.
+
+This stamp is backported from Symfony 7.
+For more information, see [Symfony 7.4 documentation about message deduplication](https://symfony.com/doc/7.4//messenger.html#message-deduplication).
+
+## Extend Ibexa Messenger
+
+### Register custom message and handler
+
+To handle additional use cases with background tasks, you can create [custom message and handler class]([[= symfony_doc =]]/messenger.html#creating-a-message-handler):
+
+``` php
+[[= include_code('code_samples/background_tasks/src/Message/SomeMessage.php') =]]
+```
 
 ``` php
 [[= include_file("code_samples/background_tasks/src/MessageHandler/SomeHandler.php") =]]
 ```
 
-Add a service definition to `config/services.yaml`:
+Add a service definition to `config/services.yaml` and set the `bus` to `ibexa.messenger.bus`:
 
-``` yaml
+``` yaml hl_lines="4-5"
 services:
     App\MessageHandler\SomeHandler:
         tags:

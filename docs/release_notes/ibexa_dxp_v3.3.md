@@ -18,8 +18,6 @@ description: Ibexa DXP v3.3 is a Long Term Support release that offers a new Per
 
 This release brings a completely reconstructed user interface of the Personalization feature.
 
-![Personalization dashboard](3.3_perso_ui.png "Personalization dashboard")
-
 ### Symfony Flex
 
 [[= product_name =]] is now installed using [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).

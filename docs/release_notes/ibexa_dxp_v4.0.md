@@ -50,8 +50,6 @@ for different websites.
 This way you can eliminate irrelevant recommendations when you set up stores that 
 operate on different markets or under different brands.
 
-For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-website-hosting).
-
 ## Other changes
 
 ### Draft locking
@@ -103,7 +101,6 @@ Personalization has been given an option to fetch content feed from external sou
 ### Category exclusion
 
 Personalization service has been enhanced with a feature which allows to exclude categories from the recommendation response.
-See [Exclusions](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#exclusions).
 
 ## Deprecations
 

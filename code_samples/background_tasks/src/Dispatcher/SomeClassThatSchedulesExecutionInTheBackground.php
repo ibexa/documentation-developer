@@ -3,7 +3,6 @@
 namespace App\Dispatcher;
 
 use Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp;
-use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 final class SomeClassThatSchedulesExecutionInTheBackground
@@ -17,17 +16,9 @@ final class SomeClassThatSchedulesExecutionInTheBackground
 
     public function schedule(object $message): void
     {
-        // Dispatch directly. Message is wrapped with envelope without any stamps.
         $this->bus->dispatch($message);
 
-        // Alternatively, wrap with stamps. In this case, DeduplicateStamp ensures
-        // that if similar command exists in the queue (or is being processed)
-        // it will not be queued again.
-        $envelope = Envelope::wrap(
-            $message,
-            [new DeduplicateStamp('command-name-1')]
-        );
-
-        $this->bus->dispatch($envelope);
+        $deduplicationKey = 'my_message.project.<key_based_on_message>';
+        $this->bus->dispatch($message, [new DeduplicateStamp($deduplicationKey)]);
     }
 }

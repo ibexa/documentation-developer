@@ -15,7 +15,6 @@ Each SiteAccess can have different:
 - [languages](set_up_translation_siteaccess.md)
 - [tree roots](multisite_configuration.md#location-tree)
 - [repositories](persistence_cache.md#multi-repository-setup)
-- [recommendations](enable_personalization.md#configure-personalization)
 
 Many other settings in the application are also configured per SiteAccess (also known as "SiteAccess-aware").
 

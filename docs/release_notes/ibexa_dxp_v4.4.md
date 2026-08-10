@@ -61,11 +61,11 @@ For example, you can define formats or source path for images.
 
 This release introduces new page blocks that rely on Personalization and PIM features to let editors visually organize products on a page:
 
-- [Catalog block](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#catalog-block) displays products from a specific catalog to a selected customer group.
-- [Last purchased](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
-- [Last viewed](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
-- [Product collection](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
-- [Recently added](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block) displays a list of products that were recently added to PIM.
+- Catalog block - displays products from a specific catalog to a selected customer group.
+- Last purchased - displays a list of products that were recently purchased, either generally, or by a specific user.
+- Last viewed - displays a list of products that were recently viewed.
+- Product collection - displays a collection of specifically selected products.
+- Recently added - displays a list of products that were recently added to the product catalog.
 
 ### Personalization improvements
 
@@ -75,11 +75,9 @@ The Personalization service has been enhanced to speed up the process of creatin
 Now, to create an account in the new, automated way, you have to fill out the form, select an account type, and send a request to the Personalization endpoint.
 Shortly after, you receive the credentials.
 
-For more information, see [Requesting access to the server](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/enable_personalization/#request-access-to-the-server).
-
 #### New models in Personalization engine
 
-Personalization engine introduces two new recommendation models: [predictive](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#predictive) and [recurring purchase](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recurring-purchase).
+Personalization engine introduces two new recommendation models: predictive and recurring purchase.
 These two new models, based on mathematical approach, help to predict clients behavior and
 provide the best recommendations.
 
@@ -115,7 +113,7 @@ For more information on data migration actions, see [Data migration actions](htt
 
 ### Item age in Recently added model
 
-In a Recently added model (previously Random model), you can now manually [set the age of items](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recently-added) which are displayed in recommendations.
+In a Recently added model (previously Random model), you can now manually set the age of items which are displayed in recommendations.
 
 ### Deprecations
 
