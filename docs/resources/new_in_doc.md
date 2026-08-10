@@ -13,6 +13,14 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Expanded the [MCP usage](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_usage/#perform-copilot-or-claude-code-test) examples to include Claude Code
 - Documented how to reuse the default cache service as the [discovery cache](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#discovery-cache), or disable caching to ease development
+- Improved documentation to make it easier to use with AI Agents. For more information, see [Documentation improvements](#documentation-improvements) below.
+
+### Documentation improvements
+
+- Added a **View as Markdown** button to every documentation page
+- Improved page structure so that HTML-to-Markdown converters used by AI agents produce cleaner output
+
+Combined, these changes make the documentation easier to use with AI Agents.
 
 ### Background tasks
 
@@ -49,12 +57,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - Added instructions on how to [schedule tasks](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-scheduled-tasks-optional) with the DDEV Cron add-on
 - Added instructions on how to [launch Ibexa Messenger](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-background-tasks-optional) on DDEV project start
 
-### Documentation improvements
-
-- Added a **View as Markdown** button to every documentation page
-- Improved page structure so that HTML-to-Markdown converters used by AI agents produce cleaner output
-
-Combined, these changes make the documentation easier to use with AI Agents.
 
 ## June 2026
 
