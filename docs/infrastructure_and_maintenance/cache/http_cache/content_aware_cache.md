@@ -1,5 +1,6 @@
 ---
 description: Content-aware HTTP cache takes into account the content it's connected to.
+month_change: true
 ---
 
 # Content-aware HTTP cache

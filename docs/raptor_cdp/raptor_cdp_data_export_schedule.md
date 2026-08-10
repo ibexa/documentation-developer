@@ -1,7 +1,7 @@
 ---
 description: Data export schedule in Raptor CDP.
 edition: experience
-month_change: true
+month_change: false
 ---
 
 # Schedule [[= product_name_cdp =]] data export

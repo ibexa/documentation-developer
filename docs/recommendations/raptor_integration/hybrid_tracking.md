@@ -1,6 +1,6 @@
 ---
 description: Enable hybrid tracking to avoid ad blockers and proxy events through your server.
-month_change: true
+month_change: false
 ---
 
 # Hybrid tracking
