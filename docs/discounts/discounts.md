@@ -21,7 +21,7 @@ You can also extend the feature, for example, by creating custom pricing rules, 
 "discounts/install_discounts",
 "discounts/configure_discounts",
 ("permissions/policies#discounts", "Policies", "Learn about the available Discounts policies"),
-("https://doc.ibexa.co/projects/userguide/en/4.6/commerce/discounts/work_with_discounts/"),
+("https://doc.ibexa.co/projects/userguide/en/4.6/commerce/discounts/work_with_discounts/", "Work with Discounts", "Create and edit discounts, toggle discount status."),
 ], columns=2) =]]
 
 ## Development

@@ -1,10 +1,12 @@
 import os
 import pprint
 import re
-import urllib.request
 from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
 from typing import List
+
+def _absolute_page_url(scheme, site, language, version, *parts):
+    return scheme + '://' + '/'.join((site, language, version) + parts)
 
 CARDS_TEMPLATE = """
 <div class="card-wrapper">
@@ -67,10 +69,9 @@ def define_env(env):
     @env.macro
     def cards(pages, columns=1, style="cards", force_version=False):
         current_page = env.variables.page
-        absolute_url = current_page.abs_url
         canonical = current_page.canonical_url
-        url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/", canonical)
-        (site, language, version) = url_parts.groups()
+        url_parts = re.search(r"^(https?)://([^/]+)/([^/]+)/([^/]+)/", canonical)
+        (scheme, site, language, version) = url_parts.groups()
 
         version = force_version or version
         version = os.getenv("READTHEDOCS_VERSION_NAME", version)
@@ -99,73 +100,31 @@ def define_env(env):
             if hash:
                 hash = '#' + hash
 
-            if re.search("^https://[^@/]+.ibexa.co", path):
-                html = True
-                content = urllib.request.urlopen(path).read().decode('utf-8')
-            elif re.search(".html$", path):
-                html = True
-                content = open("docs/%s" % path, "r").read()
-                page = '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    page
-                ))
+            is_external = path.startswith(("http://", "https://"))
+            if is_external or path.endswith(".html"):
+                if not (custom_title and custom_description):
+                    raise ValueError(
+                        "cards(): card %r must supply a title and a description - only "
+                        "Markdown pages carry front matter to read them from." % path
+                    )
+                href = page if is_external else _absolute_page_url(
+                    scheme, site, language, version, page
+                )
+                title = custom_title
+                description = custom_description
             else:
-                html = False
                 path = path.rstrip('/')
                 content = open("docs/%s.md" % path, "r").read()
-                page = '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    path,
-                    hash
-                ))
-
-            if html:
-                match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
-                if match:
-                    title = match.groups()[0]
-                else:
-                    match = re.search("<title>(.*)</title>", content, re.MULTILINE)
-                    if match:
-                        title = match.groups()[0]
-                    else:
-                        title = ""
-                match = re.search("<meta property=\"og:description\" content=\"(.*)\"", content, re.MULTILINE)
-                if match:
-                    description = match.groups()[0]
-                else:
-                    match = re.search("<meta name=\"description\" content=\"(.*)\"", content, re.MULTILINE)
-                    if match:
-                        description = match.groups()[0]
-                    else:
-                        description = ""
-                href = page
-                title = custom_title if custom_title else title
-                title = title.replace("(Ibexa Documentation)", "").strip()
-                description = custom_description if custom_description else description
-            else:
                 match = re.search("^# (.*)", content, re.MULTILINE)
-                if match:
-                    header = match.groups()[0]
-                else:
-                    header = ""
-                default_meta = {
-                    "title": header,
-                    "short": "",
-                    "description": ""
-                }
                 current_meta = {
-                    **default_meta,
-                    **meta.get_data(content)[1]
+                    "title": match.groups()[0] if match else "",
+                    "short": "",
+                    "description": "",
+                    **meta.get_data(content)[1],
                 }
-                href = page
-                title = custom_title if custom_title else current_meta['short'] or current_meta['title']
-                description = custom_description if custom_description else current_meta['description'] or "&nbsp;"
+                href = _absolute_page_url(scheme, site, language, version, path, hash)
+                title = custom_title or current_meta['short'] or current_meta['title']
+                description = custom_description or current_meta['description'] or "&nbsp;"
                 title = resolve_variables(title, var_start, var_end, variables)
                 description = resolve_variables(description, var_start, var_end, variables)
 
