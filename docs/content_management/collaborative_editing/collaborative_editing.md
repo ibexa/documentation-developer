@@ -21,7 +21,7 @@ This feature also introduces new dashboard tabs for managing shared drafts and j
 "content_management/collaborative_editing/collaborative_editing_guide",
 "content_management/collaborative_editing/configure_collaborative_editing",
 ("permissions/policies#collaborative-editing", "Policies", "Learn about the available Collaborative editing policies"),
-("https://doc.ibexa.co/projects/userguide/en/5.0/content_management/collaborative_editing/"),
+("https://doc.ibexa.co/projects/userguide/en/5.0/content_management/collaborative_editing/", "Collaborative editing", "Learn about Collaborative editing feature and its capabilities."),
 ], columns=2) =]]
 
 ## Development
