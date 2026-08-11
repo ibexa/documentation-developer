@@ -39,6 +39,18 @@ To create and publish content, users must additionally have the following polici
 
 This also lets the user copy and move content, and add new locations to a content item (but not remove them).
 
+### Collaborate on content
+
+#### Share content
+
+To share a content item and work on it using the [Collaboration feature](collaborative_editing_guide.md), the user needs to have the `content/share` policy.
+Users with this policy can share a link to the content with other users, who can then preview the content and, for example, collaborate by providing their review.
+
+#### Real time editing
+
+To use Real-Time Editing, an additional part of the Collaboration feature, the user needs the `real_time_editing/edit` policy.
+This policy allows the user to access functionality that enables multiple users (who belong to the same session) to edit the content simultaneously, in real time.
+
 ## Move content
 
 To move a content item or a subtree to another location, the user must have the following policies:
@@ -228,6 +240,18 @@ Permissions for the product catalog override permissions for content, therefore,
 - `product/create`
 - `product/view`
 - `product/edit`
+
+### Collaborate on product
+
+#### Share product
+
+To share a product and work on it using the [Collaboration feature](collaborative_editing_guide.md), the user needs to have the `product/share` policy.
+This policy allows users to generate a link, enabling others to preview the product and participate in collaboration, for example, by leaving a review.
+
+#### Real time editing
+
+To use Real-Time Editing, an additional part of the Collaboration feature, the user needs the `real_time_editing/edit` policy.
+This policy grants access to functionality that allows multiple users in the same session to edit the product simultaneously, in real time.
 
 ## Commerce [[% include 'snippets/commerce_badge.md' %]]
 
