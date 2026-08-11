@@ -90,17 +90,19 @@ The package also provides several specialized interfaces for providers with spec
 The translation engine works by extracting translatable text from fields, sending it to the provider, and writing the translated text back.
 Field value transformers handle this encode/decode cycle, one per field type.
 The package includes transformers for standard text and RichText fields.
+
 To add support for a custom or non-standard field type, implement [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html):
 
-- `getFieldTypeIdentifier()` - returns the field type identifier this transformer handles
-- `encode(Field $field): EncodedFieldValue` - extracts the translatable string from the field and wraps it in an [`EncodedFieldValue`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html). The constructor takes the extracted string as its first argument and an optional metadata array as its second.
-- `decode(string $value, mixed $previousFieldValue, array $metadata): Value` - receives the translated string, the previous field value, and any metadata, and returns the updated field value
+- `getFieldTypeIdentifier()` - returns the field type identifier that this transformer handles
+- `encode(Field $field): EncodedFieldValue` - extracts the translatable string from the field and wraps it in an [`EncodedFieldValue`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html).
+The constructor takes the extracted string as its first argument and an optional metadata array as the second.
+- `decode(string $value, mixed $previousFieldValue, array $metadata): Value` - receives the translated string, the previous field value, and any metadata. Returns the updated field value.
 
-``` php hl_lines="31 46-58"
+``` php hl_lines="21 31 37 46-58"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/ImageAltTextTransformer.php') =]]
 ```
 
-Register the transformer with the `ibexa.translations_management.auto_translate.field_value_transformer` tag.
+Register the new transformer with the `ibexa.translations_management.auto_translate.field_value_transformer` tag.
 The `field_type_identifier` attribute is required.
 It must match the value that `getFieldTypeIdentifier()` returns:
 
