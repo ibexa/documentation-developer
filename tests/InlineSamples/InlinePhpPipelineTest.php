@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Documentation\InlineSamples;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -209,8 +208,9 @@ final class InlinePhpPipelineTest extends TestCase
 
     /**
      * @param array<string, string> $fixerReplacements
+     *
+     * @dataProvider provideIdempotencyCases
      */
-    #[DataProvider('provideIdempotencyCases')]
     public function testPipelineIsIdempotent(string $md, array $fixerReplacements): void
     {
         // First pass (may or may not change the Markdown).

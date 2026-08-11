@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Documentation\InlineSamples;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -311,8 +310,9 @@ final class InlinePhpSyncerTest extends TestCase
 
     /**
      * @param array<string, string> $replacements Simulated cs-fixer changes: old => new.
+     *
+     * @dataProvider provideRoundtripCases
      */
-    #[DataProvider('provideRoundtripCases')]
     public function testRoundtripAppliesChangesAndIsIdempotent(
         string $md,
         array $replacements,

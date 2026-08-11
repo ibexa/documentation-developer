@@ -10,20 +10,22 @@ namespace Ibexa\Tests\Documentation\Yaml;
 
 use Ibexa\Tests\Documentation\ConfigurationProvider;
 use Ibexa\Tests\Documentation\ValidationBaseline;
-use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
-#[Group('yaml')]
+/**
+ * @group yaml
+ */
 final class YamlTest extends TestCase
 {
     private const string REPO_ROOT = __DIR__ . '/../../';
     private const string BASELINE_FILE = __DIR__ . '/../yaml-validation-baseline.yaml';
 
-    #[DataProvider('provideYamlSources')]
+    /**
+     * @dataProvider provideYamlSources
+     */
     public function testYamlIsSyntacticallyValid(string $filePath, int $line, string $body, string $bodyHash): void
     {
         $filePath = self::relativePath($filePath);
@@ -54,8 +56,9 @@ final class YamlTest extends TestCase
 
     /**
      * @param int $line Starting line of the config block (0 for standalone YAML files).
+     *
+     * @dataProvider provideBundleConfigs
      */
-    #[DataProvider('provideBundleConfigs')]
     public function testBundleConfigurationIsValid(
         string $extensionName,
         mixed $config,

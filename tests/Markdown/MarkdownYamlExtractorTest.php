@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Documentation\Markdown;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class MarkdownYamlExtractorTest extends TestCase
@@ -185,8 +184,9 @@ final class MarkdownYamlExtractorTest extends TestCase
 
     /**
      * @param array<array{body: string, line: int}> $expected
+     *
+     * @dataProvider provideMultilineBlocks
      */
-    #[DataProvider('provideMultilineBlocks')]
     public function testExtractsMultilineBody(string $content, array $expected): void
     {
         $blocks = iterator_to_array($this->extractor->extract($content));

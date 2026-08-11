@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Documentation\InlineSamples;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -141,8 +140,9 @@ final class InlinePhpWriterTest extends TestCase
     /**
      * @param string $body         Input body (from MarkdownExtractor)
      * @param string $expectedBody Expected body section after the blank separator
+     *
+     * @dataProvider provideExactContent
      */
-    #[DataProvider('provideExactContent')]
     public function testExactFileContent(string $sourcePath, int $line, string $body, string $expectedBody): void
     {
         $expected = sprintf(InlinePhpWriter::FILE_TEMPLATE, $sourcePath, $line, $expectedBody);
