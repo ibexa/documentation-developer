@@ -140,7 +140,7 @@ php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenge
 Use the `--siteaccess` option to set the default [SiteAccess](multisite_configuration.md#siteaccess-configuration) and [repository](repository_configuration.md#defining-custom-connection) for the worker process.
 The worker uses this SiteAccess for every message that doesn't have a [`SiteAccessStamp`](#siteaccessstamp).
 
-If a message has a `SiteAccessStamp`, the worker uses the SiteAccess from the stamp instead to processes this message.
+If a message has a `SiteAccessStamp`, the worker uses the SiteAccess from the stamp instead to process this message.
 Thanks to this, one worker process can handle messages coming from different SiteAccesses.
 
 In [multi-repository setups](repository_configuration.md), run one worker process for each repository.
