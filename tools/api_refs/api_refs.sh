@@ -21,7 +21,6 @@ PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor res
 REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
 REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
-OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 COMPOSER_BINARY='composer';
@@ -234,8 +233,6 @@ $PHP_BINARY bin/console ibexa:openapi --yaml \
 $PHP_BINARY bin/console ibexa:openapi \
   | sed 's@"info": {@"info": {\n    "x-logo": {\n      "url": "https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png"\n    },@' \
 > openapi.json;
-echo 'Fix REST OpenAPI schema… ';
-$PHP_BINARY $OPENAPI_FIX;
 echo 'Build REST Reference… ';
 echo 'Generate Redocly config from template… ';
 # Replace version with the base branch
