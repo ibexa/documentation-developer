@@ -16,7 +16,7 @@ Products can be viewed, selected, and embedded in [[= product_name =]], while al
 
 [[= cards([
     "product_catalog/quable/quable_guide",
-    ("https://doc.ibexa.co/projects/userguide/en/5.0/product_catalog/quable_pim_integration/"),
+    ("https://doc.ibexa.co/projects/userguide/en/6.0/product_catalog/quable_pim_integration/", "Quable PIM integration", "Quable PIM integration allows you to use products managed in Quable as the source of product data in Ibexa DXP."),
     ("https://www.quable.com/en", "Quable - PIM solution for product data management", "Manage your product data and accelerate sales with Quable. Discover the new PIM platform that revolutionizes the product experience"),
     ("https://docs.quable.com/", "Quable resources", "Find all PIM, DAM, and Portal resources: user guides, training content, product documentation, technical documentation, and the PIM API for developers."),
 ]) =]]
