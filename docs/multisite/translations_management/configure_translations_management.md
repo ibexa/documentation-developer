@@ -7,9 +7,21 @@ month_change: true
 # Configure translations management
 
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content translation.
-It introduces a plugin that handles the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target languages and provide translations in a single view, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
+It introduces a plugin that handles the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target languages and provide content item and product translations in a single view, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 The package is standalone and does not require the `ibexa/automated-translation` add-on package to run.
+
+!!! note "Automatic translation limitations"
+
+    Content types that contain the `ibexa_form` field are excluded from automatic translation.
+    The ones with the `ibexa_landing_page` field can still be automatically translated through the standard translation flow and the CLI command, and the following elements are translated:
+
+    - The page's title and description
+    - Names of page blocks
+    - Plain text on page blocks
+    - Richtext fields on page blocks
+
+    Also, [product attributes](products.md#product-attributes) are not translatable.
 
 ## Install package
 
@@ -27,7 +39,7 @@ php bin/console ibexa:migrations:import --from-bundle=IbexaTranslationsManagemen
 php bin/console ibexa:migrations:migrate
 ```
 
-This copies the migration files into the project's migrations directory and adds the default action configurations in the database.
+This copies the migration files into the project's migrations directory, creates the database tables required for the review workflow, and adds the default action configurations in the database.
 
 ## Configure translation providers
 
@@ -105,8 +117,6 @@ If a value is missing or empty, the provider doesn't appear in the UI as a selec
 If you fail to configure the providers, the Translations management feature disables itself in the editor's UI.
 The **Use automatic translation** checkbox is disabled, and a message is displayed that prompts the user to contact the administrator
 
-This state is controlled by `TranslationProviderFormFieldsConfigurator::isAutomaticTranslationDisabled()`, which returns `true` when the provider registry is empty.
-
 ### Advanced translation provider options
 
 In addition to their required authentication keys, all providers support two optional ones:
@@ -152,9 +162,7 @@ The editor can override the pre-selection.
 The list of languages available when creating a language pair is determined by what each provider supports.
 You can only select the languages that are present in a provider's [supported list](#advanced-translation-provider-options) for that provider's pairs.
 
-The configurations are persisted by `SettingService` and stored in the `ibexa_setting` database table under group `translations_management` with identifier `language_pairs`.
-
-You can manage language pairs in [[= product_name_base =]]'s back office or programmatically.
+You can manage language pairs in [[= product_name_base =]]'s back office.
 
 ### Manage language pairs in UI
 
@@ -178,7 +186,7 @@ This adds as many language pairs as you picked target languages.
 
 ## User settings
 
-The Translations management package adds preferences that editors can configure under their [user settings](getting_started/get_started/#browsing).
+The Translations management package adds preferences that editors can configure under their [user settings]([[= user_doc =]]/getting_started/get_started/#user-settings).
 Each editor can configure them independently, and they do not affect other users.
 
 For example, editors can choose whether the target language column appears on the left or right in the side-by-side view.
@@ -201,7 +209,8 @@ The accepted values are `source_left_target_right` (default) and `source_right_t
 The [side-by-side translation view]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view) is a two-column content editing interface where the source column is read-only and the target column is an editable form.
 
 Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
-However, they can still be automatically translated through the standard translation flow and the CLI command, and editors can open them in the standard single-language editor.
+Editors can open them in the standard single-language editor.
+
 You can exclude the support for additional content types if needed.
 To do it, [define custom exclusion rules](extend_translations_management.md#define-custom-exclusion-rules).
 
@@ -297,51 +306,17 @@ Automatically translated drafts can have one of the following two states:
 - `for_review` - The draft was machine-translated and is awaiting review.
 - `translated` - The translation has been accepted by a reviewer.
 
-The `ibexa_auto_translation_review` [workflow](workflow.md) has two transitions:
+The `ibexa_auto_translation_review` workflow has two transitions:
 
 | Transition | From | To |
 |---|---|---|
 | `approved` | `for_review` | `translated` |
-| `rejected` | `for_review` | `for_review` (stays, event logged) |
+| `rejected` | `for_review` | `for_review` |
 
 When the editor rejects the translation, the status doesn't change, but the system records that the draft translation requires corrections.
 A draft translation in `translated` state can't be rejected.
 
 !!! note
 
-    This workflow is separate from the [editorial workflow](workflow_management/editorial_workflow.md).
+    This workflow is separate from the [editorial workflow](workflow.md).
     Accepting or rejecting draft translations does not trigger editorial workflow transitions or notifications.
-
-
-### Database tables
-
-The review feature uses two tables to the database:
-
-- `ibexa_auto_translation` — One row for each draft translation created automatically. Stores the current review status.
-
-| Field | Type | Description |
-|---|---|---|
-| `id` | integer | ID of the translation draft |
-| `provider_identifier` | string | Identifier of the translation provider used |
-| `content_id` | integer | ID of the translated content item |
-| `version_no` | integer | Version number of the draft |
-| `source_language_id` | bigint | ID of the source language |
-| `target_language_id` | bigint | ID of the target language |
-| `review_status` | string | Current status. Possible values: `for_review` or `translated` |
-| `created_at` | datetime | When the draft translation was created |
-| `updated_at` | datetime | When the status was last changed |
-
-A constraint prevents the creation of duplicate review records for the same draft translation.
-
-- `ibexa_auto_translation_review_log` — An audit log, wit one for each status operation.
-
-| Field | Type | Description |
-|---|---|---|
-| `id` | integer | ID of the operation |
-| `auto_translation_id` | integer (nullable) | An `id` of the translation draft from the `ibexa_auto_translation` table, `SET NULL` on delete |
-| `user_id` | integer | ID of the user who performed the operation |
-| `status` | string | Status at the time of the operation |
-| `operation` | string | `created`, `approved`, or `rejected` |
-| `created_at` | datetime | When the operation was performed |
-
-When an automatically translated draft is deleted, its `ibexa_auto_translation` row is removed, the review log rows remain, but their `auto_translation_id` is set to `null`.

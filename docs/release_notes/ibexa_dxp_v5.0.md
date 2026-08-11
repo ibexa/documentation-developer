@@ -48,13 +48,11 @@ For more information, see [Translate content items with CLI](configure_translati
 
 When a draft is created through automatic translation, it receives the "For review" status.
 Editors can accept or reject the translation in the side-by-side view, which displays a review bar.
-Accepted translations are given the "Translated".
+Accepted translations are given the "Translated" status.
 
 The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
 
 For more information, see [Translation review](configure_translations_management.md#translation-review).
-
-
 
 ### Developer experience
 

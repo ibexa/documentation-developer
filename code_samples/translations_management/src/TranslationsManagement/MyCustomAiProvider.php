@@ -4,28 +4,29 @@ declare(strict_types=1);
 
 namespace App\TranslationsManagement;
 
-use Ibexa\Contracts\TranslationsManagement\AutoTranslate\Provider\TranslationProviderInterface;
+use Ibexa\Contracts\TranslationsManagement\AutoTranslate\Provider\AiTranslationProviderInterface;
 use Ibexa\Contracts\TranslationsManagement\AutoTranslate\TranslationDataInterface;
 
-final readonly class MyCustomProvider implements TranslationProviderInterface
+final readonly class MyCustomAiProvider implements AiTranslationProviderInterface
 {
     /**
-     * Replace MyApiClient with your HTTP client, SDK wrapper, or any service
-     * that communicates with the external translation API.
+     * Replace MyAiClient with your HTTP client, SDK wrapper, or any service
+     * that communicates with the external AI translation API.
      */
     public function __construct(
-        private MyApiClient $apiClient,
+        private MyAiClient $apiClient,
+        private string $actionConfigurationIdentifier,
     ) {
     }
 
     public function getIdentifier(): string
     {
-        return 'my_custom_provider';
+        return 'my_custom_ai_provider';
     }
 
     public function getName(): string
     {
-        return 'My Translation Service';
+        return 'My AI Translation Service';
     }
 
     public function getVendorName(): string
@@ -46,5 +47,18 @@ final readonly class MyCustomProvider implements TranslationProviderInterface
     public function getSupportedLanguageCodes(): array
     {
         return ['eng-GB', 'ger-DE', 'fre-FR'];
+    }
+
+    /** @return array<string, mixed> */
+    public function getConfiguration(): array
+    {
+        return [
+            'actionConfigurationIdentifier' => $this->actionConfigurationIdentifier,
+        ];
+    }
+
+    public function isConfigured(): bool
+    {
+        return $this->actionConfigurationIdentifier !== '';
     }
 }

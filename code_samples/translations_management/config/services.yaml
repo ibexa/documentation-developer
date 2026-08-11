@@ -29,3 +29,8 @@ services:
             - name: ibexa.twig.component
               group: 'admin-ui-content-translation-modal-footer'
               priority: 10
+    App\TranslationsManagement\MyCustomAiProvider:
+        tags:
+            - name: 'ibexa.translations_management.auto_translate.provider'
+              identifier: 'my_custom_ai_provider'
+              validation_profile: 'ai_generic'

@@ -16,7 +16,9 @@ The package discovers and registers tagged services automatically.
 
 Before you build a custom translation provider, if your provider uses the AI Actions framework, make sure that the `ibexa/connector-ai` package is installed in your system.
 
-To connect a translation service that is not built into the package, implement [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html).
+### REST API-based provider
+
+To connect a translation service that calls a REST API directly, implement [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html).
 The `translate()` method receives a `TranslationDataInterface` object that carries the text to translate along with the source and target language codes:
 
 ``` php hl_lines="36-49"
@@ -24,11 +26,37 @@ The `translate()` method receives a `TranslationDataInterface` object that carri
 ```
 
 Register the provider with the `ibexa.translations_management.auto_translate.provider` tag.
-Both `identifier` and `validation_profile` are required attributes.
+Both `identifier` and [`validation_profile`](#validation-profiles) are required attributes.
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 6) =]]
 ```
+
+### AI-based provider
+
+To connect a translation service that uses the [AI Actions](ai_actions.md) framework, implement [`AiTranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-AiTranslationProviderInterface.html).
+The interface adds `getConfiguration()` and `isConfigured()` to the base provider contract.
+These methods allow the package to determine whether the provider is available before it displays  selectable options in the **Create a new translation** modal:
+
+``` php hl_lines="37-50"
+[[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomAiProvider.php') =]]
+```
+
+Register the provider with the `ibexa.translations_management.auto_translate.provider` tag, with `ai_generic` as the validation profile:
+
+``` yaml
+[[= include_file('code_samples/translations_management/config/services.yaml', 0, 1) =]] [[= include_code('code_samples/translations_management/config/services.yaml', 32, 36) =]]
+```
+
+!!! note "Minimal `getConfiguration()` and `isConfigured()` implementations"
+
+    The sample implements `getConfiguration()` and `isConfigured()` as stubs.
+    The built-in AI providers delegate these methods to internal services that are not part of the public API and are not available to custom code outside the bundle.
+    If your custom provider integrates with the AI Actions framework, `isConfigured()` should check whether the `actionConfigurationIdentifier` resolves to an existing and enabled Action Configuration.
+
+The `validation_profile`, `supportedLanguageCodes`, and `languageCodesMap` options work the same way as for REST API-based providers.
+
+### Validation profiles
 
 The `validation_profile` attribute links the provider to a validator that checks language codes and payload size before each before each translation request.
 By default, three profiles are available:
@@ -68,7 +96,7 @@ To add support for a custom or non-standard field type, implement [`FieldValueTr
 - `encode(Field $field): EncodedFieldValue` - extracts the translatable string from the field and wraps it in an [`EncodedFieldValue`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html). The constructor takes the extracted string as its first argument and an optional metadata array as its second.
 - `decode(string $value, mixed $previousFieldValue, array $metadata): Value` - receives the translated string, the previous field value, and any metadata, and returns the updated field value
 
-``` php hl_lines="19 24"
+``` php hl_lines="31 46-58"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/ImageAltTextTransformer.php') =]]
 ```
 
@@ -194,6 +222,9 @@ Both highlighted calls are required:
 - `stopPropagation()` stops all lower-priority listeners from executing.
 
 When a response is set on the event, `admin-ui` uses it and doesn't proceed with the standard translation editor.
+
+When the package's Subscriber fails to create the auto-translated draft, for example, when the provider is unreachable, it catches the exception, shows an error notification in the back office, and redirects the editor to the content view, but it does not surface a full error page.
+If your subscriber takes over the flow by calling both `setResponse()` and `stopPropagation()`, you must implement error handling.
 
 !!! caution "Internal `ContentProxyTranslateEvent`"
 
