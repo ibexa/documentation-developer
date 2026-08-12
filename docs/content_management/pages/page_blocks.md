@@ -115,15 +115,58 @@ You can use this parameter, for example, in block template:
 
 ### Exposing content relations from blocks
 
-Page blocks, for example Embed block or Collection block, can embed other content items.
-Publishing a page with such blocks creates Relations to those content items.
+Page blocks which embed other content items should expose those relations.
 
-When creating a custom block with embeds, you can ensure such Relations are created using the block Relation collection event.
-
-The event is dispatched on content publication.
-You can hook your event listener to the `BlockRelationEvents::getCollectBlockRelationsEventName` event.
-
-To expose relations, pass an array containing Content IDs to the `Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent::setRelations()` method.
 If embedded Content changes, old Relations are removed automatically.
-
 Providing Relations also invalidates HTTP cache for your block response in one of the related content items changes.
+
+The following [block attribute types](page_block_attributes.md#block-attribute-types) create relations to content items (even when [nested](page_block_attributes.md#nested-attribute-configuration)):
+
+- `embed`
+- `embedvideo`
+- `locationlist`
+- `richtext`
+
+When creating a custom block embedding contents not through those types of attribute, you can ensure such relations are created using the block relation collection event.
+The event is dispatched on content publication and on content view.
+
+You can hook your event listener to the event name obtained with `BlockRelationEvents::getCollectBlockRelationsEventName($blockTypeIdentifier)`.
+To expose relations, pass an array of integers containing Content IDs to the `Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent::setRelations()` method.
+
+```php
+<?php
+
+namespace App\EventSubscriber;
+
+use Ibexa\FieldTypePage\Event\BlockRelationEvents;
+use Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+final class MyBlockEventSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            BlockRenderEvents::getBlockPreRenderEventName('my_block') => 'onBlockPreRender',
+            BlockRelationEvents::getCollectBlockRelationsEventName('my_block') => 'onCollectBlockRelationsEvent'
+        ];
+    }
+
+    public function onBlockPreRender(PreRenderEvent $event): void
+    {
+        // …
+    }
+
+    public function onCollectBlockRelationsEvent(CollectBlockRelationsEvent $event): void
+    {
+        // …
+        $event->setRelations([1, 2, 3]);
+    }
+}
+```
+
+When creating a custom block attribute type that embeds content items, you can also create relations with a service implementing
+`\Ibexa\FieldTypePage\FieldType\Page\Block\Relation\Extractor\BlockAttributeRelationExtractorInterface`
+and tagged `ibexa.field_type.page.relation.attribute.type.extractor`.
