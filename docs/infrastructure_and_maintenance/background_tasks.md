@@ -159,7 +159,7 @@ With this setup, each worker process can connect to the right database.
 To have a task processed in the background by [[= product_name_base =]] Messenger:
 
 1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
-2. Dispatch an appropriate message by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
+2. Dispatch an appropriate message, for example a [custom message](#register-custom-message-and-handler), by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
 
     ``` yaml
     services:
@@ -169,11 +169,13 @@ To have a task processed in the background by [[= product_name_base =]] Messenge
     ```
 
     ``` php
-    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 19, indent_level=1) =]]
-    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, indent_level=1) =]]
+    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 5, indent_level=1) =]]
+    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 20, indent_level=1) =]]
+    [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 24, 25, indent_level=1) =]]
     ```
 
 3. [Route the message to the background queue](#route-message-to-background-queue).
+Otherwise the bus calls the handler immediately, in the same process that dispatches the message.
 
 4. Additionally, attach message metadata by using [stamps](#stamps).
 
@@ -223,16 +225,25 @@ The handler then reads [SiteAccess-aware configuration](multisite_configuration.
 
 ## Extend Ibexa Messenger
 
+To handle a custom use case with background tasks, you need the following elements:
+
+- a message class to hold the data
+- a handler class to perform the task, registered on the `ibexa.messenger.bus` bus
+- a message provider to [route the message to the transport queue](#route-message-to-background-queue)
+- code to [dispatch the message](#dispatch-message)
+
+If you don't route the message to the transport queue, the bus calls the handler synchronously, in the same process that dispatches the message.
+
 ### Register custom message and handler
 
-To handle additional use cases with background tasks, you can create [custom message and handler class]([[= symfony_doc =]]/messenger.html#creating-a-message-handler):
+To handle additional use cases with background tasks, first create a [custom message and handler class]([[= symfony_doc =]]/messenger.html#creating-a-message-handler):
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Message/SomeMessage.php') =]]
 ```
 
 ``` php
-[[= include_file("code_samples/background_tasks/src/MessageHandler/SomeHandler.php") =]]
+[[= include_file('code_samples/background_tasks/src/MessageHandler/SomeHandler.php') =]]
 ```
 
 Add a service definition to `config/services.yaml` and set the `bus` to `ibexa.messenger.bus`:
@@ -245,9 +256,12 @@ services:
               bus: ibexa.messenger.bus
 ```
 
+At this point the handler processes the messages synchronously.
+To move the work to the background, [route the message to the background queue](#route-message-to-background-queue).
+
 ### Route message to background queue
 
-To have a message processed in the background, it must be sent to a transport queue.
+To process the message in the background, send it to a transport queue.
 [[= product_name_base =]] Messenger uses message providers instead of [Symfony `framework.messenger.routing` configuration]([[= symfony_doc =]]/messenger.html#routing-messages-to-a-transport).
 
 A message provider is a service that implements the [`MessageProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html) interface, and the `getHandledClasses()` method must return the list of message classes that [[= product_name_base =]] Messenger must send to the queue to process in the background.
@@ -255,12 +269,10 @@ A message provider is a service that implements the [`MessageProviderInterface`]
 The `getHandledClasses()` method can also return a parent class or an interface.
 In this case, all messages that extend this class, or implement this interface, go to the background queue.
 
-If no message provider returns the class of your message, the bus calls the handler immediately, in the same process that dispatches the message.
-
 To send `SomeMessage` to the background queue, create the following provider:
 
 ``` php hl_lines="12"
-[[= include_file("code_samples/background_tasks/src/Messenger/SomeMessageProvider.php") =]]
+[[= include_file('code_samples/background_tasks/src/Messenger/SomeMessageProvider.php') =]]
 ```
 
 If you're not using service autoconfiguration, add the `ibexa.messenger.sender_message_provider` tag to the service:
