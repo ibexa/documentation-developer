@@ -17,7 +17,7 @@ Both events are read-only, you can't use them to override the translation result
 | Event | Dispatched by | Dispatched when | Properties |
 |---|---|---|----|
 | [`BeforeTranslateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html) | `EventDispatchingProviderTranslator` | Before a translation request is sent to the provider | `TranslationProviderInterface $provider`</br>`string $text`</br>`string $sourceLanguage`</br>`string $targetLanguage` |
-| [`TranslateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html) | `TranslationService` | After a translation response is received | `string $result`</br>`TranslationProviderInterface $provider`</br>`string $text`</br>`string $sourceLanguage`</br>`string $targetLanguage` |
+| [`TranslateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html) | `EventDispatchingProviderTranslator` | After a translation response is received | `string $result`</br>`TranslationProviderInterface $provider`</br>`string $text`</br>`string $sourceLanguage`</br>`string $targetLanguage` |
 
 ## Side-by-side creation events
 

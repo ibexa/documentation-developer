@@ -6,58 +6,70 @@ month_change: true
 
 # Configure translations management
 
-`ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content translation.
-It introduces a plugin that handles the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target languages and provide content item and product translations in a single view, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
-
-The package is standalone and does not require the `ibexa/automated-translation` add-on package to run.
+`ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content item and product translation.
+It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target , provide content item and product translations in a single view, and reject or approve translations, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 !!! note "Automatic translation limitations"
 
-    Content types that contain the `ibexa_form` field are excluded from automatic translation.
-    The ones with the `ibexa_landing_page` field can still be automatically translated through the standard translation flow and the CLI command, and the following elements are translated:
-
-    - The page's title and description
-    - Names of page blocks
-    - Plain text on page blocks
-    - Richtext fields on page blocks
-
+    Content types that contain the `ibexa_form` or `ibexa_landing_page` fields do not support the side-by-side translation view and open in the single-language editor instead.
+    When a content type that uses `ibexa_landing_page` is automatically translated, only the page's title and description are translated.
+    When a content type that uses `ibexa_form` is automatically translated, only the forms's title is translated.
+    
     Also, [product attributes](products.md#product-attributes) are not translatable.
 
 ## Install package
 
-The Translations management LTS Update is optional.
-To enable it, run the following command:
+To install the Translations management [LTS Update](editions.md#lts-updates), run the following command:
 
 ```bash
 composer require ibexa/translations-management
 ```
 
-After installation, run the [[= product_name_base =]] data migrations to complete the setup:
+If you're installing Translations management LTS Update as part of the installation process of a fresh [[= product_name =]] instance, this step copies the migration files into the project's migrations directory, creates the database tables required for the review workflow, and adds the default action configurations in the database.
+Otherwise follow the steps below.
+
+### Existing installations
+
+To add the Translations management LTS Update to an existing [[= product_name =]] instance, after installation, you must create database tabes and action configurations yourself.
+
+#### Modify database schema
+
+Add the tables needed by the bundle:
+
+=== "MySQL"
+
+    ```sql
+    [[= include_file('code_samples/translations_management/install/schema.mysql.sql', 0, None, '    ') =]]
+    ```
+
+=== "PostgreSQL"
+
+    ```sql
+    [[= include_file('code_samples/translations_management/install/schema.postgresql.sql', 0, None, '    ') =]]
+    ```
+
+The script creates the required data structures, but doesn't add any data to the database.
+
+#### Add action configurations
+
+Import and run the AI Action Configuration migrations to complete the setup:
 
 ```bash
-php bin/console ibexa:migrations:import --from-bundle=IbexaTranslationsManagementBundle
+php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_06_15_00_auto_translate_openai_action_configuration.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_11_10_00_auto_translate_gemini_action_configuration.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_12_08_30_auto_translate_anthropic_action_configuration.yaml
 php bin/console ibexa:migrations:migrate
 ```
-
-This copies the migration files into the project's migrations directory, creates the database tables required for the review workflow, and adds the default action configurations in the database.
 
 ## Configure translation providers
 
 Translation providers are the services that perform the actual text translation.
-The Translations management package comes with two types of translation providers:
+    If you fail to configure them, the automatic translation feature is disabled in the editor's UI, and a message is displayed that prompts the user to contact the administrator
+
+The Translations management package comes with two types of translation services:
 
 - REST API-based providers call a translation service such as Google Translate or DeepL directly by using an API key.
 - AI-based providers send translation requests through the [AI Actions](configure_ai_actions.md) framework, relying on the same model selection and policy controls as other AI features in [[= product_name =]].
-
-Out of the box, Translations management can support the following translation providers:
-
-| Provider | Type | Configuration |
-|---|---|---|
-| Google Translate | REST API | API key |
-| DeepL | REST API | API key |
-| OpenAI | AI Actions | Action Configuration identifier |
-| Anthropic (Claude) | AI Actions | Action Configuration identifier |
-| Google Gemini | AI Actions | Action Configuration identifier |
 
 !!! note "Prerequisites for the default translation providers"
 
@@ -67,9 +79,19 @@ Out of the box, Translations management can support the following translation pr
 
     - For the AI-based translation providers, [install and configure](configure_ai_actions.md) the `ibexa/connector-ai` package and their corresponding connectors.
 
+Out of the box, Translations management can support the following translation providers:
+
+| Provider | Type |
+|---|---|---|
+| Google Translate | REST API |
+| DeepL | REST API |
+| OpenAI | AI Actions |
+| Anthropic (Claude) | AI Actions |
+| Google Gemini | AI Actions |
+
 **Built-in AI providers**
 
-When you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
+If you fulfill the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
@@ -109,19 +131,11 @@ The `apiKey` values must reference API key values that you added to the `.env` f
 The `actionConfigurationIdentifier` values must reference existing Action Configurations.
 If a value is missing or empty, the provider doesn't appear in the UI as a selectable option.
 
-!!! caution "AI policies required"
-
-    AI-based providers require that AI policies are assigned to user roles.
-    If an editor can't see AI providers in the translation provider dropdown, check if the appropriate AI policies are granted in their role definition.
-
-If you fail to configure the providers, the Translations management feature disables itself in the editor's UI.
-The **Use automatic translation** checkbox is disabled, and a message is displayed that prompts the user to contact the administrator
-
-### Advanced translation provider options
+#### Advanced translation provider options
 
 In addition to their required authentication keys, all providers support two optional ones:
 
-- `supportedLanguageCodes` - overrides the default list of language codes this provider accepts
+- `supportedLanguageCodes` - overrides the default list of language codes that this provider accepts
 - `languageCodesMap` - maps language codes used by [[= product_name =]], for example, `eng-GB`, to the provider-specific codes the API expects
 
 ``` yaml
@@ -162,27 +176,7 @@ The editor can override the pre-selection.
 The list of languages available when creating a language pair is determined by what each provider supports.
 You can only select the languages that are present in a provider's [supported list](#advanced-translation-provider-options) for that provider's pairs.
 
-You can manage language pairs in [[= product_name_base =]]'s back office.
-
-### Manage language pairs in UI
-
-To manage language pairs in the back office, go to **Admin** -> **Languages** -> **Language pairs** tab.
-Here you can create, edit and delete language pairs.
-
-To add a language pair, click **+ Add language pair**.
-Then, pick a source language and one or more target languages from their respective drop-down lists.
-Finally, from the **Translation service** list, pick a translation provider and click **Save and close**
-
-![Creating a language pair](translations_management_language_pairs.png "Creating a language pair")
-
-This adds as many language pairs as you picked target languages.
-
-!!! note
-
-    The **Add language pair** action is disabled if no translation providers are [configured](#configure-translation-providers).
-
-    If a language pair already exists and is associated with a translation provider, you can't create another language pair with a different provider.
-    Edit the existing language pair instead. 
+You [manage language pairs in the back office]([[= user_doc =]]/content_management/translate_content/#manage-translation-services-and-language-pairs).
 
 ## User settings
 
@@ -267,6 +261,8 @@ It's a single server-side operation handled by `SideBySideFieldCopyService::copy
 
 When an user opens the translation modal and selects a target language which already has a draft translation, a warning appears in the modal.
 The warning is shown or hidden dynamically by `add.translation.modal.warning.js` when the user changes the target language selection.
+
+For a description of the side-by-side view and its functions from the user's perspective, see [Translate content](([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
 
 ## Translate content items with CLI
 

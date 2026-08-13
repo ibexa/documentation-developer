@@ -6,7 +6,7 @@ month_change: true
 
 # Extend translations management
 
-By extending [Translations management](translations_management_guide.md), you can build custom translation workflows and adapt the package's behavior to your specific requirements.
+By extending [Translations management](translations_management_guide.md), you can adapt the package's behavior to your specific requirements.
 The package is designed to be extended in multiple ways.
 You can create custom [translation providers](configure_translations_management.md#configure-translation-providers), field type transformers, exclusion rules, and UI components.
 In all cases, you follow the same pattern: implement an interface first, then register the service with a service tag.
@@ -42,7 +42,8 @@ These methods allow the package to determine whether the provider is available b
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomAiProvider.php') =]]
 ```
 
-Register the provider with the `ibexa.translations_management.auto_translate.provider` tag, with `ai_generic` as the validation profile:
+Register the provider with the `ibexa.translations_management.auto_translate.provider` tag, with `ai_generic` as the validation profile.
+The `ai_generic` validation profile is used by default for AI providers, but you can [implement your own](#validation-profiles).
 
 ``` yaml
 [[= include_file('code_samples/translations_management/config/services.yaml', 0, 1) =]] [[= include_code('code_samples/translations_management/config/services.yaml', 32, 36) =]]
@@ -178,34 +179,6 @@ Register a component with the `ibexa.twig.component` tag:
     The `admin-ui-content-translation-modal-footer` group receives a `location` variable that may be `null` when the modal is rendered outside a location context.
     Always check for `null` before you access location properties in your component template.
 
-## Extend modal
-
-If injecting custom UI elements is not sufficient, you can extend the modal itself.
-To add a field to the **Add translation** modal, for example, to let the editor choose a custom workflow or pass extra parameters along with the translation request, extend [`TranslationAddType`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Form/Type/Content/Translation/TranslationAddType.php) with a [Symfony's Form Type extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
-It's the same mechanism the translations management package uses internally to inject its provider selector into the modal.
-
-Create a class that extends [`AbstractTypeExtension`](https://symfony.com/doc/current/reference/forms/types/form.html) and declare the extended type:
-
-``` php
-[[= include_code('code_samples/translations_management/src/TranslationsManagement/MyTranslationAddExtension.php') =]]
-```
-
-Register it as a service:
-
-``` yaml
-[[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 11, 13) =]]
-```
-
-The extra field is then available in the submitted form data, which the standard `admin-ui` controller includes in the translation request data.
-Use this approach when you need to read extra input from the editor, not to redirect or replace the response.
-
-!!! caution "Internal `TranslationAddType`"
-
-    `TranslationAddType` is marked `@internal` in `ibexa/admin-ui`.
-    While it functions as an extension point in practice, its name and signature may change.
-    It may even be removed entirely without a deprecation notice.
-
 ## Intercept translation flow
 
 The `BeforeTranslateEvent` and `TranslateEvent` [events](translations_management_events.md#translation-events) operate at the field-value level and cannot redirect the HTTP flow.
@@ -214,7 +187,7 @@ To intercept the "Add translation" action at the HTTP level, for example, to tri
 The `translations-management` package listens to this event at priority `100`.
 Subscribe at a higher priority to act before the package does:
 
-``` php hl_lines="35 36"
+``` php hl_lines="22 38 39"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/ContentProxyTranslateSubscriber.php') =]]
 ```
 
