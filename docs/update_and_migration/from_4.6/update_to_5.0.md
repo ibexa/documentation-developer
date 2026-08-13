@@ -250,7 +250,7 @@ rm assets/bootstrap.js
 composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 ```
 
-Compare with your previous version, merge them together and test your customizations if needed.
+Compare with your previous version, merge them together, take care of [`webpackconfig.js` usage changee](#webpackconfigjs-usage-update), and test your customizations.
 
 #### Apply [[= product_name =]] recipe
 
@@ -536,7 +536,7 @@ In the following example, you can see optimization thanks to the following featu
 
 #### Update JavaScript
 
-If you haven't renamed your Webpack file since 3.3, do it now as v5.0 no longer supports the old names.
+If you haven't renamed your Webpack file since 3.3, do it now as 5.0 no longer supports the old names.
 
 | Old name                    | New name                       |
 |:----------------------------|:-------------------------------|
@@ -592,6 +592,27 @@ Run it using the following command:
 yarn --cwd ./vendor/ibexa/rector/js transform
 ```
 
+##### `webpack.config.js` usage update
+
+To add your custimizations back into to the new webpack.config.js, take care of the following change.
+
+Contrary to 4.6, in 5.0, `ibexaConfig` isn't available by default in `webpack.config.js`. You have to require then export it.
+
+```diff
+const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
++ const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
++ const ibexaConfig = getIbexaConfig();
+
+ibexaConfigManager.add({
+    ibexaConfig,
+...
+});
+
++ module.exports = [ibexaConfig, ...customConfigs, projectConfig];
+```
+
+
+
 #### Update field type identifiers
 
 Several field type identifiers have changed.
@@ -602,7 +623,7 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
 
 ??? note "Field type identifiers renaming map"
 
-    | old identifier (`legacy_alias`) | new identifier (`alias`)        |
+    | Old identifier (`legacy_alias`) | New identifier (`alias`)        |
     |:--------------------------------|:--------------------------------|
     | ibexa_address                   | ibexa_address                   |
     | ezauthor                        | ibexa_author                    |
