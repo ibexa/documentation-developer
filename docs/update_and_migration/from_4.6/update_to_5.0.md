@@ -598,17 +598,17 @@ To add your custimizations back into to the new webpack.config.js, take care of 
 
 Contrary to 4.6, in 5.0, `ibexaConfig` isn't available by default in `webpack.config.js`. You have to require then export it.
 
-```diff
+```js hl_lines="2 3 10"
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
-+ const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
-+ const ibexaConfig = getIbexaConfig();
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
+const ibexaConfig = getIbexaConfig();
 
 ibexaConfigManager.add({
     ibexaConfig,
-...
+    //…
 });
 
-+ module.exports = [ibexaConfig, ...customConfigs, projectConfig];
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 ```
 
 
