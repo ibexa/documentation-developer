@@ -37,17 +37,19 @@ The module governs the creation of the new tab.
 
 <details class="tip">
 <summary>Complete image.tab.module.js code</summary>
-```js
+``` js
 [[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js') =]]
 ```
 </details>
 
 ## Add tab to webpack config
 
-In `webpack.config.js`, add the following declaration:
+In `webpack.config.js`, add the following declarations:
 
 ```js
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
+const ibexaConfig = getIbexaConfig();
 ```
 
 Next, provide configuration for the new module:
@@ -58,6 +60,12 @@ ibexaConfigManager.add({
     entryName: 'ibexa-admin-ui-udw-tabs-js',
     newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
 });
+```
+
+Finally, export the module back:
+
+```js
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 ```
 
 ## Provide ReactJS files
