@@ -61,4 +61,5 @@ ibexaConfigManager.add({
     newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ],
 });
 
+/* Export updated ibexaConfig and previous modules. */
 module.exports = [ibexaConfig, ...customConfigs, projectConfig];
