@@ -103,14 +103,16 @@ To add a new configuration under your own namespace and with its own dependencie
 
 ## Configuration from main project files
 
-If you prefer to include the asset configuration in the main project files, add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.6/encore/webpack.config.js#L26).
+If you prefer to include the asset configuration in the main project files, add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/5.0/encore/webpack.config.js#L26).
 
 To overwrite the built-in assets, use the following configuration to replace, remove, or add asset files in `webpack.config.js`:
 
 ``` js
-const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
+const ibexaConfig = getIbexaConfig();
 
-//...
+//…
 
 ibexaConfigManager.replace({
     ibexaConfig,
@@ -136,4 +138,9 @@ ibexaConfigManager.add({
         path.resolve(__dirname, '<path_to_new_file>'),
     ],
 });
+
+//…
+
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
+
 ```
