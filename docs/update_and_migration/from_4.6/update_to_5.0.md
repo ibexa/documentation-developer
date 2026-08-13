@@ -594,10 +594,10 @@ yarn --cwd ./vendor/ibexa/rector/js transform
 
 ##### `webpack.config.js` usage update
 
-To add your custimizations back into to the new webpack.config.js, take care of the following change.
+To add your custimizations back into to the new webpack.config.js, take care of the following changes.
 
-Contrary to 4.6, in 5.0, `ibexaConfig` isn't available by default in `webpack.config.js`. You have to require then export it.
-The `./ibexa.webpack.config.manager.js` file at project root doesn't exist anymore, you have to require it through its alias path `@ibexa/frontend-config/webpack-config/manager` to get `ibexaConfigManager`.
+- Contrary to 4.6, in 5.0, `ibexaConfig` isn't available by default in `webpack.config.js`. You have to require then export it.
+- The `./ibexa.webpack.config.manager.js` file at project root doesn't exist anymore, you have to require it through its alias path `@ibexa/frontend-config/webpack-config/manager` to get `ibexaConfigManager`.
 
 ```js hl_lines="2 3 10"
 const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
