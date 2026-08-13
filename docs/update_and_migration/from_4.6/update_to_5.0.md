@@ -611,8 +611,6 @@ ibexaConfigManager.add({
 module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 ```
 
-
-
 #### Update field type identifiers
 
 Several field type identifiers have changed.
