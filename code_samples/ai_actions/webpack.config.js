@@ -1,4 +1,6 @@
-const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
+const ibexaConfig = getIbexaConfig();
 
 ibexaConfigManager.add({
     ibexaConfig,
@@ -7,3 +9,5 @@ ibexaConfigManager.add({
         path.resolve(__dirname, './assets/js/addAudioModule.js')
     ],
 });
+
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
