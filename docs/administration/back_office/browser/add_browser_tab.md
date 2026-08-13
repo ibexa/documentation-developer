@@ -47,7 +47,7 @@ The module governs the creation of the new tab.
 In `webpack.config.js`, add the following declarations:
 
 ```js
-const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
 const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
 const ibexaConfig = getIbexaConfig();
 ```
