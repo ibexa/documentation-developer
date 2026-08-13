@@ -14,8 +14,8 @@ To import assets from a bundle, configure them in an `ibexa.config.js` file that
 const path = require('path');
 
 module.exports = (Encore) => {
-	Encore.addEntry('<entry-name>', [
-		path.resolve(__dirname, '<path_to_file>'),
+    Encore.addEntry('<entry-name>', [
+        path.resolve(__dirname, '<path_to_file>'),
     ]);
 };
 ```
@@ -40,35 +40,35 @@ To edit existing configuration entries, either in the bundle's `Resources/encore
 const path = require('path');
 
 module.exports = (ibexaConfig, ibexaConfigManager) => {
-	ibexaConfigManager.replace({
-	    ibexaConfig,
-	    entryName: '<entry-name>',
-	    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
-	    newItem: path.resolve(__dirname, '<path_to_new_file>'),
-	});
-	ibexaConfigManager.remove({
-	    ibexaConfig,
-	    entryName: '<entry-name>',
-	    itemsToRemove: [
-	        path.resolve(__dirname, '<path_to_old_file>'),
-	        path.resolve(__dirname, '<path_to_old_file>'),
-	    ],
-	});
-	ibexaConfigManager.add({
-	    ibexaConfig,
-	    entryName: '<entry-name>',
-	    newItems: [
-	        path.resolve(__dirname, '<path_to_new_file>'),
-	        path.resolve(__dirname, '<path_to_new_file>'),
-	    ],
-	});
+    ibexaConfigManager.replace({
+        ibexaConfig,
+        entryName: '<entry-name>',
+        itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
+        newItem: path.resolve(__dirname, '<path_to_new_file>'),
+    });
+    ibexaConfigManager.remove({
+        ibexaConfig,
+        entryName: '<entry-name>',
+        itemsToRemove: [
+            path.resolve(__dirname, '<path_to_old_file>'),
+            path.resolve(__dirname, '<path_to_old_file>'),
+        ],
+    });
+    ibexaConfigManager.add({
+        ibexaConfig,
+        entryName: '<entry-name>',
+        newItems: [
+            path.resolve(__dirname, '<path_to_new_file>'),
+            path.resolve(__dirname, '<path_to_new_file>'),
+        ],
+    });
 };
 ```
 
 !!! tip
 
-	If you don't know what `entryName` to use, you can use the browser's developer tools to check what files are loaded on the given page.
-	Then, use the file name as `entryName`.
+    If you don't know what `entryName` to use, you can use the browser's developer tools to check what files are loaded on the given page.
+    Then, use the file name as `entryName`.
 
 !!! tip
 
@@ -79,20 +79,20 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 To add a new configuration under your own namespace and with its own dependencies, create an `ibexa.webpack.custom.config.js` file that you create either in the bundle's `Resources/encore/` folder, or in the `encore` folder in the root directory of your project, for example:
 
 ``` js
-	const Encore = require('@symfony/webpack-encore');
+    const Encore = require('@symfony/webpack-encore');
 
-	Encore.setOutputPath('<custom-path>')
-	    .setPublicPath('<custom-path>')
-	    .addExternals('<custom-externals>')
-	    // ...
-	    .addEntry('<entry-name>', ['<JS-path>']);
+    Encore.setOutputPath('<custom-path>')
+        .setPublicPath('<custom-path>')
+        .addExternals('<custom-externals>')
+        // ...
+        .addEntry('<entry-name>', ['<JS-path>']);
 
-	const customConfig = Encore.getWebpackConfig();
+    const customConfig = Encore.getWebpackConfig();
 
-	customConfig.name = 'customConfigName';
+    customConfig.name = 'customConfigName';
 
-	// Config or array of configs: [customConfig1, customConfig2];
-	module.exports = customConfig;
+    // Config or array of configs: [customConfig1, customConfig2];
+    module.exports = customConfig;
 ```
 
 !!! tip
