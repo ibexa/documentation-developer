@@ -60,3 +60,5 @@ ibexaConfigManager.add({
     entryName: 'ibexa-admin-ui-layout-js',
     newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ],
 });
+
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
