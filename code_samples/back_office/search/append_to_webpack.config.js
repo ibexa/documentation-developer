@@ -7,3 +7,5 @@ ibexaConfigManager.add({
     entryName: 'ibexa-admin-ui-layout-js',
     newItems: [path.resolve(__dirname, './assets/js/admin.search.autocomplete.product.js')],
 });
+
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
