@@ -1,6 +1,6 @@
 # Measurement field type
 
-The Measurement field type represents measurement information. 
+The Measurement field type represents measurement information.
 It stores the unit of measure, and either a single measurement value, or a pair of top and bottom values that defines a range.
 
 | Name          | Internal name       | Expected input type                                |
@@ -12,8 +12,8 @@ It stores the unit of measure, and either a single measurement value, or a pair 
 ### Input expectations
 
 To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface`.
-You must inject the service directly with [dependency injection](php_api.md#service-container). 
-The service contains the following API endpoints: 
+You must inject the service directly with [dependency injection](php_api.md#service-container).
+The service contains the following API endpoints:
 
 - `buildSimpleValue` that is used to handle a single value
 - `buildRangeValue` that is used to handle a range
@@ -27,7 +27,7 @@ Assuming that the service exists as `$measurementService`, the expected input ex
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -35,9 +35,9 @@ The Value class of this field type contains the following properties:
 |----------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `$value` | `Ibexa\Contracts\Measurement\Value\ValueInterface` | Stores the Measurement API Value, which can be either an instance of `Ibexa\Contracts\Measurement\Value\SimpleValueInterface` or `Ibexa\Contracts\Measurement\Value\RangeValueInterface`. |
 
-##### Constructor
+#### Constructor
 
-The `Measurement\Value` constructor for this value object initializes a new value object with the value provided. 
+The `Measurement\Value` constructor for this value object initializes a new value object with the value provided.
 As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value\ValueInterface` type.
 
 Depending on the selected input type, the object resembles the following examples:
@@ -45,14 +45,16 @@ Depending on the selected input type, the object resembles the following example
 ``` php
 // Simple input (single value) example
 
-// @var MeasurementServiceInterface $measurementService
+use Ibexa\Measurement\FieldType\MeasurementValue;
+
+/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
 
 // Instantiates a Measurement Value object
-$measurementValue = new Measurement\Value(
+$measurementValue = new MeasurementValue(
     $measurementService->buildSimpleValue(
-                    'length',
-                    13.5,
-                    'centimeter'
+        'length',
+        13.5,
+        'centimeter'
     )
 );
 ```
@@ -60,10 +62,12 @@ $measurementValue = new Measurement\Value(
 ``` php
 // Range input value example
 
-// @var MeasurementServiceInterface $measurementService
+use Ibexa\Measurement\FieldType\MeasurementValue;
+
+/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
 
 // Instantiates a Measurement Value object
-$measurementValue = new Measurement\Value(
+$measurementValue = new MeasurementValue(
     $measurementService->buildRangeValue(
         'volume',
         0.5,

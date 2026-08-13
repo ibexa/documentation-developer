@@ -86,18 +86,17 @@ The following built-in routes are available for the front of the website.
 
 ### Registration
 
-
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa.user.user_register` | `/user/register` | User registration form |
-| `ibexa.user.register_confirmation`</br>`ibexa.user.user_register_confirmation` | `/register-confirm`</br>`/user/register-confirm` | Confirmation page after user registration |
+| `ibexa.user.register_confirmation`<br>`ibexa.user.user_register_confirmation` | `/register-confirm`<br>`/user/register-confirm` | Confirmation page after user registration |
 
 ### Login
 
 |Route name|Path|Description|
 |---|---|---|
 |`login` | `/login` | [Login form](add_login_form.md) |
-|`logout`</br>`ibexa.commerce.customer.logout` | `/logout`</br>`/profile/logout` | Logging out the current user |
+|`logout`<br>`ibexa.commerce.customer.logout` | `/logout`<br>`/profile/logout` | Logging out the current user |
 
 ### Profile
 
@@ -110,7 +109,7 @@ The following built-in routes are available for the front of the website.
 
 |Route name|Path|Description|
 |---|---|---|
-| `ibexa.user_profile.change_password`</br>`ibexa.commerce.password_change` | `/user/change-password`</br>`/change_password` | Form for password change|
+| `ibexa.user_profile.change_password`<br>`ibexa.commerce.password_change` | `/user/change-password`<br>`/change_password` | Form for password change|
 | `ibexa.user.forgot_password` | `/user/forgot-password` | [Form for password resetting](add_forgot_password_option.md) |
 | `ibexa.user.forgot_password.migration` | `/user/forgot-password/migration` | Form for resetting password after expiration|
 | `ibexa.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |

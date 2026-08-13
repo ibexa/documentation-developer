@@ -44,7 +44,7 @@ Follow the upgrade steps below to update them:
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl`.
 
 Once the VCL configuration has been updated,
-you may enable [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) if you prefer.
+you may enable [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/) if you prefer.
 
 ## Update from v4.1.latest to v4.2
 
@@ -75,7 +75,7 @@ First, run:
     composer recipes:install ibexa/commerce --force -v
     ```
 
-The `recipes:install` command installs new YAML configuration files. 
+The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
 #### Run data migration
@@ -135,7 +135,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
 
 ## Remove `node_modules` and `yarn.lock`
 

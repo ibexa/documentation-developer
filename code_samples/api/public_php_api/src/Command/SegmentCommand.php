@@ -4,7 +4,7 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Segmentation\Service\SegmentationService;
+use Ibexa\Contracts\Segmentation\SegmentationServiceInterface;
 use Ibexa\Segmentation\Value\SegmentCreateStruct;
 use Ibexa\Segmentation\Value\SegmentGroupCreateStruct;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -18,7 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class SegmentCommand extends Command
 {
     public function __construct(
-        private readonly SegmentationService $segmentationService,
+        private readonly SegmentationServiceInterface $segmentationService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
     ) {
@@ -63,6 +63,8 @@ class SegmentCommand extends Command
             ? 'The user is assigned to the segment.'
             : 'The user is not assigned to the segment.'
         ));
+
+        $this->segmentationService->removeSegmentGroup($segmentGroup);
 
         return self::SUCCESS;
     }

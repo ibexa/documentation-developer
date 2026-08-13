@@ -32,25 +32,25 @@ To use Symfony Events, create [Event Listeners]([[= symfony_doc =]]/event_dispat
 
 The list of bundles in v3.0 has been extended by the following ones:
 
-- [`ezplatform-calendar`](https://github.com/ezsystems/ezplatform-calendar)
+- `ezplatform-calendar`
 - [`ezplatform-content-forms`](https://github.com/ezsystems/ezplatform-content-forms)
 - [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel)
 - [`ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest)
-- [`ezplatform-site-factory`](https://github.com/ezsystems/ezplatform-site-factory)
-- [`ezplatform-version-comparison`](https://github.com/ezsystems/ezplatform-version-comparison)
+- `ezplatform-site-factory`
+- `ezplatform-version-comparison`
 
-For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
+For details, see [Bundles](https://doc.ibexa.co/en/3.3/guide/bundles/).
 
 ## New features
 
-!!! dxp
+!!! DXP
 
     ### Site Factory
 
     The new Site management User Interface is now integrated with back office.
     It enables you to easily create and manage multiple sites from the back office without editing the configuration files.
 
-    For more information about enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/latest/guide/multisite/site_factory/#enable-site-factory).
+    For more information about enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/3.3/guide/multisite/site_factory/#enable-site-factory).
 
     For more information about using the Site Factory, see [User Documentation]([[= user_doc =]]/site_organization/site_factory)
 
@@ -73,22 +73,22 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     ### Defining buttons in Online Editor
 
-    You can now reorder and disable buttons in Online Editor using [YAML configuration](https://doc.ibexa.co/en/latest/extending/extending_online_editor/#customizing-buttons).
+    You can now reorder and disable buttons in Online Editor using [YAML configuration](https://doc.ibexa.co/en/3.3/extending/extending_online_editor/#rearrange-buttons).
 
     ### Workflow improvements
 
     #### Workflow actions
 
-    You can now configure your workflows to [automatically publish content](https://doc.ibexa.co/en/latest/guide/workflow/#publishing-content-with-workflow).
+    You can now configure your workflows to [automatically publish content](https://doc.ibexa.co/en/3.3/guide/workflow/workflow/#content-publishing).
 
-    You can also create [custom workflow actions](https://doc.ibexa.co/en/latest/extending/extending_workflow/#adding-custom-actions).
+    You can also create [custom workflow actions](https://doc.ibexa.co/en/3.3/guide/workflow/workflow/#custom-actions).
 
     #### Reviewers
 
     When sending content through a workflow, the user can now select reviewers.
     You can require the user to select reviewers when sending content through the workflow.
 
-    In the configuration, you can also set the workflow to [automatically notify the selected reviewers](https://doc.ibexa.co/en/latest/guide/workflow/#sending-notifications).
+    In the configuration, you can also set the workflow to [automatically notify the selected reviewers](https://doc.ibexa.co/en/3.3/guide/workflow/workflow/#notifications).
 
     #### Quick review
 
@@ -114,18 +114,18 @@ New functionalities and changes include:
 - resizable column with custom sort order
 - editing content from UDW (Enterprise only)
 
-For full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#universal-discovery-widget) and [Configuration](https://doc.ibexa.co/en/latest/extending/extending_udw/#configuration).
+For full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/release_notes/ez_platform_v3.0_deprecations/#universal-discovery-widget) and [Configuration](https://doc.ibexa.co/en/3.3/extending/extending_udw/#configuration).
 
 ### Field types
 
 #### Content query field type
 
-The new [Content query field type](https://doc.ibexa.co/en/latest/api/field_types_reference/contentqueryfield)
+The new [Content query field type](https://doc.ibexa.co/en/3.3/api/field_types_reference/contentqueryfield/)
 enables you to configure a Content query that uses parameters from a Field definition.
 
 #### Field type creation
 
-You can now use [Generic field type](https://doc.ibexa.co/en/latest/extending/extending_field_type) as a template for your custom field types.
+You can now use [Generic field type](https://doc.ibexa.co/en/3.3/api/field_type/create_custom_generic_field_type/) as a template for your custom field types.
 
 #### Keyword field type
 
@@ -135,11 +135,11 @@ The `keyword` field type can now recognize versions of a content item.
 
 #### Login by User name or email
 
-You can now give your users th ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
+You can now give your users the ability to [log in with User name or with email](https://doc.ibexa.co/en/3.3/guide/users/login_methods/).
 
 #### Password rules
 
-You can now set [password expiration rules](https://doc.ibexa.co/en/latest/guide/user_management/user_management/#password-expiration)
+You can now set [password expiration rules](https://doc.ibexa.co/en/3.3/guide/users/passwords/#password-rules)
 for user passwords.
 
 ### Duplicate a role
@@ -150,7 +150,7 @@ You can now duplicate a role with a single click in the back office.
 
 ### REST API reference
 
-The REST reference has been moved from Kernel to a new page, [eZ Platform REST API](https://ezsystems.github.io/ezplatform-rest-reference).
+The REST reference has been moved from Kernel to a new page, [eZ Platform REST API](https://web.archive.org/web/20201015232625/https://ezsystems.github.io/ezplatform-rest-reference/).
 
 ### Search Criteria
 
@@ -158,15 +158,15 @@ The following new Search Criteria have been added:
 
 |Search Criterion|Search based on|
 |-----|-----|
-|[IsUserBased](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/isuserbased_criterion)|Whether content represents a User account|
-|[IsUserEnabled](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/isuserenabled_criterion)|Whether a User account is enabled|
-|[ObjectStateIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/objectstateidentifier_criterion)|Object state Identifier|
-|[SectionId](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sectionid_criterion)|ID of the Section content is assigned to|
-|[SectionIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sectionidentifier_criterion)|Identifier of the Section content is assigned to|
-|[UserEmail](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/useremail_criterion)|Email address of a User account|
-|[Sibling](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sibling_criterion)|Locations that are children of the same parent|
-|[UserId](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/userid_criterion)|User ID|
-|[UserLogin](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/userlogin_criterion)|User login|
+|[IsUserBased](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/isuserbased_criterion/)|Whether content represents a User account|
+|[IsUserEnabled](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/isuserenabled_criterion/)|Whether a User account is enabled|
+|[ObjectStateIdentifier](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/objectstateidentifier_criterion/)|Object state Identifier|
+|[SectionId](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sectionid_criterion/)|ID of the Section content is assigned to|
+|[SectionIdentifier](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sectionidentifier_criterion/)|Identifier of the Section content is assigned to|
+|[UserEmail](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/useremail_criterion/)|Email address of a User account|
+|[Sibling](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/sibling_criterion/)|Locations that are children of the same parent|
+|[UserId](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/userid_criterion/)|User ID|
+|[UserLogin](https://doc.ibexa.co/en/3.3/guide/search/criteria_reference/userlogin_criterion/)|User login|
 
 ### Random sorting
 
@@ -174,7 +174,7 @@ The list of common Sort Clauses has been extended by the Random sorting option.
 
 ### Contextual Twig variables
 
-You can now create [custom Twig variables](https://doc.ibexa.co/en/latest/guide/content_rendering/templates/templates/#custom-template-variables) for use in templates.
+You can now create [custom Twig variables](https://doc.ibexa.co/en/3.3/guide/content_rendering/templates/templates/#custom-template-variables) for use in templates.
 They can be defined per SiteAccess, or per content view.
 
 ### Built-in Query Types
@@ -200,17 +200,17 @@ You can now add custom tooltips to provide more information for the users when t
 
 The new thumbnails API allows you to easily choose an image for each content.
 
-For more information, see [Extending thumbnails](https://doc.ibexa.co/en/latest/extending/extending_thumbnails).
+For more information, see [Extending thumbnails](https://doc.ibexa.co/en/3.3/extending/extending_thumbnails/).
 
 ### Type hints for public PHP API
 
-Strict types have been added to public PHP API methods. For a complete list, see [backwards compatibility breaks](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#strict-types-for-php-api).
+Strict types have been added to public PHP API methods. For a complete list, see [backwards compatibility breaks](https://doc.ibexa.co/en/3.3/release_notes/ez_platform_v3.0_deprecations/#strict-types-for-php-api).
 
 ## Other changes
 
 ### GraphQL
 
-In GraphQL, you can now [query Locations and their children](https://doc.ibexa.co/en/latest/api/graphql_queries/#querying-locations).
+In GraphQL, you can now [query Locations and their children](https://doc.ibexa.co/en/3.3/api/graphql_queries/#querying-locations).
 
 ### Translations
 
@@ -226,12 +226,12 @@ New multilingual content route for internal translations has been added.
 ### Renamed templates and parameters
 
 Templates and parameters used by the back office have been renamed for consistency.
-For A full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations).
+For A full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/releases/ez_platform_v3.0_deprecations/).
 
 ### HTTP Cache
 
 HTTP cache bundle now uses FOS Cache Bundle v2.
-For a full list of changes this entails, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#ezplatform-http-cache).
+For a full list of changes this entails, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/release_notes/ez_platform_v3.0_deprecations/#ezplatform-http-cache).
 
 ### Helpers
 
@@ -266,7 +266,7 @@ New methods have been introduced to the PHP API:
 
 ## Deprecations and removals
 
-For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations and backwards compatibility breaks](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations).
+For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations and backwards compatibility breaks](https://doc.ibexa.co/en/3.3/releases/ez_platform_v3.0_deprecations/).
 
 ### SignalSlots
 
@@ -277,7 +277,7 @@ Use [Event Listeners]([[= symfony_doc =]]/event_dispatcher.html) in your code in
 
 The deprecated `ezprice` and `ezpage` field types have been removed.
 Nameable field type interface has been removed and replaced by `eZ\Publish\SPI\FieldType\FieldType::getName`.
-For a full list of changes on field types, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#field-types).
+For a full list of changes on field types, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/release_notes/ez_platform_v3.0_deprecations/#field-types).
 
 ### Elasticsearch
 
@@ -295,7 +295,7 @@ Following the change, the REST client has been removed from Kernel.
 ### Online Editor
 
 Online Editor front-end code and assets have been moved to the `ezplatform-richtext` repository.
-For a full list of resulting changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#online-editor).
+For a full list of resulting changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/3.3/release_notes/ez_platform_v3.0_deprecations/#online-editor).
 
 ### Configuration through `ezplatform`
 
@@ -312,7 +312,7 @@ The Symfony Service definitions, providing extension point to create custom inst
 
 ## Requirements changes
 
-eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requirements](https://doc.ibexa.co/en/latest/getting_started/requirements).
+eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requirements](https://doc.ibexa.co/en/3.3/getting_started/requirements/).
 
 !!! note
 
@@ -321,14 +321,14 @@ eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requi
 
 ## Updating
 
-For the upgrade details, see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/latest/updating/updating).
+For the upgrade details, see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/3.3/update_and_migration/update_ibexa_dxp/).
 
 ## Full changelog
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0) | [List of changes for final for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0) |
-| [List of changes for rc1 of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0-rc1) |
+| [List of changes for final of eZ Platform v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0) | [List of changes for final for eZ Platform Enterprise Edition v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0) |
+| [List of changes for rc1 of eZ Platform v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v3.0.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0-rc1) |
 
 ## eZ Platform v3.0.2
 

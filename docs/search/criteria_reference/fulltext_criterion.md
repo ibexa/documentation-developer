@@ -1,9 +1,8 @@
 ---
-description: FullText Search Criterion
+description: Full-Text Search Criterion
 ---
 
-
-# FullText Criterion
+# Full-Text Criterion
 
 The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html) searches for content based on the full text content of its fields.
 
@@ -25,8 +24,7 @@ The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 
 \*\* When using the Legacy search engine, a full text query performs an OR query.
 
-\*\*\* Asteriks may only be located at the beginning or end of a query.
-
+\*\*\* Asterisk may only be located at the beginning or end of a query.
 
 ## Limitations
 
@@ -42,18 +40,30 @@ The `FullText` Criterion isn't available in [Repository filtering](search_api.md
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('victory');
 ```
 
 Using double quotes to indicate a phrase:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('"world cup"');
 ```
 
 Using the AND operator and parenthesis to search for both words at the same time:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('baseball AND cup');
 ```
 
@@ -84,6 +94,10 @@ $query->query = new Criterion\FullText('baseball AND cup');
 Assume the following search query:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\FullText('(cup AND ba*ball) "breaking news"');
 ```
 

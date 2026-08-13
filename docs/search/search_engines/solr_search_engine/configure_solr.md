@@ -72,7 +72,7 @@ The configuration above results in the following boosting (content type / Field)
     The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\FullText`.
     The following example shows custom query which benefits from the custom fields created in the previous example.
 
-    ```php
+    ``` php {skip-validation}
     <?php
 
     namespace App\Controller;
@@ -224,7 +224,7 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ![Solr Slave](solr.png)
 
-# Configure HTTP Client for Solr queries
+## Configure HTTP Client for Solr queries
 
 [[= product_name_base =]] Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
 You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
@@ -238,6 +238,6 @@ ibexa_solr:
         max_retries: 5
 ```
 
-# Extend Solr
+## Extend Solr
 
 To learn how you can create document field mappers, custom Search Criteria, custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).

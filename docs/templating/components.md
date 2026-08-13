@@ -1,6 +1,6 @@
 ---
 description: Twig components allow you to inject any custom widgets into selected places of the user interface.
-month_change: true
+month_change: false
 ---
 
 # Twig Components
@@ -27,7 +27,7 @@ Register it as a service by using the `AsTwigComponent` attribute or the `ibexa.
 === "PHP Attribute"
 
     ``` php hl_lines="8-11"
-    [[= include_file('code_samples/back_office/components/MyComponent.php', glue='    ') =]]
+    [[= include_code('code_samples/back_office/components/MyComponent.php', indent_level=1) =]]
     ```
 
 === "YAML configuration"
@@ -69,12 +69,12 @@ You can use an unique group name when creating a Twig Component to create your o
 
 | Name | Description | YAML type |
 |---|---|---|
-| [Controller](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
-| [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
-| [Menu](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/MenuComponent.php) | Renders a [menu](https://symfony.com/bundles/KnpMenuBundle/current/index.html) |`menu` |
-| [Script](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ScriptComponent.php) | Renders a [`<script>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) | `script` |
-| [Stylesheet](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/LinkComponent.php) | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet`
-| [Template](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/TemplateComponent.php) | Renders a Twig template|`template` |
+| [Controller](https://github.com/ibexa/twig-components/blob/5.0/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
+| [HTML](https://github.com/ibexa/twig-components/blob/5.0/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
+| [Menu](https://github.com/ibexa/twig-components/blob/5.0/src/lib/Component/MenuComponent.php) | Renders a [menu](https://symfony.com/bundles/KnpMenuBundle/current/index.html) |`menu` |
+| [Script](https://github.com/ibexa/twig-components/blob/5.0/src/lib/Component/ScriptComponent.php) | Renders a [`<script>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) | `script` |
+| [Stylesheet](https://github.com/ibexa/twig-components/blob/5.0/src/lib/Component/LinkComponent.php) | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet` |
+| [Template](https://github.com/ibexa/twig-components/blob/5.0/src/lib/Component/TemplateComponent.php) | Renders a Twig template|`template` |
 
 For the menu component, the following properties are available:
 

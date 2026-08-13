@@ -7,7 +7,7 @@ description: Install Solr search engine to use it with Ibexa DXP.
 ## Configure and start Solr
 
 The example presents a configuration with a single core.
-For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://solr.apache.org/guide/7_7/solr-cores-and-solr-xml.html) and [core administration](https://cwiki.apache.org/confluence/display/solr/CoreAdmin).
+For configuring Solr in other ways, including examples, see [Solr configuration files](https://solr.apache.org/guide/solr/9_8/configuration-guide/configuration-files.html) and [core discovery](https://solr.apache.org/guide/solr/9_8/configuration-guide/core-discovery.html).
 
 ### Download Solr files
 
@@ -86,7 +86,7 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 - automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
-To set SolrCloud up follow [SolrCloud reference guide](https://solr.apache.org/guide/7_7/solrcloud.html).
+To set SolrCloud up follow [Getting Started with SolrCloud](https://solr.apache.org/guide/solr/9_8/getting-started/tutorial-solrcloud.html).
 
 ### Continue Solr configuration
 
@@ -132,7 +132,7 @@ Configure the spellcheck component in `solrconfig.xml`:
   </searchComponent>
 ```
 
-Add this `spellcheck` component to the `/select` request handler: 
+Add this `spellcheck` component to the `/select` request handler:
 
 ```xml
   <requestHandler name="/select" class="solr.SearchHandler">
@@ -146,7 +146,7 @@ Add this `spellcheck` component to the `/select` request handler:
 ### Generate Solr configuration automatically
 
 The command line tool `bin/generate-solr-config.sh` generates Solr configuration automatically.
-It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
+It can be used for deploying to [[= product_name_cloud =]] (Upsun) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
@@ -160,9 +160,9 @@ The Solr Search Engine Bundle can be configured in many ways.
 The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
-    env(SEARCH_ENGINE): solr
-    env(SOLR_DSN): 'http://localhost:8983/solr'
-    env(SOLR_CORE): collection1
+env(SEARCH_ENGINE): solr
+env(SOLR_DSN): 'http://localhost:8983/solr'
+env(SOLR_CORE): collection1
 ```
 
 ### Configure Solr version
@@ -183,8 +183,8 @@ Out of the box in [[= product_name =]] the following is enabled for a setup:
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
-            core: '%solr_core%'
+            dsn: '%env(string:SOLR_DSN)%'
+            core: '%env(string:SOLR_CORE)%'
     connections:
         default:
             entry_endpoints:
@@ -202,10 +202,10 @@ The installation contains several similar languages, and one different language 
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
         endpoint1:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core1
     connections:
         default:
@@ -232,25 +232,25 @@ ibexa_solr:
     version: '9.8.1' # Required only if using Solr 9
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
         endpoint1:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core1
         endpoint2:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core2
         endpoint3:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core3
         endpoint4:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core4
         endpoint5:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core5
         endpoint6:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core6
     connections:
         default:
@@ -278,7 +278,7 @@ ibexa_solr:
 
 ### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://solr.apache.org/guide/7_7/solrcloud.html).
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://solr.apache.org/guide/solr/9_8/getting-started/tutorial-solrcloud.html).
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
@@ -286,13 +286,13 @@ The example is based on multi-core setup so any specific language analysis optio
 ibexa_solr:
     endpoints:
         main:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_main_core%'
         en:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_en_core%'
         fr:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_fr_core%'
         # ...
     connections:
@@ -311,13 +311,13 @@ ibexa_solr:
                 main_translations: main
 ```
 
-This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://solr.apache.org/guide/7_7/shards-and-indexing-data-in-solrcloud.html#document-routing).
+This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://solr.apache.org/guide/solr/9_8/deployment-guide/solrcloud-shards-indexing.html#document-routing).
 
 ### Solr Basic HTTP Authorization
 
 Solr core can be secured with Basic HTTP Authorization.
 
-For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/7_7/basic-authentication-plugin.html).
+For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/solr/9_8/deployment-guide/basic-authentication-plugin.html).
 
 In the example below we configured Solr Bundle to work with secured Solr core.
 
@@ -325,7 +325,7 @@ In the example below we configured Solr Bundle to work with secured Solr core.
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
             user: example
             pass: password
@@ -375,10 +375,9 @@ Here are the most common issues you may encounter:
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported field types
     - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation isn't needed.
-- Content isn't immediately available 
+- Content isn't immediately available
     - Solr Bundle on purpose doesn't commit changes directly on Repository updates *(on indexing)*,
       but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication)
-      to balance performance and load on your Solr instance against needs you have for "[NRT](https://solr.apache.org/guide/7_7/near-real-time-searching.html)".
+      to balance performance and load on your Solr instance against needs you have for [Near Real Time (NRT) searching)](https://solr.apache.org/guide/solr/9_8/deployment-guide/solrcloud-distributed-requests.html#near-real-time-nrt-use-cases).
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
-    - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.

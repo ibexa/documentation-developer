@@ -202,29 +202,27 @@ One of the most important tools that Page Builder offers, is a Scheduler. It all
 
 Page Builder allows you to create highly customizable websites. You can build modifiable and targeted landing pages that meet your needs.
 Each dynamic blocks has its own settings, properties and design that you can set up in your way to customize the content appearing on the page.
-Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, a new customized layout, or block.
+Additionally, if you feel comfortable with your technical skills, you can configure your own elements, for example, a new customized layout, or block.
 
 ### Increase sales with highly personalized campaigns
 
-Personalized campaigns are one of the factors that can increase your sales. 
+Personalized campaigns are one of the factors that can increase your sales.
 With Page Builder you can achieve it, by using customization and time Scheduler.
 Anytime you can edit your page and change a position of a block to enhance visibility.
-Additionaly, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:
+Additionally, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:
 
 A. **Default** blocks:
 
-- Dynamic targeting - embeds recommended items based on the segment the user belongs to.
-- Personalized - displays a list of content items/products that are recommended to end users when specific scenarios are triggered.
 - Targeting - embeds a content item based on the segment the user belongs to.
 
 B. **PIM** blocks:
 
-- Last purchased - displays a list of products that were recently purchased from PIM.
-- Last viewed - displays a list of products from PIM that were recently viewed.
+- Catalog - displays products from a specific catalog to a selected customer group.
 - Product collection - displays a list of specifically selected products.
-- Recently added - displays a list of products that were recently added to PIM.
+- Product embed - displays a specific product.
 
 C. **Commerce** blocks:
 
-- Bestsellers - displays a list of products from PIM that were recently a bestseller.
 - Orders - displays a list of orders associated with a particular company or individual customer.
+
+D. [**Recommendations** blocks](recommendation_blocks.md) - presents content recommendations delivered by Raptor integration.

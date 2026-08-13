@@ -1,12 +1,11 @@
 ---
-title: Dashboard customization
 description: Customize dashboard.
 edition: experience
 ---
 
 # Customize dashboard
 
-!!! info
+!!! note
 
      The Dashboard Builder is available only in the Experience and Commerce editions.
      The dashboard from the Headless edition can be customized using [Twig Components](components.md).
@@ -20,7 +19,7 @@ Customized dashboard displays a set of widgets selected by the user.
 
 ## Manage permissions
 
-To customize dashboard, you need to have `dashboard/cutomize` [policy](permission_overview.md).
+To customize dashboard, you need to have `dashboard/customize` [policy](permission_overview.md).
 
 By default, all the users belonging to the `Editors` user group, have `Dashboard`[role](roles_admin_panel.md) assigned, so they can edit, create, or delete dashboard.
 If, by any reason, you want to narrow this permission, you can set up specific [limitations](limitations.md).

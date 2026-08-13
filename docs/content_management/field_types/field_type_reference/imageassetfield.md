@@ -7,7 +7,7 @@ It makes them reusable across system.
 |--------------|---------------------|
 | `ImageAsset` | `ibexa_image_asset` |
 
-### Input expectations
+## Input expectations
 
 Example array:
 
@@ -18,9 +18,9 @@ Example array:
 | `string`                                                     | ID of the Asset content item.                   | `"150"`    |
 | `integer`                                                    | ID of the Asset content item.                   | `150`      |
 
-### Value object
+## Value object
 
-##### Properties
+### Properties
 
 Value object of `ibexa_image_asset` contains the following properties:
 
@@ -30,13 +30,17 @@ Value object of `ibexa_image_asset` contains the following properties:
 | `alternativeText`      | `string` | The alternative image text (for example "Picture of an apple."). |
 
 ``` php
-// Value object content example
-
+/**
+ * Value object content example.
+ *
+ * @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ */
 $imageAssetValue->destinationContentId = $contentInfo->id;
-$imageAssetValue->alternativeText = "Picture of an apple.";
+$imageAssetValue->alternativeText = 'Picture of an apple.';
 ```
 
-##### Constructor
+#### Constructor
 
 The `ImageAsset\Value` constructor initializes a new value object with the value provided.
 It expects an ID of a content item representing asset and the alternative text.
@@ -44,8 +48,11 @@ It expects an ID of a content item representing asset and the alternative text.
 ``` php
 // Constructor example
 
+use Ibexa\Core\FieldType\ImageAsset as ImageAsset;
+
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
 // Instantiates a ImageAsset Value object
-$imageAssetValue  = new ImageAsset\Value($contentInfo->id, "Picture of an apple.");
+$imageAssetValue = new ImageAsset\Value($contentInfo->id, 'Picture of an apple.');
 ```
 
 ### Validation
@@ -54,7 +61,7 @@ This field type validates if:
 
 - `destinationContentId` points to a content item which has correct content type
 
-### Configuration
+## Configuration
 
 ImageAsset field type allows configuring the following options:
 

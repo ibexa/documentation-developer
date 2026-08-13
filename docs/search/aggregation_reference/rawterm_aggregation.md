@@ -21,6 +21,9 @@ The [RawTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new Query();
 $query->aggregations[] = new Aggregation\RawTermAggregation('content_per_content_type', 'content_type_id_id');
 ```

@@ -37,7 +37,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
 
         try {
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
-                new Criterion\ProductName(implode(' ', array_map(static fn (string $word) => "$word*", $words))),
+                new Criterion\ProductName(implode(' ', array_map(static fn (string $word): string => "$word*", $words))),
                 new Criterion\ProductCode($words),
                 new Criterion\ProductType($words),
             ]), [], 0, $limit);

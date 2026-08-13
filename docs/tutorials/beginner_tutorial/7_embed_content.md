@@ -21,7 +21,7 @@ Each Ride may be related to multiple Landmarks.
 - **Name**: Landmark
 - **Identifier**: landmark
 
-Then add all fields with the following information: 
+Then add all fields with the following information:
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
@@ -129,19 +129,16 @@ Create a `src/Controller/RideController.php` file:
 namespace App\Controller;
 
 use Ibexa\Bundle\Core\Controller;
-use Ibexa\Core\MVC\Symfony\View\ContentView;
 use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Core\MVC\Symfony\View\ContentView;
 
 class RideController extends Controller
 {
-    private $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(private readonly ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
-    public function viewRideWithLandmarksAction(ContentView $view)
+    public function viewRideWithLandmarksAction(ContentView $view): ContentView
     {
         $currentContent = $view->getContent();
         $landmarksListId = $currentContent->getFieldValue('landmarks');
@@ -194,7 +191,6 @@ Add the following lines at the end of `templates/full/ride.html.twig`, before th
 ```
 
 You can now check the Ride page again to see all the connected Landmarks.
-
 
 !!! tip
 

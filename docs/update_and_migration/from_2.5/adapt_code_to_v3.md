@@ -33,9 +33,9 @@ To adapt, you need to move all your PHP code, such as controllers or event liste
 
 !!! tip "How to make AppBundle continue to work, for now"
 
-    Refactoring bundles for `src/` folder can involve extensive changes, if you want to make your `src/AppBundle` continue to work, follow [an Autoloading src/AppBundle guide on Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json#autoloading-src-amp-src-appbundle).
+    Refactoring bundles for `src/` folder can involve extensive changes, if you want to make your `src/AppBundle` continue to work, follow [an Autoloading src/AppBundle guide on Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json).
 
-    You can also follow [Using a "path" Repository guide](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle#using-a-path-repository), to create a [composer path repository](https://getcomposer.org/doc/05-repositories.md#path).
+    You can also follow [Using a "path" Repository guide](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle), to create a [composer path repository](https://getcomposer.org/doc/05-repositories.md#path).
     If you have several bundles you can move them into a `packages/` directory and load them all with:
 
     ```
@@ -79,13 +79,13 @@ that your project uses have been adapted to Symfony 5.
 ### Automatic code refactoring (optional)
 
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
-that automatically refactors your Symfony and PHPunit code.
+that automatically refactors your Symfony and PHPUnit code.
 
 To properly refactor your code, you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
 
 `vendor/bin/rector process src --set symfony40`
 
-You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). 
+You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set).
 Keep in mind that after automatic refactoring finishes there might be some code chunks that you need to fix manually.
 
 ### Update code for specific parts of the system

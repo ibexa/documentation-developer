@@ -6,7 +6,7 @@ This field type represents a date without time information.
 |--------|---------------|---------------------|
 | `Date` | `ibexa_date`  | mixed               |
 
-#### PHP API field type
+## PHP API field type
 
 ### Input expectations
 
@@ -26,7 +26,7 @@ Before storing, the provided input value is set to the beginning of the day in t
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -58,14 +58,14 @@ Hash value of this field type is an array with two keys:
 
 | Key         | Type      | Description                                                                                                                                                         | Example                                 |
 |-------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `timestamp` | `integer` | Time information in [unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                               | `1400856992`                            |
+| `timestamp` | `integer` | Time information in [Unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                               | `1400856992`                            |
 | `rfc850`    | `string`  | Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this has higher precedence over the timestamp value. | `"Friday, 23-May-14 14:56:14 GMT+0000"` |
 
 ``` php
 // Example of the hash value in PHP
 $hash = [
-    "timestamp" => 1400856992,
-    "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
+    'timestamp' => 1400856992,
+    'rfc850' => 'Friday, 23-May-14 14:56:14 GMT+0000',
 ];
 ```
 
@@ -94,7 +94,7 @@ Following `defaultType` default value options are available as constants in the 
 use Ibexa\Core\FieldType\Date\Type;
 
 $settings = [
-    "defaultType" => Type::DEFAULT_EMPTY
+    'defaultType' => Type::DEFAULT_EMPTY,
 ];
 ```
 

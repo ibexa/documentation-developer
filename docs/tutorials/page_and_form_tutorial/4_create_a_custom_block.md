@@ -15,7 +15,7 @@ To create a custom block from scratch you need four elements:
 - a listener
 - the listener registered as a service
 
-### Block configuration
+## Block configuration
 
 In `config/packages/ibexa_fieldtype_page.yaml` add the following block under the `blocks` key:
 
@@ -26,7 +26,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following block under the
 This configuration defines one attribute, `parent`.
 Use it to select the folder containing tips.
 
-### Block template
+## Block template
 
 You also need to create the block template, `templates/blocks/random/default.html.twig`:
 
@@ -34,13 +34,13 @@ You also need to create the block template, `templates/blocks/random/default.ht
 [[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/random/default.html.twig') =]]
 ```
 
-### Block listener
+## Block listener
 
 Block listener provides the logic for the block.
 It's contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
-[[= include_file('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
+[[= include_code('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
 ```
 
 At this point the new custom block is ready to be used.
@@ -67,3 +67,5 @@ The Tip of the Day block displays a random Tip from the "Tips" folder.
 Refresh the page a few more times and you can see the tip change randomly.
 
 ![Random Block with a Tip](enterprise_tut_random_block.png "Random Block with a Tip")
+
+To learn more about custom Page Builder blocks, see [Create custom page block](create_custom_page_block.md).

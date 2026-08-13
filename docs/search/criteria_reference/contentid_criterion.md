@@ -15,6 +15,10 @@ The [`ContentId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ContentId([62, 64]);
 ```
 
@@ -25,7 +29,7 @@ $query->query = new Criterion\ContentId([62, 64]);
     ```xml
     <Query>
         <Filter>
-            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
+            <ContentIdCriterion>1,52</ContentIdCriterion>
         </Filter>
     </Query>
     ```
@@ -35,7 +39,7 @@ $query->query = new Criterion\ContentId([62, 64]);
     ```json
     "Query": {
         "Filter": {
-            "ContentIdCriterion": [69, 72]
+            "ContentIdCriterion": "1,52"
         }
     }
     ```

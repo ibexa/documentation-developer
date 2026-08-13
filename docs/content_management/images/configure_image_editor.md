@@ -4,7 +4,7 @@ description: Configure image editor to crop, flip, and modify images.
 
 # Configure Image Editor
 
-When a content item contains fields of the [ibexa_image](imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
+When a content item contains fields of the [`ibexa_image`](imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
 
 For more information, see [User Documentation]([[= user_doc =]]/image_management/edit_images/).
 
@@ -33,7 +33,9 @@ The following example sets the aspect ratio values and label names for buttons u
 [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 36) =]]
 ```
 
-### Image quality
+### Image file size optimization
+
+#### Image quality
 
 You can configure the quality of the images modified in the Image Editor with the following configuration.
 
@@ -44,6 +46,20 @@ The default quality is 0.92:
 [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 39, 40) =]]
 ```
 
+#### Gaussian blur strength
+
+You can configure the gaussian blur strength applied during image optimization with the following configuration.
+
+``` yaml
+[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 40, 41) =]]
+```
+
+The setting accepts float values between 0 and 10.0, where higher values increase blur and reduce file size, while lower values maintain sharpness.
+The default value is 0.05.
+
+Processing large images with high blur values (above 5) can be time-consuming and may result in request timeouts.
+Keep this in mind when configuring blur strength for environments that handle high-resolution images, and adjust [PHP's `max_execution_time`](https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time) if needed.
+
 ### Additional information
 
 Each image can be accompanied by additional information that isn't visible to the user.
@@ -52,7 +68,9 @@ By default, additional information stores the coordinates of the [focal point]([
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 
 ``` php
-new FieldValue([
+use Ibexa\Core\FieldType\Image\Value as FieldValue;
+
+$value = new FieldValue([
      'data' => [
          'width' => '100',
          'height' => '200',
@@ -66,5 +84,5 @@ new FieldValue([
              'author' => 'John Smith',
          ],
      ],
- ]),
+ ]);
 ```

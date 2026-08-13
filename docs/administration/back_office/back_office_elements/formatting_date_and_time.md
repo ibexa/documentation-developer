@@ -28,19 +28,12 @@ use Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface;
 
 class MyService
 {
-    /** @var \Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface */
-    private $shortDateTimeFormatter;
-
-    public function __construct(FormatterInterface $shortDateTimeFormatter)
+    public function __construct(private readonly FormatterInterface $shortDateTimeFormatter)
     {
-        // your code
-
-        $this->shortDateTimeFormatter = $shortDateTimeFormatter;
-
         // your code
     }
 
-    public function foo()
+    public function foo(): void
     {
         // your code
 
@@ -106,6 +99,8 @@ ibexa:
 ## Allowed formats
 
 The following subset of the [ICU date and time formats](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classSimpleDateFormat.html#details) is allowed:
+
+<!-- vale Ibexa.Spellcheck = NO -->
 
 |Symbol|Meaning|
 |---|---|

@@ -30,7 +30,7 @@ ibexa:
 
     It uses [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
     Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
-    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.7.x/Resources/doc/configuration.rst#doctrine-dbal-configuration).
+    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.19.x/docs/en/configuration.rst#doctrine-dbal-configuration).
 
 If no repository is specified for a SiteAccess or SiteAccess group, the first repository defined under `ibexa.repositories` is used:
 
@@ -64,7 +64,7 @@ Invalid configuration causes problems for different parts of the system, for exa
 
 ### Entity manager
 
-If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.18/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
 
 To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
 
@@ -76,7 +76,7 @@ ibexa:
         entity_mappings:
             IbexaCoreBundle:
                 is_bundle: true
-                type: annotation
+                type: attribute
                 dir: Entity
                 prefix: Ibexa\Bundle\Core\Entity
 ```
@@ -148,7 +148,7 @@ ibexa:
             repository: second_repository
 ```
 
-```
+```bash
 # .env.local
 
 SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbname?otherdbserversion
@@ -327,6 +327,9 @@ final class CustomRepositoryConfigParser implements RepositoryConfigParserInterf
 You need to register this configuration extension in the following way:
 
 ``` php
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 final class AcmeFeatureBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
@@ -343,5 +346,6 @@ final class AcmeFeatureBundle extends Bundle
 To access the configuration settings, use the `Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
 
 ``` php
+/** @var \Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface $repositoryConfigProvider */
 $acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];
 ```

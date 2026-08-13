@@ -20,8 +20,8 @@ Value objects such as content items are read-only, so to create or modify them y
 [`ContentService::newContentCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct)
 returns a new [`ContentCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentCreateStruct.html) object.
 
-``` php hl_lines="1-2 6"
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 47, 53) =]]
+``` php hl_lines="2-3 7"
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 52, 60, remove_indent=True) =]]
 ```
 
 This command creates a draft using [`ContentService::createContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 6).
@@ -42,14 +42,14 @@ Therefore, when creating a content item of the Image type (or any other content 
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 47, 62) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 52, 63, remove_indent=True) =]]
 ```
 
 Value of the Image field type contains the path to the image file and other basic information based on the input file.
 
 ### Creating content with RichText
 
-The RichText field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
+The RichText field accepts values in a custom flavor of [DocBook](https://github.com/docbook/wiki/wiki) format.
 For example, to add a RichText paragraph, provide the following as input:
 
 ``` xml
@@ -66,7 +66,7 @@ To publish it, use [`ContentService::publishVersion`](/api/php_api/php_api_refer
 This method must get the [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object of a draft version.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 58, 59) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 63, 63, remove_indent=True) =]]
 ```
 
 ## Updating content
@@ -76,7 +76,7 @@ and pass it to [`ContentService::updateContent`](/api/php_api/php_api_reference/
 This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion) as well:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 45, 50) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 45, 53, remove_indent=True) =]]
 ```
 
 ## Translating content
@@ -86,15 +86,16 @@ Content [translations](languages.md#language-versions) are created per version. 
 To translate a content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 50, 52) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 58, 60) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 49, 55) =]]
+
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 60, 62) =]]
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
 Only one language can still be set as a version's initial language:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 55, 55) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 58, 58, remove_indent=True) =]]
 ```
 
 ### Deleting a translation
@@ -103,5 +104,8 @@ You can delete a single translation from a content item's version using [`Conten
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php
-$this->contentService->deleteTranslationFromDraft($versionInfo, $language);
+/** @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo */
+$languageCode = 'ger-DE';
+/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+$contentService->deleteTranslationFromDraft($versionInfo, $languageCode);
 ```

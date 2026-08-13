@@ -25,8 +25,11 @@
     <div class="popover popover--copied">Copied!</div>
 
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
 
     {% include 'components/header.html.twig' %}
+
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
 
     <div class="md-container" data-md-component="container">
         <main class="md-main" data-md-component="main">

@@ -2,8 +2,8 @@
 
 namespace App\AutomatedTranslation;
 
-use Ibexa\AutomatedTranslation\Exception\ClientNotConfiguredException;
 use Ibexa\Contracts\AutomatedTranslation\Client\ClientInterface;
+use Ibexa\Contracts\AutomatedTranslation\Exception\ClientNotConfiguredException;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
 use Ibexa\Contracts\ConnectorAi\Action\RuntimeContext;
 use Ibexa\Contracts\ConnectorAi\ActionConfigurationServiceInterface;

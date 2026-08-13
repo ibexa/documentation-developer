@@ -28,19 +28,26 @@ Range aggregations (`ProductAttributeFloatRangeAggregation` and `ProductAttribut
 ## Example
 
 ``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeSelectionTermAggregation;
+
 $query = new ProductQuery();
 $query->setAggregations([
-    new ProductAttributeSelectionAggregation('skin', 'skin_type'),
+    new AttributeSelectionTermAggregation('skin', 'skin_type'),
 ]);
 ```
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeIntegerRangeAggregation;
+
 $query = new ProductQuery();
 $query->setAggregations([
-    new ProductAttributeIntegerRangeAggregation('buttons', 'number_of_buttons', [
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(null, 5),
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(5, 10),
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(10, null),
+    new AttributeIntegerRangeAggregation('buttons', 'number_of_buttons', [
+        Range::ofInt(null, 5),
+        Range::ofInt(5, 10),
+        Range::ofInt(10, null),
     ]),
 ]);
 ```

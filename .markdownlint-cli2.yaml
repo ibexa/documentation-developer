@@ -1,0 +1,47 @@
+config:
+  default: false
+  heading-style: consistent
+  list-indent: true
+  no-reversed-links: true
+  no-missing-space-atx: true
+  heading-start-left: true
+  no-multiple-space-blockquote: true
+  no-blanks-blockquote: true
+  hr-style: true
+  no-empty-links: true
+  code-fence-style: backtick
+  strong-style: asterisk
+  table-pipe-style:
+    style: leading_and_trailing
+
+  no-alt-text: true
+  first-line-heading: true
+  list-marker-space: true
+  blanks-around-fences: true
+  single-title: true
+  no-multiple-space-atx: true
+  blanks-around-headings: true
+  ul-style: dash
+  ol-prefix: 
+    style: one_or_ordered
+  ul-indent:
+    indent: 4
+  heading-increment: true
+  blanks-around-tables: true
+  descriptive-link-text: true
+  single-trailing-newline: true
+  no-space-in-code: true
+  no-space-in-links: true
+  fenced-code-language: true
+  no-multiple-blanks: true
+  commands-show-output: true
+  no-trailing-spaces: true
+  blanks-around-lists: true
+  no-trailing-punctuation:
+    punctuation: [".", ":", ";",]
+  no-emphasis-as-heading: true
+  table-column-count: true
+
+ignores:
+  - "docs/snippets/**"
+  - "docs/index.md"

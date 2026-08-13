@@ -18,7 +18,7 @@ parameters:
     # Internal configuration
     ibexa.site_access.config.default.content.default_ttl: 60
     ibexa.site_access.config.site_group.content.default_ttl: 3600
- 
+
     # Here "myapp" is the namespace, followed by the SiteAccess name as the parameter scope
     # Parameter "my_param" will have a different value in site_group and admin_group
     myapp.site_group.my_param: value
@@ -27,11 +27,11 @@ parameters:
     myapp.default.my_param: Default value
 ```
 
-Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
+Inside a controller extending the `Ibexa\Core\MVC\Symfony\Controller\Controller` class, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
 
-``` php
+``` php {skip-validation}
 $configResolver = $this->getConfigResolver();
- 
+
 // ibexa.site_access.config is the default namespace, so no need to specify it
 // The following will resolve ibexa.site_access.config.<siteaccessName>.content.default_ttl
 // In the case of site_group, it will return 3600.
@@ -81,20 +81,14 @@ For more information about dependency injection, see [Service container](php_api
 namespace App;
 
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
- 
+
 class Service
 {
-    /**
-     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
-     */
-    private $configResolver;
- 
-    public function __construct( ConfigResolverInterface $configResolver )
+    public function __construct(private readonly ConfigResolverInterface $configResolver)
     {
-        $this->configResolver = $configResolver;
     }
 
-    public function someMethodThatNeedConfig()
+    public function someMethodThatNeedConfig(): void
     {
         $configValue = $this->configResolver->getParameter('my_param', 'myapp');
     }

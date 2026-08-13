@@ -44,15 +44,15 @@ In the following example, the OAuth2 client `google` is enabled for the `admin` 
 
 ## Configure firewall
 
-In `config/packages/security.yaml`, enable the `oauth2_connect` firewall and replace the `ibexa_front` firewall with the `ibexa_oauth2_front` one.
+In `config/packages/security.yaml`, enable the `ibexa_oauth2_connect` firewall and replace the `ibexa_front` firewall with the `ibexa_oauth2_front` one.
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/security.yaml') =]]
 ```
 
-The `guard.authenticators` setting specifies the [Guard authenticators]([[= symfony_doc =]]/security/guard_authentication.html) to be used.
+The `custom_authenticators` setting specifies the [custom authenticators]([[= symfony_doc =]]/security/custom_authenticator.html) to be used.
 
-By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` guard authenticator you add a possibility to use OAuth2 on those routes.
+By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` authenticator you add a possibility to use OAuth2 on those routes.
 
 ## Resource owner mappers
 
@@ -89,7 +89,7 @@ The mapper loads a user (line 40) or creates a new one (line 49), based on the i
 The new username is set with a `google:` prefix (lines 20, 91), to avoid conflicts with users registered in a regular way.
 
 ``` php hl_lines="20 40 67 91"
-[[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
+[[= include_code('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 
 Configure the service by using the `ibexa.oauth2_client.resource_owner_mapper` tag to associate it with the `google` client:

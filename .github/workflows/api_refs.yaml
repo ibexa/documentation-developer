@@ -4,9 +4,32 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: 'Released version tag (for example: v4.6.21 or v5.0.0)'
+                # The version to build the API Reference for.
+                # Use a released tag (e.g. v5.0.9) or a plain number (e.g. 5.0.9).
+                description: 'Version (e.g. v5.0.9 or 5.0.9)'
                 required: true
                 type: string
+            use_dev_version:
+                # When checked, Composer installs from the x-dev branch instead of a released tag.
+                # Useful for building a reference before the final release is tagged.
+                # Example: version=5.0.9 + use_dev_version=true → DXP_VERSION=v5.0.x-dev, BASE_DXP_BRANCH=5.0, VIRTUAL_DXP_VERSION=5.0.9
+                description: 'Use x-dev branch (default: false)'
+                required: false
+                type: boolean
+                default: false
+            base_branch:
+                description: 'Start from this branch of the doc to build the refs (default: Maj.min from version)'
+                required: false
+                type: string
+            work_branch:
+                description: 'Commit builds to this branch of the doc (default: api_refs_<version>)'
+                required: false
+                type: string
+            force:
+                description: 'Push to work_branch even if it exists (default: false)'
+                required: false
+                type: boolean
+                default: false
 
 jobs:
     open_php_api_ref_pr:
@@ -16,18 +39,56 @@ jobs:
         steps:
             - name: Set version and branches
               id: version_and_branches
+              env:
+                  INPUT_VERSION: ${{ inputs.version }}
+                  INPUT_BASE_BRANCH: ${{ inputs.base_branch }}
+                  INPUT_WORK_BRANCH: ${{ inputs.work_branch }}
+                  INPUT_USE_DEV_VERSION: ${{ inputs.use_dev_version }}
               run: |
-                  version="${{ inputs.version }}"
-                  base_branch="$(echo $version | sed 's/v\(.*\..*\)\..*/\1/')"
-                  work_branch="api_refs_$version"
-                  echo "version=$version" >> "$GITHUB_OUTPUT"
-                  echo "base_branch=$base_branch" >> "$GITHUB_OUTPUT"
-                  echo "work_branch=$work_branch" >> "$GITHUB_OUTPUT"
+                  # Strip leading 'v' to get a plain version number (e.g. 5.0.9)
+                  version="$INPUT_VERSION"
+                  version="${version#v}"
+                  base_branch="$INPUT_BASE_BRANCH"
+                  if [ -z "$base_branch" ]; then
+                    base_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
+                  fi
+                  work_branch="$INPUT_WORK_BRANCH"
+                  if [ -z "$work_branch" ]; then
+                    work_branch="api_refs_v${version}"
+                  fi
+
+                  if [[ "$INPUT_USE_DEV_VERSION" == "true" ]]; then
+                    # Dev build: install from the x-dev branch and label output with the target version
+                    base_dxp_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
+                    dxp_version="v${base_dxp_branch}.x-dev"
+                    virtual_dxp_version="${version}"
+                  else
+                    # Stable build: install from the released tag
+                    dxp_version="v${version}"
+                    base_dxp_branch=""
+                    virtual_dxp_version=""
+                  fi
+
+                  echo "version=v${version}" >> "$GITHUB_OUTPUT"
+                  echo "base_branch=${base_branch}" >> "$GITHUB_OUTPUT"
+                  echo "work_branch=${work_branch}" >> "$GITHUB_OUTPUT"
+                  echo "dxp_version=${dxp_version}" >> "$GITHUB_OUTPUT"
+                  echo "base_dxp_branch=${base_dxp_branch}" >> "$GITHUB_OUTPUT"
+                  echo "virtual_dxp_version=${virtual_dxp_version}" >> "$GITHUB_OUTPUT"
 
             - name: Checkout documentation
               uses: actions/checkout@v4
               with:
                   ref: ${{ steps.version_and_branches.outputs.base_branch }}
+
+            - name: Check if work branch exists
+              id: check_work_branch
+              if: inputs.force == false
+              run: |
+                  if git ls-remote --exit-code --heads origin "${{ steps.version_and_branches.outputs.work_branch }}"; then
+                    echo "::error title=Branch exists::The branch ${{ steps.version_and_branches.outputs.work_branch }} already exists. You can use the 'force' option to overwrite it."
+                    exit 1
+                  fi
 
             - name: Disable PHP coverage
               uses: shivammathur/setup-php@v2
@@ -39,13 +100,30 @@ jobs:
             - name: Install Redocly CLI
               run: npm install -g @redocly/cli@latest
 
+            - name: Generate token
+              id: generate_token
+              if: inputs.use_dev_version == true
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ibexa
+
             - name: Build API Refs
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
                   BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
+                  DXP_VERSION: ${{ steps.version_and_branches.outputs.dxp_version }}
+                  BASE_DXP_BRANCH: ${{ steps.version_and_branches.outputs.base_dxp_branch }}
+                  VIRTUAL_DXP_VERSION: ${{ steps.version_and_branches.outputs.virtual_dxp_version }}
               run: |
+                  if [ -n "$GITHUB_TOKEN" ]; then
+                    composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+                  fi
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+
                   if [[ '4.6' != $BASE_BRANCH ]]; then
                     tools/api_refs/api_refs.sh
                     # Fix escape character:
@@ -53,7 +131,7 @@ jobs:
                   else
                     tools/php_api_ref/phpdoc.sh
                     # Fix escape character:
-                    perl -pi -e 's/\e/\\E/g' tools/api_refs/php_api_ref/template/package-edition-map.twig
+                    perl -pi -e 's/\e/\\E/g' tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                     cd tools/raml2html/; composer install; cd -;
                     php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
                   fi
@@ -73,6 +151,11 @@ jobs:
                   git diff-index --quiet --cached HEAD || git commit -m "PHP API Ref HTML"
                   git add docs/api/rest_api/rest_api_reference/rest_api_reference.html
                   git diff-index --quiet --cached HEAD || git commit -m "REST API Ref HTML"
+                  if [[ '4.6' != $BASE_BRANCH ]]; then
+                    git add docs/api/rest_api/rest_api_reference/openapi.yaml
+                    git add docs/api/rest_api/rest_api_reference/openapi.json
+                    git diff-index --quiet --cached HEAD || git commit -m "REST API OpenAPI spec"
+                  fi
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v7

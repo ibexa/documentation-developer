@@ -11,7 +11,7 @@ You can also reuse the bundles you create in other projects or share them with t
 
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
 You can see the bundles that are automatically installed with [[= product_name =]] in the respective `composer.json` files.
-For example, for [[= product_name_headless =]], see the [JSON file on GitHub](https://github.com/ibexa/headless/blob/master/composer.json).
+For example, for [[= product_name_headless =]], see the [JSON file on GitHub](https://github.com/ibexa/headless/blob/5.0/composer.json).
 
 ## Working with bundles
 
@@ -28,7 +28,7 @@ When overriding files, the path inside your application has to correspond to the
 
 ### Removing bundles
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you don't need), see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you don't need), remove the bundle entry from `config/bundles.php`.
 
 ## Core packages
 
@@ -53,8 +53,9 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/i18n](https://github.com/ibexa/i18n)|Centralized translations to ease synchronization with Crowdin|
-|[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications](notifications.md)|
-|[ibexa/post-install](https://github.com/ibexa/post-install)|Post installation tool|
+|[ibexa/messenger](https://github.com/ibexa/messenger)|[Background and asynchronous task processing](background_tasks.md) using Symfony Messenger|
+|[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications to channels](notification_channels.md)|
+|[ibexa/post-install](https://github.com/ibexa/post-install)|Apache and nginx templates|
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
 |[ibexa/solr](https://github.com/ibexa/solr)|[Solr-powered](https://solr.apache.org/) search handler|
@@ -77,7 +78,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/connector-openai|Integrates the AI framework with [OpenAI](https://openai.com) |
 |ibexa/content-tree|Content tree functionality|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
-|ibexa/fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|
+|ibexa/fastly|Fastly support for `http-cache`, for use on [[= product_name_cloud =]] or standalone|
 |ibexa/headless-assets|Assets for the back office|
 |ibexa/icons|Icon set for the back office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
@@ -86,7 +87,6 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/migrations|[Migration of repository data](data_migration.md)|
 |ibexa/oauth2-client|Authenticate user through a [third-party OAuth 2 server](oauth_client.md), integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 |ibexa/oauth2-server|Configure [[= product_name =]] to act as a [OAuth2 Server](oauth_server.md)|
-|ibexa/personalization|Functionality for personalized recommendations|
 |ibexa/product-catalog-date-time-attribute|Implementation of the [Date and Time attribute type](date_and_time.md)|
 |ibexa/product-catalog-symbol-attribute|Implementation of the [Symbol attribute type](symbol_attribute_type.md)|
 |ibexa/product-catalog|Product catalog functionality|
@@ -115,7 +115,6 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/site-factory|Enables configuration of sites from UI|
 |ibexa/engage|Enables integration with [Qualifio Engage platform](https://developers.qualifio.com/docs/engage/)|
 
-
 ## [[= product_name_com =]] packages
 
 |Bundle|Description|
@@ -123,11 +122,23 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/experience|Metapackage for Symfony Flex-based [[= product_name =]] Experience installation|
 |ibexa/cart|Main store functionalities|
 |ibexa/checkout|Store checkout functionality|
-|ibexa/corporate-account-commerce-bridge|Additional functionality for [corporate accounts](corporate_admin_panel.md|
-|ibexa/discounts|Adds [discounts](discounts.md) functionality|feature
+|ibexa/corporate-account-commerce-bridge|Additional functionality for [corporate accounts](corporate_admin_panel.md)|
+|ibexa/discounts|Adds [discounts](discounts.md) functionality|
 |ibexa/discounts-codes|Adds the possibility to use discount codes with the [Discounts](discounts.md) functionality|
 |ibexa/storefront|A storefront starting kit|
 |ibexa/order-management|Order management|
 |ibexa/payment|Payment handling|
 |ibexa/shipping|Shipping handling|
 |ibexa/connector-payum|[Payum integration](payum_integration.md)|
+
+## Optional packages
+
+The following packages are optional and can be installed independently.
+
+|Bundle|Description|
+|---------|-----------|
+|[ibexa/automated-translation](https://github.com/ibexa/automated-translation)|Automated translation of content using [Google Translate or DeepL](automated_translations.md)|
+|ibexa/cdp|Integration with the [Customer Data Platform](cdp.md)|
+|[ibexa/cloud](https://github.com/ibexa/cloud)|Integration with [[[= product_name_cloud =]]](/ibexa_cloud/ibexa_cloud.md)|
+
+In addition, you can extend the capabilities of your project by installing additional [LTS Updates](editions.md#lts-updates).

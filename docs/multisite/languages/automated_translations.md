@@ -34,7 +34,7 @@ composer require ibexa/automated-translation
     Symfony Flex installs and activates the package.
     However, you must modify the `config/bundles.php` file to change the bundle loading order so that `IbexaAutomatedTranslationBundle` is loaded before `IbexaAdminUiBundle`:
 
-    ```php
+    ``` php
     <?php
 
     return [
@@ -49,7 +49,7 @@ composer require ibexa/automated-translation
 
 Before you can start using the feature, you must configure access to your Google and/or DeepL account.
 
-1\. Get the [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key) and/or [DeepL Pro key](https://support.deepl.com/hc/en-us/articles/360020695820-API-Key-for-DeepL-s-API).
+1\. Get the [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key) and/or [DeepL Pro key](https://support.deepl.com/hc/en-us/articles/360020695820-API-key-for-DeepL-API).
 
 2\. Set these values in the YAML configuration files, under the `ibexa_automated_translation.system.default.configurations` key:
 
@@ -96,8 +96,8 @@ To learn how to build custom AI actions see [Extending AI actions](extend_ai_act
 
 1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
 
-``` php hl_lines="35-52"
-[[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
+``` php hl_lines="31-48"
+[[= include_code('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
 ```
 
 2\. Tag the service as `ibexa.automated_translation.client` in the Symfony container:
@@ -127,8 +127,9 @@ The following example adds support for automatically translating alternative tex
 1. Create a class implementing the [`FieldEncoderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
 
 ``` php hl_lines="11-14 16-19 21-27 33-38"
-[[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
+[[= include_code('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
 ```
+
 In this example, the methods are responsible for:
 
 - `canEncode` - deciding whether the field to be encoded is an [Image](imagefield.md) field

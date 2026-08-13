@@ -1,6 +1,6 @@
 ### A. Resolve conflicts
 
-If you get a lot of conflicts and you installed from the [support.ez.no / support.ibexa.co](https://support.ibexa.co) tarball or from [ezplatform.com](https://ezplatform.com), you may have incomplete history.
+If you get a lot of conflicts and you installed from the [support.ez.no / support.ibexa.co](https://support.ibexa.co) tarball or from ezplatform.com, you may have incomplete history.
 
 To load the full history, run `git fetch upstream --unshallow` from the `update-[[= target_version =]]` branch, and run the merge again.
 
