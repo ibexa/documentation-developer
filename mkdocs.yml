@@ -6,6 +6,8 @@ edit_uri: blob/5.0/docs
 site_url: https://doc.ibexa.co/en/latest/
 hooks:
     - hooks/edit_uri.py
+    - hooks/eol_status.py
+    - hooks.py
 copyright: "Copyright 1999-2026 Ibexa AS and others"
 validation:
     omitted_files: warn
@@ -506,23 +508,6 @@ nav:
         - User grouping:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
-    - Personalization:
-        - Personalization: personalization/personalization.md
-        - Personalization guide : personalization/personalization_guide.md
-        - How Personalization works: personalization/how_it_works.md
-        - Enable Personalization: personalization/enable_personalization.md
-        - Integrate recommendation service: personalization/integrate_recommendation_service.md
-        - Tracking integration: personalization/tracking_integration.md
-        - Recommendation integration: personalization/recommendation_integration.md
-        - Personalization API:
-            - Personalization API: personalization/api_reference/api_reference.md
-            - Content API: personalization/api_reference/content_api.md
-            - Recommendation API: personalization/api_reference/recommendation_api.md
-            - Tracking API: personalization/api_reference/tracking_api.md
-            - User API: personalization/api_reference/user_api.md
-        - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
-        - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
-        - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - Recommendations:
         - Integration with Raptor:
             - Raptor connector: recommendations/raptor_integration/raptor_connector.md
@@ -897,6 +882,7 @@ nav:
             - Development security: infrastructure_and_maintenance/security/development_security.md
             - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
             - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
+            - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
     - Update and migration:
         - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
@@ -990,7 +976,7 @@ nav:
 theme:
     name: material
     features:
-        - content.code.annotate 
+        - content.code.annotate
         - content.code.copy
         - navigation.tracking
         - navigation.top
@@ -1110,6 +1096,3 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
-
-hooks:
-  - hooks.py

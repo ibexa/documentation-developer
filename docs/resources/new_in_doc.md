@@ -7,6 +7,56 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## July 2026
+
+### AI
+
+- Expanded the [MCP usage](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_usage/#perform-copilot-or-claude-code-test) examples to include Claude Code
+- Documented how to reuse the default cache service as the [discovery cache](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#discovery-cache), or disable caching to ease development
+- Improved documentation to make it easier to use with AI Agents. For more information, see [Documentation improvements](#documentation-improvements) below.
+
+### Documentation improvements
+
+- Added a **View as Markdown** button to every documentation page
+- Improved page structure so that HTML-to-Markdown converters used by AI agents produce cleaner output
+
+Combined, these changes make the documentation easier to use with AI Agents.
+
+### Background tasks
+
+- Described the [stamps available for Ibexa Messenger](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#stamps)
+
+### Data migration
+
+- Documented the [`service_call` migration type](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#service-calls)
+- Described the `set` and `list` modes of the [`reference` type](https://doc.ibexa.co/en/5.0/content_management/data_migration/managing_migrations/#references), and completed the list of [available reference types](https://doc.ibexa.co/en/5.0/content_management/data_migration/managing_migrations/#available-reference-types) with `section`, `user`, and `language_code`
+- Added the `company` and `shipping_method` entries to the [list of available migrations](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#available-migrations)
+- Documented the [`update` mode for content items](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#content-items), together with the optional `metadata` and `location` properties available when you create one
+- Added an example of defining [product availability and stock](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-availability)
+- Described the [`assign_dashboard_to_user` action](https://doc.ibexa.co/en/5.0/content_management/data_migration/data_migration_actions/#content)
+
+### Caching
+
+- Described [clearing caches](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/devops/#cache-clearing) in more detail, covering the differences between system, [persistence](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/persistence_cache/#clearing-persistence-cache), and HTTP caches
+- Expanded the example showing how to [inject `PurgeClientInterface`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/content_aware_cache/#custom-purging-from-code)
+
+### Security
+
+- Added a [Security advisories](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/security/security_advisories/) page describing where [[= product_name_base =]] advisories are published and how to handle Composer package advisories
+
+### [[= product_name_cloud =]]
+
+- Created a dedicated page for the [[[= product_name_cloud =]] CLI](https://doc.ibexa.co/en/5.0/ibexa_cloud/ibexa_cloud_cli/)
+
+### Recommendations
+
+- Documented the [`websiteId` parameter](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/recommendations_twig_functions/#websiteid-parameter) for tracking
+
+### DDEV
+
+- Added instructions on how to [schedule tasks](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-scheduled-tasks-optional) with the DDEV Cron add-on
+- Added instructions on how to [launch Ibexa Messenger](https://doc.ibexa.co/en/5.0/getting_started/install_with_ddev/#configure-background-tasks-optional) on DDEV project start
+
 ## June 2026
 
 ### Releases
@@ -784,17 +834,13 @@ Enhanced the PHP API with the following new classes and interfaces:
 ## Personalization
 
 - Added dynamic attribute submodels information by:
-    - mentioning them in [customizing the recommendation request](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request) instructions
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#dynamic-attributes)
+    - mentioning them in customizing the recommendation request instructions
+    - describing them in user documentation
 - Added time-slot based models information by:
-    - changing the list of parameters available when [customizing the recommendation request](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request)
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#time-slot-based-models)
+    - changing the list of parameters available when customizing the recommendation request
+    - describing them in user documentation
 
-- Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
-    - [Enable Personalization](https://doc.ibexa.co/en/4.6/personalization/enable_personalization/)
-    - [Integrate recommendation service](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/)
-    - [Tracking integration](https://doc.ibexa.co/en/4.6/personalization/tracking_integration/)
-    - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/4.6/personalization/tracking_with_ibexa-tracker/)
+- Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles
 
 ### PIM
 
@@ -1030,7 +1076,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Customize recommendation request with segment parameters](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#segment-parameters)
+- Customize recommendation request with segment parameters
 
 ### PIM
 
@@ -1095,8 +1141,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/#trigger-types)
-- [Wishlist and Deletefromwishlist events](https://doc.ibexa.co/en/4.6/personalization/api_reference/tracking_api/#track-events)
+- Post visit and price drop triggers
+- Wishlist and Deletefromwishlist events
 
 ### PIM
 
@@ -1127,9 +1173,9 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Updated configuration for triggers](https://doc.ibexa.co/en/4.6/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
-- [Send messages with recommendations](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/) in User Documentation
+- Updated configuration for triggers
+- Send messages with recommendations
+- Email triggers in User Documentation
 
 ### PIM
 
@@ -1156,7 +1202,7 @@ Enhanced the PHP API with the following new classes and interfaces:
     - [Customer portal](https://doc.ibexa.co/en/4.6/customer_management/customer_portal/)
     - [Form Builder](https://doc.ibexa.co/en/4.6/content_management/forms/form_builder_guide/)
     - [Online editor](https://doc.ibexa.co/en/4.6/content_management/rich_text/online_editor_guide/)
-    - [Personalization](https://doc.ibexa.co/en/4.6/personalization/personalization_guide/)
+    - Personalization
     - [PIM](https://doc.ibexa.co/en/4.6/pim/pim_guide/)
 
 - [Updated bundles list](https://doc.ibexa.co/en/4.6/administration/project_organization/bundles/)
@@ -1225,8 +1271,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/en/4.6/personalization/api_reference/recommendation_api/#submodel-parameters)
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/recommendation_models/#submodels) in User Documentation
+- Multiple attributes in submodel computation
+- Multiple attributes in submodel computation in User Documentation
 
 ### PIM
 
@@ -1273,8 +1319,8 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Personalization
 
-- [Email triggers](https://doc.ibexa.co/en/4.6/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/triggers/) in User Documentation
+- Email triggers
+- Email triggers in User Documentation
 
 ### Search
 
@@ -1340,12 +1386,12 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### New Page blocks
 
 - [React app Page block](https://doc.ibexa.co/en/4.6/content_management/pages/react_app_block/)
-- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/block_reference/#bestsellers-block)
+- Bestsellers block
 
 ### Others
 
 - [Translation comparison](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/translate_content/#translation-comparison)
-- [Managing Segments](https://doc.ibexa.co/projects/userguide/en/4.6/personalization/segment_management/)
+- Managing Segments
 
 ## March 2023
 

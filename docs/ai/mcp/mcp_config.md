@@ -64,11 +64,20 @@ You define MCP servers within a repository configuration and then assign those s
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 31, 35) =]]
 ```
 
+Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
+You can list all defined servers by running the following command:
+
+```bash
+php bin/console debug:container ibexa.mcp.server
+```
+
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
 You can list them by running the following command:
 
-`php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
+```bash
+php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
+```
 
 ### MCP server options
 
@@ -82,7 +91,7 @@ You can list them by running the following command:
 | [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
 | [`session`](#session-storage)                                                                                   | object  | No       | `psr16`                                                                  | Session storage configuration                                    |
-| [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers |
+| [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers                                          |
 
 !!! note "New servers are disabled by default"
 
@@ -164,6 +173,14 @@ Clear the cache pool after making changes:
 php bin/console cache:pool:clear cache.redis.mcp
 ```
 
+!!! tip
+
+    Use `ibexa.cache_pool` as service identifier to have the default [cache service](persistence_cache.md#cache-service).
+
+It can be set to `null` to disable caching to ease development, which isn't recommended for production environment.
+
+See another example of configuration in [Work with MCP servers](mcp_usage.md#configure-mcp-server).
+
 ### Session storage
 
 MCP servers store session data in their own way.
@@ -216,7 +233,7 @@ In this example, only requests from `admin.example.com` domain, `my-ddev-project
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
-                        - 'admin.example.com'
-                        - '127.0.0.1'
+                        - 'www.example.com'
                         - 'my-ddev-project.ddev.site'
+                        - '127.0.0.1'
 ```

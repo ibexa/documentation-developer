@@ -1,7 +1,7 @@
 ---
 description: Data export schedule in Ibexa CDP.
 edition: experience
-month_change: true
+month_change: false
 ---
 
 # CDP data export schedule
