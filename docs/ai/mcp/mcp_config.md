@@ -187,19 +187,19 @@ MCP servers store session data in their own way.
 
 #### Options
 
-| Option      | Type    | Default            | Description                                               |
-|-------------|---------|--------------------|-----------------------------------------------------------|
-| `type`      | enum    | (required)         | Session store type: [`psr16`](#psr-16) or [`file`](#file) |
-| `service`   | string  | `ibexa.cache_pool` | PSR-16 cache service ID for the `psr16` session store     |
-| `prefix`    | string  | `mcp_`             | Key prefix for the `psr16` session store                  |
-| `directory` | string  | `null`             | Directory path for the `file` session store               |
-| `ttl`       | integer | `3600`             | Session TTL in seconds                                    |
+| Option      | Type    | Default            | Description                                                    |
+|-------------|---------|--------------------|----------------------------------------------------------------|
+| `type`      | enum    | (required)         | Session store type: [`psr16`](#psr-16) or [`file`](#file)      |
+| `service`   | string  | `ibexa.cache_pool` | PSR-16 or PSR-6 cache service ID for the `psr16` session store |
+| `prefix`    | string  | `mcp_`             | Key prefix for the `psr16` session store                       |
+| `directory` | string  | `null`             | Directory path for the `file` session store                    |
+| `ttl`       | integer | `3600`             | Session TTL in seconds                                         |
 
 In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, like with [regular sessions](clustering.md#shared-sessions).
 
 #### PSR-16
 
-Sessions are stored with a PSR-16 compatible cache implementation.
+Sessions are stored with a PSR-16 or PSR-6 compatible cache implementation.
 It requires that a `service` option points to a valid cache service ID.
 Optionally, you could use a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
 Such setup is suitable for production environments.
