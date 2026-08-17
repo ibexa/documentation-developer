@@ -187,13 +187,13 @@ MCP servers store session data in their own way.
 
 #### Options
 
-| Option      | Type    | Default    | Description                                               |
-|-------------|---------|------------|-----------------------------------------------------------|
-| `type`      | enum    | (required) | Session store type: [`psr16`](#psr-16) or [`file`](#file) |
-| `service`   | string  | `null`     | PSR-16 cache service ID for the `psr16` session store     |
-| `prefix`    | string  | `mcp_`     | Key prefix for the `psr16` session store                  |
-| `directory` | string  | `null`     | Directory path for the `file` session store               |
-| `ttl`       | integer | `3600`     | Session TTL in seconds                                    |
+| Option      | Type    | Default            | Description                                               |
+|-------------|---------|--------------------|-----------------------------------------------------------|
+| `type`      | enum    | (required)         | Session store type: [`psr16`](#psr-16) or [`file`](#file) |
+| `service`   | string  | `ibexa.cache_pool` | PSR-16 cache service ID for the `psr16` session store     |
+| `prefix`    | string  | `mcp_`             | Key prefix for the `psr16` session store                  |
+| `directory` | string  | `null`             | Directory path for the `file` session store               |
+| `ttl`       | integer | `3600`             | Session TTL in seconds                                    |
 
 In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, like with [regular sessions](clustering.md#shared-sessions).
 
