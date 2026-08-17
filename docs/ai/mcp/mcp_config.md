@@ -81,7 +81,7 @@ You can list them by running the following command:
 | [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
 | [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
-| [`session`](#session-storage)                                                                                   | object  | Yes      |                                                                          | Session storage configuration                                    |
+| [`session`](#session-storage)                                                                                   | object  | No       | `psr16`                                                                  | Session storage configuration                                    |
 | [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers |
 
 !!! note "New servers are disabled by default"
