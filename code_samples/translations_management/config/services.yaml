@@ -21,7 +21,7 @@ services:
     app.translations_management.exclusion_rule.custom_field_types:
         class: Ibexa\TranslationsManagement\SideBySide\Service\UnsupportedFieldTypeExclusionRule
         arguments:
-            $excludedFieldTypeIdentifiers: ['custom_blog_post', 'custom_landing_page']
+            $excludedFieldTypeIdentifiers: ['custom_point2d', 'custom_value']
         tags:
             - { name: 'ibexa.translations_management.side_by_side.exclusion_rule' }
     App\TranslationsManagement\TwigComponent\MyTranslationModalFooter:

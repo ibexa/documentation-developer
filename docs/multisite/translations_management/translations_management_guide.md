@@ -15,11 +15,11 @@ Content managers, translators, and proofreaders who work with multilingual conte
 - quality assurance is slow and error-prone without a direct comparison view
 - switching between tools or tabs to cross-reference languages disrupts focus and slows down publishing
 
-The Translations management package addresses these pain points through a side-by-side view, machine translation and the ability to invite reviewers to collaborate on the translation of a content items or products.
+The Translations management package addresses these pain points through a side-by-side view, machine translation and the ability to invite reviewers to collaborate on the translation of content items or products.
 
-The package integrates with the [AI Actions framework](ai_actions.md) to support machine translation providers such as Google Translate and DeepL, and AI powered translation services like OpenAI, Anthropic, and Google Gemini.
+The package integrates with the [AI Actions framework](ai_actions_guide.md) to support machine translation providers such as Google Translate and DeepL, and AI-powered translation services like OpenAI, Anthropic, and Google Gemini.
 
-Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s user interface, while editors can trigger machine translation from the content editing interface.
+Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s back office, while editors can trigger machine translation from the content editing interface.
 
 !!! note
 
@@ -27,20 +27,23 @@ Administrators can manage providers and configure default provider-to-language-p
     Although some views are similar to those delivered by the [Automated translations](automated_translations.md) opt-in package, Translations management does not require the `ibexa/automated-translation` package to run.
     These two packages use different namespaces, service tags, and provider interfaces.
 
+    If you're currently using Automated translations, consider migrating to Translations management.
+
 ## Availability
 
-Translations management is an [LTS Update](editions.md#lts-updates) available in all [[= product_name =]] editions.
+Translations management is opt-in capability available as an [LTS Update](editions.md#lts-updates) available in all [[= product_name =]] editions, starting with the v5.0.10 version.
 
 ## How it works
 
 Before the translation flow can happen, an administrator sets up the translation providers and assigns language pairs to them.
-Then, when an editor opens a content item and requests a new machine translation, the plugin resolves which provider to use.
+Then, when an editor opens a content item or product and requests a new machine translation, the system resolves which provider to use.
 If no language-pair rule matches, it falls back to the user's manual selection.
-The plugin then extracts the translatable fields from the source language version of a content item and sends them to the configured provider's API.
-The system writes the translated strings into a target-language draft of the content item, and opens it in a side-by-side view for the editor to review and refine.
-The editor can save the result as a draft, share it with a reviewer or publish it.
+The system then extracts the translatable fields from the source language version of a content item and sends them to the configured provider's API.
+The system writes the translated strings into a target-language draft of the content item or a target-language version of a product, and opens it in a side-by-side view for the editor to review and refine.
+The editor can save the result of content item translation as a draft, share it with a reviewer or publish it.
+Product translations are published when the editor closes the view without rejecting it.
 
-![Translations management flow](translations_management_flow.png "Translations management flow")
+![Translations management flow for content item translation](translations_management_flow.png "Translations management flow for content item translation")
 
 ## Capabilities
 
@@ -52,7 +55,7 @@ Editors see the configured provider pre-selected when creating a new translation
 
 ![Creating a language pair](translations_management_language_pairs.png "Creating a language pair")
 
-The package provides integrations with several translation providers, including REST API-based services such as Google Translate and DeepL, and AI-powered services through the [AI Actions](ai_actions.md).
+The package provides integrations with several translation providers, including REST API-based services such as Google Translate and DeepL, and AI-powered services through the [AI Actions](ai_actions_guide.md).
 
 ### Side-by-side translation view
 
@@ -72,24 +75,30 @@ Editors can:
 
 !!! note "Excluded content types"
 
-    Content types that are editable in Page builder or Form builder are excluded from side-by-side editing.
+    Content types that are editable in [Page builder](page_builder_guide.md) or [Form builder](form_builder_guide.md) are excluded from side-by-side editing.
 
-    Products are editable in the side-by-side view, but product attributes are not translatable.
+    Products are editable in the side-by-side view, but [product attributes are not translatable](products.md#product-attributes).
 
 ### Command-line translation
 
-The Translations management package exposes a [console command](configure_translations_management.md#translate-content-items-with-cli) for translating content items from the command line.
+The Translations management package exposes a [console command](translate_with_cli.md) for translating content items from the command line.
 You can use it for batch processing or automated workflows.
 
 ### Translation review
 
-When a draft is created by going through the automatic translation process, it is marked as "For review".
+When a draft of a content item is created by going through the automatic translation process, it is marked as "For review".
 Editors can [accept or reject the translation]([[= user_doc =]]/content_management/translate_content/#review-automatic-translation) directly in the side-by-side view.
 Accepted drafts are marked as "Translated".
 
-!!! note "No review for manual translations"
+When the editor rejects the translation, the status doesn't change, but the system records that the draft translation required corrections for statistical purposes.
+A draft translation in "Translated" state can't be rejected any more.
 
-    Draft translations that were created manually don't have a review status.
+The `ibexa_auto_translation_review` workflow is separate from the [editorial workflow](workflow.md).
+Accepting or rejecting draft translations does not trigger editorial workflow transitions or notifications.
+
+!!! note "No review for human translations"
+
+    Draft translations that were created by a human don't have a review status.
 
 ### Extensibility
 

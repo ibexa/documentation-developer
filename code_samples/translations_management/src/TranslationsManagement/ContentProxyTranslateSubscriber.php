@@ -27,9 +27,9 @@ final readonly class ContentProxyTranslateSubscriber implements EventSubscriberI
     {
         // Read the translation context:
         $event->getContentId();
-        $event->getFromLanguageCode(); // ?string — null when no source language exists
+        $event->getFromLanguageCode(); // ?string — null when no source language is selected
         $event->getToLanguageCode();
-        $event->getLocationId();       // ?int — null when no location context is available
+        $event->getLocationId();       // ?int — null when the content item isn't published yet
 
         $url = $this->urlGenerator->generate('your_custom_route', [
             'contentId' => $event->getContentId(),

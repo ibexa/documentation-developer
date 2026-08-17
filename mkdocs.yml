@@ -484,6 +484,7 @@ nav:
                 - Translations management: multisite/translations_management/translations_management.md
                 - Translations management guide: multisite/translations_management/translations_management_guide.md
                 - Configure translations management: multisite/translations_management/configure_translations_management.md
+                - Translate content items with CLI: multisite/translations_management/translate_with_cli.md
                 - Extend translations management: multisite/translations_management/extend_translations_management.md
     - Permissions:
         - Permissions: permissions/permissions.md

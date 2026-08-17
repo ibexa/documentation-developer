@@ -1,5 +1,5 @@
 ---
-description: Install translations management configure translation providers, language pairs, and more.
+description: Install translations management and configure translation providers, language pairs, and more.
 edition: lts-update
 month_change: true
 ---
@@ -7,13 +7,17 @@ month_change: true
 # Configure translations management
 
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content item and product translation.
-It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target, provide content item and product translations in a single view, and reject or approve translations, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
+It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services.
+By using the new [side-by-side editing interface](#side-by-side-translation-view), editors can compare source and target values, provide content item and product translations in a single view, and reject or approve translations.
+Multiple extension points exist that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
-!!! note "Automatic translation limitations"
+!!! note "Translation limitations"
 
-    Content types that contain the `ibexa_form` or `ibexa_landing_page` fields do not support the side-by-side translation view and open in the single-language editor instead.
-    When a content type that uses `ibexa_landing_page` is automatically translated, only the page's title and description are translated.
-    When a content type that uses `ibexa_form` is automatically translated, only the forms's title is translated.
+    The following limitations apply to automatic translation:
+    
+    - Content types that contain the `ibexa_form` or `ibexa_landing_page` fields don't support the side-by-side translation view and open in the single-language editor instead.
+    - The value of `ibexa_landing_page` field type is not translated.
+    - The value of `ibexa_form` field type is not translated.
     
     Also, [product attributes](products.md#product-attributes) are not translatable.
 
@@ -39,20 +43,20 @@ Add the tables needed by the bundle:
 === "MySQL"
 
     ```sql
-    [[= include_file('code_samples/translations_management/install/schema.mysql.sql', 0, None, '    ') =]]
+    [[= include_code('code_samples/translations_management/install/schema.mysql.sql', indent_level=1) =]]
     ```
 
 === "PostgreSQL"
 
     ```sql
-    [[= include_file('code_samples/translations_management/install/schema.postgresql.sql', 0, None, '    ') =]]
+    [[= include_code('code_samples/translations_management/install/schema.postgresql.sql', indent_level=1) =]]
     ```
 
 The script creates the required data structures, but doesn't add any data to the database.
 
 #### Add action configurations
 
-Import and run the AI Action Configuration migrations to complete the setup:
+To complete the setup, import and run the AI Action Configuration migrations required by the AI connectors that you use:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_06_15_00_auto_translate_openai_action_configuration.yaml
@@ -64,7 +68,7 @@ php bin/console ibexa:migrations:migrate
 ## Configure translation providers
 
 Translation providers are the services that perform the actual text translation.
-    If you fail to configure them, the automatic translation feature is disabled in the editor's UI, and a message is displayed that prompts the user to contact the administrator
+If you fail to configure them, the automatic translation feature is disabled in the editor's UI, and a message is displayed that prompts the user to contact the administrator
 
 The Translations management package comes with two types of translation services:
 
@@ -77,12 +81,12 @@ The Translations management package comes with two types of translation services
 
     - For the REST API-based translation providers, add API keys that you obtain from the machine translation services to the `.env` file in the root directory of your project.
 
-    - For the AI-based translation providers, [install and configure](configure_ai_actions.md) the `ibexa/connector-ai` package and their corresponding connectors.
+    - For the AI-based translation providers, [configure AI Actions](configure_ai_actions.md) and configure or install and configure their corresponding connectors.
 
 Out of the box, Translations management can support the following translation providers:
 
 | Provider | Type |
-|---|---|---|
+|---|---|
 | Google Translate | REST API |
 | DeepL | REST API |
 | OpenAI | AI Actions |
@@ -138,6 +142,15 @@ In addition to their required authentication keys, all providers support two opt
 - `supportedLanguageCodes` - overrides the default list of language codes that this provider accepts
 - `languageCodesMap` - maps language codes used by [[= product_name =]], for example, `eng-GB`, to the provider-specific codes the API expects
 
+REST API-based providers come with their own language code lists and mappings, therefore both settings are optional.
+If configured, they replace the built-in defaults, so use them to restrict available languages or override mappings.
+
+AI-based providers do not provide built-in language code lists or mappings.
+If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.
+If `languageCodesMap` is not configured, the system automatically tries to match [[= product_name_base =]] language codes to the provider's API by trying different format variants, for example, `eng-GB` -> `en-GB` -> `en`.
+If no match is found, an `UnsupportedLanguageException` is thrown at runtime.
+Therefore, for AI-based providers, it is recommended that you explicitly bonfigure both options.
+
 ``` yaml
 ibexa:
     system:
@@ -178,12 +191,28 @@ You can only select the languages that are present in a provider's [supported li
 
 You [manage language pairs in the back office]([[= user_doc =]]/content_management/translate_content/#manage-translation-services-and-language-pairs).
 
-## User settings
+## Side-by-side translation view
+
+The [side-by-side translation view]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view) is a two-column content editing interface where the source column is read-only and the target column is an editable form.
+
+Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
+Editors can open them in the standard single-language editor.
+
+You can exclude the support for additional content types if needed.
+To do it, [define custom exclusion rules](extend_translations_management.md#define-custom-exclusion-rules).
+
+!!! note "Meta fields"
+
+    Fields marked with [`meta: true`](content_tab_switcher.md#add-meta-tab) and fields that belong to groups listed in [`admin_ui_forms.content_edit.meta_field_groups_list`](content_tab_switcher.md#configure-field-groups-for-meta-tab) are not rendered in the side-by-side translation view.
+
+For a description of the side-by-side view and its functions from the editor's perspective, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
+
+### User settings
 
 The Translations management package adds preferences that editors can configure under their [user settings]([[= user_doc =]]/getting_started/get_started/#user-settings).
 Each editor can configure them independently, and they do not affect other users.
 
-For example, editors can choose whether the target language column appears on the left or right in the side-by-side view.
+For example, editors can choose whether the target language column appears on the left or right in the side-by-side translation view.
 By default, the target is on the right, and each editor can override this default.
 
 You can change the system-wide default in configuration:
@@ -197,122 +226,3 @@ ibexa:
 ```
 
 The accepted values are `source_left_target_right` (default) and `source_right_target_left`.
-
-## Side-by-side translation view
-
-The [side-by-side translation view]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view) is a two-column content editing interface where the source column is read-only and the target column is an editable form.
-
-Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
-Editors can open them in the standard single-language editor.
-
-You can exclude the support for additional content types if needed.
-To do it, [define custom exclusion rules](extend_translations_management.md#define-custom-exclusion-rules).
-
-### Architecture
-
-The side-by-side view consists of three forms placed in a single Twig template:
-
-- `view.sourcePreviewForm` — the source language content, rendered as read-only fields
-- `view.form` — the target language content, rendered as editable fields
-- `view.copyAllForm` — the **Copy all from source** action
-
-To assemble the view, `SideBySideEditContextBuilder` performs the following actions:
-
-1. Resolves source and target languages
-2. Loads the correct content version
-3. Groups fields by their content type field groups
-
-!!! note "Meta fields"
-
-    The builder excludes the fields that are marked marked as `meta: true` or belong to a field group that is listed in `admin_ui_forms.content_edit.meta_field_groups_list`, and does not render them.
-
-To resolve the column order, `SideBySideTargetLanguagePositionResolver` reads the user setting and falls back to `source_left_target_right` when the setting is not made.
-The Twig template applies `order-xl-*` classes for responsive column placement.
-
-### Side-by-side view behavior
-
-Editors have multiple ways to arrive at the side-by-side translation view, for example:
-
-- From the **Create a new translation** modal, by clicking the **Open side-by-side** action.
-    This submits the modal to the `ibexa.translations_management.side_by_side_create` route, which creates a new draft and redirects to `side_by_side_view` with the resolved `versionNo`.
-
-- From the **Versions** tab, by clicking the **Edit side-by-side** action next to a draft whose source and target languages differ.
-    This doesn't create a new draft, and the existing version number is used.
-
-!!! tip "Routes"
-
-    The Translations management package registers internal back office routes.
-    To list them with their current paths, run:
-
-    ``` bash
-    php bin/console debug:router | grep translations_management
-    ```
-
-### Side-by-side view functions
-
-The side-by-side translation view has several functions, including:
-
-- Copy all from source
-
-When an editor clicks the **Copy all from source** action, all translatable field values are copied from the source to target column.
-It's a single server-side operation handled by `SideBySideFieldCopyService::copyAllFields()` after which the view is reloaded.
-
-- Draft conflict warning
-
-When an user opens the translation modal and selects a target language which already has a draft translation, a warning appears in the modal.
-The warning is shown or hidden dynamically by `add.translation.modal.warning.js` when the user changes the target language selection.
-
-For a description of the side-by-side view and its functions from the user's perspective, see [Translate content](([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
-
-## Translate content items with CLI
-
-For the purposes of batch processing, automation and other scripted actions, the Translations management package exposes a command that translates content items by using any of the configured providers:
-
-``` bash
-php bin/console ibexa:translations:auto-translate-content \
-    --content-id=42 \
-    --provider=deepl \
-    --from=eng-GB \
-    --to=fre-FR
-```
-
-!!! tip "Command alias"
-
-    You can use `ibexa:translations:translate-content` as an alias.
-
-The command uses the same provider configuration and field value transformers as the UI, so the results are the same if an editor triggered the translation manually.
-
-### CLI command options
-
-| Option | Required | Description |
-|---|---|---|
-| `--content-id` | Yes | ID of the content item to translate |
-| `--provider` | Yes | Identifier of the translation provider to use |
-| `--from` | Yes | Source language code |
-| `--to` | Yes | Target language code |
-| `--user-id` | No | Repository user ID to run the translation (default: `14`, which is the Administrator user) |
-| `--draft-only` | No | Create a translated draft without publishing it |
-
-## Translation review
-
-When a draft translation of a content item or product is created by going through the automatic translation process, the system creates a review status record and marks the draft `for_review`.
-This way editors and reviewers can check whether automatically translated drafts have been checked before publishing.
-
-Automatically translated drafts can have one of the following two states:
-- `for_review` - The draft was machine-translated and is awaiting review.
-- `translated` - The translation has been accepted by a reviewer.
-
-The `ibexa_auto_translation_review` workflow has two transitions:
-
-| Transition | From | To |
-|---|---|---|
-| `approved` | `for_review` | `translated` |
-| `rejected` | `for_review` | `for_review` |
-
-When the editor rejects the translation, the status doesn't change, but the system records that the draft translation requires corrections.
-A draft translation in `translated` state can't be rejected.
-
-!!! note
-
-    This workflow is separate from the [editorial workflow](workflow.md).
-    Accepting or rejecting draft translations does not trigger editorial workflow transitions or notifications.
