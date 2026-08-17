@@ -90,7 +90,7 @@ php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
 | [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
 | [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
-| [`session`](#session-storage)                                                                                   | object  | No       | `psr16`                                                                  | Session storage configuration                                    |
+| [`session`](#session-storage)                                                                                   | object  | No       | `{ type: psr16, service: ibexa.cache_pool }`                             | Session storage configuration                                    |
 | [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers                                          |
 
 !!! note "New servers are disabled by default"
@@ -189,7 +189,7 @@ MCP servers store session data in their own way.
 
 | Option      | Type    | Default            | Description                                                    |
 |-------------|---------|--------------------|----------------------------------------------------------------|
-| `type`      | enum    | (required)         | Session store type: [`psr16`](#psr-16) or [`file`](#file)      |
+| `type`      | enum    | `psr16`            | Session store type: [`psr16`](#psr-16) or [`file`](#file)      |
 | `service`   | string  | `ibexa.cache_pool` | PSR-16 or PSR-6 cache service ID for the `psr16` session store |
 | `prefix`    | string  | `mcp_`             | Key prefix for the `psr16` session store                       |
 | `directory` | string  | `null`             | Directory path for the `file` session store                    |
