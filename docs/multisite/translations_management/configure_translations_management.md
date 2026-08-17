@@ -7,7 +7,7 @@ month_change: true
 # Configure translations management
 
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content item and product translation.
-It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target , provide content item and product translations in a single view, and reject or approve translations, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
+It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services, a [side-by-side editing interface](#side-by-side-translation-view) where editors can compare source and target, provide content item and product translations in a single view, and reject or approve translations, and multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 !!! note "Automatic translation limitations"
 
@@ -30,7 +30,7 @@ Otherwise follow the steps below.
 
 ### Existing installations
 
-To add the Translations management LTS Update to an existing [[= product_name =]] instance, after installation, you must create database tabes and action configurations yourself.
+To add the Translations management LTS Update to an existing [[= product_name =]] instance, after installation, you must create database tables and action configurations yourself.
 
 #### Modify database schema
 
