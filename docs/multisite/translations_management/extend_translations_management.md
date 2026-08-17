@@ -36,7 +36,7 @@ Both `identifier` and [`validation_profile`](#validation-profiles) are required 
 
 To connect a translation service that uses the [AI Actions](ai_actions.md) framework, implement [`AiTranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-AiTranslationProviderInterface.html).
 The interface adds `getConfiguration()` and `isConfigured()` to the base provider contract.
-These methods allow the package to determine whether the provider is available before it displays  selectable options in the **Create a new translation** modal:
+These methods allow the package to determine whether the provider is available before it displays selectable options in the **Create a new translation** modal:
 
 ``` php hl_lines="37-50"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomAiProvider.php') =]]
@@ -75,14 +75,14 @@ To define a custom validation profile, implement [`ProviderValidatorInterface`](
 [[= include_code('code_samples/translations_management/config/services.yaml', 7, 10) =]]
 ```
 
-You can reuse the [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) class if it meets your requirements or implement your own..
+You can reuse the [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) class if it meets your requirements or implement your own.
 It exposes configurable maximum payload size and language code regex patterns.
 
 The package also provides several specialized interfaces for providers with specific requirements:
 
 | Interface | Purpose |
 |---|---|
-| [`ConfigurableProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html) | Extends `TranslationProviderInterface`. Adds `getConfiguration()` and `isConfigured()` for providers that store API keys and other settings |
+| [`ConfigurableProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html) | Extends `TranslationProviderInterface`. Adds `getConfiguration()` and `isConfigured()` for providers that store API keys and other required settings |
 | [`AiTranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-AiTranslationProviderInterface.html) | Extends `ConfigurableProviderInterface`. Used as a type marker for AI-based providers, it inherits the configuration methods |
 | [`TranslationHttpClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Http-TranslationHttpClientInterface.html) | For HTTP-based providers that use a REST API pattern |
 
