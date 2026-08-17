@@ -75,7 +75,7 @@ To define a custom validation profile, implement [`ProviderValidatorInterface`](
 [[= include_code('code_samples/translations_management/config/services.yaml', 7, 10) =]]
 ```
 
-You can extend [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) as base class.
+You can reuse the [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) class if it meets your requirements or implement your own..
 It exposes configurable maximum payload size and language code regex patterns.
 
 The package also provides several specialized interfaces for providers with specific requirements:
