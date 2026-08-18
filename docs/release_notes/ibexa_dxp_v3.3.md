@@ -20,7 +20,7 @@ This release brings a completely reconstructed user interface of the Personaliza
 
 ### Symfony Flex
 
-[[= product_name =]] is now installed using [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
+[[= product_name =]] is now installed using [Symfony Flex](https://symfony.com/tour/flex-recipes).
 
 See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_started/install_ez_platform/) for a new guide to installing the product.
 

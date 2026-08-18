@@ -1,5 +1,6 @@
 ---
 description: Persistence cache caches SPI\Persistence calls used in common page loads.
+month_change: true
 ---
 
 # Persistence cache

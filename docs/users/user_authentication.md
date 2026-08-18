@@ -1,6 +1,6 @@
 ---
 description: Customize user authentication.
-month_change: true
+month_change: false
 ---
 
 # User authentication
