@@ -5,7 +5,7 @@ edition: commerce
 
 # Transactional emails
 
-Transactional emails are messages that [[= product_name =]] can send through [Actito](https://www.actito.com/en-BE/) gateway to your end-users to notify them about changes in the status of various actions taken in relation to your commerce presence.
+Transactional emails are messages that [[= product_name =]] can send through [Actito](https://actito.com/en) gateway to your end-users to notify them about changes in the status of various actions taken in relation to your commerce presence.
 
 By default, notifications are sent in relation to the following events, to an email address of the end-user who has originated these events:
 
@@ -40,7 +40,7 @@ Symfony Flex installs and activates the package.
 
 ### Configure Actito integration
 
-Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://www.actito.com/en-BE/pricing/nk).
+Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://actito.com/en/pricing/).
 
 Once you gain access to the Actito dashboard:
 
