@@ -29,7 +29,7 @@ Discounts are applied in two places, listed in the [`DiscountType`](/api/php_api
 Regardless of activation place, discounts always apply to products and reduce their base price.
 
 To define when a discount activates and how the price is reduced, use rules and conditions.
-They use the [Symfony Expression language]([[= symfony_doc=]]/components/expression_language.html) to express their logic.
+They use the [Symfony Expression language]([[= symfony_doc=]]/expression_language.html) to express their logic.
 
 ### Rules
 
