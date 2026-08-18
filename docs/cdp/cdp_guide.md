@@ -103,6 +103,13 @@ You can also connect created audiences to the activations.
 
 ![Audience Builder](img/audience_builder.png)
 
+#### Audience metadata
+
+For each audience, [[= product_name_cdp =]] retrieves metadata such as the number of profiles, description, tags, and the timestamp of the last update.
+This metadata is synced and persisted on the [[= product_name =]] side, and then served through CMS APIs, so components like the [Targeting block](targeting_block.md), audience preview, and the [Segments view](segments_admin_panel.md#segments-view) don't need to make a live request to [[= product_name_cdp =]] for every audience.
+
+For more information, see [Audience metadata](cdp_audience_metadata.md).
+
 ### Anonymous user segmentation
 
 [[= product_name_cdp =]] can build audiences for anonymous users, enabling personalised experiences for not logged-in visitors.

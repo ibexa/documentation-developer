@@ -92,9 +92,9 @@ Using this tool, your customers can change their organization details, invite an
 
 #### Segments
 
-[Segmentation](segments_admin_panel.md) allows you to split up the user base.
+[Segmentation](segments_admin_panel.md) allows you to split up the user base into audiences with the metadata such as size, description, tags, and last update timestamp synced from the CDP.
 By assigning users to segments, you can display specific content to selected visitors and tailor the content that they can see.
-One of the tools that you can use right out of the box is the Targeting block that is available in the Page Builder.
+One of the tools that you can use right out of the box is the [Targeting block](targeting_block.md) that is available in the Page Builder, where you can assign multiple audiences to a single content item.
 Segmentation is also useful with the [Recommendations](raptor_connector_guide.md).
 You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
 

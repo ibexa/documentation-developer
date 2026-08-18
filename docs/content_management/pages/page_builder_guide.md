@@ -73,7 +73,7 @@ E. Buttons:
 |Button|Description|
 |------|-----------|
 |![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the page, like title and description.|
-|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the page for a given segment.|
+|![Preview segments](page_builder_toolbar_preview_segment.png)|Access [preview of the page for a given audience](#audience-preview).|
 |![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the page changes with time. You can also view the list of all upcoming scheduled events.|
 |![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the page is rendered on different devices.|
 |![Page blocks menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
@@ -187,6 +187,17 @@ You can schedule content to be revealed, or hidden in Page Builder in two ways w
 
 For more information, see [Schedule publication]([[= user_doc =]]/content_management/schedule_publishing/).
 
+#### Audience preview
+
+When previewing content for a specific [audience](cdp_audience_metadata.md), editors can see the audience’s details and metadata without leaving Page Builder.
+
+Where the metadata is available, the tooltip includes:
+
+- thumbnail
+- content type icon
+- content name
+- available language versions
+
 ## Benefits
 
 ### Manage your pages without technical skills
@@ -213,7 +224,7 @@ Additionally, Page Builder offers you a selection of ready-to-use page blocks th
 
 A. **Default** blocks:
 
-- Targeting - embeds a content item based on the segment the user belongs to.
+- [Targeting](targeting_block.md) - displays a content variation based on the audiences the user belongs to.
 
 B. **PIM** blocks:
 
