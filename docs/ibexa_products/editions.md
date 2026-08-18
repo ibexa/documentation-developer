@@ -71,3 +71,15 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
 | [MCP servers](mcp_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Shopping list](shopping_list_guide.md) |  |  | &#10004; |
+
+## Add-ons
+
+Add-ons are optional packages that you can install to get additional features.
+They're not included in the standard product editions because they depend on contractual options or third-party services.
+
+| Feature                                       | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]]         |
+|-----------------------------------------------|-------------------------------|--------------------------|----------------------------------|
+| [Quable](quable_guide.md)                     | &#10004;                      | &#10004;                 | &#10004; [*](#quable-limitation) |
+| [Raptor connector](raptor_connector_guide.md) | &#10004;                      | &#10004;                 | &#10004;                         |
+
+<div id="quable-limitation">* Quable integration isn't fully compatible with Commerce functionalities.</div>
