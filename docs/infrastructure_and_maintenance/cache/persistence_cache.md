@@ -46,7 +46,7 @@ To see where and how to contribute additional caches, refer to the [source code]
 !!! note
 
     Current implementation uses [Symfony application cache]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache).
-    It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
+    It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/cache.html#available-cache-adapters).
     [[= product_name =]] officially supports only using Filesystem for single server and Redis/Valkey for clustered setups.
 
 Use of [Redis/Valkey](#redisvalkey) as shared cache backend is a requirement for use in clustering setup.
@@ -267,7 +267,7 @@ $pool->save($cacheItem);
 return $myObject;
 ```
 
-For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
+For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/cache.html).
 
 ### Clearing persistence cache
 
