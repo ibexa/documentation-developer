@@ -86,7 +86,8 @@ You can use it for batch processing or automated workflows.
 
 ### Translation review
 
-When a draft of a content item is created by going through the automatic translation process, it is marked as "For review".
+When a draft translation of a content item or product is created by going through the automatic translation process in the back office, the system creates a review status record and marks the draft as "For review".
+The console command bypasses this and drafts created with command-line translation are not assigned a review status.
 Editors can [accept or reject the translation]([[= user_doc =]]/content_management/translate_content/#review-automatic-translation) directly in the side-by-side view.
 Accepted drafts are marked as "Translated".
 
