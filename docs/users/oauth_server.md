@@ -20,6 +20,8 @@ composer require ibexa/oauth2-server --with-all-dependencies
 
 Add the tables needed by the bundle:
 
+TODO: Ibexa Doctrine Migrations
+
 === "MySQL"
 
     ```bash
