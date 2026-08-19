@@ -26,10 +26,14 @@ month_change: false
 - [MCP server's session storage configuration](mcp_config.md#session-storage) now has a default value to use the default cache service out-of-the-box equivalent to the following:
 
   ```yaml
-  # ibexa.repositories.<repository>.mcp.<server>
-      session:
-          type: psr16
-          service: ibexa.cache_pool
+  ibexa:
+      repositories:
+          <repository>:
+              mcp:
+                  <server>:
+                      session:
+                          type: psr16
+                          service: ibexa.cache_pool
   ```
 
 [[= release_note_entry_end() =]]
