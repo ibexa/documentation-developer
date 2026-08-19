@@ -49,17 +49,13 @@ The `ai_generic` validation profile is used by default for AI providers, but you
 [[= include_file('code_samples/translations_management/config/services.yaml', 0, 1) =]] [[= include_code('code_samples/translations_management/config/services.yaml', 32, 36) =]]
 ```
 
-!!! note "Minimal `getConfiguration()` and `isConfigured()` implementations"
-
-    The sample implements `getConfiguration()` and `isConfigured()` as stubs.
-    The built-in AI providers delegate these methods to internal services that are not part of the public API and are not available to custom code outside the bundle.
-    If your custom provider integrates with the AI Actions framework, `isConfigured()` should check whether the `actionConfigurationIdentifier` resolves to an existing and enabled Action Configuration.
+If your custom provider integrates with the AI Actions framework, `isConfigured()` should check whether the `actionConfigurationIdentifier` resolves to an existing and enabled Action Configuration.
 
 The `validation_profile`, `supportedLanguageCodes`, and `languageCodesMap` options work the same way as for REST API-based providers.
 
 ### Validation profiles
 
-The `validation_profile` attribute links the provider to a validator that checks language codes and payload size before each before each translation request.
+The `validation_profile` attribute links the provider to a validator that checks language codes and payload size before each translation request.
 By default, three profiles are available:
 
 | Profile | Used by |
@@ -138,7 +134,7 @@ This interface is not registered for Symfony autoconfiguration, so the tag is re
 ### Exclude with existing class
 
 `MyCustomExclusionRule` targets one specific content type by name.
-To exclude any content type that contain specific field types without the need to write a custom class, register an additional instance of the built-in [`UnsupportedFieldTypeExclusionRule`](https://github.com/ibexa/translations-management/blob/main/src/lib/SideBySide/Service/UnsupportedFieldTypeExclusionRule.php).
+To exclude any content type that contains specific field types without the need to write a custom class, register an additional instance of the built-in [`UnsupportedFieldTypeExclusionRule`](https://github.com/ibexa/translations-management/blob/main/src/lib/SideBySide/Service/UnsupportedFieldTypeExclusionRule.php).
 Because this registers a second instance of the service with different arguments, you can't use the class name as the service ID.
 Use an arbitrary string ID instead to avoid a service definition conflict:
 

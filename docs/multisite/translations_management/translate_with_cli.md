@@ -6,7 +6,7 @@ month_change: true
 
 # Translate content items with CLI
 
-For the purposes of batch processing, automation and other scripted actions, the [Translations management](translations_management_guide.md) package exposes a command that automatically translates content items or products by using any of the configured providers:
+For the purposes of batch processing, automation, and other scripted actions, the [Translations management](translations_management_guide.md) package exposes a command that automatically translates content items or products by using any of the configured providers:
 
 ``` bash
 php bin/console ibexa:translations:auto-translate-content \
@@ -23,7 +23,7 @@ php bin/console ibexa:translations:auto-translate-content \
 The command uses the same provider configuration and field value transformers as the UI.
 Therefore, depending on the specific command options used, the result can be the same as if an editor [triggered the automated translation manually]([[= user_doc =]]/content_management/translate_content/#add-new-translation).
 
-With the default settings, the most important difference is that a translation generated with a CLI command is instantly published, while a manual one requires that a human publishes it.
+Without the `--draft-only` option, the translation generated with a CLI command is instantly published, while a manual one requires that a human publishes it.
 
 ## CLI command options
 

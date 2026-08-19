@@ -31,7 +31,7 @@ Administrators can manage providers and configure default provider-to-language-p
 
 ## Availability
 
-Translations management is opt-in capability available as an [LTS Update](editions.md#lts-updates) available in all [[= product_name =]] editions, starting with the v5.0.10 version.
+Translations management is an opt-in capability available as an [LTS Update](editions.md#lts-updates) for all [[= product_name =]] editions, starting with the v5.0.10 version.
 
 ## How it works
 

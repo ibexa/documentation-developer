@@ -56,7 +56,7 @@ The script creates the required data structures, but doesn't add any data to the
 
 #### Add action configurations
 
-To complete the setup, import and run the AI Action Configuration migrations required by the AI connectors that you use:
+To complete the setup, import and run the AI Action Configuration migrations required by the [AI connectors](configure_ai_actions.md) that you use:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_06_15_00_auto_translate_openai_action_configuration.yaml
@@ -68,7 +68,7 @@ php bin/console ibexa:migrations:migrate
 ## Configure translation providers
 
 Translation providers are the services that perform the actual text translation.
-If you fail to configure them, the automatic translation feature is disabled in the editor's UI, and a message is displayed that prompts the user to contact the administrator
+If you fail to configure them, the automatic translation feature is disabled in the editor's UI, and a message is displayed that prompts the user to contact the administrator.
 
 The Translations management package comes with two types of translation services:
 
@@ -80,7 +80,6 @@ The Translations management package comes with two types of translation services
     Before you can configure translation providers, you must fulfill the following prerequisites:
 
     - For the REST API-based translation providers, add API keys that you obtain from the machine translation services to the `.env` file in the root directory of your project.
-
     - For the AI-based translation providers, [configure AI Actions](configure_ai_actions.md) and configure or install and configure their corresponding connectors.
 
 Out of the box, Translations management can support the following translation providers:
@@ -145,11 +144,11 @@ In addition to their required authentication keys, all providers support two opt
 REST API-based providers come with their own language code lists and mappings, therefore both settings are optional.
 If configured, they replace the built-in defaults, so use them to restrict available languages or override mappings.
 
-AI-based providers do not provide built-in language code lists or mappings.
+AI-based providers don't provide built-in language code lists or mappings.
 If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.
-If `languageCodesMap` is not configured, the system automatically tries to match [[= product_name_base =]] language codes to the provider's API by trying different format variants, for example, `eng-GB` -> `en-GB` -> `en`.
+If `languageCodesMap` is not configured, the system automatically tries to match [[= product_name =]] language codes to the one supported by the provider by trying different format variants, for example, `eng-GB`, `en-GB`, or `en`.
 If no match is found, an `UnsupportedLanguageException` is thrown at runtime.
-Therefore, for AI-based providers, it is recommended that you explicitly bonfigure both options.
+Therefore, for AI-based providers, it is recommended that you explicitly configure both options.
 
 ``` yaml
 ibexa:
