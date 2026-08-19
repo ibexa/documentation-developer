@@ -1,5 +1,5 @@
 ---
-description: Extend translations management - add custom classes, exclude custom content types and add support for custom fields.
+description: Add custom classes, exclude custom content types and add support for custom fields.
 edition: lts-update
 month_change: true
 ---
@@ -22,7 +22,7 @@ It extends `TranslationProviderInterface` and adds `getConfiguration()` and `isC
 ### REST API-based provider
 
 To connect a translation service that calls a REST API directly, implement [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html).
-The `translate()` method receives a [`TranslationDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html) object that carries the text to translate along with the source and target language codes:
+The `translate()` method receives a [`TranslationDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html) object that carries the text to translate along with the source and target [language codes](configure_translations_management.md#advanced-translation-provider-options):
 
 ``` php hl_lines="36-49"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomProvider.php') =]]
@@ -52,12 +52,31 @@ The `ai_generic` validation profile is used by default for AI providers, but you
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 32, 36) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 29, 33) =]]
 ```
 
 If your custom provider integrates with the AI Actions framework, `isConfigured()` should check whether the `actionConfigurationIdentifier` resolves to an existing and enabled Action Configuration.
 
 The `validation_profile`, `supportedLanguageCodes`, and `languageCodesMap` options work the same way as for REST API-based providers.
+
+### Language code normalizer
+
+If your provider uses [language codes](configure_translations_management.md#advanced-translation-provider-options) that differ from the ones used by [[= product_name =]] and the `languageCodesMap` configuration is insufficient, implement a custom [`LanguageNormalizerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html) to handle the conversion:
+
+``` php
+[[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomLanguageCodeNormalizer.php') =]]
+```
+
+The `supports()` method is a way to bind the normalizer to a provider.
+When a translation is triggered, the system checks the registered normalizers, and it uses the first one whose `supports()` method returns `true` for the current provider.
+
+Register the normalizer with the `ibexa.translations_management.auto_translate.provider.language_normalizer` tag.
+If multiple normalizers are registered, use `priority` to control the order in which they are checked:
+
+``` yaml
+[[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 34, 37) =]]
+```
 
 ### Validation profiles
 
@@ -103,10 +122,14 @@ It must match the value that `getFieldTypeIdentifier()` returns:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 14, 17) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 11, 14) =]]
 ```
 
-If a field type requires metadata, for example, RichText fields with embedded objects that you must preserve after translation, implement [`MetadataAwareFieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html) instead.
+!!! note "Advanced metadata handling"
+
+    When metadata is required for decoding or when you need to control what happens if metadata encoding fails, implement [`MetadataAwareFieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html).
+    With this interface, you can fail the translation when metadata encoding fails and indicate that metadata is required for decoding.
+    Without it, the field is skipped instead.
 
 ## Define custom exclusion rules
 
@@ -120,7 +143,7 @@ The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_refere
 To exclude additional content types, for example, content types whose fields render incorrectly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
 The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object and returns `true` if the content item should be excluded.
 Register the rule with the `ibexa.translations_management.side_by_side.exclusion_rule` tag.
-This interface is not registered for Symfony autoconfiguration, so the tag is required.
+This interface is not registered for [Symfony autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), so the tag is required.
 
 ``` php
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomExclusionRule.php') =]]
@@ -128,7 +151,7 @@ This interface is not registered for Symfony autoconfiguration, so the tag is re
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 18, 20) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 15, 27) =]]
 ```
 
 ### Exclude with existing class
@@ -140,7 +163,7 @@ Use an arbitrary string ID instead to avoid a service definition conflict:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 21, 26) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 18, 23) =]]
 ```
 
 ## Use Twig component extension points
@@ -161,7 +184,7 @@ Register a component with the `ibexa.twig.component` tag:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 27, 31) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 24, 28) =]]
 ```
 
 !!! note

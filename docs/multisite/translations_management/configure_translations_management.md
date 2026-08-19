@@ -18,7 +18,7 @@ Multiple extension points exist that you can use to [customize different areas o
     - Content types that contain the `ibexa_form` or `ibexa_landing_page` fields don't support the side-by-side translation view and open in the single-language editor instead.
     - For `ibexa_landing_page` fields, translatable attributes of block content are sent to the translation provider, while layout, zones, and non-translatable block attributes are preserved. 
     - The value of `ibexa_form` field type is not translated.
-    
+
     Also, [product attributes](products.md#product-attributes) remain non-translatable and are inactive in the side-by-side translation view.
 
 ## Install package
@@ -80,7 +80,7 @@ The Translations management package comes with two types of translation services
     Before you can configure translation providers, you must fulfill the following prerequisites:
 
     - For the REST API-based translation providers, add API keys that you obtain from the machine translation services to the `.env` file in the root directory of your project.
-    - For the AI-based translation providers, [configure AI Actions](configure_ai_actions.md) and configure or install and configure their corresponding connectors.
+    - For the AI-based translation providers, [configure AI Actions and the corresponding connectors](configure_ai_actions.md).
 
 Out of the box, Translations management can support the following translation providers:
 
@@ -143,6 +143,17 @@ In addition to their required authentication keys, all providers support two opt
 
 REST API-based providers come with their own language code lists and mappings, therefore both settings are optional.
 If configured, they replace the built-in defaults, so use them to restrict available languages or override mappings.
+
+!!! tip "Default values"
+
+    To check the built-in defaults for the existing providers, run:
+
+    ``` bash
+    php bin/console debug:container --parameters | grep ibexa.translations_management.auto_translate.provider
+    ```
+
+    The output lists the default `supported_language_codes` and `language_codes_map` values for each configured provider, which you can use as a reference.
+    ```
 
 AI-based providers don't provide built-in language code lists or mappings.
 If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.

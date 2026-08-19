@@ -8,9 +8,6 @@ services:
         tags:
             - name: 'ibexa.translations_management.auto_translate.provider.validator'
               profile: 'my_custom_profile'
-    App\TranslationsManagement\MyTranslationAddExtension:
-        tags:
-            - { name: form.type_extension }
     App\TranslationsManagement\ImageAltTextTransformer:
         tags:
             - name: 'ibexa.translations_management.auto_translate.field_value_transformer'
@@ -34,3 +31,7 @@ services:
             - name: 'ibexa.translations_management.auto_translate.provider'
               identifier: 'my_custom_ai_provider'
               validation_profile: 'ai_generic'
+    App\TranslationsManagement\MyCustomLanguageNormalizer:
+        tags:
+            - name: 'ibexa.translations_management.auto_translate.provider.language_normalizer'
+              priority: 10

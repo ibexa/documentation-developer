@@ -10,11 +10,11 @@ use Ibexa\Contracts\TranslationsManagement\AutoTranslate\TranslationDataInterfac
 final readonly class MyCustomAiProvider implements AiTranslationProviderInterface
 {
     /**
-     * Replace MyAiClient with your HTTP client, SDK wrapper, or any service
+     * Replace MyApiClient with your HTTP client, SDK wrapper, or any service
      * that communicates with the external AI translation API.
      */
     public function __construct(
-        private MyAiClient $apiClient,
+        private MyApiClient $apiClient,
         private string $actionConfigurationIdentifier,
     ) {
     }
