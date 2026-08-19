@@ -64,7 +64,7 @@ Changes include multiple extension points, including:
 - [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) that enables custom field type support
 - [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules
 
-For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/translations/extend_translations_management/).
+For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/extend_translations_management/).
 
 [[= release_note_entry_end() =]]
 
