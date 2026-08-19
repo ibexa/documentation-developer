@@ -124,6 +124,9 @@ jobs:
                   fi
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
 
+                  git config --global user.name "${GITHUB_ACTOR}"
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
                   if [[ '4.6' != $BASE_BRANCH ]]; then
                     tools/api_refs/api_refs.sh
                     # Fix escape character:
@@ -140,8 +143,6 @@ jobs:
               env:
                   BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
               run: |
-                  git config --global user.name "${GITHUB_ACTOR}"
-                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
                   git add docs/api/php_api/php_api_reference/
                   if [[ '4.6' != $BASE_BRANCH ]]; then
                     git add tools/api_refs/.phpdoc/template/package-edition-map.twig
