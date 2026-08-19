@@ -31,10 +31,6 @@ month_change: true
           service: ibexa.cache_pool
   ``` 
 
-### PHP API
-
-- [`Ibexa\Contracts\Mcp\Test`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-test.html) namespace contains traits and classes helping to write MCP tool unit tests.
-
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin(
