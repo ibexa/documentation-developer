@@ -9,7 +9,7 @@ The final step of this tutorial assists you in adding to the home page a Form bl
 
 [[% include 'snippets/forms_caution.md' %]]
 
-### Add a Form block
+## Add a Form block
 
 Start with creating a Form content item.
 In the main menu, go to **Content** -> **Forms**, click **Create content** and select **Form**.
@@ -21,10 +21,10 @@ In the Form Builder, add and configure (using the **Basic** and **Validation** t
 |-----|----|--------|---------------------|
 |Single line input|Name|yes|Minimum length = 3|
 |Single line input|Surname|no|Minimum length = 3|
-|Dropdown|Select topic|yes|Options:</br>- News</br>- Tips </br> - Articles|
+|Dropdown|Select topic|yes|Options:<br>- News<br>- Tips <br> - Articles|
 |Email|Email address|yes|—|
 |Captcha|CAPTCHA|—|—|
-|Button|Sign up!|—|Action: Show a message</br>Message to display: Thank you!|
+|Button|Sign up!|—|Action: Show a message<br>Message to display: Thank you!|
 
 The configuration should look like this:
 
@@ -40,7 +40,7 @@ The Page should refresh with the Form block.
 
 It clearly differs from the page design, so you also need to customize the block's layout.
 
-### Change the block template
+## Change the block template
 
 First, add a new template for the Form block to align it with the Random block design.
 Create a `newsletter.html.twig` file in `templates/blocks/form/`:
@@ -65,7 +65,7 @@ In the **Design** tab, select the **Newsletter Form View** and click **Submit**.
 
 The block remains unchanged, but the results are visible when you add CSS styling.
 
-### Change the field template
+## Change the field template
 
 At this point, you need to change the field template.
 This results in alternating the position and design of the Form fields.
@@ -85,7 +85,7 @@ In `config/packages/views.yaml`, at the same level as `page_layout`, add:
 
 Clear the cache by running `bin/console cache:clear` and refresh the page to see the results.
 
-### Configure the Form field
+## Configure the Form field
 
 Before applying the final styling of the block, you need to configure the [CAPTCHA field](work_with_forms.md#captcha-field).
 In `config/packages`, add a `gregwar_captcha.yaml` file with the following configuration:
@@ -93,9 +93,10 @@ In `config/packages`, add a `gregwar_captcha.yaml` file with the following confi
 ``` yaml
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/gregwar_captcha.yaml') =]]
 ```
+
 The configuration resizes the CAPTCHA image (line 2), changes the error message (line 3), and shortens the authentication code (line 4).
 
-### Add stylesheet
+## Add stylesheet
 
 The remaining step in configuring the block is adding CSS styling.
 Add the following code to `assets/css/style.css`:
@@ -103,19 +104,21 @@ Add the following code to `assets/css/style.css`:
 ``` css
 [[= include_file('code_samples/tutorials/page_tutorial/assets/css/style.css', 229, 277) =]]
 ```
+
 Reinstall the assets and clear the cache by running the following commands:
 
 ``` bash
 yarn encore <dev|prod>
 php bin/console cache:clear
 ```
+
 Your newsletter form block is ready.
 
 ![Newsletter Form Block](enterprise_tut_final_form.png "Newsletter Form Block")
 
 Refresh the page and enter a couple of mock submissions.
 
-### Manage the submissions
+## Manage the submissions
 
 You can view all submissions in the back office.
 Go to **Forms** page.

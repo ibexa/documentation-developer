@@ -47,7 +47,7 @@ The following events are dispatched when rendering each step of the discount wiz
 |[`CreateFormDataEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-Step-CreateFormDataEvent.html)| `ibexa.discounts.form_mapper.<step_identifier>.create_form_data`|
 |[`MapCreateDataToStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-Step-MapCreateDataToStructEvent.html)|`ibexa.discounts.form_mapper.<step_identifier>.map_create_data_to_struct`|
 |[`MapDiscountToFormDataEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-Step-MapDiscountToFormDataEvent.html)| `ibexa.discounts.form_mapper.<step_identifier>.map_discount_to_form_data`|
-|[`MapUpdateDataToStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-Step-MapUpdateDataToStructEvent.html)|`ibexa.discounts.form_mapper.<step_identifier>.map_update_data_to_struct `|
+|[`MapUpdateDataToStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-Step-MapUpdateDataToStructEvent.html)|`ibexa.discounts.form_mapper.<step_identifier>.map_update_data_to_struct`|
 
 The event classes are shared between steps, but they are dispatched with different names.
 Each step form mapper dispatches its own set of events.

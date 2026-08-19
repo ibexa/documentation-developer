@@ -1,6 +1,6 @@
 ---
 description: Notify users through several channels.
-month_change: true
+month_change: false
 ---
 
 # Notification channels
@@ -33,17 +33,17 @@ Some events generate notifications that you can deliver to the users through one
 
 ### Available notification types
 
-* [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)
-* [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
-* [`Ibexa\Contracts\OrderManagement\Notification\OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html)
-* [`Ibexa\Contracts\Payment\Notification\PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)
-* [`Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Shipping-Notification-ShipmentStatusChange.html)
-* [`Ibexa\Contracts\User\Notification\UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)
-* [`Ibexa\Contracts\User\Notification\UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)
-* [`Ibexa\Contracts\User\Notification\UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)
-* `Ibexa\Share\Notification\ContentEditInvitationNotification`
-* `Ibexa\Share\Notification\ContentViewInvitationNotification`
-* `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`
+- [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
+- [`Ibexa\Contracts\OrderManagement\Notification\OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html)
+- [`Ibexa\Contracts\Payment\Notification\PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)
+- [`Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Shipping-Notification-ShipmentStatusChange.html)
+- [`Ibexa\Contracts\User\Notification\UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)
+- [`Ibexa\Contracts\User\Notification\UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)
+- [`Ibexa\Contracts\User\Notification\UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)
+- `Ibexa\Share\Notification\ContentEditInvitationNotification`
+- `Ibexa\Share\Notification\ContentViewInvitationNotification`
+- `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`
 
 ### Available notification channels
 
@@ -53,14 +53,14 @@ You can list the notification channel services with the following command:
 php bin/console debug:container --tag=notifier.channel
 ```
 
-* `actito` - Notification forwarded as [transactional email](transactional_emails.md)
-* `browser` - Notification forwarded as [flash message]([[= symfony_doc =]]/session.html#flash-messages)
-* [`chat`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to a communication platform like Slack, Microsoft Teams, or Google Chat
-* [`desktop`]([[= symfony_doc =]]/notifier.html#desktop-channel) - Notification forwarded to desktop applications like JoliNotif
-* [`email`]([[= symfony_doc =]]/notifier.html#email-channel) - Notification forwarded to email addresses
-* `ibexa` - Notification forwarded as [back office user notifications](notifications.md#user-notifications)
-* [`push`]([[= symfony_doc =]]/notifier.html#push-channel) - Notification forwarded to specific applications
-* [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
+- `actito` - Notification forwarded as [transactional email](transactional_emails.md)
+- `browser` - Notification forwarded as [flash message]([[= symfony_doc =]]/session.html#flash-messages)
+- [`chat`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to a communication platform like Slack, Microsoft Teams, or Google Chat
+- [`desktop`]([[= symfony_doc =]]/notifier.html#desktop-channel) - Notification forwarded to desktop applications like JoliNotif
+- [`email`]([[= symfony_doc =]]/notifier.html#email-channel) - Notification forwarded to email addresses
+- `ibexa` - Notification forwarded as [back office user notifications](notifications.md#user-notifications)
+- [`push`]([[= symfony_doc =]]/notifier.html#push-channel) - Notification forwarded to specific applications
+- [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
 
 ### Subscriptions configuration
 
@@ -142,14 +142,14 @@ The [`…\Service\NotificationServiceInterface::send()`](/api/php_api/php_api_re
 - The optional second argument is an array of [`…\Value\RecipientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-RecipientInterface.html).
   This interface is implemented by the [`…\Value\Recipent\SymfonyRecipientAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-SymfonyRecipientAdapter.html)
   used to wrap `Symfony\Component\Notifier\Recipient\RecipientInterface`.
-     - This Symfony interface is implemented by [`…\Value\Recipent\UserRecipient`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipient.html)
+    - This Symfony interface is implemented by [`…\Value\Recipent\UserRecipient`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipient.html)
        which can wrap classes implementing the [`Ibexa\Contracts\Core\Repository\Values\User\UserReference` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html),
-         - The [`UserService` methods to load a user](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html#method_loadUser) are returning objects implementing this `UserReference` interface.
-         - The [`PermissionResolver::getCurrentUserReference()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_getCurrentUserReference) is returning objects implementing this `UserReference` interface.
+        - The [`UserService` methods to load a user](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html#method_loadUser) are returning objects implementing this `UserReference` interface.
+        - The [`PermissionResolver::getCurrentUserReference()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_getCurrentUserReference) is returning objects implementing this `UserReference` interface.
 
 For example, to send a notification, you often use a combination like the following:
 
-```php hl_lines="11-14"
+``` php hl_lines="11-14"
 [[= include_code('code_samples/api/notifications/notification_send.php', 2) =]]
 ```
 
@@ -204,11 +204,13 @@ For the example, the notification is sent in a back office context for all editi
 An empty template only extending the page layout is used for the demonstration.
 
 `templates/themes/admin/notification-sender-controller.html.twig`:
+
 ``` twig
 [[= include_code('code_samples/api/notifications/templates/themes/admin/notification-sender-controller.html.twig') =]]
 ```
 
 `templates/themes/storefront/notification-sender-controller.html.twig`:
+
 ``` twig
 [[= include_code('code_samples/api/notifications/templates/themes/storefront/notification-sender-controller.html.twig') =]]
 ```
@@ -263,7 +265,6 @@ Visiting this controller's route in the back office (at `/admin/notification-sen
 Visiting the controller's route in the default SiteAccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
 
 ![Notification in storefront](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
-
 
 ## Create custom channel
 

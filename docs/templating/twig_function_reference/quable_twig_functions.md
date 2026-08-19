@@ -1,7 +1,7 @@
 ---
 description: Twig functions exposed by the Quable connector.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Quable Twig functions

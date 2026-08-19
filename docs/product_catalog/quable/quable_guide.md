@@ -1,6 +1,6 @@
 ---
 description: The Quable product guide describes how you can use the product data from Quable in Ibexa DXP to create marketing campaigns built around your products.
-month_change: true
+month_change: false
 ---
 
 # Quable product guide
@@ -44,7 +44,6 @@ All product management operations remain handled in [[= pim_product_name =]].
 ### Single source of truth
 
 [[= pim_product_name =]] is the authoritative system for product data, including attributes, classifications, variants, and translations.
-
 
 [[= product_name =]] consumes this data and makes it available for use within content and back office interfaces, enabling editorial teams to enrich content by reusing product information.
 

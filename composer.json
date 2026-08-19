@@ -1,9 +1,13 @@
 {
     "name": "ibexa/documentation-developer",
-    "description": "This repository is the source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP.",
+    "description": "Ibexa DXP developer documentation as Markdown files, for offline reading and AI coding assistants working inside your project.",
     "type": "library",
+    "keywords": ["ibexa", "ibexa-dxp", "documentation", "markdown", "llm", "ai", "agents"],
     "license": "GNU General Public License v2.0",
     "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Documentation\\": "tests/"
+        }
     },
     "repositories": [
         {
@@ -15,6 +19,9 @@
         "php": "^8.3"
     },
     "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "symfony/yaml": "^7.0",
+        "ibexa/connector-gemini": "5.0.x-dev",
         "ibexa/automated-translation": "5.0.x-dev",
         "ibexa/code-style": "~2.0.0",
         "friendsofphp/php-cs-fixer": "^3.30",
@@ -52,7 +59,7 @@
         "ibexa/page-builder": "5.0.x-dev",
         "ibexa/order-management": "5.0.x-dev",
         "ibexa/calendar": "5.0.x-dev",
-        "ibexa/payment": "5.0.x-dev",
+        "ibexa/payment": "~5.0.x-dev",
         "ibexa/shipping": "5.0.x-dev",
         "ibexa/fieldtype-matrix": "5.0.x-dev",
         "ibexa/storefront": "5.0.x-dev",
@@ -87,21 +94,87 @@
         "ibexa/connector-raptor": "~5.0.x-dev",
         "ibexa/image-editor": "~5.0.x-dev",
         "ibexa/integrated-help": "~5.0.x-dev",
-        "ibexa/translations-management": "~5.0.x-dev"
+        "ibexa/translations-management": "~5.0.x-dev",
+        "ibexa/site-context": "~5.0.x-dev",
+        "ibexa/fieldtype-richtext-rte": "~5.0.x-dev",
+        "ibexa/site-factory": "~5.0.x-dev",
+        "ibexa/ckeditor-premium": "~5.0.x-dev",
+        "ibexa/measurement": "~5.0.x-dev",
+        "ibexa/connector-actito": "~5.0.x-dev",
+        "ibexa/fastly": "~5.0.x-dev",
+        "ibexa/connect": "~5.0.x-dev",
+        "ibexa/connector-qualifio": "~5.0.x-dev"
     },
     "scripts": {
-        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
-        "check-cs": "@fix-cs --dry-run",
-        "phpstan": "phpstan analyse",
-        "deptrac": "deptrac analyse",
-        "check-rector": "rector process --dry-run --ansi"
+        "fix-cs": [
+            "php tools/extract-inline-php.php",
+            "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+            "php-cs-fixer fix --config=.php-cs-fixer-inline.php -v --show-progress=dots",
+            "php tools/sync-inline-php-to-markdown.php"
+        ],
+        "check-cs": [
+            "php tools/extract-inline-php.php",
+            "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots --dry-run",
+            "php-cs-fixer fix --config=.php-cs-fixer-inline.php -v --show-progress=dots --dry-run"
+        ],
+        "phpstan": "php tools/extract-inline-php.php && phpstan analyse",
+        "deptrac": "php tools/extract-inline-php.php && deptrac analyse",
+        "fix-rector": [
+            "php tools/extract-inline-php.php",
+            "rector process --ansi",
+            "php tools/sync-inline-php-to-markdown.php"
+        ],
+        "check-rector": "php tools/extract-inline-php.php && rector process --dry-run --ansi",
+        "check-yaml": "phpunit --group yaml",
+        "phpunit": "phpunit --exclude-group=yaml",
+        "yaml-update-baseline": "php tests/generate-yaml-baseline.php",
+        "phpstan-update-baseline": "@phpstan --generate-baseline",
+        "deptrac-update-baseline": "@deptrac --formatter=baseline",
+        "composer-update": "[ -d vendor ] || composer update",
+        "yarn-install": "[ -d node_modules ] || yarn install",
+        "markdownlint": [
+            "@yarn-install",
+            "yarn markdownlint"
+        ],
+        "fix-markdownlint": [
+            "@yarn-install",
+            "yarn markdownlint --fix"
+        ],
+        "test": [
+            "@composer-update",
+            "EXIT=0; FAILED=''; { composer check-cs; } || { EXIT=1; FAILED=\"$FAILED check-cs\"; }; { composer phpstan; } || { EXIT=1; FAILED=\"$FAILED phpstan\"; }; { composer deptrac; } || { EXIT=1; FAILED=\"$FAILED deptrac\"; }; { composer check-rector; } || { EXIT=1; FAILED=\"$FAILED check-rector\"; }; { composer markdownlint; } || { EXIT=1; FAILED=\"$FAILED markdownlint\"; }; { composer check-yaml; } || { EXIT=1;  FAILED=\"$FAILED check-yaml\"; }; if [ 1 -eq $EXIT ]; then echo \"Failed:$FAILED\"; fi; exit $EXIT;"
+        ],
+        "fix": [
+            "@composer-update",
+            "@composer fix-rector",
+            "@composer fix-cs",
+            "@composer fix-markdownlint"
+        ],
+        "baseline": [
+            "@composer-update",
+            "@composer phpstan-update-baseline",
+            "@composer deptrac-update-baseline",
+            "@composer yaml-update-baseline"
+        ]
     },
     "scripts-descriptions": {
         "fix-cs": "Automatically fixes code style in all files",
         "check-cs": "Run code style checker for all files",
         "phpstan": "Run static code analysis",
         "deptrac": "Run Deptrac architecture testing",
-        "check-rector": "Check for code refactoring opportunities"
+        "fix-rector": "Automatically applies Rector refactoring to code samples and syncs back to Markdown",
+        "check-rector": "Check for code refactoring opportunities",
+        "check-yaml": "Run PHPUnit tests (YAML validation)",
+        "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures",
+        "phpstan-update-baseline": "Regenerate PHPStan baseline from current failures",
+        "deptrac-update-baseline": "Regenerate Deptrac baseline from current failures",
+        "composer-update": "Install composer dependencies if not already installed",
+        "yarn-install": "Install yarn dependencies if not already installed",
+        "markdownlint": "Run Markdownlint on all documentation files",
+        "fix-markdownlint": "Automatically fixes Markdownlint issues in all documentation files",
+        "test": "Run all checks (CS-Fixer, PHPStan, Deptrac, Rector, Markdownlint, YAML checks), continuing past failures and reporting failure overall if any check failed",
+        "fix": "Run all automatic fixes (Rector, CS-Fixer, Markdownlint)",
+        "baseline": "Regenerate all baselines (PHPStan, Deptrac, YAML) from current failures"
     },
     "config": {
         "allow-plugins": false

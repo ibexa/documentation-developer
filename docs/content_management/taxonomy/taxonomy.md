@@ -18,10 +18,10 @@ The associated content type is `tag`.
 
 ## Configuration keys
 
-* `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
-* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new content items representing tags are created
-* `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
-* `ibexa_taxonomies.tags.field_mappings` - field types map of a content type which taxonomy receives information about the tag from.
+- `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
+- `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new content items representing tags are created
+- `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
+- `ibexa_taxonomies.tags.field_mappings` - field types map of a content type which taxonomy receives information about the tag from.
 
 Three fields are available: `identifier`, `parent` and `name`.
 The identifiers correspond to field names defined in the content type. The `name` field is used to automatically generate an identifier.
@@ -42,15 +42,16 @@ Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration
 Replace `<content_categories_remote_id>` with the new container's location remote ID.
 
 Translate the configuration identifier in the `ibexa_taxonomy` domain by, for example, creating a `translations/ibexa_taxonomy.en.yaml` file containing the following:
+
 ```yaml
 taxonomy.content_categories: 'Content categories'
 ```
 
 Then, create a content type with `content_category` identifier and include the following field definitions:
 
-* `name` of `ibexa_string` type and required. Use this field, as `<name>`, for content name pattern.
-* `category_identifier` of `ibexa_string` type and required.
-* `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
+- `name` of `ibexa_string` type and required. Use this field, as `<name>`, for content name pattern.
+- `category_identifier` of `ibexa_string` type and required.
+- `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
 
 Finish taxonomy setup by creating a new Content category named Root with identifier `content_categories_root` under the previously created container folder named Content categories.
 
@@ -132,7 +133,7 @@ When it happens, the `Ibexa\Taxonomy\ActionHandler\TextToTaxonomyActionHandler` 
 
 !!! note "Field selection"
 
-    You select the actual text fields, whose values are used as source for the embedding generation, when you create an [AI action](https://doc.ibexa.co/projects/userguide/en/latest/ai_actions/work_with_ai_actions/#create-ai-actions-that-use-ibexa-connect) that uses the `text-to-taxonomy` handler.
+    You select the actual text fields, whose values are used as source for the embedding generation, when you create an [AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-use-ibexa-connect) that uses the `text-to-taxonomy` handler.
 
 The search engine then compares the generated embedding with the taxonomy path embeddings stored in its index.
 By default, it selects the three best-matching taxonomy paths and presents them to the editor as suggestions.
@@ -177,7 +178,7 @@ php bin/console ibexa:reindex
 
 Once you enable the Taxonomy suggestions feature, you must [configure an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions) that handles the generation of embeddings for newly created or edited content items or products.
 
-That's where you decide which exact fields from which content type should be used as input for embedding generation, how many suggestions are being presenter to the editor, and so on. 
+That's where you decide which exact fields from which content type should be used as input for embedding generation, how many suggestions are being presenter to the editor, and so on.
 
 After you do it, your users are be able to assign tags and/or product categories by using suggestions provided by an AI engine.
 
@@ -191,10 +192,9 @@ By default, the system returns three suggestions.
 You can change the default number if needed by altering the following setting:
 
 ``` yaml hl_lines="4"
-ibexa:
-  taxonomy:
+ibexa_taxonomy:
     text_to_taxonomy:
-      default_suggested_taxonomies_limit: 5
+        default_suggested_taxonomies_limit: 5
 ```
 
 You can also override this setting per AI action by editing its configuration.
@@ -259,7 +259,7 @@ ibexa:
     When you change the default suggestions generation model, ensure that you update the `ibexa.system.default.taxonomy.search.default_embedding_model` setting that is used for taxonomy indexing purposes.
     Otherwise the taxonomy suggestions feature fails to find matching entries.
 
-#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]] 
+#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]]
 
 Once you have installed and configured the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://ai.google.dev/gemini-api/docs/embeddings):
 

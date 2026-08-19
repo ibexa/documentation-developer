@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -32,7 +32,7 @@ First, run:
 
 Then execute the instructions below starting from the version you're upgrading from.
 
-!!! caution
+!!! caution "Deprecation messages on PHP 8.2 and newer"
 
     To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
 
@@ -43,13 +43,17 @@ Then execute the instructions below starting from the version you're upgrading f
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
+!!! caution "Security advisories"
+
+    If you encounter security advisories that prevent the update, see [Package security advisories](security_advisories.md#package-security-advisories).
+
 ## v4.6.1
 
 No additional steps needed.
 
 ## v4.6.2
 
-#### Database update
+### Database update
 
 Run the following scripts:
 
@@ -70,7 +74,7 @@ Run the following scripts:
 ### Notification config update
 
 The configuration of the package `ibexa/notifications` has changed.
-This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
+This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/4.6/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
 
 If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
 
@@ -102,7 +106,7 @@ ibexa:
 
 ## v4.6.4
 
-#### Database update
+### Database update
 
 Run the following scripts:
 
@@ -161,8 +165,11 @@ merge with your custom settings if needed, and commit them to Git.
 
 If the new bundle `ibexa/core-search` has not been added by the recipes, enable it by adding the following line in `config/bundles.php`:
 
-```php
+``` php
+return [
+    // ...
     Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
+];
 ```
 
 ## v4.6.13
@@ -170,6 +177,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
+
 ``` bash
 php bin/console ibexa:content:remove-duplicate-fields
 ```
@@ -191,7 +199,7 @@ You can customize the behavior of the command with the following options:
 This release contains security fixes.
 For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
 For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
-If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
 
 #### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
 
@@ -303,7 +311,7 @@ No additional steps needed.
 ### Security
 
 This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
-By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe).
 To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
 
 For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
@@ -326,19 +334,22 @@ You can use it to get rid of PHP code deprecations and start preparing your proj
 
 To get started with [[= product_name_base =]] Rector, execute the following steps:
 
-1. Add the Composer dependency:
+1\. Add the Composer dependency:
+
 ``` bash
 composer require --dev ibexa/rector:^4.6
 ```
 
-2. Adjust the created `rector.php` configuration file to match your project structure
+2\. Adjust the created `rector.php` configuration file to match your project structure
 
-3. Run Rector in the dry-run mode to preview the changes: 
+3\. Run Rector in the dry-run mode to preview the changes:
+
 ``` bash
 vendor/bin/rector --dry-run
 ```
 
-4. Run Rector:
+4\. Run Rector:
+
 ``` bash
 vendor/bin/rector
 ```
@@ -474,7 +485,7 @@ composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]] --with-all-dependen
 Upgrade your Elasticsearch server to version 8.19 or higher.
 For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://developer.upsun.com/docs/add-services/elasticsearch) for a list of supported versions.
 
 #### Update configuration
 
@@ -672,25 +683,33 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 
 For more information, see the following security advisories:
 
-* [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
-* [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
-* [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
-* [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
-* [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
-* [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
-* [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
-* [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
-* [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
-* [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
-* [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
-* [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
-* [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
-* [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
-* [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
-* [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
-* [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+- PHP 8.0 and PHP 7.4
+    - [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
+    - [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
+    - [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
+    - [PKSA-wwb1-81rc-pd65](https://packagist.org/security-advisories/PKSA-wwb1-81rc-pd65)
+    - [PKSA-hgmw-wn4d-hpcy](https://packagist.org/security-advisories/PKSA-hgmw-wn4d-hpcy)
+    - [PKSA-kvv6-36cr-fkzb](https://packagist.org/security-advisories/PKSA-kvv6-36cr-fkzb)
+    - [PKSA-n14z-jjjg-g8vd](https://packagist.org/security-advisories/PKSA-n14z-jjjg-g8vd)
+    - [PKSA-3mcc-k66d-pydb](https://packagist.org/security-advisories/PKSA-3mcc-k66d-pydb)
+    - [PKSA-gw7n-z4yx-7xjt](https://packagist.org/security-advisories/PKSA-gw7n-z4yx-7xjt)
+    - [PKSA-dpx1-78wg-1kqs](https://packagist.org/security-advisories/PKSA-dpx1-78wg-1kqs)
+    - [PKSA-21g2-dzjv-sky5](https://packagist.org/security-advisories/PKSA-21g2-dzjv-sky5)
+    - [PKSA-yhcn-xrg3-68b1](https://packagist.org/security-advisories/PKSA-yhcn-xrg3-68b1)
+    - [PKSA-2wrf-1xmk-1pky](https://packagist.org/security-advisories/PKSA-2wrf-1xmk-1pky)
+    - [PKSA-6319-ffpf-gx66](https://packagist.org/security-advisories/PKSA-6319-ffpf-gx66)
+    - [PKSA-n7sg-8f52-pqtf](https://packagist.org/security-advisories/PKSA-n7sg-8f52-pqtf)
+    - [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
+    - [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
+    - [PKSA-fs5b-x5k4-1h39](https://packagist.org/security-advisories/PKSA-fs5b-x5k4-1h39)
+- PHP 7.4 only
+    - [PKSA-fbvq-z33h-r2np](https://packagist.org/security-advisories/PKSA-fbvq-z33h-r2np)
+    - [PKSA-g9zw-qxh8-pq8w](https://packagist.org/security-advisories/PKSA-g9zw-qxh8-pq8w)
+    - [PKSA-yd6k-t2gh-1m43](https://packagist.org/security-advisories/PKSA-yd6k-t2gh-1m43)
+    - [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
+    - [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
-To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
+To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version.
 
 For projects meeting this requirement, you can update the packages with Composer.
 
@@ -706,35 +725,14 @@ Then, update Ibexa DXP.
 
 If updating the Twig packages isn't possible, for example, because the project is using PHP 7.4 or 8.0 where the fixes are not available, review the security issues carefully and assess the danger.
 
-If you choose to implement countermeasures without upgrading PHP and updating Twig, you can silence the advisories in `composer.json`:
-
-```json
-"config": {
-    "audit": {
-        "ignore": {
-            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
-        }
-    }
-}
-```
+If you choose to implement countermeasures without upgrading PHP and updating Twig, you can silence the advisories in `composer.json`.
+For more information, see [Package security advisories](security_advisories.md#package-security-advisories).
 
 In addition, consider upgrading your project to one of [the actively supported PHP versions](requirements.md#php).
+
+## v4.6.31
+
+No additional steps needed.
 
 ## LTS Updates
 
@@ -988,7 +986,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
 
-    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/latest/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
 
     If you're already using it, run the following command to get the latest version of this feature:
 

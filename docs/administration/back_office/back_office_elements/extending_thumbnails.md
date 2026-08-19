@@ -41,7 +41,7 @@ This mechanism can be modified to fit your site needs, so you can decide from wh
 First, create base strategy for returning custom thumbnails from a static file.
 Create `StaticStrategy.php` in `src/Strategy`.
 
-```php
+``` php
 [[= include_code('code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php') =]]
 ```
 
@@ -60,7 +60,6 @@ At this point you can go to the back office and check the results.
     This strategy overrides all generated thumbnails. You can specify a specific content type.
     See the example [here](https://github.com/ibexa/user/blob/5.0/src/lib/Strategy/DefaultThumbnailStrategy.php)
 
-
 ## Other fields as thumbnails
 
 Any field type can generate a thumbnail, for example:
@@ -75,16 +74,16 @@ It enables you to add a thumbnail URL in the text field.
 
 Add `FieldValueUrl.php` in `src/Thumbnails`.
 
-```php
+``` php
 <?php
 
 declare(strict_types=1);
 
 namespace App\Thumbnails;
 
+use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
 use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
-use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
 use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
 
 class FieldValueUrl implements FieldTypeBasedThumbnailStrategy

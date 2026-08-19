@@ -14,12 +14,16 @@ The ProductStockRangeAggregation aggregates search results by products' numerica
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductStockRangeAggregation;
+
 $productQuery = new ProductQuery();
 $productQuery->setAggregations([
     new ProductStockRangeAggregation('stock', [
-        new Range(null, 10),
-        new Range(10, 100),
-        new Range(100, null),
+        Range::ofInt(null, 10),
+        Range::ofInt(10, 100),
+        Range::ofInt(100, null),
     ]),
 ]);
 ```

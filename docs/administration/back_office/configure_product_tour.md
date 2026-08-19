@@ -1,7 +1,7 @@
 ---
 description: Configure custom product tour scenarios with steps, blocks, and interaction modes.
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # Configure product tour scenarios

@@ -10,7 +10,7 @@ To edit your new field type, create a `Point2DType.php` form in the `src/Form/Ty
 Next, add a `Point2DType` class that extends the `AbstractType` and implements the `buildForm()` method.
 This method adds fields for `x` and `y` coordinates.
 
-```php
+``` php
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 0, 18) =]][[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 25, 26) =]]
 ```
 
@@ -31,14 +31,14 @@ Next, implement a `mapFieldValueForm()` method and invoke `FormInterface::add` m
 
 Final version of the Type class should have the following statements and functions:
 
-```php hl_lines="7 10 19-26"
+``` php hl_lines="7 10 19-26"
 [[= include_code('code_samples/field_types/2dpoint_ft/steps/step_3/Type.php') =]]
 ```
 
 Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class` in `src/Form/Type/Point2DType.php`.
 It allows your form to work on this object.
 
-```php hl_lines="20-25"
+``` php hl_lines="20-25"
 [[= include_code('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php') =]]
 ```
 

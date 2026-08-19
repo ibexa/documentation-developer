@@ -94,7 +94,7 @@ When the location of a content item is hidden, the system doesn't display it on 
 
 !!! caution "Visibility and permissions"
 
-    The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+    The [visibility switcher](locations.md#location-visibility) is a convenient feature for withdrawing content from the frontend.
     It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
     It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
@@ -130,7 +130,7 @@ If the ancestor location is made visible again, the first location still remains
 
 The way visibility works can be illustrated using the following scenarios:
 
-#### Hiding a visible location
+### Hiding a visible location
 
 ![Hiding a visible location](node_visibility_hide.png)
 
@@ -138,14 +138,14 @@ When you hide a location that was visible before, it gets the status Hidden.
 Its child locations are Hidden by superior.
 The visibility status of child locations that were already Hidden or Hidden by superior doesn't change.
 
-#### Hiding a location which is Hidden by superior
+### Hiding a location which is Hidden by superior
 
 ![Hiding a location which is Hidden by superior](node_visibility_hide_invisible.png)
 
 When you explicitly hide a location which was Hidden by superior, it gets the status Hidden.
 Since the underlying locations are already either Hidden or Hidden by superior, their visibility status doesn't changed.
 
-#### Revealing a location with a visible ancestor
+### Revealing a location with a visible ancestor
 
 ![Revealing a location with a visible ancestor](node_visibility_unhide1.png)
 
@@ -153,7 +153,7 @@ When you reveal a location which has a visible ancestor, this location and its c
 However, child locations that were explicitly hidden by a user keep their Hidden status
 (and their children remain Hidden by superior).
 
-#### Revealing a location with a Hidden ancestor
+### Revealing a location with a Hidden ancestor
 
 ![Revealing a location with a Hidden ancestor](node_visibility_unhide2.png)
 

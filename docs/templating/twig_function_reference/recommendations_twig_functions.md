@@ -29,6 +29,7 @@ Default setup:
 ``` html+twig
 {{ ibexa_tracking_script() }}
 ```
+
 Example setup using parameters:
 
 ``` html+twig
@@ -37,6 +38,8 @@ Example setup using parameters:
 
 If the custom `customerId` parameter is not set, the function uses the `customerID` from the [connector configuration](connector_installation_configuration.md#siteaccess-aware-configuration) to render the tracking script.
 It can be overridden by providing a custom value if needed.
+
+### Handle tracking consent
 
 If the `hasConsented` parameter is set to `true` in the template, the tracking script is initialized automatically.
 This value should be set if user consent for tracking cookies is already known at render time.
@@ -69,22 +72,109 @@ ibexa_tracking_track_event(
 )
 ```
 
-- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
+- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-parameters-reference).
 - **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, see [tracking event examples](#tracking-events).
-- **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
+- **context** (optional)- type: array, additional event data, such as quantity, basket details, [website ID](#websiteid-parameter), or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
 
-#### Tracking events
+### `websiteId` parameter
+
+The `websiteId`, also known as a **Login ID**, (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
+
+When storing customer data in an external Customer Relationship Management (CRM) system, set the `websiteId` to an identifier of the customer stored there.
+
+The following example shows how you pass that value, assuming a custom Twig function `get_custom_crm_identifier` integrating with that CRM exists:
+
+``` html+twig
+{# Section rendered only for logged-in users #}
+{{ ibexa_tracking_track_event('visit', product, {
+    websiteId: get_custom_crm_identifier(ibexa_user_get_current().login)
+}) }}
+```
+
+Set the `websiteId` parameter for logged-id users, for which you have data uniquely identifying them.
+The value of this parameter serves as a persistent, cross-device identifier of the user.
+Example values are [User ID](https://content.raptorservices.com/help-center/user-tracking-understanding-soft-ids-hard-ids-raptor-identity-matching#:~:text=IDs%3A-,UserId%20%28Website%20ID) or the Cookie ID.
+
+The value of `websiteId` parameter is resolved in the following order:
+
+1. Explicit `websiteId` passed in the `ibexa_tracking_track_event()` context.
+2. Custom [`WebsiteIdContextProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ContextProvider-WebsiteIdContextProviderInterface.html) implementations (the first one returning a non-null value wins).
+3. The built-in provider, which uses the logged-in user's identifier (`ruid`).
+
+If no value is resolved, the event is sent without the `p7` parameter.
+
+To resolve `websiteId` on the project level, implement the interface as follows:
+
+``` php
+namespace App\Tracking;
+
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ContextProvider\WebsiteIdContextProviderInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
+
+final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProviderInterface
+{
+    public function __construct(
+        private ConfigResolverInterface $configResolver,
+        private PermissionResolver $permissionResolver,
+    ) {
+    }
+
+    public function getWebsiteId(): ?string
+    {
+        $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
+        // Don't resolve for anynomous user
+        if ($this->isAnonymousUser($currentUserId)) {
+            return null;
+        }
+
+        return $this->getWebsiteUserIdForCurrentUser($currentUserId);
+    }
+
+    /**
+     * @phpstan-return non-empty-string
+     */
+    private function getWebsiteUserIdForCurrentUser(int $userId): string
+    {
+        // Implement custom logic resolving user identifier from the CRM
+        return 'custom-identifier-for-the-user-retrieved-from-the-CRM';
+    }
+
+    private function isAnonymousUser(int $userId): bool
+    {
+        return (int) $this->configResolver->getParameter('anonymous_user_id') === $userId;
+    }
+}
+```
+
+The provider is registered automatically.
+Implementing the interface is sufficient, no service configuration is required.
+
+!!! note
+
+    Custom provider takes precedence over the built-in one.
+    A provider must return either `null` or a non-empty string.
+
+If you register multiple providers, control their order by tagging the service with a priority (higher priority is checked first):
+
+``` yaml
+App\Tracking\MyWebsiteIdProvider:
+    tags:
+        - { name: ibexa.connector.raptor.tracking.website_id_context_provider, priority: 50 }
+```
+
+### Tracking events
 
 The following events are supported and can be triggered from Twig templates:
 
-### `pageview` event
+#### `pageview` event
 
-The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference#:~:text=Event%20Specifications%20%28Full%20Reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
+The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
 
 Use it for basic page metrics and debugging the Live Tracking Stream.
 
-### Product `visit` event
+#### Product `visit` event
 
 This event tracks product page visits by users.
 It's the most common e-commerce tracking event used to capture product views for analytics, recommendation models, and user behavior processing.
@@ -99,7 +189,7 @@ Example:
 [[= include_file('code_samples/recommendations/events/product_visit_event.html.twig') =]]
 ```
 
-### `contentvisit` event
+#### `contentvisit` event
 
 This event tracks content page visits by users.
 It implements [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) and can be used to check content views for analytics, personalization, and user behavior tracking.
@@ -112,7 +202,7 @@ Example:
 [[= include_file('code_samples/recommendations/events/content_visit_event.html.twig') =]]
 ```
 
-### Product `buy` event
+#### Product `buy` event
 
 This event tracks when a product is bought.
 
@@ -123,7 +213,7 @@ This event tracks when a product is bought.
 [[= include_file('code_samples/recommendations/events/buy_event.html.twig') =]]
 ```
 
-### Product `basket` event
+#### Product `basket` event
 
 This event tracks when a product is added to the [cart](cart.md).
 
@@ -140,7 +230,7 @@ Example:
 [[= include_file('code_samples/recommendations/events/basket_event.html.twig') =]]
 ```
 
-### `itemclicked` event
+#### `itemclicked` event
 
 This event tracks when a user clicks a Raptor recommendation, including adding products to the cart from the recommendation module.
 

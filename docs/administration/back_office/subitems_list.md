@@ -10,7 +10,7 @@ It provides an interface for listing the sub-items of any location.
 
 ## Create custom sub-items list view
 
-You can extend the Sub-items List module to replace an existing view or add your own. 
+You can extend the Sub-items List module to replace an existing view or add your own.
 The example below adds a new timeline view to highlight the modification date.
 
 ![Sub-items List module using the new Timeline view](img/subitems/timeline_view.png "Sub-items List module using the new Timeline view")

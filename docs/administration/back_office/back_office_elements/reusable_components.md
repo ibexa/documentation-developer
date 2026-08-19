@@ -54,7 +54,7 @@ Variables:
 |Name|Type|Values|
 |----|----|-----------|
 |`headline` (optional)|string|if not specified, the header isn't rendered|
-|`headline_items`|array|
+|`headline_items`|array| |
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|hash|{`label`, `content_raw`, `content`}|
 
@@ -134,7 +134,6 @@ The table component consists of the following blocks:
 - `table` - the table itself
 - `thead` - table header content
 - `tbody` - table body content
-
 
 ### Override specific cell
 
@@ -250,7 +249,6 @@ See the example:
 ```
 
 - `empty_table_info_text` and `empty_table_action_text` specify texts which are displayed when the table is empty.
-
 
 ```html+twig
 {{ form_start(form_remove, {

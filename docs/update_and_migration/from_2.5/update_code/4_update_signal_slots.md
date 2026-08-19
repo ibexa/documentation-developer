@@ -11,12 +11,12 @@ for example:
 
 **Use:**
 
-``` php
+``` php {skip-validation}
 public static function getSubscribedEvents(): array
 {
     return [
         CreateBookmarkEvent::class => 'onCreateBookmark',
-    ]
+    ];
 }
 
 public function onCreateBookmark(CreateBookmarkEvent $event): void
@@ -27,13 +27,13 @@ public function onCreateBookmark(CreateBookmarkEvent $event): void
 
 **instead of:**
 
-``` php
+``` php {skip-validation}
 public function receive(Signal $signal)
 {
     if (!($signal instanceof CreateBookmarkSignal)) {
         return;
     }
-}
 
-// your code
+    // your code
+}
 ```

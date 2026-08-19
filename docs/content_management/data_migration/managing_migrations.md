@@ -1,6 +1,6 @@
 ---
 description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
-month_change: false
+month_change: true
 ---
 
 # Managing migrations
@@ -50,7 +50,7 @@ You can configure a different folder by using the following settings:
 
 ``` yaml
 ibexa_migrations:
-    migration_directory: %kernel.project_dir%/src/Migrations/MyMigrations/
+    migration_directory: '%kernel.project_dir%/src/Migrations/MyMigrations/'
     migrations_files_subdir: migration_files
 ```
 
@@ -64,7 +64,6 @@ ibexa_migrations:
     ``` yaml
     ibexa_migrations:
         migration_directory: '%kernel.project_dir%/data/<repository>'
-        ...
     ```
 
     Then, when you run the migration command, you must use the [`--siteaccess` option](exporting_data.md#siteaccess) and provide the name of the SiteAccess that you want to migrate.
@@ -168,17 +167,36 @@ The order of migration steps matters - they are executed sequentially from top t
     filename: 'references/new_references.yaml'
 ```
 
+You can also set a reference value manually with the `set` mode, and use the `list` mode to print all references collected so far to the migration log:
+
+```yaml
+-
+    type: reference
+    mode: set
+    name: parent_location_id
+    value: 2
+
+-
+    type: reference
+    mode: list
+```
+
 ## Available reference types
 
 - `content`
-    - content_id
-    - location_id
-    - path
+    - `content_id`
+    - `location_id`
+    - `path`
 - `content_type`
-    - content_type_id
+    - `content_type_id`
 - `language`
-    - language_id
+    - `language_id`
+    - `language_code`
 - `role`
-    - role_id
+    - `role_id`
+- `section`
+    - `section_id`
+- `user`
+    - `user_id`
 - `user_group`
-    - user_group_id
+    - `user_group_id`

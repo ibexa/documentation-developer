@@ -5,6 +5,7 @@ set +x
 baseUrl='http://localhost' # Adapt to your test case
 username='ibexa-example'
 password='Ibexa-3xample'
+mcpServer="$baseUrl/mcp/example"
 
 curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
@@ -22,7 +23,7 @@ cat response.tmp.txt | jq
 jwtToken=$(cat response.tmp.txt | jq -r .JWT.token)
 rm response.tmp.txt
 
-curl -s -i -X 'POST' "$baseUrl/mcp/example" \
+curl -s -i -X 'POST' "$mcpServer" \
   -H "Authorization: Bearer $jwtToken" \
   -d '{
         "jsonrpc": "2.0",
@@ -40,10 +41,10 @@ curl -s -i -X 'POST' "$baseUrl/mcp/example" \
 
 sed '$d' response.tmp.txt
 tail -n 1 response.tmp.txt | jq
-mcpSessionId=$(cat response.tmp.txt | grep 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/')
+mcpSessionId=$(cat response.tmp.txt | grep -i 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/i')
 rm response.tmp.txt
 
-curl -s -i -X 'POST' "$baseUrl/mcp/example" \
+curl -s -i -X 'POST' "$mcpServer" \
   -H "Authorization: Bearer $jwtToken" \
   -H "Mcp-Session-Id: $mcpSessionId" \
   -d '{
@@ -51,7 +52,7 @@ curl -s -i -X 'POST' "$baseUrl/mcp/example" \
         "method": "notifications/initialized"
       }'
 
-curl -s -X 'POST' "$baseUrl/mcp/example" \
+curl -s -X 'POST' "$mcpServer" \
   -H "Authorization: Bearer $jwtToken" \
   -H "Mcp-Session-Id: $mcpSessionId" \
   -d '{
@@ -60,7 +61,7 @@ curl -s -X 'POST' "$baseUrl/mcp/example" \
         "method": "tools/list"
       }' | jq
 
-curl -s -X 'POST' "$baseUrl/mcp/example" \
+curl -s -X 'POST' "$mcpServer" \
   -H "Authorization: Bearer $jwtToken" \
   -H "Mcp-Session-Id: $mcpSessionId" \
   -d '{
@@ -75,7 +76,7 @@ curl -s -X 'POST' "$baseUrl/mcp/example" \
         }
       }' | jq
 
-curl -s -X 'POST' "$baseUrl/mcp/example" \
+curl -s -X 'POST' "$mcpServer" \
   -H "Authorization: Bearer $jwtToken" \
   -H "Mcp-Session-Id: $mcpSessionId" \
   -d '{
@@ -84,7 +85,7 @@ curl -s -X 'POST' "$baseUrl/mcp/example" \
         "method": "prompts/list"
       }' | jq
 
-curl -s -X 'POST' "$baseUrl/mcp/example" \
+curl -s -X 'POST' "$mcpServer" \
   -H "Authorization: Bearer $jwtToken" \
   -H "Mcp-Session-Id: $mcpSessionId" \
   -d '{

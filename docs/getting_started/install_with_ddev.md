@@ -1,5 +1,6 @@
 ---
 description: Install Ibexa DXP with Docker and DDEV to use it for development.
+month_change: true
 ---
 
 # Install with DDEV
@@ -94,6 +95,44 @@ You can configure [Symfony Mailer]([[= symfony_doc =]]/mailer.html) to use the [
 
 ```bash
 ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
+```
+
+#### Configure scheduled tasks (optional)
+
+You can [schedule tasks](install_ibexa_dxp.md#schedule-tasks) using [DDEV Cron add-on](https://addons.ddev.com/addons/ddev/ddev-cron).
+
+```bash
+ddev add-on get ddev/ddev-cron
+basedir='/var/www/html'
+echo "* * * * * cd $basedir && php bin/console ibexa:cron:run --quiet --env=prod" >> .ddev/web-build/ibexa.cron
+ddev restart
+```
+
+For more schedulable tasks and ways to schedule them, see [Additional scheduled tasks and advanced usage](install_ibexa_dxp.md#additional-scheduled-tasks-and-advanced-usage).
+
+You can run the following command to check Cron:
+
+```bash
+ddev exec crontab -l
+```
+
+#### Configure background tasks (optional)
+
+You can launch [Ibexa Messenger](background_tasks.md) on DDEV project start.
+Create or edit a DDEV config file, for example `.ddev/config.hooks.yaml`, and add the following [hook](https://docs.ddev.com/en/stable/users/configuration/hooks/):
+
+```yaml
+hooks:
+  post-start:
+    - exec-host: ddev exec "php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=admin --silent" &
+```
+
+You can change the verbosity and redirect the output if you want to log into a file:
+
+```yaml
+hooks:
+  post-start:
+    - exec-host: ddev exec "php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=admin -vv > var/log/messenger.log 2>&1" &
 ```
 
 #### Enable Mutagen (optional)
@@ -210,7 +249,6 @@ DDEV offers several ways to get the same result, offering different levels of fl
 
     Learn more about DDEV configuration from [`ddev config` command documentation](https://docs.ddev.com/en/stable/users/usage/commands/#config) and [advanced configuration files documentation](https://docs.ddev.com/en/stable/users/configuration/config/).
 
-
 ### Using `auth.json`
 
 An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://docs.ddev.com/en/stable/users/extend/in-container-configuration/).
@@ -231,6 +269,7 @@ The following example shows the use of `.env.local` with database configuration:
 
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
+
   ```bash
   ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
@@ -355,7 +394,7 @@ ddev restart
 Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/5.0/scripts/vhost.sh):
 
 ```bash
-curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh
+curl -O https://raw.githubusercontent.com/ibexa/docker/5.0/scripts/vhost.sh
 bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apache2/vhost.template \
   --ip='*' \
   --host-name='my-ddev-project.ddev.site' \

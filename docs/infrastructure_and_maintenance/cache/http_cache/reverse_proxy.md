@@ -56,7 +56,7 @@ For reverse proxies to work properly with your installation, you need to add the
     - `ibexa_user_hash.vcl` as another custom VCL
     - `snippet_re_enable_shielding.vcl` as snippet
 
-The provided `.vcl` files work both with [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding) enabled and without it.
+The provided `.vcl` files work both with [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/) enabled and without it.
 If you decide to use Fastly VCL, consider using [Fastly CLI](https://www.fastly.com/documentation/reference/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
@@ -90,8 +90,11 @@ framework:
     On Upsun, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
 
-    ```php
-    Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
+    ``` php
+    use Symfony\Component\HttpFoundation\Request;
+
+    /** @var \Symfony\Component\HttpFoundation\Request $request */
+    Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_HOST | Request::HEADER_X_FORWARDED_PROTO | Request::HEADER_X_FORWARDED_PORT);
     ```
 
     When trusting remote IP like this, make sure your application is only accessible through Varnish.
@@ -142,14 +145,17 @@ ibexa:
 If the Varnish server is protected by Basic Auth, specify the Basic Auth credentials within the `purge_servers` setting using the format:
 
 ``` yaml
+ibexa:
+    system:
+        my_siteaccess_group:
             http_cache:
                 purge_servers: [http://myuser:mypasswd@my.varnish.server:8081]
 ```
 
-Varnish is enabled by default when using [[= product_name_cloud =]] and the `purge_servers` setting is set automatically. 
+Varnish is enabled by default when using [[= product_name_cloud =]] and the `purge_servers` setting is set automatically.
 To enable Basic Auth on [[= product_name_cloud =]] when using Varnish, specify the credentials using the following environment variables to make sure that Varnish is reachable:
 
-```
+``` bash
 env:HTTPCACHE_USERNAME=myuser
 env:HTTPCACHE_PASSWORD=mypasswd
 ```
@@ -195,14 +201,14 @@ If you created a custom Captcha block for your site by overriding the default fi
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/5.0/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+As a result, your file should be similar to `vendor/ibexa/form-builder/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig` file.
 
 For more information about configuring Captcha fields, see [Captcha field](work_with_forms.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 
 [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
-To learn how it works, see [Fastly documentation](https://www.fastly.com/documentation/guides/getting-started/concepts/using-fastlys-global-pop-network).
+To learn how it works, see [Fastly documentation](https://www.fastly.com/documentation/guides/getting-started/concepts/using-fastlys-global-pop-network/).
 
 #### Configure Fastly in YML
 
@@ -247,7 +253,7 @@ To get the service ID, log in to https://www.fastly.com/.
 In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/account-management/using-api-tokens).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/user-and-account-management/using-api-tokens/).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples

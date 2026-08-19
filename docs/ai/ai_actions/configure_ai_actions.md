@@ -46,7 +46,7 @@ composer require ibexa/connector-anthropic
 
 If not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
-``` php
+``` php {skip-validation}
     Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => ['all' => true],
 ```
 
@@ -54,13 +54,13 @@ This adds the feature code, including basic handlers that let you refine text or
 
 To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
-1. Log in to your [Anthropic Claude console](https://console.anthropic.com/login).
+1. Log in to your [Anthropic Claude console](https://platform.claude.com/login).
 
 2. Go to **API keys** and click **Create Key**.
 
-4. Select the workspace, enter a **Key Name** and click **Add**.
+3. Select the workspace, enter a **Key Name** and click **Add**.
 
-5. Take a note of the API key, because it is displayed only once.
+4. Take a note of the API key, because it is displayed only once.
 
 Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
 
@@ -70,7 +70,7 @@ ANTHROPIC_API_KEY=<your_api_key>
 ###< ibexa/connector-anthropic ###
 ```
 
-By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://docs.claude.com/en/docs/about-claude/models/overview) model.
+By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://platform.claude.com/docs/en/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
 To do it, in `config/packages` folder, create a YAML file similar to this example:
@@ -87,12 +87,13 @@ ibexa_connector_anthropic:
             claude-opus-4-6: 'Claude Opus 4.6 (advanced reasoning)'
             claude-opus-4-7: 'Claude Opus 4.7 (most capable)'
 ```
+
 You can now use the Anthropic connector in your project.
 
 !!! note "Current model availability"
 
     Anthropic regularly releases new models and deprecates older ones.
-    Before you configure the connector, check the [Anthropic models overview](https://docs.anthropic.com/en/docs/about-claude/models/overview) for the current list of supported model identifiers.
+    Before you configure the connector, check the [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for the current list of supported model identifiers.
 
 ## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
 
@@ -105,7 +106,10 @@ composer require ibexa/connector-gemini
 Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
 ``` php
+return [
+    // ...
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
+];
 ```
 
 This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
@@ -122,16 +126,16 @@ To use the connector with the Gemini services, you need to create an account, se
     1. Add project name, for example, "My project".
     1. Modify the automatically generated **Project ID** if necessary.
     1. Select location: choose your organization.
-1.  Click **Create**.
+1. Click **Create**.
 
 #### Configure billing
 
 1. Navigate to the Google Cloud Console's **Billing** page.
 1. If you do not have one, click **Add billing account** and add a payment method.
 1. In **Your projects** tab, locate your project, and in its line, from the **Actions** menu, select **Change billing**.
-1. Select your active billing account, and click **Set account**. 
+1. Select your active billing account, and click **Set account**.
 
-#### Enable the Gemini API 
+#### Enable the Gemini API
 
 1. Navigate to the Google Cloud Console's **APIs & Services** page.
 1. From the left-hand menu, select **Library** and search for the Generative Language API.

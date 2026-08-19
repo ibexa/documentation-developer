@@ -17,18 +17,18 @@
 
 eZ Platform v2.0.0 introduces significant changes to the architecture, especially to the back-office interface.
 
-#### Symfony 3
+### Symfony 3
 
 eZ Platform has become a pure Symfony application, based on Symfony 3, which brings with it many enhancements.
 
 !!! note
 
-    The move to [Symfony 3](https://symfony.com/roadmap?version=3.4) causes some changes, for example to the project's directory structure.
+    The move to [Symfony 3](https://symfony.com/releases/3.4) causes some changes, for example to the project's directory structure.
 
     Among others, the `var` directory now contains cache and logs.
     The `bin` directory is now used to call the `console` command, so use `bin/console` instead of `app/console`.
 
-#### Back-office interface
+### Back-office interface
 
 The back-office interface no longer uses YUI, and is instead based on React components and Bootstrap, which makes it easier to extend.
 Explore the Extending section in the menu to learn how to extend the new version of the UI.
@@ -37,7 +37,7 @@ The features of eZ Platform remain the same as in 1.x versions. However, the loo
 
 ![v2.0.0 interface](v2_general_screen.png)
 
-#### Studio
+### Studio
 
 The StudioUI still uses the 1.x interface. It will be rewritten to the new architecture in an upcoming version.
 
@@ -47,6 +47,6 @@ eZ Platform v2.0.0 requires PHP version 7.1, instead of 5.6, as before. Together
 
 ## Installation
 
-[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/)
 
-[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/)

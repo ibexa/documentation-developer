@@ -10,7 +10,7 @@ To give users an access to your website you need to assign them roles in the **A
 
 Each role consists of:
 
-**Policies**
+## Policies
 
 ![Policies](admin_panel_policies.png "Policies")
 
@@ -27,7 +27,7 @@ See [example use case](permission_use_cases.md#restrict-editing-to-part-of-the-t
 
     For more information, see [Limitation reference](limitation_reference.md).
 
-**Assignments**
+## Assignments
 
 ![Assignments](admin_panel_assignments.png "Assignments")
 

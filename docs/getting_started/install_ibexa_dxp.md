@@ -1,5 +1,6 @@
 ---
 description: Install Ibexa DXP on a Linux system and prepare your installation for production.
+month_change: false
 ---
 
 # Install Ibexa DXP
@@ -12,7 +13,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 !!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide shows in details how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    This installation guide shows in detail how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
     If you want to install [[= product_name_oss =]], you don't need authentication tokens or an account on updates.ibexa.co, but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
@@ -23,12 +24,12 @@ You can install it by following your favorite tutorial, for example: [Install LA
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/) for asset management
 - `git` for version control
 
 For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
 
-Before getting started, make sure you review other [requirements](requirements.md) to see the systems that is supported and used for testing.
+Before getting started, make sure you review other [requirements](requirements.md) to see the systems that are supported and used for testing.
 
 ### Get Composer
 
@@ -67,12 +68,12 @@ Log in to your Service portal on [support.ibexa.co](https://support.ibexa.co/), 
 1. Select **Create token** (this requires the **Portal administrator** access level).
 2. Fill in a label describing the use of the token.
 This allows you to revoke access later.
-3. Save the password, **you aren't able to access it again**.
+3. Save the password. **You won't be able to access it again**.
 
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
     Composer asks whether you want to save the token every time you perform an update.
-    If you prefer, you can decline and create an `auth.json` file globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    If you prefer, you can decline and create an `auth.json` file globally in the [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
     composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -161,7 +162,11 @@ To use Composer to instantly create a project in the current folder with all the
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
-!!! tip
+!!! caution "Security advisories"
+
+    If you encounter security advisories that prevent the install, see [Package security advisories](security_advisories.md#package-security-advisories).
+
+!!! tip "Version constraint"
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
 
@@ -192,7 +197,7 @@ git init; git add . > /dev/null; git commit -m "init" > /dev/null
 
 ### Change installation parameters
 
-At this point configure your database via the `DATABASE_URL` in the `.env` file, depending of the database you're using:
+At this point, configure your database via the `DATABASE_URL` in the `.env` file, depending on the database you're using:
 
 `DATABASE_URL=mysql://user:password@host:port/database_name`.
 
@@ -216,7 +221,7 @@ It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/
 
     The app secret is crucial to the security of your installation.
     Be careful about how you generate it, and how you store it.
-    Here's one way to generate a 64 characters long, secure random string as your secret, from command line:
+    Here's one way to generate a secure random string of 64 characters as your secret, from the command line:
 
     ``` bash
     php -r "print bin2hex(random_bytes(32));"
@@ -226,13 +231,14 @@ It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, and more.
 
-    After changing the app secret, make sure that you clear the application cache and log out all the users.
+    After changing the app secret, make sure that you clear the application cache and log out all users.
 
     For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).
 
-    It's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+    It's recommended that you store the database credentials in your `.env.local` file, and not commit that file to the Version Control System.
 
-In `DATABASE_VERSION` you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
+In `DATABASE_VERSION`, you can also configure the database server version.
+For the expected version format, see [Automatic platform version detection](https://www.doctrine-project.org/projects/doctrine-dbal/en/3.10/reference/configuration.html#automatic-platform-version-detection).
 
 !!! tip "Using PostgreSQL"
 
@@ -266,11 +272,22 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
 Install [[= product_name =]] and create a database with:
 
-``` bash
-php bin/console ibexa:install
-```
+=== "PHP 8.4"
 
-Before executing the command make sure that the database user has sufficient permissions.
+    Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation fails due to errors such as "headers have already been sent".
+
+    ``` bash
+    php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
+    php bin/console ibexa:graphql:generate-schema
+    ```
+
+=== "PHP 8.3 and older"
+
+    ``` bash
+    php bin/console ibexa:install
+    ```
+
+Before executing the command, make sure that the database user has sufficient permissions.
 
 The installer will prompt you for a new password for the `admin` user.
 Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the default [password rules](passwords.md#password-rules):
@@ -305,7 +322,7 @@ For development you can use the built-in PHP server.
 php -S 127.0.0.1:8000 -t public
 ```
 
-Your PHP web server is accessible at `http://127.0.0.1:8000`
+Your PHP web server is accessible at `http://127.0.0.1:8000`.
 
 You can also use [Symfony CLI](https://symfony.com/download):
 
@@ -315,7 +332,7 @@ symfony serve
 
 ## Prepare installation for development
 
-Consider adding the Symfony DebugBundle which fixes memory outage when dumping objects with circular references.
+Consider adding the Symfony DebugBundle, which prevents running out of memory when dumping objects with circular references.
 The DebugBundle contains the [VarDumper]([[= symfony_doc =]]/components/var_dumper.html) and [its Twig integration]([[= symfony_doc =]]/components/var_dumper.html#debugbundle-and-twig-integration).
 
 ``` bash
@@ -328,7 +345,7 @@ For detailed information about request treatment, you can also install [Symfony 
 composer require --dev symfony/profiler-pack
 ```
 
-To get both features in one go use:
+To get both features in one go, use:
 
 ``` bash
 composer require --dev symfony/debug-pack
@@ -340,7 +357,7 @@ To use [[= product_name =]] with an HTTP server, you need to [set up directory p
 
 ### Set up permissions
 
-For development needs, the web user can be made the owner of all your files (for example with the `www-data` web user):
+For development needs, the web user can be made the owner of all your files (for example, with the `www-data` web user):
 
 ``` bash
 chown -R www-data:www-data <your installation directory>
@@ -351,7 +368,7 @@ Future files and directories created by these two users need to inherit those pe
 
 !!! caution
 
-    For security reasons, in production, the web server cannot have write access to other directories than `var`.
+    For security reasons, in production, the web server mustn't have write access to any directory other than `var`.
     Skip the step above and follow the link below for production needs instead.
 
     You must also make sure that the web server cannot interpret the files in the `var` directory through PHP.
@@ -366,7 +383,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "Apache"
 
-    You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template)
+    You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/apache2/vhost.template)
     to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
     Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
@@ -385,7 +402,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
     Finally, restart the Apache server.
     The command may vary depending on your Linux distribution.
-    For example, on Ubuntu use:
+    For example, on Ubuntu, use:
 
     ``` bash
     service apache2 restart
@@ -393,11 +410,10 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "nginx"
 
-    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
-
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/5.0/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files, which should reside in a subdirectory below the main file, [as shown here](https://github.com/ibexa/post-install/tree/5.0/resources/templates/nginx).
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
-    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
+    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on which environment you're configuring, and uncomment the line that starts with `#if [APP_ENV]`.
 
     When the virtual host file is ready, enable the virtual host and disable the default.
     Finally, restart the nginx server.
@@ -412,34 +428,132 @@ You should see the welcome page.
 
     See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
-### Enable Date-based Publisher
+### Schedule tasks
 
-To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ibexa:scheduled:run` command periodically.
+The `ibexa:cron:run` command executes all service commands tagged with `ibexa.cron.job`.
+Use [`cron`](https://en.wikipedia.org/wiki/Cron) to run it every minute.
 
-For example, to check for publishing every minute, add the following script:
+The following example creates a temporary crontab entry file and appends it to the existing crontab for the web server user (`www-data`):
 
-`echo '* * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
+```bash
+echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+crontab -u www-data -l | cat - ibexa_cron.txt | crontab -u www-data -
+rm ibexa_cron.txt
+```
 
-For 5-minute intervals:
+For [Scheduled content publications]([[= user_doc =]]/content_management/schedule_publishing/), the `ibexa:scheduled:run` command is tagged with `ibexa.cron.job` and runs every minute (`* * * * *`) by default.
+You can redefine this service to change the frequency.
 
-`echo '*/5 * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
+The [CDP data export schedule](cdp_data_export_schedule.md) dynamically creates services tagged with `ibexa.cron.job`.
 
-Next, append the new cron to user's crontab without destroying existing crons.
-Assuming the web server user data is `www-data`:
+You can add other commands to scheduled tasks in one of two ways:
 
-`crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -`
+- add their own scheduling line to the crontab
+- tag their service with `ibexa.cron.job`
 
-Finally, remove the temporary file:
+#### Additional scheduled tasks and advanced usage
 
-`rm ezp_cron.txt`
+Here are some additional tasks that require scheduling:
 
-### Enable the Link manager
+- To use the [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
+- To control the [recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
+- To re-index [discounts](discounts_guide.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command.
 
-To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
+    !!! note
 
-### Enable discount re-indexing [[% include 'snippets/commerce_badge.md' %]]
+        You must first set up [[= product_name_base =]] Messenger.
+        For more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing).
 
-Enable [discount re-indexing in the background](configure_discounts.md#discount-re-indexing).
+The following example schedules these commands separately:
+
+- `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
+- `ibexa:check-urls` [every week](https://crontab.guru/weekly) on Sunday at midnight
+- `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) at minute 0
+- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) at midnight
+
+This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
+
+```bash
+echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
+echo '0 0 * * 0 cd <path-to-ibexa-dxp>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
+echo '0 * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
+echo '0 0 * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
+crontab -u www-data ibexa_cron.txt
+rm ibexa_cron.txt
+```
+
+The following alternative example uses service tagging to schedule these commands.
+It also changes the `ibexa:scheduled:run` frequency to every five minutes.
+
+Add the following to `config/services.yaml`:
+
+```yaml
+services:
+    #…
+
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: ibexa.cron.job, schedule: '*/5 * * * *' }
+
+    Ibexa\Bundle\Core\Command\CheckURLsCommand:
+        arguments:
+            $urlChecker: '@Ibexa\Bundle\Core\URLChecker\URLChecker'
+        tags:
+            - { name: ibexa.cron.job, schedule: '0 0 * * 0', priority: -1 }
+
+    Ibexa\Bundle\ActivityLog\Command\TruncateLogCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 * * * *', priority: -2 }
+
+    Ibexa\Bundle\Discounts\Command\ReIndexDiscountProductCommand:
+      tags:
+        - { name: ibexa.cron.job, schedule: '0 0 * * *' }
+```
+
+The `ibexa.cron.job` tag accepts the following options:
+
+- `schedule`: A cron expression representing the period or interval.
+- `options`: Arguments passed to the command.
+  `--env` and `--siteaccess` are inherited from `ibexa:cron:run`.
+- `category`: Commands can be grouped into categories, and a category can be passed with `ibexa:cron:run --category=<CATEGORY>`.
+  By default, the `default` category is used.
+  For example, it can be used to set different jobs and `schedule` for different [SiteAccesses](multisite_configuration.md).
+- `priority`: Defines the order in which `ibexa:cron:run` executes commands that are due.
+
+Run the following command to list all command services scheduled with the ibexa.cron.job tag:
+
+```bash
+php bin/console debug:container --tag=ibexa.cron.job
+```
+
+The following example shows how to set up a different schedule for a specific SiteAccess with a category.
+
+This command schedules `ibexa:cron:run` for the SiteAccess `minor_website` and the job category `minor_website`:
+
+```bash
+(crontab -u www-data -l; echo '* * * * * cd <path-to-ibexa-dxp>; php bin/console ibexa:cron:run --quiet --env=prod --siteaccess=minor_website --category=minor_website') | crontab -u www-data -
+```
+
+Then, run `ibexa:scheduled:run` on this SiteAccess at a different frequency from the default:
+
+```yaml
+services:
+
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: ibexa.cron.job, schedule: '* * * * *' }
+            - { name: ibexa.cron.job, schedule: '*/5 * * * *', category: 'minor_website' }
+```
+
+### Enable background tasks
+
+Enable Ibexa Messenger for background tasks.
+Make sure that its [worker starts with the server](background_tasks.md#start-worker).
+
+A list of processes that use [[= product_name_base =]] Messenger includes at least these two:
+
+- [CDP data export](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- [Discount re-indexing](configure_discounts.md#discount-re-indexing)
 
 ## [[= product_name_cloud =]]
 

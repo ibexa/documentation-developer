@@ -74,7 +74,6 @@ The following UDW configuration is used with the `udw_config_name` key so only a
 
 For more information, see [UDW configuration](browser.md#udw-configuration).
 
-
 ## Add block templates
 
 A block can have different templates that you select when adding it to a page.

@@ -22,7 +22,6 @@ You can get additional information about a field by using the following Twig fun
 - [`ibexa_field_group_name()`](#ibexa_field_group_name) returns a human-readable name of the field group.
 - [`ibexa_has_field()`](#ibexa_has_field) checks whether a field is present in the content item.
 
-
 ## Field rendering
 
 ### `ibexa_render_field()`
@@ -37,27 +36,11 @@ The field is rendered with the default template, but you can optionally pass a d
 | `params` | `hash` | (optional) Hash of parameters passed to the template block. |
 
 ``` html+twig
-{{ ibexa_render_field(content, 'title') }}
-
-{{ ibexa_render_field(content, 'image', {
-    'template': '@ibexadesign/fields/image.html.twig',
-    'attr': {class: 'thumbnail-image'},
-    'parameters': {
-        'alias': 'small'
-    }
-}) }}
+[[= include_code('code_samples/templates/field_twig_functions/render_content.html.twig') =]]
 ```
 
 ``` html+twig
-{{ ibexa_render_field(product, 'name') }}
-
-{{ ibexa_render_field(product, 'image', {
-    'template': '@ibexadesign/fields/image.html.twig',
-    'attr': {class: 'thumbnail-image'},
-    'parameters': {
-        'alias': 'small'
-    }
-}) }}
+[[= include_code('code_samples/templates/field_twig_functions/render_product.html.twig') =]]
 ```
 
 #### Parameters
@@ -144,7 +127,6 @@ If the content item doesn't have a translation in the prioritized or passed lang
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
-
 ``` html+twig
 {{ ibexa_field_name(content, 'title') }}
 
@@ -223,7 +205,6 @@ For example, use `ibexa_field_is_empty()` to check whether a field is empty or f
 | Argument | Type | Description |
 |---------------|------|-------------|
 | `fieldGroupIdentifier` | `string` | Field group [identifier](repository_configuration.md#field-groups-configuration). |
-
 
 ``` html+twig
 {{ ibexa_field_group_name('content') }}

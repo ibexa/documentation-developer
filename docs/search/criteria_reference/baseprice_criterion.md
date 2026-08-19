@@ -20,6 +20,9 @@ The `BasePrice` Criterion isn't available in the Legacy Search engine.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
 $query = new ProductQuery(
     null,
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\BasePrice(

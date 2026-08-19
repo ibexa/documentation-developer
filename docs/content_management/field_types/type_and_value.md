@@ -76,7 +76,7 @@ A field type needs to deal with the custom value format provided by it.
 In order for the public PHP API to work properly, it delegates working with such custom field values to the corresponding field type.
 The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
 
-#### `acceptValue()`
+### `acceptValue()`
 
 This method is responsible for accepting and converting user input for the field.
 It checks the input structure by accepting, building, and returning a different structure holding the data.
@@ -88,7 +88,7 @@ Unlike the `FieldType\Value` constructor, it's possible to make this method awar
 
     `acceptValue()` asserts structural consistency of the value, but doesn't validate plausibility of the value.
 
-#### `getEmptyValue()`
+### `getEmptyValue()`
 
 The field type can specify that the user may define a default value for the `Field` of the type through settings.
 If no default value is provided, the field type is asked for an "empty value" as the final fallback.
@@ -99,12 +99,12 @@ The value chain for filling a specific field of the field type is as follows:
 2. If not, is a default value provided by the`FieldDefinition`?
 3. If not, take the empty value provided by the `FieldType`.
 
-#### `validate()`
+### `validate()`
 
 In contrast to `acceptValue()` this method validates the plausibility of the given value.
 It's based on the field type settings and validator configuration and stored in the corresponding `FieldDefinition`.
 
-### Serialization
+## Serialization
 
 When [REST API](rest_api_usage.md) is used, conversion needs to be done for field type values, settings, and validator configurations.
 These are converted to and from a simple hash format that can be encoded in REST payload.
@@ -133,13 +133,13 @@ services:
             - {name: ibexa.field_type, alias: ibexa_matrix}
 ```
 
-#### `parent`
+### `parent`
 
 As described in the [Symfony service container documentation]([[= symfony_doc =]]/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls.
 This helps to avoid repetition in your field type configuration and keeps consistency between all field types.
 If you need to inject other services into your Type class, skip using the `parent` config key.
 
-#### `tags`
+### `tags`
 
 Like most API components, field types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
@@ -172,12 +172,12 @@ An example schema could look like this:
 [
     'backupData' => [
         'type' => 'bool',
-        'default' => false
+        'default' => false,
     ],
     'defaultValue' => [
         'type' => 'string',
-        'default' => 'Default Value'
-    ]
+        'default' => 'Default Value',
+    ],
 ];
 ```
 

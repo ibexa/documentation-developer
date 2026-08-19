@@ -16,7 +16,7 @@ The field type handles a block of multiple lines of unformatted text. It's capab
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

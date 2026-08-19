@@ -33,7 +33,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Product catalog capabilities]([[= user_doc =]]/product_catalog/product_catalog/) | &#10004; | &#10004; | &#10004; |
 | [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Symbol attribute type](symbol_attribute_type.md) | &#10004; | &#10004; | &#10004; |
-| [Personalization](personalization_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Recommendations](raptor_connector_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Migrations](managing_migrations.md) | &#10004; | &#10004; | &#10004; |
 | [[[= product_name_connect =]]]([[= connect_doc =]]/) | &#10004; | &#10004; | &#10004; |
 | [OAuth client](oauth_client.md) | &#10004; | &#10004; | &#10004; |

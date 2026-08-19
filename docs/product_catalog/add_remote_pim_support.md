@@ -63,4 +63,3 @@ Install the `ibexa/example-in-memory-product-catalog` package:
 composer config repositories.remote-pim vcs https://github.com/ibexa/example-in-memory-product-catalog
 composer require ibexa/example-in-memory-product-catalog:
 ```
-

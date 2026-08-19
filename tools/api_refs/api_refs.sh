@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-set -x;
+set +x;
+set -e;
 
-AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to install the targeted edition and version
+AUTH_JSON=$(realpath ${1:-~/.composer/auth.json}); # Path to an auth.json file allowing to install the targeted edition and version
 PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
 REST_API_OPENAPI_FILE_YAML=${4:-./docs/api/rest_api/rest_api_reference/openapi.yaml}; # Path to the REST API OpenAPI spec file
@@ -10,7 +11,7 @@ REST_API_OPENAPI_FILE_JSON=${5:-./docs/api/rest_api/rest_api_reference/openapi.j
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION="${DXP_VERSION:-5.0.*}"; # Version from and for which the Reference is built; can be overridden by the DXP_VERSION env var (e.g. v5.0.x-dev for a dev build)
-DXP_ADD_ONS=(automated-translation rector integrated-help fieldtype-richtext-rte connector-anthropic connector-gemini shopping-list cdp connector-raptor connector-quable mcp); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_ADD_ONS=(automated-translation rector integrated-help fieldtype-richtext-rte connector-anthropic connector-gemini shopping-list cdp connector-raptor connector-quable mcp translations-management); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 SF_VERSION='7.4'; # Symfony version used by Ibexa DXP
 PHPDOC_VERSION='3.10.0'; # Version of phpDocumentor used to build the Reference
@@ -24,6 +25,7 @@ REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly
 OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
+COMPOSER_BINARY='composer';
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
 BASE_DXP_BRANCH="${BASE_DXP_BRANCH:-}"; # Branch from and for which the Reference is built when using a dev branch as version; can be overridden by the BASE_DXP_BRANCH env var
@@ -61,34 +63,39 @@ fi;
 cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be absolute)
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+  if [ ! -f $AUTH_JSON ]; then
+    echo "Credentials file ${AUTH_JSON} doesn't exist.";
+    exit 3;
+  fi;
+
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
   if [[ "$DXP_VERSION" == *".x-dev" ]]; then
-    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
+    COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" $COMPOSER_BINARY create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
-    composer config repositories.ibexa composer https://updates.ibexa.co;
-    composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes-dev/contents/index.json?ref=flex/main";
-    composer require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
+    $COMPOSER_BINARY config repositories.ibexa composer https://updates.ibexa.co;
+    $COMPOSER_BINARY config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes-dev/contents/index.json?ref=flex/main";
+    $COMPOSER_BINARY require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
   elif [[ "$DXP_VERSION" == *"-rc"* ]]; then
-    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=rc;
+    COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" $COMPOSER_BINARY create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=rc;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
-    composer config repositories.ibexa composer https://updates.ibexa.co;
-    composer require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
+    $COMPOSER_BINARY config repositories.ibexa composer https://updates.ibexa.co;
+    $COMPOSER_BINARY require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
   else
-    composer create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
+    COMPOSER_AUTH="$(tr -d '\n' < $AUTH_JSON)" $COMPOSER_BINARY create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
   fi;
-  composer install --no-interaction --ignore-platform-reqs --no-scripts;
+  $COMPOSER_BINARY install --no-interaction --ignore-platform-reqs --no-scripts;
 fi;
 
 if [[ "$DXP_VERSION" == *".*"* ]]; then
   export COMPOSER_ROOT_VERSION=0.0.0;
-  DXP_VERSION=$(composer -n show ibexa/$DXP_EDITION | grep -E "^version" | cut -d 'v' -f 3);
+  DXP_VERSION=$($COMPOSER_BINARY -n show ibexa/$DXP_EDITION | grep -E "^version" | cut -d 'v' -f 3);
   echo "Obtained version: $DXP_VERSION";
 fi;
 
@@ -96,7 +103,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   for additional_package in "${DXP_ADD_ONS[@]}"; do
-    composer require --no-interaction --ignore-platform-reqs --no-scripts --with-all-dependencies ibexa/$additional_package:$DXP_VERSION;
+    $COMPOSER_BINARY require --no-interaction --ignore-platform-reqs --no-scripts --with-all-dependencies ibexa/$additional_package:$DXP_VERSION;
   done;
 fi;
 
@@ -118,7 +125,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       package=$(echo $line | cut -d '"' -f 2);
       if [[ ! "${DXP_EDITIONS[*]}" =~ "${package/ibexa\//}" ]]; then
         PACKAGE_MAP="$PACKAGE_MAP\n'$package': '$edition',"
-        NAMESPACES=$(composer show "$package" --available --format=json | \
+        NAMESPACES=$($COMPOSER_BINARY show "$package" --available --format=json | \
           jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
         NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
       fi;
@@ -131,7 +138,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 
   echo -n 'Building namespace→edition map… ';
   for package in "${DXP_ADD_ONS[@]}"; do
-    NAMESPACES=$(composer show "ibexa/$package" --available --format=json | \
+    NAMESPACES=$($COMPOSER_BINARY show "ibexa/$package" --available --format=json | \
       jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
     NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
     PACKAGE_MAP="$PACKAGE_MAP\n'ibexa/$package': 'optional',"
@@ -217,8 +224,8 @@ fi;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo 'Set up DXP recipes…';
-  git init && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
-  composer recipes:install ibexa/$DXP_EDITION --force --reset --no-interaction;
+  git init -b main && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
+  $COMPOSER_BINARY recipes:install ibexa/$DXP_EDITION --force --reset --no-interaction;
 fi;
 
 echo 'Dump REST OpenAPI schema… ';

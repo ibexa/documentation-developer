@@ -88,7 +88,7 @@ For instructions, see [CDP API activations](https://content.raptorservices.com/h
 
 Set up a "Website tracking" dataflow with `coid` (cookie ID) as the person identifier so that Raptor can use the tracking data in the CDP.
 
-For more information, see [Website tracking dataflow](https://content.raptorservices.com/help-center/tools/datamanager/introduction-to-the-data-manager#:~:text=Website%20tracking,-You) in Raptor documentation.
+For more information, see [Website tracking dataflow](https://content.raptorservices.com/help-center/tools/datamanager/introduction-to-the-data-manager) in Raptor documentation.
 
 ### Configuration
 

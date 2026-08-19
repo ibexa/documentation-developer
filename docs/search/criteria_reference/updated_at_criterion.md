@@ -1,6 +1,6 @@
 ---
 description: UpdatedAt Search Criterion
-month_change: true
+month_change: false
 ---
 
 # UpdatedAt Criterion

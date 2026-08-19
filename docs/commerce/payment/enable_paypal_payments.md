@@ -3,7 +3,7 @@ description: Use Payum to integrate the PayPal payment processing service.
 edition: commerce
 ---
 
-### Enable PayPal payments with Payum
+# Enable PayPal payments with Payum
 
 By using Payum to integrate PayPal into your application, you can offer your customers a versatile payment processing service that supports various payment methods, including credit cards, debit cards, Pay Later options, and alternative payment methods.
 
@@ -42,5 +42,4 @@ ibexa:
         type:
             pp_express_checkout:
                 name: "Translated PayPal Express Checkout name"
-
 ```

@@ -13,13 +13,13 @@ After you install it, temporary or permanent discounts can be applied against it
 
 You can also extend the feature, for example, by creating custom pricing rules, application conditions, or changing discount priorities.
 
-##  Getting Started
+## Getting Started
 
 [[= cards([
 "discounts/discounts_guide",
 "discounts/configure_discounts",
 ("permissions/policies#discounts", "Policies", "Learn about the available Discounts policies"),
-("https://doc.ibexa.co/projects/userguide/en/5.0/commerce/discounts/work_with_discounts/"),
+("https://doc.ibexa.co/projects/userguide/en/5.0/commerce/discounts/work_with_discounts/", "Work with Discounts", "Create and edit discounts, toggle discount status."),
 ], columns=2) =]]
 
 ## Development

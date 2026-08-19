@@ -60,28 +60,38 @@ You define MCP servers within a repository configuration and then assign those s
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 1, 8) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 15) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 29, 33) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 17) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 31, 35) =]]
+```
+
+Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
+You can list all defined servers by running the following command:
+
+```bash
+php bin/console debug:container ibexa.mcp.server
 ```
 
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
 You can list them by running the following command:
 
-`php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`
+```bash
+php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
+```
 
 ### MCP server options
 
-| Option                                                                                                          | Type    | Required | Default | Description                                                      |
-|-----------------------------------------------------------------------------------------------------------------|---------|----------|---------|------------------------------------------------------------------|
-| `path`                                                                                                          | string  | Yes      |         | MCP server endpoint path (appended to SiteAccess-aware base URL) |
-| `enabled`                                                                                                       | boolean | No       | `false` | Server state: decides whether it is enabled or disabled          |
-| `version`                                                                                                       | string  | No       | `1.0.0` | MCP server version                                               |
-| [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`  | Server implementation description                                |
-| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`  | Prompt-like instructions provided to the AI agent                |
-| [`tools`](#tool-configuration)                                                                                  | string  | No       | `[]`    | List of tool classes                                             |
-| <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier                    |
-| [`session`](#session-storage)                                                                                   | object  | Yes      |         | Session storage configuration                                    |
+| Option                                                                                                          | Type    | Required | Default                                                                  | Description                                                      |
+|-----------------------------------------------------------------------------------------------------------------|---------|----------|--------------------------------------------------------------------------|------------------------------------------------------------------|
+| `path`                                                                                                          | string  | Yes      |                                                                          | MCP server endpoint path (appended to SiteAccess-aware base URL) |
+| `enabled`                                                                                                       | boolean | No       | `false`                                                                  | Server state: decides whether it is enabled or disabled          |
+| `version`                                                                                                       | string  | No       | `1.0.0`                                                                  | MCP server version                                               |
+| [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`                                                                   | Server implementation description                                |
+| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
+| [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
+| <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
+| [`session`](#session-storage)                                                                                   | object  | Yes      |                                                                          | Session storage configuration                                    |
+| [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers                                          |
 
 !!! note "New servers are disabled by default"
 
@@ -89,7 +99,7 @@ You can list them by running the following command:
 
 ### Tool configuration
 
-The main capabilities of an MCP server are called [tools](https://modelcontextprotocol.io/specification/latest/server/tools).
+The main capabilities of an MCP server are called [tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools).
 They are the actions that an AI agent can invoke on the system.
 
 !!! note "MCP server design best practices"
@@ -106,19 +116,42 @@ There are two ways to associate tools with a server:
 
 #### Built-in tools
 
-MCP Servers LTS Update comes with the following built-in tools:
+MCP Servers LTS Update comes with the following **experimental** built-in tools:
 
+- `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
+    - `get_content_type` - gets a content type by its ID.
+    - `get_content_type_by_identifier` - gets a content type by its identifier.
+    - `get_content_type_list` - gets content types by their IDs.
+    - `create_content_type` - creates a content type draft.
+    - `get_content_type_draft` - gets a content type draft by content type ID.
+    - `publish_content_type_draft` - publishes a content type draft by content type ID.
+- `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
+    - `add_field_definition` - adds a field definition to a content type draft.
+    - `update_field_definition` - updates a field definition in a content type draft.
+    - `remove_field_definition` - removes a field definition from a content type draft.
+- `Ibexa\Mcp\Tool\ContentType\ContentTypeGroupTools`
+    - `get_content_type_groups` - gets all content type groups.
 - `Ibexa\Mcp\Tool\TranslationTools`
-    - `list_languages` - lists all languages in the current SiteAccess
-    - `list_content_translations` - lists languages in which given content item has translations
+    - `list_languages` - lists all languages in the current SiteAccess.
+    - `list_content_languages` - lists languages which have translations for a given content item.
+    - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code.
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag)
+    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
 
 ``` yaml hl_lines="5-7"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
                     # …
 ```
+
+!!! caution "Experimental tools"
+
+    The built-in tools are experimental and may change in future releases.
+    They are provided as examples of how to implement tools and how to configure them in an MCP server.
+    As-is, they may not cover all your needs or may not be practical to all AI agents.
+    If you use them, be prepared to update your MCP server configuration and tool usage when upgrading to a new version of [[= product_name =]].
+
+    See how to build your own tools in [Work with MCP servers](mcp_usage.md).
 
 ### Discovery cache
 
@@ -128,7 +161,7 @@ You must provide a PSR-6 or PSR-16 cache pool for this caching.
 For example, you could set up a dedicated Redis/Valkey:
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 19, 19) =]]
 ```
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
@@ -138,6 +171,14 @@ Clear the cache pool after making changes:
 ```bash
 php bin/console cache:pool:clear cache.redis.mcp
 ```
+
+!!! tip
+
+    Use `ibexa.cache_pool` as service identifier to have the default [cache service](persistence_cache.md#cache-service).
+
+It can be set to `null` to disable caching to ease development, which isn't recommended for production environment.
+
+See another example of configuration in [Work with MCP servers](mcp_usage.md#configure-mcp-server).
 
 ### Session storage
 
@@ -163,8 +204,8 @@ Optionally, you could use a more specific `prefix` option than the default `mcp_
 Such setup is suitable for production environments.
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 18, 21) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 34, 43) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 20, 23) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 36, 45) =]]
 ```
 
 #### File
@@ -176,5 +217,22 @@ Such setup is suitable for development environments.
 In this example, sessions are stored in the `var/cache/<environment>/mcp/sessions/` directory (for example, `var/cache/dev/mcp/session/` for the `dev` environment, and `var/cache/prod/mcp/sessions/` for the `prod` environment):
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 23, 25) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 25, 27) =]]
+```
+
+### Allowed hosts
+
+This parameter lists the domains, the `Host` headers, accepted by the MCP server.
+The port is not part of the matching.
+There is no wildcard character, all cases must be listed.
+As item, you can use a hostname, an IP, or an IPv6.
+IPv6 addresses must be bracketed, for example `[::1]`.
+
+In this example, only requests from `admin.example.com` domain, `my-ddev-project.ddev.site` domain, or from 127.0.0.1 IP are accepted:
+
+``` yaml
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
+                        - 'www.example.com'
+                        - 'my-ddev-project.ddev.site'
+                        - '127.0.0.1'
 ```

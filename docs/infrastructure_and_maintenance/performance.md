@@ -77,7 +77,7 @@ You can build them by running `yarn encore prod`, or by setting the environmenta
 
     Check if your cloud provider has native service for Redis, as those might be better tuned.
 
-When using Redis or Valkey, make sure to tune it for in-memory cache usage. 
+When using Redis or Valkey, make sure to tune it for in-memory cache usage.
 The persistence feature isn't needed with cache and severely slows down execution time.
 [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
 
@@ -113,8 +113,8 @@ To avoid quickly running out of memory while executing such commands you should 
                 buffer_size: 200
     ```
 
-1.  Run PHP without memory limits: `php -d memory_limit=-1 bin/console <command>`
-1.  Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this causes php to use much more memory.
+1. Run PHP without memory limits: `php -d memory_limit=-1 bin/console <command>`
+1. Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this causes php to use much more memory.
 
 !!! note "Memory still grows"
 

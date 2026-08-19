@@ -17,9 +17,14 @@ When querying for [products](product_api.md), use [LogicalOr](/api/php_api/php_a
 ### PHP
 
 ``` php
-$query->filter = new Criterion\LogicalOr([
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+$query->filter = new Criterion\LogicalOr(
+    [
         new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\SectionIdentifier(['sports', 'news']);
+        new Criterion\SectionIdentifier(['sports', 'news']),
     ]
 );
 ```

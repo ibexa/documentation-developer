@@ -26,10 +26,6 @@ class CalendarCommand extends Command
         parent::__construct();
     }
 
-    public function configure(): void
-    {
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');

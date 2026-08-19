@@ -64,6 +64,8 @@ class SegmentCommand extends Command
             : 'The user is not assigned to the segment.'
         ));
 
+        $this->segmentationService->removeSegmentGroup($segmentGroup);
+
         return self::SUCCESS;
     }
 }

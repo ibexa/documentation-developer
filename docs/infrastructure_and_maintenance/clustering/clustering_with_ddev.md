@@ -137,7 +137,7 @@ For more information on topics such as available configurations, command lines, 
 
 ### Fastly
 
-For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)), the instance must be visible from Internet.
+For Fastly (as for [[[= product_name_connect =]]]([[= connect_doc =]]/)), the instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 
@@ -157,15 +157,20 @@ A [search engine](search_engines.md) can be added to the cluster.
 
 ### Elasticsearch
 
-The following sequence of commands:
+The installation of Elasticsearch within a DDEV stack is an adaptation of the [on-premise installation](install_elasticsearch.md) procedure using the [`ddev/ddev-elasticsearch` add-on](https://addons.ddev.com/addons/ddev/ddev-elasticsearch).
+
+For example, the following sequence of commands:
 
 1. Adds the Elasticsearch container
-2. Sets Elasticsearch as the search engine
-3. Restarts the DDEV cluster and clears application cache
-4. Injects the schema and reindexes the content
+2. Sets the Elasticsearch version to 8 (default is 9 which is not supported, 7 is supported) - a full version number is required, see [Elasticsearch Docker image](https://hub.docker.com/_/elasticsearch)
+3. Sets Elasticsearch as the search engine
+4. Restarts the DDEV cluster and clears application cache
+5. Injects the schema and reindexes the content
 
 ```bash
 ddev add-on get ddev/ddev-elasticsearch
+ddev dotenv set .ddev/.env.elasticsearch --elasticsearch-docker-image=elasticsearch:8.19.18
+cp .ddev/elasticsearch/docker-compose.elasticsearch8.yaml .ddev/
 ddev config --web-environment-add SEARCH_ENGINE=elasticsearch
 ddev config --web-environment-add ELASTICSEARCH_DSN=http://elasticsearch:9200
 ddev restart
@@ -192,7 +197,9 @@ See [Elasticsearch REST API reference](https://www.elastic.co/docs/reference/ela
 
 ### Solr
 
-The following sequence of commands:
+The installation of Solr within a DDEV stack is an adaptation of the [on-premise installation](install_solr.md) procedure using the [`ddev/ddev-solr` add-on](https://addons.ddev.com/addons/ddev/ddev-solr).
+
+For example, the following sequence of commands:
 
 1. Adds the Solr container
 2. Sets Solr as the search engine
@@ -218,9 +225,9 @@ You can now check whether Solr works.
 
 For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` command:
 
- - checks whether the `web` server can access the `solr` server
- - checks whether `collection1` exists and its status
- - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
+- checks whether the `web` server can access the `solr` server
+- checks whether `collection1` exists and its status
+- displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
 You can access the Solr admin UI from the host by:
 
@@ -243,7 +250,7 @@ In the following examples:
 ### Install Redis or Valkey
 
 DDEV supports multiple Redis-compatible implementation, including Redis itself and Valkey.
-You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on. 
+You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on.
 For example, you can switch to Valkey by running `ddev add-on get ddev/ddev-redis; ddev redis-backend valkey/valkey:9`.
 For more information, see [Swappable Redis backends](https://github.com/ddev/ddev-redis?tab=readme-ov-file#swappable-redis-backends) in DDEV's `dddev-redis` add-on documentation.
 

@@ -30,13 +30,13 @@ If the SiteAccess isn't set, it falls back to the default `site` value.
 For example, use the following [configuration](configuration.md#configuration-files):
 
 ```yaml
- ibexa:
-     system:
-         <scope>:
-             user_invitation:
-                 hash_expiration_time: P7D
-                 templates:
-                     mail: "@@App/invitation/mail.html.twig"
+ibexa:
+    system:
+        <scope>:
+            user_invitation:
+                hash_expiration_time: P7D
+                templates:
+                    mail: "@@App/invitation/mail.html.twig"
 ```
 
 Here, you can specify which template should be used for the invitation mail, and what should be the expiration time for the invitation link included in that mail.

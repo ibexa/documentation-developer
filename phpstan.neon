@@ -8,3 +8,4 @@ parameters:
     paths:
         - code_samples
     treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false

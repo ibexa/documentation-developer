@@ -24,31 +24,36 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 You have to add your form type to the content editing form. The example shows how `ibexa_boolean` injects the form:
 
 ``` php
-use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
 use Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType;
+use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
+use Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
-public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
+class MyMapper implements FieldValueFormMapperInterface
 {
-    $fieldDefinition = $data->fieldDefinition;
-    $formConfig = $fieldForm->getConfig();
+    /** @param FormInterface<mixed> $fieldForm */
+    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
+    {
+        $fieldDefinition = $data->getFieldDefinition();
+        $formConfig = $fieldForm->getConfig();
 
-    $fieldForm
-        ->add(
-            $formConfig->getFormFactory()->createBuilder()
-                ->create(
-                    'value',
-                    CheckboxFieldType::class,
-                    [
-                        'required' => $fieldDefinition->isRequired,
-                        'label' => $fieldDefinition->getName(
-                            $formConfig->getOption('languageCode')
-                        ),
-                    ]
-                )
-                ->setAutoInitialize(false)
-                ->getForm()
-        );
+        $fieldForm
+            ->add(
+                $formConfig->getFormFactory()->createBuilder()
+                    ->create(
+                        'value',
+                        CheckboxFieldType::class,
+                        [
+                            'required' => $fieldDefinition->isRequired,
+                            'label' => $fieldDefinition->getName(
+                                $formConfig->getOption('languageCode')
+                            ),
+                        ]
+                    )
+                    ->setAutoInitialize(false)
+                    ->getForm()
+            );
+    }
 }
 ```
 
@@ -64,37 +69,44 @@ You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.htm
 Providing definition editing support is almost identical to creating content editing support. The only difference are field names:
 
 ``` php
+use Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface;
 use Ibexa\AdminUi\Form\Data\FieldDefinitionData;
 use Ibexa\ContentForms\Form\Type\FieldType\CountryFieldType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormInterface;
 
-public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
+class MyMapper implements FieldDefinitionFormMapperInterface
 {
-    $fieldDefinitionForm
-        ->add(
-            'isMultiple',
-            CheckboxType::class, [
-                'required' => false,
-                'property_path' => 'fieldSettings[isMultiple]',
-                'label' => 'field_definition.ibexa_country.is_multiple',
-            ]
-        )
-        ->add(
-            $fieldDefinitionForm->getConfig()->getFormFactory()->createBuilder()
-                ->create(
-                    'defaultValue',
-                    CountryFieldType::class, [
-                        'choices_as_values' => true,
-                        'multiple' => true,
-                        'expanded' => false,
-                        'required' => false,
-                        'label' => 'field_definition.ibexa_country.default_value',
-                    ]
-                )
-                // Deactivate auto-initialize as you're not on the root form.
-                ->setAutoInitialize(false)->getForm()
-        );
+    /** @param FormInterface<mixed> $fieldDefinitionForm */
+    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
+    {
+        $fieldDefinitionForm
+            ->add(
+                'isMultiple',
+                CheckboxType::class,
+                [
+                    'required' => false,
+                    'property_path' => 'fieldSettings[isMultiple]',
+                    'label' => 'field_definition.ibexa_country.is_multiple',
+                ]
+            )
+            ->add(
+                $fieldDefinitionForm->getConfig()->getFormFactory()->createBuilder()
+                    ->create(
+                        'defaultValue',
+                        CountryFieldType::class,
+                        [
+                            'choices_as_values' => true,
+                            'multiple' => true,
+                            'expanded' => false,
+                            'required' => false,
+                            'label' => 'field_definition.ibexa_country.default_value',
+                        ]
+                    )
+                    // Deactivate auto-initialize as you're not on the root form.
+                    ->setAutoInitialize(false)->getForm()
+            );
+    }
 }
 ```
 
@@ -131,7 +143,6 @@ you need to define a template containing a block for the field.
 
 By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
-
 !!! tip
 
     Template blocks for built-in field types are available in [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Resources/views/content_fields.html.twig).
@@ -150,7 +161,7 @@ The block can receive the following variables:
 | `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the content item the field belongs to |
 | `fieldSettings` | array | Settings of the field (depends on the field type) |
 | `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
-| `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to `ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing `<fieldtypeidentifier>-field` |
 
 ### Reusing blocks
 
@@ -190,7 +201,7 @@ If you don't use the design engine, apply the following configuration:
 
 ``` yaml
 ibexa:
-    systems:
+    system:
         admin_group:
             field_templates:
                 - { template: 'adminui/field/custom_field_view.html.twig', priority: 10 }
