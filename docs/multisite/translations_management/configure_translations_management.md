@@ -16,10 +16,10 @@ Multiple extension points exist that you can use to [customize different areas o
     The following limitations apply to automatic translation:
     
     - Content types that contain the `ibexa_form` or `ibexa_landing_page` fields don't support the side-by-side translation view and open in the single-language editor instead.
-    - The value of `ibexa_landing_page` field type is not translated.
+    - For `ibexa_landing_page` fields, translatable attributes of block content are sent to the translation provider, while layout, zones, and non-translatable block attributes are preserved. 
     - The value of `ibexa_form` field type is not translated.
     
-    Also, [product attributes](products.md#product-attributes) are not translatable.
+    Also, [product attributes](products.md#product-attributes) remain non-translatable and are inactive in the side-by-side translation view.
 
 ## Install package
 
