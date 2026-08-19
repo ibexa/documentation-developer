@@ -33,7 +33,10 @@
   {% endblock %}
     {% block site_nav %}
     {% if nav %}
-      <div class="main_nav">
+      {# The single <nav> landmark wrapping the whole sidebar. Keep it the only <nav> in this
+         subtree: nested <nav> tags break the HTML->Markdown converters used by AI agents
+         (e.g. behind RTD's "Accept: text/markdown"), leaking nav items into the output. #}
+      <nav class="main_nav" aria-label="Site navigation">
         <div class="main_nav_content">
           <div class="site-header" id="site-name">
             {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
@@ -50,7 +53,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     {% endif %}
     {% if page.toc %}
       <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
@@ -72,6 +75,11 @@
         {% endfor %}
 
         <div class="{{ ns.bootstrap_extra_css }}">
+          <div style="position:absolute;width:1px;height:1px;clip:rect(0 0 0 0);overflow:hidden">
+            For AI agents: the complete documentation index is available at
+            <a href="{{ 'llms.txt' | url }}">llms.txt</a>{% if page and not page.meta.exclude_from_llmstxt %}; this page is also available as
+            Markdown at <a href="index.md">index.md</a>{% endif %}.
+          </div>
           <ul class="breadcrumbs">
                   <li class="breadcrumb-item">Documentation &#62;</li>
               {% for ancestor in page.ancestors|reverse %}
@@ -91,7 +99,9 @@
             {% endif %}
             </div>
           {% endif %}
-          {% include "partials/eol_warning.html" %}
+          {% if config.extra.current_version_is_eol %}
+            {% include "partials/eol_warning.html" %}
+          {% endif %}
 
           <div class="content-with-actions">
             {{ page.content }}

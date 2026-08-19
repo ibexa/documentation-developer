@@ -18,7 +18,6 @@ Discover the primary ones with the help of product guides. Condensed content all
     "content_management/forms/form_builder_guide",
     "content_management/collaborative_editing/collaborative_editing_guide",
     "customer_management/customer_portal",
-    "personalization/personalization_guide",
     "product_catalog/product_catalog_guide",
     "product_catalog/quable/quable_guide",
     "commerce/shopping_list/shopping_list_guide",

@@ -87,7 +87,6 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/migrations|[Migration of repository data](data_migration.md)|
 |ibexa/oauth2-client|Authenticate user through a [third-party OAuth 2 server](oauth_client.md), integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 |ibexa/oauth2-server|Configure [[= product_name =]] to act as a [OAuth2 Server](oauth_server.md)|
-|ibexa/personalization|Functionality for personalized recommendations|
 |ibexa/product-catalog-date-time-attribute|Implementation of the [Date and Time attribute type](date_and_time.md)|
 |ibexa/product-catalog-symbol-attribute|Implementation of the [Symbol attribute type](symbol_attribute_type.md)|
 |ibexa/product-catalog|Product catalog functionality|

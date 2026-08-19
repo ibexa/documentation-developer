@@ -1,6 +1,6 @@
 ---
 description: Recommendations Twig Functions
-month_change: false
+month_change: true
 ---
 
 # Recommendations Twig functions

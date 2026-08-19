@@ -36,10 +36,6 @@ final class PaymentCommand extends Command
         parent::__construct();
     }
 
-    public function configure(): void
-    {
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');

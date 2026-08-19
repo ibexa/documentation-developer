@@ -1,7 +1,7 @@
 ---
 description: Ibexa DXP v5.0 incorporates features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
 title: Ibexa DXP v5.0 LTS
-month_change: true
+month_change: false
 ---
 
 <!-- vale Ibexa.VariablesVersion = NO -->

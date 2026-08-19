@@ -161,7 +161,7 @@ The block can receive the following variables:
 | `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the content item the field belongs to |
 | `fieldSettings` | array | Settings of the field (depends on the field type) |
 | `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
-| `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to `ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing `<fieldtypeidentifier>-field` |
 
 ### Reusing blocks
 

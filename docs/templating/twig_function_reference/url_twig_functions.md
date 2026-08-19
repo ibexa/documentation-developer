@@ -20,7 +20,7 @@ page_type: reference
 
 |Argument|Type|Description|
 |------|------|------|
-|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, location, or content.|
+|`name`|`string`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`<br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`<br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, location, or content.|
 |`parameters`|`array`|Route parameters.|
 |`relative`|`boolean`|Whether to generate a relative path.|
 
@@ -34,7 +34,7 @@ page_type: reference
 
 |Argument|Type|Description|
 |------|------|------|
-|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, location, or content.|
+|`name`|`string`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`<br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`<br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, location, or content.|
 |`parameters`|`array`|Route parameters.|
 |`schemeRelative`|`boolean`|Whether to generate a relative URL.|
 
@@ -62,7 +62,7 @@ For more information about the use of `ibexa.url.alias` as a parameter of the [S
 
 |Argument|Type|Description|
 |------|------|------|
-|`resource`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|Resource or route name.|
+|`resource`|`string`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`<br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`<br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`<br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|Resource or route name.|
 |`params`|`array`|Route parameters.|
 
 ``` html+twig

@@ -6,7 +6,7 @@ edition: experience
 # Segments
 
 You can use segments to display specific content to specific [users](users.md).
-They're used out of the box in the Targeting and Dynamic targeting blocks in the page.
+They're used out of the box in the Targeting block in the page.
 
 You can collect segments in segment groups:
 
