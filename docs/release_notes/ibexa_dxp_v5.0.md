@@ -42,7 +42,7 @@ For more information, see [User Documentation]([[= user_doc =]]/content_manageme
 
 A new console command translates content items from the command line, enabling batch processing and automated workflows.
 
-For more information, see [Translate content items with CLI](configure_translations_management.md#translate-content-items-with-cli).
+For more information, see [Translate content items with CLI](translate_with_cli.md).
 
 ### Translation review
 
@@ -52,18 +52,32 @@ Accepted translations are given the "Translated" status.
 
 The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
 
-For more information, see [Translation review](configure_translations_management.md#translation-review).
+For more information, see [Translation review](translations_management_guide.md#translation-review).
 
 ### Developer experience
 
-The package exposes multiple extension points for custom translation workflows, including:
+The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement`namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
 
-- Custom translation providers through [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html)
-- Custom field type support through [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html)
-- Custom content type exclusion rules through [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html)
-- extension points for adding UI elements and fields to the views used by the feature
+Changes include multiple extension points, including:
+
+- [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html) for creating custom translation providers
+- [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) that enables custom field type support
+- [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules 
 
 For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/translations/extend_translations_management/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the corresponding [security advisory].
 
 [[= release_note_entry_end() =]]
 
@@ -165,17 +179,6 @@ With the MCP Servers feature, you can configure multiple MCP servers with their 
 For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/).
 
 [[= release_note_entry_end() =]]
-
-[[= release_note_entry_begin(
-    product_name + ' ' + version,
-    date,
-    ['Headless', 'Experience', 'Commerce', 'New feature']
-) =]]
-
-### Security
-
-This release includes security fixes.
-To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-003-vulnerabilities-in-forms-submissions-rest-sessions-and-solr-logs).
 
 ### Raptor connector
 
