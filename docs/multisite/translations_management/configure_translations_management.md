@@ -93,7 +93,7 @@ Out of the box, Translations management can support the following translation pr
 | Anthropic (Claude) | AI Actions |
 | Google Gemini | AI Actions |
 
-**Built-in AI providers**
+### Built-in AI providers
 
 If you fulfill the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 

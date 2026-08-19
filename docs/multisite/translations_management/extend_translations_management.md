@@ -130,7 +130,6 @@ This interface is not registered for Symfony autoconfiguration, so the tag is re
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomExclusionRule.php') =]]
 ```
 
-
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
 [[= include_code('code_samples/translations_management/config/services.yaml', 18, 20) =]]

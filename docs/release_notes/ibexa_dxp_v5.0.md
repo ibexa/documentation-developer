@@ -62,7 +62,7 @@ Changes include multiple extension points, including:
 
 - [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html) for creating custom translation providers
 - [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) that enables custom field type support
-- [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules 
+- [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules
 
 For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/translations/extend_translations_management/).
 
@@ -342,7 +342,7 @@ For more information about Recommendation blocks in Page Builder, see the releva
 
 The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
 
-[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations. 
+[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 Ibexa DXP consumes this data and makes it available for use in content and digital experiences.
 
 For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).

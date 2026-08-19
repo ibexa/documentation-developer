@@ -25,7 +25,7 @@ Therefore, depending on the specific command options used, the result can be the
 
 With the default settings, the most important difference is that a translation generated with a CLI command is instantly published, while a manual one requires that a human publishes it.
 
-### CLI command options
+## CLI command options
 
 | Option | Required | Description |
 |---|---|---|
