@@ -25,7 +25,7 @@ month_change: false
 - Added `create_content_type_draft` [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) to create a draft for an existing content type.
 - [MCP server's session storage configuration](mcp_config.md#session-storage) now has a default value to use the default cache service out-of-the-box equivalent to the following:
 
-  ```yaml {skip-validation}
+  ```yaml
   ibexa:
       repositories:
           <repository>:
