@@ -348,6 +348,11 @@ ignoreErrors:
         hash: ce8c6170b6011d2a9c41b665109aaaafbcbfacc10d9d5b047c53647a10e58b84
         message: '~Unrecognized option "require_previous_session" under "security\.firewalls\.ezpublish_front\.form_login"\. Available options are "always_use_default_target_path", "check_path", "csrf_parameter", "csrf_token_id", "default_target_path", "enable_csrf", "failure_forward", "failure_handler", "failure_path", "failure_path_parameter", "form_only", "login_path", "password_parameter", "post_only", "provider", "remember_me", "success_handler", "target_path_parameter", "use_forward", "use_referer", "username_parameter"\.~'
     -
+        path: docs/release_notes/ibexa_dxp_v5.0.md
+        line: 29
+        hash: 7d4a5637a3e036ebcdc5a4be8282aebe2bfcbaee3222981b81f739ae773111d0
+        message: '~The child config "path" under "ibexa\.repositories\.\<repository\>\.mcp\.\<server\>" must be configured\: MCP server path~'
+    -
         path: docs/templating/design_engine/add_new_design.md
         line: 16
         hash: 00526df40a7b678b4caa97a887e2c6a47689cf3e2e3d52ff42b7ef1b9a74aa0d
