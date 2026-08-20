@@ -21,9 +21,9 @@ Both events are read-only, you can't use them to override the translation result
 
 ## Side-by-side creation events
 
-Side-by-side creation events are dispatched when a new translation draft is being prepared.
+Side-by-side creation events are dispatched when preparing a new translation draft.
 
 | Event | Dispatched by | Dispatched when |
 |---|---|---|
-| [`OnContentSideBySideTranslationCreateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html) | `ContentTranslationCreateController` | When a draft side-by-side translation of a content item is being created |
-| [`OnProductSideBySideTranslationCreateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html) | `ProductTranslationViewController` | When a draft side-by-side translation of a product is being created |
+| [`OnContentSideBySideTranslationCreateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html) | `ContentTranslationCreateController` | When creating a draft side-by-side translation of a content item |
+| [`OnProductSideBySideTranslationCreateEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html) | `ProductTranslationViewController` | When creating a draft side-by-side translation of a product |

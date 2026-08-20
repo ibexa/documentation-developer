@@ -9,7 +9,7 @@ month_change: true
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content item and product translation.
 It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services.
 By using the new [side-by-side editing interface](#side-by-side-translation-view), editors can compare source and target values, provide content item and product translations in a single view, and reject or approve translations.
-Multiple extension points exist that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
+There are multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 !!! note "Translation limitations"
 
@@ -29,7 +29,8 @@ To install the Translations management [LTS Update](editions.md#lts-updates), ru
 composer require ibexa/translations-management
 ```
 
-If you're installing Translations management LTS Update as part of the installation process of a fresh [[= product_name =]] instance, this step copies the migration files into the project's migrations directory, creates the database tables required for the review workflow, and adds the default action configurations in the database.
+If you're installing Translations management LTS Update as part of the installation process of a fresh [[= product_name =]] instance, this step copies the migration files into the project's migrations directory.
+It also creates the database tables required for the review workflow, and adds the default action configurations in the database.
 Otherwise follow the steps below.
 
 ### Existing installations
@@ -72,12 +73,12 @@ If you fail to configure them, the automatic translation feature is disabled in 
 
 The Translations management package comes with two types of translation services:
 
-- REST API-based providers call a translation service such as Google Translate or DeepL directly by using an API key.
-- AI-based providers send translation requests through the [AI Actions](configure_ai_actions.md) framework, relying on the same model selection and policy controls as other AI features in [[= product_name =]].
+- **REST API-based providers** - call a translation service such as Google Translate or DeepL directly by using an API key.
+- **AI-based providers** - send translation requests through the [AI Actions](configure_ai_actions.md) framework, relying on the same model selection and policy controls as other AI features in [[= product_name =]].
 
 !!! note "Prerequisites for the default translation providers"
 
-    Before you can configure translation providers, you must fulfill the following prerequisites:
+    Before you can configure translation providers, you must meet the following prerequisites:
 
     - For the REST API-based translation providers, add API keys that you obtain from the machine translation services to the `.env` file in the root directory of your project.
     - For the AI-based translation providers, [configure AI Actions and the corresponding connectors](configure_ai_actions.md).
@@ -94,7 +95,7 @@ Out of the box, Translations management can support the following translation pr
 
 ### Built-in AI providers
 
-If you fulfill the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
+If you meet the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
@@ -153,13 +154,12 @@ If configured, they replace the built-in defaults, so use them to restrict avail
     ```
 
     The output lists the default `supported_language_codes` and `language_codes_map` values for each configured provider, which you can use as a reference.
-    ```
 
 AI-based providers don't provide built-in language code lists or mappings.
 If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.
 If `languageCodesMap` is not configured, the system automatically tries to match [[= product_name =]] language codes to the one supported by the provider by trying different format variants, for example, `eng-GB`, `en-GB`, or `en`.
 If no match is found, an `UnsupportedLanguageException` is thrown at runtime.
-Therefore, for AI-based providers, it is recommended that you explicitly configure both options.
+Therefore, for AI-based providers, it's recommended that you explicitly configure both options.
 
 ``` yaml
 ibexa:
@@ -213,14 +213,14 @@ To do it, [define custom exclusion rules](extend_translations_management.md#defi
 
 !!! note "Meta fields"
 
-    Fields marked with [`meta: true`](content_tab_switcher.md#add-meta-tab) and fields that belong to groups listed in [`admin_ui_forms.content_edit.meta_field_groups_list`](content_tab_switcher.md#configure-field-groups-for-meta-tab) are not rendered in the side-by-side translation view.
+    Fields marked with [`meta: true`](content_tab_switcher.md#add-meta-tab) and fields that belong to groups listed in [`admin_ui_forms.content_edit.meta_field_groups_list`](content_tab_switcher.md#configure-field-groups-for-meta-tab) aren't rendered in the side-by-side translation view.
 
 For a description of the side-by-side view and its functions from the editor's perspective, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
 
 ### User settings
 
 The Translations management package adds preferences that editors can configure under their [user settings]([[= user_doc =]]/getting_started/get_started/#user-settings).
-Each editor can configure them independently, and they do not affect other users.
+Each editor can configure them independently, and they don't affect other users.
 
 For example, editors can choose whether the target language column appears on the left or right in the side-by-side translation view.
 By default, the target is on the right, and each editor can override this default.
@@ -228,11 +228,8 @@ By default, the target is on the right, and each editor can override this defaul
 You can change the system-wide default in configuration:
 
 ``` yaml
-ibexa:
-    system:
-        default:
-            translations_management:
-                default_side_by_side_column_order: 'source_left_target_right'
+parameters:
+    ibexa.site_access.config.default.translations_management.default_side_by_side_column_order: source_right_target_left
 ```
 
 The accepted values are `source_left_target_right` (default) and `source_right_target_left`.

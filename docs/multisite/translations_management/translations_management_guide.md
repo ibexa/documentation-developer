@@ -8,7 +8,7 @@ month_change: true
 
 ## What is Translations management
 
-Content managers, translators, and proofreaders who work with multilingual content in [[= product_name =]] often face a common set of challenges:
+Content managers, editors, translators, and proofreaders who work with multilingual content in [[= product_name =]] often face a common set of challenges:
 
 - context is lost when the source text isn't visible alongside the translation
 - translating long and complex content items is time-consuming
@@ -77,7 +77,7 @@ Editors can:
 
     Content types that are editable in [Page builder](page_builder_guide.md) or [Form builder](form_builder_guide.md) are excluded from side-by-side editing.
 
-    Products are editable in the side-by-side view, but [product attributes are not translatable](products.md#product-attributes).
+    Products are editable in the side-by-side view, but [product attributes aren;t translatable](products.md#product-attributes).
 
 ### Command-line translation
 
@@ -87,12 +87,12 @@ You can use it for batch processing or automated workflows.
 ### Translation review
 
 When a draft translation of a content item or product is created by going through the automatic translation process in the back office, the system creates a review status record and marks the draft as "For review".
-The console command bypasses this and drafts created with command-line translation are not assigned a review status.
+The console command bypasses this and drafts created with command-line translation aren't assigned a review status.
 Editors can [accept or reject the translation]([[= user_doc =]]/content_management/translate_content/#review-automatic-translation) directly in the side-by-side view.
 Accepted drafts are marked as "Translated".
 
 When the editor rejects the translation, the status doesn't change, but the system records that the draft translation required corrections for statistical purposes.
-A draft translation in "Translated" state can't be rejected any more.
+A draft translation in the "Translated" state can't be rejected anymore.
 
 The `ibexa_auto_translation_review` workflow is separate from the [editorial workflow](workflow.md).
 Accepting or rejecting draft translations does not trigger editorial workflow transitions or notifications.

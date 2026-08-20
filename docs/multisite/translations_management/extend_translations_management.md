@@ -16,12 +16,12 @@ The package discovers and registers tagged services automatically.
 
 Before you build a custom translation provider, if your provider uses the AI Actions framework, make sure that the `ibexa/connector-ai` package is configured in your system.
 
-When building a custom translation provider you can rely on [`ConfigurableProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html).
-It extends `TranslationProviderInterface` and adds `getConfiguration()` and `isConfigured()` for providers that store API keys and other required settings.
-
 ### REST API-based provider
 
 To connect a translation service that calls a REST API directly, implement [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html).
+For providers that store API keys and other required settings, you can rely on [`ConfigurableProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html).
+It extends `TranslationProviderInterface` and adds `getConfiguration()` and `isConfigured()` methods.
+
 The `translate()` method receives a [`TranslationDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html) object that carries the text to translate along with the source and target [language codes](configure_translations_management.md#advanced-translation-provider-options):
 
 ``` php hl_lines="36-49"
@@ -29,7 +29,7 @@ The `translate()` method receives a [`TranslationDataInterface`](/api/php_api/ph
 ```
 
 Register the provider with the `ibexa.translations_management.auto_translate.provider` tag.
-Both `identifier` and [`validation_profile`](#validation-profiles) are required attributes.
+Both `identifier` and [`validation_profile`](#validation-profiles) attributes are required.
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 6) =]]
@@ -38,17 +38,15 @@ Both `identifier` and [`validation_profile`](#validation-profiles) are required 
 ### AI-based provider
 
 To connect a translation service that uses the [AI Actions](ai_actions.md) framework, implement [`AiTranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-AiTranslationProviderInterface.html).
-This interface extends `ConfigurableProviderInterface`.
-It serves as a type marker for AI-based providers.
-The interface adds `getConfiguration()` and `isConfigured()` to the base provider contract.
-These methods allow the package to determine whether the provider is available before it displays selectable options in the **Create a new translation** modal:
+This interface extends `ConfigurableProviderInterface` and serves as a type marker for AI-based providers.
+The system uses the `getConfiguration()` and `isConfigured()` methods to determine whether the provider is available before displaying selectable options in the **Create a new translation** modal:
 
 ``` php hl_lines="53 60"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomAiProvider.php') =]]
 ```
 
 Register the provider with the `ibexa.translations_management.auto_translate.provider` tag, with `ai_generic` as the validation profile.
-The `ai_generic` validation profile is used by default for AI providers, but you can [implement your own](#validation-profiles).
+The `ai_generic` validation profile is meant to be used by default for AI providers, but you can [implement your own](#validation-profiles).
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
@@ -70,13 +68,13 @@ If your provider uses [language codes](configure_translations_management.md#adva
 The `supports()` method is a way to bind the normalizer to a provider.
 When a translation is triggered, the system checks the registered normalizers, and it uses the first one whose `supports()` method returns `true` for the current provider.
 
-Register the normalizer with the `ibexa.translations_management.auto_translate.provider.language_normalizer` tag.
-If multiple normalizers are registered, use `priority` to control the order in which they are checked:
+Register the normalizer with the `ibexa.translations_management.auto_translate.provider.language_normalizer` tag:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
 [[= include_code('code_samples/translations_management/config/services.yaml', 34, 37) =]]
 ```
+If multiple normalizers are registered, use `priority` to control the order in which they're checked.
 
 ### Validation profiles
 
@@ -112,6 +110,8 @@ To add support for a custom or non-standard field type, implement [`FieldValueTr
 The constructor takes the extracted string as its first argument and an optional metadata array as the second.
 - `decode(string $value, mixed $previousFieldValue, array $metadata): Value` - receives the translated string, the previous field value, and any metadata. Returns the updated field value.
 
+The following example adds support for automatically translating the alternative text of an image:
+
 ``` php hl_lines="21 31 37 46-58"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/ImageAltTextTransformer.php') =]]
 ```
@@ -134,24 +134,24 @@ It must match the value that `getFieldTypeIdentifier()` returns:
 ## Define custom exclusion rules
 
 Use exclusion rules to identify content that cannot use the side-by-side view.
-The Translations management package ships with one rule that excludes content types that contain `ibexa_form`fields.
-
-The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object, which gives you access to different criteria, including content type, section, owner, main language, publication status, visibility, and main location of the content item.
+The Translations management package ships with one rule that excludes content types that contain `ibexa_landing_page` or `ibexa_form` fields.
 
 ### Exclude with custom class
 
-To exclude additional content types, for example, content types whose fields render incorrectly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
-The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object and returns `true` if the content item should be excluded.
-Register the rule with the `ibexa.translations_management.side_by_side.exclusion_rule` tag.
-This interface is not registered for [Symfony autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), so the tag is required.
+To exclude content from side-by-side view, for example, content types whose fields render incorrectly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
+The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object, which gives you access to different criteria, including content type, section, owner, main language, publication status, visibility, and main location of the content item.
+If the content item should be excluded, the method should return `true`.
 
 ``` php
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomExclusionRule.php') =]]
 ```
 
+Register the rule with the `ibexa.translations_management.side_by_side.exclusion_rule` tag.
+This interface is not registered for [Symfony autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), so the tag is required.
+
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 15, 27) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 15, 23) =]]
 ```
 
 ### Exclude with existing class
@@ -169,10 +169,8 @@ Use an arbitrary string ID instead to avoid a service definition conflict:
 ## Use Twig component extension points
 
 Two [Twig component groups](custom_components.md#translations-management) allow you to inject custom UI elements into the translation interface without the need to override their templates.
-Such custom elements could be:
 
-- buttons that allow the editor to create a new translation either in the side-by-side view or the standard single-panel editor
-- a disclaimer or policy notice that the editor must acknowledge before a translation is created
+Such custom element could be, for example, a disclaimer or policy notice that the editor must acknowledge before a translation is created.
 
 The two groups behave differently:
 
@@ -191,13 +189,3 @@ Register a component with the `ibexa.twig.component` tag:
 
     The `admin-ui-content-translation-modal-footer` group receives a `location` variable that may be `null` for an unpublished draft.
     Always check for `null` before you access location properties in your component template.
-
-## Service tags reference
-
-The following service tags expose additional extension points that you can use to customize and extend translations management behavior.
-
-| Tag | Purpose | Required attributes |
-|---|---|---|
-| `ibexa.translations_management.auto_translate.provider.language_normalizer` | Register a language code normalizer for a provider | none |
-| `ibexa.translations_management.auto_translate.provider.ai.translation_strategy` | Register a custom AI translation strategy (prompt structure) | `priority` |
-| `ibexa.translations_management.auto_translate.metadata_validation.retry_policy` | Register a metadata validation retry policy | `priority` |

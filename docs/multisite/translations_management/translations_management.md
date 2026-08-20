@@ -2,6 +2,7 @@
 description: Translations management brings multiple features that help managers, developers and localization teams automate multilingual content delivery.
 edition: lts-update
 page_type: landing_page
+month_change: true
 ---
 
 # Translations management
