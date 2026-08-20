@@ -74,6 +74,7 @@ Register the normalizer with the `ibexa.translations_management.auto_translate.p
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
 [[= include_code('code_samples/translations_management/config/services.yaml', 34, 37) =]]
 ```
+
 If multiple normalizers are registered, use `priority` to control the order in which they're checked.
 
 ### Validation profiles
@@ -151,19 +152,7 @@ This interface is not registered for [Symfony autoconfiguration]([[= symfony_doc
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 15, 23) =]]
-```
-
-### Exclude with existing class
-
-`MyCustomExclusionRule` targets one specific content type by name.
-To exclude any content type that contains specific field types without the need to write a custom class, register an additional instance of the built-in [`UnsupportedFieldTypeExclusionRule`](https://github.com/ibexa/translations-management/blob/main/src/lib/SideBySide/Service/UnsupportedFieldTypeExclusionRule.php).
-Because this registers a second instance of the service with different arguments, you can't use the class name as the service ID.
-Use an arbitrary string ID instead to avoid a service definition conflict:
-
-``` yaml
-[[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 18, 23) =]]
+[[= include_code('code_samples/translations_management/config/services.yaml', 15, 18) =]]
 ```
 
 ## Use Twig component extension points
