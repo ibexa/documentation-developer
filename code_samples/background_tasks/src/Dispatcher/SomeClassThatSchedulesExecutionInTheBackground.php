@@ -3,6 +3,7 @@
 namespace App\Dispatcher;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use App\Message\SomeMessage;
 use Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp;
 use Ibexa\Contracts\Messenger\Stamp\SudoStamp;
 use Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp;
@@ -16,15 +17,15 @@ final readonly class SomeClassThatSchedulesExecutionInTheBackground
     ) {
     }
 
-    public function schedule(object $message): void
+    public function schedule(): void
     {
-        $this->bus->dispatch($message);
+        $this->bus->dispatch(new SomeMessage());
 
         $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
         $this->bus->dispatch($message, [new UserPermissionStamp($currentUserId)]);
         $this->bus->dispatch($message, [new SudoStamp()]);
 
         $deduplicationKey = 'my_message.project.<key_based_on_message>';
-        $this->bus->dispatch($message, [new DeduplicateStamp($deduplicationKey)]);
+        $this->bus->dispatch(new SomeMessage(), [new DeduplicateStamp($deduplicationKey)]);
     }
 }
