@@ -14,7 +14,7 @@ month_change: false
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-08-20', ['Headless', 'Experience', 'Commerce']) =]]
 
-#### Security
+### Security
 
 This release includes security fixes.
 To learn more, see the [corresponding security advisory].

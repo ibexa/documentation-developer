@@ -56,7 +56,7 @@ For more information, see [Translation review](translations_management_guide.md#
 
 ### Developer experience
 
-The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement`namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
+The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
 
 Changes include multiple extension points, including:
 
