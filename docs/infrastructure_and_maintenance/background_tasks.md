@@ -207,7 +207,7 @@ For more information, see [Symfony 7.4 documentation about message deduplication
 
 #### SiteAccessStamp
 
-[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://example.com/add-link-when-php-api-reference-is-generated) contains the name of the [SiteAccess](siteaccess.md) that dispatched the message.
+[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html) contains the name of the [SiteAccess](siteaccess.md) that dispatched the message.
 
 You don't need to add this stamp manually, [[= product_name_base =]] Messenger attaches this stamp to each dispatched message automatically.
 The stamp contains the SiteAccess that is current at the moment of dispatch.
