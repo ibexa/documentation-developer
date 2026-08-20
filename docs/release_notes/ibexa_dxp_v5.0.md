@@ -21,6 +21,7 @@ month_change: false
 
 Translations management is a new LTS Update that extends Ibexa DXP's built-in language management tools with machine translation, a side-by-side editing view, and a command-line translation utility.
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Machine translation providers
 
 Translation providers are the services that perform the actual text translation.

@@ -14,6 +14,7 @@ month_change: false
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-08-20', ['Headless', 'Experience', 'Commerce']) =]]
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Security
 
 This release includes security fixes.
