@@ -43,7 +43,7 @@ Supported attribute types are:
 Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
 
 You must create your own file for the Twig template.
-Place the `factbox.html.twig` template in the `templates/themes/<your-theme>/field_type/ezrichtext/custom_tags` directory:
+Place the `factbox.html.twig` template in the `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
 
 ```html+twig
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ibexa_richtext/custom_tags/factbox.html.twig') =]]
