@@ -122,6 +122,13 @@ You can now provide the label and description of a Rich Text custom tag, and the
 
 For more information, see [Provide translations for custom tags](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#provide-translations-for-custom-tags).
 
+### Updating languages in data migrations
+
+The `language` migration step now supports the `update` mode.
+Use it to rename an existing language or change its enabled state.
+
+For more information, see [Importing data](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#languages).
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
