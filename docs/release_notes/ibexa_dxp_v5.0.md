@@ -111,6 +111,11 @@ As announced during Ibexa Summit 2026, the upcoming 6.0 version will be renamed 
 
 To prepare your project ahead of the release, see the newly available [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/cohesivo_v6.0_deprecations/).
 
+### SiteAccess-aware background tasks
+
+[[= product_name_base =]] Messenger now attaches a [`SiteAccessStamp`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#siteaccessstamp) to every dispatched message.
+With this, one worker process can handle messages coming from different SiteAccesses.
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]

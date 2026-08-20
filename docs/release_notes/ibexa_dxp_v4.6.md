@@ -20,6 +20,11 @@ month_change: false
 This release includes security fixes.
 To learn more, see the [corresponding security advisory].
 
+### SiteAccess-aware background tasks
+
+[[= product_name_base =]] Messenger now attaches a [`SiteAccessStamp`](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#siteaccessstamp) to every dispatched message.
+With this, one worker process can handle messages coming from different SiteAccesses.
+
 ### Developer experience
 
 #### PHP API
