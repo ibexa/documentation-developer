@@ -116,6 +116,12 @@ To prepare your project ahead of the release, see the newly available [Cohesivo 
 [[= product_name_base =]] Messenger now attaches a [`SiteAccessStamp`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#siteaccessstamp) to every dispatched message.
 With this, one worker process can handle messages coming from different SiteAccesses.
 
+### Labels and descriptions for custom tags
+
+You can now provide the label and description of a Rich Text custom tag, and the labels of its attributes, directly in the custom tag configuration.
+
+For more information, see [Provide translations for custom tags](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#provide-translations-for-custom-tags).
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
