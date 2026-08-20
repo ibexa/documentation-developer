@@ -76,7 +76,6 @@
         "ibexa/solr": "5.0.x-dev",
         "ibexa/version-comparison": "5.0.x-dev",
         "league/oauth2-google": "^4.0",
-<<<<<<< Updated upstream
         "ibexa/connector-dam": "~5.0.x-dev",
         "ibexa/twig-components": "~5.0.x-dev",
         "ibexa/tree-builder": "~5.0.x-dev",
@@ -95,6 +94,7 @@
         "ibexa/connector-raptor": "~5.0.x-dev",
         "ibexa/image-editor": "~5.0.x-dev",
         "ibexa/integrated-help": "~5.0.x-dev",
+        "ibexa/translations-management": "~5.0.x-dev",
         "ibexa/site-context": "~5.0.x-dev",
         "ibexa/fieldtype-richtext-rte": "~5.0.x-dev",
         "ibexa/site-factory": "~5.0.x-dev",
@@ -104,22 +104,6 @@
         "ibexa/fastly": "~5.0.x-dev",
         "ibexa/connect": "~5.0.x-dev",
         "ibexa/connector-qualifio": "~5.0.x-dev"
-=======
-        "ibexa/connector-dam": "~4.6.x-dev",
-        "ibexa/twig-components": "~4.6.x-dev",
-        "ibexa/tree-builder": "~4.6.x-dev",
-        "ibexa/discounts": "~4.6.x-dev",
-        "ibexa/discounts-codes": "~4.6.x-dev",
-        "ibexa/product-catalog-symbol-attribute": "~4.6.x-dev",
-        "ibexa/messenger": "~4.6.x-dev",
-        "ibexa/collaboration": "~4.6.x-dev",
-        "ibexa/share": "~4.6.x-dev",
-        "ibexa/phpstan": "~4.6.-dev",
-        "ibexa/integrated-help": "~4.6.x-dev",
-        "ibexa/cdp": "~4.6.x-dev",
-        "ibexa/image-editor": "~4.6.x-dev",
-        "ibexa/rector": "~4.6.x-dev"
->>>>>>> Stashed changes
     },
     "scripts": {
         "fix-cs": [
