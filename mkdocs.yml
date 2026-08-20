@@ -935,6 +935,7 @@ nav:
         - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
         - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
+        - Ibexa DXP Rector: resources/rector.md
         - New in documentation: resources/new_in_doc.md
         - Contributing:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
@@ -944,6 +945,7 @@ nav:
         - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Cohesivo v6.0 deprecations and BC breaks: release_notes/cohesivo_v6.0_deprecations.md
         - Ibexa DXP v5.0 LTS: release_notes/ibexa_dxp_v5.0.md
         - Ibexa DXP v5.0 deprecations and BC breaks: release_notes/ibexa_dxp_v5.0_deprecations.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
