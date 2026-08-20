@@ -62,7 +62,7 @@ The Translations management package brings multiple new classes and interfaces a
 Changes include multiple extension points, including:
 
 - [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html) for creating custom translation providers
-- [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) that enables custom field type support
+- [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) for enabling custom field type support
 - [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules
 
 For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/extend_translations_management/).
@@ -75,7 +75,6 @@ For more information, see [Extend translations management](https://doc.ibexa.co/
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
-<!-- markdownlint-disable-next-line heading-increment -->
 ### Tools and configuration
 
 - Added `create_content_type_draft` [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) to create a draft for an existing content type.
