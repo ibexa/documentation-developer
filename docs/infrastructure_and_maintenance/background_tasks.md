@@ -103,8 +103,8 @@ If you deploy your application on [[= product_name_cloud =]], using [Workers](ht
 
 To have a task processed in the background by [[= product_name_base =]] Messenger:
 
-1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
-2. Dispatch an appropriate message, for example a [custom message](#register-custom-message-and-handler), by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
+1\. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
+2\. Dispatch an appropriate message, for example a [custom message](#register-custom-message-and-handler), by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
 
 ``` yaml
 services:
@@ -122,10 +122,10 @@ services:
 [[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 30, 31) =]]
 ```
 
-3. [Route the message to the background queue](#route-message-to-background-queue).
+3\. [Route the message to the background queue](#route-message-to-background-queue).
 Otherwise the bus calls the handler immediately, in the same process that dispatches the message.
 
-4. Additionally, attach message metadata by using [stamps](#stamps).
+4\. Additionally, attach message metadata by using [stamps](#stamps).
 
 ### Stamps
 

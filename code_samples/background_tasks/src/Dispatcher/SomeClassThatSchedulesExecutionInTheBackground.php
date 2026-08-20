@@ -22,8 +22,8 @@ final readonly class SomeClassThatSchedulesExecutionInTheBackground
         $this->bus->dispatch(new SomeMessage());
 
         $currentUserId = $this->permissionResolver->getCurrentUserReference()->getUserId();
-        $this->bus->dispatch($message, [new UserPermissionStamp($currentUserId)]);
-        $this->bus->dispatch($message, [new SudoStamp()]);
+        $this->bus->dispatch(new SomeMessage(), [new UserPermissionStamp($currentUserId)]);
+        $this->bus->dispatch(new SomeMessage(), [new SudoStamp()]);
 
         $deduplicationKey = 'my_message.project.<key_based_on_message>';
         $this->bus->dispatch(new SomeMessage(), [new DeduplicateStamp($deduplicationKey)]);

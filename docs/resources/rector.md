@@ -38,14 +38,14 @@ use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
     ->withPaths(
-       [
+        [
            __DIR__ . '/src',
-       ]
+        ]
     )
     ->withSets(
-       [
+        [
            IbexaSetList::IBEXA_50->value,
-       ]
+        ]
     )
     ->withPhpSets(php83: true)
     ->withComposerBased(symfony: true)

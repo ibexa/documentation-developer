@@ -10,7 +10,7 @@ use Ibexa\Contracts\TranslationsManagement\AutoTranslate\Provider\TranslationPro
 
 final class MyCustomLanguageCodeNormalizer implements LanguageNormalizerInterface
 {
-    private const LANGUAGE_MAP = [
+    private const array LANGUAGE_MAP = [
         'eng-GB' => 'en-GB',
         'ger-DE' => 'de',
         'fre-FR' => 'fr',
