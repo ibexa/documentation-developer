@@ -105,6 +105,12 @@ For more information, see [Extend translations management](https://doc.ibexa.co/
 This release includes security fixes.
 To learn more, see the corresponding [security advisory].
 
+### Cohesivo v6.0 deprecations
+
+As announced during Ibexa Summit 2026, the upcoming 6.0 version will be renamed to Cohesivo.
+
+To prepare your project ahead of the release, see the newly available [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/cohesivo_v6.0_deprecations/).
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
