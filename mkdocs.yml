@@ -211,6 +211,7 @@ nav:
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
             - Create custom Page block: content_management/pages/create_custom_page_block.md
+            - Targeting block: content_management/pages/targeting_block.md
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
@@ -529,6 +530,7 @@ nav:
             - CDP add tracking: cdp/cdp_activation/cdp_add_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
+        - CDP audience metadata: cdp/cdp_audience_metadata.md
     - Search:
         - Search: search/search.md
         - Search engines: 
