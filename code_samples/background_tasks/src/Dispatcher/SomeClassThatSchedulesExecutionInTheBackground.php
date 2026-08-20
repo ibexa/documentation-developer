@@ -2,8 +2,8 @@
 
 namespace App\Dispatcher;
 
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use App\Message\SomeMessage;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp;
 use Ibexa\Contracts\Messenger\Stamp\SudoStamp;
 use Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp;
