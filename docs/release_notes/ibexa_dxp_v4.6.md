@@ -20,6 +20,18 @@ month_change: false
 This release includes security fixes.
 To learn more, see the [corresponding security advisory].
 
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\DoctrineSchema\Database`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrineschema-database.html)
+- [`Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformName`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html)
+- [`Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformResolver`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformResolver.html)
+- [`Ibexa\Contracts\Messenger\Stamp`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger-stamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html)
+
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
