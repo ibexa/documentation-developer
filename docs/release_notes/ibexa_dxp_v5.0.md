@@ -30,7 +30,7 @@ Translations management uses two provider types to connect to the translation se
 - REST API-based providers: Google Translate and DeepL, configured with API keys
 - AI-based providers: OpenAI, Anthropic Claude, and Google Gemini, routed through AI Actions
 
-For more information, see [Configure translation providers](configure_translations_management.md#configure-translation-providers).
+For more information, see [Configure translation providers](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/#configure-translation-providers).
 
 ### Side-by-side translation view
 
@@ -43,7 +43,7 @@ For more information, see [User Documentation]([[= user_doc =]]/content_manageme
 
 A new console command translates content items from the command line, enabling batch processing and automated workflows.
 
-For more information, see [Translate content items with CLI](translate_with_cli.md).
+For more information, see [Translate content items with CLI](https://doc.ibexa.co/en/5.0/multisite/translations_management/translate_with_cli/.
 
 ### Translation review
 
@@ -53,17 +53,17 @@ Accepted translations are given the "Translated" status.
 
 The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
 
-For more information, see [Translation review](translations_management_guide.md#translation-review).
+For more information, see [Translation review](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/translations_management_guide/#translation-review).
 
 ### Developer experience
 
-The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
+The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
 
 Changes include multiple extension points, including:
 
-- [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html) for creating custom translation providers
-- [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) for enabling custom field type support
-- [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules
+- [`TranslationProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html) for creating custom translation providers
+- [`FieldValueTransformerInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) for enabling custom field type support
+- [`SideBySideExclusionRuleInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules
 
 For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/extend_translations_management/).
 
@@ -78,7 +78,7 @@ For more information, see [Extend translations management](https://doc.ibexa.co/
 ### Tools and configuration
 
 - Added `create_content_type_draft` [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) to create a draft for an existing content type.
-- [MCP server's session storage configuration](mcp_config.md#session-storage) now has a default value to use the default cache service out-of-the-box equivalent to the following:
+- [MCP server's session storage configuration](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#session-storage) now has a default value to use the default cache service out-of-the-box equivalent to the following:
 
   ```yaml
   ibexa:
@@ -133,7 +133,7 @@ For more information, see [Importing data](https://doc.ibexa.co/en/5.0/content_m
 You can now add the new `name.help` translation key.
 It’s rendered as a helper text under the **Name** field in the block configuration form in the Page Builder.
 
-For more information and an example of block configuration, see [Block name and help text](page_blocks.md#block-name-and-help-text).
+For more information and an example of block configuration, see [Block name and help text](https://doc.ibexa.co/en/5.0/content_management/pages/page_blocks/#block-name-and-help-text).
 
 ### Full changelog
 
