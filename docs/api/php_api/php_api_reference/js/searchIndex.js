@@ -5341,6 +5341,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Collaboration-Invitation-InvitationUpdateStruct.html#method_setContext"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\InvitationUpdateStruct\u003A\u003AgetTranslationMessages\u0028\u0029",
+            "name": "getTranslationMessages",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Invitation-InvitationUpdateStruct.html#method_getTranslationMessages"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\CreatedAt",
             "name": "CreatedAt",
             "summary": "",
@@ -40371,6 +40376,41 @@ Search.appendIndex(
             "summary": "Import\u0020Schema\u0020from\u0020Yaml\u0020schema\u0020definition\u0020file\u0020into\u0020Schema\u0020object.",
             "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html#method_importSchemaFromFile"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformName",
+            "name": "DatabasePlatformName",
+            "summary": "Database\u0020platform\u0020identifiers\u0020recognized\u0020by\u0020\u007B\u0040see\u0020DatabasePlatformResolver\u007D.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformName\u003A\u003Aall\u0028\u0029",
+            "name": "all",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html#method_all"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformName\u003A\u003AMYSQL",
+            "name": "MYSQL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html#constant_MYSQL"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformName\u003A\u003APOSTGRESQL",
+            "name": "POSTGRESQL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html#constant_POSTGRESQL"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformName\u003A\u003ASQLITE",
+            "name": "SQLITE",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html#constant_SQLITE"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformResolver",
+            "name": "DatabasePlatformResolver",
+            "summary": "Resolves\u0020a\u0020Doctrine\u0020database\u0020platform\u0020to\u0020one\u0020of\u0020the\u0020\u007B\u0040see\u0020DatabasePlatformName\u007D\u0020identifiers,\nor\u0020null\u0020if\u0020it\u0020is\u0020not\u0020one\u0020of\u0020the\u0020recognized\u0020platforms.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformResolver.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database\\DatabasePlatformResolver\u003A\u003AresolveName\u0028\u0029",
+            "name": "resolveName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformResolver.html#method_resolveName"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\DbPlatformFactoryInterface",
             "name": "DbPlatformFactoryInterface",
             "summary": "",
@@ -42670,6 +42710,26 @@ Search.appendIndex(
             "name": "getUnit",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Measurement-Value-ValueInterface.html#method_getUnit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\SiteAccessStamp",
+            "name": "SiteAccessStamp",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\SiteAccessStamp\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\SiteAccessStamp\u003A\u003AgetSiteAccess\u0028\u0029",
+            "name": "getSiteAccess",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html#method_getSiteAccess"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\SiteAccessStamp\u003A\u003A\u0024siteAccess",
+            "name": "siteAccess",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html#property_siteAccess"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Messenger\\Transport\\MessageProviderInterface",
             "name": "MessageProviderInterface",
@@ -63661,6 +63721,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-doctrineschema-builder.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Database",
+            "name": "Database",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrineschema-database.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema",
             "name": "DoctrineSchema",
             "summary": "",
@@ -64036,15 +64101,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-measurement-value.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Transport",
-            "name": "Transport",
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp",
+            "name": "Stamp",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-messenger-transport.html"
+            "url": "namespaces/ibexa-contracts-messenger-stamp.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Messenger",
             "name": "Messenger",
             "summary": "",
             "url": "namespaces/ibexa-contracts-messenger.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Transport",
+            "name": "Transport",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-messenger-transport.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Event",
             "name": "Event",

@@ -902,6 +902,7 @@ nav:
         - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Cohesivo v6.0 deprecations and BC breaks: release_notes/cohesivo_v6.0_deprecations.md
         - Ibexa DXP v5.0 LTS: release_notes/ibexa_dxp_v5.0.md
         - Ibexa DXP v5.0 deprecations and BC breaks: release_notes/ibexa_dxp_v5.0_deprecations.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
@@ -985,12 +986,13 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.31'
-  latest_tag_5_0: '5.0.9'
+  latest_tag_4_6: '4.6.32'
+  latest_tag_5_0: '5.0.10'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
-  user_doc: 'https://doc.ibexa.co/projects/userguide/en/4.6'
   symfony_version: '5.4' 
+
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/4.6'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
