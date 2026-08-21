@@ -55,6 +55,13 @@ The **Versions** tab shows a **Translation status** column with review status ba
 
 For more information, see [Translation review](translations_management_guide.md#translation-review).
 
+### New translation key in the block configuration
+
+You can now add the new `name.help` translation key.
+It’s rendered as a helper text under the **Name** field in the block configuration form in the Page Builder.
+
+For more information and an example of block configuration, see [Block name and help text](page_blocks.md#block-name-and-help-text).
+
 ### Developer experience
 
 The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
