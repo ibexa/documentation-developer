@@ -133,9 +133,9 @@ For more information, see [Importing data](https://doc.ibexa.co/en/5.0/content_m
 You can now add the new `name.help` translation key.
 It’s rendered as a helper text under the **Name** field in the block configuration form in the Page Builder.
 
-For more information and an example of block configuration, see [Block name and help text](page_blocks.md#block-name-and-help-text).
+For more information and an example of block configuration, see [Block name and help text](https://doc.ibexa.co/en/4.6/content_management/pages/page_blocks/#block-name-and-help-text).
 
-### Full changelog
+### Full changelogblock
 
 [[% include 'snippets/release_50.md' %]]
 
