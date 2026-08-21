@@ -10,6 +10,45 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.32' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-08-20', ['Headless', 'Experience', 'Commerce']) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory].
+
+### SiteAccess-aware background tasks
+
+[[= product_name_base =]] Messenger now attaches a [`SiteAccessStamp`](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#siteaccessstamp) to every dispatched message.
+With this, one worker process can handle messages coming from different SiteAccesses.
+
+### Labels and descriptions for custom tags
+
+You can now provide the label and description of a Rich Text custom tag, and the labels of its attributes, directly in the custom tag configuration.
+
+For more information, see [Provide translations for custom tags](https://doc.ibexa.co/en/4.6/content_management/rich_text/extend_online_editor/#provide-translations-for-custom-tags).
+
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\DoctrineSchema\Database`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrineschema-database.html)
+- [`Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformName`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html)
+- [`Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformResolver`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformResolver.html)
+- [`Ibexa\Contracts\Messenger\Stamp`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger-stamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html)
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.31' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-07-01', ['Headless', 'Experience', 'Commerce', ]) =]]

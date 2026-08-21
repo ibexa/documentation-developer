@@ -479,6 +479,10 @@ Make sure it contains the highlighted addition:
 
 No additional steps needed for Ibexa DXP, but the [MCP Servers LTS Update requires additional update steps](#mcp-servers) if you're using it.
 
+## v5.0.10
+
+No additional steps needed for [[= product_name =]].
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.

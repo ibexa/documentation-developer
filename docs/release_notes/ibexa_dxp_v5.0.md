@@ -10,6 +10,137 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.10' %]]
+[[% set date = '2026-08-20' %]]
+
+[[= release_note_entry_begin(
+    'Translations management ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+Translations management is a new LTS Update that extends Ibexa DXP's built-in language management tools with machine translation, a side-by-side editing view, and a command-line translation utility.
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Machine translation providers
+
+Translation providers are the services that perform the actual text translation.
+Translations management uses two provider types to connect to the translation services:
+
+- REST API-based providers: Google Translate and DeepL, configured with API keys
+- AI-based providers: OpenAI, Anthropic Claude, and Google Gemini, routed through AI Actions
+
+For more information, see [Configure translation providers](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/#configure-translation-providers).
+
+### Side-by-side translation view
+
+A [side-by-side translation view]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view) displays the source and target text of the content item or product on one screen.
+Editors can translate or compare source and target content, copy all content from the source column to the target column in a single action, and use the distraction-free mode for focused editing of individual fields.
+
+For more information, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
+
+### CLI translation command
+
+A new console command translates content items from the command line, enabling batch processing and automated workflows.
+
+For more information, see [Translate content items with CLI](https://doc.ibexa.co/en/5.0/multisite/translations_management/translate_with_cli/.
+
+### Translation review
+
+When a draft is created through automatic translation, it receives the "For review" status.
+Editors can accept or reject the translation in the side-by-side view, which displays a review bar.
+Accepted translations are given the "Translated" status.
+
+The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
+
+For more information, see [Translation review](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/translations_management_guide/#translation-review).
+
+### Developer experience
+
+The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
+
+Changes include multiple extension points, including:
+
+- [`TranslationProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html) for creating custom translation providers
+- [`FieldValueTransformerInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html) for enabling custom field type support
+- [`SideBySideExclusionRuleInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html) for defining custom content type exclusion rules
+
+For more information, see [Extend translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/extend_translations_management/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+### Tools and configuration
+
+- Added `create_content_type_draft` [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) to create a draft for an existing content type.
+- [MCP server's session storage configuration](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#session-storage) now has a default value to use the default cache service out-of-the-box equivalent to the following:
+
+  ```yaml
+  ibexa:
+      repositories:
+          <repository>:
+              mcp:
+                  <server>:
+                      session:
+                          type: psr16
+                          service: ibexa.cache_pool
+  ```
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the corresponding [security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-004-firewall-access-control-issue-and-xss-vulnerabilities).
+
+### Cohesivo v6.0 deprecations
+
+As announced during Ibexa Summit 2026, the upcoming 6.0 version will be renamed to Cohesivo.
+
+To prepare your project ahead of the release, see the newly available [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/cohesivo_v6.0_deprecations/).
+
+### SiteAccess-aware background tasks
+
+[[= product_name_base =]] Messenger now attaches a [`SiteAccessStamp`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#siteaccessstamp) to every dispatched message.
+With this, one worker process can handle messages coming from different SiteAccesses.
+
+### Labels and descriptions for custom tags
+
+You can now provide the label and description of a Rich Text custom tag, and the labels of its attributes, directly in the custom tag configuration.
+
+For more information, see [Provide translations for custom tags](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#provide-translations-for-custom-tags).
+
+### Updating languages in data migrations
+
+The `language` migration step now supports the `update` mode.
+Use it to rename an existing language or change its enabled state.
+
+For more information, see [Importing data](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#languages).
+
+### New translation key in the block configuration
+
+You can now add the new `name.help` translation key.
+It’s rendered as a helper text under the **Name** field in the block configuration form in the Page Builder.
+
+For more information and an example of block configuration, see [Block name and help text](https://doc.ibexa.co/en/5.0/content_management/pages/page_blocks/#block-name-and-help-text).
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.9' %]]
 [[% set date = '2026-07-01' %]]
 
@@ -280,7 +411,7 @@ For more information about Recommendation blocks in Page Builder, see the releva
 
 ### [[= pim_product_name =]]
 
-The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]]](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
+The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
 
 [[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 Ibexa DXP consumes this data and makes it available for use in content and digital experiences.

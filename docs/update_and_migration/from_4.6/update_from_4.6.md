@@ -734,6 +734,10 @@ In addition, consider upgrading your project to one of [the actively supported P
 
 No additional steps needed.
 
+## v4.6.32
+
+No additional steps needed.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.

@@ -182,7 +182,7 @@ The following combinations of types are modes are available:
 |`content_type_group`|&#10004;|&#10004;||
 |`user`|&#10004;|&#10004;||
 |`user_group`|&#10004;|&#10004;|&#10004;|
-|`language`|&#10004;|||
+|`language`|&#10004;|&#10004;||
 |`object_state_group`|&#10004;|||
 |`object_state`|&#10004;|||
 |`section`|&#10004;|&#10004;||

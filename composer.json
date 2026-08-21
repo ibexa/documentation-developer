@@ -94,6 +94,7 @@
         "ibexa/connector-raptor": "~6.0.x-dev",
         "ibexa/image-editor": "~6.0.x-dev",
         "ibexa/integrated-help": "~6.0.x-dev",
+        "ibexa/translations-management": "~6.0.x-dev",
         "ibexa/site-context": "~6.0.x-dev",
         "ibexa/fieldtype-richtext-rte": "~6.0.x-dev",
         "ibexa/site-factory": "~6.0.x-dev",
