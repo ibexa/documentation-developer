@@ -902,6 +902,7 @@ nav:
         - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Cohesivo v6.0 deprecations and BC breaks: release_notes/cohesivo_v6.0_deprecations.md
         - Ibexa DXP v5.0 LTS: release_notes/ibexa_dxp_v5.0.md
         - Ibexa DXP v5.0 deprecations and BC breaks: release_notes/ibexa_dxp_v5.0_deprecations.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
