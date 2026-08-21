@@ -55,13 +55,6 @@ The **Versions** tab shows a **Translation status** column with review status ba
 
 For more information, see [Translation review](translations_management_guide.md#translation-review).
 
-### New translation key in the block configuration
-
-You can now add the new `name.help` translation key.
-It’s rendered as a helper text under the **Name** field in the block configuration form in the Page Builder.
-
-For more information and an example of block configuration, see [Block name and help text](page_blocks.md#block-name-and-help-text).
-
 ### Developer experience
 
 The Translations management package brings multiple new classes and interfaces as part of the [`Ibexa\Contracts\TranslationsManagement` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html).
@@ -109,7 +102,7 @@ For more information, see [Extend translations management](https://doc.ibexa.co/
 ### Security
 
 This release includes security fixes.
-To learn more, see the corresponding [security advisory].
+To learn more, see the corresponding [security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-004-firewall-access-control-issue-and-xss-vulnerabilities).
 
 ### Cohesivo v6.0 deprecations
 
@@ -134,6 +127,13 @@ The `language` migration step now supports the `update` mode.
 Use it to rename an existing language or change its enabled state.
 
 For more information, see [Importing data](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#languages).
+
+### New translation key in the block configuration
+
+You can now add the new `name.help` translation key.
+It’s rendered as a helper text under the **Name** field in the block configuration form in the Page Builder.
+
+For more information and an example of block configuration, see [Block name and help text](page_blocks.md#block-name-and-help-text).
 
 ### Full changelog
 
