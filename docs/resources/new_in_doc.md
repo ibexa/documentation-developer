@@ -495,7 +495,7 @@ Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](h
 #### REST API
 
 Layout for [v5.0 REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) is now changed.
-As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
+As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
 You can also check the documentation directly on your development installations at `/api/ibexa/v2/doc`.
 
 ## June 2025

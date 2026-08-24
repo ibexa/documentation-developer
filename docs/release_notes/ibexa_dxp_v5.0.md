@@ -53,7 +53,7 @@ Accepted translations are given the "Translated" status.
 
 The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
 
-For more information, see [Translation review](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/translations_management_guide/#translation-review).
+For more information, see [Translation review](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management_guide/#translation-review).
 
 ### Developer experience
 
@@ -499,7 +499,7 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\ProductCatalog\Events\ProductAttributeRenderEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-ProductAttributeRenderEvent.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
   <br>For more information, see [search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/).
-- [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html) from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/)
+- [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html) from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/)
 - [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html) from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/)
 
 ### Full changelog
