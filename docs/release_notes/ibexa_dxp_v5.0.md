@@ -43,7 +43,7 @@ For more information, see [User Documentation]([[= user_doc =]]/content_manageme
 
 A new console command translates content items from the command line, enabling batch processing and automated workflows.
 
-For more information, see [Translate content items with CLI](https://doc.ibexa.co/en/5.0/multisite/translations_management/translate_with_cli/.
+For more information, see [Translate content items with CLI](https://doc.ibexa.co/en/5.0/multisite/translations_management/translate_with_cli/).
 
 ### Translation review
 
