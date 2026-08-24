@@ -5,11 +5,6 @@ month_change: false
 
 # Update from v5.0 to Cohesivo v6.0
 
-!!! note "Cohesivo v6.0 isn't released yet"
-
-    This page is published ahead of the Cohesivo v6.0 release to give you time to prepare your code for the upcoming changes.
-
-    As the work on Cohesivo 6.0 is in progress, this page **isn't exhaustive and will evolve with time**.
 
 ## Update from v5.0.x to v5.0.latest
 
@@ -21,16 +16,17 @@ Before you update to v6.0, you need to [update to the latest maintenance release
 
 See [Cohesivo v6.0 renames, deprecations and removals](/release_notes/cohesivo_v6.0_deprecations.md) for the full list of changes.
 
-#### X-Powered-By header
+#### Remove IbexaAppSwitcher bundle
 
-The `ibexa_system_info.system_info.powered_by.release` configuration option is removed.
-Remove it from your configuration, if present.
-See [X-Powered-By header](/infrastructure_and_maintenance/devops.md#x-powered-by-header) for how the header works in Cohesivo v6.0.
+The `IbexaAppSwitcherBundle` bundle, part of the `ibexa/app-switcher` package, is removed in 6.0.
 
-```diff
- ibexa_system_info:
-     system_info:
-         powered_by:
--            release: major
-             enabled: true
+Remove the entry from `config/bundles.php`:
+
+``` diff
+-     Ibexa\Bundle\AppSwitcher\IbexaAppSwitcherBundle::class => ['all' => true],
 ```
+
+### Drain the background task queue
+
+The message format used for [background task deduplication](cohesivo_v6.0_deprecations.md#ibexamessenger) changed between v5.0 and v6.0.
+Before you update, process or manually remove pending messages stored in the `ibexa_messenger_messages` table, so no message in the old format remains.

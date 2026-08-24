@@ -24,6 +24,10 @@ To make the update process between v5 and v6 easier, there are no plans for a la
 
 This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
+## Dropped packages
+
+The `ibexa/app-switcher` package, and its `IbexaAppSwitcherBundle`, is no longer part of the 6.0.
+
 ## PHP API changes
 
 ### ibexa/http-cache
@@ -46,6 +50,12 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | v5.0.9 | [`\Ibexa\Contracts\Messenger\Stamp\SudoStamp`](background_tasks.md#sudostamp)     | No longer attached automatically to every dispatched message. For messages that should be processed without taking permissions into account, always attach the SudoStamp manually.                                             |
 | v5.0.9 | <nobr>`\Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp`</nobr>                                     | Moved to [`\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html). Covered by [[[= product_name_base =]] Rector](../resources/rector.md) refactoring rules. |
 | v5.0.10 | <nobr>[`\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html)</nobr>                               | Replaced in v6.0 with [`\Symfony\Component\Messenger\Stamp\DeduplicateStamp`]([[= symfony_doc =]]/messenger.html#message-deduplication). A Rector rule will be available for the Cohesivo 6.0 upgrade. Until then, keep using the deprecated `\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`, as Ibexa DXP 5.0 doesn't handle the native Symfony stamp. |
+
+### ibexa/user
+
+| Deprecated since | Entity                                                    | Change                                                                                                                       |
+| --- |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| N/A | `\Ibexa\User\UserSetting\Group\LocationGroup`                   | Renamed to `\Ibexa\User\UserSetting\Group\LocaleGroup`. The [user setting](add_user_setting.md) group identifier `location` is renamed to `locale`. Custom settings registered under the `location` identifier must be updated to use `locale` instead. |
 
 ## Configuration keys
 
