@@ -5,7 +5,6 @@ month_change: false
 
 # Update from v5.0 to Cohesivo v6.0
 
-
 ## Update from v5.0.x to v5.0.latest
 
 Before you update to v6.0, you need to [update to the latest maintenance release of v5.0 (v[[= latest_tag_5_0 =]])](update_from_5.0.md).

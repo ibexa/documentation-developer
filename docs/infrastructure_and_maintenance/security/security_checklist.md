@@ -117,7 +117,7 @@ Reduce your attack surface by exposing only what you must.
 
 - If possible, make the back office unavailable on the open internet.
 - [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It's only required in the back office SiteAccess though, so you can consider blocking it in other SiteAccesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
-- By default, an `X-Powered-By header` is set.
+- By default, an `X-Powered-By` header is set.
 This doesn't expose anything that couldn't be detected through other means, but to obscure this information you can [disable the header entirely](devops.md#x-powered-by-header).
 
 - Consider whether certain interfaces must be left available on the open internet. For example:
