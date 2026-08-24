@@ -30,7 +30,7 @@ To get information about a specific workflow for a content item, use [`WorkflowS
 
 !!! tip
 
-    `marking`, a term from [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html),
+    `marking`, a term from [Symfony Workflow]([[= symfony_doc =]]/workflow.html),
     refers to a state in a workflow.
 
 If you already have a [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object, use [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo) to avoid loading the full [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html).
