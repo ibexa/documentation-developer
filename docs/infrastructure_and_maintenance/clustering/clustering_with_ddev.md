@@ -110,7 +110,7 @@ x-cache-hits: 5
 x-cache-ttl: 87654.321
 x-debug-token: 012345
 x-debug-token-link: https://<your-project>.ddev.site:<https-port>//_profiler/012345
-x-powered-by: Ibexa Commerce v5
+x-powered-by: Cohesivo CMS
 x-robots-tag: noindex
 x-varnish: 12345 67890
 xkey: ez-all c52 ct42 l2 pl1 p1 p2

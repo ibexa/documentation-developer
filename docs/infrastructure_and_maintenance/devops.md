@@ -98,6 +98,27 @@ You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]
 Here you can see the name of the current SiteAccess and how it was matched.
 For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).
 
+## X-Powered-By header
+
+The system sets an `X-Powered-By` header on every response, identifying the platform running the site:
+
+``` http
+X-Powered-By: Cohesivo CMS
+```
+
+The header is enabled by default.
+To remove it, disable it under the `ibexa_system_info` configuration:
+
+```yaml
+ibexa_system_info:
+    system_info:
+        powered_by:
+            enabled: false
+```
+
+The header doesn't expose anything that couldn't be detected through other means.
+Still, as part of [minimizing exposure](security/security_checklist.md#minimize-exposure), you may want to disable it, for example to avoid revealing what software powers your site to automated scanners.
+
 ## Logging and debug configuration
 
 Logging in [[= product_name =]] consists of two parts.
