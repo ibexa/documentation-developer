@@ -63,12 +63,11 @@ final class YamlTest extends TestCase
         int $line,
         string $bodyHash
     ): void {
-        $configuration = self::configurationProvider()->createConfiguration($extensionName);
-        $processor = new Processor();
-
-        $config = self::configurationProvider()->resolveParameters(is_array($config) ? $config : []);
-
         try {
+            $configuration = self::configurationProvider()->createConfiguration($extensionName);
+            $processor = new Processor();
+
+            $config = self::configurationProvider()->resolveParameters(is_array($config) ? $config : []);
             $processor->processConfiguration($configuration, [$config]);
         } catch (\Exception $e) {
             if (self::baseline()->isInBaseline($filePath, $bodyHash, $e->getMessage())) {
