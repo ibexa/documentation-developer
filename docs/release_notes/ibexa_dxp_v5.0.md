@@ -53,7 +53,7 @@ Accepted translations are given the "Translated" status.
 
 The **Versions** tab shows a **Translation status** column with review status badges for draft translations created with automatic translation.
 
-For more information, see [Translation review](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/translations_management_guide/#translation-review).
+For more information, see [Translation review](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management_guide/#translation-review).
 
 ### Developer experience
 
