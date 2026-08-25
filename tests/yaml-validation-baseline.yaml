@@ -33,11 +33,6 @@ ignoreErrors:
         hash: 4cfc5ac559eb8db38edb6c8a29872883a95886b61cdae2b343a5ebaf4a9bca8e
         message: '~The value "\<general\|targetable\>" is not allowed for path "ibexa\.system\.\<scope\>\>\.product_tour\.\<scenario_identifier\>\.type"\. Permissible values\: "general", "targetable"\.~'
     -
-        path: docs/cdp/cdp_data_customization.md
-        line: 29
-        hash: bb2ecc0b96ca61cd004b9c1806e78d6afc3197a68acb723db7a52cfd5bdc89d6
-        message: '~Unable to parse at line 1 \(near "    App\\Export\\User\\DateOfBirthUserItemProcessor\:"\)\.~'
-    -
         path: docs/commerce/checkout/customize_checkout.md
         line: 130
         hash: fb889cba0ffc081e7d0b0387d32835ae8e5d3c033f26144cb4d54b3e121f428a
@@ -349,7 +344,7 @@ ignoreErrors:
         message: '~Unrecognized option "require_previous_session" under "security\.firewalls\.ezpublish_front\.form_login"\. Available options are "always_use_default_target_path", "check_path", "csrf_parameter", "csrf_token_id", "default_target_path", "enable_csrf", "failure_forward", "failure_handler", "failure_path", "failure_path_parameter", "form_only", "login_path", "password_parameter", "post_only", "provider", "remember_me", "success_handler", "target_path_parameter", "use_forward", "use_referer", "username_parameter"\.~'
     -
         path: docs/release_notes/ibexa_dxp_v5.0.md
-        line: 85
+        line: 84
         hash: 7d4a5637a3e036ebcdc5a4be8282aebe2bfcbaee3222981b81f739ae773111d0
         message: '~The child config "path" under "ibexa\.repositories\.\<repository\>\.mcp\.\<server\>" must be configured\: MCP server path~'
     -
