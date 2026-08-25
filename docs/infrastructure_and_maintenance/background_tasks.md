@@ -163,10 +163,10 @@ For more information, see [Symfony documentation about message deduplication]([[
 The following example shows how you can attach the `DeduplicateStamp` to the message:
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 9, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 7, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 10, 10, remove_indent=True) =]]
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 27, 28, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 28, 29, remove_indent=True) =]]
 ```
 
 #### SudoStamp
@@ -183,10 +183,10 @@ It's automatically attached to every dispatched message.
 The following example shows how you can attach the `SudoStamp` to the message:
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 7, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 10, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 8, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 10, 11, remove_indent=True) =]]
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 25, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 26, 26, remove_indent=True) =]]
 ```
 
 #### UserPermissionStamp
@@ -200,10 +200,10 @@ By combing this stamp with [`SudoStamp`](#sudostamp), you can set the repository
 The following example shows how you can use `UserPermissionStamp` to preserve the current repository user after the message is dispatched.
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 10, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 11, remove_indent=True) =]]
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, remove_indent=True) =]]
+[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 24, 25, remove_indent=True) =]]
 ```
 
 #### SiteAccessStamp
