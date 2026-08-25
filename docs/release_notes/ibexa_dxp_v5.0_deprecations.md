@@ -526,7 +526,7 @@ In `migrations`, it makes it easier to integrate custom data types, especially w
 !!! note "Change examples"
 
     Below the lists you may find examples of changes in those interfaces or classes that you are most likely to use in your work.
-    
+
 ### ibexa/core
 
 | PHP Interface or class                                     | Methods                                                                |

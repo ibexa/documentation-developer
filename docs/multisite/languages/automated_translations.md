@@ -19,6 +19,10 @@ The following field types are supported out of the box:
 
 See [adding a custom field or block attribute encoder](#create-custom-field-or-block-attribute-encoder) for more information on how you can extend this list.
 
+!!! note
+
+    If you're currently using Automated translations, consider migrating to [Translations management](translations_management_guide.md).
+
 ## Configure automated content translation
 
 ### Install package

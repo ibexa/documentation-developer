@@ -152,7 +152,7 @@ The template for the product suggestion item follows, named `templates/themes/ad
 
 ## Replace default suggestion source
 
-To replace the default suggestion source, [decorate]([[= symfony_doc =]]/service_container/service_decoration.html) the built-in `BuildSuggestionCollectionEvent` subscriber with your own:
+To replace the default suggestion source, [decorate]([[= symfony_doc =]]/service_container/decoration.html) the built-in `ContentSuggestionSubscriber` subscriber with your own:
 
 ```yaml
 services:

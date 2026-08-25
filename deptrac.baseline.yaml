@@ -262,6 +262,10 @@ deptrac:
     App\Tab\Dashboard\Everyone\EveryoneArticleTab:
       - Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper
       - Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter
+    App\TranslationsManagement\ImageAltTextTransformer:
+      - Ibexa\Core\Base\Exceptions\InvalidArgumentException
+      - Ibexa\Core\FieldType\Image\Value
+      - Ibexa\Core\FieldType\Value
     App\View\Matcher\Owner:
       - Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MatcherInterface
       - Ibexa\Core\MVC\Symfony\View\ContentValueView

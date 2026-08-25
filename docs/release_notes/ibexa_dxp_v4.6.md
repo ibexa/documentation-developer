@@ -16,15 +16,30 @@ month_change: false
 [[= release_note_entry_begin(
     product_name + ' ' + version,
     date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.32' %]]
+[[% set date = '2026-08-20' %]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
     ['Headless', 'Experience', 'Commerce']
 ) =]]
 
 <!-- markdownlint-disable-next-line heading-increment -->
-### Cohesivo v6.0 deprecations
+### Security
 
-As announced during Ibexa Summit 2026, the upcoming 6.0 version will be renamed to Cohesivo.
-
-To prepare your project ahead of the release, see the newly available [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/4.6/release_notes/cohesivo_v6.0_deprecations/).
+This release includes security fixes.
+To learn more, see the [corresponding security advisory].
 
 ### SiteAccess-aware background tasks
 
@@ -36,6 +51,18 @@ With this, one worker process can handle messages coming from different SiteAcce
 You can now provide the label and description of a Rich Text custom tag, and the labels of its attributes, directly in the custom tag configuration.
 
 For more information, see [Provide translations for custom tags](https://doc.ibexa.co/en/4.6/content_management/rich_text/extend_online_editor/#provide-translations-for-custom-tags).
+
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\DoctrineSchema\Database`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrineschema-database.html)
+- [`Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformName`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformName.html)
+- [`Ibexa\Contracts\DoctrineSchema\Database\DatabasePlatformResolver`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineSchema-Database-DatabasePlatformResolver.html)
+- [`Ibexa\Contracts\Messenger\Stamp`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger-stamp.html)
+- [`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](https://ez-systems-developer-documentation--3358.com.readthedocs.build/en/3358/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html)
 
 ### Full changelog
 
@@ -49,8 +76,8 @@ For more information, see [Provide translations for custom tags](https://doc.ibe
 [[= release_note_entry_begin(
     product_name + ' ' + version,
     date,
-    ['Headless', 'Experience', 'Commerce'])
-=]]
+    ['Headless', 'Experience', 'Commerce']
+) =]]
 
 [[% include 'snippets/release_46.md' %]]
 
@@ -65,6 +92,7 @@ For more information, see [Provide translations for custom tags](https://doc.ibe
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Security
 
 This release includes security fixes.
