@@ -69,7 +69,7 @@ The [`URLAliasService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-C
 
 ### Content type
 
-You can retrieve the content type of content item through the [`getContentType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getContentType) method of the ContentInfo object:
+You can retrieve the content type of a content item through the [`getContentType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getContentType) method of the ContentInfo object:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 73, remove_indent=True) =]]
