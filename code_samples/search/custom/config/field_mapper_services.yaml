@@ -1,5 +1,5 @@
 services:
-    App\Search\Mapper\WebinarEventTitleFulltextFieldMapper:
+    App\Search\FieldMapper\WebinarEventParentNameFieldMapper:
         arguments:
             - '@Ibexa\Contracts\Core\Persistence\Content\Handler'
             - '@Ibexa\Contracts\Core\Persistence\Content\Location\Handler'

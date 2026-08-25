@@ -11,27 +11,21 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'app:view'
+    name: 'app:view',
+    description: 'Render the view of a content item'
 )]
 class ViewCommand extends Command
 {
-    private ContentViewBuilder $contentViewBuilder;
-
-    private TemplateRenderer $templateRenderer;
-
     public function __construct(
-        ContentViewBuilder $contentViewBuilder,
-        TemplateRenderer $templateRenderer
+        private readonly ContentViewBuilder $contentViewBuilder,
+        private readonly TemplateRenderer $templateRenderer
     ) {
-        $this->contentViewBuilder = $contentViewBuilder;
-        $this->templateRenderer = $templateRenderer;
-
         parent::__construct();
     }
 
     protected function configure(): void
     {
-        $this->setDescription('Render the view of a content item')
+        $this
             ->addOption('content-id', 'c', InputOption::VALUE_OPTIONAL, 'Content ID')
             ->addOption('location-id', 'l', InputOption::VALUE_OPTIONAL, 'Location ID')
             ->addOption('view-type', 't', InputOption::VALUE_OPTIONAL, 'View Type', 'line');
@@ -47,7 +41,7 @@ class ViewCommand extends Command
 
         $viewParameters = [
             'viewType' => $input->getOption('view-type'),
-            '_controller' => 'ibexa_content:viewAction',
+            '_controller' => 'ibexa_content::viewAction',
         ];
 
         if (!empty($locationId)) {

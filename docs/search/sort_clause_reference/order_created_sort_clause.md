@@ -14,11 +14,16 @@ The `Created` Sort Clause sorts search results by the date and time when the ord
 ## Example
 
 ``` php
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+
+$criteria = null;
+
 $orderQuery = new OrderQuery(
     $criteria,
     [
         new \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Created(
-            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Created::SORT_ASC)
+            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Created::SORT_ASC
+        ),
     ]
 );
 ```

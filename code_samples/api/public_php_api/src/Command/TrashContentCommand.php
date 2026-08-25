@@ -18,21 +18,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class TrashContentCommand extends Command
 {
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private TrashService $trashService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LocationService $locationService, UserService $userService, TrashService $trashService, PermissionResolver $permissionResolver)
-    {
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->trashService = $trashService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly TrashService $trashService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 

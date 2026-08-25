@@ -8,11 +8,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyFeatureEventSubscriber implements EventSubscriberInterface
 {
-    private ActivityLogServiceInterface $activityLogService;
-
-    public function __construct(ActivityLogServiceInterface $activityLogService)
+    public function __construct(private readonly ActivityLogServiceInterface $activityLogService)
     {
-        $this->activityLogService = $activityLogService;
     }
 
     public static function getSubscribedEvents(): array
@@ -26,7 +23,7 @@ class MyFeatureEventSubscriber implements EventSubscriberInterface
     {
         /** @var \App\MyFeature\MyFeature $object */
         $object = $event->getObject();
-        $className = get_class($object);
+        $className = $object::class;
         $id = (string)$object->id;
         $action = $event->getAction();
         $activityLog = $this->activityLogService->build($className, $id, $action);

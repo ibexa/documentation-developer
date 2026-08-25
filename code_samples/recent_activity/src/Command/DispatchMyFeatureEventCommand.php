@@ -16,12 +16,8 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 )]
 class DispatchMyFeatureEventCommand extends Command
 {
-    private EventDispatcherInterface $eventDispatcher;
-
-    public function __construct(EventDispatcherInterface $eventDispatcher)
+    public function __construct(private readonly EventDispatcherInterface $eventDispatcher)
     {
-        $this->eventDispatcher = $eventDispatcher;
-
         parent::__construct();
     }
 

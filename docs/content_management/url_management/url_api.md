@@ -17,11 +17,11 @@ in which you need to specify:
 - offset for search hits, used for paging the results
 - query limit. If value is `0`, search query doesn't return any search hits
 
-```php
+``` php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 7, 10) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 5, 6) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 7, 10) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 41, 56) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 34, 49) =]]
 ```
 
 ## URL search reference

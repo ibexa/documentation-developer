@@ -21,13 +21,13 @@ For example, for the `ibexa_string` type, the validator schema could be:
 [
     'stringLength' => [
         'minStringLength' => [
-            'type'    => 'int',
+            'type' => 'int',
             'default' => 0,
         ],
         'maxStringLength' => [
-            'type'    => 'int'
+            'type' => 'int',
             'default' => null,
-        ]
+        ],
     ],
 ];
 ```

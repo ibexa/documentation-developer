@@ -50,10 +50,10 @@ First, run:
 The `flex.ibexa.co` Flex server has been disabled.
 If you're using v4.0.2 or earlier v4.0 version, you need to update your Flex server.
 
-To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
+To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
 If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.7/composer.json#L98) endpoint.
 
-If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`, 
+If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`,
 replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.7/composer.json#L96) endpoint.
 
 You can do it manually, or by running the following command:
@@ -88,7 +88,7 @@ which have been [renamed in this release](ibexa_dxp_v4.0_deprecations.md#configu
 Look through the old YAML files and move your custom configuration to the relevant new files.
 
 In `bundles.php`, remove all entries starting with `eZ`, `EzSystems`, `Ibexa\Platform`, `Silversolutions` and `Siso`.
-Leave only third-party entires and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
+Leave only third-party entries and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
 
 ## Add compatibility layer package
 
@@ -227,7 +227,7 @@ The v4 version of [[= product_name =]] is using Bootstrap 5 in the back office. 
 #### Custom plugins and buttons
 
 If you added your own Online Editor plugins or buttons, you need to rewrite them
-using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/tutorials/crash-course/plugins.html#creating-custom-plugins).
+using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/framework/tutorials/crash-course/plugins.html#creating-custom-plugins).
 
 #### Custom tags
 

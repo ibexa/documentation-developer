@@ -13,8 +13,8 @@ The [`SortClause\Url` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-
 ## Example
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
 use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
 
 // ...
 

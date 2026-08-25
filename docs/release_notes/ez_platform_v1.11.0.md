@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.11.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of August 24, 2017.**
 
-If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [eZ Platform 1.7 release notes](ez_platform_v1.7.0_lts.md).
 
 ## Notable changes since v1.10.0
 
@@ -12,13 +12,13 @@ If you're looking for the Long Term Support (LTS) release, see [https://ezplatfo
 
 #### Improved way of writing field type gateways
 
-[EZP-26885](https://issues.ibexa.co/browse/EZP-26885): you now have access to the Doctrine connection instead of
+You now have access to the Doctrine connection instead of
 the Zeta Components Database connection-like object which has been exposed to field types until now.
 The former way will be removed in a future major version.
 
 #### Content type limitation for Relation (single) field
 
-[EZP-24800](https://issues.ibexa.co/browse/EZP-24800): you can now specify a content type limitation for the Relation field,
+You can now specify a content type limitation for the Relation field,
 just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
 
 ![Adding a new Relation (single) Field with allowed content types](relation_single_allowed_cts.png)
@@ -27,7 +27,7 @@ This has been made possible by initial legacy contribution from [@peterkeung](ht
 
 #### API endpoint for removing translations
 
-[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a content item.
+You can now use an API endpoint to remove a given translation completely from a content item.
 
 ### eZ Platform Enterprise Edition
 
@@ -43,7 +43,7 @@ It enables you to manually select a set of content items to be displayed.
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which content types can be embedded in it.
 
-    For more information and an example, see [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates).
+    For more information and an example, see [block templates](https://doc.ibexa.co/en/3.3/guide/page/page_blocks/#block-templates).
 
 #### RecommendationBundle adapted for YooChoose v2
 
@@ -53,8 +53,6 @@ instead of a new one each time a visitor arrives at the site.
 Fetching recommendations was also refactored to use the v2 of the Recommendation API.
 With this step the *clickrecommended* event now includes detailed feedback information about how recommendations were generated.
 This is very important for the analysis of statistics to measure the performance of recommendations.
-
-See [EZEE-1611](https://issues.ibexa.co/browse/EZEE-1611) for details.
 
 #### Official Enterprise Support for Legacy Bridge
 
@@ -78,25 +76,15 @@ full support, maintenance, and priority security patch handling as they're used 
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.11.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0) | [List of changes for final for eZ Platform Enterprise Edition v1.11.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0) |
-| [List of changes for rc1 of eZ Platform v1.11.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.11.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-rc1) |
-| [List of changes for beta1 of eZ Platform v1.11.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.11.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-beta1) |
-
-### Installation
-
-[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
-
-[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
+| [List of changes for final of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0) | [List of changes for final for eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0) |
+| [List of changes for rc1 of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-rc1) |
+| [List of changes for beta1 of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-beta1) |
 
 ### Download
 
-#### eZ Platform
-
-- Download at [eZPlatform.com](http://ezplatform.com/#download)
-
 #### eZ Enterprise
 
-- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).

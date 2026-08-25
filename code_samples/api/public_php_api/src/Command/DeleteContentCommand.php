@@ -16,18 +16,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class DeleteContentCommand extends Command
 {
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 

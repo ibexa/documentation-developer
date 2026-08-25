@@ -1,6 +1,6 @@
 ---
 description: Update your installation to v5.0 from the latest v4.6 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v4.6 to v5.0
@@ -29,7 +29,7 @@ It's important to stop using deprecated PHP classes as they're removed in 5.0.
 
 The [`ibexa/compatibility-layer`](to_4.0.md#add-compatibility-layer-package) isn't supported in 5.0.
 If you use it, remove it (`composer remove ibexa/compatibility-layer`) and make the necessary changes.
-See [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md) for the list of changes.
+See [[[= product_name =]] v4.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v4.0_deprecations.md) for the list of changes.
 
 [Rector](https://getrector.com/) and the [[= product_name_base =]] rule sets help to upgrade your code.
 
@@ -43,30 +43,35 @@ Customize the `rector.php` config file by:
 
 - making it match your directory structure (for example, you may not have the `tests` directory)
 - adding project-specific rules:
-  - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
-  - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
+    - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
+    - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
 
 It's recommended to activate one rule set at a time and preview the output by running Rector with the `--dry-run` option to decide which rulesets should be used and in which order.
 
 Your configuration could look like the following example:
 
-```php
+``` php
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
+
 return RectorConfig::configure()
     ->withPaths(
-       [
+        [
            __DIR__ . '/src',
-       ]
+        ]
     )
     ->withSets(
-       [
+        [
            IbexaSetList::IBEXA_46->value,
-       ]
+        ]
     )
     ->withPhpSets(php83: true)
     ->withComposerBased(symfony: true)
 ;
 ```
+
 Run the following command to preview the changes done by Rector:
+
 ```bash
 php vendor/bin/rector --dry-run
 ```
@@ -89,7 +94,8 @@ controllers:
     type: attribute
 ```
 
-You can add the new declaration to the top of the file manually, or recreate the file by running `composer sync-recipes symfony/routing --force --reset` 
+You can add the new declaration to the top of the file manually,
+or recreate the file by running `composer sync-recipes symfony/routing --force --reset`.
 
 ### Remove GraphQL schema
 
@@ -106,7 +112,7 @@ rm -r config/graphql
 
 [[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
 Your development packages must be updated as well.
-The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` are installed.
+The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/debug-pack) and `ibexa/rector` are installed.
 Adjust the list based on your project requirements.
 Notice the use of the `--no-update` option to only edit the `composer.json` entries and avoid triggering the package update and Composer scripts.
 
@@ -190,7 +196,7 @@ Notice the use of the `--no-update` option to only edit the `composer.json` entr
 4.6 LTS Update packages are included by default in 5.0.
 Remove them from your composer.json to avoid updating their version manually with each update.
 
-For example, the following command removes all of the released LTS Updates for 4.6 from `composer.json`:
+For example, the following command removes several released LTS Updates for 4.6 from `composer.json`:
 
 ```bash
 composer remove --no-update \
@@ -200,8 +206,21 @@ composer remove --no-update \
     ibexa/product-catalog-symbol-attribute \
     ibexa/discounts \
     ibexa/discounts-codes \
+    ibexa/collaboration \
+    ibexa/share \
 ;
 ```
+
+#### Remove separate Elasticsearch 8 package
+
+If you were using the separate `ibexa/elasticsearch8` package in v4.6, you should switch back to the built-in `ibexa/elasticsearch` package, as it now supports both Elasticsearch 7 and Elasticsearch 8.
+
+```bash
+composer remove --no-update ibexa/elasticsearch8
+```
+
+The `ibexa/elasticsearch` package is automatically installed as part of your [[= product_name =]] 5.0 update.
+Your existing Elasticsearch 8 server and configuration continue to work with the `ibexa/elasticsearch` package.
 
 #### Remove PHP 8.2 error handler
 
@@ -266,7 +285,7 @@ Your `auto-scripts` entry should look like this:
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "yarn install": "script",
-            "yarn ibexa-generate-tsconfig --relative-paths": "script",
+            "yarn ibexa-generate-tsconfig --use-relative-paths": "script",
             "ibexa:encore:compile --config-name app": "symfony-cmd",
             "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
             "ibexa:encore:compile": "symfony-cmd",
@@ -302,6 +321,22 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
+
+??? note "Ibexa Open Source"
+
+    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+
+    === "MySQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_mysql.sql', glue="        ") =]]
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_postgresql.sql', glue="        ") =]]
+        ```
 
 As this script targets all editions, on editions lower than Commerce you may encounter errors about missing tables which can safely be ignored.
 
@@ -409,6 +444,9 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 ### Update custom code for [[= product_name =]] 5.0
 
+See [[[= product_name =]] v5.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v5.0_deprecations.md) for the list of changes.
+The following sections presents some of those changes and how to apply them.
+
 #### Update PHP framework standards
 
 Among other things,
@@ -428,11 +466,14 @@ Again, it's recommended to activate one rule set at a time and preview the outpu
 
 As this update spans across a broad range of versions, multiple rules can be considered as in the example below.
 
-```php
+``` php
 //…
+use Ibexa\Contracts\Rector\Sets\IbexaSetList;
+use Rector\Config\RectorConfig;
 use Rector\Symfony\Set\SymfonySetList;
-use Rector\Symfony\Set\SensiolabsSetList;
-//…
+
+return RectorConfig::configure()
+    // ...
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value,
@@ -445,8 +486,8 @@ use Rector\Symfony\Set\SensiolabsSetList;
            SymfonySetList::SYMFONY_70, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-70
            SymfonySetList::SYMFONY_71, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-71
            SymfonySetList::SYMFONY_72, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-72
+           SymfonySetList::SYMFONY_73, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-73
            SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
-           SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
    )
    ->withPhpSets()
@@ -461,7 +502,6 @@ use Rector\Symfony\Set\SensiolabsSetList;
        naming: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-naming
        instanceOf: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-instanceof
        earlyReturn: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-early-return
-       strictBooleans: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-strict-booleans
        rectorPreset: true,
        symfonyCodeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-code-quality
        symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs
@@ -471,7 +511,7 @@ use Rector\Symfony\Set\SensiolabsSetList;
 In the following example, you can see optimization thanks to the following features:
 
 - [Constructor parameter promoted as properties](https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion) (available since PHP 8.0)
-- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.3/console.html#console_registering-the-command) (available since Symfony 6.2)
+- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.4/console.html#creating-a-command) (available since Symfony 6.2)
 
 ```diff
 +#[AsCommand(name: 'app:test', description: 'Command to test something.')]
@@ -879,10 +919,10 @@ The following example illustrates the update of a custom page block's icon:
 
 Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
-* If you have already installed the feature, its schema has been updated by the previous step.
-* If you haven't installed the feature, you need to add its schema to your database.
+- If you have already installed the feature, its schema has been updated by the previous step.
+- If you haven't installed the feature, you need to add its schema to your database.
   Store the SQL of the schema into a file, **review it carefully**, then run it.
-* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
+- If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
 
@@ -937,7 +977,6 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
     # Pause to review schema_symbol-attribute.sql
     psql <database_name> < schema_symbol-attribute.sql
     ```
-
 
 #### Install collaboration
 
@@ -1016,12 +1055,20 @@ php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_t
 
 ### Generate GraphQL schema
 
-GraphQL usage is no longer required for the Ibexa DXP back office.
+GraphQL usage is no longer required for the [[= product_name =]] back office.
 If you are using GraphQL in your project, you can generate its schema by running:
 
 ```bash
 php bin/console ibexa:graphql:generate-schema
 ```
+
+### Upgrade GraphQL usage
+
+- In 4.6, pagination for [RelationList field type](relationlistfield.md) is disabled by default, and can be enabled using the `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter
+- In 5.0, pagination for RelationList field type is always activated and can't be disabled. The previous parameter doesn't exist anymore and is ignored if set
+
+If you have code based on `relations` request returning the entire list, you have to update it.
+For more information, see [Pagination in GraphQL](graphql_queries.md#pagination).
 
 ### Update search indexes
 
@@ -1037,7 +1084,7 @@ php bin/console ibexa:reindex
 
 Finish the update process:
 
-```
+```bash
 composer run-script post-update-cmd
 ```
 
@@ -1059,4 +1106,5 @@ composer ibexa:setup --platformsh
 
 #### Conclusion
 
-Your project is now running the latest major version of Ibexa DXP.
+Your project is now running the latest major version of [[= product_name =]].
+To reach the last patch version, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md)

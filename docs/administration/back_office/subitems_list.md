@@ -10,7 +10,7 @@ It provides an interface for listing the sub-items of any location.
 
 ## Create custom sub-items list view
 
-You can extend the Sub-items List module to replace an existing view or add your own. 
+You can extend the Sub-items List module to replace an existing view or add your own.
 The example below adds a new timeline view to highlight the modification date.
 
 ![Sub-items List module using the new Timeline view](img/subitems/timeline_view.png "Sub-items List module using the new Timeline view")
@@ -145,7 +145,7 @@ Optionally, Sub-items module can take a following list of props:
 - **items** _{Array}_ - list of location's sub-items
 - **limit** _{Number}_ - items limit count
 - **offset** _{Number}_ - items limit offset
-- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ibexa/admin-ui/blob/main/src/bundle/ui-dev/src/modules/sub-items/sub.items.module.js) for details. Contains definitions for sub components:
+- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ibexa/admin-ui/blob/5.0/src/bundle/ui-dev/src/modules/sub-items/sub.items.module.js) for details. Contains definitions for sub components:
     - **subItems** _{Object}_ - list of sub-items module labels
     - **tableView** _{Object}_ - list of table view component labels
     - **tableViewItem** _{Object}_ - list of table item view component labels

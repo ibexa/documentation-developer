@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ibexa-llms-txt"
+version = "0.1.0"
+description = "Shared MkDocs hooks and llmstxt preprocessing logic for Ibexa documentation sites."
+requires-python = ">=3.9"
+dependencies = [
+    "beautifulsoup4",
+    "PyYAML",
+]
+
+[tool.setuptools]
+package-dir = {"" = "tools"}
+packages = ["llms_txt"]

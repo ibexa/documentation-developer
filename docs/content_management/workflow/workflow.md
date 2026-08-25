@@ -9,7 +9,7 @@ The workflow functionality passes a content item version through a series of sta
 For example, an editorial workflow can pass a content item from draft stage through design and proofreading.
 
 By default, [[= product_name =]] comes pre-configured with a Quick Review workflow.
-You can disable the default workflow and define different workflows in configuration. 
+You can disable the default workflow and define different workflows in configuration.
 Workflows are permission-aware.
 
 ## Workflow configuration
@@ -32,7 +32,7 @@ Their configuration is optional.
 `content_type` contains an array of content type identifiers that use this workflow.
 
 `content_status` lists the statuses of content items which fall under this workflow.
-The available values are: `draft` and `published`. 
+The available values are: `draft` and `published`.
 
 If set to `draft`, applies for new content (newly created).
 
@@ -91,7 +91,7 @@ The notification is displayed in the user menu:
 
 #### Draft locking
 
-You can configure draft assignment in a way that when a user sends a draft to review, only the first editor of the draft can either edit the draft or unlock it for editing, and no other user can take it over. 
+You can configure draft assignment in a way that when a user sends a draft to review, only the first editor of the draft can either edit the draft or unlock it for editing, and no other user can take it over.
 
 Use the [Version Lock limitation](limitation_reference.md#version-lock-limitation), set to "Assigned only", together with the `content/edit` and `content/unlock` policies to prevent users from editing and unlocking drafts that are locked by another user.
 
@@ -165,7 +165,7 @@ However, during the publish action, the sent form is validated in the service.
 Therefore, if there are any errors in the form, you return to the edit page but errors aren't triggered, which can be confusing when you have two or more tabs.
 
 To enable form validation in UI before sending it to the next stage of the workflow, add `validate: true` to the transitions of the stage.
-In the example below the form is validated in two stages:` to_legal` and `done`:
+In the example below the form is validated in two stages: `to_legal` and `done`:
 
 ``` yaml hl_lines="15 28"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 43) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 55, 63) =]]

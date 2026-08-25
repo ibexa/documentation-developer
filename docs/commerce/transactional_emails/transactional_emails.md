@@ -5,7 +5,7 @@ edition: commerce
 
 # Transactional emails
 
-Transactional emails are messages that [[= product_name =]] can send through [Actito](https://www.actito.com/en-BE/) gateway to your end-users to notify them about changes in the status of various actions taken in relation to your commerce presence.
+Transactional emails are messages that [[= product_name =]] can send through [Actito](https://actito.com/en) gateway to your end-users to notify them about changes in the status of various actions taken in relation to your commerce presence.
 
 By default, notifications are sent in relation to the following events, to an email address of the end-user who has originated these events:
 
@@ -40,7 +40,7 @@ Symfony Flex installs and activates the package.
 
 ### Configure Actito integration
 
-Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://www.actito.com/en-BE/pricing/nk).
+Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://actito.com/en/pricing/).
 
 Once you gain access to the Actito dashboard:
 
@@ -59,7 +59,6 @@ ibexa:
                 entity: <entity_name>
 ```
 
-
 4\. Define profile table in Actito database for storing notification attributes.
 
 !!! note
@@ -75,14 +74,12 @@ Create campaigns of transactional email type, one for each notification type tha
 When you build a campaign template, make sure that you use the variables supported by [[= product_name =]].
 For a complete list of parameters, see [Transactional email variables reference](transactional_emails_parameters.md).
 
-!!! Tip
+!!! tip
 
     When you invent names for your campaigns, keep them simple, and don't use special characters or spaces.
 
-
 Campaign emails can be sent in one language only.
 To send emails in different languages, for example, because your application serves end-users from different locales, for each notification and language pair, you must create a separate campaign and [extend the solution to support that](extend_transactional_emails.md#send-emails-in-language-of-commerce-presence).
-
 
 ### Configure mapping
 

@@ -6,7 +6,7 @@ description: You can adapt the structure of Elasticsearch index to the data in y
 
 You can customize the structure of your Elasticsearch search index to manage how documents in the index are grouped.
 
-This lets you control the size of [Elasticsearch shards](https://www.elastic.co/guide/en/elasticsearch/reference/current/scalability.html) that the index is divided into.
+This lets you control the size of [Elasticsearch shards](https://www.elastic.co/docs/deploy-manage/production-guidance/scaling-considerations) that the index is divided into.
 
 By customizing the structure to your needs, you can avoid "oversharding" (having too many shards), which negatively affects performance and can lead to instability.
 
@@ -44,7 +44,7 @@ This resolver must implement `Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\
 In this example, create a `ContentTypeGroupGroupResolver` based on the content type Group ID of the document:
 
 ``` php
-[[= include_file('code_samples/search/custom/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
+[[= include_code('code_samples/search/custom/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
 ```
 
 Register the resolver as a service:

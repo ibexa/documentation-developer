@@ -21,6 +21,15 @@ The CustomPriceStatsAggregation aggregates search results by the value of the cu
 ## Example
 
 ``` php
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
+use Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\CustomPriceStatsAggregation;
+
+/**
+ * @var CurrencyInterface $currency
+ * @var CustomerGroupInterface $customerGroup
+ */
 $query = new ProductQuery();
 $query->setAggregations([
     new CustomPriceStatsAggregation('custom_price_stats_aggregation', $currency, $customerGroup),

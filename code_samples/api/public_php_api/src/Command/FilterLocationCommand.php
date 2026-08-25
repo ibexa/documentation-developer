@@ -14,22 +14,18 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:filter_location'
+    name: 'doc:filter_location',
+    description: 'Returns children of the provided Location, sorted by name in descending order.'
 )]
 class FilterLocationCommand extends Command
 {
-    private LocationService $locationService;
-
-    public function __construct(LocationService $locationService)
+    public function __construct(private readonly LocationService $locationService)
     {
-        $this->locationService = $locationService;
-
         parent::__construct();
     }
 
     public function configure(): void
     {
-        $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
         $this->setDefinition([
             new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location'),
         ]);

@@ -13,7 +13,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
 
     For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).
 
-### Prepare work environment
+## Prepare work environment
 
 To install [[= product_name =]], you need a stack with MySQL and PHP.
 Additionally, you need [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/) for asset management.

@@ -9,11 +9,8 @@ use Ibexa\Contracts\ConnectorAi\Action\Action;
 
 final class TranscribeAudioAction extends Action
 {
-    private Audio $audio;
-
-    public function __construct(Audio $audio)
+    public function __construct(private readonly Audio $audio)
     {
-        $this->audio = $audio;
     }
 
     public function getParameters(): array

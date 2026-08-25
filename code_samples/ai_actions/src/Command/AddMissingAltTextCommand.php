@@ -33,35 +33,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class AddMissingAltTextCommand extends Command
 {
-    private const IMAGE_FIELD_IDENTIFIER = 'image';
-
-    private ContentService $contentService;
-
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private FieldTypeService $fieldTypeService;
-
-    private ActionServiceInterface $actionService;
-
-    private IOBinarydataHandler $binaryDataHandler;
+    private const string IMAGE_FIELD_IDENTIFIER = 'image';
 
     public function __construct(
-        ContentService $contentService,
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        FieldTypeService $fieldTypeService,
-        ActionServiceInterface $actionService,
-        IOBinarydataHandler $binaryDataHandler
+        private readonly ContentService $contentService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly FieldTypeService $fieldTypeService,
+        private readonly ActionServiceInterface $actionService,
+        private readonly IOBinarydataHandler $binaryDataHandler
     ) {
-        $this->contentService = $contentService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->fieldTypeService = $fieldTypeService;
-        $this->actionService = $actionService;
-        $this->binaryDataHandler = $binaryDataHandler;
-
         parent::__construct();
     }
 

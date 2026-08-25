@@ -15,6 +15,7 @@ final class Type extends GenericType
         return 'point2d';
     }
 
+    #[\Override]
     public function getSettingsSchema(): array
     {
         return [
@@ -27,7 +28,7 @@ final class Type extends GenericType
 
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
     {
-        $definition = $data->fieldDefinition;
+        $definition = $data->getFieldDefinition();
         $fieldForm->add('value', Point2DType::class, [
             'required' => $definition->isRequired,
             'label' => $definition->getName(),

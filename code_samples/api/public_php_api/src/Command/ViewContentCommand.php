@@ -12,29 +12,22 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:view_content'
+    name: 'doc:view_content',
+    description: 'Output Field values on provided content item.'
 )]
 class ViewContentCommand extends Command
 {
-    private ContentService $contentService;
-
-    private ContentTypeService $contentTypeService;
-
-    private FieldTypeService $fieldTypeService;
-
-    public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, FieldTypeService $fieldTypeService)
-    {
-        $this->contentService = $contentService;
-        $this->contentTypeService = $contentTypeService;
-        $this->fieldTypeService = $fieldTypeService;
-
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly FieldTypeService $fieldTypeService
+    ) {
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Output Field values on provided content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID'),
             ]);

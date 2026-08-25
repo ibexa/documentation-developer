@@ -1,0 +1,13 @@
+{# templates/product/view.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="product-details">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <div class="price">{{ product.price }}</div>
+    </div>
+
+    {# Track product visit #}
+    {{ ibexa_tracking_track_event('visit', product) }}
+{% endblock %}

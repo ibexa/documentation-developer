@@ -8,6 +8,8 @@ Now that you know how to display a single content item, you can take care of ren
 
 In this step you can display a table of all Rides on the front page.
 
+The pagination uses default styling, as this tutorial focuses on functionality.
+
 ## Customize the homepage template
 
 In `templates/full/home_page.html.twig` replace the "Hello world" with a table that displays the list of all existing Rides:
@@ -55,7 +57,7 @@ For more information, see [Built-In Query Types](built-in_query_types.md).
 Here, you need to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
 
-``` php hl_lines="21 22"
+``` php hl_lines="22-23"
 <?php
 
 namespace App\QueryType;
@@ -66,12 +68,13 @@ use Ibexa\Core\QueryType\QueryType;
 
 class RideQueryType implements QueryType
 {
-    public static function getName()
+    public static function getName(): string
     {
         return 'Ride';
     }
 
-    public function getQuery(array $parameters = [])
+    /** @param array<string, mixed> $parameters */
+    public function getQuery(array $parameters = []): \Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery
     {
         return new LocationQuery([
             'filter' => new Criterion\LogicalAnd(
@@ -79,12 +82,13 @@ class RideQueryType implements QueryType
                     new Criterion\Visibility(Criterion\Visibility::VISIBLE),
                     new Criterion\ContentTypeIdentifier(['ride']),
                 ]
-            )
+            ),
         ]);
     }
 
-    public function getSupportedParameters()
+    public function getSupportedParameters(): array
     {
+        return [];
     }
 }
 ```
@@ -173,15 +177,13 @@ Because this template is rendered inside a table, it starts with a `<tr>` tag.
     </td>
 </tr>
 ```
-### Add Media permission
 
-To be able to view the `photo` field you have to add a `read` permission to `Media` section.
+### Media permission
 
-In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
+To be able to view the `photo` field you need to have a `content/read` permission to `Media` section.
 
-![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
-
-Edit the **Content/Read** policy line to add the `Media` section to **Limitation** along with the `Standard` section.
+To verify that you have this permission, in the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
+If needed, edit the **Content/Read** policy line to add the `Media` section to **Limitation** along with the `Standard` section.
 
 ![Policies for the Anonymous Role with Media section](step5_admin_anonymous_policies_with_media_section.png)
 

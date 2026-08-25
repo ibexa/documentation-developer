@@ -1,8 +1,7 @@
 ### A. Platform.sh changes
 
 If you're hosting your site on [[= product_name_cloud =]] be aware of the fact that Varnish is enabled by default as of v1.13.5, v2.4.3 and v2.5.0.
-If you're using Fastly, read about [how to disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration).
-
+If you're using Fastly, read about [how to disable Varnish](https://fixed.docs.upsun.com/guides/ibexa/fastly.html#remove-varnish-configuration).
 ### B. Dump assets
 
 Dump web assets if you're using the `prod` environment. In `dev` this happens automatically:

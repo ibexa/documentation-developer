@@ -24,29 +24,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ActionConfigurationCreateCommand extends Command
 {
-    private ActionConfigurationServiceInterface $actionConfigurationService;
-
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private ActionServiceInterface $actionService;
-
-    private ActionTypeRegistryInterface $actionTypeRegistry;
-
     public function __construct(
-        ActionConfigurationServiceInterface $actionConfigurationService,
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        ActionServiceInterface $actionService,
-        ActionTypeRegistryInterface $actionTypeRegistry
+        private readonly ActionConfigurationServiceInterface $actionConfigurationService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly ActionServiceInterface $actionService,
+        private readonly ActionTypeRegistryInterface $actionTypeRegistry
     ) {
-        $this->actionConfigurationService = $actionConfigurationService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->actionService = $actionService;
-        $this->actionTypeRegistry = $actionTypeRegistry;
-
         parent::__construct();
     }
 

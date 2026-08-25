@@ -9,7 +9,9 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\Values\Product\ProductVariantCreateStruct;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
+use Ibexa\Contracts\ProductCatalog\Values\Content\Query\Criterion\ProductCriterionAdapter;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductVariantQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -21,25 +23,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ProductVariantCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductServiceInterface $productService;
-
-    private LocalProductServiceInterface $localProductService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductServiceInterface $productService,
-        LocalProductServiceInterface $localProductService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductServiceInterface $productService,
+        private readonly LocalProductServiceInterface $localProductService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->localProductService = $localProductService;
-
         parent::__construct();
     }
 
@@ -59,12 +48,24 @@ final class ProductVariantCommand extends Command
         $productCode = $input->getArgument('productCode');
         $product = $this->productService->getProduct($productCode);
 
-        // Get variants
-        $variantQuery = new ProductVariantQuery(0, 5);
+        // Get variants filtered by variant codes
+        $codeQuery = new ProductVariantQuery();
+        $codeQuery->setVariantCodes(['DESK-red', 'DESK-blue']);
+        $specificVariants = $this->productService->findProductVariants($product, $codeQuery)->getVariants();
 
-        $variants = $this->productService->findProductVariants($product, $variantQuery)->getVariants();
+        // Get variants with specific attributes
+        $combinedQuery = new ProductVariantQuery();
+        $combinedQuery->setAttributesCriterion(
+            new ProductCriterionAdapter(
+                new Criterion\LogicalAnd([
+                    new Criterion\ColorAttribute('color', ['red', 'blue']),
+                    new Criterion\IntegerAttribute('size', 42),
+                ])
+            )
+        );
+        $filteredVariants = $this->productService->findProductVariants($product, $combinedQuery)->getVariants();
 
-        foreach ($variants as $variant) {
+        foreach ($specificVariants as $variant) {
             $output->writeln($variant->getName());
             $attributes = $variant->getDiscriminatorAttributes();
             foreach ($attributes as $attribute) {
@@ -74,11 +75,33 @@ final class ProductVariantCommand extends Command
 
         // Create a variant
         $variantCreateStructs = [
-            new ProductVariantCreateStruct(['color' => 'oak', 'frame_color' => 'white'], 'DESK1'),
-            new ProductVariantCreateStruct(['color' => 'white', 'frame_color' => 'black'], 'DESK2'),
+            new ProductVariantCreateStruct(['color' => 'oak', 'frame_color' => 'white'], 'DESK-red'),
+            new ProductVariantCreateStruct(['color' => 'white', 'frame_color' => 'black'], 'DESK-blue'),
         ];
 
         $this->localProductService->createProductVariants($product, $variantCreateStructs);
+
+        // Search variants across all products
+        $query = new ProductVariantQuery();
+        $query->setVariantCodes(['DESK-red', 'DESK-blue']);
+        $variantList = $this->productService->findVariants($query);
+
+        foreach ($variantList->getVariants() as $variant) {
+            $output->writeln($variant->getName());
+        }
+
+        // Search variants with attribute criterion
+        $colorQuery = new ProductVariantQuery();
+        $colorQuery->setAttributesCriterion(
+            new ProductCriterionAdapter(
+                new Criterion\ColorAttribute('color', ['red'])
+            )
+        );
+        $redVariants = $this->productService->findVariants($colorQuery);
+
+        foreach ($redVariants->getVariants() as $variant) {
+            $output->writeln($variant->getName());
+        }
 
         return self::SUCCESS;
     }

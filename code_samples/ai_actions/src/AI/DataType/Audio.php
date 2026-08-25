@@ -11,15 +11,11 @@ use Ibexa\Contracts\ConnectorAi\DataType;
  */
 final class Audio implements DataType
 {
-    /** @var non-empty-array<string> */
-    private array $base64;
-
     /**
      * @param non-empty-array<string> $base64
      */
-    public function __construct(array $base64)
+    public function __construct(private array $base64)
     {
-        $this->base64 = $base64;
     }
 
     public function getBase64(): string

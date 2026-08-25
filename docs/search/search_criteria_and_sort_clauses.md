@@ -14,7 +14,7 @@ For an example of how to use and combine Criteria and Sort Clauses, refer to [Se
 As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they're common for all storage engines.
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object, which are used to translate the value object into a storage-specific search query.
 
-As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
+As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/5.0/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/5.0/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Custom Criteria and Sort Clauses
 
@@ -79,7 +79,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
     - for Criterion handlers: `ibexa.core.trash.search.legacy.gateway.criterion_handler`
     - for Sort Clause handlers: `ibexa.core.trash.search.legacy.gateway.sort_clause_handler`
 
-    For more information about searching for content items in Trash, see [Searching in trash](search_api.md#searching-in-trash).
+    For more information about searching for content items in Trash, see [Search in trash](search_api.md#search-in-trash).
 
     For more information about the Criteria and Sort Clauses that are supported when searching for trashed content items, see [Searching in trash reference](search_in_trash_reference.md).
 
@@ -103,7 +103,7 @@ Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Dep
         - {name: ibexa.search.legacy.gateway.sort_clause_handler.location}
 ```
 
-For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/service_container.html#service-parameters).
+For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/service_container.html#service-container-parameters).
 
 ## Search using custom Field Criterion [REST]
 
@@ -112,7 +112,7 @@ This allows you to build custom content logic queries with nested logical operat
 
 Custom Field Criterion search mirrors the one already existing in PHP API `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
 
-#### Example of custom Content Query:
+### Example of custom Content Query
 
 ```json
  "ContentQuery":{

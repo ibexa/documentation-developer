@@ -10,6 +10,7 @@ The commerce component of [[= product_name =]] covers various areas of managing 
 
 [[= cards([
     "commerce/cart/cart",
+    "commerce/shopping_list/shopping_list",
     "commerce/checkout/checkout",
     "commerce/order_management/order_management",
     "commerce/payment/payment",

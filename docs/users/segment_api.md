@@ -15,13 +15,13 @@ To load a segment group, use `SegmentationService::loadSegmentGroupByIdentifier(
 Get all segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 54, 62) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 49, 55, remove_indent=True) =]]
 ```
 
 Similarly, you can load a segment by using `SegmentationService::loadSegmentByIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 62, 63) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 57, 57, remove_indent=True) =]]
 ```
 
 ## Checking assignment
@@ -29,7 +29,7 @@ Similarly, you can load a segment by using `SegmentationService::loadSegmentById
 You can check whether a user is assigned to a segment with `SegmentationService::isUserAssignedToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 66, 71) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 65, remove_indent=True) =]]
 ```
 
 ## Assigning users
@@ -37,7 +37,7 @@ You can check whether a user is assigned to a segment with `SegmentationService:
 To assign a user to a segment, use `SegmentationService::assignUserToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 65) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 59, 59, remove_indent=True) =]]
 ```
 
 ## Creating segments
@@ -47,13 +47,13 @@ Each segment must be assigned to a segment group.
 To create a segment group, use `SegmentationService::createSegmentGroup()` and provide it with a `SegmentGroupCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 38, 45) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 33, 39, remove_indent=True) =]]
 ```
 
 To add a segment, use `SegmentationService::createSegment()` and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 46, 53) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 41, 47, remove_indent=True) =]]
 ```
 
 ## Updating segments
@@ -65,5 +65,5 @@ To update a segment or a segment group, use `SegmentationService::updateSegment(
 To delete a segment or a segment group, use `SegmentationService::removeSegment()` or `SegmentationService::removeSegmentGroup()`:
 
 ``` php
-$this->segmentationService->removeSegmentGroup($group);
+[[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 67, 67, remove_indent=True) =]]
 ```

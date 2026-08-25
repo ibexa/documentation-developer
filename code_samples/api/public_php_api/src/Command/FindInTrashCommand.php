@@ -11,23 +11,19 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:find_in_trash'
+    name: 'doc:find_in_trash',
+    description: 'Lists content in Trash belonging to the provided content type.'
 )]
 class FindInTrashCommand extends Command
 {
-    private TrashService $trashService;
-
-    public function __construct(TrashService $trashService)
+    public function __construct(private readonly TrashService $trashService)
     {
-        $this->trashService = $trashService;
-
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Lists content in Trash belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('contentTypeId', InputArgument::REQUIRED, 'Content type ID'),
             ]);

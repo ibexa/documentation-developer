@@ -1,0 +1,40 @@
+ibexa:
+    system:
+        admin_group:
+            product_tour:
+                targetable_dashboard_scenario:
+                    type: 'targetable'
+                    scenario_title_translation_key: tour.targetable_dashboard_scenario.title
+                    steps:
+                        dashboard_options:
+                            step_title_translation_key: Open Dashboard options
+                            target: ".ibexa-db-header__more"
+                            # No interaction_mode specified or the value is set to null
+                            blocks:
+                                - type: text
+                                  params:
+                                      text_translation_key: Learn how to customize the blocks displayed on your dashboard
+                        open_dashboard_options:
+                            step_title_translation_key: Open Dashboard options
+                            target: '.ibexa-db-header__more'
+                            interaction_mode: clickable
+                            blocks:
+                                - type: text
+                                  params:
+                                      text_translation_key: Click here to customize your dashboard
+                        customize_dashboard:
+                            step_title_translation_key: Customize Dashboard
+                            target: '.ibexa-db-actions-popup-menu'
+                            interaction_mode: clickable
+                            blocks:
+                                - type: text
+                                  params:
+                                      text_translation_key: Choose "Customize dashboard"
+                        drag_and_drop_step:
+                            step_title_translation_key: Drag-and-drop blocks
+                            target: ".c-pb-toolbox-blocks-group__blocks > * .c-pb-toolbox-block__content:first-of-type"
+                            interaction_mode: draggable
+                            blocks:
+                                - type: text
+                                  params:
+                                      text_translation_key: Drag-and-drop blocks from the sidebar to the dashboard to customize it

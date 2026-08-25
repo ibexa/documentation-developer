@@ -10,11 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CustomController extends Controller
 {
-    private SearchService $searchService;
-
-    public function __construct(SearchService $searchService)
+    public function __construct(private readonly SearchService $searchService)
     {
-        $this->searchService = $searchService;
     }
 
     public function showContentAction(int $locationId): Response

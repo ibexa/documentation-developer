@@ -46,8 +46,8 @@ The full list of available services covers:
 
 You can access the PHP API by injecting relevant services into your code:
 
-- By using [auto-wiring]([[= symfony_doc =]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
-- By using [service parameters]([[= symfony_doc =]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
+- By using [auto-wiring]([[= symfony_doc =]]/service_container/autowiring.html), and the service class name in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
+- By using [service parameters]([[= symfony_doc =]]/service_container.html#service-container-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
 - By using the repository's `get[ServiceName]()` methods, for example, [`Repository::getContentService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), or [`getUserService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService).
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
 
@@ -71,7 +71,7 @@ To create and modify repository values, use data structures, such as [`ContentSe
 
 ### Value info objects
 
-Some complex value objects have an `Info` counterpart, for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
+Some complex value objects have an `Info` counterpart, for example [`ContentInfo`](https://github.com/ibexa/core/blob/5.0/src/contracts/Repository/Values/Content/ContentInfo.php) for [`Content`](https://github.com/ibexa/core/blob/5.0/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Content` enables you to retrieve fields, content type, or previous versions.
 
@@ -80,7 +80,6 @@ For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Co
     The public PHP API value objects should not be serialized.
 
     Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` /  `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
-
 
 ## Authentication
 
@@ -110,12 +109,15 @@ For example, to [hide a Location](managing_content.md#hiding-and-revealing-locat
 
 ``` php
 use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 
 //...
 
-$hiddenLocation = $repository->sudo(function (Repository $repository) use ($location) {
-    return $repository->getLocationService()->hideLocation($location);
-});
+/**
+ * @var Repository $repository
+ * @var Location $location
+ */
+$hiddenLocation = $repository->sudo(static fn (Repository $repository): Location => $repository->getLocationService()->hideLocation($location));
 ```
 
 ### Setting the repository user
@@ -126,7 +128,7 @@ While [using `sudo()`](#using-sudo) is the recommended option, you can also set 
 To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 55, 57) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 45, 46, remove_indent=True) =]]
 ```
 
 !!! tip
@@ -147,21 +149,21 @@ For example if you're using a command which takes the content ID as a parameter,
 
 Both cases should be covered with error messages:
 
-``` php
+``` php {skip-validation}
 try {
     // ...
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
-        $output->writeln("<error>No content with id $contentId found</error>");
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
-        $output->writeln("<error>Permission denied on content with id $contentId</error>");
-    }
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException) {
+    $output->writeln("<error>No content with id $contentId found</error>");
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException) {
+    $output->writeln("<error>Permission denied on content with id $contentId</error>");
+}
 ```
 
 ## Service container
 
 [[= product_name =]] uses the [Symfony service container]([[= symfony_doc =]]/service_container.html) for dependency resolution.
 
-[Symfony dependency injection]([[= symfony_doc =]]/components/dependency_injection.html) ensures that any required services are available in your custom code (for example, controllers) when you inject them into the constructor.
+[Symfony dependency injection]([[= symfony_doc =]]/service_container.html) ensures that any required services are available in your custom code (for example, controllers) when you inject them into the constructor.
 
 Symfony service container uses service tags to dedicate services to a specific purpose.
 They're usually used for extension points.

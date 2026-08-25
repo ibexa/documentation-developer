@@ -9,11 +9,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
 {
-    private ContentService $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(private readonly ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
     public static function getSubscribedEvents(): array
@@ -25,6 +22,7 @@ class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
 
     public function onBlockPreRender(PreRenderEvent $event): void
     {
+        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
         $parameters = $event->getRenderRequest()->getParameters();
         $parameters['event_content'] = $this->contentService->loadContent($parameters['event']);

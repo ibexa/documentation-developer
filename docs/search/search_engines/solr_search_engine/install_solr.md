@@ -7,35 +7,76 @@ description: Install Solr search engine to use it with Ibexa DXP.
 ## Configure and start Solr
 
 The example presents a configuration with a single core.
-For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://solr.apache.org/guide/7_7/solr-cores-and-solr-xml.html) and [core administration](https://cwiki.apache.org/confluence/display/solr/CoreAdmin).
+For configuring Solr in other ways, including examples, see [Solr configuration files](https://solr.apache.org/guide/solr/9_8/configuration-guide/configuration-files.html) and [core discovery](https://solr.apache.org/guide/solr/9_8/configuration-guide/core-discovery.html).
 
 ### Download Solr files
 
 !!! note "Solr versions"
 
-    Supported Solr version is Solr 8. Using the most recent version of Solr 8.11 is recommended.
+    Supported Solr versions are Solr 8 and 9.
+    Using the most recent version of Solr is recommended.
 
 Download and extract Solr:
 
 - [solr-8.11.2.tgz](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.tgz) or [solr-8.11.2.zip](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.zip)
+- [solr-9.8.1.tgz](https://archive.apache.org/dist/solr/solr/9.8.1/solr-9.8.1.tgz)
 
-Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
+Copy the necessary configuration files.
+The examples below copy from the root of your DXP project to the place you've extracted Solr:
 
-``` bash
-# Make sure to replace the /opt/solr/ path with where you have placed Solr
-cd /opt/solr
-mkdir -p server/ibexa/template
-cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ibexa/template
-cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
-cp server/solr/solr.xml server/ibexa
+=== "Solr 9"
 
-# Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
+    [[= product_name =]] provides the following required configuration files:
 
-# Start Solr (but apply autocommit settings below first if you need to)
-bin/solr -s ibexa
-bin/solr create_core -c collection1 -d server/ibexa/template
-```
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages` directory
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/managed-schema.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/custom-fields-types-solr9.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/language-fieldtypes.xml`
+
+
+    ``` bash
+    # Make sure to replace the /opt/solr/ path with where you have placed Solr
+    cd /opt/solr
+    mkdir -p server/ibexa/template/conf
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages server/ibexa/template/conf
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/{managed-schema.xml,custom-fields-types-solr9.xml,language-fieldtypes.xml} server/ibexa/template/conf
+    cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template/conf
+    cp server/solr/solr.xml server/ibexa
+
+    # Modify solrconfig.xml to remove the section that doesn't agree with your schema
+    sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/conf/solrconfig.xml
+
+    # Start Solr (but apply autocommit settings below first if you need to)
+    # The configuration path is an absolute path
+    bin/solr -s ibexa
+    bin/solr create_core -c collection1 -d /opt/solr/server/ibexa/template
+    ```
+
+=== "Solr 8"
+
+    [[= product_name =]] provides the following required configuration files:
+
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages` directory
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/schema.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/custom-fields-types.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/language-fieldtypes.xml`
+
+    ``` bash
+    # Make sure to replace the /opt/solr/ path with where you have placed Solr
+    cd /opt/solr
+    mkdir -p server/ibexa/template
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages server/ibexa/template
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/{schema.xml,custom-fields-types.xml,language-fieldtypes.xml} server/ibexa/template
+    cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
+    cp server/solr/solr.xml server/ibexa
+
+    # Modify solrconfig.xml to remove the section that doesn't agree with your schema
+    sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
+
+    # Start Solr (but apply autocommit settings below first if you need to)
+    bin/solr -s ibexa
+    bin/solr create_core -c collection1 -d server/ibexa/template
+    ```
 
 #### Set up SolrCloud
 
@@ -45,9 +86,11 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 - automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
-To set SolrCloud up follow [SolrCloud reference guide](https://solr.apache.org/guide/7_7/solrcloud.html).
+To set SolrCloud up follow [Getting Started with SolrCloud](https://solr.apache.org/guide/solr/9_8/getting-started/tutorial-solrcloud.html).
 
 ### Continue Solr configuration
+
+#### Configure commit frequency
 
 The bundle doesn't commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
@@ -68,10 +111,42 @@ It's strongly recommended to set-up `solrconfig.xml` like this:
 </autoSoftCommit>
 ```
 
+#### Configure spellcheck
+
+Configure the spellcheck component in `solrconfig.xml`:
+
+```xml
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">meta_content__text_t</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <str name="distanceMeasure">internal</str>
+      <float name="accuracy">0.5</float>
+      <int name="maxEdits">2</int>
+      <int name="minPrefix">1</int>
+      <int name="maxInspections">5</int>
+      <int name="minQueryLength">4</int>
+      <float name="maxQueryFrequency">0.01</float>
+    </lst>
+  </searchComponent>
+```
+
+Add this `spellcheck` component to the `/select` request handler:
+
+```xml
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+    <!-- […] -->
+  </requestHandler>
+```
+
 ### Generate Solr configuration automatically
 
-The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
-It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
+The command line tool `bin/generate-solr-config.sh` generates Solr configuration automatically.
+It can be used for deploying to [[= product_name_cloud =]] (Upsun) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
@@ -85,9 +160,19 @@ The Solr Search Engine Bundle can be configured in many ways.
 The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
-    env(SEARCH_ENGINE): solr
-    env(SOLR_DSN): 'http://localhost:8983/solr'
-    env(SOLR_CORE): collection1
+env(SEARCH_ENGINE): solr
+env(SOLR_DSN): 'http://localhost:8983/solr'
+env(SOLR_CORE): collection1
+```
+
+### Configure Solr version
+
+When using Solr 9, it's required to set the `version` parameter with the Solr version.
+The parameter is optional when using lower Solr versions.
+
+``` yaml
+ibexa_solr:
+    version: '9.8.1'
 ```
 
 ### Single-core example (default)
@@ -98,8 +183,8 @@ Out of the box in [[= product_name =]] the following is enabled for a setup:
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
-            core: '%solr_core%'
+            dsn: '%env(string:SOLR_DSN)%'
+            core: '%env(string:SOLR_CORE)%'
     connections:
         default:
             entry_endpoints:
@@ -117,10 +202,10 @@ The installation contains several similar languages, and one different language 
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
         endpoint1:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core1
     connections:
         default:
@@ -144,27 +229,28 @@ If full language analysis features are preferred, then each language can be conf
 
 ``` yaml
 ibexa_solr:
+    version: '9.8.1' # Required only if using Solr 9
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
         endpoint1:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core1
         endpoint2:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core2
         endpoint3:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core3
         endpoint4:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core4
         endpoint5:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core5
         endpoint6:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core6
     connections:
         default:
@@ -192,7 +278,7 @@ ibexa_solr:
 
 ### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://solr.apache.org/guide/7_7/solrcloud.html).
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://solr.apache.org/guide/solr/9_8/getting-started/tutorial-solrcloud.html).
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
@@ -200,13 +286,13 @@ The example is based on multi-core setup so any specific language analysis optio
 ibexa_solr:
     endpoints:
         main:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_main_core%'
         en:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_en_core%'
         fr:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_fr_core%'
         # ...
     connections:
@@ -225,13 +311,13 @@ ibexa_solr:
                 main_translations: main
 ```
 
-This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://solr.apache.org/guide/7_7/shards-and-indexing-data-in-solrcloud.html#document-routing).
+This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://solr.apache.org/guide/solr/9_8/deployment-guide/solrcloud-shards-indexing.html#document-routing).
 
 ### Solr Basic HTTP Authorization
 
 Solr core can be secured with Basic HTTP Authorization.
 
-For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/7_7/basic-authentication-plugin.html).
+For more information, see [Solr Basic Authentication Plugin](https://solr.apache.org/guide/solr/9_8/deployment-guide/basic-authentication-plugin.html).
 
 In the example below we configured Solr Bundle to work with secured Solr core.
 
@@ -239,7 +325,7 @@ In the example below we configured Solr Bundle to work with secured Solr core.
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
             user: example
             pass: password
@@ -289,10 +375,9 @@ Here are the most common issues you may encounter:
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported field types
     - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation isn't needed.
-- Content isn't immediately available 
+- Content isn't immediately available
     - Solr Bundle on purpose doesn't commit changes directly on Repository updates *(on indexing)*,
       but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication)
-      to balance performance and load on your Solr instance against needs you have for "[NRT](https://solr.apache.org/guide/7_7/near-real-time-searching.html)".
+      to balance performance and load on your Solr instance against needs you have for [Near Real Time (NRT) searching)](https://solr.apache.org/guide/solr/9_8/deployment-guide/solrcloud-distributed-requests.html#near-real-time-nrt-use-cases).
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
-    - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.

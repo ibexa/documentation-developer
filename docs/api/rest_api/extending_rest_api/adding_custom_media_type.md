@@ -32,7 +32,7 @@ In this example, this new `ValueObjectVisitor` extends the built-in `RestLocatio
 This way, the abstract class is implicitly inherited.
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php') =]]
 ```
 
 This new `ValueObjectVisitor` receives a new tag `app.rest.output.value_object.visitor` to be associated to the new `ValueObjectVisitorDispatcher` in the next step.
@@ -56,7 +56,7 @@ services:
 ```
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php') =]]
 ```
 
 ## New `Output\Visitor` service
@@ -77,7 +77,7 @@ services:
 
 In the following example, `curl` and `diff` commands are used to compare the default media type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
 
-```shell
+```bash
 diff --ignore-space-change \
   <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2) \
   <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2 --header 'Accept: application/app.api.Location+xml');

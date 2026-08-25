@@ -17,25 +17,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class VatCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private VatServiceInterface $vatService;
-
-    private RegionServiceInterface $regionService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        VatServiceInterface $vatService,
-        RegionServiceInterface $regionService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly VatServiceInterface $vatService,
+        private readonly RegionServiceInterface $regionService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->vatService = $vatService;
-        $this->regionService = $regionService;
-
         parent::__construct();
     }
 

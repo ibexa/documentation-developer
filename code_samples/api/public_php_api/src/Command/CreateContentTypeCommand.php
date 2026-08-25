@@ -18,18 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class CreateContentTypeCommand extends Command
 {
-    private ContentTypeService $contentTypeService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentTypeService $contentTypeService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentTypeService = $contentTypeService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly ContentTypeService $contentTypeService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 
@@ -56,7 +49,7 @@ class CreateContentTypeCommand extends Command
 
         try {
             $contentTypeGroup = $this->contentTypeService->loadContentTypeGroupByIdentifier($groupIdentifier);
-        } catch (NotFoundException $e) {
+        } catch (NotFoundException) {
             $output->writeln("Content type group with identifier $groupIdentifier not found");
 
             return self::FAILURE;

@@ -7,7 +7,7 @@ month_change: false
 
 [[= product_name =]] users edit the contents of RichText fields, for example,  in the Content box of a Page, by using the Online Editor.
 
-You can extend the Online Editor by adding custom tags and styles, defining custom data attributes, re-arranging existing buttons, grouping buttons into custom toolbar, 
+You can extend the Online Editor by adding custom tags and styles, defining custom data attributes, re-arranging existing buttons, grouping buttons into custom toolbar,
 and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/widget_sdk_tutorial_1.html#widget-toolbar-button) and [custom plugins](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_plugins.html).
 
 Online Editor is based on the CKEditor5.
@@ -20,41 +20,126 @@ For more information about extending the back office, see [Extend back office](b
 With custom tags, you can enhance the Online Editor with features that go beyond the built-in ones.
 You configure custom tags under the `ibexa_richtext` key.
 
-Start preparing the tag by adding a configuration file: 
+Start preparing the tag by adding a configuration file:
 
 ```yaml
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
 ```
 
+The example enables the custom tag under the `admin_group` [SiteAccess group](siteaccess.md), which controls where editors can use it.
+The custom tag renders in all SiteAccesses, including the front end.
+
 Custom tags can have as many attributes as needed.
 Supported attribute types are:
-`string`, `number`, `boolean`, `link`, and `choice`.
+
+- `string`
+- `number`
+- `boolean`
+- `link`
+- `choice`
+
 `choice` requires that you provide a list of options in the `choices` key.
 
-You must provide your own files for the Twig template and the icon.
-Place the `factbox.html.twig` template in the 
-`templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
+
+You must create your own file for the Twig template.
+Place the `factbox.html.twig` template in the `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
 
 ```html+twig
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ibexa_richtext/custom_tags/factbox.html.twig') =]]
 ```
 
-!!! tip
+If an attribute isn't required, check if it's defined by adding a check in the template, for example:
 
-    If an attribute isn't required, check if it's defined by adding a check 
-    in the template, for example:
+```html+twig
+{% if params.your_attribute is defined %}
+    ...
+{% endif %}
+```
 
-    ```html+twig
-    {% if params.your_attribute is defined %}
-        ...
-    {% endif %}
-    ```
+In this example, the `style` attribute is a `choice` attribute with `light` and `dark` as possible values.
+The selected value is available as `params.style` in the template.
+Use it to build an `ibexa-factbox--light` or `ibexa-factbox--dark` modifier class on the wrapping `div` element for styling.
 
-Add labels for the new tag by providing translations in `translations/custom_tags.en.yaml`:
+You can then define the corresponding CSS for each choice, for example by using [Webpack Encore and assets](assets.md).
+
+Create a `assets/scss/factbox.scss` file for styling the custom tag:
+
+``` css
+.ibexa-factbox--light {
+    background-color: #f5f5f5;
+    color: #202020;
+}
+
+.ibexa-factbox--dark {
+    background-color: #202020;
+    color: #f5f5f5;
+}
+```
+
+Then, register the file in `webpack.config.js` as an asset entry called `factbox`:
+
+``` js
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/webpack.config.js') =]]
+```
+
+After you add the configuration, template, and asset files, clear the cache and run `yarn encore <dev|prod>`.
+
+### Provide translations for custom tags
+
+You can provide the label and description displayed for the custom tag and its attributes in the back office in one of two ways.
+
+#### Option 1: Manually add translations
+
+Add labels for the new tag by providing the translations manually in `translations/custom_tags.en.yaml`:
 
 ```yaml
 [[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/translations/custom_tags.en.yaml') =]]
 ```
+
+This approach is quick, but doesn't work when your custom tag is defined in a bundle.
+The configuration and the labels are defined in separate files, making it easier to miss updating them when the custom tag changes.
+
+#### Option 2: Extract translation source texts from configuration
+
+To provide the translations with the custom tag configuration, specify the `label` and `description` keys for the custom tag itself, and a `label` key for each attribute.
+
+```yaml hl_lines="7-8 13 19"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
+```
+
+To make use of them, create a new service with `Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor` as the class.
+
+If it has `choice` attributes, add an additional service with `Ibexa\FieldTypeRichText\Translation\Extractor\ChoiceAttributeExtractor` as the class.
+
+In both cases, add your custom tag's identifier to the `allowlist` argument:
+
+```yaml hl_lines="7 17"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/services.yaml') =]]
+```
+
+Then, create your own translation extraction configuration, and specify the Symfony services created above as extractors:
+
+```yaml hl_lines="6 8-9"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/jms_translation.yaml') =]]
+```
+
+Run the translation extraction:
+
+```bash
+php bin/console translation:extract -c app_translation_config
+```
+
+This updates `translations/custom_tags.en.yaml` with the source texts taken from the configuration.
+
+If you omit `label` or `description`, the extraction uses the identifier of the custom tag or attribute as the source text.
+
+To provide translations for values of a `choice` attribute, `ChoiceAttributeExtractor` capitalizes the first letter of the value.
+For example, `light` and `dark` options become `Light` and `Dark`.
+
+Run the extraction again whenever you change the labels, descriptions, or attributes of the custom tag.
+
+### Use custom tag
 
 Now you can use the tag.
 In the back office, create or edit a content item that has a RichText field type.
@@ -71,7 +156,7 @@ You can also place custom tags inline with the following configuration:
 ```
 
 `is_inline` is an optional key.
-The default value is `false`, therefore, if it's not set, the custom tag is 
+The default value is `false`, therefore, if it's not set, the custom tag is
 treated as a block tag.
 
 ### Use cases
@@ -87,7 +172,9 @@ The configuration is:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/config/packages/custom_tags.yaml') =]]
 ```
 
-Provide your own files for the Twig template and the icon.
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
+
+Use your own file for the Twig template.
 
 The tag has the `url` attribute with the `type` parameter set as `link` (lines 30-31).
 
@@ -107,7 +194,7 @@ Now you can use the tag.
 In the back office, create or edit a content item that has a RichText field type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
-![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
+![Link Tag](custom_tag_link.png "Link Tag in the Online Editor")
 
 #### Acronym
 
@@ -167,7 +254,7 @@ Add labels for the new styles by providing translations in `translations/custom_
 
 ### Rendering
 
-The `template` key points to the template that is used to render the custom style. 
+The `template` key points to the template that is used to render the custom style.
 It's recommended that you use the [design engine](design_engine.md).
 
 The template files for the front end could look as follows:
@@ -198,7 +285,7 @@ You can create a custom style that places a paragraph in a note box:
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_note_box.yaml') =]]
 ```
 
-The `note_box.html.twig` template wraps the content of the selected text 
+The `note_box.html.twig` template wraps the content of the selected text
 (`{{ content }}`) in a custom CSS class:
 
 ``` html+twig
@@ -206,6 +293,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 ```
 
 You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
+
 ``` css
 .note {
     display: block;
@@ -240,7 +328,7 @@ You can create an inline custom style that highlights a part of a text:
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_highlight.yaml') =]]
 ```
 
-The `highlight.html.twig` template wraps the content of the selected text 
+The `highlight.html.twig` template wraps the content of the selected text
 (`{{ content }}`) in a custom CSS class:
 
 ``` html+twig
@@ -248,6 +336,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 ```
 
 You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
+
 ``` css
 .highlight {
     background-color: #fcc672;
@@ -335,7 +424,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml') =]]
 ```
- 
+
 !!! note "Label translations"
 
     If there are many custom attributes, to provide label translations for these attributes, you can use the `ez_online_editor_attributes` translation extractor to get a full list of all custom attributes for all elements in all scopes.
@@ -343,7 +432,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
     For example:
 
     ``` bash
-    php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes \
+    php ./bin/console jms:translation:extract --enable-extractor=ez_online_editor_attributes \
     --dir=./templates --output-dir=./translations/ --output-format=yaml
     ```
 
@@ -379,14 +468,14 @@ You can modify the order and visibility of buttons that are available in the Onl
 
 For each button you can set `priority`, which defines the order of buttons in the toolbar.
 
-For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
+For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/5.0/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
 ## Add CKEditor plugins
 
 Regular CKEditor plugins can be added to the Online Editor.
 This procedure is illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
-You can install a CKEditor plugin locally by using `yarn add ` or `npm install`, and deploy it by committing the `yarn.lock` file.
+You can install a CKEditor plugin locally by using `yarn add` or `npm install`, and deploy it by committing the `yarn.lock` file.
 A local installation looks like:
 
 ```bash
@@ -462,6 +551,7 @@ window.ibexa.addConfig('richText.CKEditor.extraConfig', {your_custom_config_obje
 ```
 
 To have `Arrows` category from [previously added Special characters plugin](#add-ckeditor-plugins) on [top of the filter menu](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#ordering-categories):
+
 ```js
 ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: ['Arrows'] } }, true);
 ```

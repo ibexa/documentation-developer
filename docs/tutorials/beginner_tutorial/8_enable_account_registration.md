@@ -143,7 +143,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
             <h2>{{ 'Registration completed'|trans }}</h2>
 
             <div class="row confirmation-label">
-                {{ 'You're all set up and ready to go'|trans }}
+                {{ 'You\'re all set up and ready to go'|trans }}
             </div>
 
             <div class="row">
@@ -155,6 +155,12 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
     </div>
 {% endblock %}
 ```
+
+## Add policy
+
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
+Add the `Content/Create` policy to the Anonymous user.
+This allows users to fill in the registration form.
 
 Now return to `<yourdomain>/register`:
 
@@ -168,7 +174,7 @@ Fill in the form and register a user.
 
 ## Set up Permissions
 
-Users created through the registration form are placed in the _Guest accounts_ user group.
+Users created through the registration form are placed in the default user group (_Guest accounts_ for [[= product_name_headless =]] and [[= product_name_exp =]], _Customers_ for [[= product_name_com =]] edition).
 The user you created has the roles assigned to this group.
 
 !!! tip

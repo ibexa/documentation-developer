@@ -1,5 +1,6 @@
 ---
 description: Content-aware HTTP cache takes into account the content it's connected to.
+month_change: true
 ---
 
 # Content-aware HTTP cache
@@ -14,7 +15,7 @@ All supported reverse proxies are content-aware.
 
 ## Cache tags
 
-Understanding tags is the key to making the most ofIbexa's HTTP cache.
+Understanding tags is the key to making the most of [[= product_name =]]'s HTTP cache.
 
 Tags form a secondary set of keys assigned to every cache item, on top of the "primary key" which is the URI.
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
@@ -67,17 +68,17 @@ You can solve this issue in one of the following ways:
 
 Varnish configuration:
 
-- [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
-- [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
-- [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
-- [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
+- [`http_resp_hdr_len`](https://www.varnish.org/docs/reference/varnishd/#http_resp_hdr_len) (default 8k, change to for example, 32k)
+- [`http_max_hdr`](https://www.varnish.org/docs/reference/varnishd/#http_max_hdr) (default 64, change to for example, 128)
+- [`http_resp_size`](https://www.varnish.org/docs/reference/varnishd/#http_resp_size) (default 23k, change to for example, 96k)
+- [`workspace_backend`](https://www.varnish.org/docs/reference/varnishd/#workspace_backend) (default 64k, change to for example, 128k)
 
-If you need to see these long headers in `varnishlog`, adapt the [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
+If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://www.varnish.org/docs/reference/varnishd/#vsl_reclen) setting.
 
 Nginx has a default limit of 4k/8k when buffering responses:
 
-- For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [proxy_buffer_size](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
-- For FastCGI setup using fastcgi module, configure [fastcgi_buffer_size](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
+- For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [`proxy_buffer_size`](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
+- For FastCGI setup using fastcgi module, configure [`fastcgi_buffer_size`](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
 
 Fastly has a `Surrogate-Key` header limit of 16 kB, and this cannot be changed.
 
@@ -106,7 +107,7 @@ parameters:
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
-```
+```http
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
@@ -140,6 +141,17 @@ The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurat
 For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the content from the `ContentView` and passes it to the `ContentInfoTagger`.
 - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
+The built-in taggers support the following value types:
+
+- [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
+- [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)
+- Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
+- Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
+
+!!! caution
+
+    If a value of any other type is passed (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), no tagger matches and the call has no effect.
+
 ## DispatcherTagger
 
 Accepts any value and passes it on to every tagger registered with the service tag `ibexa.cache.http.response.tagger`.
@@ -150,17 +162,10 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1\. Reusing `DispatcherTagger` to pick correct tags.
 
-Examples for tagging everything needed for content using the autowirable `ResponseTagger` interface:
+Examples for tagging everything needed for content using the autowireable [`ResponseTagger`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html) interface:
 
-``` php
-/** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
-
-// If you have a View object you can simply call:
-$responseTagger->tag($view);
-
-// Or if you have content / Location object only, you can instead provide content info and Location:
-$responseTagger->tag($contentInfo);
-$responseTagger->tag($location);
+``` php hl_lines="3 6 9"
+[[= include_code('code_samples/cache/http_cache/src/response_tagging.php', 3, 11) =]]
 ```
 
 2\. Use `ContentTagInterface` API for content related tags.
@@ -168,7 +173,11 @@ $responseTagger->tag($location);
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
 ``` php
-/** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
+/**
+ * @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+ * @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
+ */
 
 // Example for tagging everything needed for Content:
 $tagHandler->addContentTags([$content->id]);
@@ -188,6 +197,8 @@ In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` s
 The following example adds minimal tags when ID 33 and 34 are rendered in ESI, but parent response needs these tags to get refreshed if they're deleted:
 
 ``` php
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
@@ -199,9 +210,9 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 For custom or built-in controllers (for example, REST) that still use `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
 It supports singular and comma-separated location ID value(s):
 
-```php
+``` php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
-$response->headers->set('X-Location-Id', 123);
+$response->headers->set('X-Location-Id', '123');
 
 // Alternatively using several Location ID values
 $response->headers->set('X-Location-Id', '123,212,42');
@@ -258,7 +269,7 @@ All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CacheP
 Below is an example of a content structure.
 The tags which the content view controller adds to each location are also listed:
 
-```
+```text
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -284,14 +295,13 @@ In the event when a new version of `Child` is published, the following keys are 
 In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the location for `[Child]`, any children of `[Child]`, any location that relates to the location `[Child]`, location for `[Parent1]`, any children on `[Parent1]`.
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` is cleared.
 
-
 ### Tags purged on move event
 
 With the same content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
 The new structure is then:
 
-```
+```text
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -317,16 +327,38 @@ In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), 
 ### Custom purging from code
 
 While the system purges tags whenever API is used to change data, you may need to purge directly from code.
-For that you can use the built-in purge client:
+For that you can inject the built-in [`PurgeClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-PurgeClient-PurgeClientInterface.html) by using the `ibexa.http_cache.purge_client` service name:
 
-```php
-/** @var \Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface $purgeClient */
+``` php hl_lines="12-13 19-21 23-25"
+use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
+use Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
-// Example for purging by Location ID:
-$purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
+#[AsCommand(name: 'app:purge-cache')]
+class MyCustomCacheCommand
+{
+    public function __construct(
+        #[Autowire(service: 'ibexa.http_cache.purge_client')]
+        private readonly PurgeClientInterface $purgeClient
+    ) {
+    }
 
-// Example for purging all cache for instance for full re-deploy cases, usually this triggers an expiry (soft purge):
-$purgeClient->purgeAll();
+    public function __invoke(SymfonyStyle $io): int
+    {
+        // Example for purging by Location ID:
+        $locationId = 2;
+        $this->purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $locationId]);
+
+        // Example for purging all cache for instance for full re-deploy cases
+        // Usually this triggers an expiry (soft purge):
+        $this->purgeClient->purgeAll();
+
+        return Command::SUCCESS;
+    }
+}
 ```
 
 ### Purging from command line
@@ -352,7 +384,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 It's important to test your code in an environment which is as similar as your production environment as possible.
 That means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or Fastly in production, you're likely ending up some (bad) surprises.
-Due to the symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
+Due to the Symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
 If you're going to use Varnish in production, make sure you also test your code with Varnish.
 If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible (you're local development environment must then be accessible for Fastly).
 Testing with Varnish instead in most cases does the job.
@@ -364,7 +396,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that don't go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on.
-  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
+  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Upsun, you need to use the Upsun
 	dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly doesn't cache the front page properly.
@@ -374,23 +406,23 @@ If you run the command multiple times:
 
 it always outputs:
 
-```
+```http
 HTTP/2 200
 (...)
 x-cache: MISS
 ```
 
-### Nginx endpoint on Platform.sh
+### Nginx endpoint on [[= product_name_cloud =]]
 
 #### Finding Nginx endpoint for environments located on the grid
 
 To find the Nginx point, first, you need to know in which region your project is located.
-To do that, go to the Platform.sh dashboard.
+To do that, go to the [[= product_name_cloud =]] dashboard.
 To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses).
+In this case the region is `us-2` and you can find the public IP list on [Upsun documentation page](https://fixed.docs.upsun.com/development/regions.html#public-ip-addresses).
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -400,7 +432,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname
@@ -408,8 +440,8 @@ You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (wh
 
 #### Finding Nginx endpoint on dedicated cloud
 
-If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
-In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
+If you have a dedicated 3-node cluster on Upsun, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
+In the **URLs** drop-down in the [[= product_name_cloud =]] dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
 The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`.
 Next, use nslookup to find the IP:
@@ -424,13 +456,13 @@ Next, use nslookup to find the IP:
 ### Fetching user context hash
 
 As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the user-context-hash.
-Users with the same user-context-hash here the same cache (as long as [[= product_name =]] responds with `Vary: X-Context-User-Hash`).
+Users with the same user-context-hash share the same cache (as long as [[= product_name =]] responds with `Vary: X-User-Context-Hash`).
 
 To simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
 To obtain it, use `curl`.
 
 ```bash
-    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "accept: application/vnd.fos.user-context-hash" --header "x-fos-original-url: /" https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash
+curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "accept: application/vnd.fos.user-context-hash" --header "x-fos-original-url: /" https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash
 ```
 
 Some notes about each of these parameters:
@@ -440,7 +472,7 @@ Some notes about each of these parameters:
     - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`.
     We do that because in our case that resolves to the Fastly endpoint, not our origin (nginx)
     - We specify `443` because we are using `https`
-    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - We provide the IP of the nginx endpoint at Upsun (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
@@ -450,7 +482,7 @@ Some notes about each of these parameters:
 
 The output for this command should look similar to this:
 
-```
+```http
     HTTP/1.1 200 OK
     Server: nginx/1.27.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -473,12 +505,12 @@ The header `X-User-Context-Hash` is the one of the interest here, but you may al
 Now you have the user-context-hash, and you can ask origin for the actual resource you're after:
 
 ```bash
-    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/
+curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/
 ```
 
 The output :
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -501,13 +533,13 @@ So back to the original problem here.
 This resource is for some reason not cached by Fastly (remember the `x-cache: MISS` we started with).
 But origin says this page can be cached for 1 day.
 How can that be?
-The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
+The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cacheable.
 
 So, first let's see if there are any ESIs here.
 We remove the `-IXGET` options (to see content of the response, not only headers) to curl and search for esi:
 
 ```bash
-    $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
+curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
 ```
 
 The output is:
@@ -521,17 +553,17 @@ The output is:
 Now, investigate the response of each of these ESI fragments to understand what is going on.
 It's important to put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the shell.
 
-#### 1st ESI
+#### 1st&nbsp;ESI
 
 ```bash
-    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
+curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
 ```
 
 This ESI is handled by a controller in the `FieldTypePage` bundle provided by [[= product_name =]].
 
 The output is:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -549,17 +581,17 @@ Surrogate-Key: ez-all c52 l2
 The headers here look correct and don't indicate that this ESI isn't cached by the HTTP cache.
 The second ESI has a similar response.
 
-#### 3rd ESI
+#### 3rd&nbsp;ESI
 
 ```bash
-    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site//_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction'
+curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site//_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction'
 ```
 
 This ESI is handled by a custom `FooController::customAction` and the output of the command is:
 
 Output:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -592,7 +624,7 @@ ESI headers are only seen by the HTTP cache.
 - Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by sub-requests (`render()`).
 So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
 
-- Fastly flags it resource as "not cachable" because it set a cookie at least once.
+- Fastly flags it resource as "not cacheable" because it set a cookie at least once.
 Even though that endpoint stops setting cookies, Fastly still doesn't cache that fragment.
 Any document referring to that ESI is a `MISS`.
 Fastly cache needs to be purged (`Purge-all` request) to remove this flag.

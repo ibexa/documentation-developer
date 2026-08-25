@@ -1,5 +1,7 @@
 ---
 description: Page blocks can contain multiple attributes, of both built-in and custom types.
+month_change: false
+edition: experience
 ---
 
 # Page block attributes
@@ -13,7 +15,7 @@ Each block can have the following properties:
 | Attribute    | Description                                                                                                  |
 |--------------|--------------------------------------------------------------------------------------------------------------|
 | `type`       | Attribute type.                                                                                              |
-| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. |
+| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. Translatable using the `ibexa_page_builder_block_config` translation domain. |
 | `value`      | (Optional) The default value for the attribute.                                                              |
 | `category`   | (Optional) The tab where the attribute is displayed in the block edit modal.                                 |
 | `validators` | (Optional) [Validators](page_block_validators.md) checking the attribute value.                              |
@@ -30,15 +32,16 @@ The following attribute types are available:
 |`url`|URL|-|
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
-|`embed`|Embedded content item|-|
-|`select`|Drop-down with options to select|`choices` lists the available options in `label: value` form</br>`multiple`, when set to true, allows selecting more than one option.
-|`checkbox`|Checkbox|Selects available option if `value: true`.|
+|`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
+|`checkbox`|Checkbox|Selects available option if `value: true`. Checkbox appearance in block configuration forms [can be configured](#configure-checkbox-appearance) |
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
-|`locationlist`|Location selection|-|
+|`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`contenttypelist`|List of content types|-|
-|`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button.|
+|`schedule_events`,<br>`schedule_snapshots`,<br>`schedule_initial_items`,<br>`schedule_slots`,<br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
+|`nested_attribute`|Defines a group of attributes in a block.|<ul><li>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes</li><li>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button</li></ul>|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
 
@@ -49,10 +52,9 @@ attributes:
     third_field: integer
 ```
 
-`embed` and `locationlist` use the Universal Discovery Widget (UDW).
-When creating a block with these two types you can configure the UDW behavior.
-
-For more information, see [Create custom page block / Add edit template](create_custom_page_block.md#add-edit-template)
+The `embed`, `embedvideo`, and `locationlist` attribute types use the Universal Discovery Widget (UDW).
+When creating a block with these types you can use the `udw_config_name` option to configure the UDW behavior.
+See the [custom block example](create_custom_page_block.md#configure-block) to learn more.
 
 ## Custom attribute types
 
@@ -70,8 +72,8 @@ for example `AbstractType` for any custom type or `IntegerType` for numeric type
 
 To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` file:
 
-``` php hl_lines="5 6 15"
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
+``` php hl_lines="5 6 17"
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
 The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
@@ -96,7 +98,7 @@ To use a custom mapper, create a class that inherits from `Ibexa\Contracts\Field
 for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
 
 ``` php
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
 ```
 
 Then, add a new service definition for your mapper to `config/services.yaml`:
@@ -176,9 +178,9 @@ ibexa_fieldtype_page:
                                 class: 'class1 class2'
 ```
 
-- `help` - defines a help message which is rendered below the field.
-- `help_attr` - sets the HTML attributes for the element which displays the help message.
-- `help_html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
+- `help.text` - defines a help message which is rendered below the field (maps to [`help`]([[= symfony_doc =]]/reference/forms/types/form.html#help))
+- `help.attr` - sets the HTML attributes for the element which displays the help message (maps to [`help_attr`]([[= symfony_doc =]]/reference/forms/types/form.html#help-attr))
+- `help.html` - enable (default) / disable (set to `true`) escaping the contents of the `help.text` option when rendering in the template (maps to [`help_html`]([[= symfony_doc =]]/reference/forms/types/form.html#help-html))
 
 ### Help message in nested attributes
 
@@ -189,3 +191,23 @@ You can set the options for root or nested attribute, see the example configurat
 ```
 
 ![Help message](../img/page_block_help_message.png "Help message")
+
+## Configure checkbox appearance
+
+For blocks with an attribute of `checkbox` type, you can change the look of the checkbox in block configuration forms.
+
+You can do it by adding the `block_prefix: block_configuration_attribute_checkbox_toggle` option in the block configuration as follows:
+
+``` yaml hl_lines="4 5"
+<attribute_identifier>:
+    name: <name>
+    type: checkbox
+    options:
+        block_prefix: block_configuration_attribute_checkbox_toggle
+```
+
+This setting changes the checkbox appearance to a toggle widget.
+
+![Toggle widget](toggle_widget.png)
+
+If you remove the above setting from the configuration, the attribute reverts to the default checkbox appearance.

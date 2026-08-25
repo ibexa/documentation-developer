@@ -12,23 +12,19 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:find_content'
+    name: 'doc:find_content',
+    description: 'Lists content belonging to the provided content type.'
 )]
 class FindContentCommand extends Command
 {
-    private SearchService $searchService;
-
-    public function __construct(SearchService $searchService)
+    public function __construct(private readonly SearchService $searchService)
     {
-        $this->searchService = $searchService;
-
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
             ]);

@@ -15,6 +15,10 @@ The [`ContentTypeGroupId` Search Criterion](/api/php_api/php_api_reference/class
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 ```
 
@@ -25,7 +29,7 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
     ```xml
     <Query>
         <Filter>
-            <ContentTypeGroupIdCriterion>[1, 2]</ContentTypeGroupIdCriterion>
+            <ContentTypeGroupIdCriterion>1</ContentTypeGroupIdCriterion>
         </Filter>
     </Query>
     ```
@@ -45,35 +49,18 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 You can use the `ContentTypeGroupId` Criterion to query all Media content items
 (the default ID for the Media content type group is 3):
 
-``` php hl_lines="1"
-        $query->query = new Criterion\ContentTypeGroupId([3]);
+``` php hl_lines="6"
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
-        $results = $this->searchService->findContent($query);
-        $media = [];
-        foreach ($results->searchHits as $searchHit) {
-            $media[] = $searchHit;
-        }
-    }
+$query = new Query();
+$query->query = new Criterion\ContentTypeGroupId([3]);
+
+/** @var SearchService $searchService */
+$results = $searchService->findContent($query);
+$media = [];
+foreach ($results->searchHits as $searchHit) {
+    $media[] = $searchHit;
+}
 ```
-
-### REST API
-
-=== "XML"
-
-    ```xml
-      <Query>
-        <Filter>
-            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
-        </Filter>
-      </Query>
-    ```
-
-=== "JSON"
-
-    ```json
-    "Query": {
-        "Filter": {
-            "ContentIdCriterion": [69, 72]
-            }
-        }
-    ```
