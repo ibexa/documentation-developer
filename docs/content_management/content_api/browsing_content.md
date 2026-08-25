@@ -176,7 +176,7 @@ Line 17 shows how [`ContentService::loadContent`](/api/php_api/php_api_reference
 Line 18 makes use of the [`ContentTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html) to retrieve the content type of the requested item.
 
 Lines 20-27 iterate over fields defined by the content type.
-For each field they print out its identifier, and then using [`FieldTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html) retrieve the field's value and print it out to the console.
+For each field definition they print out its identifier, and then using [`FieldTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html) retrieve the field definition's value and print it out to the console.
 
 ## Viewing content in different languages
 
