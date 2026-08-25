@@ -101,7 +101,9 @@ To list Relations to and from your content, you can:
 
 - pass a `VersionInfo` object to the [`ContentService::loadRelationList` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) which returns a slice of the relation list thanks to pagination arguments
 - use the [`RelationListIteratorAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html)
-  within a [`BatchIterator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html) which allow traversing the relation list using one same object
+  within a [`BatchIterator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html) which allow traversing the whole relation list
+
+See [Processing large result sets](search_api.md#process-large-result-sets) for more information about the `BatchIterator`.
 
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
 
