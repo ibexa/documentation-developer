@@ -67,12 +67,6 @@ parameters:
 			path: code_samples/_inline_php/infrastructure_and_maintenance/cache/persistence_cache/c27a2fe1c12bba3e9271acc67ae3a2e2d4596bf58f4d9b791aec4e564ae88259.php
 
 		-
-			message: '#^Class Ibexa\\Bundle\\AutomatedTranslation\\IbexaAutomatedTranslationBundle not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/_inline_php/multisite/languages/automated_translations/ff5604cd1cb706e69e3b0d777cd61c7261a6647a434713042e7633299a86ba15.php
-
-		-
 			message: '#^Property App\\MyService\:\:\$contentService is never read, only written\.$#'
 			identifier: property.onlyWritten
 			count: 1
@@ -379,18 +373,6 @@ parameters:
 			path: code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php
 
 		-
-			message: '#^Instantiated class Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php
-
-		-
-			message: '#^Parameter \#2 \$stamps of method Symfony\\Component\\Messenger\\MessageBusInterface\:\:dispatch\(\) expects array\<Symfony\\Component\\Messenger\\Stamp\\StampInterface\>, array\<int, Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php
-
-		-
 			message: '#^Method App\\Attribute\\Percent\\Form\\PercentValueFormMapper\:\:createValueForm\(\) has parameter \$builder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1
@@ -563,24 +545,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/layouts/menu/src/QueryType/MenuQueryType.php
-
-		-
-			message: '#^Instantiated class Ibexa\\Contracts\\AutomatedTranslation\\Exception\\ClientNotConfiguredException not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php
-
-		-
-			message: '#^Method App\\AutomatedTranslation\\AiClient\:\:setConfiguration\(\) has parameter \$configuration with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php
-
-		-
-			message: '#^Throwing object of an unknown class Ibexa\\Contracts\\AutomatedTranslation\\Exception\\ClientNotConfiguredException\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php
 
 		-
 			message: '#^Call to method addCriterion\(\) on an unknown class Ibexa\\Contracts\\Core\\Repository\\Values\\NotificationQuery\.$#'

@@ -33,11 +33,6 @@ ignoreErrors:
         hash: 4cfc5ac559eb8db38edb6c8a29872883a95886b61cdae2b343a5ebaf4a9bca8e
         message: '~The value "\<general\|targetable\>" is not allowed for path "ibexa\.system\.\<scope\>\>\.product_tour\.\<scenario_identifier\>\.type"\. Permissible values\: "general", "targetable"\.~'
     -
-        path: docs/cdp/cdp_data_customization.md
-        line: 29
-        hash: bb2ecc0b96ca61cd004b9c1806e78d6afc3197a68acb723db7a52cfd5bdc89d6
-        message: '~Unable to parse at line 1 \(near "    App\\Export\\User\\DateOfBirthUserItemProcessor\:"\)\.~'
-    -
         path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
         line: 48
         hash: 629d37dcc688c9b11daec8de8c601522830f3b2175ac6ac692db3f17b89a01d7
@@ -94,22 +89,22 @@ ignoreErrors:
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 254
+        line: 250
         hash: 5fff20465655d9e52a258e3c1b1347a62b0f558d9e733bb377c003d5021822eb
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: show_children"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 282
+        line: 278
         hash: 7cec0a6d723dcb0d3d87904910e4870f05b885764116e447b8a4fe19025b8289
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: project_directory"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 274
+        line: 270
         hash: a08babaebc91ceb742a9a81a04be4d9e975291019794a0658bef1f99e62dccea
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: some_field"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 385
+        line: 381
         hash: c94bdd7b27818ae0138b8c5bdba1ff33d77e25918609c1741f2c4d4236dcaff1
         message: '~Unable to parse at line 1 \(near "        \-   fieldDefIdentifier\: image"\)\.~'
     -
