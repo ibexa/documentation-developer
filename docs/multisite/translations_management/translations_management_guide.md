@@ -132,4 +132,4 @@ Administrators can assign providers to specific language pairs and editors can o
 
 ### Readiness for automated processing
 
-The CLI command enables bulk translation and integration with automated processes, which can help you reduce manual effort for large content volumes.
+The CLI command enables integration with automated processes, which can help you reduce manual effort for large content volumes.
