@@ -25,7 +25,7 @@ This value object provides primitive fields, such as `contentTypeId`, `published
 
 You can also use it to request other content-related value objects from various services:
 
-``` php hl_lines="11"
+``` php hl_lines="13"
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 1, 5) =]]
 
 // …
@@ -36,7 +36,7 @@ You can also use it to request other content-related value objects from various 
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 119) =]]
 ```
 
-`ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 8).
+`ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 13).
 It provides you with basic content metadata such as modification and publication dates or main language code.
 
 !!! note "Retrieving content information in a controller"
