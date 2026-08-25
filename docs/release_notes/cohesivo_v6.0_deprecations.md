@@ -24,7 +24,7 @@ To make the update process between v5 and v6 easier, there are no plans for a la
 
 This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
-## Dropped packages
+## Removed packages
 
 The `ibexa/app-switcher` package, and its `IbexaAppSwitcherBundle`, is no longer part of the 6.0.
 

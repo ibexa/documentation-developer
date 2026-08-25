@@ -13,7 +13,7 @@ Before you update to v6.0, you need to [update to the latest maintenance release
 
 ### Update custom code for Cohesivo v6.0
 
-See [Cohesivo v6.0 renames, deprecations and removals](/release_notes/cohesivo_v6.0_deprecations.md) for the full list of changes.
+See [Cohesivo v6.0 renames, deprecations and removals](cohesivo_v6.0_deprecations.md) for the full list of changes.
 
 #### Remove IbexaAppSwitcher bundle
 
@@ -25,7 +25,7 @@ Remove the entry from `config/bundles.php`:
 -     Ibexa\Bundle\AppSwitcher\IbexaAppSwitcherBundle::class => ['all' => true],
 ```
 
-### Drain the background task queue
+### Empty the background task queue
 
 The message format used for [background task deduplication](cohesivo_v6.0_deprecations.md#ibexamessenger) changed between v5.0 and v6.0.
 Before you update, process or manually remove pending messages stored in the `ibexa_messenger_messages` table, so no message in the old format remains.
