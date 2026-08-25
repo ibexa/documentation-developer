@@ -156,7 +156,7 @@ You need to provide it with the object state group.
 All object state groups can be retrieved through [`loadObjectStateGroups`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 118, remove_indent=True) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 118, remove_indent=True) =]]
 ```
 
 ## Viewing content with fields
