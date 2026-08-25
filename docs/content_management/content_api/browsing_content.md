@@ -159,9 +159,9 @@ All object state groups can be retrieved through [`loadObjectStateGroups`](/api/
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 118, remove_indent=True) =]]
 ```
 
-## Viewing content with fields
+## Viewing field definitions of content types
 
-To retrieve the fields of the selected content item, you can use the following command:
+To retrieve the content type's field definitions of a selected content item, you can use the following command:
 
 ``` php hl_lines="17-18 20-27"
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 1, 7) =]]
