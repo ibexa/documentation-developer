@@ -54,9 +54,11 @@ And include it into the back office using Webpack Encore, together with your cus
 See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
 
 ``` js
-const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
+const ibexaConfig = getIbexaConfig();
 
-//...
+//…
 
 ibexaConfigManager.add({
     ibexaConfig,
@@ -73,6 +75,8 @@ ibexaConfigManager.add({
         path.resolve(__dirname, './assets/scss/timeline.view.scss'),
     ],
 });
+
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 ```
 
 Complete the task by running `composer run post-install-cmd`.
