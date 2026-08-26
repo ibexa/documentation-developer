@@ -250,7 +250,7 @@ rm assets/bootstrap.js
 composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 ```
 
-Compare with your previous version, merge them together, take care of [`webpackconfig.js` usage changee](#webpackconfigjs-usage-update), and test your customizations.
+Compare with your previous version, merge them together, take care of [`webpack.config.js` usage change](#webpackconfigjs-usage-update), and test your customizations.
 
 #### Apply [[= product_name =]] recipe
 
