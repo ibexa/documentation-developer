@@ -38,3 +38,9 @@ Notice:
 - the `admin` in MCP server URL as default [`URIElement: 1` SiteAccess matching](siteaccess_matching.md#urielement) is used in this local test example
 - the `X-Siteaccess: admin` header when requiring the JWT token TODO: mention this need in mcp_usage.md example instead.
 - the `Accept-Language: en` header when establishing the gateway TODO: Why is it suddenly needed? Because it's the admin SiteAccess?
+
+### Prompt examples
+
+> How the French translation is covered?
+> 
+> Pick me one random folder that need translation into French.
