@@ -119,7 +119,7 @@ Editors can initiate machine translation directly from the content editing inter
 
 ### Better translation quality and consistency
 
-Automatic translations are marked for review, allowing editors to accept or reject translations directly in the side-by-side translation view.
+Machine-translated drafts are marked for review, allowing editors to accept or reject them directly in the side-by-side translation view.
 This eliminates the need for a separate workflow or tool.
 
 With the side-by-side translation view, editors can conveniently compare source and target content while editing.
