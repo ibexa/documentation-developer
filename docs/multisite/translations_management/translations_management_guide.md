@@ -109,3 +109,27 @@ Developers can [extend the translations management](extend_translations_manageme
 - add support for custom fields
 - add custom content type exclusion rules
 - tap into the translation lifecycle with [events](translations_management_events.md)
+
+## Benefits
+
+### Streamlined translation process
+
+Translations management reduces the time needed to create and publish multilingual content.
+Editors can initiate machine translation directly from the content editing interface and work on the result immediately in the side-by-side translation view, without having to switch contexts or use another translation tool.
+
+### Better translation quality and consistency
+
+Machine-translated drafts are marked for review, allowing editors to accept or reject them directly in the side-by-side translation view.
+This eliminates the need for a separate workflow or tool.
+
+With the side-by-side translation view, editors can conveniently compare source and target content while editing.
+Seeing the translation in context makes it easier to identify omissions, inconsistencies, and translation errors.
+
+### Flexible support for different translation providers
+
+Regardless of technical and conceptual differences, the experience of working with various translation providers is the same.
+Administrators can assign providers to specific language pairs and editors can override the assignment when needed.
+
+### Readiness for automated processing
+
+The CLI command enables integration with automated processes, which can help you reduce manual effort for large content volumes.
