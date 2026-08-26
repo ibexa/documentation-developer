@@ -115,7 +115,7 @@ Developers can [extend the translations management](extend_translations_manageme
 ### Streamlined translation process
 
 Translations management reduces the time needed to create and publish multilingual content.
-Editors can initiate machine translation directly from the content editing interface and work on the result immediately in the side-by-side translation view, without having to switch between contexts or to another translation tool.
+Editors can initiate machine translation directly from the content editing interface and work on the result immediately in the side-by-side translation view, without having to switch contexts or use another translation tool.
 
 ### Better translation quality and consistency
 
