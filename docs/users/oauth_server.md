@@ -20,17 +20,9 @@ composer require ibexa/oauth2-server --with-all-dependencies
 
 Add the tables needed by the bundle:
 
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
+```bash
+php bin/console doctrine:query:sql "$(php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml)"
+```
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
