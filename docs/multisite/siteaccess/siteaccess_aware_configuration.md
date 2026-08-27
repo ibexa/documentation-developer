@@ -27,44 +27,19 @@ For more information about the ConfigResolver, namespaces and scopes, see [confi
 The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
 
-``` php
-Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+``` php {skip-validation}
+return [
+    // ...
+    Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+];
 ```
 
-### Parsing semantic configuration
+## Parsing semantic configuration
 
 To parse semantic configuration, create a `Configuration` class which extends `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration` and then extend its `generateScopeBaseNode()` method:
 
-``` php hl_lines="17"
-<?php
-
-namespace Acme\ExampleBundle\DependencyInjection;
-
-use Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-
-class Configuration extends SiteAccessConfiguration
-{
-    public function getConfigTreeBuilder(): TreeBuilder
-    {
-        $treeBuilder = new TreeBuilder('acme_example');
-        $rootNode = $treeBuilder->getRootNode();
-
-        // $systemNode is the root of SiteAccess-aware settings.
-        $systemNode = $this->generateScopeBaseNode($rootNode);
-        $systemNode
-            ->scalarNode('name')->isRequired()->end()
-            ->arrayNode('custom_setting')
-                ->children()
-                    ->scalarNode('string')->end()
-                    ->integerNode('number')->end()
-                    ->booleanNode('enabled')->end()
-                ->end()
-            ->end();
-
-        return $treeBuilder;
-    }
-}
+``` php hl_lines="19"
+[[= include_code('code_samples/multisite/siteaccess/Configuration.php') =]]
 ```
 
 !!! note
@@ -90,63 +65,19 @@ acme_example:
                 enabled: false
 ```
 
-### Mapping to internal settings
+## Mapping to internal settings
 
 Semantic configuration must always be mapped to internal key/value settings within the service container.
 You usually do it in the [service container](php_api.md#service-container) extension.
 
 ``` php
-<?php
-
-namespace Acme\ExampleBundle\DependencyInjection;
-
-use Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
-use Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ContextualizerInterface;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-
-class AcmeExampleExtension extends Extension
-{
-    public const ACME_CONFIG_DIR = __DIR__ . '/../../../config/acme';
-
-    /**
-     * @throws \Exception
-     */
-    public function load(array $configs, ContainerBuilder $container): void
-    {
-        $configuration = $this->getConfiguration($configs, $container);
-        $config = $this->processConfiguration($configuration, $configs);
-
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(self::ACME_CONFIG_DIR));
-        $loader->load('default_settings.yaml');
-
-        $processor = new ConfigurationProcessor($container, 'acme_example');
-        $processor->mapConfig(
-            $config,
-            // Any kind of callable can be used here.
-            // It is called for each declared scope/SiteAccess.
-            static function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer) {
-                // Maps the "name" setting to "acme_example.<$currentScope>.name" container parameter
-                // It is then possible to retrieve this parameter through ConfigResolver in the application code:
-                // $helloSetting = $configResolver->getParameter( 'name', 'acme_example' );
-                $contextualizer->setContextualParameter('name', $currentScope, $scopeSettings['name']);
-            }
-        );
-
-        // Now map "custom_setting" and ensure the key defined for "my_siteaccess" overrides the one for "my_siteaccess_group"
-        // It is done outside the closure as it's needed only once.
-        $processor->mapConfigArray('custom_setting', $config);
-    }
-}
+[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 0, 42) =]][[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 53, 62) =]]
 ```
 
 You can also map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.
 
 ``` php
-$processor = new ConfigurationProcessor($container, 'acme_example');
-$processor->mapSetting('name', $config);
+[[= include_code('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 45, 46, remove_indent=True) =]]
 ```
 
 !!! caution "Important"
@@ -164,14 +95,14 @@ parameters:
         enabled: false
 ```
 
-#### Merging hash values between scopes
+### Merging hash values between scopes
 
 When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
 but enrich them by appending new entries.
 This is possible by using `$processor->mapConfigArray()`, which you must call outside the closure (before or after), so that it's called only once.
 
 ``` php
-$processor->mapConfigArray('custom_setting', $config);
+[[= include_code('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 49, 49, remove_indent=True) =]]
 ```
 
 Consider the following default config in `default_settings.yaml`:
@@ -217,7 +148,7 @@ parameters:
         language: javascript
 ```
 
-##### Merging from second level
+#### Merging from second level
 
 In the example above, entries were merged in respect to the scope order of precedence.
 However, because you defined the `os_types` key for `siteaccess1`, it completely overrode the default value, because the merge process is done only at the first level.
@@ -225,7 +156,7 @@ However, because you defined the `os_types` key for `siteaccess1`, it completely
 You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as the third argument to `$contextualizer->mapConfigArray()`:
 
 ``` php
-$contextualizer->mapConfigArray('custom_setting', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL);
+[[= include_code('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 52, 53, remove_indent=True) =]]
 ```
 
 When you use `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` with the configuration above, you get the following result:

@@ -7,7 +7,7 @@ description: Learn how to render content details with a custom template.
 You render a list of all Rides here in the next step.
 But before that, you can use the existing page layout to render the content of a single Ride.
 
-### Create the Ride view
+## Create the Ride view
 
 Create a Twig template `templates/full/ride.html.twig` with the following code:
 
@@ -88,18 +88,18 @@ site:
 
 This tells the application to use this template whenever it renders the full view of a Ride.
 
-### Check the Ride full view
+## Check the Ride full view
 
 Because you don't have a list of Rides on the front page yet, you cannot click a Ride to preview it.
 But you still can see how the template works in two ways:
 
-#### Preview in the back office
+### Preview in the back office
 
 You can use the [preview]([[= user_doc =]]/content_management/preview_content_items/) while editing in the back office to see how the content is rendered in full view.
 
 ![Full ride preview in admin](bike_tutorial_preview_full_ride.png)
 
-#### Go to the Ride page
+### Go to the Ride page
 
 You can also go directly to the URL of a Ride.
 

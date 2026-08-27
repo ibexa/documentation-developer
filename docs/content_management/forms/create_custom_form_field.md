@@ -1,6 +1,7 @@
 ---
 description: Extend a Form with a custom Form field to fit your particular needs.
 edition: experience
+month_change: false
 ---
 
 # Create custom Form field
@@ -14,6 +15,16 @@ For example, to create a Country Form field in the "Custom form fields" category
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_field/config/packages/form_builder.yaml') =]]
+```
+
+and provide the translations for the labels in `translations/ibexa_form_builder.en.yaml`:
+
+``` yaml
+country_field.name: Country
+custom_category.name: Custom form fields
+
+country_field.label.name: Display label
+country_field.help.name: Help text
 ```
 
 Available attribute types are:
@@ -52,7 +63,7 @@ New types of fields require a mapper which implements the `Ibexa\Contracts\FormB
 To create a Country field type, implement the `FieldMapperInterface` interface in `src/FormBuilder/Field/Mapper/CountryFieldMapper.php`:
 
 ``` php
-[[= include_file('code_samples/forms/custom_form_field/src/FormBuilder/Field/Mapper/CountryFieldMapper.php') =]]
+[[= include_code('code_samples/forms/custom_form_field/src/FormBuilder/Field/Mapper/CountryFieldMapper.php') =]]
 ```
 
 Then, register the mapper as a service:
@@ -80,7 +91,7 @@ Field or field attribute definition can be modified by subscribing to one of the
 The following example adds a `custom` string attribute to `single_line` field definition.
 
 ``` php
-[[= include_file('code_samples/forms/custom_form_field/src/EventSubscriber/FormFieldDefinitionSubscriber.php') =]]
+[[= include_code('code_samples/forms/custom_form_field/src/EventSubscriber/FormFieldDefinitionSubscriber.php') =]]
 ```
 
 Register this subscriber as a service:

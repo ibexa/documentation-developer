@@ -1,6 +1,6 @@
 ---
 description: Search Criteria help define and fine-tune search queries for content and locations.
-month_change: true
+month_change: false
 ---
 
 # Search Criteria reference
@@ -30,6 +30,7 @@ Due to this storage limitation, searching content using the Country field type o
 | [ContentTypeId](contenttypeid_criterion.md)                   | ID of the content item's content type                                                       | &#10004;       | &#10004;        | &#10004;  | &#10004; |
 | [ContentTypeIdentifier](contenttypeidentifier_criterion.md)   | Identifier of the content item's content type                                               | &#10004;       | &#10004;        | &#10004;  |          |
 | [CurrencyCodeCriterion](currencycode_criterion.md)            | Currency code                                                                               | &#10004;       | &#10004;        | &#10004;  |          |
+| [CustomField](customfield_criterion.md)            | Custom field                                                                               | &#10004;       | &#10004;        |   |          |
 | [DateMetadata](datemetadata_criterion.md)                     | The date when content was created or last modified                                          | &#10004;       | &#10004;        | &#10004;  | &#10004; |
 | [Depth](depth_criterion.md)                                   | Location depth in the content tree                                                          |                | &#10004;        | &#10004;  |          |
 | [Field](field_criterion.md)                                   | Content of one of content item's fields                                                     | &#10004;       | &#10004;        |           |          |
@@ -43,6 +44,7 @@ Due to this storage limitation, searching content using the Country field type o
 | [ImageOrientation](imageorientation_criterion.md)             | Image orientation                                                                           | &#10004;       | &#10004;        |           |          |
 | [ImageWidth](imagewidth_criterion.md)                         | Image width in pixels                                                                       | &#10004;       | &#10004;        |           |          |
 | [IsBookmarked](isbookmarked_criterion.md)                     | Whether a location is bookmarked or not                                                     |                | &#10004;        | &#10004;  |          |
+| [IsContainer](iscontainer_criterion.md)                       | Whether a content item is a container (can contain other content items)                     | &#10004;       | &#10004;        | &#10004;  |          |
 | [IsCurrencyEnabledCriterion](iscurrencyenabled_criterion.md)  | Whether a specified currency is enabled in the system                                       |                |                 |           |          |
 | [IsFieldEmpty](isfieldempty_criterion.md)                     | Whether a specified field of a content item is empty or not                                 | &#10004;       | &#10004;        |           |          |
 | [IsMainLocation](ismainlocation_criterion.md)                 | Whether a location is the main location of a content item                                   |                | &#10004;        | &#10004;  |          |
@@ -58,7 +60,7 @@ Due to this storage limitation, searching content using the Country field type o
 | [ObjectStateId](objectstateid_criterion.md)                   | Object state ID                                                                             | &#10004;       | &#10004;        | &#10004;  |          |
 | [ObjectStateIdentifier](objectstateidentifier_criterion.md)   | Object state Identifier                                                                     | &#10004;       | &#10004;        | &#10004;  |          |
 | [ParentLocationId](parentlocationid_criterion.md)             | Location ID of a content item's parent                                                      | &#10004;       | &#10004;        | &#10004;  |          |
-| [ParentLocationRemoteId](parentlocationremoteId_criterion.md) | Location remote ID of a content item's parent                                               | &#10004;       | &#10004;        |           |
+| [ParentLocationRemoteId](parentlocationremoteId_criterion.md) | Location remote ID of a content item's parent                                               | &#10004;       | &#10004;        |           |          |
 | [Priority](priority_criterion.md)                             | Location priority                                                                           |                | &#10004;        | &#10004;  |          |
 | [RemoteId](remoteid_criterion.md)                             | Remote content ID                                                                           | &#10004;       | &#10004;        | &#10004;  |          |
 | [SectionId](sectionid_criterion.md)                           | ID of the Section content is assigned to                                                    | &#10004;       | &#10004;        | &#10004;  | &#10004; |
@@ -66,6 +68,8 @@ Due to this storage limitation, searching content using the Country field type o
 | [Sibling](sibling_criterion.md)                               | Locations that are children of the same parent                                              | &#10004;       | &#10004;        | &#10004;  |          |
 | [Subtree](subtree_criterion.md)                               | Location subtree                                                                            | &#10004;       | &#10004;        | &#10004;  |          |
 | [TaxonomyEntryId](taxonomy_entry_id.md)                       | Content tagged with Entry ID                                                                | &#10004;       | &#10004;        | &#10004;  |          |
+| [TaxonomyNoEntries](taxonomy_no_entries.md)                   | Content with no entries assigned from a given taxonomy                                      | &#10004;       | &#10004;        | &#10004;  |          |
+| [TaxonomySubtree](taxonomy_subtree.md)                        | Content assigned to a taxonomy entry or any of its descendants                              | &#10004;       | &#10004;        |           |          |
 | [UserEmail](useremail_criterion.md)                           | Email address of a User account                                                             | &#10004;       | &#10004;        | &#10004;  |          |
 | [UserId](userid_criterion.md)                                 | User ID                                                                                     | &#10004;       | &#10004;        | &#10004;  |          |
 | [UserLogin](userlogin_criterion.md)                           | User login                                                                                  | &#10004;       | &#10004;        | &#10004;  |          |

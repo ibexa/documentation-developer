@@ -1,0 +1,20 @@
+ibexa:
+    repositories:
+        default:
+            mcp:
+                example:
+                    path: /mcp/example
+                    enabled: true
+                    description: 'Example MCP Server'
+                    instructions: 'Use this server to greet someone.'
+                    discovery_cache: cache.tagaware.filesystem
+                    session:
+                        type: psr16
+                        service: cache.tagaware.filesystem
+                    allowed_hosts:
+                        - '127.0.0.1'
+    system:
+        default:
+            mcp:
+                servers:
+                    - example

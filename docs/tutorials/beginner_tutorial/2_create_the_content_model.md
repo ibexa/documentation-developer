@@ -33,7 +33,7 @@ More than one Ride can visit the same Landmark, so it's similar to an N-N relati
 
 In this step you add the first content type, Ride.
 
-Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
+Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` using the password specified during installation.
 
 In the upper-right corner, click the avatar icon to unfold the drop-down menu and disable the [Focus mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode).
 
@@ -42,16 +42,16 @@ In the main menu, go to **Content** -> **Content types**.
 You can see a list of **Content type groups**.
 They're used to group content types in a logical way.
 
-Select **Content** and then click the **Create** button. 
+Select **Content** and then click the **Create** button.
 
 ![Add a content type button](bike_tutorial_create_content_type.png)
 
-Fill the form with this basic info: 
+Fill the form with this basic info:
 
 - **Name**: Ride
 - **Identifier**: `ride`
 
-Then create all fields with the following information: 
+Then create all fields with the following information:
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |

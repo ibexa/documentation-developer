@@ -1,0 +1,10 @@
+-
+    type: user
+    mode: update
+    match:
+        field: login
+        value: admin
+    metadata:
+        email: admin@example.com
+        enabled: true
+        password: '###XXX env("ADMIN_PASSWORD") XXX###'

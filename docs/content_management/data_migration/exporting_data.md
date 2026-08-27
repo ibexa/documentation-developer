@@ -56,10 +56,10 @@ Below you can see part of the output of the default [[= product_name =]] install
             name: ref__content__user_group__users
             type: content_id
         -
-            name: ref_location__user_group__users
+            name: ref__location__user_group__users
             type: location_id
         -
-            name: ref_path__user_group__users
+            name: ref__path__user_group__users
             type: path
 ```
 
@@ -106,7 +106,7 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
     fields:
         -
             identifier: title
-            type: ezstring
+            type: ibexa_string
             position: 1
             translations:
                 eng-GB:
@@ -182,7 +182,7 @@ The following combinations of types are modes are available:
 |`content_type_group`|&#10004;|&#10004;||
 |`user`|&#10004;|&#10004;||
 |`user_group`|&#10004;|&#10004;|&#10004;|
-|`language`|&#10004;|||
+|`language`|&#10004;|&#10004;||
 |`object_state_group`|&#10004;|||
 |`object_state`|&#10004;|||
 |`section`|&#10004;|&#10004;||

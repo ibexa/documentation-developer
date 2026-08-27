@@ -1,8 +1,0 @@
-{
-    "VatCategory": {
-        "_media-type": "application/vnd.ibexa.api.VatCategory+json",
-        "identifier": "standard",
-        "region": "region_1",
-        "vatValue": 18
-    }
-}

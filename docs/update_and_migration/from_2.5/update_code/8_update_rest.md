@@ -20,16 +20,16 @@ If your project uses custom installer and has relied on Clean Installer service 
 you need to switch to Core Installer.
 
 **Use:**
-    
-``` php
+
+``` yaml
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: EzSystems\PlatformInstallerBundle\Installer\CoreInstaller
 ```
 
 **instead of**:
-    
-``` php
+
+``` yaml
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: ezplatform.installer.clean_installer
@@ -42,7 +42,7 @@ Custom schema can be installed defining Symfony Event Subscriber subscribing to 
 
 **Use:**
 
-``` php
+``` yaml
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
@@ -50,7 +50,7 @@ services:
 
 **instead of:**
 
-``` php
+``` yaml
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: ezplatform.installer.db_based_installer

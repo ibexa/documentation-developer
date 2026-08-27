@@ -1,6 +1,6 @@
 ---
 description: Configure Fastly for use with Ibexa DXP.
-month_change: true
+month_change: false
 ---
 
 # Configure and customize Fastly
@@ -17,7 +17,7 @@ The information provided here is only applicable if you want to change the defau
 
 !!! note "Disable Varnish when you use Fastly"
     Varnish is automatically provisioned on [[= product_name_cloud =]]. Varnish needs to be disabled on all environments that use
-    Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
+    Fastly. See [documentation on how to do that](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
 
 ## Prepare for using Fastly locally
 
@@ -47,8 +47,8 @@ You also need to set up domains, HTTPS and origin configuration (not covered her
 All commands are explained in detail [below](#view-and-modify-vcl-configuration):
 
 ``` bash
-fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ez_main.vcl --main
-fastly vcl custom create --name=ez_user_hash.vcl --content=vendor/ibexa/fastly/fastly/ez_user_hash.vcl --version=latest
+fastly vcl custom create --name=ibexa_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ibexa_main.vcl --main
+fastly vcl custom create --name=ibexa_user_hash.vcl --content=vendor/ibexa/fastly/fastly/ibexa_user_hash.vcl --version=latest
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
 ```
@@ -116,31 +116,31 @@ fastly service-version activate --version=latest
 ## View and modify VCL configuration
 
 Fastly configuration is stored in Varnish Configuration Language (VCL) files.
-You can change the behaviour of Fastly by [uploading custom VCL files](https://docs.fastly.com/en/guides/uploading-custom-vcl).
-[[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ibexa/fastly/fastly/`)
+You can change the behaviour of Fastly by [uploading custom VCL files](https://www.fastly.com/documentation/guides/full-site-delivery/fastly-vcl/working-with-custom-vcl/).
+[[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ibexa_main.vcl` and `ibexa_user_hash.vcl` (located in `vendor/ibexa/fastly/fastly/`)
 
 ### List custom `.vcl` files for specific version
 
 ``` bash
 fastly vcl custom list --version 77
 SERVICE ID              VERSION  NAME              MAIN
-4SEKDky8P3wdrctwZCi1C1  77       ez_main.vcl       true
-4SEKDky8P3wdrctwZCi1C1  77       ez_user_hash.vcl  false
+4SEKDky8P3wdrctwZCi1C1  77       ibexa_main.vcl       true
+4SEKDky8P3wdrctwZCi1C1  77       ibexa_user_hash.vcl  false
 ```
 
-### Get `ez_main.vcl` for specific version
+### Get ibexa_main.vcl for specific version
 
 ``` bash
-fastly vcl custom describe --name=ez_main.vcl --version=77
+fastly vcl custom describe --name=ibexa_main.vcl --version=77
 
 Service ID: 4SEKDky8P3wdrctwZCi1C1
 Service Version: 77
 
-Name: ez_main.vcl
+Name: ibexa_main.vcl
 Main: true
 Content:
 
-include "ez_user_hash.vcl"
+include "ibexa_user_hash.vcl"
 
 sub vcl_recv {
 (....)
@@ -198,7 +198,7 @@ You can modify the existing Fastly configuration, for example, by uploading a mo
 Create a new version based on the one that is currently active, and upload the file:
 
 ``` bash
-fastly vcl custom update --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ez_main.vcl
+fastly vcl custom update --name=ibexa_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ibexa_main.vcl
 ```
 
 Provide a description of the change in Fastly's version system:
@@ -216,11 +216,11 @@ fastly service-version activate --version=latest
 ## Snippets
 
 You can also add VCL code to the Fastly configuration without modifying the custom `.vcl` files directly.
-You do it by creating [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets).
+You do it by creating [snippets](https://www.fastly.com/documentation/guides/full-site-delivery/fastly-vcl/vcl-snippets/about-vcl-snippets/).
 it's recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
 
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
-For example, if you create a snippet for the `recv` subroutine, it's injected into the `ez_main.vcl` file, the
+For example, if you create a snippet for the `recv` subroutine, it's injected into the `ibexa_main.vcl` file, the
 line where `#FASTLY recv` is found.
 
 ### List available snippets for specific version
@@ -232,7 +232,7 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 ```
 
 !!! note
-    As of version 3.3.24, 4.1.6 and 4.2.0, [[= product_name =]] also requires one snippet to be installed, in addition to the custom VCLs `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`.
+    As of version 3.3.24, 4.1.6 and 4.2.0, [[= product_name =]] also requires one snippet to be installed, in addition to the custom VCLs `ibexa_main.vcl` and `ibexa_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`.
 
 ### Get details of installed snippets
 
@@ -339,7 +339,7 @@ To enable basic-auth, use [Fastly documentation](https://www.fastly.com/document
 
 Follow the steps below.
 
-Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries#working-with-dictionaries-using-vcl-snippets).
+Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://www.fastly.com/documentation/guides/full-site-delivery/dictionaries/working-with-dictionaries/#working-with-dictionaries-using-vcl-snippets).
 
 !!! note
     To make this example work, you must run [[= product_name =]] in version 3.3.16 or later, or 4.5.
@@ -372,7 +372,6 @@ Last edited (UTC): 2023-07-03 10:33
 
 In the example above, the ID is `ltC6Rg4pqw4qaNKF5tEW`.
 
-
 ### Create record in dictionary
 
 Add username and password to the dictionary:
@@ -391,7 +390,7 @@ fastly dictionary-entry list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
 
 Now your dictionary stores new username and password. The next thing to do is to alter the Fastly VCL configuration
 and add the basic-auth support.
-This example uses [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]].
+This example uses [snippets](https://www.fastly.com/documentation/guides/full-site-delivery/fastly-vcl/vcl-snippets/about-vcl-snippets/), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]].
 You need two snippets, store these as files in your system:
 
 In `snippet_basic_auth_error.vcl`:

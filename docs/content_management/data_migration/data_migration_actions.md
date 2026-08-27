@@ -1,7 +1,7 @@
 ---
 description: Data migration actions enable you to run special operations while executing data migrations, such as assigning roles, sections, Objects states, and more.
 page_type: reference
-month_change: false
+month_change: true
 ---
 
 # Data migration actions
@@ -50,6 +50,7 @@ When executed, this migration:
 
 The following migration actions are available out of the box:
 
+- `assign_dashboard_to_user` (Content Create)
 - `assign_object_state` (Content Create)
 - `assign_parent_location` (Content Create / Update)
 - `assign_section` (Content Update)
@@ -74,14 +75,16 @@ For more information, see [creating your own Actions](create_data_migration_acti
 ### Content
 
 mode: Create
+
 ``` yaml
     actions:
-        - { action: assign_object_state, identifier: locked, groupIdentifier: ez_lock }
+        - { action: assign_object_state, identifier: locked, groupIdentifier: ibexa_lock }
         - { action: assign_parent_location, value: 2 }
         - { action: hide }
 ```
 
 mode: Update
+
 ``` yaml
     actions:
         - { action: assign_parent_location, value: 2 }
@@ -89,15 +92,24 @@ mode: Update
         - { action: assign_section, identifier: 'media' }
 ```
 
+When creating a [dashboard](customize_dashboard.md) content item, you can assign it to a specific user, identified by their login:
+
+``` yaml
+    actions:
+        - { action: assign_dashboard_to_user, value: admin }
+```
+
 ### Content types
 
 mode: Create
+
 ``` yaml
     actions:
         - { action: assign_content_type_group, value: 'Media' }
 ```
 
 mode: Update
+
 ``` yaml
     actions:
         - { action: assign_content_type_group, value: 'Media' }
@@ -110,6 +122,7 @@ mode: Update
 ### Roles
 
 mode: Create and Update
+
 ``` yaml
     actions:
         -
@@ -132,6 +145,7 @@ mode: Create and Update
 ### Users
 
 mode: Create and Update
+
 ``` yaml
     actions:
         -
@@ -152,6 +166,7 @@ mode: Create and Update
 ### User groups
 
 mode: Create and Update
+
 ``` yaml
     actions:
         -
@@ -174,6 +189,7 @@ mode: Create and Update
     In the `assign_user_group_to_role` action, limitation type section can only use section ID.
 
 mode: Update
+
 ``` yaml
     actions:
         -
@@ -183,4 +199,4 @@ mode: Update
 
 !!! note
 
-    In the `unassign_role_user_group` action, the ID is role assignment ID from the `ezuser_role` table.
+    In the `unassign_role_user_group` action, the ID is role assignment ID from the `ibexa_user_role` table.

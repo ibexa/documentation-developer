@@ -14,8 +14,11 @@ The [ObjectStateTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Co
 ## Example
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
 $query = new Query();
-$query->aggregations[] = new Aggregation\Location\ObjectStateTermAggregation('object_state', 'ez_lock');
+$query->aggregations[] = new Aggregation\ObjectStateTermAggregation('object_state', 'ibexa_lock');
 ```
 
 [[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

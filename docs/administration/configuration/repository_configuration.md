@@ -1,5 +1,6 @@
 ---
 description: Configure repository connections, archive limits, field groups and other settings.
+month_change: false
 ---
 
 # Repository configuration
@@ -29,7 +30,7 @@ ibexa:
 
     It uses [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
     Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
-    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.7.x/Resources/doc/configuration.rst#doctrine-dbal-configuration).
+    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.19.x/docs/en/configuration.rst#doctrine-dbal-configuration).
 
 If no repository is specified for a SiteAccess or SiteAccess group, the first repository defined under `ibexa.repositories` is used:
 
@@ -63,7 +64,7 @@ Invalid configuration causes problems for different parts of the system, for exa
 
 ### Entity manager
 
-If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.18/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
 
 To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
 
@@ -75,7 +76,7 @@ ibexa:
         entity_mappings:
             IbexaCoreBundle:
                 is_bundle: true
-                type: annotation
+                type: attribute
                 dir: Entity
                 prefix: Ibexa\Bundle\Core\Entity
 ```
@@ -147,7 +148,7 @@ ibexa:
             repository: second_repository
 ```
 
-```
+```bash
 # .env.local
 
 SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbname?otherdbserversion
@@ -197,6 +198,26 @@ This limit is enforced on publishing a new version and only covers archived vers
     Don't set `default_version_archive_limit` too high.
     In Legacy storage engine you can see performance degradation if you store too many versions.
     The default value of 5 is the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
+
+### Grace period for archived versions
+
+After a new version of a content item is published, the previous version, now archived, can still be loaded for a certain period of time, using the same permission set as the published version.
+
+This period is called the grace period and it prevents race conditions that can occur when a new version is published at the same time as someone is accessing the content item.
+
+The duration can be configured using the `grace_period_in_seconds` setting.
+After a version has been archived for longer than specified in the configuration, the grace period ends and the version is treated the same as all the other archived versions, including the need of [`content/versionread` policy](policies.md#content) to access it.
+
+``` yaml
+ibexa:
+    repositories:
+        default:
+            options:
+                grace_period_in_seconds: 30
+```
+
+`grace_period_in_seconds` uses the [PHP's `max_execution_time`](https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time) value by default.
+Set the value to 0 to disable grace period for archived versions.
 
 ### Removing versions on publication
 
@@ -306,6 +327,9 @@ final class CustomRepositoryConfigParser implements RepositoryConfigParserInterf
 You need to register this configuration extension in the following way:
 
 ``` php
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 final class AcmeFeatureBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
@@ -322,5 +346,6 @@ final class AcmeFeatureBundle extends Bundle
 To access the configuration settings, use the `Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
 
 ``` php
+/** @var \Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface $repositoryConfigProvider */
 $acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];
 ```

@@ -76,12 +76,12 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v2.1.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0) | [List of changes for final for eZ Platform Enterprise Edition v2.1.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0) |
-| [List of changes for rc1 of eZ Platform v2.1.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.1.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0-rc1) |
-| [List of changes for beta1 of eZ Platform v2.1.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.1.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0-beta1) |
+| [List of changes for final of eZ Platform v2.1.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0) | [List of changes for final for eZ Platform Enterprise Edition v2.1.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0) |
+| [List of changes for rc1 of eZ Platform v2.1.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.1.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0-rc1) |
+| [List of changes for beta1 of eZ Platform v2.1.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.1.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0-beta1) |
 
 ## Installation
 
-[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/)
 
-[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/)

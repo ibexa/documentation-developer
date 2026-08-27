@@ -13,7 +13,7 @@ When you work with your Commerce implementation, you can review and modify the c
 
 ## Configure checkout workflow
 
-Checkout workflow relies on [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
+Checkout workflow relies on [Symfony Workflow]([[= symfony_doc =]]/workflow.html).
 Each transition represents a separate checkout step.
 
 By default, the checkout process is configured to render each step based on a separate set of libraries and templates.

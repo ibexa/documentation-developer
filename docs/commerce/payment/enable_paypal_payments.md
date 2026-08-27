@@ -3,15 +3,17 @@ description: Use Payum to integrate the PayPal payment processing service.
 edition: commerce
 ---
 
-### Enable PayPal payments with Payum
+# Enable PayPal payments with Payum
 
 By using Payum to integrate PayPal into your application, you can offer your customers a versatile payment processing service that supports various payment methods, including credit cards, debit cards, Pay Later options, and alternative payment methods.
 
 Before you can proceed with integrating PayPal, you must [create a PayPal business account](https://www.paypal.com/bizsignup/#/singlePageSignup) and obtain API credentials.
 
-Install the PayPal package:
+Install the PayPal package and the required dependencies:
 
-`composer require payum/paypal-express-checkout-nvp php-http/guzzle7-adapter`
+```bash
+composer require payum/paypal-express-checkout-nvp php-http/guzzle7-adapter php-http/message php-http/message-factory
+```
 
 Then, add the following configuration to your YAML configuration file (`payum.yaml` or similar):
 
@@ -40,5 +42,4 @@ ibexa:
         type:
             pp_express_checkout:
                 name: "Translated PayPal Express Checkout name"
-
 ```

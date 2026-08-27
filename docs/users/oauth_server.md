@@ -34,7 +34,7 @@ Add the tables needed by the bundle:
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
-```php
+``` php
 <?php
 
 return [
@@ -58,7 +58,7 @@ For more information, see [Generating encryption keys](https://oauth2.thephpleag
 
 Set the following environment variables:
 
-```
+```bash
 OAUTH2_PUBLIC_KEY_PATH=/somewhere/safe/key.public
 OAUTH2_PRIVATE_KEY_PATH=/somewhere/safe/key.private
 OAUTH2_PRIVATE_KEY_PASSPHRASE=some_passphrase_or_empty
@@ -89,7 +89,7 @@ In `config/packages/security.yaml`, uncomment the three following lines under th
 ```yaml
 security:
     #…
-    firewall:
+    firewalls:
         #…
 
         # Uncomment oauth2_token firewall if you wish to use product as an OAuth2 Server.
@@ -105,30 +105,7 @@ security:
 
 ## Resource Server configuration
 
-To allow resource routes to be accessible through OAuth authorization, you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
-
-The following firewall example allows the REST API to be accessed as an OAuth resource.
-It must be placed before the firewall with a less restrictive pattern like `ibexa_front`.
-
-```yaml
-    #…
-    firewall:
-        #…
-
-        ibexa_rest_oauth:
-            pattern: ^/api/ibexa/v2
-            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            anonymous: ~
-            guard:
-                authenticators:
-                    - Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
-                entry_point: Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
-            stateless: true
-
-        ibexa_front:
-            pattern: ^/
-            #…
-```
+To allow resource routes to be accessible through OAuth authorization, enable OAuth2 integration for the `ibexa_rest` firewall by setting the `oauth2` property to true.
 
 ## Client
 
@@ -165,13 +142,13 @@ Other commands let you list all the configured clients (`league:oauth2-server:li
     For a list of all the commands that you can use maintain your clients, in a terminal, run `bin/console list league:oauth2-server`.
     To see usage details for each of the commands, run `bin/console help <command>` .
 
-    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
+    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/1.x/docs/basic-setup.md).
 
 ### Information needed by the client
 
-Your OAuth2 client needs the following information to be able to use your Oauth server:
+Your OAuth2 client needs the following information to be able to use your OAuth server:
 
-- The URL of the [[= product_name =]] used as an oauth server
+- The URL of the [[= product_name =]] used as an OAuth server
 - The client identifier
 - The client secret
 - The scope (`default`)

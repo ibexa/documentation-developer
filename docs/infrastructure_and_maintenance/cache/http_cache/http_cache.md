@@ -17,7 +17,7 @@ For content view responses coming from [[= product_name =]] itself, this means t
 All of this works across all the supported reverse proxies:
 
 - [Symfony HttpCache Proxy](reverse_proxy.md) - limited to a single server, and with limited performance/features
-- [Varnish](https://varnish-cache.org/) - high performance reverse proxy
+- [Varnish](https://www.varnish.org/) - high performance reverse proxy
 - [Fastly](https://www.fastly.com/) - Varnish-based CDN service
 
 You can use all these features in custom controllers as well.

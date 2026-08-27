@@ -1,5 +1,6 @@
 ---
 description: Create a block that allows an editor to embed a preconfigured React component into a page.
+edition: experience
 ---
 
 # React App block
@@ -26,7 +27,7 @@ Each configured React app block has an identifier and the following settings:
 
 | Setting      | Description                                                                                                                                                   |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`       | Name of the block used in the Page Builder interface.                                                                                                         |
+| `name`       | Name of the block used in the Page Builder interface. Also accepts a [`help` key](page_blocks.md#block-name-and-help-text) that adds a helper text under the **Name** field in the block configuration form. |
 | `category`   | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
 | `thumbnail`  | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `component`  | React App Component name used in `assets/page-builder/react/blocks` directory.                                                                                |

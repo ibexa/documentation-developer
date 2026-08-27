@@ -16,7 +16,7 @@ Follow the instructions below to create and add a new tab called **Images** whic
 First, in `assets/js/image-tab/`, add an `image.tab.module.js` file.
 
 ``` js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0, 14) =]]
+[[= include_code('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 1, 14) =]]
 ```
 
 Next, add the tab to the configuration in the same file.
@@ -27,26 +27,29 @@ Each tab definition is an object containing the following properties:
 |id|string|Tab ID, for example, `image`.|
 |component|element|React component that represents the contents of a tab.|
 |label|string|Label text, for example, `Images`.|
-|icon|string|Path to the icon, for example, `/bundles/ibexaadminui/img/ibexa-icons.svg#image`.|
+|icon|string|Path to the icon, for example, `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square`.|
 
-```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14, 29) =]]
+``` js
+[[= include_code('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 15, 28) =]]
 ```
 
 The module governs the creation of the new tab.
 
 <details class="tip">
 <summary>Complete image.tab.module.js code</summary>
-```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js') =]]
+``` js
+[[= include_code('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js') =]]
 ```
 </details>
 
 ## Add tab to webpack config
 
-In `webpack.config.js`, add the following declaration:
+In `webpack.config.js`, add the following declarations:
+
 ```js
-const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
+const ibexaConfig = getIbexaConfig();
 ```
 
 Next, provide configuration for the new module:
@@ -57,6 +60,12 @@ ibexaConfigManager.add({
     entryName: 'ibexa-admin-ui-udw-tabs-js',
     newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
 });
+```
+
+Finally, export the module back:
+
+```js
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 ```
 
 ## Provide ReactJS files
@@ -71,45 +80,45 @@ Next, you need to provide a set of files used to render the module:
 
 Create a service for fetching the images by adding `images.service.js` to `assets/js/image-tab/services/`:
 
-```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/services/images.service.js') =]]
+``` js
+[[= include_code('code_samples/back_office/udw/assets/js/image-tab/services/images.service.js') =]]
 ```
 
 ### `images.list.js`
 
 Next, create an image list by adding an `images.list.js` to `assets/js/image-tab/components/`:
 
-```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/components/images.list.js') =]]
+``` js
+[[= include_code('code_samples/back_office/udw/assets/js/image-tab/components/images.list.js') =]]
 ```
 
 ### `image.js`
 
 Finally, create an image view by adding an `image.js` to `assets/js/image-tab/components/`:
 
-```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/components/image.js') =]]
+``` js
+[[= include_code('code_samples/back_office/udw/assets/js/image-tab/components/image.js') =]]
 ```
 
-##  Add styles
+## Add styles
 
 Ensure that the new tab is styled by adding the following files to `assets/css/`.
 
 ### `images.list.css`
 
-```css
-[[= include_file('code_samples/back_office/udw/assets/css/image.list.css') =]]
+``` css
+[[= include_code('code_samples/back_office/udw/assets/css/image.list.css') =]]
 ```
 
 ### `image.css`
 
-```css
-[[= include_file('code_samples/back_office/udw/assets/css/image.css') =]]
+``` css
+[[= include_code('code_samples/back_office/udw/assets/css/image.css') =]]
 ```
 
-### Add css to webpack
+### Add CSS to webpack
 
-Finally, add css in `webpack.config.js`:
+Finally, add CSS in `webpack.config.js`:
 
 ```js
 ibexaConfigManager.add({

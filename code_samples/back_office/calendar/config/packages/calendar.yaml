@@ -7,4 +7,4 @@ ibexa:
                         color: '#47BEDB'
                         actions:
                             reschedule:
-                                icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'
+                                icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#alert-error'

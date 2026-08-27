@@ -15,6 +15,10 @@ The [`ContentTypeIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
 ```
 

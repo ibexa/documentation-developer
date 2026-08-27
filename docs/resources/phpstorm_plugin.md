@@ -1,5 +1,5 @@
 ---
-description: The Ibexa DXP PHPStorm plugin helps you speed up your development by providing file templates, autocompletion, a quick installation wizard, and more.
+description: The Ibexa DXP PhpStorm plugin helps you speed up your development by providing file templates, autocompletion, a quick installation wizard, and more.
 ---
 
 # Ibexa DXP plugin for PhpStorm
@@ -192,7 +192,7 @@ Besides configuration structure, for the following YAML keys addition suggestion
 - List of available search engines, for:
     - `ibexa.repositories.<repository>.search.engine`
 - List of available custom tags, for:
-    - `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_tags`
+    - `ibexa.system.<scope>.fieldtypes.ibexa_richtext.custom_tags`
 - List of available view types, for:
     - `ibexa.<scope>.content_view`
     - `ibexa.<scope>.content_create_view`
@@ -221,9 +221,9 @@ Suggestions are based on service definitions tagged as `ibexa.query_type`.
 
 Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
 
-* `Ibexa\Core\QueryType\QueryType::getQuery` method calls
-* `Ibexa\Core\QueryType\QueryType::getQuery` method definition
-* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition
+- `Ibexa\Core\QueryType\QueryType::getQuery` method calls
+- `Ibexa\Core\QueryType\QueryType::getQuery` method definition
+- `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition
 
 ![Query Type parameter autocompletion](phpstorm_plugin_query_type_params.png)
 
@@ -239,8 +239,3 @@ For example, when plugin detects deprecated configuration key usage, it marks th
 
 It's not possible to create new project with Docker as PHP remote interpreter.
 See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for more details.
-
-## Feedback
-
-You can report bugs and feature suggestions on [https://issues.ibexa.co/](https://issues.ibexa.co/issues/?jql=project%20%3D%20IBX%20AND%20component%20%3D%20%22PHPStorm%20plugin%22) by
-selecting the "PHPStorm plugin" component, or on the `#phpstorm-plugin` Ibexa Community Slack channel.

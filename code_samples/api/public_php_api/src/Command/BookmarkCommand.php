@@ -4,23 +4,23 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\BookmarkService;
 use Ibexa\Contracts\Core\Repository\LocationService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:bookmark'
+)]
 class BookmarkCommand extends Command
 {
-    private BookmarkService $bookmarkService;
-
-    private LocationService $locationService;
-
-    public function __construct(BookmarkService $bookmarkService, LocationService $locationService)
-    {
-        $this->bookmarkService = $bookmarkService;
-        $this->locationService = $locationService;
-        parent::__construct('doc:bookmark');
+    public function __construct(
+        private readonly BookmarkService $bookmarkService,
+        private readonly LocationService $locationService
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void

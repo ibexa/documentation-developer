@@ -62,7 +62,7 @@ ibexa.addConfig(
     {
         label: 'Dot',
         component: Dot,
-        icon: ibexa.helpers.icon.getIconPath('radio-button'),
+        icon: ibexa.helpers.icon.getIconPath('form-radio'),
         identifier: IDENTIFIER,
     },
     true,

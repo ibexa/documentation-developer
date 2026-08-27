@@ -30,7 +30,7 @@ If your field definition doesn't require additional clarifications, you can map 
 
 To map a custom field type with configuration use a compiler pass to modify a container parameter, `ibexa.graphql.schema.content.mapping.field_definition_type`.
 
-It's a hash that maps a field type identifier (`ezstring`) to the following entries:
+It's a hash that maps a field type identifier (`ibexa_string`) to the following entries:
 
 - `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string is used.
 - `value_resolver` - how values of this field are resolved and passed to the defined value type.
@@ -41,7 +41,7 @@ If not specified, it uses `FieldDefinition`.
 Compiler pass example that should be placed in `src/DependencyInjection/Compiler`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php') =]]
+[[= include_code('code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php') =]]
 ```
 
 ### Map with a custom `FieldDefinitionMapper`
@@ -50,21 +50,18 @@ The `FieldDefinitionMapper` API uses service decorators.
 To register your own mapper, make it decorate the `Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper` service:
 
 ```yaml
-services:
-    App\GraphQL\Schema\MyCustomFieldDefinitionMapper:
-        decorates: Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper
-        arguments:
-            $innerMapper: '@.inner'
+[[= include_file('code_samples/api/graphql/config/services.yaml') =]]
 ```
 
 The `$innerMapper` argument passes the decorated mapper to the constructor.
 You can use the `DecoratingFieldDefinitionMapper` from the `graphql` package.
 It requires that you implement the `getFieldTypeIdentifier` method to tell which field type is covered by the mapper.
 
-Add `MyCustomFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
+Add `MyFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyCustomFieldDefinitionMapper.php') =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 1, 17) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 38, 39) =]]
 ```
 
 The `FieldDefinitionMapper` interface defines following methods:
@@ -78,60 +75,13 @@ Only implement methods that you need, the rest is handled by other mappers (conf
 When a mapper method is decorated, you need to call the decorated service method for unsupported types.
 To do that, you need to replace `mapXXX` by the method it's in:
 
-```php
-        if (!$this->canMap($fieldDefinition)) {
-             return parent::mapToFieldValueType($fieldDefinition);
-         }
+``` php
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 21, 24, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
 
-The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
-
-```php hl_lines="14"
-class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper
-{
-    public function mapToFieldValueType(FieldDefinition $fieldDefinition): ?string
-    {
-        if (!$this->canMap($fieldDefinition)) {
-            return parent::mapToFieldValueType($fieldDefinition);
-        }
-        $settings = $fieldDefinition->getFieldSettings();
-
-        if (count($settings['selectionContentTypes']) === 1) {
-            $contentType = $this->contentTypeService->loadContentTypeByIdentifier($settings['selectionContentTypes'][0]);
-            $type = $this->nameHelper->itemName($contentType);
-        } else {
-            $type = 'Item';
-        }
-
-        if (this->isMultiple(fieldDefinition)) {
-            type = "[type]";
-        }
-
-        return $type;
-    }
-
-    public function mapToFieldValueResolver(FieldDefinition $fieldDefinition): ?string
-    {
-        if (!$this->canMap($fieldDefinition)) {
-            return parent::mapToFieldValueResolver($fieldDefinition);
-        }
-
-        isMultiple = this->isMultiple($fieldDefinition) ? 'true' : 'false';
-
-        return sprintf('@=resolver("DomainRelationFieldValue", [field, %s])', $isMultiple);
-    }
-
-    private function isMultiple(FieldDefinition $fieldDefinition)
-    {
-        $constraints = $fieldDefinition->getValidatorConfiguration();
-
-        return isset(constraints['RelationListValueValidator'])
-            && constraints'RelationListValueValidator' !== 1;
-  }
-}
-```
+For an example implementation, look at the [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/5.0/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) class.
 
 The value type depends on the field definition allowed content types setting:
 
@@ -145,22 +95,12 @@ The cardinality (single or collection) depends on the selection limit setting:
 #### Field input mapping
 
 The `mapToFieldValueInputType` method is used to document what input type is expected by field types that require a more complex input value.
-For example, `ezmatrix` generates its own input types depending on the configured columns.
+For example, `ibexa_matrix` generates its own input types depending on the configured columns.
 
-Example of a `MyCustomFieldDefinitionMapper` mapper for a complex field type:
+Example of a `MyFieldDefinitionMapper` mapper for a complex field type:
 
-```php
-class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper
-{
-    public function mapToFieldValueInputType(ContentType contentType, FieldDefinition fieldDefinition): ?string
-    {
-        if (!this->canMap(fieldDefinition)) {
-            return parent::mapToFieldValueInputType($fieldDefinition);
-        }
-
-        return this->nameMyFieldType(fieldDefinition);
-    }
-}
+``` php
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
 ```
 
 ## Resolver expressions

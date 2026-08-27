@@ -7,7 +7,7 @@ edition: commerce
 
 !!! tip "Cart REST API"
 
-    To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts).
+    To learn how to manage carts with the REST API, see the [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart).
 
 To get carts and work with them, use the `Ibexa\Contracts\Cart\CartServiceInterface` interface.
 
@@ -23,7 +23,7 @@ From the developer's perspective, carts and entries are referenced with a UUID i
 To access a single cart, use the `CartServiceInterface::getCart` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 91) =]]
+[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 64, 66, remove_indent=True) =]]
 ```
 
 ## Get multiple carts
@@ -35,7 +35,7 @@ It follows the same search Query pattern as other APIs:
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 10, 11) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 74, 83) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 49, 57) =]]
 ```
 
 ## Create cart
@@ -46,7 +46,7 @@ To create a cart, use the `CartServiceInterface::createCart` method and provide 
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 8, 9) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 95, 104) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 70, 78) =]]
 ```
 
 ## Update cart metadata
@@ -59,7 +59,7 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 9, 10) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 107, 114) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 82, 89) =]]
 ```
 
 You can also use this method to change cart ownership:
@@ -69,6 +69,11 @@ use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
 
 // ...
 
+/**
+ * @var \Ibexa\Contracts\Core\Repository\UserService $userService
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var \Ibexa\Contracts\Cart\Value\CartInterface $cart
+ */
 $updateMetadataStruct = new CartMetadataUpdateStruct();
 $updateMetadataStruct->setOwner($userService->loadUserByLogin('user'));
 
@@ -80,8 +85,8 @@ $cart = $cartService->updateCartMetadata($cart, $updateMetadataStruct);
 To delete a cart permanently, use the `CartServiceInterface::deleteCart` method and pass the `CartInterface` object:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 149, 150) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 124, 125) =]]
 ```
 
 ## Empty cart
@@ -89,8 +94,8 @@ To delete a cart permanently, use the `CartServiceInterface::deleteCart` method 
 To remove all products from the cart in a single operation, use the `CartServiceInterface::emptyCart` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 116, 117) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 91, 92) =]]
 ```
 
 ## Check cart validity
@@ -101,8 +106,8 @@ To validate the cart, use the `CartServiceInterface::validateCart` method.
 Validation is done with help from the `symfony/validator` component, and the method returns a `Symfony\Component\Validator\ConstraintViolationListInterface` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 119, 120) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 94, 95) =]]
 ```
 
 ## Add entry to cart
@@ -114,8 +119,8 @@ Then pass it to the `CartServiceInterface::addEntry` method:
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 11, 12) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 124, 131) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 99, 106) =]]
 ```
 
 ## Remove entry from cart
@@ -123,11 +128,8 @@ Then pass it to the `CartServiceInterface::addEntry` method:
 To remove an entry from the cart, use the `CartServiceInterface::removeEntry` method.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 11, 12) =]]
-// ...
-
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 134, 137) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 109, 112) =]]
 ```
 
 ## Update entry metadata
@@ -139,9 +141,9 @@ To change entry metadata, use the `CartServiceInterface::updateEntry` method and
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 12, 13) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 129, 130) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 139, 147) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 109, 110) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 114, 122) =]]
 ```
 
 ## Adding context data
@@ -153,8 +155,16 @@ It can include any relevant information that you want to associate with a partic
 
 To add context data to a cart, follow this example:
 
-```php
-$createStruct = new CartCreateStruct(...);
+``` php
+use Ibexa\Contracts\Cart\Value\CartCreateStruct;
+use Ibexa\Contracts\Core\Collection\ArrayMap;
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
+
+/**
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var CurrencyInterface $currency
+ */
+$createStruct = new CartCreateStruct('My Cart', $currency);
 $createStruct->setContext(new ArrayMap([
     'coupon_code' => 'X1MF7699',
 ]));
@@ -169,8 +179,17 @@ You also add "X1MF7699" coupon code as context data to the cart.
 
 To attach context data to a cart entry, proceed as follows:
 
-```php
-$entryAddStruct = new EntryAddStruct(...);
+``` php
+use Ibexa\Contracts\Cart\Value\EntryAddStruct;
+use Ibexa\Contracts\Core\Collection\ArrayMap;
+use Ibexa\ProductCatalog\Local\Repository\Values\Product;
+
+/**
+ * @var \Ibexa\Contracts\Cart\CartServiceInterface $cartService
+ * @var \Ibexa\Contracts\Cart\Value\CartInterface $cart
+ * @var Product $product
+ */
+$entryAddStruct = new EntryAddStruct($product);
 $entryAddStruct->setContext(new ArrayMap([
     'tshirt_text' => 'EqEqEqEq',
 ]));
@@ -187,6 +206,6 @@ In this case, you attach a "tshirt_text" attribute to the cart entry, which migh
 To combine the contents of multiple shopping carts into a target cart, use the `CartServiceInterface::mergeCarts` method.
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
-```php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 151, 164) =]]
+``` php
+[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 127, 139, remove_indent=True) =]]
 ```

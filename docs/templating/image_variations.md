@@ -26,7 +26,9 @@ ibexa:
                 <variation_name>:
                     reference: null
                     filters:
-                        <filter>: <parameters>
+                        filter_name:
+                          - parameter1
+                          - parameter2
 ```
 
 Variation name must be unique.
@@ -40,6 +42,8 @@ If set to `null` or `~`, the variation takes the original image for reference.
 - `post_processors` - used to reduce the final image size and to improve load performance of assets.
 
 ## Available variation filters
+
+In addition to [filters exposed by LiipImagineBundle](https://symfony.com/bundles/LiipImagineBundle/2.x/filters.html), the following ones are available:
 
 | Filter name | Parameters | Description |
 |--------|------|----------|
@@ -73,4 +77,3 @@ If set to `null` or `~`, the variation takes the original image for reference.
     ``` bash
     php bin/console liip:imagine:cache:remove -v
     ```
-

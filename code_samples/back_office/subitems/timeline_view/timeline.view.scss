@@ -1,0 +1,84 @@
+@use '@ibexa-admin-ui/src/bundle/Resources/public/scss/custom.scss' as *;
+
+.app-timeline-view {
+    padding: calculateRem(16px);
+
+    &__group {
+        position: relative;
+        margin-bottom: calculateRem(32px);
+    }
+
+    &__date {
+        display: flex;
+        align-items: center;
+        margin-bottom: calculateRem(16px);
+
+        h3 {
+            margin: 0;
+            font-size: $ibexa-text-font-size-large;
+            color: $ibexa-color-dark;
+        }
+    }
+
+    &__date-marker {
+        width: calculateRem(12px);
+        height: calculateRem(12px);
+        border-radius: 50%;
+        background: $ibexa-color-primary;
+        margin-right: calculateRem(16px);
+    }
+
+    &__items {
+        margin-left: calculateRem(6px);
+        padding-left: calculateRem(32px);
+        border-left: calculateRem(2px) solid $ibexa-color-light;
+    }
+}
+
+.app-timeline-view-item {
+    display: flex;
+    align-items: flex-start;
+    padding: calculateRem(16px);
+    margin-bottom: calculateRem(8px);
+    text-decoration: none;
+    color: inherit;
+    background: $ibexa-color-light-300;
+    border-radius: $ibexa-border-radius;
+    transition: background-color 0.2s $ibexa-admin-transition;
+
+    &:hover {
+        background: $ibexa-color-light-400;
+    }
+
+    &__time {
+        color: $ibexa-color-dark-400;
+        margin-right: calculateRem(16px);
+        min-width: calculateRem(80px);
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: calculateRem(16px);
+    }
+
+    &__name {
+        font-weight: $ibexa-font-weight-bold;
+        margin-bottom: calculateRem(4px);
+    }
+
+    &__type {
+        font-size: $ibexa-text-font-size-small;
+        color: $ibexa-color-dark-400;
+        display: flex;
+        align-items: center;
+        gap: calculateRem(8px);
+    }
+
+    &__type-name {
+        line-height: calculateRem(16px);
+    }
+}

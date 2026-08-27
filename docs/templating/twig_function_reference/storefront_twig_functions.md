@@ -8,7 +8,7 @@ page_type: reference
 
 You can use storefront Twig functions to control the rendering of storefront elements.
 
-### `ibexa_storefront_get_logo()`
+## `ibexa_storefront_get_logo()`
 
 `ibexa_storefront_get_logo()` returns current shop logo (configured in `ibexa.system.<scope>.storefront.logo`):
 
@@ -18,7 +18,7 @@ You can use storefront Twig functions to control the rendering of storefront ele
 {% endblock %}
 ```
 
-### `ibexa_storefront_get_name()`
+## `ibexa_storefront_get_name()`
 
 `ibexa_storefront_get_name()` returns current shop name (configured in `ibexa.system.<scope>.storefront.name`):
 
@@ -28,7 +28,7 @@ You can use storefront Twig functions to control the rendering of storefront ele
 {% endblock %}
 ```
 
-### `ibexa_storefront_get_main_menu_alias()` / `ibexa_storefront_get_main_menu_options()`
+## `ibexa_storefront_get_main_menu_alias()` / `ibexa_storefront_get_main_menu_options()`
 
 `ibexa_storefront_get_main_menu_alias()` returns the main menu alias.
 
@@ -43,7 +43,7 @@ You can use storefront Twig functions to control the rendering of storefront ele
 {% endblock %}
 ```
 
-### `ibexa_storefront_create_inline_product_search_form()`
+## `ibexa_storefront_create_inline_product_search_form()`
 
 `ibexa_storefront_create_inline_product_search_form()` creates a product search form:
 
@@ -53,7 +53,7 @@ You can use storefront Twig functions to control the rendering of storefront ele
 {% endblock %}
 ```
 
-### `ibexa_storefront_get_main_category()`
+## `ibexa_storefront_get_main_category()`
 
 `ibexa_storefront_get_main_category()` returns the main (first-level) category for a given category.
 
@@ -65,7 +65,7 @@ For example: if a given category is "Desks" and it has the following ancestors: 
 <p>Main category: {{ main_category.name }}</p>
 ```
 
-### `ibexa_storefront_get_active_currency()`
+## `ibexa_storefront_get_active_currency()`
 
 `ibexa_storefront_get_active_currency()` returns the active currency object (`Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface`).
 
@@ -75,7 +75,7 @@ For example: if a given category is "Desks" and it has the following ancestors: 
 <p>Active currency code: {{ currency.code }}</p>
 ```
 
-### `ibexa_storefront_get_language_name_by_code()`
+## `ibexa_storefront_get_language_name_by_code()`
 
 `ibexa_storefront_get_language_name_by_code()` displays language name based on its code or locale.
 
@@ -85,7 +85,7 @@ For example: if a given category is "Desks" and it has the following ancestors: 
 <p>Language name: {{ languageName }}</p>
 ```
 
-### `ibexa_storefront_get_product_render_action()`
+## `ibexa_storefront_get_product_render_action()`
 
 `ibexa_storefront_get_product_render_action()` returns a rendering action to be used, as defined in [settings](configure_storefront.md).
 It serves as an alternative for `ibexa_render` which heavily relies on content objects being not present within context of remote PIM.
@@ -103,10 +103,22 @@ You can use this, for example, to [parametrize the display of products by using 
 {% endif %}
 ```
 
-### `ibexa_get_anonymous_user_id()`
+## `ibexa_get_anonymous_user_id()`
 
 `ibexa_get_anonymous_user_id()` returns the configured user ID for the anonymous user (configured in `ibexa.system.<scope>.anonymous_user_id`).
 
 ``` html+twig
 {{ ibexa_get_anonymous_user_id() }}
+```
+
+## `ibexa_storefront_are_discounts_enabled()`
+
+This function detects if the [Discounts](discounts_guide.md) feature is present.
+
+``` html+twig
+{% if ibexa_storefront_are_discounts_enabled() %}
+    <div class="ibexa-store-maincart-item__subtotal-original-price-net ibexa-store-discount-price">
+        {{- product_price_original_subtotal -}}
+    </div>
+{% endif %}
 ```

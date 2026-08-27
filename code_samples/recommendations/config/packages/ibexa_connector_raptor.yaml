@@ -1,0 +1,21 @@
+ibexa:
+    system:
+        <scope>:
+            connector_raptor:
+                enabled:              true
+                customer_id:          "12345" # Required
+                tracking_type:        client # One of: "client", "server", or "hybrid"
+
+                # Raptor Recommendations API key
+                recommendations_api_key: "your_api_key_here" # Required
+
+                # Raptor Recommendations API URI, optional, set by default
+                recommendations_api_uri: '%ibexa.connector.raptor.recommendations.api_uri%'
+
+                # Cookie lifetime in days for server-side tracking identifier
+                # Default: 365 days. Minimum: 1 day.
+                cookie_id_lifetime_days: 365
+ibexa_connector_raptor:
+    # When enabled, tracking exceptions are thrown instead of being silently handled
+    strict_exceptions: true
+    hybrid_tracking_proxy_path: '/raptor/track'

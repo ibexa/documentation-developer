@@ -3,7 +3,7 @@ ibexa_fieldtype_page:
         calculator:
             name: Calculator
             category: Demo
-            thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
+            thumbnail: /bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#calendar
             component: Calculator
             attributes:
                 a:

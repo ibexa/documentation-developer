@@ -26,7 +26,7 @@ Code samples below show how this could be done if your organization wants to use
 Create a PHP definition of the payment method type.
 
 ``` php
-[[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/PayPal.php') =]]
+[[= include_code('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/PayPal.php') =]]
 ```
 
 Make sure that `getName()` returns a human-readable name of the payment method type, the way you want it to appear on the list of available payment method types.
@@ -50,13 +50,13 @@ At this point a custom payment method type should be visible in the user interfa
 Create a corresponding form type:
 
 ``` php
-[[= include_file('code_samples/front/shop/payment/src/Form/Type/PayPalOptionsType.php') =]]
+[[= include_code('code_samples/front/shop/payment/src/Form/Type/PayPalOptionsType.php') =]]
 ```
 
 Next, create a mapper that maps the information that the user inputs in the form into attribute definition.
 
 ``` php
-[[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/OptionsFormMapper.php') =]]
+[[= include_code('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/OptionsFormMapper.php') =]]
 ```
 
 Then, register `OptionsFormMapper` as a service:
@@ -71,7 +71,7 @@ You might want to make sure that data provided by the user is validated.
 To do that, create an options validator that checks user input against the constraints and dispatches an error when needed.
 
 ``` php
-[[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/UrlOptionValidator.php') =]]
+[[= include_code('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/UrlOptionValidator.php') =]]
 ```
 
 Then, register the validator as a service:
@@ -94,11 +94,11 @@ When you create a payment, you can attach custom data to it, for example, you ca
 You add custom data by using the `setContext` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 101) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 78, 89, remove_indent=True) =]]
 ```
 
 Then, you retrieve it with the `getContext` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 66, 69) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 51, 54, remove_indent=True) =]]
 ```

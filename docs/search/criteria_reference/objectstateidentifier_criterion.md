@@ -16,11 +16,19 @@ The [`ObjectStateIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
 $query->query = new Criterion\ObjectStateIdentifier(['ready']);
 ```
 
 ``` php
-$query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+$query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock');
 ```
 
 ### REST API
@@ -32,7 +40,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
         <Filter>
             <ObjectStateIdentifierCriterion>
                 <value>not_locked</value>
-                <target>ez_lock</target>
+                <target>ibexa_lock</target>
             </ObjectStateIdentifierCriterion>
         </Filter>
     </Query>
@@ -46,7 +54,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
         "Filter": {
           "ObjectStateIdentifierCriterion": {
             "value": "not_locked",
-            "target": "ez_lock"
+            "target": "ibexa_lock"
           }
         }
       }

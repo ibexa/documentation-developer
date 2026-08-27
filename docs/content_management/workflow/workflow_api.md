@@ -4,11 +4,11 @@ description: PHP API enables you to get workflow information and apply specific 
 
 # Workflow API
 
-You can manage [workflows](workflow.md) with PHP API by using `WorkflowServiceInterface`.
+You can manage [workflows](workflow.md) with PHP API by using [`WorkflowServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html).
 
 ## Workflow service
 
-Workflow uses the Symfony [Workflow Component]([[= symfony_doc =]]/components/workflow.html),
+Workflow uses the Symfony [Workflow Component]([[= symfony_doc =]]/workflow.html),
 extended in the workflow service.
 
 The service implements the following methods:
@@ -22,36 +22,43 @@ but the implementation in workflow service extends them, for example by providin
 
 ## Getting workflow information
 
-To get information about a specific workflow for a content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+To get information about a specific workflow for a content item, use [`WorkflowServiceInterface::loadWorkflowMetadataForContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForContent):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 53, 57) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 52, 56, remove_indent=True) =]]
 ```
 
 !!! tip
 
-    `marking`, a term from [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html),
+    `marking`, a term from [Symfony Workflow]([[= symfony_doc =]]/workflow.html),
     refers to a state in a workflow.
 
-To get a list of all workflows that can be used for a given content item, use `WorkflowRegistry`:
+If you already have a [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object, use [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo) to avoid loading the full [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html).
+This method is more efficient when iterating over draft versions:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 47, 48) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 64, 65, remove_indent=True) =]]
+```
+
+To get a list of all workflows that can be used for a given content item, use [`WorkflowRegistryInterface::getSupportedWorkflows`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Registry-WorkflowRegistryInterface.html#method_getSupportedWorkflows):
+
+``` php
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 46, 46, remove_indent=True) =]]
 ```
 
 ## Applying workflow transitions
 
-To place a content item in a workflow, use `WorkflowService::start`:
+To place a content item in a workflow, use [`WorkflowServiceInterface::start`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_start):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 52, 53) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 51, 51, remove_indent=True) =]]
 ```
 
 To apply a transition to a content item, use `Workflow::apply`.
-Additionally, you can check if the transition is possible for the given object using `WorkflowService::can`:
+Additionally, you can check if the transition is possible for the given object by using [`WorkflowServiceInterface::can`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_can):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 59, 62) =]]    }
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 58, 62, remove_indent=True) =]]
 ```
 
 !!! tip

@@ -13,13 +13,13 @@ When you work with your Commerce implementation, you can review and modify the p
 
 ## Configure payment workflow
 
-Payment workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
+Payment workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/workflow.html).
 Each transition represents a separate payment step.
 
 ### Default payment workflow configuration
 
 The default payment workflow is called `ibexa_payment`.
-To see the default workflow configuration, in your project directory, go to: `vendor/Ibexa/payment/src/bundle/Resources/config/prepend.yaml`.
+To see the default workflow configuration, in your project directory, go to: `vendor/ibexa/payment/src/bundle/Resources/config/prepend.yaml`.
 
 You can replace the default workflow configuration with a custom one if needed.
 

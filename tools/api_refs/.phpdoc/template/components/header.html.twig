@@ -1,0 +1,12 @@
+<header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="">
+        <label class="md-header__button md-icon" for="__drawer" aria-label="Open navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+        </label>
+        {% include 'components/header-title.html.twig' %}
+        {% include 'components/doc-switcher.html.twig' %}
+        {% include 'components/version-switcher.html.twig' %}
+        {% include 'components/search.html.twig' %}
+        {% include 'components/source.html.twig' with { node: node } %}
+    </nav>
+</header>

@@ -8,25 +8,28 @@ This field type assigns tags to the content in the data action, so then you can 
 
     Because tags are assigned per content item, not per field, you cannot use two **Taxonomy Entry Assignment** fields with the same taxonomy type in one content type.
 
-
 To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` field to the content type definition.
 
-| Name                     | Internal name                    | Expected input |
-|--------------------------|----------------------------------|----------------|
-| `TaxonomyEntryAssignment`| `ibexa_taxonomy_entry_assignment`| array with `taxonomyEntries` and `taxonomy` keys|
+| Name                      | Internal name                     | Expected input                                   |
+|---------------------------|-----------------------------------|--------------------------------------------------|
+| `TaxonomyEntryAssignment` | `ibexa_taxonomy_entry_assignment` | array with `taxonomyEntries` and `taxonomy` keys |
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 
-| Type     | Description | Example         |
-|--------|-----------------|-----------------|
+| Type    | Description                                                                                                                                 | Example   |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | `array` | array with `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` objects under `taxonomy_entries` key and Taxonomy identifier under `taxonomy` key | see below |
 
 Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value` object:
+
 ``` php
-$taxonomyEntry1 = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-$taxonomyEntry2 = $this->taxonomyService->loadEntryByIdentifier('example_entry_2', 'tags');
+use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
+
+/** @var TaxonomyServiceInterface $taxonomyService */
+$taxonomyEntry1 = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
+$taxonomyEntry2 = $taxonomyService->loadEntryByIdentifier('example_entry_2', 'tags');
 new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
     [
         $taxonomyEntry1,
@@ -38,11 +41,18 @@ new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
 ```
 
 Example using array:
+
 ``` php
-[
+use Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry;
+
+/**
+ * @var TaxonomyEntry $taxonomyEntry
+ * @var TaxonomyEntry $taxonomyEntry2
+ */
+return [
     'taxonomy_entries' => [$taxonomyEntry, $taxonomyEntry2], // load entries using TaxonomyService
     'taxonomy' => 'tags',
-]
+];
 ```
 
 ### Value object
@@ -76,9 +86,9 @@ The field type validates if all Taxonomy Entries from the value are assigned to 
 
 #### Settings
 
-Name|Type|Default value|Description|
-|------|------|------|------|
-|`taxonomy`|`string`|`null`|Taxonomy from which entry is chosen.|
+| Name       | Type     | Default value | Description                          |
+|------------|----------|---------------|--------------------------------------|
+| `taxonomy` | `string` | `null`        | Taxonomy from which entry is chosen. |
 
 #### Template rendering
 

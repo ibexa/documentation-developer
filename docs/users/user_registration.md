@@ -4,8 +4,9 @@ description: Register new users.
 
 # Register new users
 
-You can allow your users to create accounts by employing the `/register` route.
+You can allow your users to create accounts by using the `/register` route.
 This route leads to a registration form that, when filled in, creates a new user content item in the repository.
+To give your users a possibility to register themselves, follow the instructions on [enabling account registration](8_enable_account_registration.md).
 
 ## User types
 
@@ -31,7 +32,7 @@ ibexa:
     system:
         default:
             user_registration:
-                group_id: <userGroupContentId>
+                group_remote_id: <userGroupContentRemoteId>
 ```
 
 ## Registration form field configuration
@@ -55,7 +56,7 @@ ibexa:
 
 You can also modify form templates in the following way:
 
-**Changing user password:**
+### Changing user password
 
 ``` yaml
 ibexa:
@@ -66,7 +67,7 @@ ibexa:
                     form: <path_to_template>
 ```
 
-**Password recovery forms:**
+### Password recovery forms
 
 ``` yaml
 ibexa.site_access.config.<siteaccess>.user_forgot_password.templates.form
@@ -75,7 +76,7 @@ ibexa.site_access.config.<siteaccess>.user_forgot_password_login.templates.form
 ibexa.site_access.config.<siteaccess>.user_forgot_password.templates.mail
 ```
 
-**Resetting password:**
+### Resetting password
 
 ``` yaml
 ibexa.site_access.config.<siteaccess>.user_reset_password.templates.form
@@ -83,13 +84,13 @@ ibexa.site_access.config.<siteaccess>.user_reset_password.templates.invalid_link
 ibexa.site_access.config.<siteaccess>.user_reset_password.templates.success
 ```
 
-**User settings:**
+### User settings
 
 ``` yaml
 ibexa.site_access.config.<siteaccess>.user_settings.templates.list
 ibexa.site_access.config.<siteaccess>.user_settings.templates.update
 ```
 
-**Changing registration form templates:**
+### Changing registration form templates
 
-To change the registration form template, follow instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).
+To change the registration form template, follow the instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).

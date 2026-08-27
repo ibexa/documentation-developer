@@ -6,6 +6,8 @@ plugins:
         j2_block_end_string: '%]]'
         j2_variable_start_string: '[[='
         j2_variable_end_string: '=]]'
+        j2_comment_start_string: '[[#'
+        j2_comment_end_string: '#]]'
     - tags
     - redirects:
         redirect_maps:
@@ -42,7 +44,8 @@ plugins:
             'guide/repository/event_reference/content_events.md': 'api/event_reference/content_events.md'
             'guide/repository/event_reference/content_type_events.md': 'api/event_reference/content_type_events.md'
             'guide/repository/event_reference/location_events.md': 'api/event_reference/location_events.md'
-            'guide/repository/event_reference/catalog_events.md': 'api/event_reference/catalog_events.md'
+            'guide/repository/event_reference/catalog_events.md': 'api/event_reference/product_catalog_events.md'
+            'api/event_reference/catalog_events.md': 'api/event_reference/product_catalog_events.md'
             'guide/repository/event_reference/language_events.md': 'api/event_reference/language_events.md'
             'guide/repository/event_reference/section_events.md': 'api/event_reference/section_events.md'
             'guide/repository/event_reference/object_state_events.md': 'api/event_reference/object_state_events.md'
@@ -107,7 +110,7 @@ plugins:
             'api/public_php_api_managing_forms.md': 'content_management/forms/form_api.md'
             'ibexa_products/experience.md': 'ibexa_products/ibexa_experience.md'
             'ibexa_products/headless.md': 'ibexa_products/ibexa_headless.md'
-            'personalization/personalization_brochure.md': 'personalization/personalization_guide.md'
+            'personalization/personalization_brochure.md': 'recommendations/raptor_integration/raptor_connector_guide.md'
             'guide/form_builder/create_custom_form_field.md': 'content_management/forms/create_custom_form_field.md'
             'guide/form_builder/customize_email_notifications.md': 'content_management/forms/customize_email_notifications.md'
             'guide/workflow/workflow.md': 'content_management/workflow/workflow.md'
@@ -164,10 +167,14 @@ plugins:
             'api/field_types_reference/relationlistfield.md': 'content_management/field_types/field_type_reference/relationlistfield.md'
             'api/field_types_reference/richtextfield.md': 'content_management/field_types/field_type_reference/richtextfield.md'
             'api/field_types_reference/selectionfield.md': 'content_management/field_types/field_type_reference/selectionfield.md'
-            'api/field_types_reference/sesexternaldata.md': 'content_management/field_types/field_type_reference/sesexternaldata.md'
-            'api/field_types_reference/sesprofiledata.md': 'content_management/field_types/field_type_reference/sesprofiledata.md'
-            'api/field_types_reference/sesselection.md': 'content_management/field_types/field_type_reference/sesselection.md'
-            'api/field_types_reference/specificationstype.md': 'content_management/field_types/field_type_reference/specificationstype.md'
+            'api/field_types_reference/sesexternaldata.md': 'content_management/field_types/field_type_reference/field_type_reference.md'
+            'content_management/field_types/field_type_reference/sesexternaldata.md': 'content_management/field_types/field_type_reference/field_type_reference.md'
+            'api/field_types_reference/sesprofiledata.md': 'content_management/field_types/field_type_reference/field_type_reference.md'
+            'content_management/field_types/field_type_reference/sesprofiledata.md': 'content_management/field_types/field_type_reference/field_type_reference.md'
+            'api/field_types_reference/sesselection.md': 'content_management/field_types/field_type_reference/productspecificationfield.md'
+            'content_management/field_types/field_type_reference/sesselection.md': 'content_management/field_types/field_type_reference/productspecificationfield.md'
+            'api/field_types_reference/specificationstype.md': 'content_management/field_types/field_type_reference/productspecificationfield.md'
+            'content_management/field_types/field_type_reference/specificationstype.md': 'content_management/field_types/field_type_reference/productspecificationfield.md'
             'api/field_types_reference/textblockfield.md': 'content_management/field_types/field_type_reference/textblockfield.md'
             'api/field_types_reference/textlinefield.md': 'content_management/field_types/field_type_reference/textlinefield.md'
             'api/field_types_reference/timefield.md': 'content_management/field_types/field_type_reference/timefield.md'
@@ -211,19 +218,37 @@ plugins:
             'guide/content_rendering/layout/add_register_user_template.md': 'customer_management/create_user_registration_form.md'
             'guide/content_rendering/layout/customize_basket.md': 'templating/layout/add_search_form.md'
 
-            'guide/catalog/catalog.md': 'pim/pim.md'
-            'guide/catalog/catalog_configuration.md': 'pim/pim_configuration.md'
-            'api/public_php_api_managing_catalog.md': 'pim/product_api.md'
-            'guide/catalog/enable_purchasing_products.md': 'pim/enable_purchasing_products.md'
-            'guide/catalog/create_custom_attribute_type.md': 'pim/create_custom_attribute_type.md'
-            'guide/pricing/price_engine.md': 'pim/prices.md'
-            'api/public_php_api_managing_prices.md': 'pim/price_api.md'
-            'guide/bestsellers.md': 'pim/pim.md'
-            'pim/bestsellers.md': 'pim/pim.md'
+            'guide/catalog/catalog.md': 'product_catalog/product_catalog.md'
+            'guide/catalog/catalog_configuration.md': 'product_catalog/product_catalog_configuration.md'
+            'api/public_php_api_managing_catalog.md': 'product_catalog/product_api.md'
+            'guide/catalog/enable_purchasing_products.md': 'product_catalog/enable_purchasing_products.md'
+            'guide/catalog/create_custom_attribute_type.md': 'product_catalog/create_custom_attribute_type.md'
+            'guide/pricing/price_engine.md': 'product_catalog/prices.md'
+            'api/public_php_api_managing_prices.md': 'product_catalog/price_api.md'
+            'guide/bestsellers.md': 'product_catalog/product_catalog.md'
+            'pim/bestsellers.md': 'product_catalog/product_catalog.md'
+            
+            'pim/pim.md': 'product_catalog/product_catalog.md'
+            'pim/pim_guide.md': 'product_catalog/product_catalog_guide.md'
+            'pim/pim_configuration.md': 'product_catalog/product_catalog_configuration.md'
+            'pim/products.md': 'product_catalog/products.md'
+            'pim/attributes/date_and_time.md': 'product_catalog/attributes/date_and_time.md'
+            'pim/attributes/symbol_attribute_type.md': 'product_catalog/attributes/symbol_attribute_type.md'
+            'pim/product_api.md': 'product_catalog/product_api.md'
+            'pim/catalogs.md': 'product_catalog/catalogs.md'
+            'pim/catalog_api.md': 'product_catalog/catalog_api.md'
+            'pim/enable_purchasing_products.md': 'product_catalog/enable_purchasing_products.md'
+            'pim/prices.md': 'product_catalog/prices.md'
+            'pim/price_api.md': 'product_catalog/price_api.md'
+            'pim/customize_pim.md': 'product_catalog/customize_product_catalog.md'
+            'pim/create_custom_attribute_type.md': 'product_catalog/create_custom_attribute_type.md'
+            'pim/create_product_code_generator.md': 'product_catalog/create_product_code_generator.md'
+            'pim/create_custom_catalog_filter.md': 'product_catalog/create_custom_catalog_filter.md'
+            'pim/create_custom_name_schema_strategy.md': 'product_catalog/create_custom_name_schema_strategy.md'
+            'pim/add_remote_pim_support.md': 'product_catalog/add_remote_pim_support.md'
             'guide/basket/basket.md': 'commerce/commerce.md'
             'guide/basket/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
             'commerce/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
-            'commerce/basket.md': 'commerce/commerce.md'
             'guide/checkout/checkout.md': 'commerce/checkout/checkout.md'
             'guide/checkout/order_confirmation.md': 'commerce/checkout/checkout.md'
             'commerce/checkout/order_confirmation.md': 'commerce/checkout/checkout.md'
@@ -286,18 +311,35 @@ plugins:
             'users/customers/customer_profile_data.md': 'users/users.md'
             'guide/customers/customer_api/configuration_for_customer_data.md': 'users/users.md'
             'users/customers/customer_data_configuration.md': 'users/users.md'
-            'guide/personalization/personalization.md': 'personalization/personalization.md'
-            'guide/personalization/enabling_personalization.md': 'personalization/enable_personalization.md'
-            'guide/personalization/basic_integration.md': 'personalization/integrate_recommendation_service.md'
-            'guide/personalization/developer_guide/tracking_api.md': 'personalization/api_reference/tracking_api.md'
-            'guide/personalization/developer_guide/importing_historical_user_tracking_data.md': 'personalization/importing_historical_user_tracking_data.md'
-            'guide/personalization/developer_guide/tracking_with_ibexa-tracker.md': 'personalization/tracking_with_ibexa-tracker.md'
-            'guide/personalization/developer_guide/recommendation_api.md': 'personalization/api_reference/recommendation_api.md'
-            'guide/personalization/developer_guide/content_api.md': 'personalization/api_reference/content_api.md'
-            'guide/personalization/developer_guide/user_api.md': 'personalization/api_reference/user_api.md'
-            'guide/personalization/developer_guide/attributes_search_elastic.md': 'personalization/attribute_search_in_elasticsearch.md'
-            'guide/personalization/best_practices/tracking_integration.md': 'personalization/tracking_integration.md'
-            'guide/personalization/best_practices/recommendation_integration.md': 'personalization/recommendation_integration.md'
+            'guide/personalization/personalization.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/enabling_personalization.md': 'recommendations/raptor_integration/connector_installation_configuration.md'
+            'guide/personalization/basic_integration.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/developer_guide/tracking_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/developer_guide/importing_historical_user_tracking_data.md': 'recommendations/raptor_integration/tracking_functions.md'
+            'guide/personalization/developer_guide/tracking_with_ibexa-tracker.md': 'recommendations/raptor_integration/tracking_functions.md'
+            'guide/personalization/developer_guide/recommendation_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/developer_guide/content_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/developer_guide/user_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/developer_guide/attributes_search_elastic.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'guide/personalization/best_practices/tracking_integration.md': 'recommendations/raptor_integration/tracking_functions.md'
+            'guide/personalization/best_practices/recommendation_integration.md': 'recommendations/raptor_integration/recommendation_blocks.md'
+
+            'personalization/personalization.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/personalization_guide.md': 'recommendations/raptor_integration/raptor_connector_guide.md'
+            'personalization/how_it_works.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/enable_personalization.md': 'recommendations/raptor_integration/connector_installation_configuration.md'
+            'personalization/integrate_recommendation_service.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/tracking_integration.md': 'recommendations/raptor_integration/tracking_functions.md'
+            'personalization/recommendation_integration.md': 'recommendations/raptor_integration/recommendation_blocks.md'
+            'personalization/api_reference/api_reference.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/api_reference/content_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/api_reference/recommendation_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/api_reference/tracking_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/api_reference/user_api.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/importing_historical_user_tracking_data.md': 'recommendations/raptor_integration/tracking_functions.md'
+            'personalization/tracking_with_ibexa-tracker.md': 'recommendations/raptor_integration/tracking_functions.md'
+            'personalization/attribute_search_in_elasticsearch.md': 'recommendations/raptor_integration/raptor_connector.md'
+            'personalization/legacy_recommendation_api.md': 'recommendations/raptor_integration/raptor_connector.md'
 
             'guide/search/search.md': 'search/search.md'
             'guide/search/elastic.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
@@ -556,3 +598,33 @@ plugins:
             'getting_started/ibexa_cloud_guide.md': 'ibexa_cloud/ibexa_cloud_guide.md'
             'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'
             'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'
+
+            'discounts/install_discounts.md': 'discounts/configure_discounts.md'
+            'content_management/collaborative_editing/install_collaborative_editing.md': 'content_management/collaborative_editing/configure_collaborative_editing.md'
+
+            'ai_actions/ai_actions.md': 'ai/ai_actions/ai_actions.md'
+            'ai_actions/ai_actions_guide.md': 'ai/ai_actions/ai_actions_guide.md'
+            'ai_actions/install_ai_actions.md': 'ai/ai_actions/configure_ai_actions.md'
+            'ai_actions/configure_ai_actions.md': 'ai/ai_actions/configure_ai_actions.md'
+            'ai_actions/extend_ai_actions.md': 'ai/ai_actions/extend_ai_actions.md'
+
+            'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'cdp/cdp_activation/cdp_add_tracking.md'
+
+
+    - llmstxt:
+        preprocess: llmstxt_preprocess.py
+        # The "> " prefix renders the description as a blockquote summary,
+        # as expected by the llms.txt spec (https://llmstxt.org)
+        markdown_description: >-
+          > Developer documentation for Ibexa DXP — architecture, APIs, templating, and extensibility for building and customizing Ibexa DXP projects.
+
+        # Pin links in the generated Markdown (and llms.txt) to this branch's
+        # version instead of site_url's en/latest, without affecting the HTML
+        # site's canonical URLs. Update when branching a new version.
+        base_url: https://doc.ibexa.co/en/5.0/
+        autoclean: false
+        full_output: llms-full.txt
+        sections:
+          # Built automatically when running MkDocs build based on MkDocs nav configuration, don't change
+          Ibexa DXP developer documentation:
+          - index.md

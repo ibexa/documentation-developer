@@ -7,12 +7,12 @@ edition: commerce
 
 ## Built-in menus
 
-With the `ibexa\storefront` package come the following built-in menus:
+With the `ibexa/storefront` package come the following built-in menus:
 
 | Item   | Value     | Description |
 |------------|----------|---------|
-| [Breadcrumbs](#breadcrumbs-menu)| - | Renders breadcrumbs for content tree root, Taxonomy Entry, product, user settings, and user settings group |
-| [Taxonomy](#taxonomy-menu)| - | It can render a menu for product categories or tags |
+| [Breadcrumbs](#breadcrumbs-menu)| | Renders breadcrumbs for content tree root, Taxonomy Entry, product, user settings, and user settings group |
+| [Taxonomy](#taxonomy-menu)| | It can render a menu for product categories or tags |
 | Currency| `currency_menu` | Renders a menu to change the active currency |
 | Language| `language_menu` | Renders a menu to change the active language |
 | Region  | `region_menu`  | Renders a menu to change the active region |
@@ -33,7 +33,7 @@ This subscriber replaces the URI under the `Home` link.
 Create an event subscriber in `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
 
 ``` php
-[[= include_file('code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php') =]]
+[[= include_code('code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php') =]]
 ```
 
 Next, create the `templates/themes/storefront/storefront/knp_menu/breadcrumbs.html.twig` template:
@@ -100,6 +100,12 @@ Define your own logic in a custom controller.
 Refer to the code snippet below and create your own file, for example, `CustomProductRenderController.php`:
 
 ``` php
+use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+
+class CustomProductRenderController extends AbstractController
+{
     public function renderAction(ProductInterface $product): Response
     {
         return $this->render('@ibexadesign/storefront/product_card.html.twig', [
@@ -109,4 +115,5 @@ Refer to the code snippet below and create your own file, for example, `CustomPr
             'is_relative' => true,
         ]);
     }
+}
 ```

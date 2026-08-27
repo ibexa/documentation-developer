@@ -4,6 +4,14 @@
     metadata:
         identifier: blog_post
         mainTranslation: eng-GB
+        remoteId: blog_post_content_type
+        creatorId: 14
+        nameSchema: '<title>'
+        urlAliasSchema: '<title>'
+        container: true
+        defaultAlwaysAvailable: true
+        defaultSortField: 2 # Location::SORT_FIELD_PUBLISHED
+        defaultSortOrder: 0 # Location::SORT_ORDER_DESC
         contentTypeGroups:
             - Content
         translations:
@@ -11,13 +19,13 @@
                 name: Blog Post
     fields:
         -   identifier: title
-            type: ezstring
+            type: ibexa_string
             required: true
             translations:
                 eng-GB:
                     name: 'Title'
         -   identifier: body
-            type: ezrichtext
+            type: ibexa_richtext
             required: false
             translations:
                 eng-GB:

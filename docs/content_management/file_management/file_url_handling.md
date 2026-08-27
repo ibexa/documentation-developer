@@ -4,7 +4,7 @@ description: Manage files URL.
 
 # File URL handling
 
-### IO URL decoration
+## IO URL decoration
 
 By default, images and binary files that are referenced by the content are served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`.
 This is the default semantic configuration:
@@ -17,7 +17,7 @@ ibexa:
                 url_prefix: '$var_dir$/$storage_dir$'
 ```
 
-`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](configuration.md#dynamic-settings-injection), and are replaced by their values in the execution context.
+`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](siteaccess_aware_configuration.md), and are replaced by their values in the execution context.
 
 ## Serving images with nginx
 

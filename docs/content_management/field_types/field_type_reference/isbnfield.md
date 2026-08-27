@@ -4,28 +4,28 @@ This field type represents an ISBN string either an ISBN-10 or ISBN-13 format.
 
 | Name   | Internal name | Expected input type |
 |--------|---------------|---------------------|
-| `ISBN` | `ezisbn`      | `string`            |
+| `ISBN` | `ibexa_isbn`  | `string`            |
 
-## PHP API field type 
+## PHP API field type
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
-| Property | Type     | Description|
-|----------|----------|------------|
+| Property | Type     | Description                                |
+|----------|----------|--------------------------------------------|
 | `$isbn`  | `string` | This property is used for the ISBN string. |
 
-##### String representation
+#### String representation
 
 An ISBN's string representation is the `$isbn` property's value, as a string.
 
-##### Constructor
+#### Constructor
 
 The constructor for this value object initializes a new value object with the value provided.
-It accepts a string as argument and sets it to the `isbn` attribute.
+It accepts a string as argument and sets it to the `isbn` attribute.
 
 ### Validation
 
@@ -33,8 +33,7 @@ The input passed into this field type is subject of ISBN validation depending on
 An example of this field setting is shown below and controls if input is validated as ISBN-13 or ISBN-10:
 
 ``` php
-Array
-(
-    [isISBN13] => true
-)
+[
+    'isISBN13' => true,
+];
 ```

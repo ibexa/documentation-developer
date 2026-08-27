@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches PIM with catalogs, product variants and product assets.
+description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches the product catalog with catalogs, product variants and product assets.
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -12,7 +12,7 @@ description: Ibexa DXP v4.2 adds the Customer Portal and user management capabil
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
-**Update**: [v4.1.x to v4.2](https://doc.ibexa.co/en/latest/update_and_migration/from_4.1/update_from_4.1/)
+**Update**: [v4.1.x to v4.2](https://doc.ibexa.co/en/4.2/update_and_migration/from_4.1/update_from_4.1/)
 
 ## Notable changes
 
@@ -26,7 +26,7 @@ assign them specific roles and limitations, such as a buyer, or sales representa
 
 ![Customer Portal back office](4.2_customer_portal.png)
 
-For more information, see [back office company management documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/manage_users).
+For more information, see [back office company management documentation](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/manage_users/).
 
 On their personal accounts in Customer Portal, members of your organisation can view their order history,
 other members of their team and information regarding their company, for example, billing addresses.
@@ -34,19 +34,19 @@ They can also edit their profile information.
 
 ![Customer Portal Frontend](4.2_customer_center.png)
 
-For more information, see [Customer Portal documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/customer_portal).
+For more information, see [Customer Portal documentation](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/customer_portal/).
 
 ### User management
 
 #### Inviting users
 
-You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/latest/users/user_management/#inviting-users) in the frontend as customers or in the back office as members of your team.
+You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/4.2/user_management/manage_users/#invite-users) in the frontend as customers or in the back office as members of your team.
 
 ![Inviting members of your team](4.2_invite_users.png)
 
 #### Configure register form
 
-Register forms for new users can now be [configured straight in the YAML file](https://doc.ibexa.co/en/latest/guide/content_rendering/layout/add_register_user_template/#configure-existing-form).
+Register forms for new users can now be [configured straight in the YAML file](https://doc.ibexa.co/en/4.2/templating/layout/create_user_registration_form/#configure-existing-form).
 
 ### Catalogs
 
@@ -79,17 +79,23 @@ Assets are grouped into collections based on attribute values
 
 ### Product completeness
 
-The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, aor vailability.
+The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, and availability.
 You can use it to get a quick overview of missing parts in the product configuration and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](4.2_product_completeness.png)
+
+!!! note "No impact on availability"
+
+    Product completeness helps ensure that product data is complete.
+    It does not impact product availability or visibility on the storefront.
+    As long as a product meets availability and stock requirements, it can be published and made available for purchase regardless of its completeness score.
 
 ### Product categories
 
 With product categories, you can organize products that populate the Product Catalog.
 You do it, for example, to assist users in searching for products.
 
-For more information, see [Product categories](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/product_categories/).
+For more information, see [Product categories](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/product_categories/).
 
 ![Product categories](4.2_product_categories_rn.png)
 
@@ -100,21 +106,21 @@ you can now get recommendations for all these content types.
 
 ### Taxonomy field type
 
-Taxonomy is now [configured with a field type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
+Taxonomy is now [configured with a field type](https://doc.ibexa.co/projects/userguide/en/4.2/content_management/taxonomy/work_with_tags/#add-tag),
 so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same content type.
 
 ### Address field type
 
-With the [new Address field type](https://doc.ibexa.co/en/latest/content_management/field_types/field_type_reference/addressfield), you can now customize address Fields and configure them per country.
+With the [new Address field type](https://doc.ibexa.co/en/4.2/content_management/field_types/field_type_reference/addressfield/), you can now customize address Fields and configure them per country.
 
 ![Address field type](4.2_address_field_type.png)
 
 ### Repeatable migration steps
 
-Data migration now offers [repeatable migration steps](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#repeatable-steps),
+Data migration now offers [repeatable migration steps](https://doc.ibexa.co/en/4.2/content_management/data_migration/importing_data/#repeatable-steps),
 especially useful when creating large amounts of data, for example for testing.
 
-You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.github.io/).
+You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.org/).
 
 ## Other changes
 
@@ -124,29 +130,29 @@ New Search Criteria and Sort Clauses help better fine-tune searches for products
 
 Price-related Search Criteria enable you to search by base or custom product price:
 
-- [BasePrice](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/baseprice_criterion/)
-- [CustomPrice](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/customprice_criterion/)
+- [BasePrice](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/baseprice_criterion/)
+- [CustomPrice](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/customprice_criterion/)
 
 Attribute Criteria search for products based on their attribute values, per attribute type:
 
-- [CheckboxAttribute](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/checkboxattribute_criterion/)
-- [ColorAttribute](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/colorattribute_criterion/)
-- [FloatAttribute](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/floatattribute_criterion/)
-- [IntegerAttribute](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/integerattribute_criterion/)
-- [SelectionAttribute](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/selectionattribute_criterion/)
+- [CheckboxAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/checkboxattribute_criterion/)
+- [ColorAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/colorattribute_criterion/)
+- [FloatAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/floatattribute_criterion/)
+- [IntegerAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/integerattribute_criterion/)
+- [SelectionAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/selectionattribute_criterion/)
 - SimpleMeasurementAttribute
 - RangeMeasurementAttributeMinimum
 - RangeMeasurementAttributeMaximum
 
 Creation date Criteria and Sort Clauses allow searching by date of the product's creation:
 
-- [CreatedAt](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/createdat_criterion/)
-- [CreatedAtRange](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/createdatrange_criterion/)
-- [CreatedAt](https://doc.ibexa.co/en/latest/guide/search/sort_clause_reference/createdat_sort_clause/)
+- [CreatedAt](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/createdat_criterion/)
+- [CreatedAtRange](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/createdatrange_criterion/)
+- [CreatedAt](https://doc.ibexa.co/en/4.2/guide/search/sort_clause_reference/createdat_sort_clause/)
 
 Finally, you can search product by product category:
 
-- [ProductCategory](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/productcategory_criterion/)
+- [ProductCategory](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/productcategory_criterion/)
 
 ### API improvements
 
@@ -154,11 +160,11 @@ Finally, you can search product by product category:
 
 Taxonomy is now covered with GraphQL API.
 
-Querying product attributes with GraphQL is improved with the option to [query by attribute type](https://doc.ibexa.co/en/latest/api/graphql_queries/#querying-product-attributes).
+Querying product attributes with GraphQL is improved with the option to [query by attribute type](https://doc.ibexa.co/en/4.2/api/graphql/graphql_queries/#querying-product-attributes).
 
 ### New ways to add images in Online Editor
 
-You can now drag and drop images directly into the Online Editor. 
+You can now drag and drop images directly into the Online Editor.
 To achieve the same result, you can also click the **Upload image** button and select a file from the disk.
 Images that you upload this way are automatically added to the Media library.
 
@@ -172,14 +178,14 @@ Images that you upload this way are automatically added to the Media library.
 
 ### Content edit tabs
 
-Content editing screen is now enriched with a [tab switcher](https://doc.ibexa.co/en/latest/administration/back_office/content_tab_switcher/), allowing easy access to metadata such as taxonomies.
+Content editing screen is now enriched with a [tab switcher](https://doc.ibexa.co/en/4.2/administration/back_office/content_tab_switcher/), allowing easy access to metadata such as taxonomies.
 The view can be extended with custom tabs.
 
 ![Tabs in content edit view](4.2_content_edit_tabs.png)
 
 ### Grouped attributes in Page block
 
-If a Page block has multiple attributes, you can now group them with the [`nested_attribute` parameter](https://doc.ibexa.co/en/latest/content_management/pages/page_block_attributes/#nested-attribute-configuration).
+If a Page block has multiple attributes, you can now group them with the [`nested_attribute` parameter](https://doc.ibexa.co/en/4.2/content_management/pages/page_block_attributes/#nested-attribute-configuration).
 
 ![Grouped attributes](4.2_page_block_nested.png)
 
@@ -189,7 +195,7 @@ You can now search through the **URL wildcards** table in the back office.
 
 ### Product price events
 
-The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/latest/guide/repository/event_reference/catalog_events/#price).
+The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/4.2/api/event_reference/catalog_events/#price).
 
 ### Data migration
 
@@ -199,7 +205,7 @@ Data migration now supports `attribute` and `attribute_group` types when generat
 
 #### Hide and reveal content actions
 
-You can now hide and reveal content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
+You can now hide and reveal content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/4.2/content_management/data_migration/data_migration_actions/#available-migration-actions).
 
 ### Fastly shielding
 
@@ -233,7 +239,7 @@ This is a standalone package that you can install along every product edition (C
 
 ![CDP Control Panel](img/4.2_cdp_control_panel.png)
 
-For more information, see [Customer Data Platform](https://doc.ibexa.co/en/latest/cdp/cdp/).
+For more information, see [Customer Data Platform](https://doc.ibexa.co/en/4.2/cdp/cdp/).
 
 ### SEO
 
@@ -252,8 +258,8 @@ Now, events are sent while performing operations within Taxonomy, which consider
 
 ### Protected segment groups
 
-You can now set existing [segment groups](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) as protected, and prevent them from being modified through the user interface.
-It's intended to stop users from breaking data integrity of segments/segment groups maintained by other features or external system integrations, such as [Customer Portal](https://doc.ibexa.co/en/latest/customer_management/customer_portal/) and [CDP](https://doc.ibexa.co/en/latest/cdp/cdp/).
+You can now set existing [segment groups](https://doc.ibexa.co/en/4.2/administration/admin_panel/#segments) as protected, and prevent them from being modified through the user interface.
+It's intended to stop users from breaking data integrity of segments/segment groups maintained by other features or external system integrations, such as [Customer Portal](https://doc.ibexa.co/projects/userguide/en/latest/customer_management/customer_portal/) and [CDP](https://doc.ibexa.co/en/4.2/cdp/cdp/).
 
 To do it, in your configuration, add the following key for each segment group that you intend to protect:
 

@@ -1,5 +1,6 @@
 ---
 description: Use blocks to customize the content of a Page with dynamic content.
+edition: experience
 ---
 
 # Page blocks
@@ -18,15 +19,16 @@ For information on how to create and configure new layouts for the Page, see [Pa
 
 Each configured block has an identifier and the following settings:
 
-| Setting                  | Description                                                                                                                                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                   | Name of the block used in the Page Builder interface.                                                                                                         |
-| `category`               | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
-| `thumbnail`              | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
-| `views`                  | Available [templates for the block](#block-templates).                                                                                                        |
-| `visible`                | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
-| `configuration_template` | (Optional) Template for the block settings modal.                                                                                                             |
-| `attributes`             | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
+| Setting                               | Description                                                                                                                                                             |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`                                | Name of the block used in the Page Builder interface. Translatable using the `ibexa_page_fieldtype` translation domain. Also accepts a [`help` key](#block-name-and-help-text) that adds a helper text under the **Name** field in the block configuration form. |
+| `category`                            | Category in the Page Builder **Page blocks** toolbox that the block is shown in. Translatable using the `ibexa_page_fieldtype` translation domain.                      |
+| `thumbnail`                           | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
+| `views`                               | Available [templates for the block](#block-templates).                                                                                                                  |
+| `visible`                             | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
+| `configuration_template`              | (Optional) Template for the block settings modal.                                                                                                                       |
+| `attributes`                          | (Optional) List of [block attributes](page_block_attributes.md).                                                                                                        |
+| <nobr>`cacheable_query_params`</nobr> | (Optional) List of query parameters the block's [ESI HTTP cache](http_cache_configuration.md#when-to-use-esi) varies on.<br>For example, if the block is paginated using `?page=ℕ` from the page URL, add `page` to this list.<br>See [`ibexa_append_cacheable_query_params()`Twig function](page_twig_functions.md#ibexa_append_cacheable_query_params). |
 
 For example:
 
@@ -37,6 +39,38 @@ For example:
 !!! tip
 
     For a full example of block configuration, see [Create custom Page block](create_custom_page_block.md).
+
+### Block name and help text
+
+The `name` setting accepts either a single translation key, a hard coded string of text that won't be translated, or an object with `text` and `help` property keys.
+Both `text` and `help` are translatable using the `ibexa_page_fieldtype` translation domain.
+
+Scalar form:
+
+``` yaml
+ibexa_fieldtype_page:
+    blocks:
+        my_block:
+            name: my_block.name.key
+```
+
+Structured form with a helper text:
+
+```yaml
+ibexa_fieldtype_page:
+    blocks:
+        my_block:
+            name:
+                text: my_block.name.key
+                help: my_block.name.help.key
+```
+
+- `text` - corresponds to the block name.
+- `help` - is an optional translation key whose translation is rendered as a helper text under the **Name** field in the block configuration form.
+
+![Help text](help_text.png)
+
+The same format is available for [React App blocks](react_app_block.md).
 
 ### Overwriting existing blocks
 
@@ -51,6 +85,7 @@ You can overwrite the following properties in the existing blocks:
 
 Page blocks can have multiple templates.
 This allows you to create different styles for each block and let the editor choose them when adding the block from the UI.
+They names are translatable using the `ibexa_page_builder_block_config` translation domain.
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 3) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 7, 16) =]]
@@ -100,7 +135,7 @@ The following events are available:
 For example, to modify a block by adding a new parameter to it, you can create the following listener:
 
 ``` php
-[[= include_file('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
+[[= include_code('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
 ```
 
 Before the block is rendered, the listener adds `my_parameter` to it with value `parameter_value`.
@@ -110,7 +145,7 @@ You can use this parameter, for example, in block template:
 [[= include_file('code_samples/page/page_listener/templates/themes/standard/block/my_block.html.twig') =]]
 ```
 
-#### Exposing content relations from blocks
+### Exposing content relations from blocks
 
 Page blocks, for example Embed block or Collection block, can embed other content items.
 Publishing a page with such blocks creates Relations to those content items.

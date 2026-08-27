@@ -1,6 +1,7 @@
 ---
 description: Content Twig function enable rendering whole content items and their information.
 page_type: reference
+month_change: false
 ---
 
 # Content Twig functions
@@ -31,6 +32,7 @@ You can provide `ibexa_render()` with either a content item or a Location object
 |`content` or `location`|[`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), [`ContentAwareInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) or [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)|Content item or its location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`. (Default method is `direct`)|
 |`viewType`|`string`|(optional) [View type](template_configuration.md#view-types). (Default view type is `embed`)|
+|`params`|`array`|(optional) Hash of variables to pass to the template.|
 
 #### Rendering methods
 
@@ -47,6 +49,13 @@ You can pass one of the following rendering methods to `ibexa_render()`:
 {{ ibexa_render(content, {'viewType': 'line'}) }}
 
 {{ ibexa_render(content, {'method': 'inline'}) }}
+
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'params': {
+        'custom_param': 'custom_value'
+    }
+}) }}
 ```
 
 ## Content information

@@ -86,6 +86,32 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
+### v4.5.5
+
+No additional steps needed.
+
+### v4.5.6
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.5-to-4.5.6.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.5-to-4.5.6.sql
+    ```
+
+### v4.5.7
+
+No additional steps needed.
+
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
@@ -166,7 +192,6 @@ To fix this, use the order from the skeleton you're using, and add any extra bun
 
 === "[[= product_name_com =]]"
     Use [https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
-
 
 #### Non-existent service
 
@@ -272,6 +297,7 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
     If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
 
 For [[= product_name_com =]] there's an additional migration:
+
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/dashboard_structure.yaml --name=2023_11_20_14_33_order_dashboard_structure.yaml
 php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure.yaml
@@ -440,7 +466,7 @@ Configure the `spellcheck` component in `solrconfig.xml`:
   </searchComponent>
 ```
 
-Add this `spellcheck` component to the `/select` request handler: 
+Add this `spellcheck` component to the `/select` request handler:
 
 ```xml
   <requestHandler name="/select" class="solr.SearchHandler">
@@ -463,19 +489,7 @@ Restart Solr for `solrconfig.xml` changes to take effect.
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
 When this happens, you need to erase the index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request.
-Use the command as in the following example:
-
-```bash
-curl --request DELETE 'https://elasticsearch:9200/_all'
-```
-
-To update the schema, and then reindex the content, use the following commands:
-
-```bash
-php bin/console ibexa:elasticsearch:put-index-template --overwrite
-php bin/console ibexa:reindex
-```
+[[% include 'snippets/elasticsearch_clear_index.md' %]]
 
 ## Update to v4.6.latest
 

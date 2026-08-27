@@ -1,3 +1,8 @@
+---
+edition: experience
+---
+
+
 # Address field type
 
 This field represents and handles address fields.
@@ -12,7 +17,7 @@ provided by the `ibexa/fieldtype-address` package.
 
 ## PHP API field type
 
-### Inputs:
+### Inputs
 
 | Type     | Description                                   | Example           |
 |----------|-----------------------------------------------|-------------------|
@@ -22,7 +27,9 @@ provided by the `ibexa/fieldtype-address` package.
 
 ### Example input
 
-```php
+``` php
+use Ibexa\FieldTypeAddress\FieldType;
+
 new FieldType\Value(
     'My home address',
     'PL',
@@ -88,7 +95,7 @@ By default, each field is a simple text input with a label made of field identif
 To change the type of field, you need to listen to a specific event.
 For each field below events are dispatched (in order):
 
-```
+```yaml
 ibexa.address.field.{FIELD_IDENTIFIER}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
@@ -96,7 +103,7 @@ ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
 
 #### Example
 
-```
+```yaml
 ibexa.address.field.tax_number
 ibexa.address.field.tax_number.billing_address
 ibexa.address.field.tax_number.billing_address.DE
@@ -107,7 +114,7 @@ ibexa.address.field.tax_number.billing_address.DE
 An event listener can also provide validation by using either one of [constraints provided by Symfony]([[= symfony_doc =]]/validation.html#supported-constraints),
 or a custom constraint.
 
-```php
+``` php
 use Ibexa\Contracts\FieldTypeAddress\Event\MapFieldEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -121,7 +128,7 @@ class ExampleAddressSubscriber implements EventSubscriberInterface
             'ibexa.address.field.tax_number.billing_address' => 'onBillingAddressTaxNumber',
         ];
     }
-    
+
     public function onBillingAddressTaxNumber(MapFieldEvent $event): void
     {
         $event->setLabel('VAT');

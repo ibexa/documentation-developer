@@ -118,7 +118,7 @@ Finally, you can customize the registration site itself.
 
 ### REST API
 
-Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account) for interacting with corporate accounts from the context of the [[= product_name_connect =]] app.
+Customer Portal comes with [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Corporate-Account) for interacting with corporate accounts from the context of the [[= product_name_connect =]] app.
 
 ## Capabilities
 
@@ -179,6 +179,6 @@ Customer portals help you to automate tasks that otherwise would be done by your
 An additional benefit of customer portals is their availability 24/7.
 Thus, reducing the need to allocate resources to extend working hours or hire more employees.
 
-### Localization and personalization
+### Localization and recommendations
 
 The use of Page Builder in the Customer Portal creation process enables you to create unique experiences for each business customer based on their location, business type, company, or market they operate on.

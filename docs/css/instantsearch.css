@@ -80,6 +80,8 @@ footer.md-footer {
     line-height: 20px;
     letter-spacing: 0.12px;
     margin: 4px 0;
+    display: block;
+    text-align: left;
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-header .ais-Highlight-highlighted {

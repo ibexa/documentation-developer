@@ -2,21 +2,21 @@
 
 This field type represents an integer value.
 
-| Name      | Internal name | Expected input |
-|-----------|---------------|----------------|
-| `Integer` | `ezinteger`   | `integer`      |
+| Name      | Internal name   | Expected input |
+|-----------|-----------------|----------------|
+| `Integer` | `ibexa_integer` | `integer`      |
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 
-|Type|Example|
-|-------|------|
-|`integer`|`2397`|
+| Type      | Example |
+|-----------|---------|
+| `integer` | `2397`  |
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -26,29 +26,30 @@ The Value class of this field type contains the following properties:
 
 ``` php
 // Value object content example
-$integer->value = 8
+/** @var \Ibexa\Core\FieldType\Integer\Value $integer */
+$integer->value = 8;
 ```
 
-##### Constructor
+#### Constructor
 
-The `Integer\Value` constructor initializes a new value object with the value provided.
+The `Integer\Value` constructor initializes a new value object with the value provided.
 It expects a numeric, integer value.
 
 ``` php
 // Constructor example
 use Ibexa\Core\FieldType\Integer;
- 
+
 // Instantiates a Integer Value object
-$integerValue = new Integer\Value( 8 );
+$integerValue = new Integer\Value(8);
 ```
 
-### Hash format
+#### Hash format
 
 Hash value of this field type is an integer value as a string.
 
 Example: `"8"`
 
-### String representation
+#### String representation
 
 String representation of the field type's value returns the integer value as a string.
 
@@ -56,7 +57,7 @@ Example: `"8"`
 
 ### Validation
 
-This field type supports `IntegerValueValidator`, defining maximum and minimum float value:
+This field type supports `IntegerValueValidator`, defining maximum and minimum float value:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
@@ -66,8 +67,8 @@ This field type supports `IntegerValueValidator`, defining maximum and minimum 
 ``` php
 // Example of validator configuration in PHP
 $validatorConfiguration = [
-    "minIntegerValue" => 1,
-    "maxIntegerValue" => 24
+    'minIntegerValue' => 1,
+    'maxIntegerValue' => 24,
 ];
 ```
 
