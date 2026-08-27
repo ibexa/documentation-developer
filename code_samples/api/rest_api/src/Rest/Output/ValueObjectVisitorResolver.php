@@ -10,25 +10,19 @@ class ValueObjectVisitorResolver implements ValueObjectVisitorResolverInterface
     /** @var array<string, ValueObjectVisitor> */
     private array $visitors;
 
-    private ValueObjectVisitorResolverInterface $valueObjectVisitorResolver;
-
     /** @param iterable<string, ValueObjectVisitor> $visitors */
-    public function __construct(iterable $visitors, ValueObjectVisitorResolverInterface $resolver)
+    public function __construct(iterable $visitors, private readonly ValueObjectVisitorResolverInterface $valueObjectVisitorResolver)
     {
         $this->visitors = [];
         foreach ($visitors as $type => $visitor) {
             $this->visitors[$type] = $visitor;
         }
-        $this->valueObjectVisitorResolver = $resolver;
     }
 
     public function resolveValueObjectVisitor(object $object): ?ValueObjectVisitor
     {
-        $className = get_class($object);
-        if (isset($this->visitors[$className])) {
-            return $this->visitors[$className];
-        }
+        $className = $object::class;
 
-        return $this->valueObjectVisitorResolver->resolveValueObjectVisitor($object);
+        return $this->visitors[$className] ?? $this->valueObjectVisitorResolver->resolveValueObjectVisitor($object);
     }
 }
