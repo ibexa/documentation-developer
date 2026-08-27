@@ -483,6 +483,11 @@ No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Up
 
 No additional steps needed for [[= product_name =]].
 
+!!! note "Database upgrade scripts"
+
+    The `vendor/ibexa/installer/upgrade/db` contains database update scripts.
+    You do not need to run them, they are part of the Translation management LTS Update [configuration procedure](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/#modify-database-schema).
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
