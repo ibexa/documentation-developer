@@ -1,0 +1,11 @@
+# Diagnostic-only ruleset for the dumped REST OpenAPI schema.
+#
+# `redocly build-docs` reports an unresolved $ref as nothing but
+# "Invalid reference token: <name>", with no file, path, or line. Linting with
+# this config first names the exact location, so the build log is actionable.
+#
+# Every other rule is off on purpose: this is a diagnostic, not a style gate.
+extends: []
+
+rules:
+    no-unresolved-refs: error

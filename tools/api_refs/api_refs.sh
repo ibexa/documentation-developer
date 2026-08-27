@@ -22,6 +22,7 @@ PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor res
 REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
 REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
+REDOCLY_LINT_CONFIG="$(pwd)/tools/api_refs/redocly-lint.yaml"; # Absolute path to the Redocly configuration used to report unresolved $refs in the dumped schema
 OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
@@ -237,6 +238,15 @@ $PHP_BINARY bin/console ibexa:openapi \
 > openapi.json;
 echo 'Fix REST OpenAPI schema… ';
 $PHP_BINARY $OPENAPI_FIX;
+echo 'Check the dumped REST OpenAPI schema for unresolved references… ';
+# `redocly build-docs` reports an unresolved $ref as nothing but
+# "Invalid reference token: <name>", with no file, path or line, which makes such
+# a failure very hard to trace back to the endpoint that caused it. Linting first
+# names the exact location. Kept non-fatal on purpose: `build-docs` below stays
+# the gate, so this can only ever add information, never break a working build.
+if ! redocly lint openapi.yaml --config $REDOCLY_LINT_CONFIG; then
+  echo '::error title=Unresolved references in the REST OpenAPI schema::The dumped schema references components it does not define; see the paths reported above. This makes the "redocly build-docs" step below fail with "Invalid reference token".';
+fi;
 echo 'Build REST Reference… ';
 echo 'Generate Redocly config from template… ';
 # Replace version with the base branch

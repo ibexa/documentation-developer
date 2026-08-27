@@ -139,6 +139,21 @@ jobs:
                     php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
                   fi
 
+            # The dumped schema lives in the temporary DXP install (TMP_DXP_DIR in
+            # tools/api_refs/api_refs.sh) and is copied into the doc only once the
+            # reference builds. Keep it when the build fails, so the schema that
+            # caused the failure can be inspected instead of re-run blindly.
+            - name: Upload the dumped OpenAPI schema on failure
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: openapi-schema
+                  path: |
+                      /tmp/ibexa-dxp-phpdoc/openapi.yaml
+                      /tmp/ibexa-dxp-phpdoc/openapi.json
+                  if-no-files-found: ignore
+                  retention-days: 14
+
             - name: Commit
               env:
                   BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
