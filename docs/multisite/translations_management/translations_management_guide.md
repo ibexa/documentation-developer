@@ -21,14 +21,6 @@ The package integrates with the [AI Actions framework](ai_actions_guide.md) to s
 
 Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s back office, while editors can trigger machine translation from the content editing interface.
 
-!!! note
-
-    Translations management is a standalone set of features.
-    Although some views are similar to those delivered by the [Automated translations](automated_translations.md) opt-in package, Translations management does not require the `ibexa/automated-translation` package to run.
-    These two packages use different namespaces, service tags, and provider interfaces.
-
-    If you're currently using Automated translations, consider migrating to Translations management.
-
 ## Availability
 
 Translations management is an opt-in capability available as an [LTS Update](editions.md#lts-updates) for all [[= product_name =]] editions, starting with the v5.0.10 version.
@@ -77,7 +69,7 @@ Editors can:
 
     Content types that are editable in [Page builder](page_builder_guide.md) or [Form builder](form_builder_guide.md) are excluded from side-by-side editing.
 
-    Products are editable in the side-by-side view, but [product attributes aren;t translatable](products.md#product-attributes).
+    Products are editable in the side-by-side view, but [product attributes aren't translatable](products.md#product-attributes).
 
 ### Command-line translation
 

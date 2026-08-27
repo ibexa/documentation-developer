@@ -2,8 +2,6 @@ deptrac:
   skip_violations:
     AcmeFeatureBundle:
       - Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension
-    App\AutomatedTranslation\ImageFieldEncoder:
-      - Ibexa\Core\FieldType\Image\Value
     App\Block\Listener\MyBlockListener:
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent

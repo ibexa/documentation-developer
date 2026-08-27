@@ -484,7 +484,6 @@ nav:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
             - Back office translations: multisite/languages/back_office_translations.md
-            - Automated content translation: multisite/languages/automated_translations.md
             - Translations management:
                 - Translations management: multisite/translations_management/translations_management.md
                 - Translations management guide: multisite/translations_management/translations_management_guide.md
