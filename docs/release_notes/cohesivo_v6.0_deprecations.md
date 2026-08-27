@@ -35,7 +35,7 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
 | Deprecated since | Entity                                                                   | Change                                                                                                                                                                                                    |
 | --- |---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| N/A | `\Ibexa\Contracts\AutomatedTranslation`  | The `ibexa/automated-translation` package is replaced by `ibexa/translations-management`. For Translations management API, see [`Ibexa\Contracts\TranslationsManagement`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html). |
+| v5.0.10 | `\Ibexa\Contracts\AutomatedTranslation`  | The `ibexa/automated-translation` package is replaced by `ibexa/translations-management`. For Translations management API, see [`Ibexa\Contracts\TranslationsManagement`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html). |
 
 ### ibexa/http-cache
 

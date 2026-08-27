@@ -21,11 +21,6 @@ The package integrates with the [AI Actions framework](ai_actions_guide.md) to s
 
 Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s back office, while editors can trigger machine translation from the content editing interface.
 
-!!! note
-
-    Translations management replaced the `ibexa/automated-translation` package.
-    If you used Automated translations with Ibexa DXP, migrate to Translations management.
-
 ## Availability
 
 Translations management is an opt-in capability available as an [LTS Update](editions.md#lts-updates) for all [[= product_name =]] editions, starting with the v5.0.10 version.
