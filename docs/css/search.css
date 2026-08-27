@@ -8,16 +8,16 @@
 
 .md-header .md-search .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
     background-color: transparent;
-    color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
 }
 
 .md-header .md-search .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--wrapper * {
-    color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
 }
 
 .md-header .md-search .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--highlight {
-    background-color: #E7DEF8;
-    color: #4E24A5 !important;
+    background-color: var(--cohesivo-primary-0);
+    color: var(--cohesivo-primary-80) !important;
     box-shadow: none;
     padding: 0;
 }
@@ -28,7 +28,7 @@
 
 .md-header .md-search .algolia-autocomplete .algolia-docsearch-suggestion:not(.algolia-docsearch-suggestion__main) {
     padding: 14px 0;
-    border-top: 1px solid var(--cohesivo-snow);
+    border-top: 1px solid var(--cohesivo-neutral-60);
 }
 
 .md-header .md-search .algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main .algolia-docsearch-suggestion--category-header {
@@ -42,7 +42,7 @@
     padding: 0 40px;
     border: 0;
     background-color: #F2F2F5;
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
     font-weight: 600;
 }
 
@@ -60,7 +60,7 @@
     text-align: left;
     padding: 0;
     margin: 0 40px;
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
 }
 
 .md-header .md-search .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--title {
@@ -74,7 +74,7 @@
     float: none;
     width: 100%;
     text-align: left;
-    color: #3E4145;
+    color: var(--cohesivo-neutral-200);
     font-size: 12px;
     line-height: 21px;
     letter-spacing: 0.12px;
@@ -89,7 +89,7 @@
 }
 
 .md-header .md-search .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--text {
-    color: #3E4145;
+    color: var(--cohesivo-neutral-200);
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.12px;
@@ -128,7 +128,7 @@
 }
 
 .md-header .md-search .algolia-autocomplete .search-page-link:hover {
-    color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
     transition: color 125ms;
 }
 

@@ -1,5 +1,6 @@
 {% include 'css/main.min.css.twig' %}
 {% include 'css/palette.min.css.twig' %}
+{% include 'css/tokens.css.twig' %}
 {% include 'css/codehilite.css.twig' %}
 {% include 'css/custom.css.twig' %}
 {% include 'css/navigation.css.twig' %}
@@ -28,7 +29,7 @@ body.menu-resizing {
 }
 
 .main_nav__resize-handler:hover {
-    background-color: var(--cohesivo-violet);
+    background-color: var(--cohesivo-primary-80);
 }
 
 @media only screen and (min-width: 76.1875em) {
@@ -81,7 +82,7 @@ body.menu-resizing {
     font-weight: 600;
     margin: 15px 0 15px;
     padding: 0;
-    background: #FFFFFF;
+    background: var(--white);
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -163,7 +164,7 @@ body.menu-resizing {
 }
 
 .md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]) .md-nav__item--active > label {
-    border-left: 2px solid #4E24A5;
+    border-left: 2px solid var(--cohesivo-primary-80);
 }
 
 .md-nav--secondary .md-nav__title {
@@ -180,7 +181,7 @@ body.menu-resizing {
 }
 
 .md-nav--primary .md-nav__item--active > label:not(.level-0):hover a {
-    color: #ffffff !important;
+    color: var(--white) !important;
 }
 
 .md-nav--primary .md-nav__item--nested.md-nav__item--active > .level-1:hover {
@@ -206,7 +207,7 @@ ul.breadcrumbs li.breadcrumb-item a {
 }
 
 ul.breadcrumbs li.breadcrumb-item-current span {
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
 }
 
 
@@ -257,8 +258,8 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 .md-typeset .content-header__copy-fqcn {
     font-size: 14px;
     line-height: 18px;
-    color: #0E1216;
-    border: 1px solid #0E1216;
+    color: var(--cohesivo-neutral-240);
+    border: 1px solid var(--cohesivo-neutral-240);
     border-radius: 8px;
     padding: 4px 16px;  
     margin-right: auto;
@@ -268,8 +269,8 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 }
 
 .md-typeset .content-header__copy-fqcn:hover {
-    color: var(--cohesivo-violet);
-    border-color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
+    border-color: var(--cohesivo-primary-80);
 }
 
 .md-typeset .content-header__found-in {
@@ -279,7 +280,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 }
 
 .md-typeset .content-header__found-in:hover {
-    color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
 }
 
 .md-typeset .content-header__found-in img {
@@ -431,7 +432,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 
 .md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry small {
     grid-area: namespace;
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
     font-weight: 700;
     font-size: 14px;
     padding: 4px 0 4px 12px;
@@ -448,7 +449,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 
 .md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry:hover small,
 .md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry:hover .phpdocumentor-summary {
-    background-color: rgba(78, 36, 165, .05);
+    background-color: var(--cohesivo-primary-tint-5);
     cursor: pointer;
 }
 
@@ -538,7 +539,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     opacity: 0;
     position: absolute;
     z-index: 1;
-    color: #FFFFFF;
+    color: var(--white);
     background-color: #2B333C;
     border-radius: 4px;
     padding: 4px 12px;

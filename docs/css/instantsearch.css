@@ -46,33 +46,33 @@ footer.md-footer {
 }
 
 .md-content .ais-InstantSearch .ais-Hits-item + .ais-Hits-item {
-    border-top: 1px solid var(--cohesivo-snow);
+    border-top: 1px solid var(--cohesivo-neutral-60);
     margin-top: 16px;
     padding-top: 16px;
 }
 
 .md-content .ais-InstantSearch .ais-Highlight-highlighted {
-    background-color: #E7DEF8;
-    color: #4E24A5;
+    background-color: var(--cohesivo-primary-0);
+    color: var(--cohesivo-primary-80);
     font-size: inherit;
     line-height: inherit;
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry {
     display: block;
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry:hover,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-header,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-content {
-    color: var(--cohesivo-violet)
+    color: var(--cohesivo-primary-80)
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry:hover mark,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-header mark,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-content mark {
-    color: var(--cohesivo-violet)
+    color: var(--cohesivo-primary-80)
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-header {
@@ -90,7 +90,7 @@ footer.md-footer {
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-content {
-    color: #3E4145;
+    color: var(--cohesivo-neutral-200);
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.12px;
@@ -139,7 +139,7 @@ footer.md-footer {
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.12px;
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
     height: 40px;
     min-width: 40px;
     display: flex;
@@ -149,7 +149,7 @@ footer.md-footer {
 
 .md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-item--selected .ais-Pagination-link,
 .md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link:hover {
-    background-color: #F5F6F6;
+    background-color: var(--cohesivo-neutral-30);
     border-radius: 5px;
 }
 
