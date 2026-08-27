@@ -19,7 +19,7 @@
 .highlight .p,
 .highlight .cp
 {
-    color: var(--cohesivo-dusk-black);
+    color: var(--cohesivo-neutral-240);
 }
 
 /* HTML tags and YAML keys */
@@ -34,7 +34,7 @@
 .highlight .nf,
 .highlight .fm,
 .highlight .nn {
-    color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
 }
 
 /* Variable names */
@@ -47,7 +47,7 @@
 
 /* Attributes */
 .highlight .na {
-    color: var(--cohesivo-violet);
+    color: var(--cohesivo-primary-80);
 }
 
 /* Strings */

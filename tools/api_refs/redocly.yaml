@@ -2,7 +2,7 @@ openapi:
   hideHostname: true
   theme:
     # Cohesivo palette. Without this block Redoc renders in its stock indigo.
-    # Values mirror scss/_variables.scss; primary is $color-primary-80.
+    # Values mirror docs/css/tokens.css; primary is --cohesivo-primary-80.
     colors:
       primary:
         main: '#4E24A5'
