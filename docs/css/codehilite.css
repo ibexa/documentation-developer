@@ -19,7 +19,7 @@
 .highlight .p,
 .highlight .cp
 {
-    color: var(--ibexa-dusk-black);
+    color: var(--cohesivo-dusk-black);
 }
 
 /* HTML tags and YAML keys */
@@ -34,7 +34,7 @@
 .highlight .nf,
 .highlight .fm,
 .highlight .nn {
-    color: var(--ibexa-jazzberry);
+    color: var(--cohesivo-violet);
 }
 
 /* Variable names */
@@ -42,12 +42,12 @@
 .highlight .vc,
 .highlight .vg,
 .highlight .vi {
-    color: #41000F;
+    color: #3E4145;
 }
 
 /* Attributes */
 .highlight .na {
-    color: var(--ibexa-jazzberry);
+    color: var(--cohesivo-violet);
 }
 
 /* Strings */
