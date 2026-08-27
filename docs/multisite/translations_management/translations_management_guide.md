@@ -23,11 +23,8 @@ Administrators can manage providers and configure default provider-to-language-p
 
 !!! note
 
-    Translations management is a standalone set of features.
-    Although some views are similar to those delivered by the [Automated translations](automated_translations.md) opt-in package, Translations management does not require the `ibexa/automated-translation` package to run.
-    These two packages use different namespaces, service tags, and provider interfaces.
-
-    If you're currently using Automated translations, consider migrating to Translations management.
+    Translations management replaced the `ibexa/automated-translation` package.
+    If you used Automated translations with Ibexa DXP, migrate to Translations management.
 
 ## Availability
 
@@ -77,7 +74,7 @@ Editors can:
 
     Content types that are editable in [Page builder](page_builder_guide.md) or [Form builder](form_builder_guide.md) are excluded from side-by-side editing.
 
-    Products are editable in the side-by-side view, but [product attributes aren;t translatable](products.md#product-attributes).
+    Products are editable in the side-by-side view, but [product attributes aren't translatable](products.md#product-attributes).
 
 ### Command-line translation
 

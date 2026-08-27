@@ -26,9 +26,16 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
 ## Removed packages
 
-The `ibexa/app-switcher` package, and its `IbexaAppSwitcherBundle`, is no longer part of the 6.0.
+- The `ibexa/app-switcher` package, and its `IbexaAppSwitcherBundle`, is no longer part of the 6.0.
+- The `ibexa/automated-translation` package is no longer available as an opt-in. Use [Translations management](configure_translations_management.md) instead.
 
 ## PHP API changes
+
+### ibexa/automated-translations
+
+| Deprecated since | Entity                                                                   | Change                                                                                                                                                                                                    |
+| --- |---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| N/A | `\Ibexa\Contracts\AutomatedTranslation`  | The `ibexa/automated-translation` package is replaced by `ibexa/translations-management`. For Translations management API, see [`Ibexa\Contracts\TranslationsManagement`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html). |
 
 ### ibexa/http-cache
 
