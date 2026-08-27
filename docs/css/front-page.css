@@ -35,13 +35,13 @@ body {
   padding-right: 12px;
 }
 .md-typeset .front-page .info-tile {
-  border: 1px solid #ececf1;
+  border: 1px solid #ececec;
   border-radius: 12px;
   padding: 12px;
   display: flex;
   align-items: center;
   flex: 1;
-  box-shadow: 4px 22px 47px rgba(52, 116, 204, 0.05);
+  box-shadow: 4px 22px 47px rgba(119, 66, 213, 0.05);
   height: 100%;
 }
 .md-typeset .front-page .info-tile--link-card {
@@ -52,13 +52,13 @@ body {
   margin-bottom: 0;
 }
 .md-typeset .front-page .info-tile--link-card h3 svg {
-  fill: #ae1164;
+  fill: #4e24a5;
   width: 16px;
   height: 16px;
   margin-right: 4px;
 }
 .md-typeset .front-page .info-tile--link-card a {
-  color: #131c26;
+  color: #0e1216;
   text-decoration: underline;
 }
 .md-typeset .front-page .info-tile__circle {
@@ -77,7 +77,7 @@ body {
   height: 100%;
   font-size: 12px;
   line-height: 18px;
-  color: #71767c;
+  color: #6e7173;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,20 +96,20 @@ body {
   font-size: 22px;
   line-height: 26px;
   margin-top: 8px;
-  color: #131c26;
+  color: #0e1216;
 }
 .md-typeset .front-page .info-tile__details {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   font-size: 10px;
-  color: #ae1164;
+  color: #4e24a5;
 }
 .md-typeset .front-page .info-tile__arrow-icon {
   width: 13px;
   height: 13px;
   margin-left: 4px;
-  fill: #ae1164;
+  fill: #4e24a5;
 }
 .md-typeset .front-page .info-tile h3 {
   font-size: 18px;
@@ -123,7 +123,6 @@ body {
 .md-typeset .front-page .info-tile ul {
   margin: 0 0 0 12px;
   list-style: none;
-  margin-left: 24px;
 }
 .md-typeset .front-page .info-tile ul li {
   padding: 4px;
@@ -132,9 +131,15 @@ body {
 .md-typeset .front-page .info-tile ul li + li {
   margin-top: 16px;
 }
+.md-typeset .front-page .info-tile ul {
+  margin-left: 24px;
+}
+.md-typeset .front-page a.info-tile {
+  text-decoration: none;
+}
 .md-typeset .front-page a.info-tile:hover {
-  border-color: #ae1164;
-  box-shadow: 0px 22px 24px 0px rgba(174, 17, 100, 0.1);
+  border-color: #4e24a5;
+  box-shadow: 0 22px 24px 0 rgba(119, 66, 213, 0.15);
   text-decoration: none;
 }
 .md-typeset .front-page .notifications {
@@ -143,7 +148,7 @@ body {
 }
 .md-typeset .front-page .notification {
   border-radius: 12px;
-  color: #131c26;
+  color: #0e1216;
   font-size: 12px;
   padding: 32px;
   position: relative;
@@ -163,11 +168,11 @@ body {
   line-height: 1.5;
 }
 .md-typeset .front-page .notification__content a {
-  color: #131c26;
+  color: #0e1216;
   text-decoration: underline;
 }
 .md-typeset .front-page .notification__content a:hover {
-  color: #3474cc;
+  color: #19628f;
 }
 .md-typeset .front-page .notification__cta {
   position: relative;
@@ -180,7 +185,7 @@ body {
   padding: 15px 16px;
   border-radius: 12px;
   font-size: 14px;
-  color: #ae1164;
+  color: #4e24a5;
 }
 .md-typeset .front-page .notification__cta a + a {
   margin-left: 8px;
@@ -204,19 +209,19 @@ body {
   padding-right: 240px;
 }
 .md-typeset .front-page .notification--latest-release .notification__cta a {
-  background: linear-gradient(to right, #db0032 0%, #ae1164 100%);
+  background: linear-gradient(90deg, #4e24a5 40%, #b497e8 100%);
   color: #ffffff;
 }
 .md-typeset .front-page .notification--lts-update {
-  border: 2px solid #e0e0e8;
+  border: 2px solid #e7e7e8;
   height: 100%;
   padding-top: 30px;
 }
 .md-typeset .front-page .notification--lts-update .notification__cta a:first-child {
-  border: 1px solid #ae1164;
+  border: 1px solid #4e24a5;
 }
 .md-typeset .front-page .accordion {
-  border: 1px solid #ececf1;
+  border: 1px solid #ececec;
   border-radius: 12px;
   padding: 12px;
 }
@@ -229,7 +234,7 @@ body {
   box-shadow: none;
 }
 .md-typeset .front-page .accordion details[open] summary {
-  border-bottom: 1px solid #e0e0e8;
+  border-bottom: 1px solid #e7e7e8;
   padding-bottom: 16px;
   margin-bottom: 16px;
 }
@@ -241,11 +246,11 @@ body {
   font-size: 14px;
 }
 .md-typeset .front-page .accordion details[open] .row a {
-  color: #131c26;
+  color: #0e1216;
   text-decoration: underline;
 }
 .md-typeset .front-page .accordion details[open] .row a:hover {
-  color: #3474cc;
+  color: #19628f;
 }
 .md-typeset .front-page .accordion details[open] .row ul {
   margin: 0 0 0 12px;
@@ -293,5 +298,3 @@ body {
     max-width: 25%;
   }
 }
-
-/*# sourceMappingURL=front-page.css.map */

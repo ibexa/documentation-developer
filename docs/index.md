@@ -8,7 +8,7 @@
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="getting_started/requirements/">
-                <div class="info-tile__circle" style="background-color: #fff7ec;">
+                <div class="info-tile__circle" style="background-color: #FCEFDE;">
                     <svg width="20" height="25"><use xlink:href="images/icons.svg#check-requirements" /></svg>
                 </div>
                 <div class="info-tile__content">
@@ -24,7 +24,7 @@
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="getting_started/install_ibexa_dxp/">
-                <div class="info-tile__circle" style="background-color: #f6e7ef;">
+                <div class="info-tile__circle" style="background-color: #E7DEF8;">
                     <svg width="25" height="25"><use xlink:href="images/icons.svg#install-dxp" /></svg>
                 </div>
                 <div class="info-tile__content">
@@ -40,7 +40,7 @@
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
-                <div class="info-tile__circle" style="background-color: #ecf8fb;">
+                <div class="info-tile__circle" style="background-color: #EDF2F7;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
                 </div>
                 <div class="info-tile__content">
@@ -56,7 +56,7 @@
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="getting_started/first_steps/">
-                <div class="info-tile__circle" style="background-color: #f3f3f6;">
+                <div class="info-tile__circle" style="background-color: #F5F6F6;">
                     <svg width="25" height="24"><use xlink:href="images/icons.svg#first-steps" /></svg>
                 </div>
                 <div class="info-tile__content">
