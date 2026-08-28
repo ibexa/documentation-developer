@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>SegmentationServiceInterface | PHP API Reference (Ibexa Documentation)</title>
+            <title>SegmentationServiceInterface | PHP API Reference (Cohesivo Documentation)</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="" />
@@ -42,7 +42,7 @@
    aria-label="PHP API Reference"
    class="md-header__button md-logo"
 >
-    <img src="./images/ibexa-dxp-logo.png">
+    <img src="./images/cohesivo-logo.svg">
 </a>
         <div class="md-header__switcher push">
     <div class="md-flex__ellipsis md-header__title switcher docs-switcher" data-md-component="title">
@@ -239,7 +239,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 19">19</span>
+        <span title="at line 21">21</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
             <div class="content-header__subheader">Interface</div>
@@ -270,7 +270,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 81">81</span>
+        <span title="at line 83">83</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -367,6 +367,167 @@
                                                                                     </dl>
     
                 <div class="content-header">
+        <h3 id="method_countSegmentsPerGroup">
+                <img src="./images/public.svg" alt="public" title="public" />countSegmentsPerGroup()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_countSegmentsPerGroup" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
+        <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
+                :
+        <span title="at line 94">94</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">countSegmentsPerGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sources</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$searchPhrase</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, int&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $sources
+                    </td>
+                    <td>
+                        array&lt;string|int, string&gt;
+                    </td>
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $searchPhrase
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, int&gt;</p>
+                <section class="phpdocumentor-description">
+        <p>segment counts keyed by segment group id, ordered by group name</p>
+
+    </section>
+
+                        
+    
+                <div class="content-header">
+        <h3 id="method_countSegmentsPerSource">
+                <img src="./images/public.svg" alt="public" title="public" />countSegmentsPerSource()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_countSegmentsPerSource" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
+        <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
+                :
+        <span title="at line 101">101</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">countSegmentsPerSource</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$segmentGroupIds</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$searchPhrase</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, int&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $segmentGroupIds
+                    </td>
+                    <td>
+                        array&lt;string|int, int&gt;
+                    </td>
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $searchPhrase
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string, int&gt;</p>
+                        
+    
+                <div class="content-header">
         <h3 id="method_createSegment">
                 <img src="./images/public.svg" alt="public" title="public" />createSegment()
             <a class="headerlink" href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_createSegment" title="Permanent link">¶</a>
@@ -374,7 +535,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 35">35</span>
+        <span title="at line 37">37</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -438,7 +599,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 53">53</span>
+        <span title="at line 55">55</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -495,6 +656,70 @@
                         
     
                 <div class="content-header">
+        <h3 id="method_findSegments">
+                <img src="./images/public.svg" alt="public" title="public" />findSegments()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_findSegments" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
+        <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
+                :
+        <span title="at line 87">87</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">findSegments</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Segmentation-Query-SegmentQuery.html"><abbr title="\Ibexa\Contracts\Segmentation\Query\SegmentQuery">SegmentQuery</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Segmentation-Query-SegmentSearchResult.html"><abbr title="\Ibexa\Contracts\Segmentation\Query\SegmentSearchResult">SegmentSearchResult</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $query
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Segmentation-Query-SegmentQuery.html"><abbr title="\Ibexa\Contracts\Segmentation\Query\SegmentQuery">SegmentQuery</abbr></a>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Segmentation-Query-SegmentSearchResult.html"><abbr title="\Ibexa\Contracts\Segmentation\Query\SegmentSearchResult">SegmentSearchResult</abbr></a></p>
+                        
+    
+                <div class="content-header">
         <h3 id="method_isUserAssignedToSegment">
                 <img src="./images/public.svg" alt="public" title="public" />isUserAssignedToSegment()
             <a class="headerlink" href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_isUserAssignedToSegment" title="Permanent link">¶</a>
@@ -502,7 +727,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 74">74</span>
+        <span title="at line 76">76</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -580,7 +805,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 24">24</span>
+        <span title="at line 26">26</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -645,7 +870,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 33">33</span>
+        <span title="at line 35">35</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -709,7 +934,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 49">49</span>
+        <span title="at line 51">51</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -774,7 +999,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 51">51</span>
+        <span title="at line 53">53</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -838,7 +1063,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 62">62</span>
+        <span title="at line 64">64</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -875,7 +1100,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 31">31</span>
+        <span title="at line 33">33</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -939,7 +1164,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 72">72</span>
+        <span title="at line 74">74</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -976,7 +1201,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 44">44</span>
+        <span title="at line 46">46</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1040,7 +1265,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 67">67</span>
+        <span title="at line 69">69</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1104,7 +1329,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 39">39</span>
+        <span title="at line 41">41</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1166,7 +1391,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 57">57</span>
+        <span title="at line 59">59</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1228,7 +1453,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 83">83</span>
+        <span title="at line 85">85</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1304,7 +1529,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 37">37</span>
+        <span title="at line 39">39</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1382,7 +1607,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">
         <abbr title="vendor/ibexa/segmentation/src/contracts/SegmentationServiceInterface.php">SegmentationServiceInterface.php</abbr>
                 :
-        <span title="at line 55">55</span>
+        <span title="at line 57">57</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1478,6 +1703,16 @@
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_countSegmentsPerGroup" title="countSegmentsPerGroup" class="md-nav__link">
+                                    countSegmentsPerGroup()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_countSegmentsPerSource" title="countSegmentsPerSource" class="md-nav__link">
+                                    countSegmentsPerSource()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
                                 <a href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_createSegment" title="createSegment" class="md-nav__link">
                                     createSegment()
                                 </a>
@@ -1485,6 +1720,11 @@
                                                     <li class="md-nav__item level-2">
                                 <a href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_createSegmentGroup" title="createSegmentGroup" class="md-nav__link">
                                     createSegmentGroup()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_findSegments" title="findSegments" class="md-nav__link">
+                                    findSegments()
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">

@@ -1821,91 +1821,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-UniversalDiscovery-Provider.html#constant_SORT_CLAUSE_CONTENT_NAME"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface",
-            "name": "ClientInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AsetConfiguration\u0028\u0029",
-            "name": "setConfiguration",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_setConfiguration"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_translate"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AsupportsLanguage\u0028\u0029",
-            "name": "supportsLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_supportsLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AgetServiceAlias\u0028\u0029",
-            "name": "getServiceAlias",
-            "summary": "Use\u0020as\u0020key.",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_getServiceAlias"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AgetServiceFullName\u0028\u0029",
-            "name": "getServiceFullName",
-            "summary": "Use\u0020for\u0020Human.",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_getServiceFullName"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface",
-            "name": "BlockAttributeEncoderInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003AcanEncode\u0028\u0029",
-            "name": "canEncode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_canEncode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003AcanDecode\u0028\u0029",
-            "name": "canDecode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_canDecode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_encode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003Adecode\u0028\u0029",
-            "name": "decode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_decode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface",
-            "name": "FieldEncoderInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003AcanEncode\u0028\u0029",
-            "name": "canEncode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_canEncode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003AcanDecode\u0028\u0029",
-            "name": "canDecode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_canDecode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_encode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003Adecode\u0028\u0029",
-            "name": "decode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_decode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Exception\\ClientNotConfiguredException",
-            "name": "ClientNotConfiguredException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Exception-ClientNotConfiguredException.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\CalendarServiceInterface",
             "name": "CalendarServiceInterface",
             "summary": "",
@@ -16270,6 +16185,36 @@ Search.appendIndex(
             "name": "FilteringQueryBuilder",
             "summary": "Repository\u0020Filtering\u0020query\u0020builder\u0020wrapper\u0020for\u0020\\Doctrine\\DBAL\\Query\\QueryBuilder.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "Inherited\u0020from\u0020\\Doctrine\\DBAL\\Query\\QueryBuilder\u003A\u003Afrom.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003Ajoin\u0028\u0029",
+            "name": "join",
+            "summary": "Inherited\u0020from\u0020\\Doctrine\\DBAL\\Query\\QueryBuilder\u003A\u003Ajoin.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#method_join"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003AinnerJoin\u0028\u0029",
+            "name": "innerJoin",
+            "summary": "Inherited\u0020from\u0020\\Doctrine\\DBAL\\Query\\QueryBuilder\u003A\u003AinnerJoin.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#method_innerJoin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003AleftJoin\u0028\u0029",
+            "name": "leftJoin",
+            "summary": "Inherited\u0020from\u0020\\Doctrine\\DBAL\\Query\\QueryBuilder\u003A\u003AleftJoin.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#method_leftJoin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003ArightJoin\u0028\u0029",
+            "name": "rightJoin",
+            "summary": "Inherited\u0020from\u0020\\Doctrine\\DBAL\\Query\\QueryBuilder\u003A\u003ArightJoin.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#method_rightJoin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003AhasFromAlias\u0028\u0029",
+            "name": "hasFromAlias",
+            "summary": "Whether\u0020\u0024alias\u0020has\u0020been\u0020registered\u0020as\u0020a\u0020root\u0020FROM\u0020alias\u0020\u0028via\u0020\u007B\u0040see\u0020from\u0028\u0029\u007D\u0029.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#method_hasFromAlias"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Doctrine\\FilteringQueryBuilder\u003A\u003AjoinOnce\u0028\u0029",
             "name": "joinOnce",
@@ -32491,6 +32436,16 @@ Search.appendIndex(
             "summary": "Construct\u0020a\u0020singular\u0020only\u0020message\u0020from\u0020string\u0020and\u0020optional\u0020value\u0020array.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation-Message.html#method___construct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\\Message\u003A\u003AgetMessageTemplate\u0028\u0029",
+            "name": "getMessageTemplate",
+            "summary": "The\u0020message\u0020template\u0020to\u0020translate,\u0020with\u0020\u0025placeholder\u0025\u0020parameters.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation-Message.html#method_getMessageTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\\Message\u003A\u003AgetValues\u0028\u0029",
+            "name": "getValues",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation-Message.html#method_getValues"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\\Message\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "",
@@ -32516,6 +32471,16 @@ Search.appendIndex(
             "summary": "Construct\u0020plural\u0020message\u0020from\u0020singular,\u0020plural\u0020and\u0020value\u0020array.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation-Plural.html#method___construct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\\Plural\u003A\u003AgetMessageTemplate\u0028\u0029",
+            "name": "getMessageTemplate",
+            "summary": "The\u0020message\u0020template\u0020to\u0020translate,\u0020with\u0020\u0025placeholder\u0025\u0020parameters.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation-Plural.html#method_getMessageTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\\Plural\u003A\u003AgetValues\u0028\u0029",
+            "name": "getValues",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation-Plural.html#method_getValues"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\\Plural\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "",
@@ -32540,6 +32505,16 @@ Search.appendIndex(
             "name": "Translation",
             "summary": "Abstract\u0020for\u0020UI\u0020translation\u0020messages,\u0020use\u0020its\u0020extensions\u003A\u0020Translation\\Message,\u0020Translation\\Plural.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\u003A\u003AgetMessageTemplate\u0028\u0029",
+            "name": "getMessageTemplate",
+            "summary": "The\u0020message\u0020template\u0020to\u0020translate,\u0020with\u0020\u0025placeholder\u0025\u0020parameters.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation.html#method_getMessageTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Translation\u003A\u003AgetValues\u0028\u0029",
+            "name": "getValues",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Translation.html#method_getValues"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Trash\\Query\\Criterion",
             "name": "Criterion",
@@ -41146,6 +41121,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-DoctrineSchema-Exception-InvalidConfigurationException.html#method___construct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaAssetsFilterBypassInterface",
+            "name": "SchemaAssetsFilterBypassInterface",
+            "summary": "Temporarily\u0020lifts\u0020whatever\u0020schema\u0020assets\u0020filter\u0020is\u0020configured\u0020on\u0020a\nconnection\u0020so\u0020a\u0020callback\u0020can\u0020see\u0020every\u0020table,\u0020then\u0020restores\u0020it.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaAssetsFilterBypassInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaAssetsFilterBypassInterface\u003A\u003Acall\u0028\u0029",
+            "name": "call",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaAssetsFilterBypassInterface.html#method_call"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaBuilderEvents",
             "name": "SchemaBuilderEvents",
             "summary": "",
@@ -41926,6 +41911,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setName"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_getDescription"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AsetDescription\u0028\u0029",
+            "name": "setDescription",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setDescription"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetNameHelp\u0028\u0029",
             "name": "getNameHelp",
             "summary": "",
@@ -42020,6 +42015,11 @@ Search.appendIndex(
             "name": "name",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_name"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_description"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024nameHelp",
             "name": "nameHelp",
@@ -42130,6 +42130,31 @@ Search.appendIndex(
             "name": "BLOCK_NAME_MAX_LENGTH",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Service-BlockServiceInterface.html#constant_BLOCK_NAME_MAX_LENGTH"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent",
+            "name": "PageStructureResolveEvent",
+            "summary": "Allows\u0020amending\u0020the\u0020resolved\u0020Page\u0020structure\u0020before\u0020it\u0020is\u0020returned.",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003AgetPageStructure\u0028\u0029",
+            "name": "getPageStructure",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method_getPageStructure"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003AsetPageStructure\u0028\u0029",
+            "name": "setPageStructure",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method_setPageStructure"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003AgetContentType\u0028\u0029",
+            "name": "getContentType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method_getContentType"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\ScheduleBlock\\Timeline\\Event\\EventInterface",
             "name": "EventInterface",
@@ -42946,6 +42971,11 @@ Search.appendIndex(
             "summary": "Tags\u0020a\u0020Response\u0020based\u0020on\u0020data\u0020from\u0020a\u0020value.",
             "url": "classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\HttpCache\\ResponseTagger\\ResponseTagger\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html#method_supports"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\HttpCache\\ResponseTagger\\ResponseTagger\u003A\u003Atag\u0028\u0029",
             "name": "tag",
             "summary": "Extracts\u0020tags\u0020from\u0020a\u0020value.",
@@ -43705,31 +43735,6 @@ Search.appendIndex(
             "name": "getUnit",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Measurement-Value-ValueInterface.html#method_getUnit"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp",
-            "name": "DeduplicateStamp",
-            "summary": "\u0028c\u0029\u0020Fabien\u0020Potencier\u0020\u003Cfabien\u0040symfony.com\u003E.",
-            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003AonlyDeduplicateInQueue\u0028\u0029",
-            "name": "onlyDeduplicateInQueue",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method_onlyDeduplicateInQueue"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003AgetKey\u0028\u0029",
-            "name": "getKey",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method_getKey"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\DeduplicateStamp\u003A\u003AgetTtl\u0028\u0029",
-            "name": "getTtl",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html#method_getTtl"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Messenger\\Stamp\\SiteAccessStamp",
             "name": "SiteAccessStamp",
@@ -55941,6 +55946,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html#enumcase_IBEXA_50"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rector\\Sets\\IbexaSetList\u003A\u003AIBEXA_60",
+            "name": "IBEXA_60",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html#enumcase_IBEXA_60"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Event\\BeforeParseEvent",
             "name": "BeforeParseEvent",
             "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
@@ -57551,6 +57561,81 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html#method_getErrors"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion\\LogicalAnd",
+            "name": "LogicalAnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-Criterion-LogicalAnd.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion\\LogicalOr",
+            "name": "LogicalOr",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-Criterion-LogicalOr.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion\\SegmentGroupCriterion",
+            "name": "SegmentGroupCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-Criterion-SegmentGroupCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion\\SegmentGroupCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-Criterion-SegmentGroupCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion\\SourceCriterion",
+            "name": "SourceCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-Criterion-SourceCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion\\SourceCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-Criterion-SourceCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\CriterionInterface",
+            "name": "CriterionInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-CriterionInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentQuery",
+            "name": "SegmentQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentQuery.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentQuery\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentQuery.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentQuery\u003A\u003A\u0024query",
+            "name": "query",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentQuery.html#property_query"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentQuery\u003A\u003A\u0024searchPhrase",
+            "name": "searchPhrase",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentQuery.html#property_searchPhrase"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentSearchResult",
+            "name": "SegmentSearchResult",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentSearchResult.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentSearchResult\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentSearchResult.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentSearchResult\u003A\u003A\u0024segments",
+            "name": "segments",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentSearchResult.html#property_segments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\SegmentSearchResult\u003A\u003A\u0024totalCount",
+            "name": "totalCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-Query-SegmentSearchResult.html#property_totalCount"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceDecorator",
             "name": "SegmentationServiceDecorator",
             "summary": "",
@@ -57651,6 +57736,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceDecorator.html#method_unassignUserFromSegment"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceDecorator\u003A\u003AfindSegments\u0028\u0029",
+            "name": "findSegments",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceDecorator.html#method_findSegments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceDecorator\u003A\u003AcountSegmentsPerGroup\u0028\u0029",
+            "name": "countSegmentsPerGroup",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceDecorator.html#method_countSegmentsPerGroup"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceDecorator\u003A\u003AcountSegmentsPerSource\u0028\u0029",
+            "name": "countSegmentsPerSource",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceDecorator.html#method_countSegmentsPerSource"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceDecorator\u003A\u003A\u0024innerService",
             "name": "innerService",
             "summary": "",
@@ -57750,6 +57850,21 @@ Search.appendIndex(
             "name": "unassignUserFromSegment",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_unassignUserFromSegment"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceInterface\u003A\u003AfindSegments\u0028\u0029",
+            "name": "findSegments",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_findSegments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceInterface\u003A\u003AcountSegmentsPerGroup\u0028\u0029",
+            "name": "countSegmentsPerGroup",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_countSegmentsPerGroup"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceInterface\u003A\u003AcountSegmentsPerSource\u0028\u0029",
+            "name": "countSegmentsPerSource",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Segmentation-SegmentationServiceInterface.html#method_countSegmentsPerSource"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Seo\\Renderer\\Tag\\TagRendererInterface",
             "name": "TagRendererInterface",
@@ -60741,6 +60856,51 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Attribute-FormTypeMapper-AttributeFormTypeMapperInterface.html#method_map"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsFormMapper\\AttributeOptionsFormMapperInterface",
+            "name": "AttributeOptionsFormMapperInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsFormMapper-AttributeOptionsFormMapperInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsFormMapper\\AttributeOptionsFormMapperInterface\u003A\u003AcreateOptionsForm\u0028\u0029",
+            "name": "createOptionsForm",
+            "summary": "Adds\u0020a\u0020form\u0020field\u0020named\u0020\u0024name\u0020exposing\u0020the\u0020attribute\u0020type\u0020options.",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsFormMapper-AttributeOptionsFormMapperInterface.html#method_createOptionsForm"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\AttributeOptionsValidatorInterface",
+            "name": "AttributeOptionsValidatorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-AttributeOptionsValidatorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\AttributeOptionsValidatorInterface\u003A\u003AvalidateOptions\u0028\u0029",
+            "name": "validateOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-AttributeOptionsValidatorInterface.html#method_validateOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\OptionsValidatorError",
+            "name": "OptionsValidatorError",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-OptionsValidatorError.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\OptionsValidatorError\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-OptionsValidatorError.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\OptionsValidatorError\u003A\u003A\u0024target",
+            "name": "target",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-OptionsValidatorError.html#property_target"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\OptionsValidatorError\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-OptionsValidatorError.html#property_message"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator\\OptionsValidatorError\u003A\u003A\u0024parameters",
+            "name": "parameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Attribute-OptionsValidator-OptionsValidatorError.html#property_parameters"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\AttributeDefinitionServiceInterface",
             "name": "AttributeDefinitionServiceInterface",
             "summary": "",
@@ -60841,6 +61001,146 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-AttributeGroupServiceInterface.html#method_isAttributeGroupUsed"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextAssignmentServiceInterface",
+            "name": "BrandContextAssignmentServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextAssignmentServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextAssignmentServiceInterface\u003A\u003AgetAssignments\u0028\u0029",
+            "name": "getAssignments",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextAssignmentServiceInterface.html#method_getAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextAssignmentServiceInterface\u003A\u003AsetAssignments\u0028\u0029",
+            "name": "setAssignments",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextAssignmentServiceInterface.html#method_setAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextAssignmentServiceInterface\u003A\u003AgetAllAssignments\u0028\u0029",
+            "name": "getAllAssignments",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextAssignmentServiceInterface.html#method_getAllAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextAssignmentServiceInterface\u003A\u003AresolveContextForSiteAccess\u0028\u0029",
+            "name": "resolveContextForSiteAccess",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextAssignmentServiceInterface.html#method_resolveContextForSiteAccess"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextCompletionCalculatorInterface",
+            "name": "BrandContextCompletionCalculatorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextCompletionCalculatorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextCompletionCalculatorInterface\u003A\u003Acalculate\u0028\u0029",
+            "name": "calculate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextCompletionCalculatorInterface.html#method_calculate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface",
+            "name": "BrandContextServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AgetBrandContext\u0028\u0029",
+            "name": "getBrandContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_getBrandContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AfindBrandContexts\u0028\u0029",
+            "name": "findBrandContexts",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_findBrandContexts"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AcreateBrandContext\u0028\u0029",
+            "name": "createBrandContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_createBrandContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AnewBrandContextCreateStruct\u0028\u0029",
+            "name": "newBrandContextCreateStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_newBrandContextCreateStruct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AnewBrandContextUpdateStruct\u0028\u0029",
+            "name": "newBrandContextUpdateStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_newBrandContextUpdateStruct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AupdateBrandContext\u0028\u0029",
+            "name": "updateBrandContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_updateBrandContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AdeleteBrandContext\u0028\u0029",
+            "name": "deleteBrandContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_deleteBrandContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\BrandContextServiceInterface\u003A\u003AdeleteBrandContextTranslation\u0028\u0029",
+            "name": "deleteBrandContextTranslation",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-BrandContextServiceInterface.html#method_deleteBrandContextTranslation"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent",
+            "name": "BrandContextAttributeRenderEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AgetParameters\u0028\u0029",
+            "name": "getParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_getParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AsetParameters\u0028\u0029",
+            "name": "setParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_setParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AgetTemplates\u0028\u0029",
+            "name": "getTemplates",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_getTemplates"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AsetTemplates\u0028\u0029",
+            "name": "setTemplates",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_setTemplates"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AappendTemplate\u0028\u0029",
+            "name": "appendTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_appendTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AprependTemplate\u0028\u0029",
+            "name": "prependTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_prependTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AaddTemplateBefore\u0028\u0029",
+            "name": "addTemplateBefore",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_addTemplateBefore"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AaddTemplateAfter\u0028\u0029",
+            "name": "addTemplateAfter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_addTemplateAfter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AhasTemplate\u0028\u0029",
+            "name": "hasTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_hasTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\BrandContextAttributeRenderEvent\u003A\u003AgetAttributeValue\u0028\u0029",
+            "name": "getAttributeValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Event-BrandContextAttributeRenderEvent.html#method_getAttributeValue"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Event\\ResolveLocationPreviewUrlEvent",
             "name": "ResolveLocationPreviewUrlEvent",
             "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
@@ -60885,71 +61185,6 @@ Search.appendIndex(
             "name": "resolveUrl",
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-PreviewUrlResolver-LocationPreviewUrlResolverInterface.html#method_resolveUrl"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextAssignmentServiceInterface",
-            "name": "SiteContextAssignmentServiceInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextAssignmentServiceInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextAssignmentServiceInterface\u003A\u003AgetAssignments\u0028\u0029",
-            "name": "getAssignments",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextAssignmentServiceInterface.html#method_getAssignments"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextAssignmentServiceInterface\u003A\u003AsetAssignments\u0028\u0029",
-            "name": "setAssignments",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextAssignmentServiceInterface.html#method_setAssignments"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextAssignmentServiceInterface\u003A\u003AresolveContextForSiteAccess\u0028\u0029",
-            "name": "resolveContextForSiteAccess",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextAssignmentServiceInterface.html#method_resolveContextForSiteAccess"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface",
-            "name": "SiteContextInstanceServiceInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AgetSiteContext\u0028\u0029",
-            "name": "getSiteContext",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_getSiteContext"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AfindSiteContexts\u0028\u0029",
-            "name": "findSiteContexts",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_findSiteContexts"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AcreateSiteContext\u0028\u0029",
-            "name": "createSiteContext",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_createSiteContext"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AnewSiteContextCreateStruct\u0028\u0029",
-            "name": "newSiteContextCreateStruct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_newSiteContextCreateStruct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AnewSiteContextUpdateStruct\u0028\u0029",
-            "name": "newSiteContextUpdateStruct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_newSiteContextUpdateStruct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AupdateSiteContext\u0028\u0029",
-            "name": "updateSiteContext",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_updateSiteContext"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AdeleteSiteContext\u0028\u0029",
-            "name": "deleteSiteContext",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_deleteSiteContext"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextInstanceServiceInterface\u003A\u003AdeleteSiteContextTranslation\u0028\u0029",
-            "name": "deleteSiteContextTranslation",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-SiteContextInstanceServiceInterface.html#method_deleteSiteContextTranslation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\SiteContextServiceInterface",
             "name": "SiteContextServiceInterface",
@@ -61081,6 +61316,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html#method_setDescription"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinition\\AttributeDefinitionCreateStruct\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html#method_getOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinition\\AttributeDefinitionCreateStruct\u003A\u003AsetOptions\u0028\u0029",
+            "name": "setOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html#method_setOptions"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinition\\AttributeDefinitionQuery",
             "name": "AttributeDefinitionQuery",
             "summary": "",
@@ -61206,6 +61451,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinition-AttributeDefinitionUpdateStruct.html#method_setDescription"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinition\\AttributeDefinitionUpdateStruct\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinition-AttributeDefinitionUpdateStruct.html#method_getOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinition\\AttributeDefinitionUpdateStruct\u003A\u003AsetOptions\u0028\u0029",
+            "name": "setOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinition-AttributeDefinitionUpdateStruct.html#method_setOptions"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinition\\Query\\Criterion\\AttributeGroupIdentifierCriterion",
             "name": "AttributeGroupIdentifierCriterion",
             "summary": "",
@@ -61286,6 +61541,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinitionInterface.html#method_isTranslatable"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinitionInterface\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeDefinitionInterface.html#method_getOptions"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeDefinitionInterface\u003A\u003AgetDescription\u0028\u0029",
             "name": "getDescription",
             "summary": "",
@@ -61336,15 +61596,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupCreateStruct.html#method_setIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupCreateStruct\u003A\u003AgetIcon\u0028\u0029",
-            "name": "getIcon",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupCreateStruct\u003A\u003AisAiSystem\u0028\u0029",
+            "name": "isAiSystem",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupCreateStruct.html#method_getIcon"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupCreateStruct.html#method_isAiSystem"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupCreateStruct\u003A\u003AsetIcon\u0028\u0029",
-            "name": "setIcon",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupCreateStruct\u003A\u003AsetIsAiSystem\u0028\u0029",
+            "name": "setIsAiSystem",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupCreateStruct.html#method_setIcon"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupCreateStruct.html#method_setIsAiSystem"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupCreateStruct\u003A\u003AgetLabels\u0028\u0029",
             "name": "getLabels",
@@ -61421,16 +61681,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupUpdateStruct.html#method_setIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupUpdateStruct\u003A\u003AgetIcon\u0028\u0029",
-            "name": "getIcon",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupUpdateStruct.html#method_getIcon"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupUpdateStruct\u003A\u003AsetIcon\u0028\u0029",
-            "name": "setIcon",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroup-AttributeGroupUpdateStruct.html#method_setIcon"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroup\\AttributeGroupUpdateStruct\u003A\u003AgetLabels\u0028\u0029",
             "name": "getLabels",
             "summary": "",
@@ -61491,10 +61741,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroupInterface.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroupInterface\u003A\u003AgetIcon\u0028\u0029",
-            "name": "getIcon",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroupInterface\u003A\u003AisAiSystem\u0028\u0029",
+            "name": "isAiSystem",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroupInterface.html#method_getIcon"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeGroupInterface.html#method_isAiSystem"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\AttributeGroupInterface\u003A\u003AgetLabel\u0028\u0029",
             "name": "getLabel",
@@ -61521,530 +61771,550 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-SiteContext-Values-AttributeTypeInterface.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment",
             "name": "Assignment",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method___construct"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AgetId\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_getId"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html#method_getId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AgetContextId\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment\u003A\u003AgetContextId\u0028\u0029",
             "name": "getContextId",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_getContextId"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html#method_getContextId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AgetAssignmentType\u0028\u0029",
-            "name": "getAssignmentType",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment\u003A\u003AgetSiteAccessIdentifier\u0028\u0029",
+            "name": "getSiteAccessIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_getAssignmentType"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html#method_getSiteAccessIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AgetAssignmentIdentifier\u0028\u0029",
-            "name": "getAssignmentIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_getAssignmentIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AisTargetResolved\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment\u003A\u003AisTargetResolved\u0028\u0029",
             "name": "isTargetResolved",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_isTargetResolved"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html#method_isTargetResolved"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AgetSiteAccessNames\u0028\u0029",
-            "name": "getSiteAccessNames",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_getSiteAccessNames"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\Assignment\u003A\u003AgetTargetResolutionError\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\Assignment\u003A\u003AgetTargetResolutionError\u0028\u0029",
             "name": "getTargetResolutionError",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-Assignment.html#method_getTargetResolutionError"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-Assignment.html#method_getTargetResolutionError"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentCreateStruct",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\AssignmentCreateStruct",
             "name": "AssignmentCreateStruct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentCreateStruct.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-AssignmentCreateStruct.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentCreateStruct\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\AssignmentCreateStruct\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentCreateStruct.html#method___construct"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-AssignmentCreateStruct.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentCreateStruct\u003A\u003AgetAssignmentType\u0028\u0029",
-            "name": "getAssignmentType",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment\\AssignmentCreateStruct\u003A\u003AgetSiteAccessIdentifier\u0028\u0029",
+            "name": "getSiteAccessIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentCreateStruct.html#method_getAssignmentType"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Assignment-AssignmentCreateStruct.html#method_getSiteAccessIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentCreateStruct\u003A\u003AgetAssignmentIdentifier\u0028\u0029",
-            "name": "getAssignmentIdentifier",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextAttributeValueStruct",
+            "name": "BrandContextAttributeValueStruct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentCreateStruct.html#method_getAssignmentIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextAttributeValueStruct.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentType",
-            "name": "AssignmentType",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentType.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentType\u003A\u003ASITE_ACCESS",
-            "name": "SITE_ACCESS",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentType.html#enumcase_SITE_ACCESS"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment\\AssignmentType\u003A\u003ASITE_ACCESS_GROUP",
-            "name": "SITE_ACCESS_GROUP",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Assignment-AssignmentType.html#enumcase_SITE_ACCESS_GROUP"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\IdCriterion",
-            "name": "IdCriterion",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-IdCriterion.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\IdCriterion\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextAttributeValueStruct\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-IdCriterion.html#method___construct"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextAttributeValueStruct.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\IdentifierCriterion",
-            "name": "IdentifierCriterion",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-IdentifierCriterion.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\IdentifierCriterion\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-IdentifierCriterion.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\LogicalAnd",
-            "name": "LogicalAnd",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-LogicalAnd.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\NameCriterion",
-            "name": "NameCriterion",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-NameCriterion.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion\\NameCriterion\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-Criterion-NameCriterion.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\CriterionInterface",
-            "name": "CriterionInterface",
-            "summary": "Marker\u0020interface\u0020for\u0020criteria\u0020used\u0020to\u0020filter\u0020Site\u0020Contexts.",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-Query-CriterionInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextAttributeValueStruct",
-            "name": "SiteContextAttributeValueStruct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextAttributeValueStruct.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextAttributeValueStruct\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextAttributeValueStruct.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextAttributeValueStruct\u003A\u003AgetIdentifier\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextAttributeValueStruct\u003A\u003AgetIdentifier\u0028\u0029",
             "name": "getIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextAttributeValueStruct.html#method_getIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextAttributeValueStruct.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextAttributeValueStruct\u003A\u003AgetValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextAttributeValueStruct\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextAttributeValueStruct.html#method_getValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextAttributeValueStruct.html#method_getValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextAttributeValueStruct\u003A\u003AgetLanguageCode\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextAttributeValueStruct\u003A\u003AgetLanguageCode\u0028\u0029",
             "name": "getLanguageCode",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextAttributeValueStruct.html#method_getLanguageCode"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextAttributeValueStruct.html#method_getLanguageCode"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCollectionInterface",
-            "name": "SiteContextCollectionInterface",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCollectionInterface",
+            "name": "BrandContextCollectionInterface",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCollectionInterface.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCollectionInterface.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCollectionInterface\u003A\u003AgetSiteContexts\u0028\u0029",
-            "name": "getSiteContexts",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCollectionInterface\u003A\u003AgetBrandContexts\u0028\u0029",
+            "name": "getBrandContexts",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCollectionInterface.html#method_getSiteContexts"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCollectionInterface.html#method_getBrandContexts"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCollectionInterface\u003A\u003AgetTotalCount\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCollectionInterface\u003A\u003AgetTotalCount\u0028\u0029",
             "name": "getTotalCount",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCollectionInterface.html#method_getTotalCount"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCollectionInterface.html#method_getTotalCount"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct",
-            "name": "SiteContextCreateStruct",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct",
+            "name": "BrandContextCreateStruct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method___construct"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetIdentifier\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetIdentifier\u0028\u0029",
             "name": "getIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetIdentifier\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetIdentifier\u0028\u0029",
             "name": "setIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetLogo\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetLogo\u0028\u0029",
             "name": "getLogo",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getLogo"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getLogo"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetLogo\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetLogo\u0028\u0029",
             "name": "setLogo",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setLogo"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setLogo"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetColor\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getColor"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getColor"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetColor\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetColor\u0028\u0029",
             "name": "setColor",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setColor"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setColor"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetRegion\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetRegion\u0028\u0029",
             "name": "getRegion",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getRegion"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getRegion"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetRegion\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetRegion\u0028\u0029",
             "name": "setRegion",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setRegion"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setRegion"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetNames\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetNames\u0028\u0029",
             "name": "getNames",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getNames"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getNames"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetNames\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetNames\u0028\u0029",
             "name": "setNames",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setNames"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setNames"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetName\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetName\u0028\u0029",
             "name": "setName",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setName"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setName"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetDescriptions\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetDescriptions\u0028\u0029",
             "name": "getDescriptions",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getDescriptions"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getDescriptions"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetDescriptions\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetDescriptions\u0028\u0029",
             "name": "setDescriptions",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setDescriptions"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setDescriptions"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetDescription\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetDescription\u0028\u0029",
             "name": "setDescription",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setDescription"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setDescription"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetAttributeValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetAttributeValues\u0028\u0029",
             "name": "getAttributeValues",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getAttributeValues"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getAttributeValues"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetAttributeValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetAttributeValues\u0028\u0029",
             "name": "setAttributeValues",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setAttributeValues"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setAttributeValues"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AsetAttributeValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AsetAttributeValue\u0028\u0029",
             "name": "setAttributeValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_setAttributeValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_setAttributeValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextCreateStruct\u003A\u003AgetAttributeValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextCreateStruct\u003A\u003AgetAttributeValue\u0028\u0029",
             "name": "getAttributeValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextCreateStruct.html#method_getAttributeValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextCreateStruct.html#method_getAttributeValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery",
-            "name": "SiteContextQuery",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery",
+            "name": "BrandContextQuery",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#method___construct"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003AgetQuery\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003AgetQuery\u0028\u0029",
             "name": "getQuery",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#method_getQuery"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#method_getQuery"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003AgetOffset\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003AgetOffset\u0028\u0029",
             "name": "getOffset",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#method_getOffset"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#method_getOffset"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003AsetOffset\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003AsetOffset\u0028\u0029",
             "name": "setOffset",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#method_setOffset"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#method_setOffset"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003AgetLimit\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003AgetLimit\u0028\u0029",
             "name": "getLimit",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#method_getLimit"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#method_getLimit"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003AsetLimit\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003AsetLimit\u0028\u0029",
             "name": "setLimit",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#method_setLimit"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#method_setLimit"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextQuery\u003A\u003ADEFAULT_LIMIT",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextQuery\u003A\u003ADEFAULT_LIMIT",
             "name": "DEFAULT_LIMIT",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextQuery.html#constant_DEFAULT_LIMIT"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextQuery.html#constant_DEFAULT_LIMIT"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct",
-            "name": "SiteContextUpdateStruct",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct",
+            "name": "BrandContextUpdateStruct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method___construct"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetId\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getId"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetId\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setId"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetIdentifier\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetIdentifier\u0028\u0029",
             "name": "getIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetIdentifier\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetIdentifier\u0028\u0029",
             "name": "setIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetLogo\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetLogo\u0028\u0029",
             "name": "getLogo",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getLogo"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getLogo"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetLogo\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetLogo\u0028\u0029",
             "name": "setLogo",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setLogo"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setLogo"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetColor\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getColor"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getColor"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetColor\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetColor\u0028\u0029",
             "name": "setColor",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setColor"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setColor"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetRegion\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetRegion\u0028\u0029",
             "name": "getRegion",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getRegion"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getRegion"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetRegion\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetRegion\u0028\u0029",
             "name": "setRegion",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setRegion"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setRegion"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetNames\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetNames\u0028\u0029",
             "name": "getNames",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getNames"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getNames"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetNames\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetNames\u0028\u0029",
             "name": "setNames",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setNames"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setNames"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetName\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetName\u0028\u0029",
             "name": "setName",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setName"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setName"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetDescriptions\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetDescriptions\u0028\u0029",
             "name": "getDescriptions",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getDescriptions"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getDescriptions"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetDescriptions\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetDescriptions\u0028\u0029",
             "name": "setDescriptions",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setDescriptions"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setDescriptions"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetDescription\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetDescription\u0028\u0029",
             "name": "setDescription",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setDescription"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setDescription"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetAttributeValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetAttributeValues\u0028\u0029",
             "name": "getAttributeValues",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getAttributeValues"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getAttributeValues"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetAttributeValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetAttributeValues\u0028\u0029",
             "name": "setAttributeValues",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setAttributeValues"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setAttributeValues"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AsetAttributeValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AsetAttributeValue\u0028\u0029",
             "name": "setAttributeValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_setAttributeValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_setAttributeValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\SiteContextUpdateStruct\u003A\u003AgetAttributeValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\BrandContextUpdateStruct\u003A\u003AgetAttributeValue\u0028\u0029",
             "name": "getAttributeValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContext-SiteContextUpdateStruct.html#method_getAttributeValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-BrandContextUpdateStruct.html#method_getAttributeValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextAttributeValueInterface",
-            "name": "SiteContextAttributeValueInterface",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary",
+            "name": "CompletionSummary",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextAttributeValueInterface.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextAttributeValueInterface\u003A\u003AgetId\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AgetFilledCount\u0028\u0029",
+            "name": "getFilledCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_getFilledCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AgetTotalCount\u0028\u0029",
+            "name": "getTotalCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_getTotalCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AgetAiFilledCount\u0028\u0029",
+            "name": "getAiFilledCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_getAiFilledCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AgetAiTotalCount\u0028\u0029",
+            "name": "getAiTotalCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_getAiTotalCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AgetCompletionPercent\u0028\u0029",
+            "name": "getCompletionPercent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_getCompletionPercent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AgetAiReadyPercent\u0028\u0029",
+            "name": "getAiReadyPercent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_getAiReadyPercent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\CompletionSummary\u003A\u003AhasAiAttributeDefinitions\u0028\u0029",
+            "name": "hasAiAttributeDefinitions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-CompletionSummary.html#method_hasAiAttributeDefinitions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\IdCriterion",
+            "name": "IdCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-IdCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\IdCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-IdCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\IdentifierCriterion",
+            "name": "IdentifierCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-IdentifierCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\IdentifierCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-IdentifierCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\LogicalAnd",
+            "name": "LogicalAnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-LogicalAnd.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\NameCriterion",
+            "name": "NameCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-NameCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion\\NameCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-Criterion-NameCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\CriterionInterface",
+            "name": "CriterionInterface",
+            "summary": "Marker\u0020interface\u0020for\u0020criteria\u0020used\u0020to\u0020filter\u0020Site\u0020Contexts.",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContext-Query-CriterionInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextAttributeValueInterface",
+            "name": "BrandContextAttributeValueInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextAttributeValueInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextAttributeValueInterface\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextAttributeValueInterface.html#method_getId"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextAttributeValueInterface.html#method_getId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextAttributeValueInterface\u003A\u003AgetDefinition\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextAttributeValueInterface\u003A\u003AgetDefinition\u0028\u0029",
             "name": "getDefinition",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextAttributeValueInterface.html#method_getDefinition"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextAttributeValueInterface.html#method_getDefinition"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextAttributeValueInterface\u003A\u003AgetLanguageCode\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextAttributeValueInterface\u003A\u003AgetLanguageCode\u0028\u0029",
             "name": "getLanguageCode",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextAttributeValueInterface.html#method_getLanguageCode"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextAttributeValueInterface.html#method_getLanguageCode"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextAttributeValueInterface\u003A\u003AgetValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextAttributeValueInterface\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextAttributeValueInterface.html#method_getValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextAttributeValueInterface.html#method_getValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface",
-            "name": "SiteContextInterface",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextAttributeValueInterface\u003A\u003AisEmpty\u0028\u0029",
+            "name": "isEmpty",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextAttributeValueInterface.html#method_isEmpty"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetId\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface",
+            "name": "BrandContextInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getId"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetIdentifier\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetIdentifier\u0028\u0029",
             "name": "getIdentifier",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getIdentifier"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetLogo\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetLogo\u0028\u0029",
             "name": "getLogo",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getLogo"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getLogo"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetLogoThumbnail\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetLogoThumbnail\u0028\u0029",
             "name": "getLogoThumbnail",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getLogoThumbnail"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getLogoThumbnail"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetColor\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getColor"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getColor"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetRegion\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetRegion\u0028\u0029",
             "name": "getRegion",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getRegion"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getRegion"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetName\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getName"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getName"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetDescription\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetDescription\u0028\u0029",
             "name": "getDescription",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getDescription"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getDescription"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetLanguages\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetLanguages\u0028\u0029",
             "name": "getLanguages",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getLanguages"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getLanguages"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetNames\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetNames\u0028\u0029",
             "name": "getNames",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getNames"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getNames"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetDescriptions\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetDescriptions\u0028\u0029",
             "name": "getDescriptions",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getDescriptions"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getDescriptions"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetAttributeValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetAttributeValues\u0028\u0029",
             "name": "getAttributeValues",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getAttributeValues"
+            "summary": "Returns\u0020all\u0020attribute\u0020values\u0020grouped\u0020by\u0020definition,\u0020with\u0020each\u0020definition\u0027s\nfallback\u002Dlanguage\u0020value\u0020\u0028per\u0020the\u0020prioritized\u0020languages\u0020the\u0020brand\u0020context\u0020was\nloaded\u0020with\u0029\u0020coming\u0020first\u0020within\u0020its\u0020group.",
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getAttributeValues"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetAttributeValue\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetAttributeValue\u0028\u0029",
             "name": "getAttributeValue",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getAttributeValue"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getAttributeValue"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetCreatedAt\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetCreatedAt\u0028\u0029",
             "name": "getCreatedAt",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getCreatedAt"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getCreatedAt"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetModifiedAt\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetModifiedAt\u0028\u0029",
             "name": "getModifiedAt",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getModifiedAt"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getModifiedAt"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetCreatedBy\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetCreatedBy\u0028\u0029",
             "name": "getCreatedBy",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getCreatedBy"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getCreatedBy"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContextInterface\u003A\u003AgetModifiedBy\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContextInterface\u003A\u003AgetModifiedBy\u0028\u0029",
             "name": "getModifiedBy",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-SiteContext-Values-SiteContextInterface.html#method_getModifiedBy"
+            "url": "classes/Ibexa-Contracts-SiteContext-Values-BrandContextInterface.html#method_getModifiedBy"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteFactory\\Events\\BeforeCreateSiteEvent",
             "name": "BeforeCreateSiteEvent",
@@ -64221,1116 +64491,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryUpdateStruct.html#property_content"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Action\\TranslateTextAction",
-            "name": "TranslateTextAction",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Action-TranslateTextAction.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Action\\TranslateTextAction\u003A\u003AgetActionTypeIdentifier\u0028\u0029",
-            "name": "getActionTypeIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Action-TranslateTextAction.html#method_getActionTypeIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Action\\TranslateTextAction\u003A\u003AACTION_TYPE_IDENTIFIER",
-            "name": "ACTION_TYPE_IDENTIFIER",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Action-TranslateTextAction.html#constant_ACTION_TYPE_IDENTIFIER"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewOperation",
-            "name": "AutoTranslationReviewOperation",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewOperation.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewOperation\u003A\u003AgetOperations\u0028\u0029",
-            "name": "getOperations",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewOperation.html#method_getOperations"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewOperation\u003A\u003AgetExternalOperations\u0028\u0029",
-            "name": "getExternalOperations",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewOperation.html#method_getExternalOperations"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewOperation\u003A\u003AOPERATION_CREATED",
-            "name": "OPERATION_CREATED",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewOperation.html#enumcase_OPERATION_CREATED"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewOperation\u003A\u003AOPERATION_APPROVED",
-            "name": "OPERATION_APPROVED",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewOperation.html#enumcase_OPERATION_APPROVED"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewOperation\u003A\u003AOPERATION_REJECTED",
-            "name": "OPERATION_REJECTED",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewOperation.html#enumcase_OPERATION_REJECTED"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatus",
-            "name": "AutoTranslationReviewStatus",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatus.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatus\u003A\u003AgetStatuses\u0028\u0029",
-            "name": "getStatuses",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatus.html#method_getStatuses"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatus\u003A\u003ASTATUS_FOR_REVIEW",
-            "name": "STATUS_FOR_REVIEW",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatus.html#enumcase_STATUS_FOR_REVIEW"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatus\u003A\u003ASTATUS_TRANSLATED",
-            "name": "STATUS_TRANSLATED",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatus.html#enumcase_STATUS_TRANSLATED"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatusContext",
-            "name": "AutoTranslationReviewStatusContext",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatusContext.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatusContext\u003A\u003ACONTENT",
-            "name": "CONTENT",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatusContext.html#enumcase_CONTENT"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\AutoTranslationReviewStatusContext\u003A\u003APRODUCT",
-            "name": "PRODUCT",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-AutoTranslationReviewStatusContext.html#enumcase_PRODUCT"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\AiActionConfigurationResolverInterface",
-            "name": "AiActionConfigurationResolverInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-AiActionConfigurationResolverInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\AiActionConfigurationResolverInterface\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-AiActionConfigurationResolverInterface.html#method_resolve"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\ProviderConfigurationInterface",
-            "name": "ProviderConfigurationInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-ProviderConfigurationInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\ProviderConfigurationInterface\u003A\u003AhasConfigForParameter\u0028\u0029",
-            "name": "hasConfigForParameter",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-ProviderConfigurationInterface.html#method_hasConfigForParameter"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\ProviderConfigurationInterface\u003A\u003AgetConfigForParameter\u0028\u0029",
-            "name": "getConfigForParameter",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-ProviderConfigurationInterface.html#method_getConfigForParameter"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\ProviderConfigurationInterface\u003A\u003AgetConfiguredIdentifiersForParameter\u0028\u0029",
-            "name": "getConfiguredIdentifiersForParameter",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-ProviderConfigurationInterface.html#method_getConfiguredIdentifiersForParameter"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config\\ProviderConfigurationInterface\u003A\u003APROVIDERS_PARAMETER",
-            "name": "PROVIDERS_PARAMETER",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Config-ProviderConfigurationInterface.html#constant_PROVIDERS_PARAMETER"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags",
-            "name": "AutoTranslateServiceTags",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER",
-            "name": "PROVIDER",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_IDENTIFIER_ATTRIBUTE",
-            "name": "PROVIDER_IDENTIFIER_ATTRIBUTE",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_IDENTIFIER_ATTRIBUTE"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_VALIDATION_PROFILE_ATTRIBUTE",
-            "name": "PROVIDER_VALIDATION_PROFILE_ATTRIBUTE",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_VALIDATION_PROFILE_ATTRIBUTE"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_VALIDATOR",
-            "name": "PROVIDER_VALIDATOR",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_VALIDATOR"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_VALIDATOR_PROFILE_ATTRIBUTE",
-            "name": "PROVIDER_VALIDATOR_PROFILE_ATTRIBUTE",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_VALIDATOR_PROFILE_ATTRIBUTE"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_LANGUAGE_NORMALIZER",
-            "name": "PROVIDER_LANGUAGE_NORMALIZER",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_LANGUAGE_NORMALIZER"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_AI_TRANSLATION_STRATEGY",
-            "name": "PROVIDER_AI_TRANSLATION_STRATEGY",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_AI_TRANSLATION_STRATEGY"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003APROVIDER_VALIDATION_POLICIES_PARAMETER",
-            "name": "PROVIDER_VALIDATION_POLICIES_PARAMETER",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_PROVIDER_VALIDATION_POLICIES_PARAMETER"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection\\AutoTranslateServiceTags\u003A\u003AREVIEW_STATUS_CONTEXT_RESOLVER",
-            "name": "REVIEW_STATUS_CONTEXT_RESOLVER",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-DependencyInjection-AutoTranslateServiceTags.html#constant_REVIEW_STATUS_CONTEXT_RESOLVER"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\BeforeTranslateEvent",
-            "name": "BeforeTranslateEvent",
-            "summary": "Event\u0020emitted\u0020before\u0020translation\u0020execution.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\BeforeTranslateEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\BeforeTranslateEvent\u003A\u003A\u0024provider",
-            "name": "provider",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html#property_provider"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\BeforeTranslateEvent\u003A\u003A\u0024text",
-            "name": "text",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html#property_text"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\BeforeTranslateEvent\u003A\u003A\u0024sourceLanguage",
-            "name": "sourceLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html#property_sourceLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\BeforeTranslateEvent\u003A\u003A\u0024targetLanguage",
-            "name": "targetLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-BeforeTranslateEvent.html#property_targetLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent",
-            "name": "TranslateEvent",
-            "summary": "Event\u0020emitted\u0020after\u0020translation\u0020execution.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent\u003A\u003A\u0024result",
-            "name": "result",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html#property_result"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent\u003A\u003A\u0024provider",
-            "name": "provider",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html#property_provider"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent\u003A\u003A\u0024text",
-            "name": "text",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html#property_text"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent\u003A\u003A\u0024sourceLanguage",
-            "name": "sourceLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html#property_sourceLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event\\TranslateEvent\u003A\u003A\u0024targetLanguage",
-            "name": "targetLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Event-TranslateEvent.html#property_targetLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\AutoTranslationDraftCreationFailedException",
-            "name": "AutoTranslationDraftCreationFailedException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-AutoTranslationDraftCreationFailedException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\AutoTranslationDraftCreationFailedException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-AutoTranslationDraftCreationFailedException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\EmptyLanguageCodeException",
-            "name": "EmptyLanguageCodeException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-EmptyLanguageCodeException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\EmptyLanguageCodeException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-EmptyLanguageCodeException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\EmptyTextException",
-            "name": "EmptyTextException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-EmptyTextException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\EmptyTextException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-EmptyTextException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\EmptyTranslatedBlockAttributeException",
-            "name": "EmptyTranslatedBlockAttributeException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-EmptyTranslatedBlockAttributeException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\InvalidAutoTranslateRequestException",
-            "name": "InvalidAutoTranslateRequestException",
-            "summary": "Thrown\u0020when\u0020the\u0020auto\u002Dtranslation\u0020request\u0020payload\u0020is\u0020malformed\u0020\u0028invalid\u0020value\u0020types\u0029,\u0020before\u0020any\ntranslation\u0020is\u0020attempted.\u0020Consumers\u0020should\u0020map\u0020it\u0020to\u0020an\u0020HTTP\u0020400\u0020Bad\u0020Request.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-InvalidAutoTranslateRequestException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\InvalidAutoTranslateRequestException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-InvalidAutoTranslateRequestException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\InvalidLanguageCodeFormatException",
-            "name": "InvalidLanguageCodeFormatException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-InvalidLanguageCodeFormatException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\InvalidLanguageCodeFormatException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-InvalidLanguageCodeFormatException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\LanguageCodeConversionException",
-            "name": "LanguageCodeConversionException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-LanguageCodeConversionException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\LanguageCodeConversionException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-LanguageCodeConversionException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\LanguageNormalizerNotFoundException",
-            "name": "LanguageNormalizerNotFoundException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-LanguageNormalizerNotFoundException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\LanguageNormalizerNotFoundException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-LanguageNormalizerNotFoundException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\SourceLanguageTranslationMissingException",
-            "name": "SourceLanguageTranslationMissingException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-SourceLanguageTranslationMissingException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\SourceLanguageTranslationMissingException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-SourceLanguageTranslationMissingException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\SupportedLanguagesUnavailableException",
-            "name": "SupportedLanguagesUnavailableException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-SupportedLanguagesUnavailableException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\SupportedLanguagesUnavailableException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-SupportedLanguagesUnavailableException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TargetLanguageUnavailableException",
-            "name": "TargetLanguageUnavailableException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TargetLanguageUnavailableException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TargetLanguageUnavailableException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TargetLanguageUnavailableException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TextTooLargeException",
-            "name": "TextTooLargeException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TextTooLargeException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TextTooLargeException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TextTooLargeException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TranslatedPayloadStructureViolationException",
-            "name": "TranslatedPayloadStructureViolationException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TranslatedPayloadStructureViolationException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TranslationHttpClientException",
-            "name": "TranslationHttpClientException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TranslationHttpClientException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TranslationProviderException",
-            "name": "TranslationProviderException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TranslationProviderException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TranslatorNotFoundException",
-            "name": "TranslatorNotFoundException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TranslatorNotFoundException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\TranslatorNotFoundException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-TranslatorNotFoundException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\UnsupportedActionInputException",
-            "name": "UnsupportedActionInputException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-UnsupportedActionInputException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\UnsupportedActionInputException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-UnsupportedActionInputException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\UnsupportedLanguageException",
-            "name": "UnsupportedLanguageException",
-            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-UnsupportedLanguageException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\UnsupportedLanguageException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-UnsupportedLanguageException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\ValidatorNotFoundException",
-            "name": "ValidatorNotFoundException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-ValidatorNotFoundException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception\\ValidatorNotFoundException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Exception-ValidatorNotFoundException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Http\\TranslationHttpClientInterface",
-            "name": "TranslationHttpClientInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Http-TranslationHttpClientInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Http\\TranslationHttpClientInterface\u003A\u003AsendTranslationRequest\u0028\u0029",
-            "name": "sendTranslationRequest",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Http-TranslationHttpClientInterface.html#method_sendTranslationRequest"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Policy\\MetadataValidation\\MetadataValidationRetryPolicyInterface",
-            "name": "MetadataValidationRetryPolicyInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Policy-MetadataValidation-MetadataValidationRetryPolicyInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Policy\\MetadataValidation\\MetadataValidationRetryPolicyInterface\u003A\u003Asupports\u0028\u0029",
-            "name": "supports",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Policy-MetadataValidation-MetadataValidationRetryPolicyInterface.html#method_supports"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Policy\\MetadataValidation\\MetadataValidationRetryPolicyInterface\u003A\u003AdecideHandling\u0028\u0029",
-            "name": "decideHandling",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Policy-MetadataValidation-MetadataValidationRetryPolicyInterface.html#method_decideHandling"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\AiTranslationProviderInterface",
-            "name": "AiTranslationProviderInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-AiTranslationProviderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ConfigurableProviderInterface",
-            "name": "ConfigurableProviderInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ConfigurableProviderInterface\u003A\u003AgetConfiguration\u0028\u0029",
-            "name": "getConfiguration",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html#method_getConfiguration"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ConfigurableProviderInterface\u003A\u003AisConfigured\u0028\u0029",
-            "name": "isConfigured",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html#method_isConfigured"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\LanguageNormalizer\\LanguageNormalizerInterface",
-            "name": "LanguageNormalizerInterface",
-            "summary": "Interface\u0020for\u0020normalizing\u0020language\u0020codes\u0020to\u0020provider\u002Dspecific\u0020format.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\LanguageNormalizer\\LanguageNormalizerInterface\u003A\u003Asupports\u0028\u0029",
-            "name": "supports",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html#method_supports"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\LanguageNormalizer\\LanguageNormalizerInterface\u003A\u003Anormalize\u0028\u0029",
-            "name": "normalize",
-            "summary": "Normalizes\u0020a\u0020language\u0020code\u0020to\u0020the\u0020provider\u0027s\u0020expected\u0020format.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html#method_normalize"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ProviderListInterface",
-            "name": "ProviderListInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ProviderListInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ProviderListInterface\u003A\u003AgetProviders\u0028\u0029",
-            "name": "getProviders",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ProviderListInterface.html#method_getProviders"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ProviderListInterface\u003A\u003AgetTotalCount\u0028\u0029",
-            "name": "getTotalCount",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ProviderListInterface.html#method_getTotalCount"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ProviderListInterface\u003A\u003AgetFirst\u0028\u0029",
-            "name": "getFirst",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ProviderListInterface.html#method_getFirst"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\TranslationProviderInterface",
-            "name": "TranslationProviderInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\TranslationProviderInterface\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html#method_translate"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\TranslationProviderInterface\u003A\u003AgetSupportedLanguageCodes\u0028\u0029",
-            "name": "getSupportedLanguageCodes",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html#method_getSupportedLanguageCodes"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\TranslationProviderInterface\u003A\u003AgetIdentifier\u0028\u0029",
-            "name": "getIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html#method_getIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\TranslationProviderInterface\u003A\u003AgetName\u0028\u0029",
-            "name": "getName",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html#method_getName"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\TranslationProviderInterface\u003A\u003AgetVendorName\u0028\u0029",
-            "name": "getVendorName",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html#method_getVendorName"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\EncodedFieldValue",
-            "name": "EncodedFieldValue",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\EncodedFieldValue\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\EncodedFieldValue\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html#property_value"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\EncodedFieldValue\u003A\u003A\u0024metadata",
-            "name": "metadata",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html#property_metadata"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\FieldValueTransformerInterface",
-            "name": "FieldValueTransformerInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\FieldValueTransformerInterface\u003A\u003AgetFieldTypeIdentifier\u0028\u0029",
-            "name": "getFieldTypeIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html#method_getFieldTypeIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\FieldValueTransformerInterface\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html#method_encode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\FieldValueTransformerInterface\u003A\u003Adecode\u0028\u0029",
-            "name": "decode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html#method_decode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataAwareFieldValueTransformerInterface",
-            "name": "MetadataAwareFieldValueTransformerInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataAwareFieldValueTransformerInterface\u003A\u003AhandleMetadataEncodingFailure\u0028\u0029",
-            "name": "handleMetadataEncodingFailure",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html#method_handleMetadataEncodingFailure"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataAwareFieldValueTransformerInterface\u003A\u003AisMetadataRequired\u0028\u0029",
-            "name": "isMetadataRequired",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html#method_isMetadataRequired"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataEncodingFailureHandling",
-            "name": "MetadataEncodingFailureHandling",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataEncodingFailureHandling.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataEncodingFailureHandling\u003A\u003AFAIL",
-            "name": "FAIL",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataEncodingFailureHandling.html#enumcase_FAIL"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataEncodingFailureHandling\u003A\u003ASKIP_FIELD",
-            "name": "SKIP_FIELD",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataEncodingFailureHandling.html#enumcase_SKIP_FIELD"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataValidationFailureHandling",
-            "name": "MetadataValidationFailureHandling",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataValidationFailureHandling.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataValidationFailureHandling\u003A\u003AFAIL",
-            "name": "FAIL",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataValidationFailureHandling.html#enumcase_FAIL"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataValidationFailureHandling\u003A\u003ASKIP_FIELD",
-            "name": "SKIP_FIELD",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataValidationFailureHandling.html#enumcase_SKIP_FIELD"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field\\MetadataValidationFailureHandling\u003A\u003ARETRY_WITHOUT_METADATA",
-            "name": "RETRY_WITHOUT_METADATA",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataValidationFailureHandling.html#enumcase_RETRY_WITHOUT_METADATA"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\BlockAttributeValueTransformerInterface",
-            "name": "BlockAttributeValueTransformerInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-BlockAttributeValueTransformerInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\BlockAttributeValueTransformerInterface\u003A\u003AgetAttributeTypeIdentifier\u0028\u0029",
-            "name": "getAttributeTypeIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-BlockAttributeValueTransformerInterface.html#method_getAttributeTypeIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\BlockAttributeValueTransformerInterface\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-BlockAttributeValueTransformerInterface.html#method_encode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\BlockAttributeValueTransformerInterface\u003A\u003Adecode\u0028\u0029",
-            "name": "decode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-BlockAttributeValueTransformerInterface.html#method_decode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\EncodedBlockAttributeValue",
-            "name": "EncodedBlockAttributeValue",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-EncodedBlockAttributeValue.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\EncodedBlockAttributeValue\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-EncodedBlockAttributeValue.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\EncodedBlockAttributeValue\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-EncodedBlockAttributeValue.html#property_value"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\EncodedBlockAttributeValue\u003A\u003A\u0024metadata",
-            "name": "metadata",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-EncodedBlockAttributeValue.html#property_metadata"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute\\EncodedBlockAttributeValue\u003A\u003A\u0024isFragment",
-            "name": "isFragment",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-LandingPage-BlockAttribute-EncodedBlockAttributeValue.html#property_isFragment"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\PayloadTransformerInterface",
-            "name": "PayloadTransformerInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-PayloadTransformerInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\PayloadTransformerInterface\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-PayloadTransformerInterface.html#method_encode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\PayloadTransformerInterface\u003A\u003Adecode\u0028\u0029",
-            "name": "decode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-PayloadTransformerInterface.html#method_decode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationDataInterface",
-            "name": "TranslationDataInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationDataInterface\u003A\u003AgetText\u0028\u0029",
-            "name": "getText",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html#method_getText"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationDataInterface\u003A\u003AgetSourceLanguage\u0028\u0029",
-            "name": "getSourceLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html#method_getSourceLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationDataInterface\u003A\u003AgetTargetLanguage\u0028\u0029",
-            "name": "getTargetLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html#method_getTargetLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationRequestInterface",
-            "name": "TranslationRequestInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationRequestInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationRequestInterface\u003A\u003AgetTranslationData\u0028\u0029",
-            "name": "getTranslationData",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationRequestInterface.html#method_getTranslationData"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationRequestInterface\u003A\u003AgetFormat\u0028\u0029",
-            "name": "getFormat",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationRequestInterface.html#method_getFormat"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationRequestInterface\u003A\u003AgetPayload\u0028\u0029",
-            "name": "getPayload",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationRequestInterface.html#method_getPayload"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationResponseInterface",
-            "name": "TranslationResponseInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationResponseInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationResponseInterface\u003A\u003AgetTranslatedText\u0028\u0029",
-            "name": "getTranslatedText",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationResponseInterface.html#method_getTranslatedText"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationResponseInterface\u003A\u003AgetSourceLanguage\u0028\u0029",
-            "name": "getSourceLanguage",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationResponseInterface.html#method_getSourceLanguage"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationServiceInterface",
-            "name": "TranslationServiceInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationServiceInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslationServiceInterface\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationServiceInterface.html#method_translate"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslatorInterface",
-            "name": "TranslatorInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslatorInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslatorInterface\u003A\u003Asupports\u0028\u0029",
-            "name": "supports",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslatorInterface.html#method_supports"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\TranslatorInterface\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslatorInterface.html#method_translate"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\DefaultProviderValidator",
-            "name": "DefaultProviderValidator",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\DefaultProviderValidator\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\DefaultProviderValidator\u003A\u003AvalidateText\u0028\u0029",
-            "name": "validateText",
-            "summary": "Validates\u0020that\u0020text\u0020is\u0020not\u0020empty\u0020and\u0020does\u0020not\u0020exceed\u0020maximum\u0020length.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html#method_validateText"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\DefaultProviderValidator\u003A\u003AvalidatePostNormalizationLanguageCode\u0028\u0029",
-            "name": "validatePostNormalizationLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html#method_validatePostNormalizationLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\DefaultProviderValidator\u003A\u003AvalidatePreNormalizationLanguageCodeFormat\u0028\u0029",
-            "name": "validatePreNormalizationLanguageCodeFormat",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html#method_validatePreNormalizationLanguageCodeFormat"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\LanguageRole",
-            "name": "LanguageRole",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-LanguageRole.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\LanguageRole\u003A\u003ASOURCE",
-            "name": "SOURCE",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-LanguageRole.html#enumcase_SOURCE"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\LanguageRole\u003A\u003ATARGET",
-            "name": "TARGET",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-LanguageRole.html#enumcase_TARGET"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ProviderValidatorInterface",
-            "name": "ProviderValidatorInterface",
-            "summary": "Provider\u002Dspecific\u0020validator\u0020for\u0020translation\u0020input.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ProviderValidatorInterface\u003A\u003AvalidatePreNormalizationLanguageCodeFormat\u0028\u0029",
-            "name": "validatePreNormalizationLanguageCodeFormat",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorInterface.html#method_validatePreNormalizationLanguageCodeFormat"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ProviderValidatorInterface\u003A\u003AvalidateText\u0028\u0029",
-            "name": "validateText",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorInterface.html#method_validateText"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ProviderValidatorInterface\u003A\u003AvalidatePostNormalizationLanguageCode\u0028\u0029",
-            "name": "validatePostNormalizationLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorInterface.html#method_validatePostNormalizationLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ProviderValidatorRegistryInterface",
-            "name": "ProviderValidatorRegistryInterface",
-            "summary": "Registry\u0020that\u0020provides\u0020access\u0020to\u0020provider\u002Dspecific\u0020validators.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorRegistryInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ProviderValidatorRegistryInterface\u003A\u003AgetValidator\u0028\u0029",
-            "name": "getValidator",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorRegistryInterface.html#method_getValidator"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ValidationPolicyResolverInterface",
-            "name": "ValidationPolicyResolverInterface",
-            "summary": "Resolves\u0020which\u0020validation\u0020profile\u0020should\u0020be\u0020used\u0020for\u0020a\u0020translation\u0020provider.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ValidationPolicyResolverInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ValidationPolicyResolverInterface\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ValidationPolicyResolverInterface.html#method_resolve"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ValidationProfile",
-            "name": "ValidationProfile",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ValidationProfile.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator\\ValidationProfile\u003A\u003AAI_GENERIC",
-            "name": "AI_GENERIC",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ValidationProfile.html#constant_AI_GENERIC"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\Exception\\AlreadyExistsExceptionInterface",
-            "name": "AlreadyExistsExceptionInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-Exception-AlreadyExistsExceptionInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\Exception\\InvalidRequestExceptionInterface",
-            "name": "InvalidRequestExceptionInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-Exception-InvalidRequestExceptionInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\Exception\\NotFoundExceptionInterface",
-            "name": "NotFoundExceptionInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-Exception-NotFoundExceptionInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent",
-            "name": "OnContentSideBySideTranslationCreateEvent",
-            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent\u003A\u003A\u0024targetDraft",
-            "name": "targetDraft",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html#property_targetDraft"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent\u003A\u003A\u0024request",
-            "name": "request",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html#property_request"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent\u003A\u003A\u0024sourceContent",
-            "name": "sourceContent",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html#property_sourceContent"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent\u003A\u003A\u0024sourceLanguageCode",
-            "name": "sourceLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html#property_sourceLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnContentSideBySideTranslationCreateEvent\u003A\u003A\u0024targetLanguageCode",
-            "name": "targetLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnContentSideBySideTranslationCreateEvent.html#property_targetLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent",
-            "name": "OnProductSideBySideTranslationCreateEvent",
-            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A\u0024productUpdateData",
-            "name": "productUpdateData",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#property_productUpdateData"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A\u0024request",
-            "name": "request",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#property_request"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A\u0024sourceProduct",
-            "name": "sourceProduct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#property_sourceProduct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A\u0024targetProduct",
-            "name": "targetProduct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#property_targetProduct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A\u0024sourceLanguageCode",
-            "name": "sourceLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#property_sourceLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event\\OnProductSideBySideTranslationCreateEvent\u003A\u003A\u0024targetLanguageCode",
-            "name": "targetLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Event-OnProductSideBySideTranslationCreateEvent.html#property_targetLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Exception\\SideBySideTranslationNotFoundException",
-            "name": "SideBySideTranslationNotFoundException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Exception-SideBySideTranslationNotFoundException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Exception\\SideBySideTranslationNotFoundException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Exception-SideBySideTranslationNotFoundException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideExclusionRuleInterface",
-            "name": "SideBySideExclusionRuleInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideExclusionRuleInterface\u003A\u003AisExcluded\u0028\u0029",
-            "name": "isExcluded",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html#method_isExcluded"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideSupportCheckerInterface",
-            "name": "SideBySideSupportCheckerInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideSupportCheckerInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideSupportCheckerInterface\u003A\u003AsupportsContentInfo\u0028\u0029",
-            "name": "supportsContentInfo",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideSupportCheckerInterface.html#method_supportsContentInfo"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideSupportCheckerInterface\u003A\u003AsupportsContentId\u0028\u0029",
-            "name": "supportsContentId",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideSupportCheckerInterface.html#method_supportsContentId"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\SideBySideTranslationServiceInterface",
-            "name": "SideBySideTranslationServiceInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-SideBySideTranslationServiceInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\SideBySideTranslationServiceInterface\u003A\u003AloadSideBySideTranslation\u0028\u0029",
-            "name": "loadSideBySideTranslation",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-SideBySideTranslationServiceInterface.html#method_loadSideBySideTranslation"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\SideBySideTranslationServiceInterface\u003A\u003AloadFallbackTranslation\u0028\u0029",
-            "name": "loadFallbackTranslation",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-SideBySideTranslationServiceInterface.html#method_loadFallbackTranslation"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\SideBySideTranslationServiceInterface\u003A\u003AgetAccessResult\u0028\u0029",
-            "name": "getAccessResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-SideBySideTranslationServiceInterface.html#method_getAccessResult"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation",
-            "name": "SideBySideTranslation",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A\u0024sourceContent",
-            "name": "sourceContent",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#property_sourceContent"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A\u0024targetContent",
-            "name": "targetContent",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#property_targetContent"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A\u0024sourceLanguageCode",
-            "name": "sourceLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#property_sourceLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A\u0024targetLanguageCode",
-            "name": "targetLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#property_targetLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A\u0024fieldMetadata",
-            "name": "fieldMetadata",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#property_fieldMetadata"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslation\u003A\u003A\u0024fallbackLanguageCode",
-            "name": "fallbackLanguageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslation.html#property_fallbackLanguageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult",
-            "name": "SideBySideTranslationAccessResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003AcanViewSource\u0028\u0029",
-            "name": "canViewSource",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#method_canViewSource"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003AcanViewTarget\u0028\u0029",
-            "name": "canViewTarget",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#method_canViewTarget"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003AcanEditTarget\u0028\u0029",
-            "name": "canEditTarget",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#method_canEditTarget"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003A\u0024viewSourceLimitationResult",
-            "name": "viewSourceLimitationResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#property_viewSourceLimitationResult"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003A\u0024viewTargetLimitationResult",
-            "name": "viewTargetLimitationResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#property_viewTargetLimitationResult"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationAccessResult\u003A\u003A\u0024editTargetLimitationResult",
-            "name": "editTargetLimitationResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationAccessResult.html#property_editTargetLimitationResult"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFallback",
-            "name": "SideBySideTranslationFallback",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFallback.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFallback\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFallback.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFallback\u003A\u003A\u0024languageCode",
-            "name": "languageCode",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFallback.html#property_languageCode"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFallback\u003A\u003A\u0024content",
-            "name": "content",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFallback.html#property_content"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata",
-            "name": "SideBySideTranslationFieldMetadata",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata\u003A\u003AfromFieldDefinition\u0028\u0029",
-            "name": "fromFieldDefinition",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html#method_fromFieldDefinition"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata\u003A\u003A\u0024identifier",
-            "name": "identifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html#property_identifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata\u003A\u003A\u0024fieldTypeIdentifier",
-            "name": "fieldTypeIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html#property_fieldTypeIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata\u003A\u003A\u0024isTranslatable",
-            "name": "isTranslatable",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html#property_isTranslatable"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content\\SideBySideTranslationFieldMetadata\u003A\u003A\u0024isEditable",
-            "name": "isEditable",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Values-Content-SideBySideTranslationFieldMetadata.html#property_isEditable"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Attribute\\AsTwigComponent",
             "name": "AsTwigComponent",
             "summary": "",
@@ -66895,36 +66055,6 @@ Search.appendIndex(
             "name": "UniversalDiscovery",
             "summary": "",
             "url": "namespaces/ibexa-contracts-adminui-universaldiscovery.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client",
-            "name": "Client",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-client.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation",
-            "name": "AutomatedTranslation",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute",
-            "name": "BlockAttribute",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-blockattribute.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder",
-            "name": "Encoder",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field",
-            "name": "Field",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-field.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-exception.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar",
             "name": "Calendar",
@@ -68756,6 +67886,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-fieldtypepage-fieldtype-page-service.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-fieldtypepage-pagestructure-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure",
+            "name": "PageStructure",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-fieldtypepage-pagestructure.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\ScheduleBlock\\Timeline\\Event",
             "name": "Event",
             "summary": "",
@@ -69961,6 +69101,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-segmentation-exception.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query\\Criterion",
+            "name": "Criterion",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-segmentation-query-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Query",
+            "name": "Query",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-segmentation-query.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Segmentation",
             "name": "Segmentation",
             "summary": "",
@@ -70226,6 +69376,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-sitecontext-attribute.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsFormMapper",
+            "name": "OptionsFormMapper",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-sitecontext-attribute-optionsformmapper.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Attribute\\OptionsValidator",
+            "name": "OptionsValidator",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-sitecontext-attribute-optionsvalidator.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteContext",
             "name": "SiteContext",
             "summary": "",
@@ -70281,25 +69441,25 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-sitecontext-values-attributegroup-query.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Assignment",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Assignment",
             "name": "Assignment",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-sitecontext-values-sitecontext-assignment.html"
+            "url": "namespaces/ibexa-contracts-sitecontext-values-brandcontext-assignment.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query\\Criterion",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext",
+            "name": "BrandContext",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-sitecontext-values-brandcontext.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query\\Criterion",
             "name": "Criterion",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-sitecontext-values-sitecontext-query-criterion.html"
+            "url": "namespaces/ibexa-contracts-sitecontext-values-brandcontext-query-criterion.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext\\Query",
+            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\BrandContext\\Query",
             "name": "Query",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-sitecontext-values-sitecontext-query.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\SiteContext\\Values\\SiteContext",
-            "name": "SiteContext",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-sitecontext-values-sitecontext.html"
+            "url": "namespaces/ibexa-contracts-sitecontext-values-brandcontext-query.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\SiteFactory\\Events",
             "name": "Events",
@@ -70470,126 +69630,6 @@ Search.appendIndex(
             "name": "Value",
             "summary": "",
             "url": "namespaces/ibexa-contracts-taxonomy-value.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Action",
-            "name": "Action",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-action.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate",
-            "name": "AutoTranslate",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement",
-            "name": "TranslationsManagement",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Config",
-            "name": "Config",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-config.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\DependencyInjection",
-            "name": "DependencyInjection",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-dependencyinjection.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Event",
-            "name": "Event",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-event.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-exception.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Http",
-            "name": "Http",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-http.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Policy\\MetadataValidation",
-            "name": "MetadataValidation",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-policy-metadatavalidation.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Policy",
-            "name": "Policy",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-policy.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider",
-            "name": "Provider",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-provider.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\LanguageNormalizer",
-            "name": "LanguageNormalizer",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-provider-languagenormalizer.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\Field",
-            "name": "Field",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-transformer-field.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage\\BlockAttribute",
-            "name": "BlockAttribute",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-transformer-landingpage-blockattribute.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer\\LandingPage",
-            "name": "LandingPage",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-transformer-landingpage.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Transformer",
-            "name": "Transformer",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-transformer.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Validator",
-            "name": "Validator",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-autotranslate-validator.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-exception.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Event",
-            "name": "Event",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-sidebyside-event.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-sidebyside-exception.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service",
-            "name": "Service",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-sidebyside-service.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide",
-            "name": "SideBySide",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-sidebyside.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values\\Content",
-            "name": "Content",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-sidebyside-values-content.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Values",
-            "name": "Values",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-translationsmanagement-sidebyside-values.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Attribute",
             "name": "Attribute",
