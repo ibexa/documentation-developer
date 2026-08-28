@@ -33,21 +33,27 @@ Some events generate notifications that you can deliver to the users through one
 
 ### Available notification types
 
-- [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)
-    - `FormSubmitted` email notifications are by default sent to the email addresses set in the submit button.
-      For more information, see [form email notification](customize_email_notifications.md).
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
-- [`Ibexa\Contracts\OrderManagement\Notification\OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html)
-- [`Ibexa\Contracts\Payment\Notification\PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)
-- [`Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Shipping-Notification-ShipmentStatusChange.html)
-- [`Ibexa\Contracts\User\Notification\UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)
-- [`Ibexa\Contracts\User\Notification\UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)
-- [`Ibexa\Contracts\User\Notification\UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)
-- `Ibexa\Share\Notification\ContentEditInvitationNotification` (alias `ibexa_content_edit_invitation`)
-- `Ibexa\Share\Notification\ContentViewInvitationNotification` (alias `ibexa_content_view_invitation`)
-- `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification` (alias `ibexa_external_participant_content_view_invitation`)
-- `Ibexa\AdminUi\Notifier\Notification\UserInvitation`
-- `Ibexa\AdminUi\Notifier\Notification\UserPasswordReset`
+Several built-in notification types are available.
+TODO: Some/All are sent by various notifiers like event subscribers. 
+
+| Notification type                                                                                                                                                                        | Default recipients                                                       |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| `Ibexa\AdminUi\Notifier\Notification\UserInvitation`                                                                                                                                     | TODO: Given email address                                                |
+| `Ibexa\AdminUi\Notifier\Notification\UserPasswordReset`                                                                                                                                  | TODO: Given email address                                                |
+| [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)                         | [Form submit email notification field](customize_email_notifications.md) |
+| [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html) | TODO                                                                     |
+| [`Ibexa\Contracts\OrderManagement\Notification\OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html)           | Order owner                                                              |
+| [`Ibexa\Contracts\Payment\Notification\PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)                       | Order owner                                                              |
+| [`Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Shipping-Notification-ShipmentStatusChange.html)                   | Order owner                                                              |
+| [`Ibexa\Contracts\User\Notification\UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)                                       | TODO: Given email address                                                |
+| [`Ibexa\Contracts\User\Notification\UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)                                 | TODO: Given email address                                                |
+| [`Ibexa\Contracts\User\Notification\UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)                                           | TODO                                                                     |
+| `Ibexa\Share\Notification\ContentEditInvitationNotification`<br>(alias `ibexa_content_edit_invitation`)                                                                                  | TODO: Given users                                                        |
+| `Ibexa\Share\Notification\ContentViewInvitationNotification`<br>(alias `ibexa_content_view_invitation`)                                                                                     | TODO: Given users                                                        |
+| `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`<br>(alias `ibexa_external_participant_content_view_invitation`)                                             | TODO: Given email addresses                                              |
+
+Notice that `Ibexa\AdminUi\Notifier\Notification\UserInvitation` are sent by the back office and don't implement `Ibexa\Contracts\User\Notification\UserInvitation` which is made for front end users and other more generic usages.
+Same for the two `UserPasswordReset` in distinct namespaces.
 
 ### Available notification channels
 
