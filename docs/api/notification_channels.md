@@ -34,6 +34,8 @@ Some events generate notifications that you can deliver to the users through one
 ### Available notification types
 
 - [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)
+    - `FormSubmitted` email notifications are by default sent to the email addresses set in the submit button.
+      For more information, see [form email notification](customize_email_notifications.md).
 - [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
 - [`Ibexa\Contracts\OrderManagement\Notification\OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html)
 - [`Ibexa\Contracts\Payment\Notification\PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)
@@ -85,7 +87,43 @@ This page contains several examples of subscriptions configuration.
     You should see subscriptions to handle back office password reset and user invitation, and the share invitations through, at least, `email`.
 
     ```bash
-    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=admin
+    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=admin --json | jq
+    ```
+    ```json
+    {
+      "ibexa_content_edit_invitation": {
+        "channels": [
+          "ibexa",
+          "email"
+        ]
+      },
+      "ibexa_content_view_invitation": {
+        "channels": [
+          "ibexa",
+          "email"
+        ]
+      },
+      "ibexa_external_participant_content_view_invitation": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\AdminUi\\Notifier\\Notification\\UserPasswordReset": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\AdminUi\\Notifier\\Notification\\UserInvitation": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\Contracts\\FormBuilder\\Notifications\\FormSubmitted": {
+        "channels": [
+          "email"
+        ]
+      }
+    }
     ```
 
 #### Subscription example
