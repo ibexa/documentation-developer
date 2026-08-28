@@ -1,0 +1,406 @@
+# Images
+
+Manage image assets by using DAM systems, configuring image variations, optimizing and using placeholders.
+
+Images are an integral part of any website. They can serve as decoration and convey information.
+
+In Ibexa DXP, you can reuse them, normalize their file names, generate different size variations, resize images programmatically, or even define placeholders for missing ones.
+
+## Images from DAM systems
+
+If your installation is connected to a DAM system, you can use images directly from a DAM system in your content.
+
+Specific [DAM configuration](../add_image_asset_from_dam/index.md#dam-configuration) depends on the system that the installation uses.
+
+## Reuse images
+
+You can store images in the media library as independent content items of a generic Image [content type](../../../administration/content_organization/content_types/index.md) to reuse them across the system. You do this by uploading images to an [ImageAsset](../../field_types/field_type_reference/imageassetfield/index.md) field type.
+
+For an ImageAsset field to be reused, you must publish it. Only then is notification triggered, which states that an image has been published under the location and can now be reused. After you establish a media library, you can create [Relations](../../content_relations/index.md) between the image content item and the main content item that uses it.
+
+## Normalizing image file names
+
+If you use image files with unprintable UTF-8 characters in file names, you may come across a problem with images not displaying. Run the following command to normalize image file names:
+
+```bash
+php bin/console ibexa:images:normalize-paths
+```
+
+Next, clear the cache:
+
+```bash
+php bin/console cache:clear
+```
+
+and run the following:
+
+```bash
+php bin/console liip:imagine:cache:remove
+```
+
+## Configuring image variations
+
+With [image variations](../../../templating/image_variations/index.md) (image aliases) you can define and use different versions of the same image. You generate variations based on [filters](../../../templating/image_variations/index.md#available-variation-filters) that modify aspects such as size and proportions, quality or effects.
+
+Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/). The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP. Image files are stored by using the `IOService,` and are completely independent from the Image field type. They're generated only once and cleared on demand, for example, on content removal).
+
+LiipImagineBundle only works on image blobs, so no command line tool is needed.
+
+For more information, see the [bundle's documentation](https://symfony.com/bundles/LiipImagineBundle/current/configuration.html).
+
+> **Caution: Code injection in images**
+>
+> Images must be treated like any other user-submitted data - as potentially malicious.
+>
+> - EXIF metadata of an image may contain for example, HTML, JavaScript, or PHP code. Ibexa DXP itself doesn't parse EXIF metadata, but third-party bundles must be secured against this eventuality. Make sure that metadata is properly escaped before use.
+> - Images may contain specially crafted flaws that exploit vulnerabilities in common image libraries like GD or Imagick, leading to code execution. It's important to keep these libraries up to date with security updates.
+
+### Image URL resolution
+
+You can use LiipImagine's `liip:imagine:cache:resolve` command to resolve the path to image variations that are generated from the original image, with one or more paths as arguments. Paths to repository images must be relative to the `var/<site>/storage/images` directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
+
+For more information, see [LiipImagineBundle documentation](https://symfony.com/bundles/LiipImagineBundle/current/basic-usage.html#resolve-with-the-console).
+
+## Resizing images
+
+You can resize all original images of a chosen content type with the following command.
+
+```bash
+php bin/console ibexa:images:resize-original <Field identifier> <content type identifier>  -f <variation name>
+```
+
+You must provide the command with:
+
+- identifier of the image content type
+- identifier of the field that you want to affect
+- name of the image variation to apply to the images
+
+For example:
+
+```bash
+php bin/console ibexa:images:resize-original image photo -f small_image
+```
+
+You can also pass two additional parameters:
+
+- `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use. The default value is `25`.
+- `user` is the identifier of a User with proper permission who performs the operation (`read`, `versionread`, `edit` and `publish`). The default value is `admin`.
+
+> **Caution: Caution**
+>
+> The `resize-original` command publishes a new version of each content item it modifies.
+
+## Generating placeholder images
+
+With a placeholder generator you can download or generate placeholder images for any missing image. It proves useful when you're working on an existing database and are unable to download uploaded images to your local development environment, due to, for example, a large size of files.
+
+If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the [PlaceholderProvider](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider.php) interface, and saves it under the original path.
+
+In Ibexa DXP, there are two implementations of the `PlaceholderProvider` interface:
+
+- [GenericProvider](#genericprovider)
+- [RemoteProvider](#remoteprovider)
+
+### GenericProvider
+
+The [`GenericProvider`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders with basic information about the original image (see [example 1](#configuration-examples)).
+
+![Placeholder image GenericProvider](https://doc.ibexa.co/en/5.0/content_management/img/placeholder_info.jpg "Example of a generic placeholder image")
+
+![Placeholder GenericProvider](https://doc.ibexa.co/en/5.0/content_management/img/placeholder_generic_provider.png "Generic placeholder images on a page")
+
+| Option     | Default value                                 | Description                                                                                                                                 | Required? |
+| ---------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| fontpath   | n/a                                           | Path to the font file (\*.ttf).                                                                                                             | Yes       |
+| text       | "IMAGE PLACEHOLDER %width%x%height%\\n(%id%)" | Text which is displayed in the image placeholder. %width%, %height%, %id% in it's replaced with width, height and ID of the original image. |           |
+| fontsize   | 20                                            | Size of the font in the image placeholder.                                                                                                  |           |
+| foreground | #000000                                       | Foreground color of the placeholder.                                                                                                        |           |
+| secondary  | #CCCCCC                                       | Secondary color of the placeholder.                                                                                                         |           |
+| background | #EEEEEE                                       | Background color of the placeholder.                                                                                                        |           |
+
+### RemoteProvider
+
+With the [`RemoteProvider`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
+
+- remote sources, for example, <http://placecats.com> (see [example 2](#configuration-examples))
+- live version of a site (see [example 3](#configuration-examples))
+
+![Placeholder RemoteProvider - placecats.com](https://doc.ibexa.co/en/5.0/content_management/img/placeholder_remote_provider.jpg "Remote placeholder images on a page")
+
+| Option      | Default value | Description                                                                                            |
+| ----------- | ------------- | ------------------------------------------------------------------------------------------------------ |
+| url_pattern | ''            | URL pattern. %width%, %height%, %id% in it's replaced with width, height and ID of the original image. |
+| timeout     | 5             | Period of time before timeout, measured in seconds.                                                    |
+
+### Semantic configuration
+
+Placeholder generation can be configured for each [`binary_handler`](../../file_management/file_management/index.md#handling-binary-files) under the `ibexa.image_placeholder` [configuration key](../../../administration/configuration/configuration/index.md#configuration-files):
+
+```yaml
+ibexa:
+    # ...
+    image_placeholder:
+        <BINARY_HANDLER_NAME>:
+            provider: <PROVIDER TYPE>
+            options:  <CONFIGURATION>
+```
+
+If there is no configuration assigned to the `binary_handler`, the placeholder generation is disabled.
+
+#### Configuration examples
+
+##### Example 1 - placeholders with basic information about original image
+
+```yaml
+ibexa:
+    image_placeholder:
+        default:
+            provider: generic
+            options:
+                fontpath: '%kernel.project_dir%/src/Resources/font/font.ttf'
+                background: '#EEEEEE'
+                foreground: '#FF0000'
+                text: 'MISSING IMAGE %%width%%x%%height%%'
+```
+
+##### Example 2 - placeholders from remote source
+
+```yaml
+ibexa:
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'https://placecats.com/%%width%%/%%height%%'
+```
+
+##### Example 3 - placeholders from live version of a site
+
+```yaml
+ibexa:
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'http://example.com/var/site/storage/%%id%%'
+```
+
+## Support for SVG images
+
+You cannot store SVG images in Ibexa DXP by using the Image or ImageAsset field type. However, you can work things around by relying on the File field type and implementing a custom extension that lets you display and download files in your templates.
+
+> **Caution: Caution**
+>
+> SVG images may contain JavaScript, so they may introduce XSS or other security vulnerabilities. Make sure end users aren't allowed to upload SVG images, and be restrictive about which editors are allowed to do so.
+
+First, enable adding SVG files to content by removing them from the blacklist of allowed MIME types.
+
+To do it, overwrite `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` so that `svg` is removed from the blacklist. You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware configuration](../../../multisite/siteaccess/siteaccess_aware_configuration/index.md).
+
+Then, add a download route to the `config/routes.yaml` file:
+
+```yaml
+app.svg_download:
+    path: /asset/download/{contentId}/{fieldIdentifier}/{filename}
+    defaults: { _controller: App\Controller\SvgController::downloadSvgAction }
+```
+
+It points to a custom controller that handles the downloading of the SVG file. The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
+
+```yaml
+services:
+    # ...
+    App\Controller\SvgController:
+        public: true
+        arguments:
+            - '@ibexa.api.service.content'
+            - '@ibexa.field_type.ibexa_binaryfile.io_service'
+            - '@Ibexa\Core\Helper\TranslationHelper'
+```
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Field;
+use Ibexa\Core\Helper\TranslationHelper;
+use Ibexa\Core\IO\IOServiceInterface;
+use Ibexa\Core\MVC\Symfony\Controller\Controller;
+use InvalidArgumentException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+
+class SvgController extends Controller
+{
+    private const string CONTENT_TYPE_HEADER = 'image/svg+xml';
+
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly IOServiceInterface $ioService,
+        private readonly TranslationHelper $translationHelper
+    ) {
+    }
+
+    /**
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
+     */
+    public function downloadSvgAction(
+        int $contentId,
+        string $fieldIdentifier,
+        string $filename,
+        Request $request
+    ): Response {
+        $version = null;
+
+        if ($request->query->has('version')) {
+            $version = (int)$request->query->get('version');
+        }
+
+        $content = $this->contentService->loadContent($contentId, null, $version);
+        $language = $request->query->has('inLanguage') ? $request->query->get('inLanguage') : null;
+        $field = $this->translationHelper->getTranslatedField($content, $fieldIdentifier, $language);
+
+        if (!$field instanceof Field) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "%s field not present in content %d '%s'",
+                    $fieldIdentifier,
+                    $content->contentInfo->id,
+                    $content->contentInfo->name
+                )
+            );
+        }
+
+        $binaryFile = $this->ioService->loadBinaryFile($field->value->id);
+        $response = new Response($this->ioService->getFileContents($binaryFile));
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_INLINE,
+            $filename
+        );
+
+        $response->headers->set('Content-Disposition', $disposition);
+        $response->headers->set('Content-Type', self::CONTENT_TYPE_HEADER);
+
+        return $response;
+    }
+}
+```
+
+To be able to use a proper link in your templates, you also need a dedicated Twig extension:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Twig;
+
+use Symfony\Component\Routing\RouterInterface;
+use Twig\Attribute\AsTwigFunction;
+
+class SvgExtension
+{
+    /**
+     * SvgExtension constructor.
+     */
+    public function __construct(protected RouterInterface $router)
+    {
+    }
+
+    #[AsTwigFunction(name: 'ibexa_svg_link')]
+    public function generateLink(int $contentId, string $fieldIdentifier, string $filename): string
+    {
+        return $this->router->generate('app.svg_download', [
+            'contentId' => $contentId,
+            'fieldIdentifier' => $fieldIdentifier,
+            'filename' => $filename,
+        ]);
+    }
+}
+```
+
+Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
+
+```twig
+{% set svgField = ibexa_field(content, 'file') %}
+
+<img src="{{ ibexa_svg_link(content.versionInfo.contentInfo.id, 'file', svgField.value.fileName) }}" alt="">
+```
+
+## Image optimization
+
+JPEG images are optimized using the ImageMagic library, which is available out of the box.
+
+If you use other formats, such a PNG, SVG, GIF, or WEBP, and you use the Image Editor, to prevent images increasing in size when you modify them in the editor, you need to install additional image handling libraries.
+
+| Image format | Library                      |
+| ------------ | ---------------------------- |
+| JPEG         | JpegOptim                    |
+| PNG          | Either OptiPNG or Pngquant 2 |
+| SVG          | SVGO 1                       |
+| GIF          | Gifsicle                     |
+| WEBP         | cwebp                        |
+
+Install these libraries using your package manager, for example:
+
+```bash
+sudo apt-get install optipng
+```
+
+### Customizing image optimizers
+
+When the Image Editor saves a modified image, the system dispatches the [`ConfigureImageOptimizersEvent`](../../../api/event_reference/other_events/index.md#image-editor) event before running the optimizer chain. You can listen to this event to customize the list of image optimizers at runtime.
+
+The following example shows how to remove the Pngquant optimizer to prevent grayscale conversion of low-saturation PNG images:
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Event;
+
+use Ibexa\Contracts\ImageEditor\Event\ConfigureImageOptimizersEvent;
+use Spatie\ImageOptimizer\Optimizers\Pngquant;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class RemovePngquantOptimizer implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ConfigureImageOptimizersEvent::class => 'onConfigureOptimizers',
+        ];
+    }
+
+    public function onConfigureOptimizers(ConfigureImageOptimizersEvent $event): void
+    {
+        $event->removeOptimizer(Pngquant::class);
+    }
+}
+```
+
+## Embedding images in Rich Text
+
+The [RichText](../../field_types/field_type_reference/richtextfield/index.md) field allows you to embed other content items within the field.
+
+Content items that are identified as images are rendered in the Rich Text field by using a dedicated template.
+
+You can determine content types that are treated as images and rendered. You do this by overriding the `ibexa.content_view.image_embed_content_types_identifiers` parameter, for example:
+
+```yaml
+parameters:
+    ibexa.content_view.image_embed_content_types_identifiers: [image, photo, banner]
+```
+
+You can set the template that is used when rendering embedded images in the `ibexa.default_view_templates.content.embed_image` container parameter:
+
+```yaml
+parameters:
+     ibexa.default_view_templates.content.embed_image: '@ibexadesign/content/view/embed/image.html.twig'
+```
