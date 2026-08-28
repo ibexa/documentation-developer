@@ -82,7 +82,7 @@ This page contains several examples of subscriptions configuration.
     ```
 
     For example, the following command returns the subscription for the `admin` siteaccess.
-    You should see subscriptions to handle password reset, the user invitation, and the share invitations through at least `email`.
+    You should see subscriptions to handle back office password reset and user invitation, and the share invitations through, at least, `email`.
 
     ```bash
     php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=admin
