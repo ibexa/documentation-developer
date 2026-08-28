@@ -41,9 +41,11 @@ Some events generate notifications that you can deliver to the users through one
 - [`Ibexa\Contracts\User\Notification\UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)
 - [`Ibexa\Contracts\User\Notification\UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)
 - [`Ibexa\Contracts\User\Notification\UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)
-- `Ibexa\Share\Notification\ContentEditInvitationNotification`
-- `Ibexa\Share\Notification\ContentViewInvitationNotification`
-- `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`
+- `Ibexa\Share\Notification\ContentEditInvitationNotification` (alias `ibexa_content_edit_invitation`)
+- `Ibexa\Share\Notification\ContentViewInvitationNotification` (alias `ibexa_content_view_invitation`)
+- `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification` (alias `ibexa_external_participant_content_view_invitation`)
+- `Ibexa\AdminUi\Notifier\Notification\UserInvitation`
+- `Ibexa\AdminUi\Notifier\Notification\UserPasswordReset`
 
 ### Available notification channels
 
@@ -77,6 +79,13 @@ This page contains several examples of subscriptions configuration.
 
     ```bash
     php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=<siteaccess>
+    ```
+
+    For example, the following command returns the subscription for the `admin` siteaccess.
+    You should see subscriptions to handle password reset, the user invitation, and the share invitations through at least `email`.
+
+    ```bash
+    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=admin
     ```
 
 #### Subscription example
