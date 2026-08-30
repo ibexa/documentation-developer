@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ViewInput>
   <identifier>TitleView</identifier>
-  <Query>
+  <LocationQuery>
     <Filter>
       <FullTextCriterion>Platform</FullTextCriterion>
       <AND>
@@ -33,5 +33,5 @@
         </ContentTypeTermAggregation>
       </Aggregation>
     </Aggregations>
-  </Query>
+  </LocationQuery>
 </ViewInput>
