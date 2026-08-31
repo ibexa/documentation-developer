@@ -842,3 +842,7 @@ To get a Matrix field type with GraphQL, see [Matrix field type reference](matri
 ### Enable pagination for RelationList field type
 
 To learn how to enable pagination for RelationList field type, see the [RelationList field type reference](relationlistfield.md).
+
+### Url field type integration 
+
+To learn how to customize the URL field type when using GraphQL, see the [URL field type reference](urlfield.md#graphql-integration).
