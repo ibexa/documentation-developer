@@ -2,7 +2,7 @@
     "openapi": "3.1.0",
     "info": {
         "x-logo": {
-            "url": "https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png"
+            "url": "https://doc.ibexa.co/en/latest/images/cohesivo-logo-alt.svg"
         },
         "title": "Ibexa DXP REST API",
         "description": "",
