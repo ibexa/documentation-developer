@@ -15484,6 +15484,98 @@ paths:
       - name: Commerce
         color: '#A32768'
         position: after
+  /page/structure:
+    get:
+      operationId: ibexa.page_builder.rest.page_structure
+      tags:
+      - Page
+      responses:
+        200:
+          description: The Page structure is returned in XML or JSON format.
+          content:
+            application/vnd.ibexa.api.PageStructure+json:
+              schema:
+                $ref: '#/components/schemas/PageStructureWrapper'
+              example:
+                PageStructure:
+                  _media-type: application/vnd.ibexa.api.PageStructure+json
+                  layouts:
+                  - _media-type: application/vnd.ibexa.api.PageStructureLayout+json
+                    identifier: default
+                    name: default
+                    description: Default layout for Landing Page
+                    zones:
+                    - _media-type: application/vnd.ibexa.api.PageStructureZone+json
+                      identifier: default_id
+                      name: default
+                      description: ""
+                  blocks:
+                  - _media-type: application/vnd.ibexa.api.PageStructureBlock+json
+                    identifier: richtext
+                    name: Text
+                    description: Holds formatted rich text authored in the editor.
+                    category: default
+                    views:
+                    - _media-type: application/vnd.ibexa.api.PageStructureView+json
+                      identifier: default
+                      name: Default view
+                      description: ""
+                    attributes:
+                    - _media-type: application/vnd.ibexa.api.PageStructureAttribute+json
+                      identifier: content
+                      name: Content
+                      type: richtext
+                      category: default
+                      options: []
+                  - _media-type: application/vnd.ibexa.api.PageStructureBlock+json
+                    identifier: collection
+                    name: Collection
+                    description: Shows a hand-picked, ordered collection of content
+                      items.
+                    category: default
+                    views:
+                    - _media-type: application/vnd.ibexa.api.PageStructureView+json
+                      identifier: default
+                      name: Default block layout
+                      description: ""
+                    attributes:
+                    - _media-type: application/vnd.ibexa.api.PageStructureAttribute+json
+                      identifier: locationlist
+                      name: Location list
+                      type: locationlist
+                      category: default
+                      options:
+                        match:
+                          default: []
+            application/vnd.ibexa.api.PageStructure+xml:
+              schema:
+                $ref: '#/components/schemas/PageStructure'
+        400:
+          description: Error - the content type given in `contentTypeIdentifier` exists,
+            but cannot hold a Page, because it has no field of the `ibexa_landing_page`
+            field type.
+        404:
+          description: Error - the identifier given in `contentTypeIdentifier` names
+            no existing content type.
+      summary: Page structure
+      description: Lists the layouts and blocks available for building Pages, with
+        the zones of every layout and the views and attributes of every block.
+      parameters:
+      - name: contentTypeIdentifier
+        in: query
+        description: Identifier of a content type holding a Page. When given, only
+          the layouts and blocks allowed for that content type are returned. When
+          omitted or empty, the whole catalogue is returned.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+        example: landing_page
+      deprecated: false
   /payment-method:
     post:
       operationId: ibexa.rest.payment_method.create
@@ -22037,6 +22129,117 @@ paths:
               </SectionInput>
         required: false
       deprecated: false
+  /api/ibexa/v2/segments:
+    get:
+      operationId: api_ibexav2segments_get
+      tags:
+      - Segmentation
+      responses:
+        200:
+          description: OK - lists segments grouped by segment group.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentView'
+              example:
+                totalCount: 3
+                filters:
+                  groups:
+                  - id: 1
+                    identifier: loyal_customers
+                    name: Loyal customers
+                    count: 2
+                  - id: 2
+                    identifier: newsletter
+                    name: Newsletter
+                    count: 1
+                  sources:
+                  - value: ibexa
+                    count: 2
+                  - value: raptor
+                    count: 1
+                groups:
+                - group:
+                    id: 1
+                    identifier: loyal_customers
+                    name: Loyal customers
+                  segments:
+                  - id: 1
+                    identifier: returning_buyers
+                    name: Returning buyers
+                    source: ibexa
+                    usersCount: 12
+                    blocksCount: 2
+                  - id: 3
+                    identifier: vip
+                    name: VIP
+                    source: raptor
+                    lastUpdatedBy: "14"
+                    updatedAt: "2026-01-01T10:00:00+00:00"
+                    lastUpdatedByLabel: Raptor
+                    usersCount: 4
+                    blocksCount: 0
+                - group:
+                    id: 2
+                    identifier: newsletter
+                    name: Newsletter
+                  segments:
+                  - id: 2
+                    identifier: subscribers
+                    name: Subscribers
+                    source: ibexa
+                    usersCount: 30
+                    blocksCount: 1
+        401:
+          description: Error - the user is not authorized to read segments.
+      summary: List all segments grouped by segment group
+      description: Lists all segments grouped by their segment groups.
+      parameters:
+      - name: groups[]
+        in: query
+        description: Segment group identifiers to filter by.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: sources[]
+        in: query
+        description: Segment sources to filter by.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: search
+        in: query
+        description: Case-insensitive phrase matched against segment name/identifier
+          and segment group name. A group name match keeps all segments of that group.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      deprecated: false
+      x-badges:
+      - name: Experience
+        color: '#D3822B'
+      - name: Commerce
+        color: '#A32768'
+        position: after
   /segment_groups:
     get:
       operationId: ibexa.segmentation.rest.segment_groups.list
@@ -24845,6 +25048,337 @@ paths:
         schema:
           type: string
         style: simple
+        explode: false
+        allowReserved: false
+      deprecated: false
+  /api/ibexa/v3/translations-hub/bulk-translation/missing:
+    get:
+      operationId: api_ibexav3translations-hubbulk-translationmissing_get
+      tags:
+      - Translations Management
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingTranslationsResource'
+        400:
+          description: Invalid or unavailable target language.
+        401:
+          description: User is not authorized.
+      summary: List missing translations
+      description: Returns missing translations with server-side filtering, sorting
+        and pagination.
+      parameters:
+      - name: targetLanguage
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: contentType
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: search
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: sort
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - name
+          - content_type
+        style: form
+        explode: false
+        allowReserved: false
+      - name: direction
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+        allowReserved: false
+      - name: page
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+      - name: limit
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+      deprecated: false
+  /api/ibexa/v3/translations-hub/bulk-translation/missing/ids:
+    get:
+      operationId: api_ibexav3translations-hubbulk-translationmissingids_get
+      tags:
+      - Translations Management
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingTranslationIdsResource'
+        400:
+          description: Invalid or unavailable target language.
+        401:
+          description: User is not authorized.
+      summary: List missing translation ids
+      description: Returns up to N missing translation content ids for current filter
+        and sorting context.
+      parameters:
+      - name: targetLanguage
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: contentType
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: search
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: sort
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - name
+          - content_type
+        style: form
+        explode: false
+        allowReserved: false
+      - name: direction
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        style: form
+        explode: false
+        allowReserved: false
+      - name: limit
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+        style: form
+        explode: false
+        allowReserved: false
+      deprecated: false
+  /api/ibexa/v3/translations-hub/bulk-translation/setup:
+    get:
+      operationId: api_ibexav3translations-hubbulk-translationsetup_get
+      tags:
+      - Translations Management
+      responses:
+        200:
+          description: Bulk translation setup state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkTranslationSetupResource'
+        401:
+          description: User is not authorized.
+      summary: Read bulk translation setup state
+      description: Returns the setup state used by the Translation setup modal.
+      parameters:
+      - name: content_ids[]
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: array
+          items:
+            type: integer
+        style: form
+        explode: false
+        allowReserved: false
+      - name: source_language
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: target_language
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: provider
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: setup_search
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: setup_items_ct
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: setup_items_page
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
+        explode: false
+        allowReserved: false
+      - name: setup_duplicates_search
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: setup_duplicates_ct
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: setup_duplicates_page
+        in: query
+        description: ""
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          minimum: 1
+        style: form
         explode: false
         allowReserved: false
       deprecated: false
@@ -45812,6 +46346,172 @@ components:
       properties:
         EntryAssignmentCollection:
           $ref: '#/components/schemas/EntryAssignmentCollection'
+    PageStructure:
+      description: Catalogue of the layouts and blocks available for building Pages.
+      type: object
+      required:
+      - _media-type
+      - layouts
+      - blocks
+      properties:
+        _media-type:
+          type: string
+        layouts:
+          description: Page layouts available for building Pages.
+          type: array
+          items:
+            $ref: '#/components/schemas/PageStructureLayout'
+        blocks:
+          description: Page blocks available for placing in the zones of a layout.
+          type: array
+          items:
+            $ref: '#/components/schemas/PageStructureBlock'
+    PageStructureWrapper:
+      type: object
+      required:
+      - PageStructure
+      properties:
+        PageStructure:
+          $ref: '#/components/schemas/PageStructure'
+    PageStructureLayout:
+      description: Page layout, together with the zones it is divided into.
+      type: object
+      required:
+      - _media-type
+      - identifier
+      - name
+      - description
+      - zones
+      properties:
+        _media-type:
+          type: string
+        identifier:
+          description: Unique layout identifier, as used in configuration.
+          type: string
+        name:
+          description: Human-readable layout name.
+          type: string
+        description:
+          description: Human-readable layout description. Empty string when the layout
+            declares no description.
+          type: string
+        zones:
+          description: Zones the layout is divided into. Blocks are placed in zones.
+          type: array
+          items:
+            $ref: '#/components/schemas/PageStructureZone'
+    PageStructureZone:
+      description: Zone of a Page layout.
+      type: object
+      required:
+      - _media-type
+      - identifier
+      - name
+      - description
+      properties:
+        _media-type:
+          type: string
+        identifier:
+          description: Unique zone identifier within its layout.
+          type: string
+        name:
+          description: Human-readable zone name.
+          type: string
+        description:
+          description: Human-readable zone description. Empty string when the zone
+            declares no description.
+          type: string
+    PageStructureBlock:
+      description: Page block, together with its views and attributes.
+      type: object
+      required:
+      - _media-type
+      - identifier
+      - name
+      - description
+      - category
+      - views
+      - attributes
+      properties:
+        _media-type:
+          type: string
+        identifier:
+          description: Unique block identifier, as used in configuration.
+          type: string
+        name:
+          description: Human-readable block name.
+          type: string
+        description:
+          description: Human-readable block description. Empty string when the block
+            declares no description.
+          type: string
+        category:
+          description: Identifier of the category the block is grouped under in the
+            editor.
+          type: string
+        views:
+          description: Views the block can be rendered with.
+          type: array
+          items:
+            $ref: '#/components/schemas/PageStructureView'
+        attributes:
+          description: Attributes the block accepts.
+          type: array
+          items:
+            $ref: '#/components/schemas/PageStructureAttribute'
+    PageStructureView:
+      description: View a Page block can be rendered with.
+      type: object
+      required:
+      - _media-type
+      - identifier
+      - name
+      - description
+      properties:
+        _media-type:
+          type: string
+        identifier:
+          description: Unique view identifier within its block.
+          type: string
+        name:
+          description: Human-readable view name.
+          type: string
+        description:
+          description: Human-readable view description. Empty string when the view
+            declares no description.
+          type: string
+    PageStructureAttribute:
+      description: Attribute of a Page block.
+      type: object
+      required:
+      - _media-type
+      - identifier
+      - name
+      - type
+      - category
+      - options
+      properties:
+        _media-type:
+          type: string
+        identifier:
+          description: Unique attribute identifier within its block.
+          type: string
+        name:
+          description: Human-readable attribute name.
+          type: string
+        type:
+          description: Identifier of the attribute type, which determines how the
+            value is edited and stored.
+          type: string
+        category:
+          description: Identifier of the category the attribute is grouped under in
+            the block edit form.
+          type: string
+        options:
+          description: |
+            Attribute type specific configuration, passed through from the block definition as-is. Always serialized as a JSON object, empty when the attribute declares no options.
+          type: object
+          additionalProperties: true
     Segment:
       allOf:
       - $ref: '#/components/schemas/BaseObject'
@@ -45867,6 +46567,129 @@ components:
       properties:
         SegmentList:
           $ref: '#/components/schemas/SegmentList'
+    SegmentViewGroupInfo:
+      description: This class represents a segment group within the segment view.
+      type: object
+      required:
+      - id
+      - identifier
+      - name
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        name:
+          type: string
+    SegmentViewSegment:
+      description: This class represents a segment together with its usage statistics.
+      type: object
+      required:
+      - id
+      - identifier
+      - name
+      - source
+      - usersCount
+      - blocksCount
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        name:
+          type: string
+        source:
+          type: string
+        lastUpdatedBy:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        lastUpdatedByLabel:
+          type: string
+          nullable: true
+        usersCount:
+          type: integer
+        blocksCount:
+          type: integer
+    SegmentViewGroupSegments:
+      description: This class represents a segment group together with its segments.
+      type: object
+      required:
+      - group
+      - segments
+      properties:
+        group:
+          $ref: '#/components/schemas/SegmentViewGroupInfo'
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentViewSegment'
+    SegmentViewGroupFilterOption:
+      description: This class represents a segment group filter value with its segment
+        count.
+      type: object
+      required:
+      - id
+      - identifier
+      - name
+      - count
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        name:
+          type: string
+        count:
+          type: integer
+    SegmentViewSourceFilterOption:
+      description: This class represents a segment source filter value with its segment
+        count.
+      type: object
+      required:
+      - value
+      - count
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+    SegmentViewFilters:
+      description: This class represents the available filter options of the segment
+        view.
+      type: object
+      required:
+      - groups
+      - sources
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentViewGroupFilterOption'
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentViewSourceFilterOption'
+    SegmentView:
+      description: This class lists segments grouped by their segment groups, with
+        available filter values.
+      type: object
+      required:
+      - totalCount
+      - filters
+      - groups
+      properties:
+        totalCount:
+          type: integer
+        filters:
+          $ref: '#/components/schemas/SegmentViewFilters'
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentViewGroupSegments'
     SegmentGroup:
       allOf:
       - $ref: '#/components/schemas/BaseObject'
@@ -48586,6 +49409,275 @@ components:
       properties:
         ShoppingListCollection:
           $ref: '#/components/schemas/ShoppingListCollection'
+    BulkTranslationSetupActionResource:
+      type: object
+      required:
+      - href
+      - method
+      - enabled
+      properties:
+        href:
+          type: string
+        method:
+          type: string
+        enabled:
+          type: boolean
+    BulkTranslationSetupLanguageChoiceResource:
+      type: object
+      required:
+      - code
+      - name
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+    BulkTranslationSetupProviderChoiceResource:
+      type: object
+      required:
+      - identifier
+      - name
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+    BulkTranslationSetupContentTypeChoiceResource:
+      type: object
+      required:
+      - identifier
+      - name
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+    BulkTranslationSetupRowResource:
+      type: object
+      required:
+      - id
+      - name
+      - contentTypeIdentifier
+      - contentTypeName
+      - duplicated
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        contentTypeIdentifier:
+          type: string
+        contentTypeName:
+          type: string
+        duplicated:
+          type: boolean
+    BulkTranslationSetupFiltersResource:
+      type: object
+      required:
+      - search
+      - contentType
+      - contentTypeChoices
+      properties:
+        search:
+          type: string
+        contentType:
+          type: string
+        contentTypeChoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkTranslationSetupContentTypeChoiceResource'
+    BulkTranslationSetupPaginationResource:
+      type: object
+      required:
+      - page
+      - pageSize
+      - totalPages
+      properties:
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+    BulkTranslationSetupSectionResource:
+      type: object
+      required:
+      - count
+      - rows
+      - filters
+      - pagination
+      properties:
+        count:
+          type: integer
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkTranslationSetupRowResource'
+        filters:
+          $ref: '#/components/schemas/BulkTranslationSetupFiltersResource'
+        pagination:
+          $ref: '#/components/schemas/BulkTranslationSetupPaginationResource'
+    BulkTranslationSetupSectionsResource:
+      type: object
+      required:
+      - duplicates
+      - items
+      properties:
+        duplicates:
+          $ref: '#/components/schemas/BulkTranslationSetupSectionResource'
+        items:
+          $ref: '#/components/schemas/BulkTranslationSetupSectionResource'
+    BulkTranslationSetupConfigurationResource:
+      type: object
+      required:
+      - sourceLanguage
+      - sourceLanguageChoices
+      - targetLanguage
+      - targetLanguageChoices
+      - provider
+      - providerChoices
+      properties:
+        sourceLanguage:
+          type: string
+        sourceLanguageChoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkTranslationSetupLanguageChoiceResource'
+        targetLanguage:
+          type: string
+        targetLanguageChoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkTranslationSetupLanguageChoiceResource'
+        provider:
+          type: string
+        providerChoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkTranslationSetupProviderChoiceResource'
+    BulkTranslationSetupSummaryResource:
+      type: object
+      required:
+      - totalItems
+      - duplicates
+      - itemsToTranslate
+      properties:
+        totalItems:
+          type: integer
+        duplicates:
+          type: integer
+        itemsToTranslate:
+          type: integer
+    BulkTranslationSetupSelectionResource:
+      type: object
+      required:
+      - selectedContentIds
+      - returnedCount
+      - totalCount
+      - limited
+      properties:
+        selectedContentIds:
+          type: array
+          items:
+            type: integer
+        returnedCount:
+          type: integer
+        totalCount:
+          type: integer
+        limited:
+          type: boolean
+    BulkTranslationSetupActionsResource:
+      type: object
+      required:
+      - start
+      - removeItem
+      - discard
+      properties:
+        start:
+          $ref: '#/components/schemas/BulkTranslationSetupActionResource'
+        removeItem:
+          $ref: '#/components/schemas/BulkTranslationSetupActionResource'
+        discard:
+          $ref: '#/components/schemas/BulkTranslationSetupActionResource'
+    BulkTranslationSetupResource:
+      type: object
+      required:
+      - configuration
+      - summary
+      - sections
+      - selection
+      - actions
+      properties:
+        configuration:
+          $ref: '#/components/schemas/BulkTranslationSetupConfigurationResource'
+        summary:
+          $ref: '#/components/schemas/BulkTranslationSetupSummaryResource'
+        sections:
+          $ref: '#/components/schemas/BulkTranslationSetupSectionsResource'
+        selection:
+          $ref: '#/components/schemas/BulkTranslationSetupSelectionResource'
+        actions:
+          $ref: '#/components/schemas/BulkTranslationSetupActionsResource'
+    MissingTranslationsRowResource:
+      type: object
+      required:
+      - contentId
+      - name
+      - contentTypeIdentifier
+      - contentTypeName
+      - missingLanguages
+      properties:
+        contentId:
+          type: integer
+        name:
+          type: string
+        contentTypeIdentifier:
+          type: string
+        contentTypeName:
+          type: string
+        missingLanguages:
+          type: array
+          items:
+            type: string
+        mainLocationId:
+          type: integer
+          nullable: true
+    MissingTranslationsResource:
+      type: object
+      required:
+      - totalCount
+      - page
+      - limit
+      - rows
+      properties:
+        totalCount:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissingTranslationsRowResource'
+    MissingTranslationIdsResource:
+      type: object
+      required:
+      - ids
+      - returnedCount
+      - totalCount
+      - limited
+      properties:
+        ids:
+          type: array
+          items:
+            type: integer
+        returnedCount:
+          type: integer
+        totalCount:
+          type: integer
+        limited:
+          type: boolean
   responses: []
   parameters: []
   examples: []
@@ -48626,6 +49718,7 @@ tags:
 - name: Product Region
 - name: Product Vat
 - name: Taxonomy
+- name: Page
 - name: Segmentation
 - name: Corporate Account
 - name: Activity Log
@@ -48637,5 +49730,6 @@ tags:
 - name: Collaboration Sessions
 - name: Connector AI
 - name: Discounts
+- name: Translations Management
 webhooks: []
 ...
