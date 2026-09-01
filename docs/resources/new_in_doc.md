@@ -35,11 +35,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Infrastructure
 
 - Added a disclaimer about the `ibexa-5.0.9-to-5.0.10.sql` [database upgrade script](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/), needed for the Translations management LTS Update
-- Updated the [`webpack.config.js` usage update](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/#webpackconfigjs-usage-update) instructions for 5.0
+- Added the [`webpack.config.js` usage update](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/#webpackconfigjs-usage-update) instructions for 5.0
 
 ### DDEV
 
-- Updated [Clustering with DDEV](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering_with_ddev/#elasticsearch) to install Elasticsearch 8
+- Updated [Clustering with DDEV](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering_with_ddev/#elasticsearch) to install a supported version of Elasticsearch
 
 ## July 2026
 
