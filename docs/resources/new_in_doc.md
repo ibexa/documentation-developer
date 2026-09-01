@@ -7,6 +7,40 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## August 2026
+
+### Releases
+
+- [v5.0.10 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v5010)
+- [v4.6.32 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4632)
+
+### Translations management
+
+- Introduced the [Translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management/) LTS Update, which helps developers and editors deliver automated content item and product translations:
+    - [Product guide](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management_guide/)
+    - [Configuration](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/)
+    - [Extending Translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/extend_translations_management/)
+    - [Using the CLI command](https://doc.ibexa.co/en/5.0/multisite/translations_management/translate_with_cli/)
+    - [Events](https://doc.ibexa.co/en/5.0/api/event_reference/translations_management_events/)
+    - [PHP API reference](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html)
+
+### Cohesivo v6.0
+
+- Added the [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/cohesivo_v6.0_deprecations/) page
+
+### Background tasks
+
+- Described the [`DeduplicateStamp`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#deduplicatestamp) and how to inject the `ibexa.messenger.bus` service directly
+
+### Infrastructure
+
+- Added a disclaimer about the `ibexa-5.0.9-to-5.0.10.sql` [database upgrade script](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/), needed for the Translations management LTS Update
+- Added the [`webpack.config.js` usage update](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/#webpackconfigjs-usage-update) instructions for 5.0
+
+### DDEV
+
+- Updated [Clustering with DDEV](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering_with_ddev/#elasticsearch) to install a supported version of Elasticsearch
+
 ## July 2026
 
 ### AI
