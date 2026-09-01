@@ -10,7 +10,7 @@ on:
 jobs:
     code-samples-validation:
         name: Validate code samples
-        runs-on: "ubuntu-22.04"
+        runs-on: "ubuntu-26.04"
         strategy:
             fail-fast: false
             matrix:
@@ -19,7 +19,7 @@ jobs:
                     - "8.2" # Lower supported that haven't reached end of live
                     - "7.4" # Lower supported version but reached end of life, 8.2 is recommended instead
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
 
             - name: Setup PHP Action
               uses: shivammathur/setup-php@v2
@@ -31,7 +31,7 @@ jobs:
 
             - name: Generate token
               id: generate_token
-              uses: actions/create-github-app-token@v2
+              uses: actions/create-github-app-token@v3
               with:
                   app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
                   private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
@@ -86,7 +86,7 @@ jobs:
                       "PKSA-fs5b-x5k4-1h39": "As this is for code quality tests and not to run a production DXP, this can be ignored."
                   }'
 
-            - uses: ramsey/composer-install@v3
+            - uses: ramsey/composer-install@v4
               with:
                   dependency-versions: highest
 
@@ -113,7 +113,7 @@ jobs:
 
     code-samples-inclusion-check:
         name: Check code samples inclusion
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
         if: github.event_name == 'pull_request'
         permissions:
             # Needed to manage the comment
@@ -131,7 +131,7 @@ jobs:
 
             -   name: Checkout target branch (base_ref)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
-                uses: actions/checkout@v3
+                uses: actions/checkout@v7
                 with:
                     ref: ${{ github.base_ref }}
             -   name: Log target branch code_samples usage
@@ -143,7 +143,7 @@ jobs:
 
             -   name: Checkout source branch (head_ref)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
-                uses: actions/checkout@v3
+                uses: actions/checkout@v7
                 with:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
@@ -171,7 +171,7 @@ jobs:
             -   name: Upload code_samples usages differences artifact
                 id: artifact
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
-                uses: actions/upload-artifact@v4
+                uses: actions/upload-artifact@v7
                 with:
                     name: code_samples_usage.diff.html
                     path: ~/code_samples_usage.diff.html
@@ -194,14 +194,14 @@ jobs:
                     fi
             -   name: Find Comment
                 id: find-comment
-                uses: peter-evans/find-comment@v3
+                uses: peter-evans/find-comment@v4
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'code_samples/ change report'
             -   name: Delete comment
                 if: steps.find-comment.outputs.comment-id != ''
-                uses: actions/github-script@v6
+                uses: actions/github-script@v9
                 with:
                     script: |
                         github.rest.issues.deleteComment({
@@ -211,7 +211,7 @@ jobs:
                         })
             -   name: Create comment
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
-                uses: peter-evans/create-or-update-comment@v4
+                uses: peter-evans/create-or-update-comment@v5
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
                     body-path: code_samples_usage.diff.md
