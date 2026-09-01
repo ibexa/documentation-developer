@@ -1,6 +1,6 @@
 ---
 description: See various tools that can help you debug your Ibexa DXP installation.
-month_change: true
+month_change: false
 ---
 
 # DevOps
