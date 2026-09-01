@@ -13,7 +13,7 @@ on:
 jobs:
     post-preview-links:
         name: 'Post preview links for changed files'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
         permissions:
             # Needed to manage the comment
             pull-requests: write
@@ -21,7 +21,7 @@ jobs:
             contents: read
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
 
             -   name: Fetch base branch for comparison
                 run: git fetch origin ${{ github.base_ref }} --depth=1
@@ -66,14 +66,14 @@ jobs:
 
             -   name: Find comment
                 id: find-comment
-                uses: peter-evans/find-comment@v3
+                uses: peter-evans/find-comment@v4
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'Preview of modified files'
 
             -   name: Create or update comment
-                uses: peter-evans/create-or-update-comment@v4
+                uses: peter-evans/create-or-update-comment@v5
                 with:
                     comment-id: ${{ steps.find-comment.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}

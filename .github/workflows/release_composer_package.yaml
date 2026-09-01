@@ -24,7 +24,7 @@ on:
 
 jobs:
     determine-branches:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
         outputs:
             branches: ${{ steps.set.outputs.branches }}
             devdoc_branch: ${{ steps.set.outputs.devdoc_branch }}
@@ -54,7 +54,7 @@ jobs:
 
     release:
         needs: determine-branches
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
         permissions:
             # Needed to commit the generated Markdown and push a tag.
             contents: write
@@ -68,7 +68,7 @@ jobs:
             # pushed to the branch itself (see below), only tagged, so the diff target is
             # the latest tag — fetched individually in "Find the last tag" instead of
             # pulling the full history + every daily tag snapshot (which took minutes).
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
               with:
                   ref: ${{ needs.determine-branches.outputs.devdoc_branch || matrix.branch }}
 
@@ -80,7 +80,7 @@ jobs:
                   path: user-docs
 
             - name: Set up Python
-              uses: actions/setup-python@v3
+              uses: actions/setup-python@v7
               with:
                   python-version: "3.13"
 
@@ -101,7 +101,7 @@ jobs:
 
             - name: Generate token
               id: generate_token
-              uses: actions/create-github-app-token@v2
+              uses: actions/create-github-app-token@v3
               with:
                   app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
                   private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
@@ -118,7 +118,7 @@ jobs:
 
             # Needed to resolve the PHP API classes referenced by the docs to
             # their vendor/ source paths (dump_class_paths.php).
-            - uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f #v3.2.1
+            - uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda #4.0.0
               with:
                   dependency-versions: highest
 
