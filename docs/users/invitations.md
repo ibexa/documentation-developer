@@ -9,13 +9,13 @@ You can send invitations to individual users or in bulk.
 
 ## Roles and policies
 
-To invite other members to the site or the back office, a user needs to have the `User:Invite` permission added to their role.
+To invite other members to the site or the back office, a user needs to have the `ùser/invite` permission added to their role.
 You can limit the ability to invite other members to specific user groups, such as Editors, or to the specific roles within the group, for example: Admin, Buyer.
 
 ## Creating and sending invitations
 
 Invitations are created with [InvitationService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html), but sending them requires additional setup.
-[[= product_name =]] provides you with `Ibexa\User\Invitation\MailSender` implementation of `InvitationSender` interface for sending invitations via email.
+[[= product_name =]] provides you with `Ibexa\User\Invitation\MailSender` implementation of [`InvitationSender`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationSender.html) interface for sending invitations via email.
 If you want to send invitations through different channels, you need to create a custom setup.
 
 ## Invitation and registration form templates
