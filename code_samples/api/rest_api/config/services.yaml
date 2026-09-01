@@ -7,24 +7,29 @@ services:
     app.rest.output.visitor.xml:
         class: Ibexa\Contracts\Rest\Output\Visitor
         arguments:
-            - '@Ibexa\Rest\Output\Generator\Xml'
-            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
+            $generator: '@Ibexa\Rest\Output\Generator\Xml'
+            $normalizer: '@ibexa.rest.serializer'
+            $encoder: '@ibexa.rest.serializer.encoder.xml'
+            $valueObjectVisitorResolver: '@App\Rest\Output\ValueObjectVisitorResolver'
+            $format: 'xml'
         tags:
             - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.xml.regexps, priority: 20 }
 
     app.rest.output.visitor.json:
         class: Ibexa\Contracts\Rest\Output\Visitor
         arguments:
-            - '@Ibexa\Rest\Output\Generator\Json'
-            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
+            $generator: '@Ibexa\Rest\Output\Generator\Json'
+            $normalizer: '@ibexa.rest.serializer'
+            $encoder: '@ibexa.rest.serializer.encoder.json'
+            $valueObjectVisitorResolver: '@App\Rest\Output\ValueObjectVisitorResolver'
+            $format: 'json'
         tags:
             - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 20 }
 
-    App\Rest\Output\ValueObjectVisitorDispatcher:
-        class: App\Rest\Output\ValueObjectVisitorDispatcher
+    App\Rest\Output\ValueObjectVisitorResolver:
         arguments:
-            - !tagged_iterator { tag: 'app.rest.output.value_object.visitor', index_by: 'type' }
-            - '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher'
+            $visitors: !tagged_iterator { tag: 'app.rest.output.value_object.visitor', index_by: 'type' }
+            $resolver: '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorResolver'
 
     App\Rest\ValueObjectVisitor\RestLocation:
         class: App\Rest\ValueObjectVisitor\RestLocation
