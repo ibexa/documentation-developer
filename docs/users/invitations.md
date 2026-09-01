@@ -9,7 +9,7 @@ You can send invitations to individual users or in bulk.
 
 ## Roles and policies
 
-To invite other members to the site or the back office, a user needs to have the `ùser/invite` permission added to their role.
+To invite other members to the site or the back office, a user needs to have the `user/invite` permission added to their role.
 You can limit the ability to invite other members to specific user groups, such as Editors, or to the specific roles within the group, for example: Admin, Buyer.
 
 ## Creating and sending invitations
