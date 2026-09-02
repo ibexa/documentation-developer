@@ -9,13 +9,11 @@ This enables you to give specific prices or price discounts (global or per produ
 
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 
-By using [Discounts](discounts_guide.md), you can create even more complex rules that apply to only selected customer groups or to all customers.
-
 !!! tip
 
     Customer groups aren't the same as [user groups](user_registration.md#user-groups).
     User groups concern all users in the system and can be used, for example, to handle permissions.
-    Customer groups refer specifically to the commerce functionalities and enable handling prices.
+    Customer groups refer specifically to the product catalog functionalities and enable handling prices.
 
 ## Enabling customer groups
 

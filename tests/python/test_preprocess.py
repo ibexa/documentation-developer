@@ -100,12 +100,12 @@ def test_adjacent_inline_pills_merged():
     # Structure from update_from_5.0: pills separated by a space in a heading.
     html = (
         '<h3 id="db">Database update '
-        '<span class="pill pill--inline pill--experience"></span> '
-        '<span class="pill pill--inline pill--commerce"></span>'
+        '<span class="pill pill--inline pill--headless"></span> '
+        '<span class="pill pill--inline pill--experience"></span>'
         '<a class="headerlink" href="#db">&para;</a></h3>'
     )
     result = to_markdown(html)
-    assert "### Database update (Experience, Commerce)" in result
+    assert "### Database update (Headless, Experience)" in result
     assert ") (" not in result
 
 
@@ -114,9 +114,9 @@ def test_three_adjacent_inline_pills_merged():
         "<p>Feature"
         '<span class="pill--inline pill--headless"></span> '
         '<span class="pill--inline pill--experience"></span> '
-        '<span class="pill--inline pill--commerce"></span> is available.</p>'
+        '<span class="pill--inline pill--lts-update"></span> is available.</p>'
     )
-    assert "Feature (Headless, Experience, Commerce) is available." in to_markdown(html)
+    assert "Feature (Headless, Experience, LTS Update) is available." in to_markdown(html)
 
 
 def test_ol_start_attribute_preserved():

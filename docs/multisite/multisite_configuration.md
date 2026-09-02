@@ -131,7 +131,7 @@ ibexa:
                             Identifier\ContentType: [article]
 ```
 
-### SiteAccesses and Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### SiteAccesses and Page Builder [[% include 'snippets/experience_badge.md' %]]
 
 To define which SiteAccesses are available in the submenu in Page Builder, use the following configuration:
 

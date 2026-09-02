@@ -41,7 +41,7 @@ This page contains recent highlights and notable changes in Ibexa DXP and [[= pr
 
 ### Notifications
 
-- Covered the [notification channels](notification_channels.md) feature from `ibexa/notifications` package
+- Covered the [notification channels](https://doc.ibexa.co/en/6.0/api/notification_channels/) feature from `ibexa/notifications` package
 - Revamped the [back office notifications documentation](notifications.md)
 
 ### Users
@@ -120,11 +120,11 @@ This page contains recent highlights and notable changes in Ibexa DXP and [[= pr
 
 #### Modified 5.0 update instructions
 
-To [update from v5.0.x to v5.0.latest](update_from_5.0.md), you have to ensure that Yarn dependencies are up-to-date before running Composer.
+To [update from v5.0.x to v5.0.latest](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/), you have to ensure that Yarn dependencies are up-to-date before running Composer.
 
 #### [[= product_name_cloud =]]
 
-- Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides](environment_variables.md)
+- Added documentation describing [how to use the new `ibexa/cloud` package](https://doc.ibexa.co/en/5.0/ibexa_cloud/install_on_ibexa_cloud/) and the [environment variables it provides](https://doc.ibexa.co/en/5.0/ibexa_cloud/environment_variables/)
 
 #### DFS configuration
 
@@ -160,16 +160,16 @@ This promotes skipping the rebuild of the Symfony container when environment var
 ### Search
 
 - Added support for Elasticsearch 8.19+:
-    - Updated the [requirements](requirements.md)
+    - Updated the [requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements/)
     - Updated the [Elasticsearch overview](elasticsearch_overview.md)
     - Modified the [configuration instructions](configure_elasticsearch.md)
     - Modified the [installation instructions](install_elasticsearch.md)
-    - Modified the [system update instructions](update_from_5.0.md)
+    - Modified the [system update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/)
 
 ### Infrastructure and maintenance
 
 - Added [reverse proxy installation instructions](clustering_with_ddev.md#install-reverse-proxy) to DDEV cluster description
-- Modified the [system update instructions](update_from_5.0.md) to account for numerous changes in the product
+- Modified the [system update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/) to account for numerous changes in the product
 - Detailed the Varnish [reverse proxy configuration instructions](reverse_proxy.md#vcl-base-files) by mentioning specific VCL files that must be used
 
 ## December 2025
@@ -198,7 +198,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Infrastructure
 
-- [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
+- [MariaDB 11.4 is officially supported on v5 and v4.6](https://doc.ibexa.co/en/5.0/getting_started/requirements/#dbms)
 
 ### Taxonomy
 
@@ -321,11 +321,11 @@ We want to thank
 ### Background operations
 
 - Added documentation for handling [background tasks](background_tasks.md) using the new integration with Symfony Messenger
-- Described the configuration required to [asynchronously reindex discounted product prices](configure_discounts.md#discount-re-indexing) and the new discount [events](discounts_events.md) and [search criteria](discounts_criteria.md)
+- Described the configuration required to [asynchronously reindex discounted product prices](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/#discount-re-indexing) and the new discount [events](https://doc.ibexa.co/en/5.0/api/event_reference/discounts_events/) and [search criteria](https://doc.ibexa.co/en/5.0/search/discounts_search_reference/discounts_criteria/)
 
 ### Revamped notifications
 
-- Updated the [notifications](notifications.md) page after recent [improvements to notifications](ibexa_dxp_v4.6.md#improvements-to-notifications), including the [new notification criteria](notification_search_criteria.md)
+- Updated the [notifications](notifications.md) page after recent [improvements to notifications](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#improvements-to-notifications), including the [new notification criteria](notification_search_criteria.md)
 
 ### Custom Page Builder blocks
 
@@ -346,7 +346,7 @@ We want to thank
 
 ### Infrastructure
 
-- Marked Redis 7.2 as supported in the [requirements for Ibexa DXP 4.6](requirements.md#clustering)
+- Marked Redis 7.2 as supported in the [requirements for Ibexa DXP 4.6](https://doc.ibexa.co/en/4.6/getting_started/requirements/#clustering)
 
 ### PHP API
 
@@ -536,7 +536,7 @@ We want to thank [todomagichere](https://github.com/todomagichere) and [hgieseno
 
 ### Infrastructure and maintenance
 
-- Announced [v4.6.19 release notes](ibexa_dxp_v4.6.md#ibexa-dxp-v4619) and [v4.6.19 upgrade instructions](update_from_4.6.md#v4619) with an important security notice about RichText XML, and introducing [Ibexa Rector](update_from_4.6.md#ibexa-rector) to help to maintain custom code
+- Announced [v4.6.19 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4619) and [v4.6.19 upgrade instructions](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#v4619) with an important security notice about RichText XML, and introducing [Ibexa Rector](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector) to help to maintain custom code
 
 ## March 2025
 

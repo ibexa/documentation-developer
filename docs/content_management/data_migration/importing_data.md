@@ -56,13 +56,10 @@ The following data migration step modes are available:
 | `content`              | &#10004; | &#10004; | &#10004; |          |          |
 | `currency`             | &#10004; | &#10004; | &#10004; |          |          |
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |          |
-| `discount`             | &#10004; | &#10004; |          |          |          |
-| `discount_code`        | &#10004; |          |          |          |          |
 | `language`             | &#10004; |          |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; | &#10004; |
 | `object_state`         | &#10004; |          |          |          |          |
 | `object_state_group`   | &#10004; |          |          |          |          |
-| `payment_method`       | &#10004; |          |          |          |          |
 | `product_asset`        | &#10004; |          |          |          |          |
 | `product_availability` | &#10004; |          |          |          |          |
 | `product_price`        | &#10004; |          |          |          |          |
@@ -72,7 +69,6 @@ The following data migration step modes are available:
 | `segment`              | &#10004; | &#10004; | &#10004; |          |          |
 | `segment_group`        | &#10004; | &#10004; | &#10004; |          |          |
 | `setting`              | &#10004; | &#10004; | &#10004; |          |          |
-| `shipping_method`      | &#10004; |          |          |          |          |
 | `user`                 | &#10004; | &#10004; |          |          |          |
 | `user_group`           | &#10004; | &#10004; | &#10004; |          |          |
 
@@ -575,25 +571,7 @@ The following example shows how to create a currency:
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
 ```
 
-### Commerce [[% include 'snippets/commerce_badge.md' %]]
-
-#### Payment methods
-
-The following example shows how to create a payment method:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/create_payment_method.yaml') =]]
-```
-
-#### Shipping methods
-
-The following example shows how to create a shipping method:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/create_shipping_method.yaml') =]]
-```
-
-### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Segments [[% include 'snippets/experience_badge.md' %]]
 
 The following example shows how to create a segment group and add segments in it:
 
@@ -660,31 +638,6 @@ When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
-```
-
-### Discounts
-
-The following example shows how you can create a new [discount](discounts_guide.md) in your system:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
-```
-
-Use the `update` mode to modify an existing discount as in the example below.
-The provided conditions overwrite any already existing ones.
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
-```
-
-For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
-
-### Discount codes
-
-You can create a discount code as in the following example:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/discounts/discount_code_create.yaml') =]]
 ```
 
 ## Criteria

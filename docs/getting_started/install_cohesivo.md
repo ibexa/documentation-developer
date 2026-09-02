@@ -29,8 +29,6 @@ Additional requirements:
 
 For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
 
-Before getting started, make sure you review other [requirements](requirements.md) to see the systems that are supported and used for testing.
-
 ### Get Composer
 
 Install a recent stable version of Composer, the PHP command line dependency manager.
@@ -127,12 +125,6 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/experience-skeleton .
     ```
 
-=== "[[= product_name_com =]]"
-
-    ``` bash
-    composer create-project ibexa/commerce-skeleton .
-    ```
-
 ??? note "Using PHP versions other than 8.3"
 
     If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
@@ -151,13 +143,6 @@ To use Composer to instantly create a project in the current folder with all the
         composer update
         ```
 
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project ibexa/commerce-skeleton --no-install .
-        composer update
-        ```
-
 !!! tip "Authentication token"
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
@@ -173,18 +158,6 @@ To use Composer to instantly create a project in the current folder with all the
     ``` bash
     composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
-
-!!! note "[[= product_name_cloud =]]"
-
-    If you're deploying your installation on [Upsun](https://fixed.docs.upsun.com/guides/ibexa/deploy.html), run the following commands:
-
-    ``` bash
-    composer require ibexa/cloud
-    php bin/console ibexa:cloud:setup --upsun
-    ```
-
-    These commands add the necessary package and provide the required configuration for using Upsun.
-    For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md).
 
 #### Add project to version control
 
@@ -457,19 +430,11 @@ Here are some additional tasks that require scheduling:
 
 - To use the [Link manager](url_management.md), schedule the URL validation command `ibexa:check-urls`.
 - To control the [recent activity log size](recent_activity.md#log-retention), schedule the `ibexa:activity-log:truncate` command.
-- To re-index [discounts](discounts_guide.md#discount-re-indexing), schedule the `ibexa:discounts:reindex` command.
-
-    !!! note
-
-        You must first set up [[= product_name_base =]] Messenger.
-        For more information, see [Discount re-indexing configuration](configure_discounts.md#discount-re-indexing).
-
 The following example schedules these commands separately:
 
 - `ibexa:cron:run` [every minute](https://crontab.guru/every-minute)
 - `ibexa:check-urls` [every week](https://crontab.guru/weekly) on Sunday at midnight
 - `ibexa:activity-log:truncate` [every hour](https://crontab.guru/every-hour) at minute 0
-- `ibexa:discounts:reindex` [every day](https://crontab.guru/every-day) at midnight
 
 This shell script creates a temporary file with the job lines, then replaces the existing crontab for the web server user:
 
@@ -477,7 +442,6 @@ This shell script creates a temporary file with the job lines, then replaces the
 echo '* * * * * cd <path-to-cohesivo>; php bin/console ibexa:cron:run --quiet --env=prod' > ibexa_cron.txt
 echo '0 0 * * 0 cd <path-to-cohesivo>; php bin/console ibexa:check-urls --quiet --env=prod' >> ibexa_cron.txt
 echo '0 * * * * cd <path-to-cohesivo>; php bin/console ibexa:activity-log:truncate --quiet --env=prod' >> ibexa_cron.txt
-echo '0 0 * * * cd <path-to-cohesivo>; php bin/console ibexa:discounts:reindex --quiet --env=prod' >> ibexa_cron.txt
 crontab -u www-data ibexa_cron.txt
 rm ibexa_cron.txt
 ```
@@ -504,10 +468,6 @@ services:
     Ibexa\Bundle\ActivityLog\Command\TruncateLogCommand:
       tags:
         - { name: ibexa.cron.job, schedule: '0 * * * *', priority: -2 }
-
-    Ibexa\Bundle\Discounts\Command\ReIndexDiscountProductCommand:
-      tags:
-        - { name: ibexa.cron.job, schedule: '0 0 * * *' }
 ```
 
 The `ibexa.cron.job` tag accepts the following options:
@@ -550,11 +510,4 @@ services:
 Enable Ibexa Messenger for background tasks.
 Make sure that its [worker starts with the server](background_tasks.md#start-worker).
 
-A list of processes that use [[= product_name_base =]] Messenger includes at least these two:
-
-- [[[= product_name_cdp =]] data export](/raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
-- [Discount re-indexing](configure_discounts.md#discount-re-indexing)
-
-## [[= product_name_cloud =]]
-
-If you want to host your application on [[= product_name_cloud =]], follow the [Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+Processes that use [[= product_name_base =]] Messenger include, for example, [[[= product_name_cdp =]] data export](/raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data).

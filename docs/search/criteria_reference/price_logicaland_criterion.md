@@ -1,6 +1,5 @@
 ---
 description: Price LogicalAnd Search Criterion
-edition: commerce
 ---
 
 # Price LogicalAnd Criterion

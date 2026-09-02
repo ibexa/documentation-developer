@@ -71,7 +71,7 @@ For more information, see [Customizing image optimizers with an event](images.md
 |---|---|---|
 |<nobr>[`ConfigureImageOptimizersEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html)</nobr>|`SpatieChainOptimizer::`<br>`optimize`|`array<Spatie\ImageOptimizer\Optimizer> $optimizers`|
 
-## Form Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Form Builder [[% include 'snippets/experience_badge.md' %]]
 
 | Event | Dispatched by | Properties |
 |---|---|---|

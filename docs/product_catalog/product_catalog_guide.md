@@ -86,9 +86,8 @@ Product types in [[= product_name =]] can be either virtual or physical:
 
 - **Physical products** are tangible items that require shipping (for example: books, clothing, electronics).
 - **Virtual products** are items that don't require physical delivery (for example: software licenses, e-books, online courses, digital downloads, additional warranty, tickets for an event).
-
 This product type property can affect the checkout process.
-A cart of only virtual products skips the [shipping step](shipping_management.md) during checkout.
+For example, a cart of only virtual products can skip the shipping step during checkout.
 To learn more about working with virtual products, see [Virtual products]([[= user_doc =]]/product_catalog/create_virtual_product/) in the User Documentation.
 
 ### Currencies
@@ -116,8 +115,6 @@ You can set up different prices depending on customer group or currency.
 Each customer group can have a default price discount that applies to all products.
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 You can also set different prices for specific products or product variants for different customer groups.
-
-You can extend these capabilities even further by using [Discounts](discounts_guide.md) that are available for [[= product_name_com =]].
 
 ### Product completeness
 
@@ -175,11 +172,6 @@ With remote PIM support, you can take advantage of the following capabilities:
 
 Use the product information coming from another system in your marketing campaigns to promote certain products or brands.
 By embedding the products within content items and landing pages, you can leverage [[= product_name =]] marketing capabilities to showcase products.
-
-##### Purchasing
-
-Remote PIM systems can integrate with [Commerce features](commerce.md).
-This versatility allows for a consistent and user-friendly purchasing workflow regardless of the product's origin.
 
 ##### Pricing, stock and availability
 

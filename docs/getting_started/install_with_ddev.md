@@ -271,7 +271,7 @@ The following example shows the use of `.env.local` with database configuration:
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
 
   ```bash
-  ddev composer create-project ibexa/commerce-skeleton --no-install;
+  ddev composer create-project ibexa/experience-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
@@ -467,12 +467,11 @@ If the local project needs to answer to real production domains (for example, to
 
     As this feature modifies domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
 
-### Cluster or [[= product_name_cloud =]]
+### Cluster
 
 You can use DDEV to locally simulate a production cluster.
 
-- See [Clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, or Redis to your DDEV installation.
-- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run a [[= product_name =]] project by using DDEV.
+See [Clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, or Redis to your DDEV installation.
 
 ## Stop or remove the project
 

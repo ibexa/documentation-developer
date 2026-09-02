@@ -10,7 +10,6 @@ Three [[= product_name =]] product editions are available to help you accelerate
 [[= cards([
     "ibexa_products/ibexa_headless",
     "ibexa_products/ibexa_experience",
-    "ibexa_products/ibexa_commerce",
 ], columns=3) =]]
 
 ## Feature comparison
@@ -50,14 +49,6 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
 | [[[= product_name_engage =]] add-on]([[= user_doc =]]/qualifio/qualifio/) |  | &#10004; | &#10004; |
 | [[[= product_name_cdp =]] (Customer Data Platform) add-on](/raptor_cdp/raptor_cdp_guide.md) |  | &#10004; | &#10004; |
-| [Order management](order_management.md) |  |  | &#10004; |
-| [Payment management](payment.md) |  |  | &#10004; |
-| [Shipping management](shipping_management.md) |  |  | &#10004; |
-| [Cart](cart.md) |  |  | &#10004; |
-| [Checkout](checkout.md) |  |  | &#10004; |
-| [Storefront](storefront.md) |  |  | &#10004; |
-| [Transactional emails](transactional_emails.md) |  |  | &#10004; |
-| [Discounts](discounts.md) | | | &#10004; |
 
 ## LTS Updates
 
@@ -70,4 +61,3 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector) | &#10004; | &#10004; | &#10004; |
 | [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
 | [MCP servers](mcp_guide.md) | &#10004; | &#10004; | &#10004; |
-| [Shopping list](shopping_list_guide.md) |  |  | &#10004; |
