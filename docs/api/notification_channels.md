@@ -33,17 +33,29 @@ Some events generate notifications that you can deliver to the users through one
 
 ### Available notification types
 
-- [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
-- [`Ibexa\Contracts\OrderManagement\Notification\OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html)
-- [`Ibexa\Contracts\Payment\Notification\PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)
-- [`Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Shipping-Notification-ShipmentStatusChange.html)
-- [`Ibexa\Contracts\User\Notification\UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)
-- [`Ibexa\Contracts\User\Notification\UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)
-- [`Ibexa\Contracts\User\Notification\UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)
-- `Ibexa\Share\Notification\ContentEditInvitationNotification`
-- `Ibexa\Share\Notification\ContentViewInvitationNotification`
-- `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`
+Several built-in notification types are available.
+They are sent by various notifiers like event subscribers, controllers or form processors.
+
+| Notification type                                                                                                                                                                                                | Sent                                                                                                                                                                                                                                                       | Default recipients<br>&mdash; supported channels                                                           |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| <small>`Ibexa\AdminUi\Notifier\Notification\`</small><br>`UserInvitation`                                                                                                                                        | from the [back office invitation form]([[= user_doc =]]/user_management/manage_users/#invite-users) (notice that [the `InvitationService` doesn't send this notification](invitations.md#creating-and-sending-invitations))                                | Given email address<br>&mdash; `actito`, `email`                                                            |
+| <small>`Ibexa\AdminUi\Notifier\Notification\`</small><br>`UserPasswordReset`                                                                                                                                     | from the back office "Forgot your password?" feature form (`/user/forgot-password`)                                                                                                                                                                        | Given email address<br>&mdash; `actito`, `email`                                                            |
+| [<small>`Ibexa\Contracts\FormBuilder\Notifications\`</small><br>`FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)                            | on submission                                                                                                                                                                                                                                              | <nobr>[Form email notification field](customize_email_notifications.md)</nobr><br>&mdash; `actito`, `email` |
+| [<nobr><small>`Ibexa\Contracts\OrderManagement\Notification\`</small></nobr><br>`OrderStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Notification-OrderStatusChange.html) | on [new order creation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Event-CreateOrderEvent.html), and when an order entered a [order workflow place](configure_order_management.md#configure-order-processing-workflow)         | Order owner<br>&mdash; `actito`, `email`, `sms`                                                             |
+| [<small>`Ibexa\Contracts\Payment\Notification\`</small><br>`PaymentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Payment-Notification-PaymentStatusChange.html)                          | when a payment entered a [payment workflow place](configure_payment.md#configure-payment-workflow)                                                                                                                                                         | Order owner<br>&mdash; `actito`, `email`, `sms`                                                             |
+| [<small>`Ibexa\Contracts\Shipping\Notification\`</small><br>`ShipmentStatusChange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Shipping-Notification-ShipmentStatusChange.html)                      | when a shipment entered a [shipment workflow place](configure_shipment.md#configure-shipment-workflow)                                                                                                                                                     | Order owner<br>&mdash; `actito`, `email`, `sms`                                                             |
+| [<small>`Ibexa\Contracts\User\Notification\`</small><br>`UserInvitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserInvitation.html)                                          | from the front office invitation form (`/user/invite`) (notice that [the `InvitationService` doesn't send this notification](invitations.md#creating-and-sending-invitations))                                                                             | Given email address<br>&mdash; `actito`, `email`                                                            |
+| [<small>`Ibexa\Contracts\User\Notification\`</small><br>`UserPasswordReset`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserPasswordReset.html)                                    | from the front office "Forgot password" feature (`/user/forgot-password`)                                                                                                                                                                                  | Given email address<br>&mdash; `actito`, `email`                                                            |
+| [<small>`Ibexa\Contracts\User\Notification\`</small><br>`UserRegister`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Notification-UserRegister.html)                                              | from self-registration forms `/register` and `/from-invite/register`                                                                                                                                                                                       | Registered user<br>&mdash; `actito`, `email`                                                                |
+| <small>`Ibexa\Share\Notification\`</small><br>`ContentEditInvitationNotification`<br><small>alias `ibexa_content_edit_invitation`</small>                                                                        | on [`createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#methods), when participant is internal and has "edit" scope (see [Collaborative editing API](collaborative_editing_api.md)) | Given users<br>&mdash; `actito`, `email`, `ibexa`                                                           |
+| <small>`Ibexa\Share\Notification\`</small><br>`ContentViewInvitationNotification`<br><small>alias `ibexa_content_view_invitation`</small>                                                                        | on [`createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#methods), when participant is internal and has "view" scope (see [Collaborative editing API](collaborative_editing_api.md)) | Given users<br>&mdash; `actito`, `email`, `ibexa`                                                           |
+| <small>`Ibexa\Share\Notification\`</small><br><nobr>`ExternalParticipantContentViewInvitationNotification`</nobr><br><small>alias `ibexa_external_participant_content_view_invitation`</small>                   | on [`createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#methods), when participant is external, whatever the scope (see [Collaborative editing API](collaborative_editing_api.md))  | Given email addresses<br>&mdash; `actito`, `email`, `ibexa`                                                 |
+
+Notice that `Ibexa\AdminUi\Notifier\Notification\UserInvitation` is sent by the back office and doesn't implement `Ibexa\Contracts\User\Notification\UserInvitation` which is made for front-end users.
+Same for the two `UserPasswordReset` in distinct namespaces. The back office `UserPasswordReset` notification is sent by a dedicated implementation of the notifier used by the controller.
+
+The supported channels listed are the channels needing a specific support.
+Other channels can also be used. See the channel that accept any notification types in the [Available notification channels](#available-notification-channels) table.
 
 ### Available notification channels
 
@@ -53,19 +65,27 @@ You can list the notification channel services with the following command:
 php bin/console debug:container --tag=notifier.channel
 ```
 
-- `actito` - Notification forwarded as [transactional email](transactional_emails.md)
-- `browser` - Notification forwarded as [flash message]([[= symfony_doc =]]/session.html#flash-messages)
-- [`chat`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to a communication platform like Slack, Microsoft Teams, or Google Chat
-- [`desktop`]([[= symfony_doc =]]/notifier.html#desktop-channel) - Notification forwarded to desktop applications like JoliNotif
-- [`email`]([[= symfony_doc =]]/notifier.html#email-channel) - Notification forwarded to email addresses
-- `ibexa` - Notification forwarded as [back office user notifications](notifications.md#user-notifications)
-- [`push`]([[= symfony_doc =]]/notifier.html#push-channel) - Notification forwarded to specific applications
-- [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
+- Some channels don't accept the notification if it doesn't implement their specific notification interface.
+  These interfaces come with a method to specifically format the notification for the channel.
+- Some channels accept every notification and have a default formatting if the notification doesn't implement their specific notification interface.
+
+| Channel                                                        | Description                                                                                     | Specific notification interface                                                                                                                                                                                                        | Accepts any notification object |
+|:---------------------------------------------------------------|-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| `actito`                                                       | Notification forwarded as [transactional email](transactional_emails.md)                        | <small>`Symfony\Component\Notifier\Notification\`</small><br>`EmailNotificationInterface`                                                                                                                                              | **No**                          |
+| [`chat`]([[= symfony_doc =]]/notifier.html#chat-channel)       | Notification forwarded to a communication platform like Slack, Microsoft Teams, or Google Chat  | <small>`Symfony\Component\Notifier\Notification\`</small><br>`ChatNotificationInterface`                                                                                                                                               | Yes                             |
+| [`desktop`]([[= symfony_doc =]]/notifier.html#desktop-channel) | Notification forwarded to desktop applications like JoliNotif                                   | <small>`Symfony\Component\Notifier\Notification\`</small><br>`DesktopNotificationInterface`                                                                                                                                      | Yes                             |
+| [`email`]([[= symfony_doc =]]/notifier.html#email-channel)     | Notification forwarded to email addresses                                                       | <small>`Symfony\Component\Notifier\Notification\`</small><br>`EmailNotificationInterface`                                                                                                                                              | **No**                          |
+| `ibexa`                                                        | Notification forwarded as [back office user notifications](notifications.md#user-notifications) | [<small>`Ibexa\Contracts\Notifications\`</small><br><nobr>`SystemNotification\SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)</nobr> | **No**                          |
+| [`push`]([[= symfony_doc =]]/notifier.html#push-channel)       | Notification forwarded to specific applications                                                 | <small>`Symfony\Component\Notifier\Notification\`</small><br>`PushNotificationInterface`                                                                                                                                               | Yes                             |
+| [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel)         | Notification forwarded to phone numbers                                                         | <small>`Symfony\Component\Notifier\Notification\`</small><br>`SmsNotificationInterface`                                                                                                                                                | **No**                          |
+
 
 ### Subscriptions configuration
 
 You can find the default configuration in `config/packages/ibexa.yaml` and `config/packages/ibexa_admin_ui.yaml`.
 You can modify it to define your own subscriptions.
+Some channels might not accept every notification type.
+See the [Available notification channels](#available-notification-channels) table for channels that accept only their own interface.
 This page contains several examples of subscriptions configuration.
 
 !!! caution "Scopes may not merge as expected"
@@ -77,6 +97,75 @@ This page contains several examples of subscriptions configuration.
 
     ```bash
     php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=<siteaccess>
+    ```
+
+    For example, the following command returns the subscription for the `admin` siteaccess.
+    You should see subscriptions to handle back office password reset and user invitation, and the share invitations through, at least, `email`.
+
+    ```bash
+    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=admin --json | jq
+    ```
+    ```json
+    {
+      "ibexa_content_edit_invitation": {
+        "channels": [
+          "ibexa",
+          "email"
+        ]
+      },
+      "ibexa_content_view_invitation": {
+        "channels": [
+          "ibexa",
+          "email"
+        ]
+      },
+      "ibexa_external_participant_content_view_invitation": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\AdminUi\\Notifier\\Notification\\UserPasswordReset": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\AdminUi\\Notifier\\Notification\\UserInvitation": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\Contracts\\FormBuilder\\Notifications\\FormSubmitted": {
+        "channels": [
+          "email"
+        ]
+      }
+    }
+    ```
+
+    The following command returns the subscriptions for the default siteaccess.
+    On a fresh installation, it returns the subscriptions of the `site` siteaccess.
+
+    ```bash
+    php bin/console ibexa:debug:config notifications.subscriptions --json | jq
+    ```
+    ```json
+    {
+      "Ibexa\\Contracts\\User\\Notification\\UserPasswordReset": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\Contracts\\User\\Notification\\UserInvitation": {
+        "channels": [
+          "email"
+        ]
+      },
+      "Ibexa\\Contracts\\FormBuilder\\Notifications\\FormSubmitted": {
+        "channels": [
+          "email"
+        ]
+      }
+    }
     ```
 
 #### Subscription example
@@ -107,20 +196,7 @@ The following example shows how you can deliver notifications about Commerce-rel
 You can define a new notification type and assign a new set of channels to it, customizing how it's delivered.
 It must extend the `Symfony\Component\Notifier\Notification\Notification` class
 and can optionally implement interfaces required by specific channels.
-
-- Some channels don't accept the notification if it doesn't implement their specific notification interface.
-  These interfaces come with a method to specifically format the notification for the channel.
-- Some channels accept every notification and have a default formatting if the notification doesn't implement their specific notification interface.
-
-| Channel   | Specific notification interface                                                                                                                                                                                         | Accepts any notification object |
-|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
-| `actito`  | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                          |
-| `chat`    | `Symfony\Component\Notifier\Notification\ChatNotificationInterface`                                                                                                                                                     | Yes                             |
-| `desktop` | `Symfony\Component\Notifier\Notification\DesktopNotificationInterface`                                                                                                                                                  | Yes                             |
-| `email`   | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                          |
-| `ibexa`   | <nobr>[`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)</nobr> | **No**                          |
-| `push`    | `Symfony\Component\Notifier\Notification\PushNotificationInterface`                                                                                                                                                     | Yes                             |
-| `sms`     | `Symfony\Component\Notifier\Notification\SmsNotificationInterface`                                                                                                                                                      | **No**                          |
+See the [Available notification channels](#available-notification-channels) table for channel-specific interfaces and channels that accept only their own interface.
 
 The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#user-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.7/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
@@ -149,7 +225,7 @@ The [`…\Service\NotificationServiceInterface::send()`](/api/php_api/php_api_re
 
 For example, to send a notification, you often use a combination like the following:
 
-``` php hl_lines="11-14"
+``` php hl_lines="13-16"
 [[= include_code('code_samples/api/notifications/notification_send.php', 2) =]]
 ```
 
