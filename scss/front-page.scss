@@ -1,27 +1,3 @@
-
-$ibexa-color-primary: #ae1164;
-
-$ibexa-color-danger: #db0032;
-
-$ibexa-color-info-700: #275799;
-$ibexa-color-info-600: #3474cc;
-
-$ibexa-color-dark: #131c26;
-$ibexa-color-dark-400: #71767c;
-
-$ibexa-color-light: #e0e0e8;
-$ibexa-color-light-300: #f3f3f6;
-$ibexa-color-light-400: #ececf1;
-
-$ibexa-color-white: #ffffff;
-
-$ibexa-color-complementary: #47bedb;
-$ibexa-color-complementary-800: #1c4c58;
-$ibexa-color-complementary-700: #2b7283;
-$ibexa-color-complementary-300: #b5e5f0;
-$ibexa-color-complementary-200: #daf2f7;
-$ibexa-color-complementary-100: #ecf8fb;
-
 @mixin list() {
     margin: 0 0 0 12px;
     list-style: none;
@@ -79,13 +55,13 @@ body {
     }
 
     .info-tile {
-        border: 1px solid $ibexa-color-light-400;
+        border: 1px solid var(--cohesivo-neutral-50);
         border-radius: 12px;
         padding: 12px;
         display: flex;
         align-items: center;
         flex: 1;
-        box-shadow: 4px 22px 47px rgba(52, 116, 204, 0.05);
+        box-shadow: var(--cohesivo-shadow-tile);
         height: 100%;
 
         &--link-card {
@@ -98,7 +74,7 @@ body {
 
             h3 {
                 svg {
-                    fill: $ibexa-color-primary;
+                    fill: var(--cohesivo-primary-80);
                     width: 16px;
                     height: 16px;
                     margin-right: 4px;
@@ -107,7 +83,7 @@ body {
             }
 
             a {
-                color: $ibexa-color-dark;
+                color: var(--cohesivo-neutral-240);
                 text-decoration: underline;
             }
         }
@@ -121,6 +97,22 @@ body {
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
+
+            &--warning {
+                background-color: var(--cohesivo-warning-10);
+            }
+
+            &--primary {
+                background-color: var(--cohesivo-primary-0);
+            }
+
+            &--info {
+                background-color: var(--cohesivo-info-5);
+            }
+
+            &--neutral {
+                background-color: var(--cohesivo-neutral-30);
+            }
         }
 
         &__content {
@@ -129,7 +121,7 @@ body {
             height: 100%;
             font-size: 12px;
             line-height: 18px;
-            color: $ibexa-color-dark-400;
+            color: var(--cohesivo-neutral-160);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -150,7 +142,7 @@ body {
                 font-size: 22px;
                 line-height: 26px;
                 margin-top: 8px;
-                color: $ibexa-color-dark;
+                color: var(--cohesivo-neutral-240);
             }
         }
 
@@ -159,14 +151,14 @@ body {
             justify-content: flex-end;
             align-items: center;
             font-size: 10px;
-            color: $ibexa-color-primary;
+            color: var(--cohesivo-primary-80);
         }
 
         &__arrow-icon {
             width: 13px;
             height: 13px;
             margin-left: 4px;
-            fill: $ibexa-color-primary;
+            fill: var(--cohesivo-primary-80);
         }
 
         h3 {
@@ -188,9 +180,11 @@ body {
     }
 
     a.info-tile {
+        text-decoration: none;
+
         &:hover {
-            border-color: $ibexa-color-primary;
-            box-shadow: 0px 22px 24px 0px rgba(174, 17, 100, 0.10);
+            border-color: var(--cohesivo-primary-80);
+            box-shadow: var(--cohesivo-shadow-tile-hover);
             text-decoration: none;
         }
     }
@@ -202,7 +196,7 @@ body {
 
     .notification {
         border-radius: 12px;
-        color: $ibexa-color-dark;
+        color: var(--cohesivo-neutral-240);
         font-size: 12px;
         padding: 32px;
         position: relative;
@@ -223,11 +217,11 @@ body {
             }
 
             a {
-                color: $ibexa-color-dark;
+                color: var(--cohesivo-neutral-240);
                 text-decoration: underline;
 
                 &:hover {
-                    color: $ibexa-color-info-600;
+                    color: var(--cohesivo-info-80);
                 }
             }
         }
@@ -243,7 +237,7 @@ body {
                 padding: 15px 16px;
                 border-radius: 12px;
                 font-size: 14px;
-                color: $ibexa-color-primary;
+                color: var(--cohesivo-primary-80);
 
                 & + a {
                     margin-left: 8px;
@@ -275,15 +269,15 @@ body {
 
                 &__cta {
                     a {
-                        background: linear-gradient(to right, $ibexa-color-danger 0%, $ibexa-color-primary 100%);
-                        color: $ibexa-color-white;
+                        background: var(--cohesivo-gradient-primary);
+                        color: var(--cohesivo-neutral-10);
                     }
                 }
             }
         }
 
         &--lts-update {
-            border: 2px solid $ibexa-color-light;
+            border: 2px solid var(--cohesivo-neutral-60);
             height: calc(100%);
             padding-top: 30px;
 
@@ -291,7 +285,7 @@ body {
                 &__cta {
                     a {
                         &:first-child {
-                            border: 1px solid $ibexa-color-primary;
+                            border: 1px solid var(--cohesivo-primary-80);
                         }
                     }
                 }
@@ -302,7 +296,7 @@ body {
     .accordion {
         $self: &;
 
-        border: 1px solid $ibexa-color-light-400;
+        border: 1px solid var(--cohesivo-neutral-50);
         border-radius: 12px;
         padding: 12px;
 
@@ -315,7 +309,7 @@ body {
                 box-shadow: none;
 
                 summary {
-                    border-bottom: 1px solid $ibexa-color-light;
+                    border-bottom: 1px solid var(--cohesivo-neutral-60);
                     padding-bottom: 16px;
                     margin-bottom: 16px;
 
@@ -331,11 +325,11 @@ body {
                     font-size: 14px;
 
                     a {
-                        color: $ibexa-color-dark;
+                        color: var(--cohesivo-neutral-240);
                         text-decoration: underline;
 
                         &:hover {
-                            color: $ibexa-color-info-600;
+                            color: var(--cohesivo-info-80);
                         }
                     }
 

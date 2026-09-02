@@ -22,7 +22,7 @@
 .switcher__list dd {
     margin: 0;
     line-height: 1;
-    color: var(--ibexa-dusk-black);
+    color: var(--cohesivo-neutral-240);
 }
 
 .switcher__list dd:focus,
@@ -62,7 +62,7 @@
     height: 0;
     border-style: solid;
     border-width: 8px 6px 0 6px;
-    border-color: #fff transparent transparent transparent;
+    border-color: var(--white) transparent transparent transparent;
     transition: transform .4s,-webkit-transform .4s;
 }
 
@@ -76,7 +76,7 @@
     pointer-events: initial;
     transform: none;
     padding-right: .3rem;
-    color: #fff;
+    color: var(--white);
     width: 100%;
 }
 
@@ -85,7 +85,7 @@
     margin: 0;
     opacity: 0;
     list-style: none;
-    background: #fff;
+    background: var(--white);
     overflow: hidden;
     border-radius: 2px;
     max-height: 0;
@@ -109,11 +109,11 @@
     width: auto;
     text-align: left;
     line-height: 1rem;
-    background-color: var(--ibexa-dusk-black);
+    background-color: var(--cohesivo-neutral-240);
 }
 
 .md-header__switcher .rst-versions .rst-current-version {
-    color: #fff;
+    color: var(--white);
     background-color: transparent;
     text-align: right;
     font-size: 100%;

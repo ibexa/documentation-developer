@@ -6,15 +6,62 @@
   <title>{{title}}</title>
   <!-- needed for adaptive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="https://doc.ibexa.co/en/latest/images/favicon.png" />
+  <link rel="icon" href="../../../images/favicon.png" />
   <style>
     body {
       padding: 0;
       margin: 0;
     }
+
+    @font-face {
+      font-family: 'Noto Sans';
+      src: url('../../../fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Noto Sans';
+      src: url('../../../fonts/Noto_Sans/NotoSans-Italic.ttf') format('truetype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Noto Sans';
+      src: url('../../../fonts/Noto_Sans/NotoSans-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Noto Sans';
+      src: url('../../../fonts/Noto_Sans/NotoSans-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Work Sans';
+      src: url('../../../fonts/Work_Sans/WorkSans-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Work Sans';
+      src: url('../../../fonts/Work_Sans/WorkSans-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
   </style>
   {{{redocHead}}}
-  {{#unless disableGoogleFont}}<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">{{/unless}}
 </head>
 
 <body>
@@ -37,13 +84,12 @@
           el.style.borderRadius = "0px";
         });
 
-        // Style logo
-        let logo = document.querySelector('img[src$="ibexa-dxp-logo.png"]');
-        logo.onclick = () => {
-          let pathParts = document.location.pathname.split('/').slice(0, 3);
-          document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
-        };
-        logo.setAttribute('style', 'cursor: pointer; margin: 13px;');
+        let logo = document.querySelector('img[src$="cohesivo-logo-alt.svg"]');
+          logo.onclick = () => {
+            let pathParts = document.location.pathname.split('/').slice(0, 3);
+            document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
+          };
+          logo.setAttribute('style', 'cursor: pointer; margin: 13px;');
       }, 500);
     });
   </script>

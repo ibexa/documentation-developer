@@ -4,12 +4,12 @@
 <ellipse cx="245.797" cy="-62.2346" rx="119.5" ry="118.605" stroke="url(#paint1_linear_485_47937)" stroke-opacity="0.2" stroke-width="2"/>
 <defs>
 <linearGradient id="paint0_linear_485_47937" x1="154.297" y1="122.98" x2="498.297" y2="122.98" gradientUnits="userSpaceOnUse">
-<stop stop-color="#DB0133"/>
-<stop offset="1" stop-color="#AE1063"/>
+<stop stop-color="#B497E8"/>
+<stop offset="1" stop-color="#4E24A5"/>
 </linearGradient>
 <linearGradient id="paint1_linear_485_47937" x1="126.297" y1="66.7913" x2="365.297" y2="66.7913" gradientUnits="userSpaceOnUse">
-<stop stop-color="#DB0133"/>
-<stop offset="1" stop-color="#AE1063"/>
+<stop stop-color="#B497E8"/>
+<stop offset="1" stop-color="#4E24A5"/>
 </linearGradient>
 </defs>
 </svg>
