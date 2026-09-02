@@ -51,11 +51,11 @@ They are sent by various notifiers like event subscribers, controllers or form p
 | <small>`Ibexa\Share\Notification\`</small><br>`ContentViewInvitationNotification`<br><small>alias `ibexa_content_view_invitation`</small>                                                                        | on [`InvitationServiceInterface::createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#methods) use, when participant is internal and has view scope (see [Collaborative editing API](collaborative_editing_api.md)                                                                   | Given users<br>&mdash; `actito`, `email`, `ibexa`                                                           |
 | <small>`Ibexa\Share\Notification\`</small><br><nobr>`ExternalParticipantContentViewInvitationNotification`</nobr><br><small>alias `ibexa_external_participant_content_view_invitation`</small>                   | on [`InvitationServiceInterface::createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#methods) use, when participant is external, whatever the scope (see [Collaborative editing API](collaborative_editing_api.md)                                                                  | Given email addresses<br>&mdash; `actito`, `email`, `ibexa`                                                 |
 
-Notice that `Ibexa\AdminUi\Notifier\Notification\UserInvitation` are sent by the back office and don't implement `Ibexa\Contracts\User\Notification\UserInvitation` which is made for front end users.
+Notice that `Ibexa\AdminUi\Notifier\Notification\UserInvitation` is sent by the back office and doesn't implement `Ibexa\Contracts\User\Notification\UserInvitation` which is made for front-end users.
 Same for the two `UserPasswordReset` in distinct namespaces. The back office `UserPasswordReset` notification is sent by a dedicated implementation of the notifier used by the controller.
 
-Are listed the channels needing a specific support.
-Other channels can be used, see the ones accepting any notification types in [Available notification channels' table](#available-notification-channels)
+The supported channels listed are the channels needing a specific support.
+Other channels can also be used. See the channel that accept any notification types in the [Available notification channels](#available-notification-channels) table.
 
 ### Available notification channels
 
@@ -140,7 +140,7 @@ This page contains several examples of subscriptions configuration.
     }
     ```
 
-    While, the following command return the subscribtions for the default siteaccess.
+    The following command returns the subscriptions for the default siteaccess.
     On a fresh installation, it returns the subscriptions of the `site` siteaccess.
 
     ```bash
@@ -194,7 +194,7 @@ The following example shows how you can deliver notifications about Commerce-rel
 You can define a new notification type and assign a new set of channels to it, customizing how it's delivered.
 It must extend the `Symfony\Component\Notifier\Notification\Notification` class
 and can optionally implement interfaces required by specific channels.
-See the table in [Available notifications channels](#available-notification-channels) for channel specific interfaces and channels accepting only theirs.
+See the [Available notification channels](#available-notification-channels) table for channel-specific interfaces and channels that accept only their own interface.
 
 The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#user-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.7/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
