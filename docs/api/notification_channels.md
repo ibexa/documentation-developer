@@ -84,6 +84,8 @@ php bin/console debug:container --tag=notifier.channel
 
 You can find the default configuration in `config/packages/ibexa.yaml` and `config/packages/ibexa_admin_ui.yaml`.
 You can modify it to define your own subscriptions.
+Some channels might not accept every notification type.
+See the [Available notification channels](#available-notification-channels) table for channels that accept only their own interface.
 This page contains several examples of subscriptions configuration.
 
 !!! caution "Scopes may not merge as expected"
