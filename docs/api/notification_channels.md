@@ -225,7 +225,7 @@ The [`…\Service\NotificationServiceInterface::send()`](/api/php_api/php_api_re
 
 For example, to send a notification, you often use a combination like the following:
 
-``` php hl_lines="11-14"
+``` php hl_lines="13-16"
 [[= include_code('code_samples/api/notifications/notification_send.php', 2) =]]
 ```
 
