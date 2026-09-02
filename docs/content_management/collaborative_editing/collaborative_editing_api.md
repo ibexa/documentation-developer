@@ -72,7 +72,7 @@ You can add participant to the collaboration session with [`SessionService::addP
 [[= include_code('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 81, 93, remove_indent=True) =]]
 ```
 
-Participants can be internal (based on an existing user) or external ( on an email address):
+Participants can be internal (based on an existing user) or external (on an email address):
 
 [`InternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipantCreateStruct.html#properties)
 [`ExternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipantCreateStruct.html#properties)
