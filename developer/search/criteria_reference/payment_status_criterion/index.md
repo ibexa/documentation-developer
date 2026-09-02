@@ -1,0 +1,23 @@
+# Payment Status Criterion
+
+Payment Status Search Criterion
+
+Editions: Commerce
+
+The `Status` Search Criterion searches for payments based on payment status.
+
+## Arguments
+
+- `status` - string that represents the status of the payment, takes values defined in payment processing workflow
+
+## Example
+
+### PHP
+
+```php
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+$query = new PaymentQuery(
+    new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Status('failed')
+);
+```
