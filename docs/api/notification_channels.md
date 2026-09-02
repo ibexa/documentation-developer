@@ -54,8 +54,6 @@ They are sent by various notifiers like event subscribers, controllers or form p
 Notice that `Ibexa\AdminUi\Notifier\Notification\UserInvitation` are sent by the back office and don't implement `Ibexa\Contracts\User\Notification\UserInvitation` which is made for front end users.
 Same for the two `UserPasswordReset` in distinct namespaces. The back office `UserPasswordReset` notification is sent by a dedicated implementation of the notifier used by the controller.
 
-An [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html) is available. It's not used but you could.
-
 ### Available notification channels
 
 You can list the notification channel services with the following command:
