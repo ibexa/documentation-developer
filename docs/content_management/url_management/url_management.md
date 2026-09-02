@@ -64,13 +64,17 @@ For details, see the tables below.
 
 #### http/https protocol
 
-| Option             | Description                                                                              |  Default value |
-|----------------------|----------------------------------------------------------------------------------------|-----------------------|
-| enabled            | Enables link validation.                                                      | true          |
-| timeout            | Defines the time that the request is allowed to take (in seconds).                       | 10            |
-| connection_timeout | Defines the time that the connect phase is allowed to take (in seconds).                 | 5             |
-| batch_size         | Defines a maximum number of asynchronous requests.                                     | 10            |
-| ignore_certificate | Decides if the peer's SSL certificate or the certificate name are verified against the host. | false         |
+| Option             | Description                                                                                  | Default value                                                                                                  |
+|--------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| enabled            | Enables link validation.                                                                     | true                                                                                                           |
+| timeout            | Defines the time that the request is allowed to take (in seconds).                           | 10                                                                                                             |
+| connection_timeout | Defines the time that the connect phase is allowed to take (in seconds).                     | 5                                                                                                              |
+| batch_size         | Defines a maximum number of asynchronous requests.                                           | 10                                                                                                             |
+| ignore_certificate | Decides if the peer's SSL certificate or the certificate name are verified against the host. | false                                                                                                          |
+| method             | Defines the HTTP method used to validate the URL (HEAD or GET).                              | HEAD                                                                                                           |
+| fallback_to_get    | Decides if the validation is retried with GET when HEAD failed.                              | true                                                                                                           |
+| user_agent         | Defines the user agent used to request the URL.                                              | Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0                                         |
+| headers            | Defines the headers used to request the URL.                                                 | {Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', Accept-Language: 'en-US,en;q=0.5'} |
 
 #### mailto protocol
 
