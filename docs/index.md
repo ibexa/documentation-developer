@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is MCP Servers</h2>
-                    <div>Set up MCP servers to help AI agents interact with Cohesivo.</div>
+                    <h2>The newest LTS Update is Translations management</h2>
+                    <div>Use machine translation, side-by-side editing view, and a review cycle to improve your translation experience.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="ai/mcp/mcp_guide/">Learn more about this LTS Update</a>
+                    <a href="multisite/translations_management/translations_management/">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">

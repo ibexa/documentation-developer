@@ -3,6 +3,11 @@
 # To fix a suppressed failure: fix the doc error and regenerate.
 ignoreErrors:
     -
+        path: code_samples/back_office/online_editor/custom_tags/factbox/config/packages/jms_translation.yaml
+        line: 0
+        hash: 8e10422aa5bd84b0489943436be3373053898e6a952287540fd6e770e7f3f4ba
+        message: '~Cannot create configuration for extension "jms_translation"~'
+    -
         path: code_samples/forms/custom_form_attribute/config/custom_services.yaml
         line: 0
         hash: 9d00873c2b34dc269f7846d4f4462a2a9d0308566818ca845c802d0778d91469
@@ -89,22 +94,22 @@ ignoreErrors:
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 253
+        line: 254
         hash: 5fff20465655d9e52a258e3c1b1347a62b0f558d9e733bb377c003d5021822eb
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: show_children"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 281
+        line: 282
         hash: 7cec0a6d723dcb0d3d87904910e4870f05b885764116e447b8a4fe19025b8289
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: project_directory"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 273
+        line: 274
         hash: a08babaebc91ceb742a9a81a04be4d9e975291019794a0658bef1f99e62dccea
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: some_field"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 384
+        line: 385
         hash: c94bdd7b27818ae0138b8c5bdba1ff33d77e25918609c1741f2c4d4236dcaff1
         message: '~Unable to parse at line 1 \(near "        \-   fieldDefIdentifier\: image"\)\.~'
     -
@@ -257,11 +262,6 @@ ignoreErrors:
         line: 28
         hash: c989b346cda18ba902f44d6dfb2aa9129a1da96c87fcd7be9df0f84710155ebc
         message: '~Unable to parse at line 3 \(near "    ibexa\.api\.role\.limitation_type\.function_list\:"\)\.~'
-    -
-        path: docs/personalization/attribute_search_in_elasticsearch.md
-        line: 17
-        hash: 4109336477914bb243c21073b32efd591f427b50f63f9305c39386055b915cd4
-        message: '~Invalid output type in \{"\<item_type_id\>"\:\{"title"\:"\<item_name\>"\}\}\. Output type id should be type of int\.~'
     -
         path: docs/product_catalog/enable_purchasing_products.md
         line: 106
