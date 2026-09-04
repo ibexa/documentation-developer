@@ -21,13 +21,6 @@
 .pill--experience::after {
   content: "Experience";
 }
-.pill--commerce {
-  color: #A32768;
-  border-color: #A32768;
-}
-.pill--commerce::after {
-  content: "Commerce";
-}
 .pill--lts-update {
   color: #5DA7C0;
   border-color: #5DA7C0;

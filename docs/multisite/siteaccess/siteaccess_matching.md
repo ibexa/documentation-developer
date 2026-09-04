@@ -149,7 +149,7 @@ Example host name `www.page.com` matches SiteAccess `event`.
 
 !!! note
 
-    If you encounter problems with the `Map\Host` matcher, make sure that your installation is [properly configured to use token-based authentication](ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
+    If you encounter problems with the `Map\Host` matcher, make sure that your installation is properly configured to use token-based authentication.
 
 ### `Map\URI`
 
@@ -185,7 +185,7 @@ ibexa:
 
 Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 
-### `Ibexa\SiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### `Ibexa\SiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]]
 
 Enables the use of [Site Factory](site_factory.md).
 Doesn't take any parameters in configuration:

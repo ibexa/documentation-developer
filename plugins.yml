@@ -21,9 +21,6 @@ plugins:
             'guide/config_dynamic.md': 'administration/configuration/dynamic_configuration.md'
             'guide/config_repository.md': 'administration/configuration/repository_configuration.md'
             'guide/configuration.md': 'administration/configuration/configuration.md'
-            'guide/shop_configuration.md': 'commerce/commerce.md'
-            'commerce/basket.md': 'commerce/commerce.md'
-            'templating/layout/customize_basket.md': 'commerce/commerce.md'
             'guide/search/extend_solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
             'guide/search/extend_elasticsearch.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
 
@@ -183,7 +180,6 @@ plugins:
 
             'guide/content_rendering/render_content/render_content.md': 'templating/render_content/render_content.md'
             'guide/content_rendering/render_content/render_page.md': 'templating/render_content/render_page.md'
-            'guide/content_rendering/render_content/render_product.md': 'templating/render_content/customize_product_view.md'
             'guide/content_rendering/templates/templates.md': 'templating/templates/templates.md'
             'guide/content_rendering/templates/template_configuration.md': 'templating/templates/template_configuration.md'
             'guide/content_rendering/templates/view_matcher_reference.md': 'templating/templates/view_matcher_reference.md'
@@ -199,7 +195,6 @@ plugins:
             'guide/content_rendering/twig_function_reference/date_twig_filters.md': 'templating/twig_function_reference/date_twig_filters.md'
             'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
             'guide/content_rendering/urls_and_routes.md': 'templating/urls_and_routes/urls_and_routes.md'
-            'guide/content_rendering/custom_breadcrumbs.md': 'templating/urls_and_routes/custom_breadcrumbs.md'
             'guide/content_rendering/design_engine/design_engine.md': 'templating/design_engine/design_engine.md'
             'guide/content_rendering/design_engine/add_new_design.md': 'templating/design_engine/add_new_design.md'
             'guide/content_rendering/queries_and_controllers/content_queries.md': 'templating/queries_and_controllers/content_queries.md'
@@ -207,7 +202,6 @@ plugins:
             'guide/content_rendering/queries_and_controllers/custom_query_type.md': 'templating/queries_and_controllers/create_custom_query_type.md'
             'guide/content_rendering/queries_and_controllers/controllers.md': 'templating/queries_and_controllers/controllers.md'
             'guide/content_rendering/embed_and_list_content/list_content.md': 'templating/embed_and_list_content/list_content.md'
-            'guide/content_rendering/embed_and_list_content/list_products.md': 'templating/layout/customize_storefront_layout.md'
             'guide/content_rendering/embed_and_list_content/embed_content.md': 'templating/embed_and_list_content/embed_content.md'
             'guide/content_rendering/embed_and_list_content/render_images.md': 'templating/embed_and_list_content/render_images.md'
             'guide/content_rendering/layout/add_breadcrumbs.md': 'templating/layout/add_breadcrumbs.md'
@@ -246,30 +240,6 @@ plugins:
             'pim/create_custom_catalog_filter.md': 'product_catalog/create_custom_catalog_filter.md'
             'pim/create_custom_name_schema_strategy.md': 'product_catalog/create_custom_name_schema_strategy.md'
             'pim/add_remote_pim_support.md': 'product_catalog/add_remote_pim_support.md'
-            'guide/basket/basket.md': 'commerce/commerce.md'
-            'guide/basket/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
-            'commerce/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
-            'guide/checkout/checkout.md': 'commerce/checkout/checkout.md'
-            'guide/checkout/order_confirmation.md': 'commerce/checkout/checkout.md'
-            'commerce/checkout/order_confirmation.md': 'commerce/checkout/checkout.md'
-            'guide/checkout/return_process.md': 'commerce/checkout/checkout.md'
-            'commerce/checkout/return_process.md': 'commerce/checkout/checkout.md'
-            'guide/payment/payment.md': 'commerce/payment/payment.md'
-            'guide/payment/payment_api.md': 'commerce/payment/payment_api.md'
-            'guide/payment/payment_troubleshooting.md': 'commerce/commerce.md'
-            'commerce/payment/payment_troubleshooting.md': 'commerce/commerce.md'
-            'guide/payment/paypal.md': 'commerce/commerce.md'
-            'commerce/payment/paypal.md': 'commerce/commerce.md'
-            'guide/quick_order/quick_order.md': 'commerce/commerce.md'
-            'commerce/quick_order/quick_order.md': 'commerce/commerce.md'
-            'guide/quick_order/quick_order_configuration.md': 'commerce/commerce.md'
-            'commerce/quick_order/quick_order_configuration.md': 'commerce/commerce.md'
-            'guide/order_history/order_history.md': 'commerce/order_management/order_management.md'
-            'commerce/order_history/order_history.md': 'commerce/order_management/order_management.md'
-            'guide/order_history/order_history_configuration.md': 'commerce/order_management/order_management.md'
-            'commerce/order_history/order_history_configuration.md': 'commerce/order_management/order_management.md'
-            'api/shop_business_api.md': 'commerce/commerce.md'
-            'commerce/shop_api.md': 'commerce/commerce.md'
             
 
             'guide/multisite/multisite.md': 'multisite/multisite.md'
@@ -507,8 +477,6 @@ plugins:
             'guide/performance.md': 'infrastructure_and_maintenance/performance.md'
             'guide/environments.md': 'infrastructure_and_maintenance/environments.md'
             'guide/sessions.md': 'infrastructure_and_maintenance/sessions.md'
-            'guide/logging/logging.md': 'infrastructure_and_maintenance/logging.md'
-            'guide/logging/logfile_rotation.md': 'infrastructure_and_maintenance/logging.md'
             'guide/security.md': 'infrastructure_and_maintenance/security/development_security.md'
             'guide/security_checklist.md': 'infrastructure_and_maintenance/security/security_checklist.md'
             'guide/reporting_issues.md': 'infrastructure_and_maintenance/security/reporting_issues.md'
@@ -520,56 +488,6 @@ plugins:
             'community_resources/translations.md': 'resources/contributing/contribute_translations.md'
             'community_resources/package_structure.md': 'resources/contributing/package_structure.md'
 
-            'updating/update_ibexa_dxp.md': 'update_and_migration/update_system.md'
-            'update_and_migration/update_ibexa_dxp.md': 'update_and_migration/update_system.md'
-            'updating/from_1.x_2.x/update_from_1.x_2.x.md': 'update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md'
-            'updating/from_1.x_2.x/update_app_to_2.5.md': 'update_and_migration/from_1.x_2.x/update_app_to_2.5.md'
-            'updating/from_1.x_2.x/update_db_to_2.5.md': 'update_and_migration/from_1.x_2.x/update_db_to_2.5.md'
-            'updating/from_2.5/update_from_2.5.md': 'update_and_migration/from_2.5/update_from_2.5.md'
-            'updating/from_2.5/to_3.2.md': 'update_and_migration/from_2.5/to_3.2.md'
-            'updating/from_2.5/adapt_code_to_v3.md': 'update_and_migration/from_2.5/adapt_code_to_v3.md'
-            'updating/from_2.5/update_code/1_update_templates.md': 'update_and_migration/from_2.5/update_code/1_update_templates.md'
-            'updating/from_2.5/update_code/2_update_configuration.md': 'update_and_migration/from_2.5/update_code/2_update_configuration.md'
-            'updating/from_2.5/update_code/3_update_field_types.md': 'update_and_migration/from_2.5/update_code/3_update_field_types.md'
-            'updating/from_2.5/update_code/4_update_signal_slots.md': 'update_and_migration/from_2.5/update_code/4_update_signal_slots.md'
-            'updating/from_2.5/update_code/5_update_online_editor.md': 'update_and_migration/from_2.5/update_code/5_update_online_editor.md'
-            'updating/from_2.5/update_code/6_update_workflow.md': 'update_and_migration/from_2.5/update_code/6_update_workflow.md'
-            'updating/from_2.5/update_code/7_update_extensions.md': 'update_and_migration/from_2.5/update_code/7_update_extensions.md'
-            'updating/from_2.5/update_code/8_update_rest.md': 'update_and_migration/from_2.5/update_code/8_update_rest.md'
-            'updating/from_2.5/update_code/9_update_other.md': 'update_and_migration/from_2.5/update_code/9_update_other.md'
-            'updating/from_2.5/to_3.3.md': 'update_and_migration/from_2.5/to_3.3.md'
-            'updating/from_2.5/to_3.3.latest.md': 'update_and_migration/from_3.3/update_from_3.3.md'
-            'updating/from_3.3/update_from_3.3.md': 'update_and_migration/from_3.3/update_from_3.3.md'
-            'updating/from_3.3/to_4.0.md': 'update_and_migration/from_3.3/to_4.0.md'
-            'updating/from_4.0/to_4.1.md': 'update_and_migration/from_4.0/to_4.1.md'
-            'updating/from_4.1/update_from_4.1.md': 'update_and_migration/from_4.1/update_from_4.1.md'
-            'migrating/migrating_from_ez_publish_platform.md': 'update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md'
-            'migrating/migrating_from_ez_publish.md': 'update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md'
-            'migrating/common_issues.md': 'update_and_migration/migrate_to_ibexa_dxp/common_issues.md'
-            'update_and_migration/from_2.5/to_3.3.latest.md': 'update_and_migration/from_3.3/update_from_3.3.md'
-
-            'releases/ibexa_dxp_v4.2.md': 'release_notes/ibexa_dxp_v4.2.md'
-            'releases/ibexa_dxp_v4.1.md': 'release_notes/ibexa_dxp_v4.1.md'
-            'releases/ibexa_dxp_v4.0.md': 'release_notes/ibexa_dxp_v4.0.md'
-            'releases/ibexa_dxp_v4.0_deprecations.md': 'release_notes/ibexa_dxp_v4.0_deprecations.md'
-            'releases/ibexa_dxp_v3.3.md': 'release_notes/ibexa_dxp_v3.3.md'
-            'releases/ibexa_dxp_v3.2.md': 'release_notes/ibexa_dxp_v3.2.md'
-            'releases/ez_platform_v3.1.md': 'release_notes/ez_platform_v3.1.md'
-            'releases/ez_platform_v3.0.md': 'release_notes/ez_platform_v3.0.md'
-            'releases/ez_platform_v3.0_deprecations.md': 'release_notes/ez_platform_v3.0_deprecations.md'
-            'releases/ez_platform_v2.5.md': 'release_notes/ez_platform_v2.5.md'
-            'releases/ez_platform_v2.4.md': 'release_notes/ez_platform_v2.4.md'
-            'releases/ez_platform_v2.3.md': 'release_notes/ez_platform_v2.3.md'
-            'releases/ez_platform_v2.2.0.md': 'release_notes/ez_platform_v2.2.0.md'
-            'releases/ez_platform_v2.1.0.md': 'release_notes/ez_platform_v2.1.0.md'
-            'releases/ez_platform_v2.0.0.md': 'release_notes/ez_platform_v2.0.0.md'
-            'releases/ez_platform_v1.13.0_lts.md': 'release_notes/ez_platform_v1.13.0_lts.md'
-            'releases/ez_platform_v1.12.0.md': 'release_notes/ez_platform_v1.12.0.md'
-            'releases/ez_platform_v1.11.0.md': 'release_notes/ez_platform_v1.11.0.md'
-            'releases/ez_platform_v1.10.0.md': 'release_notes/ez_platform_v1.10.0.md'
-            'releases/ez_platform_v1.9.0.md': 'release_notes/ez_platform_v1.9.0.md'
-            'releases/ez_platform_v1.8.0.md': 'release_notes/ez_platform_v1.8.0.md'
-            'releases/ez_platform_v1.7.0_lts.md': 'release_notes/ez_platform_v1.7.0_lts.md'
 
             'getting_started/install_ez_platform.md': 'getting_started/install_cohesivo.md'
             'getting_started/install_ibexa_dxp.md': 'getting_started/install_cohesivo.md'
@@ -597,11 +515,7 @@ plugins:
 
             'content_management/customize_field_type_metadata.md': 'content_management/field_types/customize_field_type_metadata.md'
 
-            'getting_started/ibexa_cloud_guide.md': 'ibexa_cloud/ibexa_cloud_guide.md'
-            'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'
-            'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'
 
-            'discounts/install_discounts.md': 'discounts/configure_discounts.md'
             'content_management/collaborative_editing/install_collaborative_editing.md': 'content_management/collaborative_editing/configure_collaborative_editing.md'
 
             'ai_actions/ai_actions.md': 'ai/ai_actions/ai_actions.md'
@@ -624,6 +538,7 @@ plugins:
             'cdp/cdp_activation/cdp_configuration.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md'
             'cdp/cdp_activation/cdp_data_export.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md'
             'cdp/cdp_activation/cdp_add_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
+            'multisite/languages/automated_translations.md': 'multisite/translations_management/configure_translations_management.md'
 
 
     - llmstxt:
@@ -636,7 +551,7 @@ plugins:
         # Pin links in the generated Markdown (and llms.txt) to this branch's
         # version instead of site_url's en/latest, without affecting the HTML
         # site's canonical URLs. Update when branching a new version.
-        base_url: https://doc.ibexa.co/en/6.0/
+        base_url: https://doc.ibexa.co/en/saas/
         autoclean: false
         full_output: llms-full.txt
         sections:

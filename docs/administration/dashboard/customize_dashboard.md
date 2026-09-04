@@ -7,7 +7,7 @@ edition: experience
 
 !!! note
 
-     The Dashboard Builder is available only in the Experience and Commerce editions.
+     The Dashboard Builder is available only in the Experience edition.
      The dashboard from the Headless edition can be customized using [Twig Components](components.md).
 
 You can customize the dashboard depending on your needs using Dashboard Builder.
@@ -30,8 +30,6 @@ For new dashboard you need to choose layout which defines the available zones.
 While opening Dashboard Builder, layout window appears - you can choose one from available layouts.
 
 You can also add custom layout that then can be available in Dashboard Builder.
-
-For more information, see [Customize storefront layout](customize_storefront_layout.md).
 
 ## Create custom blocks
 

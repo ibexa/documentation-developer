@@ -73,5 +73,3 @@ For information stored outside of [[= pim_product_name =]], such as [product ava
 // Manage prices
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75, remove_indent=True) =]]
 ```
-
-For advanced pricing strategies, use the [Discounts API](discounts_api.md) to specify prices for [[= pim_product_name =]]'s products.

@@ -26,8 +26,6 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
    Discover more commands in [DDEV documentation](https://docs.ddev.com/en/stable/users/usage/commands/).
 
-To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) instead.
-
 ## Install reverse proxy
 
 A reverse proxy can be added to the cluster to enable [HTTP caching](http_cache.md).
@@ -110,7 +108,7 @@ x-cache-hits: 5
 x-cache-ttl: 87654.321
 x-debug-token: 012345
 x-debug-token-link: https://<your-project>.ddev.site:<https-port>//_profiler/012345
-x-powered-by: Ibexa Commerce v5
+x-powered-by: Ibexa Experience v5
 x-robots-tag: noindex
 x-varnish: 12345 67890
 xkey: ez-all c52 ct42 l2 pl1 p1 p2

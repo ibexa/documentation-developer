@@ -20,8 +20,8 @@ def test_llms_txt_pointer_always_inserted_after_first_h1():
 
 def test_editions_inserted_after_first_h1():
     content = "# Title\n\nBody text."
-    assert inject_page_metadata(content, editions=["Commerce"]) == (
-        f"# Title\n\n{LLMS_TXT_LINE}\n\nEditions: Commerce\n\nBody text."
+    assert inject_page_metadata(content, editions=["Experience"]) == (
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nEditions: Experience\n\nBody text."
     )
 
 
@@ -34,15 +34,15 @@ def test_description_inserted_after_first_h1():
 
 def test_description_comes_before_editions():
     content = "# Title\n\nBody text."
-    assert inject_page_metadata(content, description="A description.", editions=["Commerce"]) == (
-        f"# Title\n\n{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Commerce\n\nBody text."
+    assert inject_page_metadata(content, description="A description.", editions=["Experience"]) == (
+        f"# Title\n\n{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Experience\n\nBody text."
     )
 
 
 def test_prepended_when_no_h1():
     content = "Body text."
-    assert inject_page_metadata(content, description="A description.", editions=["Commerce"]) == (
-        f"{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Commerce\n\nBody text."
+    assert inject_page_metadata(content, description="A description.", editions=["Experience"]) == (
+        f"{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Experience\n\nBody text."
     )
 
 
@@ -58,7 +58,7 @@ def test_llms_txt_url_respects_nested_site_path():
 
 
 def test_frontmatter_edition_string():
-    assert editions_from_frontmatter({"edition": "commerce experience"}) == ["Commerce", "Experience"]
+    assert editions_from_frontmatter({"edition": "headless experience"}) == ["Headless", "Experience"]
 
 
 def test_frontmatter_editions_list():
@@ -66,8 +66,8 @@ def test_frontmatter_editions_list():
 
 
 def test_frontmatter_edition_and_editions_merged():
-    result = editions_from_frontmatter({"edition": "commerce", "editions": ["headless"]})
-    assert result == ["Commerce", "Headless"]
+    result = editions_from_frontmatter({"edition": "experience", "editions": ["headless"]})
+    assert result == ["Experience", "Headless"]
 
 
 def test_unknown_edition_passes_through():

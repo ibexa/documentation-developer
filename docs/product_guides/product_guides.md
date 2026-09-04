@@ -12,7 +12,6 @@ Discover the primary ones with the help of product guides. Condensed content all
 [[= cards([
     "users/user_management_guide",
     "content_management/content_management_guide",
-    "discounts/discounts_guide",
     "content_management/rich_text/online_editor_guide",
     "content_management/pages/page_builder_guide",
     "content_management/forms/form_builder_guide",
@@ -20,8 +19,6 @@ Discover the primary ones with the help of product guides. Condensed content all
     "customer_management/customer_portal",
     "product_catalog/product_catalog_guide",
     "product_catalog/quable/quable_guide",
-    "commerce/shopping_list/shopping_list_guide",
-    "ibexa_cloud/ibexa_cloud_guide",
     "raptor_cdp/raptor_cdp_guide",
     "recommendations/raptor_integration/raptor_connector_guide",
     "ai/ai_actions/ai_actions_guide",

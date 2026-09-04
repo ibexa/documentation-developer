@@ -229,7 +229,7 @@ def define_env(env):
         return text.lower().replace(' ', '-')
 
     def validate_categories(categories: List[str]) -> None:
-        available_categories = ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+        available_categories = ['Headless', 'Experience', 'LTS Update', 'New feature', 'First release']
 
         for category in categories:
             if category not in available_categories:

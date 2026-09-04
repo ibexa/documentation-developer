@@ -12,8 +12,6 @@ You can send two types of notifications to the users:
 - [User notifications](#user-notifications) are sent to a specific user.
   They appear in their profile in the back office.
 
-To send notification to other channels, see [Notification channels](notification_channels.md).
-
 ## Notification bars
 
 Notifications are displayed as a message bar in the back office.
@@ -78,8 +76,6 @@ The values shown above are the defaults.
 
 To send notification bars, you can also subscribe to a notification with the `browser` channel.
 
-For more information, see [Notifications channels](notification_channels.md).
-
 ## User notifications
 
 You can send notifications to users which are displayed in the user menu.
@@ -134,5 +130,3 @@ The example below presents a modified renderer that uses Twig to render a list v
 ### `ibexa` notification channel
 
 To send user notifications, you can also subscribe to a notification with the `ibexa` channel.
-
-For more information, see [Notifications channels](notification_channels.md).

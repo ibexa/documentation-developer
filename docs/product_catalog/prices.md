@@ -8,12 +8,10 @@ The price engine is responsible for calculating prices for products in the [prod
 
 ## Custom pricing
 
-You can set up basic price rules depending on [customer groups](customer_groups.md), or use [Discounts](discounts.md) for more control over the price reduction.
+You can set up basic price rules depending on [customer groups](customer_groups.md).
 
-Use the first option for basic use cases, for example to globally manage custom prices for your resellers.
+Use this option to globally manage custom prices, for example for your resellers.
 Each customer group can have a default price discount that applies to all products.
-
-With the Discounts feature, you can create time-limited offers that apply only to specified regions, currencies, products, customers, and more.
 
 ### Assign prices dynamically
 

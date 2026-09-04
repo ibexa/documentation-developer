@@ -110,7 +110,7 @@ foreach ($iterator as $file) {
         continue;
     }
 
-    // Relative path from docs/ root, e.g. "commerce/cart/cart_api.md"
+    // Relative path from docs/ root, e.g. "api/php_api/php_api.md"
     $relativeFromDocs = ltrim(substr($mdPath, strlen(realpath(DOCS_DIR))), DIRECTORY_SEPARATOR);
 
     // Strip .md extension and use as subdirectory name
@@ -121,7 +121,7 @@ foreach ($iterator as $file) {
         exit(1);
     }
 
-    // Relative path used in the source comment, e.g. "docs/commerce/cart/cart_api.md"
+    // Relative path used in the source comment, e.g. "docs/api/php_api/php_api.md"
     $sourceRelPath = 'docs/' . str_replace(DIRECTORY_SEPARATOR, '/', $relativeFromDocs);
 
     foreach ($blocks as $block) {
