@@ -1,10 +1,11 @@
 ---
 description: Render content images and configure their variations.
+delete: true
 ---
 
 # Render images
 
-To render images contained in Image Asset or Image fields, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
+To render images contained in Image Asset or Image fields, use the `ibexa_render_field()` Twig function.
 
 ``` html+twig
 {{ ibexa_render_field(content, 'image') }}
@@ -26,7 +27,7 @@ If a content item contains more than one image, you may want to select the first
 
 This enables you to avoid a situation where, for example, the featured image in an article is missing, because the first image field was left empty.
 
-The [`ibexa_content_field_identifier_first_filled_image()`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function returns the identifier of the first image field that isn't empty.
+The `ibexa_content_field_identifier_first_filled_image()` Twig function returns the identifier of the first image field that isn't empty.
 
 ``` html+twig
 {% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}

@@ -104,21 +104,6 @@ ibexa_product_catalog:
 
 You can also [create your own custom code generation strategy](create_product_code_generator.md).
 
-## Attribute rendering templates
-
-You can configure which Twig templates are used to render product attribute values with the [`ibexa_format_product_attribute` Twig filter](product_twig_functions.md#ibexa_format_product_attribute).
-
-```yaml
-ibexa_product_catalog:
-    templates:
-        attributes:
-            - 'templates/product/attributes/my_attribute_blocks.html.twig'
-```
-
-The default template (`@ibexadesign/product_catalog/product/attributes/attribute_blocks.html.twig`) is always appended as the last fallback, even if not listed explicitly.
-
-For more information, see [Customize product attribute templates](customize_product_attribute_templates.md).
-
 ## Catalogs
 
 ### Catalog filters

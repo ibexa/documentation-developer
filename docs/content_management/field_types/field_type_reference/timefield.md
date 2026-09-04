@@ -79,16 +79,3 @@ $settings = [
 ];
 ```
 
-## Template rendering
-
-The template called by [the `ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Date field has access to the following parameters:
-
-| Parameter | Type     | Default | Description                                                                                                                         |
-|-----------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or, if not set, calculated based on the language of the field. |
-
-Example:
-
-``` twig
-{{ ibexa_render_field(content, 'time') }}
-```

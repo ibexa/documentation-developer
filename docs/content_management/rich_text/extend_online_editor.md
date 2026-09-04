@@ -1,6 +1,7 @@
 ---
 description: Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
 month_change: false
+delete: true
 ---
 
 # Extend Online Editor
@@ -31,7 +32,7 @@ Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
 `choice` requires that you provide a list of options in the `choices` key.
 
-Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
+Provide your own SVG icon, or choose one from the built-in icons included in `all-icons.svg`.
 
 You must create your own file for the Twig template.
 Place the `factbox.html.twig` template in the
@@ -89,7 +90,7 @@ The configuration is:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/config/packages/custom_tags.yaml') =]]
 ```
 
-Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](icon_twig_functions.md#icons-reference).
+Provide your own SVG icon, or choose one from the built-in icons included in `all-icons.svg`.
 
 Use your own file for the Twig template.
 

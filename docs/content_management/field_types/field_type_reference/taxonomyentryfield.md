@@ -81,7 +81,3 @@ The field definition of this field type can be configured with the following opt
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`taxonomy`|`string`|`null`|Taxonomy from which you choose an entry.|
-
-#### Template rendering
-
-The `TaxonomyEntry field` is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.

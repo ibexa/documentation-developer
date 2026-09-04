@@ -140,7 +140,7 @@ For example, the following event subscriber loads the `event` content item and p
 [[= include_code('code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php') =]]
 ```
 
-The block view template could now use `ibexa_render(event_content, {'viewType': 'embed'})` instead of `render(controller('ibexa_content::viewAction', {'contentId': event, 'viewType': 'embed'}))`, other [content Twig functions](content_twig_functions.md), or [field Twig functions](field_twig_functions.md).
+The block view template could now use `ibexa_render(event_content, {'viewType': 'embed'})` instead of `render(controller('ibexa_content::viewAction', {'contentId': event, 'viewType': 'embed'}))`, other content Twig functions, or field Twig functions.
 
 For more information, see [Block events](page_blocks.md#block-events).
 

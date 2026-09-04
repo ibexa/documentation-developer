@@ -1,5 +1,6 @@
 ---
 description: Field type FormMappers allow field editing, while custom templates ensure the field can be rendered both in the back office and on site front.
+delete: true
 ---
 
 # Form and template
@@ -132,7 +133,7 @@ The `fieldType` key has to correspond to the name of your field type.
 
 ## Content view templates
 
-To render the field in content view by using the [`ibexa_render_field()` Twig helper](field_twig_functions.md#ibexa_render_field),
+To render the field in content view by using the `ibexa_render_field()` Twig helper,
 you need to define a template containing a block for the field.
 
 ``` html+twig

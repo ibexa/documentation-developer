@@ -1,10 +1,11 @@
 ---
 description: Add links to content items or specific built-in and custom routes in your templates.
+delete: true
 ---
 
 # URLs and routes
 
-To link to a [Location](locations.md) or [Content item](content_model.md#content-items), use the [`ibexa_path()`](url_twig_functions.md#ibexa_path) Twig function.
+To link to a [Location](locations.md) or [Content item](content_model.md#content-items), use the `ibexa_path()` Twig function.
 You need to provide the function with a location, content, ContentInfo, or [RouteReference](#routereference) object:
 
 ``` html+twig
@@ -13,7 +14,7 @@ You need to provide the function with a location, content, ContentInfo, or [Rout
 <p><a href="{{ ibexa_path(content.contentInfo) }}">Content Info</a></p>
 ```
 
-Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a content item or location:
+Use `ibexa_url()` to get an absolute URL to a content item or location:
 
 ``` html+twig
 <p><a href="{{ ibexa_url(location) }}">Location</a></p>
@@ -21,7 +22,7 @@ Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a
 
 ## RouteReference
 
-You can use the [`ibexa_route()`](url_twig_functions.md#ibexa_route) Twig function to create a RouteReference object based on the provided information.
+You can use the `ibexa_route()` Twig function to create a RouteReference object based on the provided information.
 
 A RouteReference contains a route with its parameters and can be modified after it's created.
 Here, the route is based on the ID of the location.

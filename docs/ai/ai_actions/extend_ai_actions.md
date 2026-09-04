@@ -1,6 +1,7 @@
 ---
 description: Extend AI Actions by connecting to other services and adding new capabilities.
 month_change: false
+delete: true
 ---
 
 # Extend AI Actions
@@ -336,7 +337,7 @@ And add it to the SiteAccess configuration for the `admin_group`:
 The configuration of the AI component takes the following parameters:
 
 - `module_id` - name of the JavaScript module to handle the invoked action. `ImgToText` is a built-in one handling alternative text use case, `TranscribeAudio` is a custom one.
-- `ai_config_id` - identifier of the Action Type to load Action Configurations for. The [ibexa_ai_config Twig function](ai_actions_twig_functions.md#ibexa_ai_config) is used under the hood.
+- `ai_config_id` - identifier of the Action Type to load Action Configurations for. The `ibexa_ai_config` Twig function is used under the hood.
 - `container_selector` - CSS selector to narrow down the HTML area which is affected by the AI component.
 - `input_selector` - CSS selector indicating the input field (must be below the `container_selector` in the HTML structure).
 - `output_selector` - CSS selector indicating the output field (must be below the `container_selector` in the HTML structure).

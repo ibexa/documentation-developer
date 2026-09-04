@@ -6,7 +6,7 @@ page_type: reference
 # Bundles
 
 A bundle in Symfony (and [[= product_name =]]) is a separate part of your application that implements a feature.
-You can [create bundles yourself](package_structure.md) or make use of available open-source bundles.
+You can create bundles yourself or make use of available open-source bundles.
 You can also reuse the bundles you create in other projects or share them with the community.
 
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
@@ -69,9 +69,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |Bundle|Description|
 |---------|-----------|
 |ibexa/oss|Core packages|
-|ibexa/app-switcher|Integration with the [QNTM group](https://qntmgroup.com/solutions/)|
 |ibexa/calendar|Calendar tab with a calendar widget|
-|ibexa/collaboration|Collaboration functionality|
 |ibexa/connect|[[[= product_name_connect =]]]([[= connect_doc =]]/)|
 |ibexa/connector-ai|Foundation for the [AI Actions](ai_actions.md) framework|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
@@ -92,7 +90,6 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/product-catalog|Product catalog functionality|
 |ibexa/scheduler|Date-based publishing functionality|
 |ibexa/seo|Search Engine Optimization (SEO) tool|
-|ibexa/share|Content-sharing functionality|
 |ibexa/taxonomy|Taxonomy functionality|
 |ibexa/tree-builder|Tree builder functionality|
 |ibexa/version-comparison|Enables comparing between two versions of the same field|

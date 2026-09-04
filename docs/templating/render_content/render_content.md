@@ -1,5 +1,6 @@
 ---
 description: Customize rendering of content items on the site front end by using templates with proper content view configuration.
+delete: true
 ---
 
 # Render content
@@ -40,7 +41,7 @@ The configuration requires that you add the `article.html.twig` template file to
 
 ## Get content information
 
-To render general content information, such as content name, use the [`ibexa_content_name()`](content_twig_functions.md#ibexa_content_name) Twig function.
+To render general content information, such as content name, use the `ibexa_content_name()` Twig function.
 
 Content name is based on the [content name pattern](content_types.md#content-type-metadata) of the content type.
 
@@ -59,7 +60,7 @@ For example, to get the publication date of the current content item, use:
 
 ## Render fields
 
-You can render a single field of a content item by using the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
+You can render a single field of a content item by using the `ibexa_render_field()` Twig function.
 It takes the content item and the identifier of the Field as arguments:
 
 ``` html+twig
@@ -74,7 +75,7 @@ You can pass additional arguments to this function, for example, an HTML class:
 
 ### Field templates
 
-You can use a custom Field template by passing the template as an argument to [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field):
+You can use a custom Field template by passing the template as an argument to `ibexa_render_field()`:
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 15, 18) =]]

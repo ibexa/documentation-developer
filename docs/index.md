@@ -7,23 +7,7 @@
             <h2>How to start?</h2>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="getting_started/requirements/">
-                <div class="info-tile__circle" style="background-color: #fff7ec;">
-                    <svg width="20" height="25"><use xlink:href="images/icons.svg#check-requirements" /></svg>
-                </div>
-                <div class="info-tile__content">
-                    <div class="info-tile__details">
-                        Details
-                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
-                    </div>
-                    <div>
-                        Check the <strong>Requirements</strong>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="getting_started/install_ibexa_dxp/">
+            <a class="info-tile" href="tutorials/beginner_tutorial/beginner_tutorial/">
                 <div class="info-tile__circle" style="background-color: #f6e7ef;">
                     <svg width="25" height="25"><use xlink:href="images/icons.svg#install-dxp" /></svg>
                 </div>
@@ -33,13 +17,13 @@
                         <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
                     </div>
                     <div>
-                        Install <strong>Cohesivo</strong>
+                        Follow the <strong>Beginner tutorial</strong>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
+            <a class="info-tile" href="api/api/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
                 </div>
@@ -49,7 +33,7 @@
                         <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
                     </div>
                     <div>
-                        Install on <strong>Ibexa Cloud</strong>
+                        Explore the <strong>APIs</strong>
                     </div>
                 </div>
             </a>
@@ -79,7 +63,7 @@
                     <div>The latest v5.0 LTS release is [[= latest_tag_5_0 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>
+                    <a href="release_notes/">Release notes</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-latest-release.svg" alt="" />
@@ -115,16 +99,13 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#collaboration">Collaboration</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#ai-actions">AI Actions</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#discounts">Discounts</a></li>
+                                <li><a href="release_notes/#ai-actions">AI Actions</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attribute for product catalog</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for product catalog</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#developer-experience">Developer experience improvements</a></li>
+                                <li><a href="release_notes/#date-and-time-attribute">Date and time attribute for product catalog</a></li>
+                                <li><a href="release_notes/#symbol-attribute">Symbol attribute for product catalog</a></li>
                             </ul>
                         </div>
                     </div>

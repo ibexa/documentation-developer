@@ -33,16 +33,6 @@ ignoreErrors:
         hash: bb2ecc0b96ca61cd004b9c1806e78d6afc3197a68acb723db7a52cfd5bdc89d6
         message: '~Unable to parse at line 1 \(near "    App\\Export\\User\\DateOfBirthUserItemProcessor\:"\)\.~'
     -
-        path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
-        line: 48
-        hash: 629d37dcc688c9b11daec8de8c601522830f3b2175ac6ac692db3f17b89a01d7
-        message: '~The child config "firewalls" under "security" must be configured\.~'
-    -
-        path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
-        line: 78
-        hash: c6488fad354e039350fd0c18bdd0b6dc2a1ff7300dbae9151155490278b840a0
-        message: '~Invalid type for path "ibexa\.repositories\.\<repository_name\>\.collaboration\.participants\.auto_invite"\. Expected "bool", but got "string"\.~'
-    -
         path: docs/content_management/data_migration/data_migration_actions.md
         line: 171
         hash: 023288ce392e2e051ac32ea3525bdecebc301a860789c8d2128042885122bfa9
