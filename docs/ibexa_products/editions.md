@@ -61,3 +61,4 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector) | &#10004; | &#10004; | &#10004; |
 | [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
 | [MCP servers](mcp_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Translations management](translations_management_guide.md) | &#10004; | &#10004; | &#10004; |

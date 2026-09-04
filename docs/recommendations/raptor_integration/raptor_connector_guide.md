@@ -1,6 +1,6 @@
 ---
 description:  Discover Raptor integration - an add-on focused on recommendations and tracking customer behaviors.
-month_change: true
+month_change: false
 ---
 
 # [[= product_name_cdp_base =]] integration product guide

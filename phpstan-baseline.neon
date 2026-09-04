@@ -103,12 +103,6 @@ parameters:
 			path: code_samples/_inline_php/tutorials/beginner_tutorial/7_embed_content/d8ad5ae7972b67d11cb172c321b891e268d5a346d166f73c5570d61b9b372a7d.php
 
 		-
-			message: '#^Access to constant ANNOTATIONS_TO_ATTRIBUTES on an unknown class Rector\\Symfony\\Set\\SensiolabsSetList\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/_inline_php/update_and_migration/from_4.6/update_to_5.0/20a5c589183c1b8ee4f67c7a0c9352320eb7349e3f06f89c61e245ea4b7f585f.php
-
-		-
 			message: '#^Class App\\Form\\Type\\TextToTextOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1

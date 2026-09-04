@@ -519,6 +519,7 @@ plugins:
             'cdp/cdp_activation/cdp_configuration.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md'
             'cdp/cdp_activation/cdp_data_export.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md'
             'cdp/cdp_activation/cdp_add_tracking.md': 'raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md'
+            'multisite/languages/automated_translations.md': 'multisite/translations_management/configure_translations_management.md'
 
 
     - llmstxt:

@@ -32,6 +32,7 @@ For example, copying a content item is connected with two events: `BeforeCopyCon
     "api/event_reference/segmentation_events",
     "api/event_reference/site_events",
     "api/event_reference/taxonomy_events",
+    "api/event_reference/translations_management_events",
     "api/event_reference/trash_events",
     "api/event_reference/twig_component_events",
     "api/event_reference/url_events",

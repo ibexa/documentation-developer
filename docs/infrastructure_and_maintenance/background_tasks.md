@@ -22,7 +22,7 @@ The process works as follows:
 
 1. A message PHP object is dispatched, for example, `ProductPriceReindex`.
 2. The message is wrapped in an envelope, which may contain additional metadata, called [stamps](#stamps).
-3. The message is placed in the transport queue.
+3. The message is placed in the [transport queue](#route-message-to-background-queue).
 It can be a Doctrine table, a Redis/Valkey queue, and so on.
 4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
 5. A handler service processes the message (executes the command).
@@ -62,10 +62,17 @@ ibexa_messenger:
 Use a process manager of your choice to run the following command, or make it start together with the server:
 
 ``` bash
-php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>`
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>
 ```
 
-In [multi-repository setups](repository_configuration.md), the worker process always works for a [SiteAccess](multisite_configuration.md#siteaccess-configuration) that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
+Use the `--siteaccess` option to set the default [SiteAccess](multisite_configuration.md#siteaccess-configuration) and [repository](repository_configuration.md#defining-custom-connection) for the worker process.
+The worker uses this SiteAccess for every message that doesn't have a [`SiteAccessStamp`](#siteaccessstamp).
+
+If a message has a `SiteAccessStamp`, the worker uses the SiteAccess from the stamp instead to process this message.
+Thanks to this, one worker process can handle messages coming from different SiteAccesses.
+
+In [multi-repository setups](repository_configuration.md), run one worker process for each repository.
+With this setup, each worker process can connect to the right database.
 
 !!! caution "Multi-repository setups"
 
@@ -96,8 +103,8 @@ If you deploy your application on [[= product_name_cloud =]], using [Workers](ht
 
 To have a task processed in the background by [[= product_name_base =]] Messenger:
 
-1. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
-2. Dispatch an appropriate message by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
+1\. Inject the `ibexa.messenger.bus` service as an object implementing the `Symfony\Component\Messenger\MessageBusInterface` interface.
+2\. Dispatch an appropriate message, for example a [custom message](#register-custom-message-and-handler), by using the `MessageBusInterface::dispatch()` method, exactly as described in [Symfony Messenger documentation]([[= symfony_doc =]]/messenger.html#dispatching-the-message).
 
 ``` yaml
 services:
@@ -107,14 +114,31 @@ services:
 ```
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 3) =]]
+<?php
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 14) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 16, 21) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 29, 30) =]]
+namespace App\Dispatcher;
+
+use App\Message\SomeMessage;
+use Symfony\Component\Messenger\MessageBusInterface;
+
+final readonly class SomeClassThatSchedulesExecutionInTheBackground
+{
+    public function __construct(
+        private MessageBusInterface $bus
+    ) {
+    }
+
+    public function schedule(): void
+    {
+        $this->bus->dispatch(new SomeMessage());
+    }
+}
 ```
 
-Additionally, attach message metadata by using [stamps](#stamps).
+3\. [Route the message to the background queue](#route-message-to-background-queue).
+Otherwise the bus calls the handler immediately, in the same process that dispatches the message.
+
+4\. Additionally, attach message metadata by using [stamps](#stamps).
 
 ### Stamps
 
@@ -124,6 +148,7 @@ The `ibexa.messenger.bus` message bus uses the default Symfony Messenger [middle
 
 You can use the following Symfony stamps:
 
+- [`DeduplicateStamp`]([[= symfony_doc =]]/messenger.html#message-deduplication)
 - [`DelayStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DelayStamp.php)
 - [`DispatchAfterCurrentBusStamp`]([[= symfony_doc =]]/messenger.html#dispatchaftercurrentbusmiddleware-middleware)
 - [`HandlerArgumentsStamp`]([[= symfony_doc =]]/messenger.html#additional-handler-arguments)
@@ -131,31 +156,9 @@ You can use the following Symfony stamps:
 
 On top of the supported Symfony stamps, [[= product_name =]] provides the following ones:
 
-- [`DeduplicateStamp`](#deduplicatestamp)
 - [`SudoStamp`](#sudostamp)
 - [`UserPermissionStamp`](#userpermissionstamp)
-
-#### DeduplicateStamp
-
-[`DeduplicateStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html) prevents duplicate messages from being processed.
-When you attach it to a message, the system uses a lock to ensure that only one message with the same key is handled at a time.
-
-For more information, see [Symfony documentation about message deduplication]([[= symfony_doc =]]/messenger.html#message-deduplication).
-
-!!! caution
-
-    The `ibexa.messenger.bus` bus doesn't support the [`Symfony\Component\Messenger\Stamp\DeduplicateStamp`](https://github.com/symfony/symfony/blob/[[= symfony_version =]]/src/Symfony/Component/Messenger/Stamp/DeduplicateStamp.php) stamp.
-
-    You must use the `Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp` stamp instead.
-
-The following example shows how you can attach the `DeduplicateStamp` to the message:
-
-``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 6, 6, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 9, remove_indent=True) =]]
-
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 27, 28, remove_indent=True) =]]
-```
+- [`SiteAccessStamp`](#siteaccessstamp)
 
 #### SudoStamp
 
@@ -164,10 +167,12 @@ The following example shows how you can attach the `DeduplicateStamp` to the mes
 The following example shows how you can attach the `SudoStamp` to the message:
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 7, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 10, remove_indent=True) =]]
+use App\Message\SomeMessage;
+use Ibexa\Contracts\Messenger\Stamp\SudoStamp;
+use Symfony\Component\Messenger\MessageBusInterface;
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 25, remove_indent=True) =]]
+/** @var MessageBusInterface $bus */
+$bus->dispatch(new SomeMessage(), [new SudoStamp()]);
 ```
 
 #### UserPermissionStamp
@@ -181,17 +186,50 @@ By combing this stamp with [`SudoStamp`](#sudostamp), you can set the repository
 The following example shows how you can use `UserPermissionStamp` to preserve the current repository user after the message is dispatched.
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 10, remove_indent=True) =]]
+use App\Message\SomeMessage;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp;
+use Symfony\Component\Messenger\MessageBusInterface;
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, remove_indent=True) =]]
+/** @var PermissionResolver $permissionResolver */
+$currentUserId = $permissionResolver->getCurrentUserReference()->getUserId();
+
+/** @var MessageBusInterface $bus */
+$bus->dispatch(new SomeMessage(), [new UserPermissionStamp($currentUserId)]);
 ```
+
+#### SiteAccessStamp
+
+[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html) contains the name of the [SiteAccess](siteaccess.md) that dispatched the message.
+
+You don't need to add this stamp manually, [[= product_name_base =]] Messenger attaches this stamp to each dispatched message automatically.
+The stamp contains the SiteAccess that is current at the moment of dispatch.
+
+Before the worker calls the handler, it changes the configuration scope to the SiteAccess from the stamp.
+The handler then reads [SiteAccess-aware configuration](multisite_configuration.md#siteaccess-configuration) for the SiteAccess that dispatched the message, and not for the SiteAccess that the worker process started with.
+
+!!! caution "The stamp doesn't change the current SiteAccess"
+
+    The stamp changes the configuration scope only.
+    It doesn't change the SiteAccess in the `Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface` service.
+    `SiteAccessServiceInterface::getCurrent()` always returns the SiteAccess that the worker process started with, for all messages.
+
+    To get a SiteAccess-aware value in a handler, use the [`ConfigResolverInterface` service](dynamic_configuration.md).
 
 ## Extend Ibexa Messenger
 
+To handle a custom use case with background tasks, you need the following elements:
+
+- a message class to hold the data
+- a handler class to perform the task, registered on the `ibexa.messenger.bus` bus
+- a message provider to [route the message to the transport queue](#route-message-to-background-queue)
+- code to [dispatch the message](#dispatch-message)
+
+If you don't route the message to the transport queue, the bus calls the handler synchronously, in the same process that dispatches the message.
+
 ### Register custom message and handler
 
-To handle additional use cases with background tasks, you can create [custom message and handler class]([[= symfony_doc =]]/messenger.html#creating-a-message-handler):
+To handle additional use cases with background tasks, first create a [custom message and handler class]([[= symfony_doc =]]/messenger.html#creating-a-message-handler):
 
 ``` php
 [[= include_code('code_samples/background_tasks/src/Message/SomeMessage.php') =]]
@@ -209,4 +247,32 @@ services:
         tags:
             - name: messenger.message_handler
               bus: ibexa.messenger.bus
+```
+
+At this point the handler processes the messages synchronously.
+To move the work to the background, [route the message to the background queue](#route-message-to-background-queue).
+
+### Route message to background queue
+
+To process the message in the background, send it to a transport queue.
+[[= product_name_base =]] Messenger uses message providers instead of [Symfony `framework.messenger.routing` configuration]([[= symfony_doc =]]/messenger.html#routing-messages-to-a-transport).
+
+A message provider is a service that implements the [`MessageProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html) interface, and the `getHandledClasses()` method must return the list of message classes that [[= product_name_base =]] Messenger must send to the queue to process in the background.
+
+The `getHandledClasses()` method can also return a parent class or an interface.
+In this case, all messages that extend this class, or implement this interface, go to the background queue.
+
+To send `SomeMessage` to the background queue, create the following provider:
+
+``` php hl_lines="12"
+[[= include_file('code_samples/background_tasks/src/Messenger/SomeMessageProvider.php') =]]
+```
+
+If you're not using service autoconfiguration, add the `ibexa.messenger.sender_message_provider` tag to the service:
+
+``` yaml hl_lines="4"
+services:
+    App\Messenger\SomeMessageProvider:
+        tags:
+            - name: ibexa.messenger.sender_message_provider
 ```

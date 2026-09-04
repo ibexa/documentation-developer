@@ -90,7 +90,7 @@ php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
 | [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`                                                                   | Prompt-like instructions provided to the AI agent                |
 | [`tools`](#tool-configuration)                                                                                  | array   | No       | `[]`                                                                     | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |                                                                          | PSR-6 or PSR-16 cache pool service identifier                    |
-| [`session`](#session-storage)                                                                                   | object  | Yes      |                                                                          | Session storage configuration                                    |
+| [`session`](#session-storage)                                                                                   | object  | No       | `{ type: psr16,`<br><nobr>`service: ibexa.cache_pool }`</nobr>           | Session storage configuration                                    |
 | [`allowed_hosts`](#allowed-hosts)                                                                               | array   | No       | `[`<br><nobr>`'localhost',`</nobr><br>`'127.0.0.1',`<br>`'[::1]'`<br>`]` | Accepted `Host` headers                                          |
 
 !!! note "New servers are disabled by default"
@@ -122,7 +122,8 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `get_content_type` - gets a content type by its ID.
     - `get_content_type_by_identifier` - gets a content type by its identifier.
     - `get_content_type_list` - gets content types by their IDs.
-    - `create_content_type` - creates a content type draft.
+    - `create_content_type` - creates a draft for a new content type.
+    - `create_content_type_draft` - creates a draft for an existing content type.
     - `get_content_type_draft` - gets a content type draft by content type ID.
     - `publish_content_type_draft` - publishes a content type draft by content type ID.
 - `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
@@ -186,19 +187,19 @@ MCP servers store session data in their own way.
 
 #### Options
 
-| Option      | Type    | Default    | Description                                               |
-|-------------|---------|------------|-----------------------------------------------------------|
-| `type`      | enum    | (required) | Session store type: [`psr16`](#psr-16) or [`file`](#file) |
-| `service`   | string  | `null`     | PSR-16 cache service ID for the `psr16` session store     |
-| `prefix`    | string  | `mcp_`     | Key prefix for the `psr16` session store                  |
-| `directory` | string  | `null`     | Directory path for the `file` session store               |
-| `ttl`       | integer | `3600`     | Session TTL in seconds                                    |
+| Option      | Type    | Default            | Description                                                    |
+|-------------|---------|--------------------|----------------------------------------------------------------|
+| `type`      | enum    | `psr16`            | Session store type: [`psr16`](#psr-16) or [`file`](#file)      |
+| `service`   | string  | `ibexa.cache_pool` | PSR-16 or PSR-6 cache service ID for the `psr16` session store |
+| `prefix`    | string  | `mcp_`             | Key prefix for the `psr16` session store                       |
+| `directory` | string  | `null`             | Directory path for the `file` session store                    |
+| `ttl`       | integer | `3600`             | Session TTL in seconds                                         |
 
 In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, like with [regular sessions](clustering.md#shared-sessions).
 
 #### PSR-16
 
-Sessions are stored with a PSR-16 compatible cache implementation.
+Sessions are stored with a PSR-16 or PSR-6 compatible cache implementation.
 It requires that a `service` option points to a valid cache service ID.
 Optionally, you could use a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
 Such setup is suitable for production environments.

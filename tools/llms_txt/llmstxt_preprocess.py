@@ -369,11 +369,17 @@ def _process_cards(soup: Soup) -> None:
             title_elem = link.find("p", class_="title")
             description_elem = link.find("p", class_="description")
 
-            if not title_elem:
-                continue
-
-            title = title_elem.get_text(strip=True)
+            title = title_elem.get_text(strip=True) if title_elem else ""
             description = description_elem.get_text(strip=True) if description_elem else ""
+
+            # A titleless card would become <a href="..."></a>, which markdownify
+            # converts to the empty string - deleting the link and its whole list
+            # item without leaving a trace. Fail instead of shrinking the output.
+            if not title:
+                raise ValueError(
+                    "card has an empty title, refusing to emit a link that would be "
+                    "silently dropped: %s" % (href or "<no href>")
+                )
 
             li = soup.new_tag("li")
             link_tag = soup.new_tag("a", href=href)
