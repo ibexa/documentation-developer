@@ -142,13 +142,3 @@ ibexa_measurement:
 !!! tip
 
     The `target_unit` must be an existing unit, for example meter, otherwise the conversion results in an error.
-
-## Template rendering
-
-The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
-
-Example:
-
-``` html+twig
-{{ ibexa_render_field(content, 'measurement') }}
-```

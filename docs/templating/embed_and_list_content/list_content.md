@@ -1,5 +1,6 @@
 ---
 description: Create and render a list of content items, for example, content in a folder or blog posts in a blog.
+delete: true
 ---
 
 # List content
@@ -36,7 +37,7 @@ Then, place the following template in `templates/themes/<my_theme>/full/folder.h
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/folder.html.twig') =]]
 ```
 
-This template uses the [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render) to render every child of the folder with the default template for the `line` view.
+This template uses the `ibexa_render()` Twig function to render every child of the folder with the default template for the `line` view.
 
 ## List children in Content query Field
 

@@ -2,6 +2,7 @@
 description: Events that are triggered when working with products, prices, currencies, and attribute rendering.
 page_type: reference
 month_change: false
+delete: true
 ---
 
 # Product catalog events
@@ -88,7 +89,7 @@ month_change: false
 
 ## Attribute rendering
 
-The following event is dispatched when the [`ibexa_format_product_attribute`](product_twig_functions.md#ibexa_format_product_attribute) Twig filter renders an attribute value.
+The following event is dispatched when the `ibexa_format_product_attribute` Twig filter renders an attribute value.
 
 | Event | Dispatched by | Properties |
 |---|---|---|

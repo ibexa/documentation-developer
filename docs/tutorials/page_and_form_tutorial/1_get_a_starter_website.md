@@ -11,8 +11,6 @@ To set up the starter website, you need to follow these steps:
 
 To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
-Get it by following the [Install [[= product_name =]]](../../getting_started/install_cohesivo.md) guide.
-
 ## Add content types
 
 Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in as `admin` user using the password specified during installation.

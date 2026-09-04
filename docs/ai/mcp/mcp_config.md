@@ -229,11 +229,10 @@ There is no wildcard character, all cases must be listed.
 As item, you can use a hostname, an IP, or an IPv6.
 IPv6 addresses must be bracketed, for example `[::1]`.
 
-In this example, only requests from `admin.example.com` domain, `my-ddev-project.ddev.site` domain, or from 127.0.0.1 IP are accepted:
+In this example, only requests from `www.example.com` domain, or from 127.0.0.1 IP are accepted:
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
                         - 'www.example.com'
-                        - 'my-ddev-project.ddev.site'
                         - '127.0.0.1'
 ```

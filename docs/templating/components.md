@@ -1,6 +1,7 @@
 ---
 description: Twig components allow you to inject any custom widgets into selected places of the user interface.
 month_change: false
+delete: true
 ---
 
 # Twig Components
@@ -96,7 +97,7 @@ The following example shows how you can use each of the built-in components to c
 
 ## Render Twig Components
 
-Render both single Twig Components and whole groups using the [dedicated Twig functions](component_twig_functions.md).
+Render both single Twig Components and whole groups using the dedicated Twig functions.
 You can modify the Component rendering process by:
 
 - listening to one of the [related events](twig_component_events.md)

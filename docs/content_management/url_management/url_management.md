@@ -37,8 +37,6 @@ The following protocols are currently supported:
 
 To enable automatic URL validation, set up a scheduled task to run the `ibexa:check-urls` command periodically.
 
-For more information, see [Additional scheduled tasks and advanced usage](install_cohesivo.md#additional-scheduled-tasks-and-advanced-usage).
-
 ### Configuration
 
 The configuration of external URLs validation is SiteAccess-aware and is stored under the `ibexa.system.<scope>.url_checker` [configuration key](configuration.md#configuration-files), for example:

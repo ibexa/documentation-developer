@@ -64,41 +64,6 @@ The Image field type supports one `FieldDefinition` option: the maximum size for
 
 To read more about handling images and image variations, see the [Images documentation](images.md).
 
-### Template Rendering
-
-When displayed using `ibexa_render_field`, an Image field outputs this type of HTML:
-
-``` html+twig
-<img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
-```
-
-The template called by the [`ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Image field accepts the following parameters:
-
-| Parameter | Type     | Default      | Description                                                                                                                                        |
-|-----------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `alias`   | `string` | `"original"` | The image variation name, must be defined in your SiteAccess's `image_variations` settings. Defaults to "original", the originally uploaded image. |
-| `width`   | `int`    |   n/a        | Optionally to specify a different width set on the image HTML tag then one from image variation.                                                  |
-| `height`  | `int`    |   n/a        | Optionally to specify a different height set on the image HTML tag then one from image variation.                                                 |
-| `class`   | `string` |   n/a        | Optionally to specify a specific html class for use in custom JavaScript and/or CSS.                                                               |
-
-Example:
-
-``` html+twig
-{{ ibexa_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
-```
-
-The raw field can also be used if needed. Image variations for the field's content can be obtained using the `ibexa_image_alias` Twig helper:
-
-``` html+twig
-{% set imageAlias = ibexa_image_alias( field, versionInfo, 'medium' ) %}
-```
-
-The variation's properties can be used to generate the required output:
-
-``` html+twig
-<img src="{{ asset( imageAlias.uri ) }}" width="{{ imageAlias.width }}" height="{{ imageAlias.height }}" alt="{{ field.value.alternativeText }}" />
-```
-
 ### With the REST API
 
 Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type.
@@ -140,82 +105,6 @@ Requested through REST, this resource generates the variation if it doesn't exis
   <height>30</height>
   <fileSize>1361</fileSize>
 </ContentImageVariation>
-```
-
-### From PHP code
-
-#### Getting an image variation
-
-The variation service, `ibexa.field_type.ibexa_image.variation_service`, can be used to generate/get variations for a field.
-It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, and more.):
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Variation\VariationHandler $imageVariationHandler
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $imageField
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo
- */
-$variation = $imageVariationHandler->getVariation(
-    $imageField,
-    $versionInfo,
-    'large'
-);
-
-echo $variation->uri;
-```
-
-## Manipulating image content
-
-### From PHP
-
-As for any field type, there are several ways to input content to a field.
-For an Image, the quickest is to call `setField()` on the ContentStruct:
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
- */
-$createStruct = $contentService->newContentCreateStruct(
-    $contentTypeService->loadContentTypeByIdentifier('image'),
-    'eng-GB'
-);
-
-$createStruct->setField('image', '/tmp/image.png');
-```
-
-To customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property.
-For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService
- */
-$createStruct = $contentService->newContentCreateStruct(
-    $contentTypeService->loadContentTypeByIdentifier('image'),
-    'eng-GB'
-);
-
-$imageField = \Ibexa\Core\FieldType\Image\Value::fromString('/tmp/image.png');
-$imageField->alternativeText = 'My alternative text';
-$createStruct->setField('image', $imageField);
-```
-
-You can also provide a hash of `Image\Value` properties, either to `setField()`, or to the constructor:
-
-``` php
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct $createStruct */
-$imageValue = new \Ibexa\Core\FieldType\Image\Value(
-    [
-        'id' => '/tmp/image.png',
-        'fileSize' => 37931,
-        'fileName' => 'image.png',
-        'alternativeText' => 'My alternative text',
-    ]
-);
-
-$createStruct->setField('image', $imageValue);
 ```
 
 ### From REST
@@ -271,31 +160,3 @@ If you don't want to change the image itself, don't provide the `data` key.
 </VersionUpdate>
 ```
 
-## Naming
-
-Each storage engine determines how image files are named.
-
-### Legacy Storage Engine naming
-
-Images are stored within the following directory structure:
-
-`<varDir>/<StorageDir>/<ImagesStorageDir>/<FieldId[-1]>/<FieldId[-2]>/<FieldId[-3]>/<FieldId[-4]>/<FieldId>-<VersionNumber>-<LanguageCode>/`
-
-With the following values:
-
-- `VarDir` = `var` (default)
-- `StorageDir` = `storage` (default)
-- `ImagesStorageDir` = `images` (default)
-- `FieldId` = `1480`
-- `VersionNumber` = `1`
-- `LanguageCode` = `eng-GB`
-
-Images are stored in `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`.
-
-Using the field ID digits in reverse order as the folder structure maximizes sharding of files through multiple folders on the filesystem.
-
-Within this folder, images are named like the uploaded file, suffixed with an underscore, and the variation name:
-
-- `MyImage.png`
-- `MyImage_large.png`
-- `MyImage_rss.png`

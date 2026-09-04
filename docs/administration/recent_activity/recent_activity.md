@@ -34,8 +34,6 @@ ibexa:
 To automate a regular truncation, you must schedule the command `ibexa:activity-log:truncate`.
 To minimize the number of entries to delete, it's recommended that you execute the command more than one time a day.
 
-For more information, see [Additional scheduled tasks and advanced usage](install_cohesivo.md#additional-scheduled-tasks-and-advanced-usage).
-
 ### Display limit
 
 The `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` setting sets the number of log items shown per page in the back office (default value: 25).
