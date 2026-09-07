@@ -16,7 +16,7 @@ This approach eliminates the need to manage product data in multiple systems, wh
 
 ## Availability
 
-The integration with [[= pim_product_name =]] is available as an add-on for all [[= product_name =]] editions.
+The integration with [[= pim_product_name =]] is available as an add-on for [[= product_name =]].
 
 Before installing and enabling the add-on, ensure that you have an active [[= pim_product_name =]] instance with defined products, classifications, and channels.
 

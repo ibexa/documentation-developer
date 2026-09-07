@@ -17,7 +17,7 @@ It includes first, second, and third-party data from multiple sources such as tr
 
 ## Availability
 
-[[= product_name_cdp =]] is available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
+[[= product_name_cdp =]] is available in [[= product_name =]].
 
 ## How does [[= product_name_cdp =]] work
 

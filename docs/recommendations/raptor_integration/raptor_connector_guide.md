@@ -26,9 +26,9 @@ This approach simplifies integration while supporting personalization across dif
 
 ## Availability
 
-[[= product_name_cdp_base =]] integration elements, such as tracking, Twig functions, and public API, are available in all supported [[= product_name =]] editions starting from v5.0.7 version.
+[[= product_name_cdp_base =]] integration elements, such as tracking, Twig functions, and public API, are available in [[= product_name =]] starting from v5.0.7 version.
 
-Recommendation blocks provided in Page Builder, are available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
+Recommendation blocks are available in Page Builder.
 
 ## How does [[= product_name_cdp_base =]] tracking work
 

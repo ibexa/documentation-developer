@@ -13,7 +13,7 @@ Online Editor is based on [CKEditor 5](https://ckeditor.com/ckeditor-5/).
 
 ## Availability
 
-Online Editor is available in all supported [[= product_name =]] versions and editions.
+Online Editor is available in all supported [[= product_name =]] versions.
 
 ## How to get started
 
