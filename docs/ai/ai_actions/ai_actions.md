@@ -28,5 +28,4 @@ You can also extend it to perform other tasks or support additional AI services.
 ("https://doc.ibexa.co/en/6.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Connector-AI", "REST API Reference", "See the available endpoints for AI Actions"),
 "search/ai_actions_search_reference/action_configuration_criteria",
 "search/ai_actions_search_reference/action_configuration_sort_clauses",
-("content_management/data_migration/importing_data#ai-action-configurations", "Importing AI actions", "Learn how to manage Action Configurations using data migrations"),
 ], columns=4) =]]
