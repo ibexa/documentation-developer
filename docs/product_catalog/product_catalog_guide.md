@@ -12,7 +12,7 @@ It lets you create, configure, and manage products, their specifications, assets
 
 ## Availability
 
-Product catalog capabilities are available in all [[= product_name =]] editions.
+Product catalog capabilities are available in [[= product_name =]].
 
 ## How does product catalog work
 

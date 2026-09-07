@@ -22,37 +22,8 @@
 # 0 page(s) carry edition frontmatter (`edition:` or `editions:`).
 edition_frontmatter: []
 
-# 29 page(s) reference a product-name variable slated for deletion (product_name_headless, product_name_exp, product_name_com, product_name_cloud, product_name_content, product_name_oss).
-deleted_product_variables:
-  - administration/project_organization/bundles.md
-  - ai/ai_actions/ai_actions_guide.md
-  - content_management/content_management_guide.md
-  - content_management/field_types/field_type_reference/pagefield.md
-  - content_management/forms/form_builder_guide.md
-  - content_management/pages/page_builder_guide.md
-  - customer_management/customer_portal_guide.md
-  - ibexa_products/editions.md
-  - ibexa_products/ibexa_experience.md
-  - ibexa_products/ibexa_headless.md
-  - infrastructure_and_maintenance/background_tasks.md
-  - infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
-  - infrastructure_and_maintenance/cache/http_cache/fastly.md
-  - infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
-  - infrastructure_and_maintenance/cache/persistence_cache.md
-  - infrastructure_and_maintenance/clustering/clustering.md
-  - infrastructure_and_maintenance/security/development_security.md
-  - infrastructure_and_maintenance/security/security_checklist.md
-  - permissions/permission_use_cases.md
-  - permissions/policies.md
-  - qualifio/install_qualifio.md
-  - raptor_cdp/raptor_cdp_guide.md
-  - recommendations/raptor_integration/raptor_connector_guide.md
-  - tutorials/beginner_tutorial/2_create_the_content_model.md
-  - tutorials/beginner_tutorial/8_enable_account_registration.md
-  - tutorials/beginner_tutorial/beginner_tutorial.md
-  - tutorials/page_and_form_tutorial/1_get_a_starter_website.md
-  - tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
-  - tutorials/page_and_form_tutorial/page_and_form_tutorial.md
+# 0 page(s) reference a product-name variable slated for deletion (product_name_headless, product_name_exp, product_name_com, product_name_cloud, product_name_content, product_name_oss).
+deleted_product_variables: []
 
 # 314 page(s) contain a PHP code sample (fenced block or .php include macro).
 php_code_sample:

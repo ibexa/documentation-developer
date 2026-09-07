@@ -3,7 +3,7 @@
 Page field type represents a page with a layout consisting of multiple zones.
 Each zone can in turn contain blocks.
 
-Page field type is only used in the page content type that is included in [[= product_name_exp =]].
+Page field type is only used in the page content type that is included in [[= product_name =]].
 
 | Name          | Internal name        | Expected input  |
 |---------------|----------------------|-----------------|

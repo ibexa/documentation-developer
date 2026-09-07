@@ -20,14 +20,12 @@ These policies are necessary for all other cases below that require access to th
 
 ## Create content without publishing
 
-You can use this option together with [[= product_name_exp =]]'s content review options.
+You can use this option together with [[= product_name =]]'s content review options.
 Users assigned with these policies can create content, but cannot publish it.
 To publish, they must send the content for review to another User with proper permissions (for example, senior editor or proofreader).
 
 - `content/create`
 - `content/edit`
-
-Use this setup with [[= product_name_exp =]] or [[= product_name_com =]] only, as [[= product_name_headless =]] doesn't allow the User to continue working with their content.
 
 ## Create and publish content
 

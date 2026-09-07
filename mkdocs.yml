@@ -507,18 +507,12 @@ extra:
       url: '/projects/connect'
 
     # Global variables
-  site_display_name: 'Ibexa Documentation'
+  site_display_name: 'Cohesivo Documentation'
   product_name_base: 'Ibexa'
   product_name: 'Cohesivo'
-  product_name_content: 'Ibexa Content'
-  product_name_headless: 'Ibexa Headless'
-  product_name_exp: 'Ibexa Experience'
-  product_name_com: 'Ibexa Commerce'
   product_name_cdp: 'Raptor CDP'
   product_name_cdp_base: 'Raptor'
   product_name_connect: 'Ibexa Connect'
-  product_name_cloud: 'Ibexa Cloud'
-  product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Qualifio'
   pim_product_name: 'Quable'
 

@@ -11,7 +11,7 @@ saas_review_note: >-
 
 # Configure AI Actions
 
-AI Actions are available in [[= product_name =]] regardless of its edition.
+AI Actions are available in [[= product_name =]].
 To use this feature you must first configure the built-in service connectors.
 
 Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below.
