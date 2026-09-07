@@ -111,7 +111,7 @@ Create the following template file in `templates/themes/admin/account/login/oaut
 
 The OAuth connection URL Twig functions are `ibexa_oauth2_connect_path` and `ibexa_oauth2_connect_url`.
 
-Finally, add the template to the login form by using the `admin-ui-login-form-after` [Twig component group](components.md):
+Finally, add the template to the login form by using the `admin-ui-login-form-after` Twig component group:
 
 ``` yaml
 services:

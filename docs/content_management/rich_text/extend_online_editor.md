@@ -62,8 +62,6 @@ In this example, the `style` attribute is a `choice` attribute with `light` and 
 The selected value is available as `params.style` in the template.
 Use it to build an `ibexa-factbox--light` or `ibexa-factbox--dark` modifier class on the wrapping `div` element for styling.
 
-You can then define the corresponding CSS for each choice, for example by using [Webpack Encore and assets](assets.md).
-
 Create a `assets/scss/factbox.scss` file for styling the custom tag:
 
 ``` css
@@ -256,7 +254,7 @@ Add labels for the new styles by providing translations in `translations/custom_
 ### Rendering
 
 The `template` key points to the template that is used to render the custom style.
-It's recommended that you use the [design engine](design_engine.md).
+It's recommended that you use the design engine.
 
 The template files for the front end could look as follows:
 
@@ -293,7 +291,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 <div class="note">{{ content }}</div>
 ```
 
-You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
+You can now define the custom CSS for this template:
 
 ``` css
 .note {
@@ -336,7 +334,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 <span class="highlight">{{ content }}</span>
 ```
 
-You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
+You can now define the custom CSS for this template:
 
 ``` css
 .highlight {

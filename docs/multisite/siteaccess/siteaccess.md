@@ -11,7 +11,7 @@ If it finds a set of fitting rules, this SiteAccess is used.
 
 Each SiteAccess can have different:
 
-- [templates and designs](design_engine.md)
+- templates and designs
 - [languages](set_up_translation_siteaccess.md)
 - [tree roots](multisite_configuration.md#location-tree)
 - [repositories](persistence_cache.md#multi-repository-setup)

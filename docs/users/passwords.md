@@ -13,11 +13,6 @@ To change password, the user must have the `user/password` permission.
 When the user requests a reset of a forgotten password, an email is sent to them with a token.
 It allows them to create a new password.
 
-For information about how to create and configure the template, see [Add forgot password option](add_forgot_password_option.md)
-
-The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
-You can [customize it according to your needs](add_login_form.md#customize-login-form).
-
 The validity of the password recovery token can be set by using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it's set to `PT1H` (one hour).
 

@@ -33,7 +33,7 @@ Lines 37-47 handle the conversion of content into an XML string:
 [[= include_code('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
 
-Now you can create [templates](templates.md) that are used for displaying and configuring your block.
+Now you can create templates that are used for displaying and configuring your block.
 
 Create the view template in `templates/themes/<your-theme>/blocks/my_block/richtext.html.twig`.
 Line 2 is responsible for rendering the content from XML to HTML5:

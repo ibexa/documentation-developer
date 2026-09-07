@@ -75,5 +75,4 @@ To create a tab group, register it as a service:
 Tag the group with `ibexa.twig.component`.
 `group` indicates where the group is rendered.
 
-To learn more about this mechanism, see [Twig Components](components.md).
-And for the groups available in the back office, see [custom components in the back office](custom_components.md).
+For the groups available in the back office, see [custom components in the back office](custom_components.md).

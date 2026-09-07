@@ -61,7 +61,7 @@ ibexa:
             '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
-Next, add the [design engine](design_engine.md) configuration for new specific designs and their theme lists:
+Next, add the design engine configuration for new specific designs and their theme lists:
 
 ``` yaml
 ibexa_design_engine:

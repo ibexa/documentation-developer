@@ -45,7 +45,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/core-search](https://github.com/ibexa/core-search)|Search-related capabilities|
 |[ibexa/core-persistence](https://github.com/ibexa/core-persistence)|Core system persistence|
 |[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ibexa:cron:run` command|
-|[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](design_engine.md)|
+|[ibexa/design-engine](https://github.com/ibexa/design-engine)|Design fallback system|
 |[ibexa/doctrine-schema](https://github.com/ibexa/doctrine-schema)| Basic abstraction layer for cross-DBMS schema import|
 |[ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix)|[Matrix field type](matrixfield.md)|
 |[ibexa/fieldtype-query](https://github.com/ibexa/fieldtype-query)|[Query field type](contentqueryfield.md)|
@@ -61,7 +61,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/solr](https://github.com/ibexa/solr)|[Solr-powered](https://solr.apache.org/) search handler|
 |[ibexa/standard-design](https://github.com/ibexa/standard-design)|Standard design and theme to be handled by `design-engine`|
 |[ibexa/system-info](https://github.com/ibexa/system-info)| Information about the system [[= product_name =]] is running on|
-|[ibexa/twig-components](https://github.com/ibexa/twig-components)| [Twig Components](components.md)|
+|[ibexa/twig-components](https://github.com/ibexa/twig-components)| Twig Components|
 |[ibexa/user](https://github.com/ibexa/user)|User management|
 
 ## [[= product_name_headless =]] packages

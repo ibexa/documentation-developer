@@ -148,7 +148,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
     Template blocks for built-in field types are available in [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/6.0/src/bundle/Core/Resources/views/content_fields.html.twig).
 
-    This template is also exposed as a part of Standard Design, so you can override it with the [design engine](design_engine.md).
+    This template is also exposed as a part of Standard Design, so you can override it with the design engine.
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views` (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
 
 ### Template variables
@@ -176,7 +176,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 ### Registering a template
 
-If you don't use the [design engine](design_engine.md) or you want to have separate templates per field type and/or SiteAccess,
+If you don't use the design engine or you want to have separate templates per field type and/or SiteAccess,
 you can register a template under the `ibexa.system.<scope>.field_templates` [configuration key](configuration.md#configuration-files):
 
 ``` yaml

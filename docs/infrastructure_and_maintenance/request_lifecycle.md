@@ -138,7 +138,7 @@ First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds
 Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`).
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ibexa.view.provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `Ibexa\Bundle\Core\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ibexa.content_view.matcher_factory`).
-Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](template_configuration.md#view-rules-and-matching).
+Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the view matching.
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
 The `ViewControllerListener` adds the ContentView to the `Request` as the **`view`** attribute.
@@ -156,7 +156,7 @@ As a reminder, the controller and its argument can be:
 
 - A controller set by the matched route and the request as its argument.
 - The default `ibexa_content::viewAction` controller and a `ContentView` as its argument.
-- A [custom controller](controllers.md) set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
+- A custom controller set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
 
 !!! caution "Permission control"
 

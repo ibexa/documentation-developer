@@ -26,8 +26,6 @@ Layout defines how a page is divided into zones.
 The placement of zones is defined in a template which is a part of the layout configuration.
 You can modify the template to define your own zone layout.
 
-For information on how to create and configure new blocks for the page, see [Page layouts](render_page.md#render-a-layout).
-
 ## Blocks
 
 For information on how to create and configure new blocks for the page, see [Create custom Page block](create_custom_page_block.md).

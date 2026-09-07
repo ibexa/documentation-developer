@@ -87,7 +87,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 <div>{{ ibexa_render_field(content, 'text') }}</div>
 ```
 
-For more information, see [Templates](templates.md) and [Twig documentation](https://twig.symfony.com/doc/3.x/).
+For more information, see the [Twig documentation](https://twig.symfony.com/doc/3.x/).
 
 ## Create content and test view templates
 

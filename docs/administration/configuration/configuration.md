@@ -84,7 +84,6 @@ For specific configuration settings, see:
 
 - [Back office configuration](back_office_configuration.md)
 - [Repository configuration](repository_configuration.md)
-- [Content views](template_configuration.md)
 - [Multisite configuration](multisite_configuration.md)
 - [Image variations](images.md#configuring-image-variations)
 - [Logging and debug](devops.md#logging-and-debug-configuration)

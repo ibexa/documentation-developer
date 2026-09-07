@@ -35,7 +35,7 @@ The following variables are available in the embed templates:
 
 The default templates are located in `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/standard/product_catalog/richtext/embed/`.
 
-To override a template, create a file with the same name in your [theme directory](design_engine.md).
+To override a template, create a file with the same name in your theme directory.
 For example, to override the block embed template for the `standard` theme, create  a file in `templates/themes/standard/product_catalog/richtext/embed/product.html.twig`
 
 A minimal product embed template looks as follows:
@@ -54,7 +54,7 @@ And a minimal inline embed template (`product_inline.html.twig`):
 
 ## Configure template paths
 
-In addition to overriding the templates with the [design engine](design_engine.md), you can explicitly set the template path for any embed type in your [SiteAccess configuration](multisite_configuration.md):
+In addition to overriding the templates with the design engine, you can explicitly set the template path for any embed type in your [SiteAccess configuration](multisite_configuration.md):
 
 ```yaml
 ibexa:
