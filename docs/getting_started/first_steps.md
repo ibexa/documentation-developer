@@ -7,10 +7,6 @@ description: Start off working with Cohesivo by doing initial configuration and 
 This page lists first steps you can take after installing [[= product_name =]].
 These steps are the most common actions you may need to take in a new installation.
 
-!!! tip "Beginner tutorial"
-
-    To go through a full tutorial that leads from a clean installation to creating a full site, see [Beginner tutorial](beginner_tutorial.md).
-
 ## Remove welcome page
 
 ![Welcome page](welcome_page.png)

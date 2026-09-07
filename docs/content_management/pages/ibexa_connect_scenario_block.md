@@ -11,7 +11,6 @@ Scenario block is a regular [Page block](page_blocks.md) and can be configured o
 !!! caution
 
     When setting up your instance, ensure you have profiler enabled.
-    To set up Page Builder in [[= product_name =]], follow the [Page and Form tutorial](page_and_form_tutorial.md).
 
 ## Scenario block configuration
 

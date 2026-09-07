@@ -31,7 +31,7 @@ Configure the new Image Editor action under the `ibexa.system.<scope>.image_edit
 
 ## Add entry to the Webpack configuration
 
-Once you create and configure the React component, you must add an entry to [the Webpack configuration](3_customize_the_front_page.md#configuring-webpack).
+Once you create and configure the React component, you must add an entry to the Webpack configuration.
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js

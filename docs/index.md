@@ -7,22 +7,6 @@
             <h2>How to start?</h2>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="tutorials/beginner_tutorial/beginner_tutorial/">
-                <div class="info-tile__circle" style="background-color: #f6e7ef;">
-                    <svg width="25" height="25"><use xlink:href="images/icons.svg#install-dxp" /></svg>
-                </div>
-                <div class="info-tile__content">
-                    <div class="info-tile__details">
-                        Details
-                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
-                    </div>
-                    <div>
-                        Follow the <strong>Beginner tutorial</strong>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="api/api/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>

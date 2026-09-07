@@ -9,8 +9,6 @@ You can use it as a base for custom field types.
 The Generic field type comes with the implementation of basic methods,
 reduces the number of classes which must be created, and simplifies the tagging process.
 
-A more in-depth, step-by-step tutorial can be viewed here: [Creating a Point 2D field type](creating_a_point2d_field_type.md).
-
 !!! tip
 
     You should not use the Generic field type when you need a very specific implementation or complete control over the way data is stored.
