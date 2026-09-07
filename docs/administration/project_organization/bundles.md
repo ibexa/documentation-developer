@@ -82,7 +82,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
 |ibexa/measurement|Measurement field type and measurement product catalog attribute|
-|ibexa/migrations|[Migration of repository data](data_migration.md)|
+|ibexa/migrations|Migration of repository data|
 |ibexa/oauth2-client|Authenticate user through a [third-party OAuth 2 server](oauth_client.md), integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 |ibexa/oauth2-server|Configure [[= product_name =]] to act as a [OAuth2 Server](oauth_server.md)|
 |ibexa/product-catalog-date-time-attribute|Implementation of the [Date and Time attribute type](date_and_time.md)|

@@ -65,7 +65,7 @@ Remember to add a segment group identifier to the configuration, under the `segm
 ### Data export
 
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting content, users, and products.
-An `ibexa_cdp.data_export` [configuration key](raptor_cdp_data_export_schedule.md#configuration-key) includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
+An `ibexa_cdp.data_export` configuration key includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
 - `interval` - sets the frequency at which the command is invoked, uses cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour"
