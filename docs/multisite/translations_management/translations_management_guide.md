@@ -100,7 +100,7 @@ Developers can [extend the translations management](extend_translations_manageme
 - create custom translation providers
 - add support for custom fields
 - add custom content type exclusion rules
-- tap into the translation lifecycle with [events](translations_management_events.md)
+- tap into the translation lifecycle with events
 
 ## Benefits
 

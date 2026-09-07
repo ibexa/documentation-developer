@@ -47,7 +47,7 @@ These files contain additional settings and point to the general (not environmen
 
 !!! note
 
-    Configuration is tightly related to the [service container](php_api.md#service-container).
+    Configuration is tightly related to the [service container]([[= symfony_doc =]]/service_container.html).
     To fully understand it, you must be familiar with the service container and [its configuration]([[= symfony_doc =]]/service_container.html#service-container-parameters).
 
 Basic configuration handling in [[= product_name =]] is similar to what is commonly possible with Symfony.

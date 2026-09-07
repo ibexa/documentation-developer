@@ -84,7 +84,7 @@ You can send notifications to users which are displayed in the user menu.
 
 ### Create a custom user notification
 
-To create a new notification you can use the [`NotificationService::createNotification(CreateStruct $createStruct)` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)
+To create a new notification you can use the `NotificationService::createNotification(CreateStruct $createStruct)` method
 like in the example below:
 
 ``` php

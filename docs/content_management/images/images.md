@@ -252,7 +252,7 @@ sudo apt-get install optipng
 
 ### Customizing image optimizers
 
-When the Image Editor saves a modified image, the system dispatches the [`ConfigureImageOptimizersEvent`](other_events.md#image-editor) event before running the optimizer chain.
+When the Image Editor saves a modified image, the system dispatches the `ConfigureImageOptimizersEvent` event before running the optimizer chain.
 You can listen to this event to customize the list of image optimizers at runtime.
 
 The following example shows how to remove the Pngquant optimizer to prevent grayscale conversion of low-saturation PNG images:

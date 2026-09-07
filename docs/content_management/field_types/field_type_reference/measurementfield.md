@@ -12,7 +12,7 @@ It stores the unit of measure, and either a single measurement value, or a pair 
 ### Input expectations
 
 To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface`.
-You must inject the service directly with [dependency injection](php_api.md#service-container).
+You must inject the service directly with [dependency injection]([[= symfony_doc =]]/service_container.html).
 The service contains the following API endpoints:
 
 - `buildSimpleValue` that is used to handle a single value

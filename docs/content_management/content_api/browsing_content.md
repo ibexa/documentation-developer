@@ -4,9 +4,9 @@ description: Use PHP API to get content items and their information, content fie
 
 # Browsing and viewing content
 
-To retrieve a content item and its information, you need to make use of the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html).
+To retrieve a content item and its information, you need to make use of the `ContentService`.
 
-The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
+The service should be [injected into the constructor of your command or controller]([[= symfony_doc =]]/service_container.html).
 
 !!! tip "Content REST API"
 
@@ -20,7 +20,7 @@ The service should be [injected into the constructor of your command or controll
 
 ### ContentInfo
 
-Basic content metadata is available through [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) objects and their properties.
+Basic content metadata is available through `ContentInfo` objects and their properties.
 This value object provides primitive fields, such as `contentTypeId`, `publishedDate`, or `mainLocationId`, and methods for retrieving selected properties.
 
 You can also use it to request other content-related value objects from various services:
@@ -36,7 +36,7 @@ You can also use it to request other content-related value objects from various 
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 119) =]]
 ```
 
-`ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 13).
+`ContentInfo` is loaded from the `ContentService` (line 13).
 It provides you with basic content metadata such as modification and publication dates or main language code.
 
 !!! note "Retrieving content information in a controller"
@@ -45,22 +45,22 @@ It provides you with basic content metadata such as modification and publication
 
 ### Locations
 
-To get the locations of a content item you need to make use of the [`LocationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html):
+To get the locations of a content item you need to make use of the `LocationService`:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 63, 66, remove_indent=True) =]]
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 69, 69, remove_indent=True) =]]
 ```
 
-[`LocationService::loadLocations`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_loadLocations) uses `ContentInfo` to get all the locations of a content item.
-This method returns an array of [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-Location.html) value objects.
+`LocationService::loadLocations` uses `ContentInfo` to get all the locations of a content item.
+This method returns an array of `Location` value objects.
 For each location, the code above prints out its `pathString` (the internal representation of the path).
 
 #### URL Aliases
 
-The [`URLAliasService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLAliasService.html) additionally enables you to retrieve the human-readable [URL alias](url_management.md#url-aliases) of each location.
+The `URLAliasService` additionally enables you to retrieve the human-readable [URL alias](url_management.md#url-aliases) of each location.
 
-[`URLAliasService::reverseLookup`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLAliasService.html#method_reverseLookup) gets the location's main [URL alias](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html):
+`URLAliasService::reverseLookup` gets the location's main URL alias:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 63, 65, remove_indent=True) =]]
@@ -69,7 +69,7 @@ The [`URLAliasService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-C
 
 ### Content type
 
-You can retrieve the content type of a content item through the [`getContentType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getContentType) method of the ContentInfo object:
+You can retrieve the content type of a content item through the `getContentType` method of the ContentInfo object:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 73, remove_indent=True) =]]
@@ -77,7 +77,7 @@ You can retrieve the content type of a content item through the [`getContentType
 
 ### Versions
 
-To iterate over the versions of a content item, use the [`ContentService::loadVersions`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersions) method, which returns an array of `VersionInfo` value objects.
+To iterate over the versions of a content item, use the `ContentService::loadVersions` method, which returns an array of `VersionInfo` value objects.
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 76, 81, remove_indent=True) =]]
@@ -92,20 +92,20 @@ You can additionally provide the `loadVersions` method with the version status t
 !!! note
 
     Requesting version data may be impossible for an anonymous user.
-    Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
+    Make sure to authenticate as a user with sufficient permissions.
 
 ### Relations
 
 Content Relations are versioned.
 To list Relations to and from your content, you can:
 
-- pass a `VersionInfo` object to the [`ContentService::loadRelationList` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) which returns a slice of the relation list thanks to pagination arguments
-- use the [`RelationListIteratorAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html)
-  within a [`BatchIterator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html) which allow traversing the whole relation list
+- pass a `VersionInfo` object to the `ContentService::loadRelationList` method which returns a slice of the relation list thanks to pagination arguments
+- use the `RelationListIteratorAdapter`
+  within a `BatchIterator` which allow traversing the whole relation list
 
 See [Processing large result sets](search_api.md#process-large-result-sets) for more information about the `BatchIterator`.
 
-You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
+You can get the current version's `VersionInfo` using `ContentService::loadVersionInfo`.
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 95, 105, remove_indent=True) =]]
@@ -121,8 +121,8 @@ You can also specify the version number as the second argument to get Relations 
 $versionInfo = $contentService->loadVersionInfo($contentInfo, 2);
 ```
 
-`loadRelationList` provides an iterable [`RelationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-RelationList.html) object
-listing [`Relation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html) objects.
+`loadRelationList` provides an iterable `RelationList` object
+listing `Relation` objects.
 `Relation` has two main properties: `destinationContentInfo`, and `sourceContentInfo`.
 It also holds the [relation type](content_relations.md), and the optional field this relation is made with.
 
@@ -138,7 +138,7 @@ To get the creator of the current version and not the content item's owner, you 
 
 ### Section
 
-You can find the section to which a content item belongs through the [`getSection`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getSection) method of the ContentInfo object:
+You can find the section to which a content item belongs through the `getSection` method of the ContentInfo object:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 111, 111, remove_indent=True) =]]
@@ -147,13 +147,13 @@ You can find the section to which a content item belongs through the [`getSectio
 !!! note
 
     Requesting section data may be impossible for an anonymous user.
-    Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
+    Make sure to authenticate as a user with sufficient permissions.
 
 ### Object states
 
-You can retrieve [object states](object_states.md) of a content item using [`ObjectStateService::getContentState`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_getContentState).
+You can retrieve [object states](object_states.md) of a content item using `ObjectStateService::getContentState`.
 You need to provide it with the object state group.
-All object state groups can be retrieved through [`loadObjectStateGroups`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
+All object state groups can be retrieved through `loadObjectStateGroups`.
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 118, remove_indent=True) =]]
@@ -172,11 +172,11 @@ To retrieve the content type's field definitions of a selected content item, you
 [[= include_code('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 36) =]]
 ```
 
-Line 17 shows how [`ContentService::loadContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadContent) loads the content item provided to the command.
-Line 18 makes use of the [`ContentTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html) to retrieve the content type of the requested item.
+Line 17 shows how `ContentService::loadContent` loads the content item provided to the command.
+Line 18 makes use of the `ContentTypeService` to retrieve the content type of the requested item.
 
 Lines 20-27 iterate over fields defined by the content type.
-For each field definition they print out its identifier, and then using [`FieldTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html) retrieve the field definition's value and print it out to the console.
+For each field definition they print out its identifier, and then using `FieldTypeService` retrieve the field definition's value and print it out to the console.
 
 ## Viewing content in different languages
 
@@ -206,7 +206,7 @@ $contentService->loadContent($content->id, Language::ALL);
 
 ## Getting all content in a subtree
 
-To go through all the content items contained in a subtree, you need to use the [`LocationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html).
+To go through all the content items contained in a subtree, you need to use the `LocationService`.
 
 ``` php hl_lines="5 15"
 [[= include_code('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 32, 50, remove_indent=True) =]]
@@ -214,7 +214,7 @@ To go through all the content items contained in a subtree, you need to use the 
 
 `loadLocation` (line 15) returns a value object, here a `Location`.
 
-[`LocationService::loadLocationChildren`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_loadLocationChildren) (line 5) returns a [`LocationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) value object that you can iterate over.
+`LocationService::loadLocationChildren` (line 5) returns a `LocationList` value object that you can iterate over.
 
 !!! note
 

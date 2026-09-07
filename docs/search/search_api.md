@@ -11,9 +11,9 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 
 ## SearchService
 
-[`SearchService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html) enables you to perform search queries by using the PHP API.
+`SearchService` enables you to perform search queries by using the PHP API.
 
-The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
+The service should be [injected into the constructor of your command or controller]([[= symfony_doc =]]/service_container.html).
 
 !!! tip "SearchService in the back office"
 
@@ -21,7 +21,7 @@ The service should be [injected into the constructor of your command or controll
 
 ### Perform search
 
-To search through content you need to create a [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) and provide your Search Criteria as a series of Criterion objects.
+To search through content you need to create a `LocationQuery` and provide your Search Criteria as a series of Criterion objects.
 
 For example, to search for all content of a selected content type, use one Criterion, [`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 14).
 
@@ -36,11 +36,11 @@ The following command takes the content type identifier as an argument and lists
 [[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 33, 49) =]]
 ```
 
-[`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
-retrieves [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html) objects of the found content items.
-You can also use [`SearchService::findContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent) to get full Content objects, together with their field information.
+`SearchService::findContentInfo` (line 16)
+retrieves `ContentInfo` objects of the found content items.
+You can also use `SearchService::findContent` to get full Content objects, together with their field information.
 
-To query for a single result, for example by providing a Content ID, use the [`SearchService::findSingle`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findSingle) method:
+To query for a single result, for example by providing a Content ID, use the `SearchService::findSingle` method:
 
 ``` php
 use Ibexa\Contracts\Core\Repository\SearchService;
@@ -76,7 +76,7 @@ $output->writeln($result->getName() ?? '');
 #### Disable result count
 
 By default, a search query also counts all matching results.
-If you don't need the total count, set `performCount` to `false` on [`Query`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html) or [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) to improve performance, especially for large result sets.
+If you don't need the total count, set `performCount` to `false` on `Query` or `LocationQuery` to improve performance, especially for large result sets.
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/perform_count.php', 8, 10) =]]
@@ -99,11 +99,11 @@ With the Legacy search engine both properties give identical results.
 
 #### Process large result sets
 
-To process a large result set, use [`Ibexa\Contracts\Core\Repository\Iterator\BatchIterator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html).
+To process a large result set, use `Ibexa\Contracts\Core\Repository\Iterator\BatchIterator`.
 `BatchIterator` divides the results of search or filtering into smaller batches.
 This enables iterating over results that are too large to handle due to memory constraints.
 
-`BatchIterator` takes one of the available adapters ([`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-iterator-batchiteratoradapter.html)) and optional batch size. For example:
+`BatchIterator` takes one of the available adapters (`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`) and optional batch size. For example:
 
 ``` php
 use Ibexa\Contracts\Core\Repository\Iterator\BatchIterator;
@@ -129,27 +129,27 @@ The following BatchIterator adapters are available, for both `query` and `filter
 
 | Adapter                                                                                                                                                                                    | Regular method                                                                                                                                                                                                        |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`ContentFilteringAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-ContentFilteringAdapter.html)                             | [`ContentService::find()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_find)                                                                                    |
-| [`ContentInfoSearchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-ContentInfoSearchAdapter.html)                           | [`SearchService::findContentInfo()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo)                                                                |
-| [`ContentSearchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-ContentSearchAdapter.html)                                   | [`SearchService::findContent()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent)                                                                        |
-| [`RelationListIteratorAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html)                     | [`ContentService::loadRelationList()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList)                                                            |
-| [`LocationFilteringAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-LocationFilteringAdapter.html)                           | [`LocationService::find()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_find)                                                                                  |
-| [`LocationSearchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-LocationSearchAdapter.html)                                 | [`SearchService::findLocations()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findLocations)                                                                    |
-| <nobr>[`AttributeDefinitionFetchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-AttributeDefinitionFetchAdapter.html)</nobr> | [`AttributeDefinitionServiceInterface::findAttributesDefinitions()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html#method_findAttributesDefinitions) |
-| [`AttributeGroupFetchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-AttributeGroupFetchAdapter.html)                        | [`AttributeGroupServiceInterface::findAttributeGroups()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeGroupServiceInterface.html#method_findAttributeGroups)                       |
-| [`CurrencyFetchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CurrencyFetchAdapter.html)                                    | [`CurrencyServiceInterface::findCurrencies()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html#method_findCurrencies)                                             |
-| [`ProductTypeListAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-ProductTypeListAdapter.html)                                | [`ProductTypeServiceInterface::findProductTypes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html#method_findProductTypes)                                   |
+| `ContentFilteringAdapter`                             | `ContentService::find()`                                                                                    |
+| `ContentInfoSearchAdapter`                           | `SearchService::findContentInfo()`                                                                |
+| `ContentSearchAdapter`                                   | `SearchService::findContent()`                                                                        |
+| `RelationListIteratorAdapter`                     | `ContentService::loadRelationList()`                                                            |
+| `LocationFilteringAdapter`                           | `LocationService::find()`                                                                                  |
+| `LocationSearchAdapter`                                 | `SearchService::findLocations()`                                                                    |
+| <nobr>`AttributeDefinitionFetchAdapter`</nobr> | `AttributeDefinitionServiceInterface::findAttributesDefinitions()` |
+| `AttributeGroupFetchAdapter`                        | `AttributeGroupServiceInterface::findAttributeGroups()`                       |
+| `CurrencyFetchAdapter`                                    | `CurrencyServiceInterface::findCurrencies()`                                             |
+| `ProductTypeListAdapter`                                | `ProductTypeServiceInterface::findProductTypes()`                                   |
 
 ## Repository filtering
 
 You can use the `ContentService::find(Filter)` method to find content items or `LocationService::find(Filter)` to find locations by using a defined Filter.
 
-`ContentService::find` returns an iterable [`ContentList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) while `LocationService::find` returns an iterable [`LocationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html).
+`ContentService::find` returns an iterable `ContentList` while `LocationService::find` returns an iterable `LocationList`.
 
 Filtering differs from search.
 It doesn't use the `SearchService` and isn't based on indexed data.
 
-[`Filter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query by using chained methods to select criteria, sorting, limit, and offset.
+`Filter` enables you to configure a query by using chained methods to select criteria, sorting, limit, and offset.
 
 For example, the following command lists all content items under the specified parent location and sorts them by name in descending order:
 
@@ -211,7 +211,7 @@ $filter
 
     Not all Search Criteria and Sort Clauses are available for use in repository filtering.
 
-    Only Criteria implementing [`FilteringCriterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringCriterion.html) and Sort Clauses implementing [`FilteringSortClause`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringSortClause.html) are supported.
+    Only Criteria implementing `FilteringCriterion` and Sort Clauses implementing `FilteringSortClause` are supported.
 
     See [Search Criteria](search_criteria_reference.md) and [Sort Clause reference](sort_clause_reference.md) for details.
 
@@ -266,21 +266,21 @@ For more information and examples, see [PagerFanta documentation](https://www.ba
 
 | Adapter class name                                                                                                               | Description                                                                                                                                                                                                                               |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`ContentSearchAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/ContentSearchAdapter.php)         | Makes a search against passed Query and returns [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) objects.                                                                  |
-| [`ContentSearchHitAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/ContentSearchHitAdapter.php)   | Makes a search against passed Query and returns [`SearchHit`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                               |
-| [`LocationSearchAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)       | Makes a location search against passed Query and returns [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html) objects.                                                       |
-| [`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php) | Makes a location search against passed Query and  returns [`SearchHit`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                     |
-| [`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)   | Applies a Content filter and returns a [`ContentList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) object.                                                                    |
-| [`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php) | Applies a location filter and returns a [`LocationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) object.                                                                 |
-| <nobr>`AttributeDefinitionListAdapter`</nobr>                                                                                    | Makes a search for product attributes and returns an [`AttributeDefinitionListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeDefinition-AttributeDefinitionListInterface.html) object. |
-| `AttributeGroupListAdapter`                                                                                                      | Makes a search for product attribute groups and returns an [`AttributeGroupListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupListInterface.html) object.          |
-| `CurrencyListAdapter`                                                                                                            | Makes a search for currencies and returns a [`CurrencyListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Currency-CurrencyListInterface.html) object.                                           |
+| [`ContentSearchAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/ContentSearchAdapter.php)         | Makes a search against passed Query and returns `Content` objects.                                                                  |
+| [`ContentSearchHitAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/ContentSearchHitAdapter.php)   | Makes a search against passed Query and returns `SearchHit` objects instead.                                               |
+| [`LocationSearchAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)       | Makes a location search against passed Query and returns `Location` objects.                                                       |
+| [`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php) | Makes a location search against passed Query and  returns `SearchHit` objects instead.                                     |
+| [`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)   | Applies a Content filter and returns a `ContentList` object.                                                                    |
+| [`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/6.0/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php) | Applies a location filter and returns a `LocationList` object.                                                                 |
+| <nobr>`AttributeDefinitionListAdapter`</nobr>                                                                                    | Makes a search for product attributes and returns an `AttributeDefinitionListInterface` object. |
+| `AttributeGroupListAdapter`                                                                                                      | Makes a search for product attribute groups and returns an `AttributeGroupListInterface` object.          |
+| `CurrencyListAdapter`                                                                                                            | Makes a search for currencies and returns a `CurrencyListInterface` object.                                           |
 | `CustomPricesAdapter`                                                                                                            | Makes a search for custom prices and returns a `CustomPrice` object.                                                                                                                                                                      |
-| `CustomerGroupListAdapter`                                                                                                       | Makes a search for customer groups and returns a [`CustomerGroupListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-CustomerGroupListInterface.html) object.                       |
-| `ProductListAdapter`                                                                                                             | Makes a search for products and returns a [`ProductListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductListInterface.html) object.                                                |
-| `ProductTypeListAdapter`                                                                                                         | Makes a search for product types and returns a [`ProductTypeListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductType-ProductTypeListInterface.html) object.                               |
-| `RegionListAdapter`                                                                                                              | Makes a search for regions and returns a [`RegionListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Region-RegionListInterface.html) object.                                                    |
-| `ShoppingListAdapter`                                                                                                            | Makes a search for shopping lists and returns a [`ShoppingListCollectionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListCollectionInterface.html) object.                               |
+| `CustomerGroupListAdapter`                                                                                                       | Makes a search for customer groups and returns a `CustomerGroupListInterface` object.                       |
+| `ProductListAdapter`                                                                                                             | Makes a search for products and returns a `ProductListInterface` object.                                                |
+| `ProductTypeListAdapter`                                                                                                         | Makes a search for product types and returns a `ProductTypeListInterface` object.                               |
+| `RegionListAdapter`                                                                                                              | Makes a search for regions and returns a `RegionListInterface` object.                                                    |
+| `ShoppingListAdapter`                                                                                                            | Makes a search for shopping lists and returns a `ShoppingListCollectionInterface` object.                               |
 
 ## Complex search
 
@@ -442,7 +442,7 @@ You can narrow down the search results, for example, by content type or location
 To do this, combine searching with embeddings with filters.
 Repository search also respects the permissions of the current user.
 
-An embedding query is represented by the [`Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html) value object.
+An embedding query is represented by the `Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery` value object.
 The object encapsulates the embedding used for similarity search and optional search parameters such as filtering, pagination, aggregations, and result counting.
 
 ### Use embedding queries in search

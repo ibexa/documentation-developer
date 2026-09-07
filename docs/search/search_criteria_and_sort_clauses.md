@@ -55,7 +55,7 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 
 ### Configuring custom Criterion and Sort Clause handlers
 
-After you have implemented your Criterion / Sort Clause and its handler, you need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search.
+After you have implemented your Criterion / Sort Clause and its handler, you need to configure the handler for the [service container]([[= symfony_doc =]]/service_container.html) by using dedicated service tags for each type of search.
 Doing so automatically registers it and handle your Criterion / Search Clause when it's given as a parameter to one of the Search Service methods.
 
 Available tags for Criterion handlers in Legacy Storage Engine are:

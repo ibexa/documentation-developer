@@ -118,8 +118,3 @@ $validators = [
     ],
 ];
 ```
-
-### GraphQL integration
-
-This field type is paginating the results when queried using [GraphQL](graphql.md).
-To learn more, see [Pagination in GraphQL](graphql_queries.md#pagination).

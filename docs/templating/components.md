@@ -100,7 +100,7 @@ The following example shows how you can use each of the built-in components to c
 Render both single Twig Components and whole groups using the dedicated Twig functions.
 You can modify the Component rendering process by:
 
-- listening to one of the [related events](twig_component_events.md)
+- listening to one of the related events
 - decorating the `\Ibexa\Contracts\TwigComponents\Renderer\RendererInterface` service
 
 ## Symfony Profiler integration

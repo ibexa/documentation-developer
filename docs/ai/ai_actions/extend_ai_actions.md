@@ -12,15 +12,15 @@ For example, you can create a handler that connects to a translation model and u
 
 ## Execute Actions
 
-You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
+You can execute AI Actions by using the ActionServiceInterface service, as in the following example:
 
 ``` php
 [[= include_code('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 87, 105, remove_indent=True) =]]
 ```
 
-The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.
+The `GenerateAltTextAction` is a built-in action that implements the ActionInterface, takes an Image as an input, and generates the alternative text in the response.
 
-This action is parameterized with the [RuntimeContext](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-RuntimeContext.html) and the [ActionContext](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionContext.html), which allows you to pass additional options to the Action before it's executed.
+This action is parameterized with the RuntimeContext and the ActionContext, which allows you to pass additional options to the Action before it's executed.
 
 | Type of context | Type of options | Usage | Example |
 |---|---|---|---|
@@ -29,17 +29,17 @@ This action is parameterized with the [RuntimeContext](/api/php_api/php_api_refe
 | Action Context | Action Handler options | Sets additional parameters for the Action Handler | Information about the model, temperature, prompt, and max tokens allowed |
 | Action Context | System options | Sets additional information, not matching the other option collections | Information about the fallback locale |
 
-Both `ActionContext` and `RuntimeContext` are passed to the Action Handler (an object implementing the [ActionHandlerInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html)) to execute the action. The Action Handler is responsible for combining all the options together, sending them to the AI service and returning an [ActionResponse](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionResponseInterface.html).
+Both `ActionContext` and `RuntimeContext` are passed to the Action Handler (an object implementing the ActionHandlerInterface) to execute the action. The Action Handler is responsible for combining all the options together, sending them to the AI service and returning an ActionResponse.
 
 You can pass the Action Handler directly to the `ActionServiceInterface::execute()` method, which overrides all the other ways of selecting the Action Handler.
 You can also specify the Action Handler by including it in the provided [Action Configuration](#action-configurations).
 In other cases, the Action Handler is selected automatically.
-You can affect this choice by creating your own class implementing the [ActionHandlerResolverInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerResolverInterface.html) or by listening to the [ResolveActionHandlerEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionHandlerEvent.html) Event sent by the default implementation.
+You can affect this choice by creating your own class implementing the ActionHandlerResolverInterface or by listening to the ResolveActionHandlerEvent Event sent by the default implementation.
 
 You can influence the execution of an Action with two events:
 
-- [BeforeExecuteEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-Event-BeforeExecuteEvent.html), fired before the Action is executed
-- [ExecuteEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-Event-ExecuteEvent.html), fired after the Action is executed
+- BeforeExecuteEvent, fired before the Action is executed
+- ExecuteEvent, fired after the Action is executed
 
 Below you can find the full example of a Symfony Command, together with a matching service definition.
 The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
@@ -62,15 +62,13 @@ To manage configurations of an AI Action you need to use another concept: Action
 Action Configurations allow you to store the parameters for a given Action in the database and reuse them when needed.
 They can be managed [through the back office]([[= user_doc =]]/ai_actions/work_with_ai_actions/), [data migrations](importing_data.md#ai-action-configurations), or through the PHP API.
 
-To manage Action Configurations through the PHP API, you need to use the [ActionConfigurationServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationServiceInterface.html) service.
+To manage Action Configurations through the PHP API, you need to use the ActionConfigurationServiceInterface service.
 
 You can manage them using the following methods:
 
-- Creating them with `ActionConfigurationServiceInterface::createActionConfiguration()` by passing the [ActionConfigurationCreateStruct](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCreateStruct.html).
-- Updating them with `ActionConfigurationServiceInterface::updateActionConfiguration()` by passing the [ActionConfigurationUpdateStruct](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationUpdateStruct.html).
-- Deleting them with `ActionConfigurationServiceInterface::deleteActionConfiguration()` by passing the [ActionConfigurationInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationInterface.html).
-
-See the [AI Actions event reference](ai_action_events.md#action-configurations-management) for a list of events related to these operations.
+- Creating them with `ActionConfigurationServiceInterface::createActionConfiguration()` by passing the ActionConfigurationCreateStruct.
+- Updating them with `ActionConfigurationServiceInterface::updateActionConfiguration()` by passing the ActionConfigurationUpdateStruct.
+- Deleting them with `ActionConfigurationServiceInterface::deleteActionConfiguration()` by passing the ActionConfigurationInterface.
 
 You can get a specific Action Configuration using the `ActionConfigurationServiceInterface::getActionConfiguration()` method and search for them using the `ActionConfigurationServiceInterface::findActionConfigurations()` method.
 See [Action Configuration Search Criteria reference](action_configuration_criteria.md) and [Action Configuration Search Sort Clauses reference](action_configuration_sort_clauses.md) to discover query possibilities.
@@ -92,12 +90,12 @@ You can pass one directly to the `ActionServiceInterface::execute()` method:
 [[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 65, 72, remove_indent=True) =]]
 ```
 
-The passed Action Configuration is only taken into account if the Action Context was not passed to the Action directly using the [ActionInterface::setActionContext()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html#method_hasActionContext) method.
+The passed Action Configuration is only taken into account if the Action Context was not passed to the Action directly using the ActionInterface::setActionContext() method.
 The `ActionServiceInterface` service extracts the configuration options from the Action Configuration object and builds the Action Context object internally:
 
 - Action Type options are mapped to Action Type options in the Action Context
 - Action Handler options are mapped to Action Handler options in the Action Context
-- System Context options are modified using the [ContextEvent](ai_action_events.md#others) event
+- System Context options are modified using the `ContextEvent` event
 
 ## Create custom Action Handler
 
@@ -109,7 +107,7 @@ When creating an Action Handler for [[= product_name_connect =]], add the new ha
 
 ### Register a custom Action Handler in the system
 
-Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html) and register it as a service:
+Create a class implementing the ActionHandlerInterface and register it as a service:
 
 - The `ActionHandlerInterface::supports()` method decides whether the Action Handler is able to execute given Action.
 - The `ActionHandlerInterface::handle()` method is responsible for combining all the Action options together, sending them to the AI service and forming an Action Response.
@@ -153,7 +151,7 @@ The Action Handler and Action Type options are rendered in the back office using
 
 ![Custom Action Handler options rendered using the default Twig options formatter](img/action_handler_options.png "Custom Action Handler options rendered using the default Twig options formatter")
 
-You can create your own formatting by creating a class implementing the [OptionsFormatterInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-OptionsFormatterInterface.html) interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
+You can create your own formatting by creating a class implementing the OptionsFormatterInterface interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
 
 The following service definition switches the options rendering to the other built-in options formatter, displaying the options as JSON.
 
@@ -170,7 +168,7 @@ The following example shows how to implement a custom Action Type dedicated for 
 
 ### Create custom Action Type
 
-Start by creating your own Action Type, a class implementing the [ActionTypeInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionType-ActionTypeInterface.html).
+Start by creating your own Action Type, a class implementing the ActionTypeInterface.
 The class needs to define following  parameters of the Action Type:
 
 - name
@@ -190,7 +188,7 @@ The class needs to define following  parameters of the Action Type:
 The service definition introduces a custom `app.connector_ai.action.handler.audio_to_text` service tag to mark all the handlers capable of working with this Action Type.
 The `ibexa.ai.action.type` service tag registers the class in the service container as a new Action Type.
 
-If the Action Type is meant to be used mainly with prompt-based systems you can use the [LLMBaseActionTypeInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-LLMBaseActionTypeInterface.html) interface as the base for your Action Type.
+If the Action Type is meant to be used mainly with prompt-based systems you can use the LLMBaseActionTypeInterface interface as the base for your Action Type.
 It allows you to define a base prompt directly in the Action Type that can be common for all Action Configurations.
 
 Action Type names can be localized using the Translation component.
@@ -200,13 +198,13 @@ See the built-in Action Types like Generate Alt Text or Refine Text for an examp
 
 The `TranscribeAudio` Action Type requires adding two data classes that exist in its definition:
 
-- an `Audio` class, implementing the [DataType interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-DataType.html), to store the input data for the Action
+- an `Audio` class, implementing the DataType interface, to store the input data for the Action
 
 ``` php
 [[= include_code('code_samples/ai_actions/src/AI/DataType/Audio.php') =]]
 ```
 
-- an `TranscribeAudioAction` class, implementing the [ActionInterface interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html). Pass this object to the `ActionServiceInterface::execute()` method to execute the action.
+- an `TranscribeAudioAction` class, implementing the ActionInterface interface. Pass this object to the `ActionServiceInterface::execute()` method to execute the action.
 
 ``` php
 [[= include_code('code_samples/ai_actions/src/AI/Action/TranscribeAudioAction.php') =]]
@@ -245,8 +243,6 @@ The Action Type options provided in the Action Context dictate whether the times
 
 At this point the custom Action Type can already be executed by using the PHP API.
 To integrate it with the [AI Actions execute endpoint](/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data.
-See [adding custom media type](adding_custom_media_type.md) and [creating new REST resource](creating_new_rest_resource.md) to learn more about extending the REST API.
-
 #### Handle input data
 
 Start by creating an Input Parser able to handle the `application/vnd.ibexa.api.ai.TranscribeAudio` media type.

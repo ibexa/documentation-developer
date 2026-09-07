@@ -14,9 +14,9 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 A custom tab can extend one of the following classes:
 
-- [`AbstractTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractTab.html) - base tab
-- [`AbstractControllerBasedTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractControllerBasedTab.html) - embeds the results of a controller action in the tab
-- [`AbstractRouteBasedTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractRouteBasedTab.html) - embeds the results of the selected route, passing applicable parameters
+- `AbstractTab` - base tab
+- `AbstractControllerBasedTab` - embeds the results of a controller action in the tab
+- `AbstractRouteBasedTab` - embeds the results of the selected route, passing applicable parameters
 
 ``` php
 //...

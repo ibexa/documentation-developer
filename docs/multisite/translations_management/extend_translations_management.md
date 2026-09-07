@@ -18,11 +18,11 @@ Before you build a custom translation provider, if your provider uses the AI Act
 
 ### REST API-based provider
 
-To connect a translation service that calls a REST API directly, implement [`TranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-TranslationProviderInterface.html).
-For providers that store API keys and other required settings, you can rely on [`ConfigurableProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-ConfigurableProviderInterface.html).
+To connect a translation service that calls a REST API directly, implement `TranslationProviderInterface`.
+For providers that store API keys and other required settings, you can rely on `ConfigurableProviderInterface`.
 It extends `TranslationProviderInterface` and adds `getConfiguration()` and `isConfigured()` methods.
 
-The `translate()` method receives a [`TranslationDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-TranslationDataInterface.html) object that carries the text to translate along with the source and target [language codes](configure_translations_management.md#advanced-translation-provider-options):
+The `translate()` method receives a `TranslationDataInterface` object that carries the text to translate along with the source and target [language codes](configure_translations_management.md#advanced-translation-provider-options):
 
 ``` php hl_lines="36-49"
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomProvider.php') =]]
@@ -37,7 +37,7 @@ Both `identifier` and [`validation_profile`](#validation-profiles) attributes ar
 
 ### AI-based provider
 
-To connect a translation service that uses the [AI Actions](ai_actions.md) framework, implement [`AiTranslationProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-AiTranslationProviderInterface.html).
+To connect a translation service that uses the [AI Actions](ai_actions.md) framework, implement `AiTranslationProviderInterface`.
 This interface extends `ConfigurableProviderInterface` and serves as a type marker for AI-based providers.
 The system uses the `getConfiguration()` and `isConfigured()` methods to determine whether the provider is available before displaying selectable options in the **Create a new translation** modal:
 
@@ -59,7 +59,7 @@ The `validation_profile`, `supportedLanguageCodes`, and `languageCodesMap` optio
 
 ### Language code normalizer
 
-If your provider uses [language codes](configure_translations_management.md#advanced-translation-provider-options) that differ from the ones used by [[= product_name =]] and the `languageCodesMap` configuration is insufficient, implement a custom [`LanguageNormalizerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html) to handle the conversion:
+If your provider uses [language codes](configure_translations_management.md#advanced-translation-provider-options) that differ from the ones used by [[= product_name =]] and the `languageCodesMap` configuration is insufficient, implement a custom `LanguageNormalizerInterface` to handle the conversion:
 
 ``` php
 [[= include_code('code_samples/translations_management/src/TranslationsManagement/MyCustomLanguageCodeNormalizer.php') =]]
@@ -88,14 +88,14 @@ By default, three profiles are available:
 | `deepl` | DeepL provider |
 | `ai_generic` | All built-in AI providers. Suitable for custom AI providers. |
 
-To define a custom validation profile, implement [`ProviderValidatorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-ProviderValidatorInterface.html) and register it:
+To define a custom validation profile, implement `ProviderValidatorInterface` and register it:
 
 ``` yaml
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
 [[= include_code('code_samples/translations_management/config/services.yaml', 7, 10) =]]
 ```
 
-You can reuse the [`DefaultProviderValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Validator-DefaultProviderValidator.html) class if it meets your requirements or implement your own.
+You can reuse the `DefaultProviderValidator` class if it meets your requirements or implement your own.
 It exposes configurable maximum payload size and language code regex patterns.
 
 ## Add support for custom field types
@@ -104,10 +104,10 @@ The translation engine works by extracting translatable text from fields, sendin
 Field value transformers handle this encode/decode cycle, one per field type.
 The package includes transformers for `text`, `RichText`, and `ibexa_landing_page` fields.
 
-To add support for a custom or non-standard field type, implement [`FieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-FieldValueTransformerInterface.html):
+To add support for a custom or non-standard field type, implement `FieldValueTransformerInterface`:
 
 - `getFieldTypeIdentifier()` - returns the field type identifier that this transformer handles
-- `encode(Field $field): EncodedFieldValue` - extracts the translatable string from the field and wraps it in an [`EncodedFieldValue`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-EncodedFieldValue.html).
+- `encode(Field $field): EncodedFieldValue` - extracts the translatable string from the field and wraps it in an `EncodedFieldValue`.
 The constructor takes the extracted string as its first argument and an optional metadata array as the second.
 - `decode(string $value, mixed $previousFieldValue, array $metadata): Value` - receives the translated string, the previous field value, and any metadata. Returns the updated field value.
 
@@ -128,7 +128,7 @@ It must match the value that `getFieldTypeIdentifier()` returns:
 
 !!! note "Advanced metadata handling"
 
-    When metadata is required for decoding or when you need to control what happens if metadata encoding fails, implement [`MetadataAwareFieldValueTransformerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Transformer-Field-MetadataAwareFieldValueTransformerInterface.html).
+    When metadata is required for decoding or when you need to control what happens if metadata encoding fails, implement `MetadataAwareFieldValueTransformerInterface`.
     With this interface, you can fail the translation when metadata encoding fails and indicate that metadata is required for decoding.
     Without it, the field is skipped instead.
 
@@ -139,8 +139,8 @@ The Translations management package ships with one rule that excludes content ty
 
 ### Exclude with custom class
 
-To exclude content from side-by-side view, for example, content types whose fields render incorrectly in the side-by-side layout, implement [`SideBySideExclusionRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html).
-The `isExcluded()` method receives a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object, which gives you access to different criteria, including content type, section, owner, main language, publication status, visibility, and main location of the content item.
+To exclude content from side-by-side view, for example, content types whose fields render incorrectly in the side-by-side layout, implement `SideBySideExclusionRuleInterface`.
+The `isExcluded()` method receives a `ContentInfo` object, which gives you access to different criteria, including content type, section, owner, main language, publication status, visibility, and main location of the content item.
 If the content item should be excluded, the method should return `true`.
 
 ``` php

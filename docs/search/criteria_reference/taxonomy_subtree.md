@@ -4,7 +4,7 @@ description: TaxonomySubtree Search Criterion
 
 # TaxonomySubtree Criterion
 
-The [`TaxonomySubtree`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomySubtree.html) Search Criterion searches for content assigned to the specified [taxonomy](taxonomy.md) entry or any of its descendants.
+The `TaxonomySubtree` Search Criterion searches for content assigned to the specified [taxonomy](taxonomy.md) entry or any of its descendants.
 
 ## Arguments
 

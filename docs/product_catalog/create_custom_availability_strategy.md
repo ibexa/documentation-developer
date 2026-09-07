@@ -17,7 +17,7 @@ You could use it for [virtual products](products.md#product-types) or in preorde
 ## Create custom availability context
 
 Use an availability context to pass the parameters needed by the strategy to evaluate computed availability.
-To do it, create a class that implements the [`AvailabilityContextInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityContextInterface.html) interface:
+To do it, create a class that implements the `AvailabilityContextInterface` interface:
 
 ``` php
 [[= include_file('code_samples/pim/availability/src/PurchasableWithoutStockAvailabilityContext.php') =]]
@@ -25,7 +25,7 @@ To do it, create a class that implements the [`AvailabilityContextInterface`](/a
 
 ## Create custom availability strategy
 
-Create a class that implements the [`ProductAvailabilityStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityStrategyInterface.html) interface:
+Create a class that implements the `ProductAvailabilityStrategyInterface` interface:
 
 ``` php
 [[= include_file('code_samples/pim/availability/src/ProductAvailabilityPurchasableWithoutStockStrategy.php') =]]
@@ -34,7 +34,7 @@ Create a class that implements the [`ProductAvailabilityStrategyInterface`](/api
 The strategy has two methods:
 
 - `accept()` decides if the strategy can handle the provided availability context
-- `getProductAvailability()` returns an [`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) object
+- `getProductAvailability()` returns an `AvailabilityInterface` object
 
 When constructing the `AvailabilityInterface` object, provide the stock amount, the availability flag, and the result of your custom availability logic.
 
@@ -48,7 +48,7 @@ If you're not using [autowiring]([[= symfony_doc =]]/service_container/autowirin
 
 ## Use custom context
 
-To evaluate product availability using a custom strategy, pass the custom context as the second argument to [`ProductAvailabilityServiceInterface::getAvailability()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html):
+To evaluate product availability using a custom strategy, pass the custom context as the second argument to `ProductAvailabilityServiceInterface::getAvailability()`:
 
 ``` php
 [[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 122, 127, remove_indent=True) =]]

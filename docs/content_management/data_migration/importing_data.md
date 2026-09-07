@@ -350,7 +350,7 @@ In this case you assign the `parent_folder_location_id` reference name to the lo
 
 The following example shows the optional `metadata` and `location` properties that you can set when creating a content item.
 Instead of `parentLocationId`, you can identify the parent location with `parentLocationRemoteId`.
-`sortField` takes the numeric value of one of the `SORT_FIELD_*` constants from the [`Location` class](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html), and `sortOrder` takes `ASC` or `DESC`, case insensitive:
+`sortField` takes the numeric value of one of the `SORT_FIELD_*` constants from the `Location` class, and `sortOrder` takes `ASC` or `DESC`, case insensitive:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_content_options.yaml') =]]

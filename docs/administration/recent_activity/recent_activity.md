@@ -291,16 +291,16 @@ Thanks to the previous subscriber, the related object is available at display ti
 
 You can disable logging the activities with PHP API, for example, when loading large amounts of data in cases where you don't want logging to slow down the process or the actions to be included in the log.
 
-Call [`ActivityLogService::disable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_disable)
- before running the relevant code, then [`ActivityLogService::enable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_enable) to restore the logging process:
+Call `ActivityLogService::disable()`
+ before running the relevant code, then `ActivityLogService::enable()` to restore the logging process:
 
 ``` php
 [[= include_code('code_samples/recent_activity/src/recent_activity_disable.php') =]]
 ```
 
-When disabled, any call to [`ActivityLogService::save()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_save) has no effect and no entries are written to the database.
+When disabled, any call to `ActivityLogService::save()` has no effect and no entries are written to the database.
 
-You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled) and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
+You can check the current state with `ActivityLogService::isEnabled()` and `ActivityLogService::isDisabled()`.
 
 ## REST API
 

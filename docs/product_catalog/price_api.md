@@ -6,7 +6,7 @@ description: Use PHP API to manage currencies in the shop and product prices.
 
 ## Currencies
 
-To manage currencies, use [`CurrencyServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html).
+To manage currencies, use `CurrencyServiceInterface`.
 
 To access a currency object by its code, use `CurrencyServiceInterface::getCurrencyByCode`.
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
@@ -23,7 +23,7 @@ To create a new currency, use `CurrencyServiceInterface::createCurrency()` and p
 
 ## Prices
 
-To manage prices, use [`ProductPriceServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceInterface.html).
+To manage prices, use `ProductPriceServiceInterface`.
 
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
@@ -68,7 +68,7 @@ For example, to create a new price for a given currency, use `ProductPriceServic
 
 To display a product price on a product page, you must calculate its value based on a base price and the context.
 Context contains information about any price modifiers that may apply to a specific customer group.
-To determine the final price, or resolve the price, use the [`PriceResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-PriceResolverInterface.html) service, which takes the following conditions into account:
+To determine the final price, or resolve the price, use the `PriceResolverInterface` service, which takes the following conditions into account:
 
 1. Existence of base price for the product in the specified currency
 2. Existence of customer group-related modifiers
@@ -85,8 +85,8 @@ To resolve a price of a product in the currency for the current context, use eit
 
 ## VAT
 
-To get information about the VAT categories and rates configured in the system, use [`VatServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-VatServiceInterface.html).
-VAT is configured per region, so you also need to use [`RegionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-RegionServiceInterface.html) to get the relevant region object.
+To get information about the VAT categories and rates configured in the system, use `VatServiceInterface`.
+VAT is configured per region, so you also need to use `RegionServiceInterface` to get the relevant region object.
 
 ``` php
 [[= include_code('code_samples/api/product_catalog/src/Command/VatCommand.php', 42, 42, remove_indent=True) =]]

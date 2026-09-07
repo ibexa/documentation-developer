@@ -18,7 +18,7 @@ This class must contain as little logic as possible, because the logic is handle
 
 ## Type class
 
-The Type class of a field type provides an implementation of the [`Ibexa\Contracts\Core\FieldType\FieldType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-FieldType.html) interface.
+The Type class of a field type provides an implementation of the `Ibexa\Contracts\Core\FieldType\FieldType` interface.
 
 ### Field Definition handling
 
@@ -144,7 +144,7 @@ If you need to inject other services into your Type class, skip using the `paren
 Like most API components, field types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
-When the [service container](php_api.md#service-container) is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services.
+When the [service container]([[= symfony_doc =]]/service_container.html) is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services.
 Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier`, for example, `ibexa_string`.
 Each field type must also inherit from the abstract `ibexa.field_type` service.
 This ensures that the initialization steps shared by all field types are executed.

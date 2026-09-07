@@ -61,7 +61,7 @@ The interface contains the following methods:
 |`toFieldDefinition`|Converts the other way around.|
 |`getIndexColumn()`|Returns the storage column which is used for indexing either `sort_key_string` or `sort_key_int`.|
 
-Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container](php_api.md#service-container).
+Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container]([[= symfony_doc =]]/service_container.html).
 
 #### Registering a converter
 

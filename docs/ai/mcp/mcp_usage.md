@@ -15,12 +15,12 @@ The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of t
 
 A PHP class that implements MCP server capabilities such as tools, prompts, or resources must:
 
-- implement [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) so that it can be scanned for capabilities
-- use attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to declare capabilities
+- implement `Ibexa\Contracts\Mcp\McpCapabilityInterface` so that it can be scanned for capabilities
+- use attributes from the `Ibexa\Contracts\Mcp\Attribute` namespace to declare capabilities
 
 ### Tools
 
-The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
+The `Ibexa\Contracts\Mcp\Attribute\McpTool` attribute declares a method as an MCP tool.
 It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
@@ -48,7 +48,7 @@ If an argument is an [enum](https://www.php.net/manual/en/language.types.enumera
 
 MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts) to help users interact with AI agents connected to the server.
 
-Methods that return a prompt are marked with the [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html).
+Methods that return a prompt are marked with the `Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute.
 
 It accepts several arguments that describe how the prompt is used:
 
@@ -122,8 +122,8 @@ Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
 
 The class contains:
 
-- a method marked with an [`McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) that associates it with the `example` server as the `greet` tool
-- a method marked with an [`McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html) that provides a prompt template to users
+- a method marked with an `McpTool` attribute that associates it with the `example` server as the `greet` tool
+- a method marked with an `McpPrompt` attribute that provides a prompt template to users
 
 ``` php
 [[= include_code('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
@@ -154,7 +154,7 @@ php bin/console cache:pool:clear cache.tagaware.filesystem
 
 ### Create MCP server list command
 
-To check the MCP server configuration, create a small command that uses the MCP server configuration registry injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring:
+To check the MCP server configuration, create a small command that uses the MCP server configuration registry injected through `McpServerConfigurationRegistryInterface` and autowiring:
 
 ``` php
 [[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
@@ -255,12 +255,11 @@ Get the [list of prompts](https://modelcontextprotocol.io/specification/2025-11-
 ### Perform MCP Inspector test
 
 You can test your server with the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
-You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
+You still need to ask for a JWT token through the REST API, and use it in the MCP Inspector configuration to connect to the server.
 
 You can use a web interface to obtain the JWT token:
 
 - [REST live documentation](rest_api_authentication.md#jwt-token-obtained-through-rest-documentation)
-- [GraphiQL](graphql.md#jwt-authentication)
 
 #### MCP server settings
 
