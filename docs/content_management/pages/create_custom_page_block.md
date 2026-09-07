@@ -71,8 +71,6 @@ The following UDW configuration is used with the `udw_config_name` key so only a
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 50, 59) =]]
 ```
 
-For more information, see [UDW configuration](browser.md#udw-configuration).
-
 ## Add block templates
 
 A block can have different templates that you select when adding it to a page.

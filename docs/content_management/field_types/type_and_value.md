@@ -181,8 +181,6 @@ An example schema could look like this:
 ];
 ```
 
-The settings are mapped into Symfony forms via the [FormMapper](form_and_template.md#formmapper).
-
 !!! note
 
     You can store field type settings internally, or, when the schema becomes too complex, move them to [external storage](field_type_storage.md#storing-field-type-settings-externally).

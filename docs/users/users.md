@@ -23,9 +23,7 @@ All such user accounts have the same underlying mechanism and enable you to cont
     "users/login_methods",
     "users/passwords",
     "users/user_authentication",
-    "users/oauth_client",
-    "users/oauth_server",
-], columns=5) =]]
+], columns=3) =]]
 
 ## Group users
 

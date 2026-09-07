@@ -52,8 +52,6 @@ Custom tags can be created by means of specifying two things only:
 
 The YAML configuration defines a custom tag’s attributes, the template used to render it, and where in the toolbar the tag is available.
 
-See [Extend Online Editor](extend_online_editor.md#configure-custom-tags) for a full example.
-
 ### Custom styles
 
 Custom styles allow specifying custom predefined templates for specific RichText elements.
@@ -61,23 +59,17 @@ Custom styles allow specifying custom predefined templates for specific RichText
 Custom styles differ from custom tags in that they don't have attributes configured.
 A custom style requires YAML configuration that points to a template used to render an elements with this style.
 
-See [Extend Online Editor](extend_online_editor.md#configure-custom-styles) for a full example.
-
 ### Custom data attributes and CSS classes
 
 For each RichText element type, you can configure custom data attributes or CSS classes that the user can select when working in Online Editor.
 
 Custom data attributes allow adding new attributes to existing Rich Text elements, such as headings or lists, which are added in the form of `data-ezattribute-<attribute_name>="<value>"`.
 
-For more information, see [Extend Online Editor](extend_online_editor.md#custom-data-attributes).
-
 Custom CSS classes work in a similar way, giving editor a choice of classes to add to any type of element.
-
-For more information, see [Extend Online Editor](extend_online_editor.md#custom-css-classes).
 
 ### Plugins
 
-Online Editor is based on CKEditor 5, and you can use CKEditor's capabilities to [create plugins](extend_online_editor.md#add-ckeditor-plugins) for the editor.
+Online Editor is based on CKEditor 5.
 
 ## Benefits
 
@@ -109,8 +101,6 @@ Creating a CTA custom tag lets you use a template to construct a button element.
 Then, you can add a link attribute to provide target for the button, and a style attribute with different presets to style its look.
 
 ![Call to action buttons](img/call_to_action_buttons.png)
-
-Refer to [Extend Online Editor](extend_online_editor.md#link-tag) for a similar use case.
 
 ### Product marketing campaigns
 
