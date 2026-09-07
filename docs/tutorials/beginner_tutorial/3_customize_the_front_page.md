@@ -38,7 +38,7 @@ ibexa:
 This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
 `2` is the default location for the root content item.
 
-`Id\Location` is one of several [view matchers](view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
+`Id\Location` is one of several view matchers that you can use to customize rendering depending on different criteria.
 
 !!! note "Clear the cache"
 

@@ -58,10 +58,6 @@ First create a new file for layout configuration, `config/packages/ibexa_fieldty
 
 ### Add thumbnail
 
-!!! tip
-
-    For a detailed description of creating a Page layout, see [Page layouts](render_page.md#render-a-layout).
-
 The `sidebar` (line 3) is the internal key of the layout.
 `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new landing page next to the name.

@@ -321,7 +321,7 @@ Response:
 
 ## Getting children of a Location
 
-To get a [location's](#querying-locations) children, it's recommended to use the [Query field](content_queries.md#content-query-field).
+To get a [location's](#querying-locations) children, it's recommended to use the Query field.
 
 Alternatively, you can query the `children` property of an `item` or `content` object:
 

@@ -98,7 +98,7 @@ php bin/console cache:clear
 
 In the `src` folder create a `QueryType` subfolder and add [`MenuQueryType.php`](https://github.com/ibexa/documentation-developer/blob/6.0/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
 
-This file takes care of displaying the top menu (for more information, see [the documentation](content_queries.md#query-types)).
+This file takes care of displaying the top menu.
 
 The structure of the new and modified files should look like:
 

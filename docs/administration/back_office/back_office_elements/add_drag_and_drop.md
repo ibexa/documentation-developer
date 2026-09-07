@@ -32,8 +32,6 @@ To initialize a drag and drop interface, add a JavaScript Code that comes with t
 })(window, window.document, window.ibexa);
 ```
 
-For more information on creating Twig templates, see [Templating basics](templates.md).
-
 ## Configuration options
 
 Full list of options:

@@ -232,7 +232,7 @@ For example, in the code below, `locationId` is provided to list all children of
 [[= include_code('code_samples/api/public_php_api/src/Controller/CustomController.php', 17, 32) =]]
 ```
 
-The rendering of results is then relegated to [templates](templates.md) (lines 22-24).
+The rendering of results is then relegated to templates (lines 22-24).
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 

@@ -76,7 +76,7 @@ Two generic templates are provided and can be used in `./templates/themes/<theme
 {% endif %}
 ```
 
-To fetch recommendations for the remaining modules, you need to [create a custom controller](controllers.md) and use a method from [`Ibexa\Contracts\ConnectorRaptor\Recommendations\RecommendationsServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-RecommendationsServiceInterface.html).
+To fetch recommendations for the remaining modules, you need to create a custom controller and use a method from [`Ibexa\Contracts\ConnectorRaptor\Recommendations\RecommendationsServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-RecommendationsServiceInterface.html).
 
 Use this method to display recommendations on any page, for example, on a specific product page, as shown below:
 

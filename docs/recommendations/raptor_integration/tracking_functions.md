@@ -59,7 +59,7 @@ For more information on Tracking modes, see documentation:
 
 ## Complex integration
 
-For more complex integrations, the [Design Engine](design_engine.md) can be used to override parts or entire templates that render the tracking script.
+For more complex integrations, the Design Engine can be used to override parts or entire templates that render the tracking script.
 
 |Template|Description|Example project path|
 |--------|-----------|--------------------|

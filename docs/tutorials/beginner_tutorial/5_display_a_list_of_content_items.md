@@ -52,8 +52,6 @@ To get this list, you use a Query Type.
 
 QueryType objects are used to limit and sort results for content item queries.
 
-For more information, see [Built-In Query Types](built-in_query_types.md).
-
 Here, you need to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
 

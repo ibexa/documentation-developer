@@ -4,7 +4,7 @@ description: Back office components allow you to inject any custom widgets into 
 
 # Customizing the back office with Twig Components
 
-You can customize many of the back office views by using [Twig components](components.md).
+You can customize many of the back office views by using Twig components.
 This allows you to inject your own custom logic and extend the templates.
 
 The available groups for the back office are:
@@ -50,8 +50,6 @@ The available groups for the back office are:
 |`admin-ui-user-menu`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-user-profile-blocks`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account/profile/view.html.twig` |
 |`admin-ui-versions-table-before`|`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/tab/versions/table.html.twig`|
-
-For more information, see [this example using few of those components](components.md#example).
 
 ## Calendar
 

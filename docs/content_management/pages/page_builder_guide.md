@@ -124,8 +124,6 @@ In the `Select layouts` section, you can select layouts that you want to be avai
 
 The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
 
-For more information, see [Configure layout](render_page.md#configure-layout).
-
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks.

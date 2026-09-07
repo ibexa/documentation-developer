@@ -11,8 +11,6 @@ Keep in mind that Page block configuration isn't SiteAccess-aware.
 [[= product_name =]] ships with a number of page blocks.
 For a list of all page blocks that are available out-of-the-box, see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
-For information on how to create and configure new layouts for the Page, see [Page layouts](render_page.md#render-a-layout).
-
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
 ## Block configuration

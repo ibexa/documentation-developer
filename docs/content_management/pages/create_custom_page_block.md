@@ -126,8 +126,6 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
 
 !!! note
 
-    For the addition of your custom block's JS and CSS files, see [Assets](assets.md).
-
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
 ## Add pre-render event listener

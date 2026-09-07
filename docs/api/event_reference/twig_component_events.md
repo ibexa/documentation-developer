@@ -6,7 +6,7 @@ month_change: false
 
 # Twig Components events
 
-Use the events to hook into the rendering process of [Twig Components](components.md).
+Use the events to hook into the rendering process of Twig Components.
 
 ## Twig Component rendering
 
