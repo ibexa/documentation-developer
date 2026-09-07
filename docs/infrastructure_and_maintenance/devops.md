@@ -1,5 +1,6 @@
 ---
 description: See various tools that can help you debug your Cohesivo installation.
+month_change: false
 ---
 
 # DevOps
