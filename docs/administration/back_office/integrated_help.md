@@ -22,14 +22,5 @@ Developers can create custom onboarding journeys tailored to specific client imp
 
 For more information, see [Product tour](product_tour.md).
 
-## Install package
-
-The Integrated help LTS Update is optional.
-To enable it, run the following command:
-
-```bash
-composer require ibexa/integrated-help
-```
-
-After installation, the help center is enabled by default for all back office users.
+The help center is enabled by default for all back office users.
 If needed, they can [disable it in user settings]([[= user_doc =]]/getting_started/discover_ui/#disable-help-center).

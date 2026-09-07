@@ -1,25 +1,16 @@
 ---
 description: To configure the Raptor integration, follow the step-by-step procedure described below.
 month_change: false
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Confirm how customer_id, recommendations_api_key, and the other SiteAccess-aware
+    connector settings on this page are exposed once SiteAccess configuration moves to a UI.
 ---
 
-# Install and configure [[= product_name_cdp_base =]]
+# Configure [[= product_name_cdp_base =]]
 
 To configure the [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration add-on, follow the step-by-step procedure below.
-
-## Install [[= product_name_cdp_base =]] connector
-
-Before you can proceed to configuring the integration with [[= product_name_cdp_base =]], install the [[= product_name_cdp_base =]] connector.
-To do it, run the following command:
-
-``` bash
-composer require ibexa/connector-raptor
-```
-
-!!! note
-
-    The [Ibexa Messenger](background_tasks.md) package is installed automatically as a dependency, but must be configured to enable server-side tracking.
-    See the Ibexa Messenger documentation for [configuration](background_tasks.md#configure-package) details.
 
 ## SiteAccess-aware configuration
 

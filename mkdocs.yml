@@ -325,7 +325,7 @@ nav:
         - MCP Servers:
             - MCP Servers: ai/mcp/mcp.md
             - MCP Servers guide: ai/mcp/mcp_guide.md
-            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Configure MCP Servers: ai/mcp/mcp_config.md
             - Work with MCP servers: ai/mcp/mcp_usage.md
     - Product catalog:
         - Product catalog: product_catalog/product_catalog.md
@@ -333,7 +333,7 @@ nav:
         - Quable integration:
             - Quable integration: product_catalog/quable/quable.md
             - Quable product guide: product_catalog/quable/quable_guide.md
-            - Install Quable: product_catalog/quable/install_quable.md
+            - Set up Quable synchronization: product_catalog/quable/install_quable.md
             - Configure Quable: product_catalog/quable/configure_quable_connector.md
             - Quable API: product_catalog/quable/quable_api.md
         - Product catalog configuration: product_catalog/product_catalog_configuration.md
@@ -365,7 +365,6 @@ nav:
         - Create registration form: customer_management/create_user_registration_form.md
     - Data collection:
         - Qualifio integration: qualifio/qualifio.md
-        - Install Qualifio: qualifio/install_qualifio.md
         - Create campaign with Qualifio: qualifio/create_campaign.md
         - Integrate Qualifio with Ibexa Connect: qualifio/integrate_ibexa_connect.md
     - Multisite:
@@ -418,7 +417,7 @@ nav:
     - Recommendations:
         - Raptor integration: recommendations/raptor_integration/raptor_connector.md
         - Raptor integration guide: recommendations/raptor_integration/raptor_connector_guide.md
-        - Install and configure Raptor: recommendations/raptor_integration/connector_installation_configuration.md
+        - Configure Raptor: recommendations/raptor_integration/connector_installation_configuration.md
         - Track with Raptor:
             - Tracking functions: recommendations/raptor_integration/tracking_functions.md
             - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
@@ -428,7 +427,6 @@ nav:
     - Customer Data Platform:
         - Raptor CDP integration: raptor_cdp/raptor_cdp.md
         - Raptor CDP guide: raptor_cdp/raptor_cdp_guide.md
-        - Install Raptor CDP: raptor_cdp/raptor_cdp_installation.md
         - Activate Raptor CDP:
             - Activate Raptor CDP: raptor_cdp/raptor_cdp_activation/raptor_cdp_activation.md
             - Configure Raptor CDP: raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md

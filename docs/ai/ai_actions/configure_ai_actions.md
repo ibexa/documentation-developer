@@ -1,6 +1,12 @@
 ---
 description: Configure AI Actions.
 month_change: false
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Confirm where a tenant enters the OpenAI, Anthropic, Google Gemini, and
+    Ibexa Connect credentials this page describes, and how SiteAccess-scoped
+    API keys are set, once the credential-entry surface is specified.
 ---
 
 # Configure AI Actions
@@ -22,13 +28,7 @@ Only then you can restart you application and start [working with the AI Actions
 
 To use the built-in connector with the OpenAI service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
-Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
-
-```bash
-###> ibexa/connector-openai ###
-OPENAI_API_KEY=<your_api_key>
-###< ibexa/connector-openai ###
-```
+Provide the API key in your instance's OpenAI connector settings.
 
 ### Sample OpenAI action configurations
 
@@ -36,21 +36,9 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
-## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
+## Configure Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-Run the following command to install the package:
-
-``` bash
-composer require ibexa/connector-anthropic
-```
-
-If not using Symfony Flex, enable the bundle in `config/bundles.php`:
-
-``` php {skip-validation}
-    Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => ['all' => true],
-```
-
-This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+The Anthropic connector adds basic handlers that let you refine text or generate alternative text for images.
 
 To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
@@ -62,13 +50,7 @@ To use the connector with the Anthropic services, you need to create an account,
 
 4. Take a note of the API key, because it is displayed only once.
 
-Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
-
-```bash
-###> ibexa/connector-anthropic ###
-ANTHROPIC_API_KEY=<your_api_key>
-###< ibexa/connector-anthropic ###
-```
+Provide the API key in your instance's Anthropic connector settings.
 
 By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://platform.claude.com/docs/en/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
@@ -95,24 +77,9 @@ You can now use the Anthropic connector in your project.
     Anthropic regularly releases new models and deprecates older ones.
     Before you configure the connector, check the [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for the current list of supported model identifiers.
 
-## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+## Configure Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
 
-Run the following command to install the package:
-
-``` bash
-composer require ibexa/connector-gemini
-```
-
-Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
-
-``` php
-return [
-    // ...
-    Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
-];
-```
-
-This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+The Google Gemini connector adds basic handlers that let you refine text or generate alternative text for images.
 
 ### Get API key
 
@@ -149,13 +116,7 @@ To use the connector with the Gemini services, you need to create an account, se
 
 ### Set API key in configuration
 
-Then, in the root folder of your project, modify the `.env` file: add an `GEMINI_API_KEY` variable and populate its value with the API key that you got from the AI service.
-
-```bash
-###> ibexa/connector-gemini ###
-GEMINI_API_KEY=<your_api_key>
-###< ibexa/connector-gemini ###
-```
+Provide the API key in your instance's Google Gemini connector settings.
 
 !!! note "Different API keys for different SiteAccesses"
 
@@ -236,20 +197,7 @@ Copy the token code that appears on the tokens list, next to the label.
 
 ### Set up credentials
 
-In the root folder of your project, modify the `.env` file.
-Replace a placeholder value of the `IBEXA_CONNECT_TOKEN` variable with the token that you got from [[= product_name_connect =]] and provide a value of the `IBEXA_CONNECT_TEAM_ID` variable.
-
-```bash
-###> ibexa/connect ###
-IBEXA_CONNECT_HOST=https://connect.ibexa.co
-IBEXA_CONNECT_API_PATH=/api/v2/
-# Token can be created in the user's profile in Ibexa Connect, under the 'API ACCESS' section.
-IBEXA_CONNECT_TOKEN=<your_api_token>
-# Use the URL below to read more on Ibexa Connect teams.
-# https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/
-IBEXA_CONNECT_TEAM_ID=2
-###< ibexa/connect ###
-```
+Provide the token that you got from [[= product_name_connect =]] and the team ID in your instance's [[= product_name_connect =]] integration settings.
 
 ### Initiate integration
 

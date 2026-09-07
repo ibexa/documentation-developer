@@ -20,3 +20,8 @@ With defined audiences you can target your user segments at the right time, thro
 
 The customer data are collected through the system of trackers embedded in different parts of your page.
 For more information on activation and trackers, see [CDP activation documentation](raptor_cdp_activation.md).
+
+## Getting access
+
+If you decide to acquire [[= product_name_cdp =]], contact your sales representative to receive a registration link.
+After registration, you get access to a separate instance where you can find the data required for configuring, activating, and using this feature.

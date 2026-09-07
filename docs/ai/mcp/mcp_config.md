@@ -2,19 +2,16 @@
 description: Configure an MCP server that exposes built-in and custom tools, prompts, and resources.
 edition: lts-update
 month_change: true
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Confirm how MCP server-to-SiteAccess assignment and the other SiteAccess-aware
+    settings on this page are exposed once SiteAccess configuration moves to a UI.
 ---
 
-# Install and configure MCP Servers
+# Configure MCP Servers
 
 With [[= product_name =]]'s MCP Servers LTS Update package, you can expose [MCP servers](mcp_guide.md) to external AI agents.
-
-## Installation
-
-Run the following command to install the package:
-
-```bash
-composer require ibexa/mcp
-```
 
 MCP Servers feature comes with [built-in tools](#built-in-tools) but doesn't come with a default configuration.
 You have to create your own MCP servers by providing [their configuration](#mcp-server-configuration) and [enable JWT authentication for them](#jwt-mcp-firewall).
