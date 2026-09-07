@@ -220,7 +220,7 @@ Since content management is an ongoing process, and, in your implementation, you
 Any content that you might want to deliver to a viewer can be structured and split into smaller elements.
 Reverse-engineer the intended concepts into individual fields, which can be categorized, and then picked from categories and combined into content items.
 
-Reuse existing fields types or [customize them to fit your needs](create_custom_generic_field_type.md), then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
+Reuse existing field types, then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
 
 **2\. Define permissions**
 

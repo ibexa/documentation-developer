@@ -32,13 +32,13 @@ The following attribute types are available:
 |`url`|URL|-|
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
-|`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
-|`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`embed`|Embedded content item|`udw_config_name`: name of the Universal Discovery Widget's configuration |
+|`embedvideo`|Embedded content item|`udw_config_name`: name of the Universal Discovery Widget's configuration |
 |`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
 |`checkbox`|Checkbox|Selects available option if `value: true`. Checkbox appearance in block configuration forms [can be configured](#configure-checkbox-appearance) |
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
-|`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`locationlist`|Location selection| `udw_config_name`: name of the Universal Discovery Widget's configuration |
 |`contenttypelist`|List of content types|-|
 |`schedule_events`,<br>`schedule_snapshots`,<br>`schedule_initial_items`,<br>`schedule_slots`,<br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 |`nested_attribute`|Defines a group of attributes in a block.|<ul><li>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes</li><li>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button</li></ul>|

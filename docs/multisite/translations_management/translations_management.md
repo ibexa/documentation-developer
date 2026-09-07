@@ -12,6 +12,5 @@ Translations management helps [[= product_name =]] developers and editors delive
 [[= cards([
     "multisite/translations_management/translations_management_guide",
     "multisite/translations_management/configure_translations_management",
-    "multisite/translations_management/extend_translations_management",
 
 ], columns=3) =]]

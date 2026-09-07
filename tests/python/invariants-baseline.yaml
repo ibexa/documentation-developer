@@ -445,19 +445,5 @@ php_code_sample:
   - users/segment_api.md
   - users/user_authentication.md
 
-# 14 page(s) carry the stale internal `delete:` marker.
-stale_delete_marker:
-  - ai/ai_actions/extend_ai_actions.md
-  - api/event_reference/ai_action_events.md
-  - content_management/field_types/form_and_template.md
-  - content_management/rich_text/extend_online_editor.md
-  - recommendations/raptor_integration/hybrid_tracking.md
-  - recommendations/raptor_integration/tracking_functions.md
-  - recommendations/raptor_integration/tracking_php_api.md
-  - templating/components.md
-  - templating/embed_and_list_content/list_content.md
-  - templating/embed_and_list_content/render_images.md
-  - templating/layout/add_navigation_menu.md
-  - templating/render_content/render_content.md
-  - templating/urls_and_routes/urls_and_routes.md
-  - users/oauth_client.md
+# 0 page(s) carry the stale internal `delete:` marker.
+stale_delete_marker: []

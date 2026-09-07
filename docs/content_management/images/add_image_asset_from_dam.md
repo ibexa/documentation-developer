@@ -152,11 +152,11 @@ For this to happen, register the variations generator as a service available for
 To enable selecting an image from the DAM system, a modal window pops up with tabs and panels that contain different search interfaces.
 
 In this example, the search only uses the main text input.
-The tab and its corresponding panel are a service created by combining existing components, like in the case of other [back office tabs](back_office_tabs.md).
+The tab and its corresponding panel are a service created by combining existing components, like in the case of other back office tabs.
 
 The `commons_search_tab` service uses the `GenericSearchTab` class as a base, and the `GenericSearchType` form for search input.
 It is linked to the `commons` DAM source and uses the identifier `commons`.
-The DAM search tab is registered in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups) using the `ibexa.admin_ui.tab` tag.
+The DAM search tab is registered in the `connector-dam-search` tab group using the `ibexa.admin_ui.tab` tag.
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 22, 33) =]]

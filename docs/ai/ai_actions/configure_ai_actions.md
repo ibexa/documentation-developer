@@ -6,9 +6,9 @@ month_change: false
 # Configure AI Actions
 
 AI Actions are available in [[= product_name =]] regardless of its edition.
-To use this feature you must first configure the built-in service connectors or build your own ones.
+To use this feature you must first configure the built-in service connectors.
 
-Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
+Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below.
 
 Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
@@ -194,8 +194,6 @@ When setting up models, make sure that you follow these rules:
     To use Google Gemini for generating taxonomy suggestions, ensure that you [change the embeddings provider and model setting accordingly](taxonomy.md#change-embeddings-provider-to-google-gemini).
 
 You can now use the Gemini connector in your project.
-
-For more information, see [Extend Gemini connector](extend_ai_actions.md#extend-google-gemini-connector).
 
 ## Configure access to [[= product_name_connect =]]
 

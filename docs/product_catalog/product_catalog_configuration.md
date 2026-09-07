@@ -102,8 +102,6 @@ ibexa_product_catalog:
                 variant_code_generator_strategy: 'random'
 ```
 
-You can also [create your own custom code generation strategy](create_product_code_generator.md).
-
 ## Catalogs
 
 ### Catalog filters

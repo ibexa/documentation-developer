@@ -51,7 +51,6 @@ Create a file called `assets/js/registerTimelineView.js`:
 ```
 
 And include it into the back office using Webpack Encore, together with your custom styles.
-See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
 
 ``` js
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');

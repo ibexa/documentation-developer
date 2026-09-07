@@ -8,8 +8,6 @@ month_change: false
 The `ProductAvailability` Search Criterion searches for products by the availability flag, the boolean value set per product or variant.
 
 To search for products that can be ordered, recreate the availability conditions with [existing product search criteria](product_search_criteria.md), for example LogicalAnd, LogicalOr, and [`ProductStock`](productstock_criterion.md).
-To recreate complex [custom availability strategies](create_custom_availability_strategy.md), you might need to implement [custom search criteria](search_criteria_and_sort_clauses.md#custom-criteria-and-sort-clauses) for the conditions not covered by the built-in ones.
-
 For more information, see [Availability and computed availability](products.md#availability-and-computed-availability).
 
 ## Arguments

@@ -9,7 +9,6 @@ month_change: true
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content item and product translation.
 It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services.
 By using the new [side-by-side editing interface](#side-by-side-translation-view), editors can compare source and target values, provide content item and product translations in a single view, and reject or approve translations.
-There are multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 !!! note "Translation limitations"
 
@@ -95,7 +94,7 @@ Out of the box, Translations management can support the following translation pr
 
 ### Built-in AI providers
 
-If you meet the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
+If you meet the above prerequisites, and you install the Translations management package, the installation process automatically creates AI Action Configurations for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
@@ -208,12 +207,9 @@ The [side-by-side translation view]([[= user_doc =]]/content_management/translat
 Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
 Editors can open them in the standard single-language editor.
 
-You can exclude the support for additional content types if needed.
-To do it, [define custom exclusion rules](extend_translations_management.md#define-custom-exclusion-rules).
-
 !!! note "Meta fields"
 
-    Fields marked with [`meta: true`](content_tab_switcher.md#add-meta-tab) and fields that belong to groups listed in [`admin_ui_forms.content_edit.meta_field_groups_list`](content_tab_switcher.md#configure-field-groups-for-meta-tab) aren't rendered in the side-by-side translation view.
+    Fields marked with `meta: true` and fields that belong to groups listed in `admin_ui_forms.content_edit.meta_field_groups_list` aren't rendered in the side-by-side translation view.
 
 For a description of the side-by-side view and its functions from the editor's perspective, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
 

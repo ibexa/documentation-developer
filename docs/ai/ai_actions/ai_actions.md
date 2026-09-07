@@ -9,8 +9,6 @@ month_change: false
 AI Actions enhance the usability and flexibility of [[= product_name =]] by automating various tasks.
 After you configure it, it can generate alt text for images or transform text passages.
 
-You can also extend it to perform other tasks or support additional AI services.
-
 ## Getting Started
 
 [[= cards([
@@ -24,7 +22,6 @@ You can also extend it to perform other tasks or support additional AI services.
 ## Development
 
 [[= cards([
-"ai/ai_actions/extend_ai_actions",
 ("https://doc.ibexa.co/en/6.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Connector-AI", "REST API Reference", "See the available endpoints for AI Actions"),
 "search/ai_actions_search_reference/action_configuration_criteria",
 "search/ai_actions_search_reference/action_configuration_sort_clauses",

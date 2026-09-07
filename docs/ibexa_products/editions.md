@@ -35,8 +35,6 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Recommendations](raptor_connector_guide.md) | &#10004; | &#10004; | &#10004; |
 | Migrations | &#10004; | &#10004; | &#10004; |
 | [[[= product_name_connect =]]]([[= connect_doc =]]/) | &#10004; | &#10004; | &#10004; |
-| [OAuth client](oauth_client.md) | &#10004; | &#10004; | &#10004; |
-| [OAuth Server](oauth_server.md) | &#10004; | &#10004; | &#10004; |
 | [Site Factory](site_factory.md) |  | &#10004; | &#10004; |
 | [Customizable Dashboard]([[= user_doc =]]/getting_started/dashboard/work_with_dashboard/#customize-dashboard) |  | &#10004; | &#10004; |
 | [Page Builder](page_builder_guide.md) |  | &#10004; | &#10004; |

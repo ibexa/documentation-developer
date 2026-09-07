@@ -87,15 +87,6 @@ Accepting or rejecting draft translations does not trigger editorial workflow tr
 
     Draft translations that were created by a human don't have a review status.
 
-### Extensibility
-
-Developers can [extend the translations management](extend_translations_management.md) package:
-
-- create custom translation providers
-- add support for custom fields
-- add custom content type exclusion rules
-- tap into the translation lifecycle with events
-
 ## Benefits
 
 ### Streamlined translation process

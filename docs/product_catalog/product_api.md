@@ -234,7 +234,7 @@ The returned object contains both the stored and computed availability:
 [[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 120, 120, remove_indent=True) =]]
 ```
 
-To evaluate computed availability for a [specific context](create_custom_availability_strategy.md), for example, a specific requested quantity or customer group, pass an optional `AvailabilityContextInterface` object as the second argument:
+To evaluate computed availability for a specific context, for example, a specific requested quantity or customer group, pass an optional `AvailabilityContextInterface` object as the second argument:
 
 ``` php
 [[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 108, 114, remove_indent=True) =]]

@@ -91,8 +91,6 @@ These fields can be used by the search engine to perform vector similarity compa
 [[= include_code('code_samples/api/public_php_api/src/embedding_fields.php') =]]
 ```
 
-Once you create a field, subscribe to the `ContentIndexCreateEvent` indexing event that [adds the field to the index](index_custom_elasticsearch_data.md).
-
 - `Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory` creates dedicated search fields that store embedding vectors
 
 ## Validation

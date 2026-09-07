@@ -37,7 +37,7 @@ Product specifications rely on product attributes. Available attributes are defi
 
 Each product has its own, specific attributes. You can describe a product in technical terms, define its physical characteristics such as size, color, or shape, or functional characteristics (for example, for a laptop it could be the operating system, amount of memory, or available ports).
 
-Product attributes can belong to one of existing types (for example, numbers, selection, or checkout), but you can also [add custom attribute types](create_custom_attribute_type.md).
+Product attributes can belong to one of existing types, for example, numbers, selection, or checkout.
 Attributes are used as criteria for filtering and searching for products.
 You can also configure selected product attributes to be used as a basis for variants.
 
@@ -149,7 +149,6 @@ To have a better overview for a specific group of products, you can filter the l
 - the date when the product was created
 
 Catalog filters let you narrow down the products from the product catalog that are available in the given catalog.
-Besides, the built-in catalog filters, you can also [create custom ones](create_custom_catalog_filter.md).
 
 ### Remote PIM support
 

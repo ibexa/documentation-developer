@@ -39,15 +39,13 @@ The tracking works differently depending on the mode you choose.
 In server-side mode, tracking happens on the server, handling all events without loading scripts in the browser.
 In client-side mode, it inserts script tags so tracking runs directly in the browser.
 In hybrid mode, the browser loads a first-party [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that forwards tracking events to a same-origin proxy endpoint instead of the [[= product_name_cdp_base =]] SaaS script, helping prevent ad blockers from blocking tracking.
-For more information, see [Hybrid tracking](hybrid_tracking.md).
-
 You can switch between tracking modes at any time by changing the tracking type to fit your setup and needs.
 
 ## Capabilities
 
 ### Tracking
 
-[[= product_name_cdp_base =]] [tracking functions](tracking_functions.md) allow you to collect data about how users interact with your products and content.
+[[= product_name_cdp_base =]] tracking allows you to collect data about how users interact with your products and content.
 
 You can track product visits to better understand what users are viewing.
 Provided Twig functions simplify the implementation, allowing developers to quickly add tracking to templates without complex setup.
