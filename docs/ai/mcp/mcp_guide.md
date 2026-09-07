@@ -25,10 +25,6 @@ They help AI agents translate natural language prompts into concrete actions on 
 
 An MCP server allows the agent to discover available tools, inspect their parameters, learn how to use them, and select the correct action.
 
-## Availability
-
-MCP Servers feature is an [LTS Update package](editions.md#lts-updates) available starting with the v5.0.8 in all [[= product_name =]] editions.
-
 ## Capabilities
 
 With the MCP Servers feature, you can:
