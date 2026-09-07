@@ -28,6 +28,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Added the [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/cohesivo_v6.0_deprecations/) page
 
+### Ibexa Rector
+
+- Added a dedicated page describing [Ibexa Rector](rector.md), an optional package for handling PHP and JavaScript code deprecations
+
 ### Background tasks
 
 - Described the [`DeduplicateStamp`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#deduplicatestamp) and how to inject the `ibexa.messenger.bus` service directly
