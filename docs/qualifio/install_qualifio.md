@@ -1,6 +1,5 @@
 ---
 description: Install and configure Qualifio.
-edition: experience
 ---
 
 # Install [[= product_name_engage =]]

@@ -18,7 +18,7 @@ To allow the user to enter the back office interface and view all content, set t
 
 These policies are necessary for all other cases below that require access to the content structure.
 
-## Create content without publishing [[% include 'snippets/experience_badge.md' %]]
+## Create content without publishing
 
 You can use this option together with [[= product_name_exp =]]'s content review options.
 Users assigned with these policies can create content, but cannot publish it.

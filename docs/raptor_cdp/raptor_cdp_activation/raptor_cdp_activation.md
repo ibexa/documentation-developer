@@ -1,7 +1,6 @@
 ---
 description: Step-by-step activation procedure of Raptor CDP.
 page_type: landing_page
-edition: experience
 ---
 
 # Activate [[= product_name_cdp =]]

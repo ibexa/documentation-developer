@@ -1,6 +1,5 @@
 ---
 description: Use blocks to customize the content of a Page with dynamic content.
-edition: experience
 ---
 
 # Page blocks

@@ -91,7 +91,7 @@ The available groups for the back office are:
 |---|---|
 |`admin-ui-location-view-tab-groups`| `vendor/ibexa/taxonomy/src/bundle/Resources/views/themes/admin/ibexa/taxonomy/taxonomy_entry/show.html.twig` |
 
-## Page Builder [[% include 'snippets/experience_badge.md' %]]
+## Page Builder
 
 | Group name | Template file |
 |---|---|

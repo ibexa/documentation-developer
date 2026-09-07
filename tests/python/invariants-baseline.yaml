@@ -19,82 +19,8 @@
 # list below to be empty.
 
 
-# 74 page(s) carry edition frontmatter (`edition:` or `editions:`).
-edition_frontmatter:
-  - administration/admin_panel/corporate_admin_panel.md
-  - administration/admin_panel/segments_admin_panel.md
-  - administration/back_office/configure_product_tour.md
-  - administration/back_office/customize_integrated_help.md
-  - administration/back_office/customize_product_tour.md
-  - administration/back_office/integrated_help.md
-  - administration/back_office/product_tour.md
-  - administration/dashboard/configure_default_dashboard.md
-  - administration/dashboard/customize_dashboard.md
-  - administration/dashboard/php_api_dashboard_service.md
-  - administration/recent_activity/recent_activity.md
-  - ai/mcp/mcp.md
-  - ai/mcp/mcp_config.md
-  - ai/mcp/mcp_guide.md
-  - ai/mcp/mcp_usage.md
-  - api/event_reference/integrated_help_events.md
-  - api/event_reference/page_events.md
-  - api/event_reference/segmentation_events.md
-  - api/event_reference/site_events.md
-  - api/event_reference/translations_management_events.md
-  - content_management/field_types/field_type_reference/addressfield.md
-  - content_management/field_types/field_type_reference/formfield.md
-  - content_management/field_types/field_type_reference/pagefield.md
-  - content_management/field_types/field_type_reference/productspecificationfield.md
-  - content_management/forms/create_custom_form_field.md
-  - content_management/forms/create_form_attribute.md
-  - content_management/forms/customize_email_notifications.md
-  - content_management/forms/form_api.md
-  - content_management/forms/form_builder_guide.md
-  - content_management/forms/forms.md
-  - content_management/forms/work_with_forms.md
-  - content_management/pages/create_custom_page_block.md
-  - content_management/pages/ibexa_connect_scenario_block.md
-  - content_management/pages/page_block_attributes.md
-  - content_management/pages/page_block_validators.md
-  - content_management/pages/page_blocks.md
-  - content_management/pages/page_builder_guide.md
-  - content_management/pages/pages.md
-  - content_management/pages/react_app_block.md
-  - content_management/rich_text/create_custom_richtext_block.md
-  - customer_management/cp_applications.md
-  - customer_management/cp_configuration.md
-  - customer_management/cp_page_builder.md
-  - customer_management/customer_portal.md
-  - customer_management/customer_portal_guide.md
-  - multisite/site_factory/site_factory.md
-  - multisite/site_factory/site_factory_configuration.md
-  - multisite/translations_management/configure_translations_management.md
-  - multisite/translations_management/extend_translations_management.md
-  - multisite/translations_management/translate_with_cli.md
-  - multisite/translations_management/translations_management.md
-  - multisite/translations_management/translations_management_guide.md
-  - qualifio/create_campaign.md
-  - qualifio/install_qualifio.md
-  - qualifio/integrate_ibexa_connect.md
-  - qualifio/qualifio.md
-  - raptor_cdp/raptor_cdp.md
-  - raptor_cdp/raptor_cdp_activation/raptor_cdp_activation.md
-  - raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md
-  - raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md
-  - raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md
-  - raptor_cdp/raptor_cdp_data_customization.md
-  - raptor_cdp/raptor_cdp_data_export_schedule.md
-  - raptor_cdp/raptor_cdp_guide.md
-  - raptor_cdp/raptor_cdp_installation.md
-  - recommendations/raptor_integration/recommendation_blocks.md
-  - templating/render_content/render_page.md
-  - tutorials/page_and_form_tutorial/1_get_a_starter_website.md
-  - tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
-  - tutorials/page_and_form_tutorial/3_use_existing_blocks.md
-  - tutorials/page_and_form_tutorial/4_create_a_custom_block.md
-  - tutorials/page_and_form_tutorial/5_create_newsletter_form.md
-  - tutorials/page_and_form_tutorial/page_and_form_tutorial.md
-  - users/segment_api.md
+# 0 page(s) carry edition frontmatter (`edition:` or `editions:`).
+edition_frontmatter: []
 
 # 29 page(s) reference a product-name variable slated for deletion (product_name_headless, product_name_exp, product_name_com, product_name_cloud, product_name_content, product_name_oss).
 deleted_product_variables:

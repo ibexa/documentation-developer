@@ -1,6 +1,5 @@
 ---
 description: Adding tracking in Raptor CDP.
-edition: experience
 ---
 
 # Track with [[= product_name_cdp =]]

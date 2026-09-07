@@ -1,6 +1,5 @@
 ---
 description: Translations management helps managers, developers and localization teams with multilingual content delivery.
-edition: lts-update
 month_change: true
 ---
 

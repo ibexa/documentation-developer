@@ -87,7 +87,7 @@ Each role you assign to user or user group consists of policies which define, wh
 |                      | <nobr>`setup`</nobr>        | unused                                       |                      |
 |                      | <nobr>`system_info`</nobr>  | view the **System Information** tab in Admin |                      |
 
-#### Sites [[% include 'snippets/experience_badge.md' %]]
+#### Sites
 
 | Module              | Function                     | Effect                                                                                                | Possible limitations |
 |---------------------|------------------------------|-------------------------------------------------------------------------------------------------------|----------------------|

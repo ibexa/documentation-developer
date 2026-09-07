@@ -1,6 +1,5 @@
 ---
 description: MCP servers expose tools, specialized prompts, and resources to AI agents.
-edition: lts-update
 month_change: false
 ---
 

@@ -1,6 +1,5 @@
 ---
 description: Installation of standalone Raptor CDP package.
-edition: experience
 ---
 
 # Install [[= product_name_cdp =]]

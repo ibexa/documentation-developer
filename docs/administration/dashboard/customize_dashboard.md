@@ -1,6 +1,5 @@
 ---
 description: Customize dashboard.
-edition: experience
 ---
 
 # Customize dashboard

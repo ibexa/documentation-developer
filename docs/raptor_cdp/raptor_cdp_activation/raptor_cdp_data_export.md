@@ -1,6 +1,5 @@
 ---
 description: Step-by-step data export procedure in Raptor CDP.
-edition: experience
 ---
 
 # Export [[= product_name_cdp =]] data

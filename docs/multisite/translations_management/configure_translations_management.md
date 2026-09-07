@@ -1,6 +1,5 @@
 ---
 description: Install translations management and configure translation providers, language pairs, and more.
-edition: lts-update
 month_change: true
 ---
 
