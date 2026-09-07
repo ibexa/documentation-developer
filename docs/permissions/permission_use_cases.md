@@ -133,8 +133,6 @@ For example, to enable the user to edit only content in the "Design" stage and t
 - `content/edit` with `WorkflowStageLimitation` set to "Design".
 - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
-When using the [Collaborative editing feature](collaborative_editing.md), refer to the [Collaborative editing policies](policies.md#content-collaborative-editing) for guidance on editing without a strict workflow.
-
 ## Multi-file upload
 
 Creating content through multi-file upload is treated in the same way as regular creation.

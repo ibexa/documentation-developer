@@ -2,6 +2,7 @@
 description: Events that are triggered when working with AI actions.
 page_type: reference
 month_change: false
+delete: true
 ---
 
 # AI Actions events
@@ -29,5 +30,5 @@ month_change: false
 | Event | Dispatched by | Description |
 |---|---|---|
 | [ContextEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ContextEvent.html)| [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) | Pass additional options to the System Context before an AI Action is executed |
-| [ResolveActionConfigurationWidgetConfigEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionConfigurationWidgetConfigEvent.html)| `\Ibexa\ConnectorAi\Twig\ActionConfigurationWidgetConfigExtension::renderActionConfigurationWidgetConfig()` | Modify the Action Type configuration returned from the [ibexa_ai_config Twig function](ai_actions_twig_functions.md) |
+| [ResolveActionConfigurationWidgetConfigEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionConfigurationWidgetConfigEvent.html)| `\Ibexa\ConnectorAi\Twig\ActionConfigurationWidgetConfigExtension::renderActionConfigurationWidgetConfig()` | Modify the Action Type configuration returned from the `ibexa_ai_config` Twig function |
 | [ResolveActionHandlerEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionHandlerEvent.html)| [ActionHandlerResolverInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerResolverInterface.html) | Hook into the process of choosing a Handler to execute an AI Action |

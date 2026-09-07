@@ -102,7 +102,7 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
-Adapt the `allowed_hosts` to your case, for example, if you want to use the DDEV `.ddev.site` domain instead of the equivalent `127.0.0.1` address.
+Adapt the `allowed_hosts` to your case, for example, if you want to use a domain name instead of the equivalent `127.0.0.1` address.
 
 The server is automatically registered as a service with the ID `ibexa.mcp.server.default.example`:
 
@@ -255,7 +255,6 @@ Get the [list of prompts](https://modelcontextprotocol.io/specification/2025-11-
 ### Perform MCP Inspector test
 
 You can test your server with the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
-You can even use the inspector as a DDEV add-on with [`michtio/ddev-mcp-inspector`](https://github.com/michtio/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
 
 You can use a web interface to obtain the JWT token:

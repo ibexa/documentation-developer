@@ -1,6 +1,7 @@
 ---
 description: Enable hybrid tracking to avoid ad blockers and proxy events through your server.
-month_change: false
+month_change: true
+delete: true
 ---
 
 # Hybrid tracking
@@ -104,8 +105,6 @@ php bin/console debug:router | grep raptor
 ### Template usage
 
 By default, the tracking script waits for user consent before sending tracking events.
-
-For more information, see [Handle tracking consent](recommendations_twig_functions.md#handle-tracking-consent).
 
 The Twig API remains identical regardless of the configured tracking mode:
 

@@ -1,6 +1,7 @@
 ---
 description: Integrate the tracking script to collect user interactions.
-month_change: false
+month_change: true
+delete: true
 ---
 
 # Tracking functions
@@ -10,8 +11,8 @@ The implementation includes product visit tracking with mapping to tracking para
 
 [[= product_name_cdp_base =]] integration introduces two Twig functions:
 
-- [`ibexa_tracking_script()`](../../templating/twig_function_reference/recommendations_twig_functions.md#ibexa_tracking_script-function) - allows you to embed main tracking script into the website.
-- [`ibexa_tracking_track_event()`](../../templating/twig_function_reference/recommendations_twig_functions.md#ibexa_tracking_track_event-function) - is responsible for sending event data to the service, enabling tracking of user interactions and behaviors.
+- `ibexa_tracking_script()` - allows you to embed main tracking script into the website.
+- `ibexa_tracking_track_event()` - is responsible for sending event data to the service, enabling tracking of user interactions and behaviors.
 
 ## Embed tracking script
 

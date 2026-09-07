@@ -14,7 +14,7 @@ To use PostgreSQL, you need to have the `pdo_pgsql` PHP extension installed.
 
 ### Provide parameters
 
-When you run `composer install`, you're asked to [provide installation parameters](install_cohesivo.md#change-installation-parameters).
+When you run `composer install`, you're asked to provide installation parameters.
 
 !!! tip
 
