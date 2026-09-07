@@ -236,7 +236,7 @@ class TestLlmsTxtPointer:
         )
         assert strip_llms_txt_pointer(content) == "# Getting started\n\nBody text here.\n"
 
-    def test_description_and_editions_lines_are_kept(self):
+    def test_description_and_trailing_content_are_kept(self):
         content = (
             "# Heading\n"
             "\n"
@@ -244,10 +244,10 @@ class TestLlmsTxtPointer:
             "\n"
             "Some page description.\n"
             "\n"
-            "Editions: Content, Experience\n"
+            "See also: Some related page.\n"
         )
         assert strip_llms_txt_pointer(content) == (
-            "# Heading\n\nSome page description.\n\nEditions: Content, Experience\n"
+            "# Heading\n\nSome page description.\n\nSee also: Some related page.\n"
         )
 
     def test_nested_project_url_is_also_stripped(self):

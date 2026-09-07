@@ -1,5 +1,4 @@
 from llms_txt.llmstxt_preprocess import (
-    editions_from_frontmatter,
     expand_macros,
     inject_page_metadata,
 )
@@ -13,15 +12,8 @@ def test_llms_txt_pointer_always_inserted_after_first_h1():
     assert inject_page_metadata(content) == (
         f"# Title\n\n{LLMS_TXT_LINE}\n\nBody text."
     )
-    assert inject_page_metadata(content, description="", editions=[]) == (
+    assert inject_page_metadata(content, description="") == (
         f"# Title\n\n{LLMS_TXT_LINE}\n\nBody text."
-    )
-
-
-def test_editions_inserted_after_first_h1():
-    content = "# Title\n\nBody text."
-    assert inject_page_metadata(content, editions=["Experience"]) == (
-        f"# Title\n\n{LLMS_TXT_LINE}\n\nEditions: Experience\n\nBody text."
     )
 
 
@@ -32,17 +24,10 @@ def test_description_inserted_after_first_h1():
     )
 
 
-def test_description_comes_before_editions():
-    content = "# Title\n\nBody text."
-    assert inject_page_metadata(content, description="A description.", editions=["Experience"]) == (
-        f"# Title\n\n{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Experience\n\nBody text."
-    )
-
-
 def test_prepended_when_no_h1():
     content = "Body text."
-    assert inject_page_metadata(content, description="A description.", editions=["Experience"]) == (
-        f"{LLMS_TXT_LINE}\n\nA description.\n\nEditions: Experience\n\nBody text."
+    assert inject_page_metadata(content, description="A description.") == (
+        f"{LLMS_TXT_LINE}\n\nA description.\n\nBody text."
     )
 
 
@@ -55,27 +40,6 @@ def test_llms_txt_url_respects_nested_site_path():
         content, llms_txt_url="https://doc.ibexa.co/projects/userguide/en/5.0/llms.txt"
     )
     assert result == f"# Title\n\n{nested_line}\n\nBody text."
-
-
-def test_frontmatter_edition_string():
-    assert editions_from_frontmatter({"edition": "headless experience"}) == ["Headless", "Experience"]
-
-
-def test_frontmatter_editions_list():
-    assert editions_from_frontmatter({"editions": ["headless", "lts-update"]}) == ["Headless", "LTS Update"]
-
-
-def test_frontmatter_edition_and_editions_merged():
-    result = editions_from_frontmatter({"edition": "experience", "editions": ["headless"]})
-    assert result == ["Experience", "Headless"]
-
-
-def test_unknown_edition_passes_through():
-    assert editions_from_frontmatter({"edition": "custom"}) == ["custom"]
-
-
-def test_empty_frontmatter():
-    assert editions_from_frontmatter({}) == []
 
 
 def test_expand_macros_substitutes_scalars():

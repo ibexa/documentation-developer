@@ -8,8 +8,8 @@ produce the Markdown version of the documentation:
   mkdocs-llmstxt plugin (configured in ``plugins.yml``) before the HTML is
   converted to Markdown.
 - Markdown post-processing helpers (``renumber_ordered_lists``,
-  ``inject_edition_badges``, ``editions_from_frontmatter``) applied by
-  ``hooks.py`` to the Markdown the plugin generated.
+  ``inject_page_metadata``) applied by ``hooks.py`` to the Markdown the
+  plugin generated.
 
 This package (``llms_txt``) is installed as a dependency by other Ibexa doc
 sites, which each keep a thin root-level ``llmstxt_preprocess.py`` shim
@@ -33,13 +33,6 @@ PILL_CLASS_TO_EDITION = {
     "pill--first-release": "First release",
 }
 
-FRONTMATTER_EDITION_DISPLAY = {
-    "lts-update": "LTS Update",
-    "experience": "Experience",
-    "headless": "Headless",
-}
-
-
 def preprocess(soup: Soup, output: str) -> None:
     """
     Preprocess HTML to improve markdown conversion.
@@ -47,16 +40,11 @@ def preprocess(soup: Soup, output: str) -> None:
     Runs with autoclean disabled so we can control the order:
     1. Expand tabbed sets with labels before autoclean removes tabbed-labels.
     2. Run autoclean-equivalent cleanup.
-    3. Replace inline edition badge spans with readable text.
-    4. Remove release notes filter UI.
-    5. Convert card macros to markdown lists.
-
-    Note: frontmatter edition injection is handled in hooks.py on_page_content,
-    where page.file.src_path is available directly.
+    3. Remove release notes filter UI.
+    4. Convert card macros to markdown lists.
     """
     _process_tabbed_sets(soup)
     _autoclean(soup)
-    _process_inline_pills(soup)
     _process_release_note_tags(soup)
     _process_release_note_dates(soup)
     _process_release_notes_filters(soup)
@@ -182,60 +170,6 @@ def _autoclean(soup: Soup) -> None:
             element.replace_with(
                 Soup(f"<pre{attr}>{html_module.escape(code_elem.get_text())}</pre>", "html.parser")
             )
-
-# ---------------------------------------------------------------------------
-# Inline edition badge spans (from snippet includes)
-# ---------------------------------------------------------------------------
-
-def _pill_edition(node) -> str:
-    """Return the edition name of an inline pill span, or '' if not one."""
-    if getattr(node, "name", None) != "span":
-        return ""
-    classes = node.get("class") or []
-    if "pill--inline" not in classes:
-        return ""
-    for pill_cls, edition_name in PILL_CLASS_TO_EDITION.items():
-        if pill_cls in classes:
-            return edition_name
-    return ""
-
-
-def _process_inline_pills(soup: Soup) -> None:
-    """Replace inline edition pill spans with readable text.
-
-    Consecutive pills (possibly separated by whitespace) are merged into a
-    single parenthetical, e.g. ' (Headless, Experience)' instead of
-    ' (Headless) (Experience)'.
-    """
-    for span in soup.find_all("span", class_="pill--inline"):
-        if span.parent is None:  # already consumed as part of a previous run
-            continue
-        edition = _pill_edition(span)
-        if not edition:
-            continue
-
-        # Collect the run of pills that follow, skipping whitespace between them.
-        editions = [edition]
-        consumed = []
-        node = span.next_sibling
-        pending_whitespace = []
-        while node is not None:
-            if isinstance(node, NavigableString) and not node.strip():
-                pending_whitespace.append(node)
-                node = node.next_sibling
-                continue
-            next_edition = _pill_edition(node)
-            if not next_edition:
-                break
-            editions.append(next_edition)
-            consumed += pending_whitespace + [node]
-            pending_whitespace = []
-            node = node.next_sibling
-
-        for extra_node in consumed:
-            extra_node.extract()
-        span.replace_with(soup.new_string(f" ({', '.join(editions)})"))
-
 
 def _process_release_note_tags(soup: Soup) -> None:
     """Append edition labels from release-note__tags divs to their preceding heading.
@@ -399,20 +333,6 @@ def _process_cards(soup: Soup) -> None:
 # Markdown post-processing (applied by hooks.py to the generated Markdown)
 # ---------------------------------------------------------------------------
 
-def editions_from_frontmatter(frontmatter: dict) -> list:
-    """Map ``edition``/``editions`` frontmatter values to display names."""
-
-    def _to_list(value):
-        if isinstance(value, list):
-            return value
-        if isinstance(value, str):
-            return value.split()
-        return []
-
-    all_editions = _to_list(frontmatter.get("edition")) + _to_list(frontmatter.get("editions") or [])
-    return [FRONTMATTER_EDITION_DISPLAY.get(e, e) for e in all_editions if e]
-
-
 _MACRO_RE = re.compile(r"\[\[=\s*(\w+)\s*=\]\]")
 
 
@@ -431,9 +351,9 @@ def expand_macros(text: str, variables: dict) -> str:
 
 
 def inject_page_metadata(
-    content: str, description: str = "", editions: list = (), llms_txt_url: str = "/llms.txt"
+    content: str, description: str = "", llms_txt_url: str = "/llms.txt"
 ) -> str:
-    """Insert the llms.txt pointer, page description, and an 'Editions: X, Y' line after the first h1 heading.
+    """Insert the llms.txt pointer and page description after the first h1 heading.
 
     ``llms_txt_url`` must be the absolute URL of *this site's own* llms.txt
     (e.g. via ``urljoin(base_url, "llms.txt")``), not a hardcoded root-relative
@@ -443,8 +363,6 @@ def inject_page_metadata(
     metadata_lines = ["", f"> For the complete documentation index, see [llms.txt]({llms_txt_url})."]
     if description:
         metadata_lines += ["", description]
-    if editions:
-        metadata_lines += ["", "Editions: " + ", ".join(editions)]
 
     lines = content.split("\n")
     for i, line in enumerate(lines):
