@@ -21,10 +21,6 @@ The package integrates with the [AI Actions framework](ai_actions_guide.md) to s
 
 Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s back office, while editors can trigger machine translation from the content editing interface.
 
-## Availability
-
-Translations management is an opt-in capability available as an [LTS Update](editions.md#lts-updates) for all [[= product_name =]] editions, starting with the v5.0.10 version.
-
 ## How it works
 
 Before the translation flow can happen, an administrator sets up the translation providers and assigns language pairs to them.

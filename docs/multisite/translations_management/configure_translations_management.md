@@ -23,7 +23,7 @@ There are multiple extension points that you can use to [customize different are
 
 ## Install package
 
-To install the Translations management [LTS Update](editions.md#lts-updates), run the following command:
+To install Translations management, run the following command:
 
 ```bash
 composer require ibexa/translations-management

@@ -119,5 +119,3 @@ The following packages are optional and can be installed independently.
 |Bundle|Description|
 |---------|-----------|
 |ibexa/cdp|Integration with [[[= product_name_cdp =]]](../../raptor_cdp/raptor_cdp.md)|
-
-In addition, you can extend the capabilities of your project by installing additional [LTS Updates](editions.md#lts-updates).

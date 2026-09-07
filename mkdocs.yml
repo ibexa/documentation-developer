@@ -20,10 +20,7 @@ not_in_nav: |
     /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
-    - Cohesivo editions:
-        - Editions: ibexa_products/editions.md
-        - Cohesivo Headless: ibexa_products/ibexa_headless.md
-        - Cohesivo Experience: ibexa_products/ibexa_experience.md
+    - On-premise Cohesivo: on_premise.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - First steps: getting_started/first_steps.md
