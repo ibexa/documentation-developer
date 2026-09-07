@@ -29,7 +29,6 @@ For more information about tracking, check the [[= product_name_cdp_base =]] doc
     "recommendations/raptor_integration/connector_installation_configuration",
     "recommendations/raptor_integration/tracking_functions",
     "recommendations/raptor_integration/hybrid_tracking",
-    "recommendations/raptor_integration/tracking_php_api",
     "recommendations/raptor_integration/recommendation_blocks",
     "recommendations/raptor_integration/custom_recommendation_rendering",
 ], columns=3) =]]

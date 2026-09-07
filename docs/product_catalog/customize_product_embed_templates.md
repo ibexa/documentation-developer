@@ -27,7 +27,7 @@ The following variables are available in the embed templates:
 
 | Variable | Available in | Description |
 |---|---|---|
-| `product` | `product`, `product_inline` | A [`ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html) object. |
+| `product` | `product`, `product_inline` | A `ProductInterface` object. |
 | <nobr>`productCode`</nobr> | `product_denied`, `product_inline_denied`, `product_not_found`, `product_inline_not_found` | The product code string, used to identify the product that could not be loaded. |
 | <nobr>`embedParams`</nobr> | All block types | Optional parameters set by the online editor, for example `align` or `class` properties |
 

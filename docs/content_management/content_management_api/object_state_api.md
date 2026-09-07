@@ -15,7 +15,7 @@ You can manage Object states by using the PHP API by using `ObjectStateService`.
 
 ## Getting object state information
 
-You can use the [`ObjectStateService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html) to get information about object state groups or object states.
+You can use the `ObjectStateService` to get information about object state groups or object states.
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 45, 49, remove_indent=True) =]]
@@ -23,15 +23,15 @@ You can use the [`ObjectStateService`](/api/php_api/php_api_reference/classes/Ib
 
 ## Creating object states
 
-To create an object state group and add object states to it, you need to make use of the [`ObjectStateService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html):
+To create an object state group and add object states to it, you need to make use of the `ObjectStateService`:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 54, 57, remove_indent=True) =]]
 ```
 
-[`ObjectStateService::createObjectStateGroup`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_createObjectStateGroup) takes as argument an [`ObjectStateGroupCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ObjectState-ObjectStateGroupCreateStruct.html), in which you need to specify the identifier, default language and at least one name for the group.
+`ObjectStateService::createObjectStateGroup` takes as argument an `ObjectStateGroupCreateStruct`, in which you need to specify the identifier, default language and at least one name for the group.
 
-To create an object state inside a group, use [`ObjectStateService::newObjectStateCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_newObjectStateCreateStruct) and provide it with an `ObjectStateCreateStruct`:
+To create an object state inside a group, use `ObjectStateService::newObjectStateCreateStruct` and provide it with an `ObjectStateCreateStruct`:
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 60, 63, remove_indent=True) =]]
@@ -39,7 +39,7 @@ To create an object state inside a group, use [`ObjectStateService::newObjectSta
 
 ## Assigning object state
 
-To assign an object state to a content item, use [`ObjectStateService::setContentState`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_setContentState).
+To assign an object state to a content item, use `ObjectStateService::setContentState`.
 Provide it with a `ContentInfo` object of the content item, the object state group and the object state:
 
 ``` php

@@ -96,8 +96,8 @@ To extend the DAM support built into [[= product_name =]], you must create a cus
 This class handles searching through Wikimedia Commons for images and fetching image assets.
 
 In `src/Connector/Dam/Handler` folder, create the `WikimediaCommonsHandler.php` file that resembles the following example,
-which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_search) to query the server
-and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_fetchAsset) to return asset objects:
+which implements `search()` to query the server
+and `fetchAsset()` to return asset objects:
 
 ``` php
 [[= include_code('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
@@ -116,7 +116,7 @@ The `source` parameter passed in the tag is an identifier of this new DAM connec
 The transformation factory maps [[= product_name =]]'s image variations to corresponding variations from Wikimedia Commons.
 
 In `src/Connector/Dam/Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example,
-which implements the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
+which implements the `TransformationFactory` interface:
 
 ``` php
 [[= include_code('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
@@ -133,7 +133,7 @@ Then register the transformation factory as a service:
 The variation generator applies map parameters coming from the transformation factory to build a fetch request to the DAM.
 The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters to the request.
 
-For example, for an asset with the ID `Ibexa_Logo.svg`, the handler generates the Asset with [`AssetUri's URL`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-AssetUri.html#method_getPath) equal to:
+For example, for an asset with the ID `Ibexa_Logo.svg`, the handler generates the Asset with `AssetUri's URL` equal to:
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg`
 

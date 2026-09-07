@@ -14,7 +14,7 @@ It casts their `Value` object to string, thanks to `\Stringable` implementation.
 You can extend user data exported to CDP by attaching custom information, for example user content fields or user preferences.
 Use it for advanced customer segmentation and recommendations in marketing campaigns.
 
-To add custom data to user exports, create a class that extends [`\Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-User-AbstractUserItemProcessor.html) and implement the `doProcess()` method.
+To add custom data to user exports, create a class that extends `\Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor` and implement the `doProcess()` method.
 The base class handles user field validation and provides helper methods for working with user content.
 
 The following example adds a custom date of birth field to the exported data:
@@ -55,7 +55,7 @@ The exported user data includes your custom fields:
 ## Export field types
 
 Field types are exported with metadata, for example, ID, field definition name, type, or value.
-You can also provide your own [`\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-Content-FieldProcessorInterface.html) instance to extend metadata.
+You can also provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface` instance to extend metadata.
 The provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`.
 Additionally, you can specify `priority` to override the default behavior.
 All system Field Processors use `-100` priority, and any higher priority value overrides them.
@@ -108,7 +108,7 @@ custom_fieldtype.cdp.export.field_processor:
 
 ## Export field type values
 
-To customize export of field type values, provide your own [`\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-Content-FieldValueProcessorInterface.html) instance.
+To customize export of field type values, provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface` instance.
 New implementation has to be registered as a service manually or by using autoconfiguration.
 The service has to use the tag `ibexa.cdp.export.content.field_value_processor`.
 You can also provide `priority` property to override other Field Value Processors.
@@ -130,7 +130,7 @@ This Processor is a default one, as long as no other Processor with higher prior
 
 #### `\Ibexa\Cdp\Export\Content\FieldValueProcessor\JsonHashFieldValueProcessor`
 
-This Processor generates JSON data from hash representation of the field type (it uses [`\Ibexa\Contracts\Core\FieldType\FieldType::toHash`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_toHash) method).
+This Processor generates JSON data from hash representation of the field type (it uses `\Ibexa\Contracts\Core\FieldType\FieldType::toHash` method).
 
 !!! caution
 

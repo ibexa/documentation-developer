@@ -4,7 +4,7 @@ description: Using the PHP API you can browse taxonomy entries, get their inform
 
 # Taxonomy API
 
-To manage taxonomies, use [`TaxonomyServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html).
+To manage taxonomies, use `TaxonomyServiceInterface`.
 
 ## Getting taxonomy entries
 
@@ -70,11 +70,6 @@ and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSI
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 51, 52, remove_indent=True) =]]
 ```
-
-!!! note
-
-    Taxonomy entry management functions triggers events you can listen to.
-    For more information, see [Taxonomy events](taxonomy_events.md).
 
 ## Search
 

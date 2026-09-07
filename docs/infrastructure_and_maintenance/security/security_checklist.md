@@ -154,7 +154,7 @@ You can [limit access to specific blocks per content type]([[= user_doc =]]/cont
 ### Activate JWT authentication for MCP, REST, or GraphQL
 
 To use [MCP servers](mcp_guide.md), you must enable JWT authentication for them.
-You can also consider enabling JWT authentication for [REST](rest_api_usage.md) or [GraphQL](graphql.md) APIs.
+You can also consider enabling JWT authentication for the [REST](rest_api_usage.md) API.
 
 For more information, see [Development security](development_security.md#jwt-authentication).
 

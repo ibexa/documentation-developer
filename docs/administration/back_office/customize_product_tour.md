@@ -6,7 +6,7 @@ month_change: false
 
 # Customize scenarios with PHP code
 
-You can customize the product tour scenarios with the [`RenderProductTourScenarioEvent`](integrated_help_events.md) event.
+You can customize the product tour scenarios with the `RenderProductTourScenarioEvent` event.
 This event is dispatched before a product tour scenario is rendered.
 You can use it to:
 

@@ -25,7 +25,6 @@ You can also extend it to perform other tasks or support additional AI services.
 
 [[= cards([
 "ai/ai_actions/extend_ai_actions",
-"api/event_reference/ai_action_events",
 ("https://doc.ibexa.co/en/6.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Connector-AI", "REST API Reference", "See the available endpoints for AI Actions"),
 "search/ai_actions_search_reference/action_configuration_criteria",
 "search/ai_actions_search_reference/action_configuration_sort_clauses",

@@ -5,7 +5,7 @@ month_change: false
 
 # IsContainer Criterion
 
-The [`IsContainer` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsContainer.html) searches for content items based on whether they are containers (i.e., can contain other content items).
+The `IsContainer` Search Criterion searches for content items based on whether they are containers (i.e., can contain other content items).
 
 ## Arguments
 

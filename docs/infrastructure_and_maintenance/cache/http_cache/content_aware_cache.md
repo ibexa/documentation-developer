@@ -143,8 +143,8 @@ For example, a `ContentView` is covered both by the `ContentValueViewTagger` and
 
 The built-in taggers support the following value types:
 
-- [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
-- [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)
+- `ContentInfo`
+- `Location`
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
 
@@ -152,7 +152,7 @@ The built-in taggers support the following value types:
 
 Accepts any value and passes it on to taggers registered with the service tag `ibexa.cache.http.response.tagger` supporting given type.
 
-If you pass a value which no tagger supports (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), the system logs a warning.
+If you pass a value which no tagger supports (for example, a `Content` object), the system logs a warning.
 When [`kernel.debug`]([[= symfony_doc=]]/reference/configuration/kernel.html#kernel-debug) is enabled, an exception is thrown to help you catch unsupported types early.
 
 ## Response tagging in controllers
@@ -161,7 +161,7 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1\. Reusing `DispatcherTagger` to pick correct tags.
 
-Examples for tagging everything needed for content using the autowireable [`ResponseTagger`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html) interface:
+Examples for tagging everything needed for content using the autowireable `ResponseTagger` interface:
 
 ``` php hl_lines="3 6 9"
 [[= include_code('code_samples/cache/http_cache/src/response_tagging.php', 3, 11) =]]
@@ -326,7 +326,7 @@ In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), 
 ### Custom purging from code
 
 While the system purges tags whenever API is used to change data, you may need to purge directly from code.
-For that you can inject the built-in [`PurgeClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-PurgeClient-PurgeClientInterface.html) by using the `ibexa.http_cache.purge_client` service name:
+For that you can inject the built-in `PurgeClientInterface` by using the `ibexa.http_cache.purge_client` service name:
 
 ``` php hl_lines="12-13 19-21 23-25"
 use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;

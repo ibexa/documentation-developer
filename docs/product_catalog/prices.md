@@ -17,7 +17,7 @@ Each customer group can have a default price discount that applies to all produc
 
 You could create a customer group resolver that provides custom price logic, for example, by retrieving user address from the customer profile, and assigning a customer group to the customer based on the address.
 
-Such resolver must implement the [`Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CustomerGroupResolverInterface.html) interface.
+Such resolver must implement the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface.
 
 You must then register it as a service with the `ibexa.product_catalog.customer_group.resolver` tag.
 

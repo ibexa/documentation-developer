@@ -162,7 +162,7 @@ On top of the supported Symfony stamps, [[= product_name =]] provides the follow
 
 #### SudoStamp
 
-[`SudoStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SudoStamp.html) causes the handler to [use sudo mode](php_api.md#using-sudo), bypassing all permission checks when processing the message.
+`SudoStamp` causes the handler to use sudo mode, bypassing all permission checks when processing the message.
 
 The following example shows how you can attach the `SudoStamp` to the message:
 
@@ -177,7 +177,7 @@ $bus->dispatch(new SomeMessage(), [new SudoStamp()]);
 
 #### UserPermissionStamp
 
-[`UserPermissionStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-UserPermissionStamp.html) allows you to [set the repository user](php_api.md#setting-the-repository-user) to process the message.
+`UserPermissionStamp` allows you to set the repository user to process the message.
 When the user is set, handlers execute actions on their behalf and take their permissions into account.
 
 If you don't attach this stamp, the messages are processed by the default repository user called anonymous user.
@@ -200,7 +200,7 @@ $bus->dispatch(new SomeMessage(), [new UserPermissionStamp($currentUserId)]);
 
 #### SiteAccessStamp
 
-[`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-SiteAccessStamp.html) contains the name of the [SiteAccess](siteaccess.md) that dispatched the message.
+`Ibexa\Contracts\Messenger\Stamp\SiteAccessStamp` contains the name of the [SiteAccess](siteaccess.md) that dispatched the message.
 
 You don't need to add this stamp manually, [[= product_name_base =]] Messenger attaches this stamp to each dispatched message automatically.
 The stamp contains the SiteAccess that is current at the moment of dispatch.
@@ -257,7 +257,7 @@ To move the work to the background, [route the message to the background queue](
 To process the message in the background, send it to a transport queue.
 [[= product_name_base =]] Messenger uses message providers instead of [Symfony `framework.messenger.routing` configuration]([[= symfony_doc =]]/messenger.html#routing-messages-to-a-transport).
 
-A message provider is a service that implements the [`MessageProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html) interface, and the `getHandledClasses()` method must return the list of message classes that [[= product_name_base =]] Messenger must send to the queue to process in the background.
+A message provider is a service that implements the `MessageProviderInterface` interface, and the `getHandledClasses()` method must return the list of message classes that [[= product_name_base =]] Messenger must send to the queue to process in the background.
 
 The `getHandledClasses()` method can also return a parent class or an interface.
 In this case, all messages that extend this class, or implement this interface, go to the background queue.

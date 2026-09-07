@@ -89,11 +89,6 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
 
 For a complete description of Recommendation blocks see [Recommendation blocks in User Documentation]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
-### Advanced usage for complex tracking scenarios
-
-For more complex tracking requirements, [PHP API](tracking_php_api.md) provides direct access to the service.
-It lets you track custom user actions, create more detailed tracking logic, and support scenarios not covered by the standard setups.
-
 ## Benefits
 
 ### Understand user behavior

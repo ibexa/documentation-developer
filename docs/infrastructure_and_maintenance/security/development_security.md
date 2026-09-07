@@ -153,7 +153,7 @@ security:
 
 - `ibexa_jwt_rest` is the firewall that allows to generate a JWT token through REST or GraphQL
 - `ibexa_jwt_rest.api` is the firewall to [use JWT authentication for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based
-- `ibexa_jwt_graphql` is the firewall to [use JWT authentication for GraphQL API](graphql.md#jwt-authentication)
+- `ibexa_jwt_graphql` is the firewall to use JWT authentication for GraphQL API
 
 For example, to use JWT authentication only for GraphQL API and keep session-based authentication for REST API:
 

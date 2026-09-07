@@ -29,47 +29,13 @@ nav:
         - First steps: getting_started/first_steps.md
     - API:
         - API: api/api.md
-        - PHP API:
-            - PHP API usage: api/php_api/php_api.md
-            - PHP API reference: api/php_api/php_api_reference/index.html
-        - REST API:
-            - REST API usage:
-                - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
-                - REST requests: api/rest_api/rest_api_usage/rest_requests.md
-                - REST responses: api/rest_api/rest_api_usage/rest_responses.md
-                - Testing REST API: api/rest_api/rest_api_usage/testing_rest_api.md
-            - REST API reference: api/rest_api/rest_api_reference/rest_api_reference.html
-            - Extending REST API:
-                - Adding custom media type: api/rest_api/extending_rest_api/adding_custom_media_type.md
-                - Creating new REST resource: api/rest_api/extending_rest_api/creating_new_rest_resource.md
-            - REST API authentication: api/rest_api/rest_api_authentication.md
-        - GraphQL:
-            - GraphQL: api/graphql/graphql.md
-            - GraphQL queries: api/graphql/graphql_queries.md
-            - GraphQL operations: api/graphql/graphql_operations.md
-            - GraphQL customization: api/graphql/graphql_customization.md
-            - GraphQL custom field type: api/graphql/graphql_custom_ft.md
-        - Event reference:
-            - Event reference: api/event_reference/event_reference.md
-            - Content events: api/event_reference/content_events.md
-            - Content type events: api/event_reference/content_type_events.md
-            - Location events: api/event_reference/location_events.md
-            - Language events: api/event_reference/language_events.md
-            - Section events: api/event_reference/section_events.md
-            - Object state events: api/event_reference/object_state_events.md
-            - Taxonomy events: api/event_reference/taxonomy_events.md
-            - Role events: api/event_reference/role_events.md
-            - User events: api/event_reference/user_events.md
-            - Segmentation events: api/event_reference/segmentation_events.md
-            - Page events: api/event_reference/page_events.md
-            - Site events: api/event_reference/site_events.md
-            - URL events: api/event_reference/url_events.md
-            - Trash events: api/event_reference/trash_events.md
-            - Twig Components: api/event_reference/twig_component_events.md
-            - AI Action events: api/event_reference/ai_action_events.md
-            - Integrated help events: api/event_reference/integrated_help_events.md
-            - Translations management events: api/event_reference/translations_management_events.md
-            - Other events: api/event_reference/other_events.md
+        - REST API usage:
+            - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
+            - REST requests: api/rest_api/rest_api_usage/rest_requests.md
+            - REST responses: api/rest_api/rest_api_usage/rest_responses.md
+            - Testing REST API: api/rest_api/rest_api_usage/testing_rest_api.md
+        - REST API reference: api/rest_api/rest_api_reference/rest_api_reference.html
+        - REST API authentication: api/rest_api/rest_api_authentication.md
     - Administration:
         - Administration: administration/administration.md
         - Project organization:
@@ -79,7 +45,6 @@ nav:
         - Dashboard:
             - Configure default dashboard: administration/dashboard/configure_default_dashboard.md
             - Customize dashboard: administration/dashboard/customize_dashboard.md
-            - PHP API Dashboard service: administration/dashboard/php_api_dashboard_service.md
         - Admin panel:
             - Admin panel: administration/admin_panel/admin_panel.md
             - Users: administration/admin_panel/users_admin_panel.md
@@ -359,7 +324,6 @@ nav:
         - Track with Raptor:
             - Tracking functions: recommendations/raptor_integration/tracking_functions.md
             - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
-            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
         - Recommendation blocks: recommendations/raptor_integration/recommendation_blocks.md
         - Render recommendations: recommendations/raptor_integration/custom_recommendation_rendering.md
     - Customer Data Platform:
