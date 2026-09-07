@@ -11,7 +11,7 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 ## Enable shielding
 
-To use Fastly Image Optimizer, you first need a [working setup of [[= product_name =]] and Fastly](../../infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md#using-varnish-or-fastly)
+To use Fastly Image Optimizer, you first need a working setup of [[= product_name =]] and Fastly
 with shielding enabled.
 To enable shielding, follow the steps in [Fastly Developer Documentation](https://www.fastly.com/documentation/guides/concepts/shielding/#enabling-and-disabling-shielding).
 Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/#enabling-shielding).
@@ -44,8 +44,6 @@ To apply your modifications or use the default configuration as-is, you can uplo
 fastly vcl snippet create --name="Ibexa Image Optimizer" --version=active --autoclone --type recv --content=vendor/ibexa/fastly/fastly/ibexa_image_optimizer.vcl
 fastly service-version activate --version=latest
 ```
-
-For more information about Fastly configuration and CLI usage examples, see [Configure and customize Fastly](fastly.md).
 
 ## Define SiteAccess for Fastly IO
 

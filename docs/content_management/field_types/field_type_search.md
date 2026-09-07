@@ -111,6 +111,3 @@ You could also define a custom field definition for certain fields, like for the
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>
 ```
 
-!!! note
-
-    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](solr_overview.md).

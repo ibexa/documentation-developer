@@ -53,7 +53,7 @@ A log item is a group of entries, or an entry without group.
 
 ### Disable activity log
 
-The `ibexa.repositories.<repository>.activity_log.enabled` setting can disable activity log entirely for a given [repository](repository_configuration.md).
+The `ibexa.repositories.<repository>.activity_log.enabled` setting can disable activity log entirely for a given repository.
 
 For example, to disable the activity log for the `default` repository:
 

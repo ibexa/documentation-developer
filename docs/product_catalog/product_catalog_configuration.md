@@ -4,7 +4,7 @@ description: Configure product catalog settings per repository, with different c
 
 # Product catalog configuration
 
-You can configure the product catalog per [Repository](repository_configuration.md).
+You can configure the product catalog per Repository.
 
 Under `ibexa.repositories.<repository_name>.product_catalog` [configuration key](configuration.md#configuration-files), indicate the catalog engine to use:
 

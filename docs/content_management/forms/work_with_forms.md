@@ -37,11 +37,6 @@ The example configuration above resizes the Captcha image (line 3), changes the 
 
 For information about available options, see [Gregwar/CaptchaBundle's documentation](https://github.com/Gregwar/CaptchaBundle#options).
 
-!!! note
-
-    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field.
-    For more information, see [Ensure proper captcha behavior](reverse_proxy.md#ensure-proper-captcha-behavior).
-
 ## Form submission purging
 
 You can purge all submissions of a given form.

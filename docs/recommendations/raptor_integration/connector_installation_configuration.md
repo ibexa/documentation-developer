@@ -18,8 +18,7 @@ composer require ibexa/connector-raptor
 
 !!! note
 
-    The [Ibexa Messenger](background_tasks.md) package is installed automatically as a dependency, but must be configured to enable server-side tracking.
-    See the Ibexa Messenger documentation for [configuration](background_tasks.md#configure-package) details.
+    The Ibexa Messenger package is installed automatically as a dependency, but must be configured to enable server-side tracking.
 
 ## SiteAccess-aware configuration
 

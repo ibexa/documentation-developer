@@ -9,7 +9,6 @@ The [`IsUserBased` Search Criterion](/api/php_api/php_api_reference/classes/Ibex
 !!! note
 
     In the default setup only the user content type is treated as user accounts.
-    However, you can also [set other content types to be treated as such](repository_configuration.md#user-identifiers).
 
 ## Arguments
 

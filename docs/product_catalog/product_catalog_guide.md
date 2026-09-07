@@ -227,7 +227,7 @@ You can customize them by extending the default implementation.
 
 ##### Limited HTTP Caching
 
-In the context of remote PIM, it's impossible to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
+In the context of remote PIM, it's impossible to use content-aware HTTP caching with `ibexa_http_cache_tag_relation_ids`.
 
 ## How to get started
 

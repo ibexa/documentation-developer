@@ -257,7 +257,7 @@ yarn encore <dev|prod>
 
 !!! tip
 
-    You should run the `yarn encore` command with the [environment](environments.md) you're using.
+    You should run the `yarn encore` command with the environment you're using.
 
     By default, [[= product_name =]] installs in the dev environment.
     If you changed it to prod, use `yarn encore prod`.

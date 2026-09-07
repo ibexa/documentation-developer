@@ -14,7 +14,7 @@ Each SiteAccess can have different:
 - [templates and designs](design_engine.md)
 - [languages](set_up_translation_siteaccess.md)
 - [tree roots](multisite_configuration.md#location-tree)
-- [repositories](persistence_cache.md#multi-repository-setup)
+- repositories
 - [recommendations](connector_installation_configuration.md#siteaccess-aware-configuration)
 
 Many other settings in the application are also configured per SiteAccess (also known as "SiteAccess-aware").

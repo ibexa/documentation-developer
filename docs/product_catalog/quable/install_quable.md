@@ -155,7 +155,7 @@ Webhook configuration must be set up in both [[= pim_product_name =]] and [[= pr
     - Products: created, updated, deleted
     - Classifications: created, updated, deleted
 
-The **Authorization Header** value is a [secret that must be kept secure](security_checklist.md#app_secret-and-other-secrets).
+The **Authorization Header** value is a secret that must be kept secure.
 
 !!! note
 
@@ -181,4 +181,4 @@ ibexa_connector_quable:
 
 [[= product_name =]] webhook processes [[= pim_product_name =]]'s classification change events and queues them to be processed in the background.
 
-To process them, [configure Ibexa Messenger](background_tasks.md) and make sure the `messenger:consume` command is run periodically.
+To process them, configure Ibexa Messenger and make sure the `messenger:consume` command is run periodically.
