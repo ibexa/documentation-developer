@@ -78,4 +78,3 @@ $settings = [
     'defaultType' => Type::DEFAULT_EMPTY,
 ];
 ```
-

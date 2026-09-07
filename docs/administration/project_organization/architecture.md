@@ -19,4 +19,3 @@ The architecture of [[= product_name =]] is layered and uses clearly defined API
 | [Back office](back_office_configuration.md)         | Back office contains all the necessary parts to run the [[= product_name =]]'s back office interface.                                                                                            |
 | [REST API v2](rest_api_usage.md)                    | The REST API v2 enables you to interact with a [[= product_name =]] installation through the HTTP protocol, following a REST interaction model.                                                 |
 | Business Logic                                      | The business logic is defined in the kernel. This business logic is exposed to applications via an API. It is used to organize development of the user interface layer.                        |
-

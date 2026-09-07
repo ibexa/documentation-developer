@@ -83,7 +83,6 @@ nav:
             - Content events: api/event_reference/content_events.md
             - Content type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
-            - Product catalog events: api/event_reference/product_catalog_events.md
             - Language events: api/event_reference/language_events.md
             - Section events: api/event_reference/section_events.md
             - Object state events: api/event_reference/object_state_events.md
@@ -355,7 +354,6 @@ nav:
             - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
             - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
             - Create product code generator: product_catalog/create_product_code_generator.md
-            - Customize product attribute templates: product_catalog/customize_product_attribute_templates.md
             - Customize product embed templates: product_catalog/customize_product_embed_templates.md
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Customer management:

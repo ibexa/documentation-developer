@@ -159,4 +159,3 @@ If you don't want to change the image itself, don't provide the `data` key.
     </fields>
 </VersionUpdate>
 ```
-

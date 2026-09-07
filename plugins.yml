@@ -41,8 +41,6 @@ plugins:
             'guide/repository/event_reference/content_events.md': 'api/event_reference/content_events.md'
             'guide/repository/event_reference/content_type_events.md': 'api/event_reference/content_type_events.md'
             'guide/repository/event_reference/location_events.md': 'api/event_reference/location_events.md'
-            'guide/repository/event_reference/catalog_events.md': 'api/event_reference/product_catalog_events.md'
-            'api/event_reference/catalog_events.md': 'api/event_reference/product_catalog_events.md'
             'guide/repository/event_reference/language_events.md': 'api/event_reference/language_events.md'
             'guide/repository/event_reference/section_events.md': 'api/event_reference/section_events.md'
             'guide/repository/event_reference/object_state_events.md': 'api/event_reference/object_state_events.md'
