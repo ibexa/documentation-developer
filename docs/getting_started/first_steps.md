@@ -35,7 +35,6 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
     Make sure that you change the default password before you switch your installation from development to production.
     For more information about passwords, see [Passwords](passwords.md).
-    For more information about production security, see [Security checklist](security_checklist.md).
 
 2\. In the upper-right corner, click the avatar icon and in the drop-down menu disable the [Focus mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode).
 

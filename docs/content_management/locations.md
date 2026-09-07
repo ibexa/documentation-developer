@@ -44,7 +44,7 @@ can be viewed by selecting the **Content structure** tab in the Content mode int
 ![Content structure](content_management_tree.png "Content structure")
 
 This part of the tree is typically used, for example, for organizing folders, articles, or information pages.
-The default ID number of this location is 2, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
+The default ID number of this location is 2.
 It contains a Folder content item.
 
 ### Media
@@ -55,7 +55,7 @@ that is frequently used by content items located below the **Content** node.
 ![Media](content_management_media.png "Media")
 
 It usually contains images, animations, documents and other files.
-The default ID number of the **Media** location is 43, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
+The default ID number of the **Media** location is 43.
 It contains a Folder content item.
 
 ### Users

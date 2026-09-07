@@ -20,10 +20,6 @@ For this, internal keys need to follow the format `<namespace>.<scope>.<paramete
 
 For more information about the ConfigResolver, namespaces and scopes, see [configuration basics](configuration.md).
 
-!!! tip "Repository-aware configuration"
-
-    If you need to use different settings per repository, not per SiteAccess, see [Repository-aware configuration](repository_configuration.md#repository-aware-configuration).
-
 The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
 

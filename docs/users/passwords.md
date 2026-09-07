@@ -61,7 +61,6 @@ To access the password settings:
 !!! tip
 
     There can be other content types that function as users, beyond the built-in user content type.
-    For details, see [User Identifiers](repository_configuration.md#user-identifiers).
 
 ## Password attributes
 

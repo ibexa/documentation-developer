@@ -144,7 +144,7 @@ The user can accept the suggestions, reject them, or request a new set of sugges
 Taxonomy suggestions are built into the product and do not require additional installation.
 However, before you can enable it, make sure the following prerequisites have been fulfilled:
 
-- [Search engine](search_engines.md): Taxonomy suggestions require a search engine that supports vector search.
+- Search engine: Taxonomy suggestions require a search engine that supports vector search.
 The feature has been tested to work with Elasticsearch or Solr 9.8.1+.
 - [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions configured to support the default [OpenAI](configure_ai_actions.md#configure-access-to-openai) or the optional [Google Gemini](configure_ai_actions.md#install-google-gemini-connector) service.
 
@@ -290,7 +290,7 @@ ibexa:
 
 After you make the change:
 
-- Update the [Solr schema](field_type_search.md#configuring-solr) or [Elasticsearch mappings](configure_elasticsearch.md#fine-tune-the-search-results) by adding dynamic field definitions. Ensure that they match the dimensions (for example, 1536 or 3072) and suffixes that you defined above
+- Update the [Solr schema](field_type_search.md#configuring-solr) or Elasticsearch mappings by adding dynamic field definitions. Ensure that they match the dimensions (for example, 1536 or 3072) and suffixes that you defined above
 - Clear the cache and reindex the search engine
 
 ### Extending Taxonomy suggestions

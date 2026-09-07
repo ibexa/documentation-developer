@@ -29,10 +29,6 @@ php bin/console ibexa:openapi --yaml --output=openapi.yaml # YAML output
 
 Use the specification file with [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
 
-!!! note
-
-    In [Symfony's `dev` environment](environments.md), you can access a REST API reference generated for your project by visiting the `/api/ibexa/v2/doc` route in the browser.
-
 ## URIs
 
 The REST API is designed in such a way that the client can explore the Repository without constructing any URIs to resources.

@@ -66,4 +66,3 @@ The following table gives an overview of the supported field types that come wit
 
 Legacy Search/Storage Engine index is limited to 255 characters in database design, so formatted and unformatted text blocks only index the first part.
 In case of multiple selection field types like, for example, Keyword, Selection, or Country, only the first choices are indexed. they're indexed only as a text blob separated by string separator.
-Proper indexing of these field types is done with [Solr Search engine](solr_overview.md).

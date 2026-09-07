@@ -86,7 +86,6 @@ They determine what fields of what field types are included in all content items
 !!! note
 
     You can assign each field defined in a content type to a group by selecting one of the groups in the Category drop-down.
-    [Available groups can be configured in the content repository](repository_configuration.md).
 
 !!! caution
 

@@ -25,7 +25,7 @@ You have to create your own MCP servers by providing [their configuration](#mcp-
 
 AI agents use JWT authentication against [[= product_name =]]'s  MCP servers.
 
-In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_header` token extractor](development_security.md#jwt-authentication) to allow the use of JWT token bearer in `Authorization` header.
+In `config/packages/lexik_jwt_authentication.yaml`, enable the `authorization_header` token extractor to allow the use of JWT token bearer in `Authorization` header.
 
 In `config/packages/security.yaml`, make the following changes:
 
@@ -175,7 +175,7 @@ php bin/console cache:pool:clear cache.redis.mcp
 
 !!! tip
 
-    Use `ibexa.cache_pool` as service identifier to have the default [cache service](persistence_cache.md#cache-service).
+    Use `ibexa.cache_pool` as service identifier to have the default cache service.
 
 It can be set to `null` to disable caching to ease development, which isn't recommended for production environment.
 
@@ -195,7 +195,7 @@ MCP servers store session data in their own way.
 | `directory` | string  | `null`             | Directory path for the `file` session store                    |
 | `ttl`       | integer | `3600`             | Session TTL in seconds                                         |
 
-In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, like with [regular sessions](clustering.md#shared-sessions).
+In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey.
 
 #### PSR-16
 

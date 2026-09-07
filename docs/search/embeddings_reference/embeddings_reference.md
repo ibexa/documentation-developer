@@ -25,7 +25,7 @@ The `Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding` class allows
     !!! note "Embedding query properties"
 
         Embedding queries do not use criteria for similarity, but for additional filtering applied through the query filter. 
-        Also, embedding queries do not allow standard Query properties supported by [search engines](search_engines.md) other than the Legacy Search, such as `query`, `sortClauses`, or `spellcheck`.
+        Also, embedding queries do not allow standard Query properties supported by search engines other than the Legacy Search, such as `query`, `sortClauses`, or `spellcheck`.
 
 - EmbeddingQueryBuilder is a builder for constructing `EmbeddingQuery` instances.
     It helps construct queries consistently and integrates embedding queries with the search query pipeline.
@@ -49,7 +49,7 @@ Field selection is determined by the configured embedding model and backend spec
 
 Embedding providers implement the contract for generating vector representations of input data.
 Out of the box, embedding search integration is provided for `TaxonomyEmbedding`.
-If you use a custom embedding value type, implement matching embedding visitors for your [search engine](search_engines.md).
+If you use a custom embedding value type, implement matching embedding visitors for your search engine.
 Otherwise, query execution may fail due to no visitor available.
 
 - `Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderInterface` generates embeddings for the provided text or other input
