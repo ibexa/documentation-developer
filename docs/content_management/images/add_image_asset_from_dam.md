@@ -83,7 +83,7 @@ In the **Content** group, create a content type for DAM images, which includes t
 
 Now, when you use the Embed block in the Page Builder, you should see a DAM Image.
 
-For more information about block customization (defined templates, variations), see [Create custom block](4_create_a_custom_block.md).
+For more information about block customization (defined templates, variations), see [Page blocks](../pages/page_blocks.md).
 
 ## Extend DAM support by adding custom connector
 

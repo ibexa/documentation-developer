@@ -6,7 +6,7 @@ description: Register new users.
 
 You can allow your users to create accounts by using the `/register` route.
 This route leads to a registration form that, when filled in, creates a new user content item in the repository.
-To give your users a possibility to register themselves, follow the instructions on [enabling account registration](8_enable_account_registration.md).
+To give anonymous users the possibility to register themselves, grant the anonymous user the `user` / `register` [policy](/permissions/policies.md).
 
 ## User types
 

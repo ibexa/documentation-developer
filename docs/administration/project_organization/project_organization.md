@@ -6,8 +6,6 @@ description: A Cohesivo project follows Symfony's directory structure to organiz
 
 [[= product_name =]] is a Symfony application and follows the project structure used by Symfony.
 
-You can see an example of organizing a project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master) for the [Beginner tutorial](page_and_form_tutorial.md).
-
 ## PHP code
 
 The project's PHP code (for example, controllers or event listeners) should be placed in the `src` folder.

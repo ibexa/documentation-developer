@@ -48,7 +48,6 @@ A structure of elements that *store* content information is referred to as the *
 [[= product_name =]] comes with a predefined content model that includes a broad set of various field types and several content types.
 
 You can customize and adapt the content model to your organization's needs and the type of output channel that you use.
-If need be, development teams can [create new field types](creating_a_point2d_field_type.md), to enhance editor and visitor experiences.
 Content managers or even editors can then apply such field types when they modify existing or create new content types.
 The editing interface lets all users, including those with no coding experience, create or modify certain areas of the content model.
 
