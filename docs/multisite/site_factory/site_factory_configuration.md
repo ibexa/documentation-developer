@@ -1,6 +1,5 @@
 ---
 description: Configure Site Factory, including site skeletons.
-edition: experience
 ---
 
 # Site Factory configuration

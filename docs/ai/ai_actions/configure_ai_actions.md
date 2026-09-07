@@ -36,7 +36,7 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
-## Configure Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
+## Configure Anthropic connector
 
 The Anthropic connector adds basic handlers that let you refine text or generate alternative text for images.
 
@@ -77,7 +77,7 @@ You can now use the Anthropic connector in your project.
     Anthropic regularly releases new models and deprecates older ones.
     Before you configure the connector, check the [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for the current list of supported model identifiers.
 
-## Configure Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+## Configure Google Gemini connector
 
 The Google Gemini connector adds basic handlers that let you refine text or generate alternative text for images.
 

@@ -1,6 +1,5 @@
 ---
 description: Raptor CDP is a software system designed to collect and organize customer data from multiple sources to build comprehensive customer profiles.
-edition: experience
 ---
 
 # [[= product_name_cdp =]] integration

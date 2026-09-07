@@ -1,6 +1,5 @@
 ---
 description: Configure an MCP server that exposes built-in and custom tools, prompts, and resources.
-edition: lts-update
 month_change: true
 saas_review:
     - siteaccess

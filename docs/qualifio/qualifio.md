@@ -1,6 +1,5 @@
 ---
 description: Use Qualifio to collect customer data by creating interactive content.
-edition: experience
 month_change: false
 ---
 

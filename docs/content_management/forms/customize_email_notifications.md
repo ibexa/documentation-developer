@@ -1,6 +1,5 @@
 ---
 description: Adapt the form and content of emails sent out from the Form Builder.
-edition: experience
 ---
 
 # Customize email notifications

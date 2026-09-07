@@ -1,6 +1,5 @@
 ---
 description: Step-by-step configuration procedure of Raptor CDP.
-edition: experience
 ---
 
 # Configure [[= product_name_cdp =]]

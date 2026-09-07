@@ -185,7 +185,7 @@ ibexa:
 
 Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 
-### `Ibexa\SiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]]
+### `Ibexa\SiteFactory\SiteAccessMatcher`
 
 Enables the use of [Site Factory](site_factory.md).
 Doesn't take any parameters in configuration:

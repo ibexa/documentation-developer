@@ -259,7 +259,7 @@ ibexa:
     When you change the default suggestions generation model, ensure that you update the `ibexa.system.default.taxonomy.search.default_embedding_model` setting that is used for taxonomy indexing purposes.
     Otherwise the taxonomy suggestions feature fails to find matching entries.
 
-#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]]
+#### Change embeddings provider to Google Gemini
 
 Once you have configured the [Google Gemini connector](configure_ai_actions.md#configure-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://ai.google.dev/gemini-api/docs/embeddings):
 

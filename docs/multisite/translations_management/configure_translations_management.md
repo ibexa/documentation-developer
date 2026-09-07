@@ -1,6 +1,5 @@
 ---
 description: Configure translation providers, language pairs, and more for translations management.
-edition: lts-update
 month_change: true
 saas_review:
     - siteaccess
