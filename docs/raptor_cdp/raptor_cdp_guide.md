@@ -29,12 +29,11 @@ Customer data is gathered through a system of trackers embedded in various areas
 
 ![CDP - how does it work](img/cdp.png)
 
-### Installation and configuration
+### Getting started
 
-To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](/raptor_cdp/raptor_cdp_installation.md#register-in-raptor-cdp-dashboard).
+To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to register your [[= product_name_cdp =]] account.
 When you're done with registration process, you're able to access a separate instance with the data needed to configure, activate, and use this feature.
 
-After your account is created, you can [download and install the [[= product_name_cdp =]] package](/raptor_cdp/raptor_cdp_installation.md#install-package) that is opt-in and needs to be downloaded separately.
 Last step is to go through the [configuration process](raptor_cdp_configuration.md).
 
 ### Customer profile

@@ -146,7 +146,7 @@ However, before you can enable it, make sure the following prerequisites have be
 
 - Search engine: Taxonomy suggestions require a search engine that supports vector search.
 The feature has been tested to work with Elasticsearch or Solr 9.8.1+.
-- [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions configured to support the default [OpenAI](configure_ai_actions.md#configure-access-to-openai) or the optional [Google Gemini](configure_ai_actions.md#install-google-gemini-connector) service.
+- [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions configured to support the default [OpenAI](configure_ai_actions.md#configure-access-to-openai) or the optional [Google Gemini](configure_ai_actions.md#configure-google-gemini-connector) service.
 
 !!! note "Alternative embeddings provider"
 
@@ -261,7 +261,7 @@ ibexa:
 
 #### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]]
 
-Once you have installed and configured the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://ai.google.dev/gemini-api/docs/embeddings):
+Once you have configured the [Google Gemini connector](configure_ai_actions.md#configure-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://ai.google.dev/gemini-api/docs/embeddings):
 
 ```yaml hl_lines="15 22"
 ibexa:

@@ -1,25 +1,15 @@
 ---
-description: Install and configure Quable connector for Cohesivo
+description: Configure the Quable connector for Cohesivo
 month_change: false
 ---
 
-# Install [[= pim_product_name =]] connector
+# Set up [[= pim_product_name =]] synchronization
 
-To integrate [[= product_name =]] with [[= pim_product_name =]], you need to install the [[= pim_product_name =]] connector packages, configure the connection, and set up synchronization.
+To integrate [[= product_name =]] with [[= pim_product_name =]], you need to configure the connection and set up synchronization.
 
 ## Create [[= pim_product_name =]] instance
 
-Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] instance](https://www.quable.com).
-
-## Install package
-
-Run the following command to install the required package:
-
-``` bash
-composer require ibexa/connector-quable
-```
-
-The command adds the [[= pim_product_name =]] connector code, including services that enable communication with [[= pim_product_name =]].
+Before configuring the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] instance](https://www.quable.com).
 
 ## Get API credentials
 
@@ -177,8 +167,4 @@ ibexa_connector_quable:
     [[[= pim_product_name =]] uses dynamic IP addresses](https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist) to connect to [[= product_name =]].
     If your [[= product_name =]] instance is protected by a firewall, make sure your configuration allows connections from changing IP addresses.
 
-### Configure background task
-
-[[= product_name =]] webhook processes [[= pim_product_name =]]'s classification change events and queues them to be processed in the background.
-
-To process them, configure Ibexa Messenger and make sure the `messenger:consume` command is run periodically.
+[[= product_name =]] webhook processes [[= pim_product_name =]]'s classification change events and queues them to be processed asynchronously in the background.

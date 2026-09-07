@@ -1,7 +1,12 @@
 ---
-description: Install translations management and configure translation providers, language pairs, and more.
+description: Configure translation providers, language pairs, and more for translations management.
 edition: lts-update
 month_change: true
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Confirm how the SiteAccess-aware translation provider namespace and its
+    API key settings are exposed once SiteAccess configuration moves to a UI.
 ---
 
 # Configure translations management
@@ -21,51 +26,6 @@ There are multiple extension points that you can use to [customize different are
 
     Also, [product attributes](products.md#product-attributes) remain non-translatable and are inactive in the side-by-side translation view.
 
-## Install package
-
-To install Translations management, run the following command:
-
-```bash
-composer require ibexa/translations-management
-```
-
-If you're installing Translations management LTS Update as part of the installation process of a fresh [[= product_name =]] instance, this step copies the migration files into the project's migrations directory.
-It also creates the database tables required for the review workflow, and adds the default action configurations in the database.
-Otherwise follow the steps below.
-
-### Existing installations
-
-To add the Translations management LTS Update to an existing [[= product_name =]] instance, after installation, you must create database tables and action configurations yourself.
-
-#### Modify database schema
-
-Add the tables needed by the bundle:
-
-=== "MySQL"
-
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.mysql.sql', indent_level=1) =]]
-    ```
-
-=== "PostgreSQL"
-
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.postgresql.sql', indent_level=1) =]]
-    ```
-
-The script creates the required data structures, but doesn't add any data to the database.
-
-#### Add action configurations
-
-To complete the setup, import and run the AI Action Configuration migrations required by the [AI connectors](configure_ai_actions.md) that you use:
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_06_15_00_auto_translate_openai_action_configuration.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_11_10_00_auto_translate_gemini_action_configuration.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_12_08_30_auto_translate_anthropic_action_configuration.yaml
-php bin/console ibexa:migrations:migrate
-```
-
 ## Configure translation providers
 
 Translation providers are the services that perform the actual text translation.
@@ -80,7 +40,7 @@ The Translations management package comes with two types of translation services
 
     Before you can configure translation providers, you must meet the following prerequisites:
 
-    - For the REST API-based translation providers, add API keys that you obtain from the machine translation services to the `.env` file in the root directory of your project.
+    - For the REST API-based translation providers, obtain API keys from the machine translation services and provide them in your instance's translation provider settings.
     - For the AI-based translation providers, [configure AI Actions and the corresponding connectors](configure_ai_actions.md).
 
 Out of the box, Translations management can support the following translation providers:
@@ -95,7 +55,7 @@ Out of the box, Translations management can support the following translation pr
 
 ### Built-in AI providers
 
-If you meet the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
+If you meet the above prerequisites, Translations management automatically provides AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
@@ -131,7 +91,7 @@ ibexa:
                             actionConfigurationIdentifier: 'auto_translate_gemini'
 ```
 
-The `apiKey` values must reference API key values that you added to the `.env` file.
+The `apiKey` values must reference the API key values configured for the tenant.
 The `actionConfigurationIdentifier` values must reference existing Action Configurations.
 If a value is missing or empty, the provider doesn't appear in the UI as a selectable option.
 

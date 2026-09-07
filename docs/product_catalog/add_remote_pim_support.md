@@ -1,5 +1,5 @@
 ---
-description: Install and configure the Remote PIM example package.
+description: Configure a custom Remote PIM integration for the product catalog.
 ---
 
 # Add Remote PIM support
@@ -11,7 +11,7 @@ To implement [Remote PIM support](product_catalog_guide.md#remote-pim-support) f
 
 While doing so, you must implement services that process data coming from the remote PIM.
 
-Before you create your own solution, you can [install an example package](#install-remote-pim-example-package) and modify it to connect to your external data source.
+Before you create your own solution, you can use the `ibexa/example-in-memory-product-catalog` example implementation and modify it to connect to your external data source.
 
 ## Implement services
 
@@ -51,15 +51,3 @@ ibexa:
 
     By default, the `ibexa.repositories.<repository_name>.product_catalog.engine.type` key is set to `local`, which informs [[= product_name =]] that the built-in product catalog capabilities are used.
     By changing this setting and the `ibexa.repositories.<repository_name>.product_catalog.engine` setting from `default` to your custom value, you inform [[= product_name =]] that you're using a remote PIM.
-
-## Install Remote PIM example package
-
-The example implementation provides services that take over the role of services provided by the product catalog package.
-You can modify them to suit your needs.
-
-Install the `ibexa/example-in-memory-product-catalog` package:
-
-``` bash
-composer config repositories.remote-pim vcs https://github.com/ibexa/example-in-memory-product-catalog
-composer require ibexa/example-in-memory-product-catalog:
-```
