@@ -54,7 +54,8 @@ They are sent by various notifiers like event subscribers, controllers or form p
 Notice that `Ibexa\AdminUi\Notifier\Notification\UserInvitation` is sent by the back office and doesn't implement `Ibexa\Contracts\User\Notification\UserInvitation` which is made for front-end users.
 Same for the two `UserPasswordReset` in distinct namespaces. The back office `UserPasswordReset` notification is sent by a dedicated implementation of the notifier used by the controller.
 
-<a name="specific-channels-asterisk"><sup>*</sup></a> The specific channels listed are the channels needing a specific notification interface.
+<a name="specific-channels-asterisk"><sup>*</sup></a>
+The specific channels listed are the channels needing a specific notification interface you can send this notification type to.
 More generic channels supporting any notification type can always be used.
 For more information, see the [Available notification channels](#available-notification-channels) table.
 
