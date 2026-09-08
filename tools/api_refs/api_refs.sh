@@ -230,10 +230,10 @@ fi;
 
 echo 'Dump REST OpenAPI schema… ';
 $PHP_BINARY bin/console ibexa:openapi --yaml \
-  | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png'@" \
+  | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/latest/images/cohesivo-logo-alt.svg'@" \
 > openapi.yaml;
 $PHP_BINARY bin/console ibexa:openapi \
-  | sed 's@"info": {@"info": {\n    "x-logo": {\n      "url": "https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png"\n    },@' \
+  | sed 's@"info": {@"info": {\n    "x-logo": {\n      "url": "https://doc.ibexa.co/en/latest/images/cohesivo-logo-alt.svg"\n    },@' \
 > openapi.json;
 echo 'Fix REST OpenAPI schema… ';
 $PHP_BINARY $OPENAPI_FIX;

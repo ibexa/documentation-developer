@@ -1,0 +1,85 @@
+:root > * {
+    /* Primary — violet */
+    --cohesivo-primary-100: #391b79;
+    --cohesivo-primary-80: #4e24a5;
+    --cohesivo-primary-60: #612dcd;
+    --cohesivo-primary-40: #7f53da;
+    --cohesivo-primary-5: #cfbef1;
+    --cohesivo-primary-0: #e7def8;
+
+    /* Primary alt — lighter violet, used for gradients and shadow tints */
+    --cohesivo-primary-alt-80: #7742d5;
+    --cohesivo-primary-alt-40: #b497e8;
+
+    /* Neutral */
+    --cohesivo-neutral-240: #0e1216;
+    --cohesivo-neutral-200: #3e4145;
+    --cohesivo-neutral-160: #6e7173;
+    --cohesivo-neutral-60: #e7e7e8;
+    --cohesivo-neutral-50: #ececec;
+    --cohesivo-neutral-30: #f5f6f6;
+    --cohesivo-neutral-10: #ffffff;
+
+    /* Semantic */
+    --cohesivo-info-100: #003f63;
+    --cohesivo-info-80: #19628f;
+    --cohesivo-info-5: #edf2f7;
+
+    --cohesivo-success-100: #146d00;
+    --cohesivo-success-80: #378f19;
+
+    --cohesivo-error-80: #ba2124;
+
+    --cohesivo-warning-120: #8c3f00;
+    --cohesivo-warning-110: #a85000;
+    --cohesivo-warning-80: #dc8004;
+    --cohesivo-warning-10: #fcefde;
+
+    --cohesivo-alert-info-bg: #f1ecfb;
+
+    /* Gradient — $gradient-primary-1 in the design system */
+    --cohesivo-gradient-primary: linear-gradient(90deg, var(--cohesivo-primary-80) 40%, var(--cohesivo-primary-alt-40) 100%);
+
+    /* Shadows are tinted with primary-alt (#7742d5) */
+    --cohesivo-shadow-tile: 4px 22px 47px rgba(119, 66, 213, 0.05);
+    --cohesivo-shadow-tile-hover: 0 22px 24px 0 rgba(119, 66, 213, 0.15);
+
+    /* Focus ring, tinted with primary (#4e24a5) */
+    --cohesivo-shadow-focus: 0 0 0 4px rgba(78, 36, 165, 0.25);
+
+    /* Flat tint of primary (#4e24a5), for hovered rows */
+    --cohesivo-primary-tint-5: rgba(78, 36, 165, 0.05);
+
+    /* Transitions */
+    --cohesivo-transition-duration: 0.4s;
+    --cohesivo-transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* Legacy neutrals, kept for the rules that are not part of the palette */
+    --black: #000000;
+    --white: var(--cohesivo-neutral-10);
+    --mid-grey: rgb(201, 201, 208);
+    --dark-grey: rgb(151, 151, 151);
+    --codeblock: rgb(89, 96, 103);
+    --inline-code: rgb(242, 242, 245);
+    --code-highlight: #d9e9ff;
+
+    /* Semantic aliases */
+    /* Links follow the app: dark ink, violet on hover. */
+    --link: var(--cohesivo-neutral-240);
+    --caution-border: var(--cohesivo-warning-80);
+    --note-border: var(--mid-grey);
+    --enterprise-border: var(--cohesivo-primary-80);
+    --table-header: var(--codeblock);
+
+    /* Admonitions — the product's .ibexa-alert silhouette with the fill taken
+       from the lightest step of the same ramp. */
+    --admonition-info-bg: var(--cohesivo-alert-info-bg);
+    --admonition-info-bar: var(--cohesivo-primary-80);
+    --admonition-info-title: var(--cohesivo-primary-100);
+    --admonition-warning-bg: var(--cohesivo-warning-10);
+    --admonition-warning-bar: var(--cohesivo-warning-80);
+    --admonition-warning-title: var(--cohesivo-warning-120);
+
+    /* Override Material colors */
+    --md-accent-fg-color: var(--cohesivo-primary-80);
+}

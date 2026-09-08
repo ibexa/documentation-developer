@@ -5,46 +5,46 @@
   padding: 1px 8px;
   border: 1px solid;
   margin-right: 8px;
-  color: #A32768;
+  color: var(--cohesivo-primary-80);
 }
 .pill--headless {
-  color: #C4234A;
-  border-color: #C4234A;
+  color: var(--cohesivo-error-80);
+  border-color: var(--cohesivo-error-80);
 }
 .pill--headless::after {
   content: "Headless";
 }
 .pill--experience {
-  color: #D3822B;
-  border-color: #D3822B;
+  color: var(--cohesivo-warning-110);
+  border-color: var(--cohesivo-warning-110);
 }
 .pill--experience::after {
   content: "Experience";
 }
 .pill--commerce {
-  color: #A32768;
-  border-color: #A32768;
+  color: var(--cohesivo-primary-80);
+  border-color: var(--cohesivo-primary-80);
 }
 .pill--commerce::after {
   content: "Commerce";
 }
 .pill--lts-update {
-  color: #5DA7C0;
-  border-color: #5DA7C0;
+  color: var(--cohesivo-info-80);
+  border-color: var(--cohesivo-info-80);
 }
 .pill--lts-update::after {
   content: "LTS Update";
 }
 .pill--new-feature {
-  color: #2C9445;
-  border-color: #2C9445;
+  color: var(--cohesivo-success-100);
+  border-color: var(--cohesivo-success-100);
 }
 .pill--new-feature::after {
   content: "New feature";
 }
 .pill--first-release {
-  color: #2C9445;
-  border-color: #2C9445;
+  color: var(--cohesivo-success-100);
+  border-color: var(--cohesivo-success-100);
 }
 .pill--first-release::after {
   content: "First release";
@@ -55,12 +55,10 @@
 .pill--new {
   margin-right: 15px;
   align-self: center;
-  color: #3562A0;
+  color: var(--cohesivo-info-80);
   text-transform: lowercase;
 }
 
 div.pills {
   float: right;
 }
-
-/*# sourceMappingURL=pills.css.map */

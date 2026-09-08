@@ -1,10 +1,8 @@
-@use 'variables';
-
 .release-notes-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid variables.$color-dark-85-white;
+    border-bottom: 1px solid var(--cohesivo-neutral-60);
     padding: 8px 0;
 
     h1 {
@@ -38,7 +36,7 @@
     &__visible-item {
         padding: 4px 24px 4px 8px;
         margin-left: 8px;
-        background-color: variables.$color-light-400;
+        background-color: var(--cohesivo-neutral-50);
         border-radius: 16px;
         font-size: 12px;
         position: relative;
@@ -63,7 +61,7 @@
             content: '';
             width: 1px;
             height: 12px;
-            background: variables.$color-dark;
+            background: var(--cohesivo-neutral-240);
             position: absolute;
             top: 50%;
             left: 50%;
@@ -84,10 +82,10 @@
         &--expanded {
             .release-notes-filters {
                 &__btn {
-                    color: variables.$color-primary-main;
+                    color: var(--cohesivo-primary-80);
         
                     svg {
-                        fill: variables.$color-primary-main;
+                        fill: var(--cohesivo-primary-80);
                     }
                 }
             
@@ -105,10 +103,10 @@
         height: 24px;
 
         &:hover {
-            color: variables.$color-primary-main;
+            color: var(--cohesivo-primary-80);
 
             svg {
-                fill: variables.$color-primary-main;
+                fill: var(--cohesivo-primary-80);
             }
         }
     }
@@ -126,7 +124,7 @@
             top: 0;
             display: none;
             content: '';
-            background-color: variables.$color-error-main;
+            background-color: var(--cohesivo-error-80);
             width: 6px;
             height: 6px;
             border-radius: 50%;
@@ -146,8 +144,8 @@
         left: 50%;
         padding: 8px;
         transform: translate(-50%, 100%);
-        border: 1px solid variables.$color-dark-85-white;
-        background-color: variables.$color-dark-100-white;
+        border: 1px solid var(--cohesivo-neutral-60);
+        background-color: var(--cohesivo-neutral-10);
         border-radius: 8px;
         display: none;
     }
@@ -166,13 +164,13 @@
             appearance: none;
             position: relative;
             cursor: pointer;
-            background-color: variables.$color-dark-100-white;
+            background-color: var(--cohesivo-neutral-10);
             width: 16px;
             height: 16px;
             border-radius: 2px;
             outline: none;
-            transition: all variables.$transition-duration variables.$transition-timing-function;
-            border: 1px solid variables.$color-dark-400;
+            transition: all var(--cohesivo-transition-duration) var(--cohesivo-transition-timing-function);
+            border: 1px solid var(--cohesivo-neutral-160);
             margin: 0 8px -2.5px 0;
 
             &::after {
@@ -189,20 +187,20 @@
             }
 
             &:hover {
-                border-color: variables.$color-primary;
+                border-color: var(--cohesivo-primary-80);
             }
         
             &:focus {
-                border-color: variables.$color-primary;
-                box-shadow: 0 0 0 4px rgba(variables.$color-primary, 0.25);
+                border-color: var(--cohesivo-primary-80);
+                box-shadow: var(--cohesivo-shadow-focus);
             }
 
             &:checked {
-                border-color: variables.$color-primary;
-                background-color: variables.$color-primary;
+                border-color: var(--cohesivo-primary-80);
+                background-color: var(--cohesivo-primary-80);
     
                 &::after {
-                    border-color: variables.$color-dark-100-white;
+                    border-color: var(--cohesivo-neutral-10);
                 }
             }
         }
@@ -222,7 +220,7 @@
     }
 
     &__date {
-        color: variables.$color-dark-400;
+        color: var(--cohesivo-neutral-160);
         margin-bottom: 24px;
     }
 
@@ -248,7 +246,7 @@
         top: 11px;
         width: 9px;
         height: 9px;
-        border: 1px solid variables.$color-primary-main;
+        border: 1px solid var(--cohesivo-primary-80);
         border-radius: 50%;
     }
 
@@ -261,7 +259,7 @@
         left: 4px;
         width: 1px;
         height: calc(100% - 8px);
-        background-color: variables.$color-light;
+        background-color: var(--cohesivo-neutral-60);
     }
 
     &:last-of-type {
