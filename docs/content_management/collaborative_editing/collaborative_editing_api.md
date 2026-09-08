@@ -72,15 +72,15 @@ You can add participant to the collaboration session with [`SessionService::addP
 [[= include_code('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 81, 93, remove_indent=True) =]]
 ```
 
-Participants can be internal (based on an existing user) or external (on an email address):
+Depending on the participant type, use one of the following classes to add a participant:
 
-[`InternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipantCreateStruct.html#properties)
-[`ExternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipantCreateStruct.html#properties)
+- [`InternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipantCreateStruct.html#properties) for internal participants, based on an already existing user in the system
+- [`ExternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipantCreateStruct.html#properties) for external users, based on their email
 
 Two scopes are available:
 
-- [`ContentSessionScope::EDIT`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_EDIT)
-- [`ContentSessionScope::VIEW`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_VIEW)
+- [`ContentSessionScope::EDIT`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_EDIT) granting both read and edit access
+- [`ContentSessionScope::VIEW`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_VIEW) granting readonly access
 
 ### Get and update participant
 

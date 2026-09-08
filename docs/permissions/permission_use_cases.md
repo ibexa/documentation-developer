@@ -164,7 +164,10 @@ With limitations, you can configure whether permissions apply to Tags, product c
 
 ## Register users
 
-To allow anonymous users to register through the `/register` or `/from-invite/register` routes, grant, to the Anonymous role, the `user/register` policy and the `content/create` policy limited to the User content type and some user groups.
+To allow anonymous users to register through the `/register` or `/from-invite/register` routes, grant the following policies to the Anonymous role:
+
+- `user/register`
+- `content/create`, limited to the User content type and chosen user groups
 
 ## Admin
 

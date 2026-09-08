@@ -79,7 +79,6 @@ php bin/console debug:container --tag=notifier.channel
 | [`push`]([[= symfony_doc =]]/notifier.html#push-channel)       | Notification forwarded to specific applications                                                 | <small>`Symfony\Component\Notifier\Notification\`</small><br>`PushNotificationInterface`                                                                                                                                               | Yes                             |
 | [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel)         | Notification forwarded to phone numbers                                                         | <small>`Symfony\Component\Notifier\Notification\`</small><br>`SmsNotificationInterface`                                                                                                                                                | **No**                          |
 
-
 ### Subscriptions configuration
 
 You can find the default configuration in `config/packages/ibexa.yaml` and `config/packages/ibexa_admin_ui.yaml`.
