@@ -6,7 +6,7 @@ month_change: false
 
 # Product Search Criteria reference
 
-Product Search Criteria are supported by [product and product variant search](product_api.md#products) with the following methods:
+Product Search Criteria are supported by product and product variant search.
 
 - `ProductServiceInterface::findProducts()`
 - `ProductServiceInterface::findProductVariants()`
@@ -16,7 +16,7 @@ Search Criterion let you filter product by specific attributes, for example, col
 
 ## Product Search Criteria
 
-To query for products coming from [[= pim_product_name =]], see [[[= pim_product_name =]] Search API](/product_catalog/quable/quable_api.md#search-for-products) for details about the integration.
+To query for products coming from [[= pim_product_name =]], see [[[= pim_product_name =]]](../../product_catalog/quable/quable.md) for details about the integration.
 
 |Search Criterion|Search based on|Local product catalog|[[= pim_product_name =]]|
 |-----|-----|-----|-----|

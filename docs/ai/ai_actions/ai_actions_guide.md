@@ -129,14 +129,6 @@ An intuitive AI Actions interface within the **Admin** panel displays a list of 
 Here, you can search for specific actions and filter them by type or status.
 By accessing the detailed view of individual AI actions, you can quickly review all their parameters.
 
-### Extensibility
-
-Built-in AI action types offer a good starting point, but the real power of AI Actions lies in extensibility.
-Extending AI Actions opens up new possibilities for content management and editing.
-Developers can define new models and AI action types that use the existing AI service or even integrate additional services.
-The latter involves developing a new service connector, writing a handler that communicates with the new service, defining a new AI action type, and creating a form for configuring options, which extends the default action configuration form shown in the **Admin** panel.
-For example, if this is your organization's requirement, a developer could write a handler that uses an AI service available internally, without exposing your data to a third-party service.
-
 ## Use cases
 
 Out of the box, after you configure access to the OpenAI service, AI Actions come with two action types that can help your organization with the following tasks.

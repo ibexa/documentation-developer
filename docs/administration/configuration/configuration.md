@@ -59,7 +59,7 @@ All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer), it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
 
-You can also [implement SiteAccess-aware semantic configuration](siteaccess_aware_configuration.md).
+Settings can also be [SiteAccess-aware](siteaccess_aware_configuration.md), taking a different value per SiteAccess, SiteAccess group, or globally.
 
 For example:
 

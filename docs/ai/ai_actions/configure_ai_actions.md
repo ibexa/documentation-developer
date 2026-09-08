@@ -16,7 +16,7 @@ To use this feature you must first configure the built-in service connectors.
 
 Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below.
 
-Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
+Once the connectors are configured, you can start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
 !!! note "Taxonomy suggestions"
 

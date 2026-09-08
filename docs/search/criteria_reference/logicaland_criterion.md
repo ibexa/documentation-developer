@@ -6,7 +6,7 @@ description: LogicalAnd Search Criterion
 
 The `LogicalAnd` Search Criterion matches content if all provided Criteria match.
 
-When querying for [products](product_api.md), use LogicalAnd instead.
+When querying for products, use LogicalAnd instead.
 
 ## Arguments
 

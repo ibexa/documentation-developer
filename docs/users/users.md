@@ -29,5 +29,4 @@ All such user accounts have the same underlying mechanism and enable you to cont
 
 [[= cards([
     "users/customer_groups",
-    "users/segment_api",
 ], columns=2) =]]

@@ -45,7 +45,6 @@ The first one is used to send the test user data to the Data Manager.
 If it passes a validation test in the **Activation** section, use the latter one to send a full version.
 
 You can extend exported user data with custom fields from your user content, such as date of birth, preferences, or other profile information.
-For more information, see [Data customization](raptor_cdp_data_customization.md#export-additional-user-data).
 
 Next, go back to [[= product_name_cdp =]] and select **Validate & download**.
 If the file passes, you can see a confirmation message.
@@ -65,7 +64,7 @@ If you make any alterations, select the **Parse File** to generate columns with 
 In the **Transform & Map** section you transform data and map it to a schema.
 At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
 
-If you have [extended user data export with custom fields](raptor_cdp_data_customization.md#export-additional-user-data), those fields appear as additional columns in this section.
+If user data export has been extended with custom fields, those fields appear as additional columns in this section.
 Make sure to add them to your schema in Raptor so they can be used for segmentation and recommendations.
 
 Next, select **Create schema based on the downloaded columns**.

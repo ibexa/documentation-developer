@@ -106,7 +106,7 @@ The product catalog distinguishes between two types of availability:
 
 - Availability as a value set per product or variant
 
-    Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability) or [PHP API](product_api.md#product-availability).
+    Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability).
 
 - Computed availability
 

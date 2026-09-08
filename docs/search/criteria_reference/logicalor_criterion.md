@@ -6,7 +6,7 @@ description: LogicalOr Search Criterion
 
 The `LogicalOr` Search Criterion matches content if at least one of the provided Criteria matches.
 
-When querying for [products](product_api.md), use LogicalOr instead.
+When querying for products, use LogicalOr instead.
 
 ## Arguments
 

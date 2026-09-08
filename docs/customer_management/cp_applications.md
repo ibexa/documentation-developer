@@ -61,28 +61,6 @@ First, under the `ibexa.system.<scope>.corporate_accounts.application.states` ad
 [[= include_file('code_samples/customer_portal/config/packages/customer_portal.yaml') =]]
 ```
 
-### Create new Form Type
-
-Next, create a new form type in `src/Form/VerifyType.php`.
-It's displayed in the application review stage.
-
-``` php hl_lines="17-18 25"
-[[= include_code('code_samples/customer_portal/src/Form/VerifyType.php') =]]
-```
-
-Line 29 defines where the form should be displayed, line 21 adds **Note** field, and line 22 adds the **Verify** button.
-
-### Create event subscriber to pass the form
-
-Add an event subscriber that passes a new form type to the frontend.
-Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following the example below:
-
-``` php hl_lines="35"
-[[= include_code('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php') =]]
-```
-
-In line 39, you can see the `verify_form` parameter that passes the `verify` form to the application review view.
-
 ### Add form template
 
 To be able to see the changes you need to add a new template `templates/themes/admin/corporate_account/application/details.html.twig`.
@@ -96,19 +74,3 @@ To check the progress, go to **Members** -> **Applications**.
 Select one application from the list and inspect application review view for a new button.
 
 ![Verify button](img/cp_new_status.png)
-
-### Create event subscriber to verify state
-
-Now, you need to pass the information that the button has been selected to the list of applications to change the application status.
-Create another event subscriber that passes the information from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
-
-``` php hl_lines="42 68"
-[[= include_code('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
-```
-
-In line 46, you can see that it handles changes to verify status.
-The subscriber only informs that the status has been changed (line 72).
-
-Now, if you click the **Verify** button during application review, the application gets **Verify** status.
-
-![Verify status](img/cp_verify_status.png)
