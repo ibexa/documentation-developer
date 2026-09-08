@@ -19,30 +19,8 @@ In the **Download** section, select **Stream file**.
 Copy generated steam ID and paste it into the configuration file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
-Next, you need to export your data to the CDP.
-Go to your installation and use this command:
-
-- for User:
-
-```bash
-php bin/console ibexa:cdp:stream-user-data --draft
-```
-
-- for Product:
-
-```bash
-php bin/console ibexa:cdp:stream-product-data --draft
-```
-
-- for Content:
-
-```bash
-php bin/console ibexa:cdp:stream-content-data --draft
-```
-
-There are two versions of this command `--draft/--no-draft`.
-The first one is used to send the test user data to the Data Manager.
-If it passes a validation test in the **Activation** section, use the latter one to send a full version.
+User, product and content data is then streamed to the Data Manager.
+Draft data is sent first, so that you can validate it in the **Activation** section before a full export.
 
 You can extend exported user data with custom fields from your user content, such as date of birth, preferences, or other profile information.
 
@@ -91,13 +69,7 @@ Next, select **userid** from a **Schema columns section** on the right and map i
 ## Activation
 
 In this section you can test the dataflow with provided test user data.
-If everything passes, go to your installation and export production data with this command:
-
-```bash
-php bin/console ibexa:cdp:stream-user-data --no-draft
-```
-
-Now you can run and activate the dataflow.
+If everything passes, production data is exported and you can run and activate the dataflow.
 
 ## Build new Audience/Segment
 
@@ -164,12 +136,6 @@ Available options:
 - `bulk_async_threshold` (integer, default: 100) - minimum number of items required to trigger asynchronous processing
     - below threshold - items are processed immediately in a single request, using the standard synchronous behavior
     - at/above threshold - items are automatically dispatched to the asynchronous queue for background processing
-
-3\. Make sure that the worker starts together with the application to watch the transport bus:
-
-``` bash
-php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
-```
 
 ### CDP Monolog channel
 

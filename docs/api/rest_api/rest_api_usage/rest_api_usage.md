@@ -20,13 +20,6 @@ You can download the OpenAPI specification in:
 - [YAML format](/api/rest_api/rest_api_reference/openapi.yaml)
 - [JSON format](/api/rest_api/rest_api_reference/openapi.json)
 
-You can also generate one for your project by running one of the commands below:
-
-``` bash
-php bin/console ibexa:openapi --output=openapi.json # JSON output
-php bin/console ibexa:openapi --yaml --output=openapi.yaml # YAML output
-```
-
 Use the specification file with [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
 
 ## URIs

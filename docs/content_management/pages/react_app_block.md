@@ -8,8 +8,6 @@ React App block allows an editor to embed a preconfigured React application into
 It's configured in YAML files, under the `ibexa_fieldtype_page` key.
 Page block configuration isn't SiteAccess-aware.
 
-[[% include 'snippets/page_block_cache_clear.md' %]]
-
 ## React App Block configuration
 
 React App blocks are regular [Page blocks](page_blocks.md) and can be configured on field definition level as any other block.

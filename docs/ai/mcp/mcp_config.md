@@ -66,19 +66,9 @@ You define MCP servers within a repository configuration and then assign those s
 ```
 
 Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
-You can list all defined servers by running the following command:
-
-```bash
-php bin/console debug:container ibexa.mcp.server
-```
 
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
-You can list them by running the following command:
-
-```bash
-php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
-```
 
 ### MCP server options
 
@@ -167,12 +157,6 @@ For example, you could set up a dedicated Redis/Valkey:
 ```
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
-
-Clear the cache pool after making changes:
-
-```bash
-php bin/console cache:pool:clear cache.redis.mcp
-```
 
 !!! tip
 

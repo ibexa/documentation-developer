@@ -103,16 +103,6 @@ In addition to their required authentication keys, all providers support two opt
 REST API-based providers come with their own language code lists and mappings, therefore both settings are optional.
 If configured, they replace the built-in defaults, so use them to restrict available languages or override mappings.
 
-!!! tip "Default values"
-
-    To check the built-in defaults for the existing providers, run:
-
-    ``` bash
-    php bin/console debug:container --parameters | grep ibexa.translations_management.auto_translate.provider
-    ```
-
-    The output lists the default `supported_language_codes` and `language_codes_map` values for each configured provider, which you can use as a reference.
-
 AI-based providers don't provide built-in language code lists or mappings.
 If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.
 If `languageCodesMap` is not configured, the system automatically tries to match [[= product_name =]] language codes to the one supported by the provider by trying different format variants, for example, `eng-GB`, `en-GB`, or `en`.

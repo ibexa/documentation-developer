@@ -27,35 +27,6 @@ It allows them to create a new password.
 The validity of the password recovery token can be set by using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it's set to `PT1H` (one hour).
 
-## Revoking passwords
-
-In case of a security situation such as a data leakage, you may need to force users to change their passwords.
-You can do it with the help of the `ibexa:user:expire-password` command, which revokes the passwords for specific users, user groups, or users belonging to the chosen content type.
-
-To select which users to revoke passwords for, use one of the following options with the command:
-
-- `--user-id|-u` - the ID of the user. Accepts multiple user IDs
-- `--user-group-id|-ug` - the ID of the user group. Accepts multiple group IDs
-- `--user-content-type-identifier|-ct` - the identifier of the user content type. Accepts multiple content types
-
-You can use the following additional options with the command:
-
-- `--force|-f` - commits the change, otherwise the command only performs a dry run
-- `--iteration-count|-c` - defines how many users are fetched at once. Lowering this value helps with memory issues
-- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user content types that don't use it yet.
-
-For example, to revoke the passwords of all users of the `user` content type, run:
-
-``` bash
-php bin/console ibexa:user:expire-password --user-content-type-identifier=user --force
-```
-
-To perform a dry run (without saving the results) of revoking passwords of all users from user group 13, run:
-
-``` bash
-php bin/console ibexa:user:expire-password --user-group-id=13
-```
-
 ## Password rules
 
 You can customize the password policy in your project.

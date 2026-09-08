@@ -200,40 +200,6 @@ Copy the token code that appears on the tokens list, next to the label.
 
 Provide the token that you got from [[= product_name_connect =]] and the team ID in your instance's [[= product_name_connect =]] integration settings.
 
-### Initiate integration
-
-Initiate the models provided by the handler by issuing the following command:
-
-```bash
-php bin/console ibexa:connect:init-connect-ai <team_id> <language> <action handler identifiers>
-```
-
-For example:
-
-```bash
-php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect-text-to-text
-```
-
-!!! note "Support for multiple [[= product_name_connect =]] languages"
-
-    The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#post-templates) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
-
-Then, create the `Ibexa AI handler` custom property in [[= product_name_connect =]] to store the list of available action handlers for this integration.
-You can do it by running the following command:
-
-``` bash
-php bin/console ibexa:connect:init-custom-property-structures <organization-id> <action handler identifiers>
-```
-
-For example:
-
-``` bash
-php bin/console ibexa:connect:init-custom-property-structures 4 connect-image-to-text connect-text-to-text
-```
-
-The `Ibexa AI handler` property attaches to a scenario to store information about the action handler associated with it.
-When creating a new [[= product_name_connect =]]-based AI action, the back office of [[= product_name =]] shows only the existing scenarios that work with selected action handler.
-
 ### Customize templates
 
 Return to the [[= product_name_connect =]] dashboard and modify the **Template for connect...handler** [templates]([[= connect_doc =]]/scenarios/scenario_templates/) by defining the logic needed to process the data.
