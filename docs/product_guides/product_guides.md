@@ -6,8 +6,8 @@ month_change: false
 
 # Product guides
 
-[[= product_name =]] product editions come with a variety of features.
-Discover the primary ones with the help of product guides. Condensed content allows you to quickly learn about their availability, capabilities, and benefits.
+[[= product_name =]] comes with a variety of features.
+Discover the primary ones with the help of product guides. Condensed content allows you to quickly learn about their capabilities and benefits.
 
 [[= cards([
     "users/user_management_guide",

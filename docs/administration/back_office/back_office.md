@@ -11,8 +11,6 @@ The interface is accessible in your browser at `http://<yourdomain>/admin`.
 
 !!! note "String translations"
 
-    Refer to [Custom string translations](back_office_translations.md#custom-string-translations) to learn how to provide string translations when extending the back office.
-
 [[= cards([
     "administration/back_office/back_office_configuration",
     "administration/back_office/content_tree",

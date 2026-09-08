@@ -15,7 +15,7 @@ saas_review_note: >-
 
 # Configure MCP Servers
 
-With [[= product_name =]]'s MCP Servers LTS Update package, you can expose [MCP servers](mcp_guide.md) to external AI agents.
+With [[= product_name =]]'s MCP Servers, you can expose [MCP servers](mcp_guide.md) to external AI agents.
 
 MCP Servers feature comes with [built-in tools](#built-in-tools) but doesn't come with a default configuration.
 You have to create your own MCP servers by providing [their configuration](#mcp-server-configuration) and [enable JWT authentication for them](#jwt-mcp-firewall).
@@ -117,7 +117,7 @@ There are two ways to associate tools with a server:
 
 #### Built-in tools
 
-MCP Servers LTS Update comes with the following **experimental** built-in tools:
+MCP Servers come with the following **experimental** built-in tools:
 
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
     - `get_content_type` - gets a content type by its ID.

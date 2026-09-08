@@ -12,7 +12,7 @@ With product tours, you can create customized onboarding journeys tailored to sp
 This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
 
 Product tour functionality is available from versions 4.6.29 and 5.0.7 as part of the Integrated help package.
-To use product tours, you must first enable the [Integrated help](integrated_help.md) LTS Update.
+To use product tours, you must first enable [Integrated help](integrated_help.md).
 
 <!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/AHb1fy7MCrXRRSsXwKKG?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Form Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 

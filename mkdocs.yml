@@ -1,6 +1,6 @@
 INHERIT: plugins.yml
 
-site_name: Developer Documentation
+site_name: Cohesivo Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 edit_uri: blob/saas/docs
 site_url: https://doc.ibexa.co/en/saas/
@@ -19,7 +19,7 @@ not_in_nav: |
     personalization/legacy_recommendation_api.md
     /snippets/*
 nav:
-    - Ibexa Developer Documentation: index.md
+    - Cohesivo Developer Documentation: index.md
     - On-premise Cohesivo: on_premise.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
@@ -443,8 +443,7 @@ nav:
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
         - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
-    - Product guides:
-        - Product guides: product_guides/product_guides.md
+    - Product guides: product_guides/product_guides.md
     - Release notes: release_notes.md
 
 theme:
@@ -461,7 +460,7 @@ theme:
     palette:
         primary: 'blue grey'
         accent: 'deep orange'
-    logo: 'images/ibexa-dxp-logo.png'
+    logo: 'images/cohesivo-logo.png'
 
 extra:
   append_bootstrap:
@@ -469,7 +468,7 @@ extra:
     - '/guidelines/resources/'
     - '/index.md'
   related_docs:
-    - title: 'Developer Documentation'
+    - title: 'Cohesivo Developer Documentation'
       url: '/'
     - title: 'User Documentation'
       url: '/projects/userguide'
