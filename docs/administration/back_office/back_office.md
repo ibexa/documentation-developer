@@ -5,7 +5,7 @@ page_type: landing_page
 
 # Back office
 
-The back office interface is produced by the [`ibexa/admin-ui` bundle](https://github.com/ibexa/admin-ui).
+The back office is the web interface where editors and administrators work with content.
 Additionally, it uses React-based modules that make each part of the UI extensible, and Bootstrap for styling.
 The interface is accessible in your browser at `http://<yourdomain>/admin`.
 

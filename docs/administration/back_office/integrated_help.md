@@ -10,7 +10,7 @@ With this feature installed, users can click the ![Help icon](about-info.png){.i
 
 ![Integrated help menu](5_0_integrated_help_menu.png)
 
-Integrated help is contextual, therefore, apart from user documentation, release notes, and partner guidelines, which are available to editors and store managers, developers can access API references, the GraphQL console, or the support portal.
+Integrated help is contextual, therefore, apart from user documentation, release notes, and partner guidelines, which are available to editors and store managers, developers can access API references or the support portal.
 
 ## Product tours
 

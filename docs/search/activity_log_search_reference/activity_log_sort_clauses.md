@@ -1,6 +1,6 @@
 # Activity Log Search Sort Clauses reference
 
-See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-activity-log-groups) for the whole API.
+See [Recent activity](../../administration/recent_activity/recent_activity.md#rest-api) for how to browse the activity log over the REST API.
 
 Sort Clauses are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause` namespace.
 
