@@ -2,7 +2,7 @@
 let jquery = jQuery;
 
 $(document).ready(function() {
-    const latestVersionNumber = '6.0';
+    const latestVersionNumber = '5.0';
 
     // replace edit url
     let branchName = '6.0';
@@ -79,12 +79,8 @@ $(document).ready(function() {
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
             const olderVersions = document.querySelector('#older-versions');
 
-            // Merge "X.Y" and "latest" entries into "X.Y (latest)"
+            // Remove latest version entry from the list
             const latestVersion = allVersions.find(v => v.textContent.trim() === 'latest');
-            const versionXY = allVersions.find(v => v.textContent.trim() === latestVersionNumber);
-            
-            const versionXYLink = versionXY.querySelector('a');
-            versionXYLink.textContent = `${latestVersionNumber} (latest)`;
             latestVersion.remove();
 
             if (eolVersions.length > 0) {
