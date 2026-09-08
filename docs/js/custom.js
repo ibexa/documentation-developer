@@ -12,7 +12,19 @@ $(document).ready(function() {
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
-    if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
+
+    const versionLavels = {
+        "2.5": "eZ Platform 2.5",
+        "3.3": "Ibexa DXP 3.3",
+        "4.6": "Ibexa DXP 4.6",
+        "5.0": "Ibexa DXP 5.0 (latest)",
+        "6.0": "Cohesivo 6.0",
+        "saas": "Cohesivo SaaS"
+    };
+
+    const specialVersions = ['latest', 'saas'];
+
+    if (!/^\d+\.\d+$/.test(branchName) && !specialVersions.includes(branchName)) {
         branchName = '6.0';
     }
 
@@ -26,10 +38,7 @@ $(document).ready(function() {
         );
     });
 
-    // Add version pill to top of navigation
-    $('#site-name').append('<span class="pill pill--inline">' + branchName + '</span>');
-
-    $('.rst-current-version.switcher__label').html(branchName);
+    $('.rst-current-version.switcher__label').html(productNames[branchName] ?? branchName);
 
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
@@ -86,6 +95,11 @@ $(document).ready(function() {
                 .filter((versionNode) => eolVersions.includes(versionNode.textContent))
                 .forEach((versionNode) => {
                     versionNode.hidden = true;
+                });
+
+            allVersions
+                .forEach((versionNode) => {
+                    versionNode.textContent = versionLabels[versionNode.textContent] ?? versionNode.textContent;
                 });
 
             olderVersions.addEventListener('click', (event) => {
