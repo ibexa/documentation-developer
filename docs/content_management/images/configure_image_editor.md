@@ -64,25 +64,3 @@ Keep this in mind when configuring blur strength for environments that handle hi
 
 Each image can be accompanied by additional information that isn't visible to the user.
 By default, additional information stores the coordinates of the [focal point]([[= user_doc =]]/image_management/edit_images/#focal-point), but you can use this extension point to pass various parameters of custom features that you add by extending the Image Editor.
-
-To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
-
-``` php
-use Ibexa\Core\FieldType\Image\Value as FieldValue;
-
-$value = new FieldValue([
-     'data' => [
-         'width' => '100',
-         'height' => '200',
-         'alternativeText' => 'test',
-         'mime' => 'image/png',
-         'id' => 1,
-         'fileName' => 'image.png',
-         'additionalData' => [
-             'focalPointX' => 50,
-             'focalPointY' => 100,
-             'author' => 'John Smith',
-         ],
-     ],
- ]);
-```

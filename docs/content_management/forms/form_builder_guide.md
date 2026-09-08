@@ -82,12 +82,6 @@ Using the buttons in the right corner, you can also edit, move, copy, hide, or s
 
 ![Forms management](img/forms_management.png)
 
-### Form API
-
-To manage form submissions created in the Form Builder, use `FormSubmissionServiceInterface`.
-You can get existing form submission and create or delete one.
-Detailed instruction of getting, creating and deleting form submissions, you can find in [[= product_name_base =]] Developer Documentation in [Form API page](form_api.md).
-
 ### View results
 
 You can preview the results of each published form.

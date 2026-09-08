@@ -7,9 +7,7 @@ It stores the unit of measure, and either a single measurement value, or a pair 
 |---------------|---------------------|----------------------------------------------------|
 | `Measurement` | `ibexa_measurement` | `Ibexa\Contracts\Measurement\Value\ValueInterface` |
 
-## PHP API field type
-
-### Input expectations
+## Input expectations
 
 To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface`.
 You must inject the service directly with [dependency injection]([[= symfony_doc =]]/service_container.html).
@@ -25,9 +23,7 @@ Assuming that the service exists as `$measurementService`, the expected input ex
 |`\Ibexa\Contracts\Measurement\Value\SimpleValueInterface`| `$measurementService->buildSimpleValue('length', 2.5, 'centimeter')` |
 |`\Ibexa\Contracts\Measurement\Value\RangeValueInterface` | `$measurementService->buildRangeValue('length', 1.2, 4.5,  'inch')`  |
 
-### Value object
-
-#### Properties
+### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -35,53 +31,11 @@ The Value class of this field type contains the following properties:
 |----------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `$value` | `Ibexa\Contracts\Measurement\Value\ValueInterface` | Stores the Measurement API Value, which can be either an instance of `Ibexa\Contracts\Measurement\Value\SimpleValueInterface` or `Ibexa\Contracts\Measurement\Value\RangeValueInterface`. |
 
-#### Constructor
-
-The `Measurement\Value` constructor for this value object initializes a new value object with the value provided.
-As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value\ValueInterface` type.
-
-Depending on the selected input type, the object resembles the following examples:
-
-``` php
-// Simple input (single value) example
-
-use Ibexa\Measurement\FieldType\MeasurementValue;
-
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
-
-// Instantiates a Measurement Value object
-$measurementValue = new MeasurementValue(
-    $measurementService->buildSimpleValue(
-        'length',
-        13.5,
-        'centimeter'
-    )
-);
-```
-
-``` php
-// Range input value example
-
-use Ibexa\Measurement\FieldType\MeasurementValue;
-
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
-
-// Instantiates a Measurement Value object
-$measurementValue = new MeasurementValue(
-    $measurementService->buildRangeValue(
-        'volume',
-        0.5,
-        0.7,
-        'liter'
-    )
-);
-```
-
-### Validation
+## Validation
 
 The Measurement field type validates measurement types and units passed within the value object against a list of the ones that the system supports, which can be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
 
-### Modify and add Measurement types and units
+## Modify and add Measurement types and units
 
 You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones.
 To do this, you modify the YAML configuration.

@@ -71,9 +71,7 @@ nav:
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
         - Content availability: content_management/content_availability.md
-        - Taxonomy:
-            - Taxonomy: content_management/taxonomy/taxonomy.md
-            - Taxonomy API: content_management/taxonomy/taxonomy_api.md
+        - Taxonomy: content_management/taxonomy/taxonomy.md
         - Images:
             - Images: content_management/images/images.md
             - Configure Image Editor: content_management/images/configure_image_editor.md
@@ -82,7 +80,6 @@ nav:
         - RichText:
             - RichText: content_management/rich_text/rich_text.md
             - Online Editor guide: content_management/rich_text/online_editor_guide.md
-            - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
         - File management:
             - File management: content_management/file_management/file_management.md
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
@@ -93,35 +90,17 @@ nav:
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
-            - Create custom Page block: content_management/pages/create_custom_page_block.md
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form Builder guide: content_management/forms/form_builder_guide.md
             - Work with Forms: content_management/forms/work_with_forms.md
-            - Form API: content_management/forms/form_api.md
-        - Workflow:
-            - Workflow: content_management/workflow/workflow.md
-            - Workflow API: content_management/workflow/workflow_api.md
-        - URL management:
-            - URL management: content_management/url_management/url_management.md
-            - URL API: content_management/url_management/url_api.md   
+        - Workflow: content_management/workflow/workflow.md
+        - URL management: content_management/url_management/url_management.md
         - User-generated content: content_management/user_generated_content.md
-        - Content API:
-            - Browsing content: content_management/content_api/browsing_content.md
-            - Creating content: content_management/content_api/creating_content.md
-            - Managing content: content_management/content_api/managing_content.md
-        - Content management API:
-            - Bookmark API: content_management/content_management_api/bookmark_api.md
-            - Section API: content_management/content_management_api/section_api.md
-            - Object state API: content_management/content_management_api/object_state_api.md
         - Field types:
             - Field types: content_management/field_types/field_types.md
-            - Type and Value: content_management/field_types/type_and_value.md
-            - Storage: content_management/field_types/field_type_storage.md
-            - Validation: content_management/field_types/field_type_validation.md
-            - Searching: content_management/field_types/field_type_search.md
             - Field type reference:
                 - Field type reference: content_management/field_types/field_type_reference/field_type_reference.md
                 - Address field type: content_management/field_types/field_type_reference/addressfield.md

@@ -18,8 +18,6 @@ Example array:
 | `string`                                                     | ID of the Asset content item.                   | `"150"`    |
 | `integer`                                                    | ID of the Asset content item.                   | `150`      |
 
-## Value object
-
 ### Properties
 
 Value object of `ibexa_image_asset` contains the following properties:
@@ -28,32 +26,6 @@ Value object of `ibexa_image_asset` contains the following properties:
 |------------------------|----------|------------------------------------------------------------------|
 | `destinationContentId` | `int`    | Related content ID.                                              |
 | `alternativeText`      | `string` | The alternative image text (for example "Picture of an apple."). |
-
-``` php
-/**
- * Value object content example.
- *
- * @var \Ibexa\Core\FieldType\ImageAsset\Value $imageAssetValue
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
- */
-$imageAssetValue->destinationContentId = $contentInfo->id;
-$imageAssetValue->alternativeText = 'Picture of an apple.';
-```
-
-#### Constructor
-
-The `ImageAsset\Value` constructor initializes a new value object with the value provided.
-It expects an ID of a content item representing asset and the alternative text.
-
-``` php
-// Constructor example
-
-use Ibexa\Core\FieldType\ImageAsset as ImageAsset;
-
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
-// Instantiates a ImageAsset Value object
-$imageAssetValue = new ImageAsset\Value($contentInfo->id, 'Picture of an apple.');
-```
 
 ### Validation
 

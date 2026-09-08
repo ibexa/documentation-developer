@@ -79,13 +79,7 @@ so you aren't able to reflect your original filters accurately with Fastly.
 The script below helps you find replacement filters within Fastly configuration for the basic filters.
 For more optimization options on Fastly side, see [Fastly IO reference](https://www.fastly.com/documentation/reference/io/).
 
-To generate your original image configuration run:
-
-```bash
-php bin/console ibexa:fastly:migrate-configuration
-```
-
-Paste the following configuration to define the same variations for Fastly IO:
+The following configuration defines the same variations for Fastly IO:
 
 ```yaml
 ibexa:

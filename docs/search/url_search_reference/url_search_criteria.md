@@ -5,8 +5,6 @@ page_type: reference
 
 # URL Search Criteria reference
 
-URL Search Criteria are only supported by [URL Search (`URLService::findUrls`)](url_api.md).
-
 |URL criteria|URL based on|
 |------------|------------|
 |[LogicalAnd](logicaland_url_criterion.md)|Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.|

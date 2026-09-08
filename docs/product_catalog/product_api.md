@@ -166,7 +166,6 @@ To create a virtual product type (for products that don't require shipping), use
 #### Adding field definitions
 
 To add custom field definitions to the product type, use `getContentTypeCreateStruct()` to access the underlying content type struct.
-For more information about working with content types, see [Adding content types](../content_management/content_api/managing_content.md#adding-content-types).
 
 ``` php
 [[= include_code('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 63, 69, remove_indent=True) =]]

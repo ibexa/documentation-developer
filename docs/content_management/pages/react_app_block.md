@@ -17,7 +17,7 @@ It's common to all the blocks.
 ## React App Block configuration
 
 React App blocks are regular [Page blocks](page_blocks.md) and can be configured on field definition level as any other block.
-File has exactly the same structure as regular YAML [block configuration](create_custom_page_block.md#configure-block), except:
+Their configuration has exactly the same structure as regular [block configuration](page_blocks.md#block-configuration), except:
 
 - additional `component` attribute which binds Page Builder block with React App
 - `views` attribute is removed

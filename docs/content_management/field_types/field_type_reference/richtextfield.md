@@ -8,9 +8,7 @@ This field type validates and stores structured rich text in [DocBook](https://d
 |------------|------------------|----------------|
 | `RichText` | `ibexa_richtext` | mixed          |
 
-## PHP API field type
-
-### Value object
+## Field value
 
 `Ibexa\FieldTypeRichText\FieldType\RichText\Value` offers the following properties:
 
@@ -18,7 +16,7 @@ This field type validates and stores structured rich text in [DocBook](https://d
 |----------|---------------|--------------------------------------------------------|
 | `xml`    | `DOMDocument` | Internal format value as an instance of `DOMDocument`. |
 
-### Input expectations
+## Input expectations
 
 | Type                                               | Description                                                                      |
 |----------------------------------------------------|----------------------------------------------------------------------------------|
@@ -26,13 +24,13 @@ This field type validates and stores structured rich text in [DocBook](https://d
 | `DOMDocument`                                      | XML document in one of the field type's input formats as a `DOMDocument` object. |
 | `Ibexa\FieldTypeRichText\FieldType\RichText\Value` | An instance of the field type's `Value` object.                                  |
 
-### Input formats
+## Input formats
 
 The field type expects an XML value as input, in the form of a string, `DOMDocument` object, or field type's `Value` object.
 The field type's `Value` object must hold the value in the field type's [internal format](#internal-format).
 For a string of a `DOMDocument` object, if the input doesn't conform to this format, it's converted into it.
 
-#### Internal format
+### Internal format
 
 As its internal format, the RichText field type uses a [custom flavor of the DocBook format](#custom-docbook-format).
 
@@ -48,7 +46,7 @@ As its internal format, the RichText field type uses a [custom flavor of the Doc
 </section>
 ```
 
-#### XHTML5 edit format
+### XHTML5 edit format
 
 The XHTML5 format is used by the Online Editor.
 
@@ -66,31 +64,7 @@ The XHTML5 format is used by the Online Editor.
 
     The custom DocBook format described below is subject to change and isn't covered by backwards compatibility promise.
 
-You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests by providing the DocBook content as a string.
-
-The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType $contentType
- */
-$contentCreateStruct = $contentService->newContentCreateStruct($contentType, 'eng-GB');
-
-$inputString = <<<DOCBOOK
-<?xml version="1.0" encoding="UTF-8"?>
-<section xmlns="http://docbook.org/ns/docbook"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
-         xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
-         version="5.0-variant ezpublish-1.0">
-    <title ezxhtml:level="2">This is a title.</title>
-    <para ezxhtml:class="paraClass">This is a paragraph.</para>
-</section>
-DOCBOOK;
-
-$contentCreateStruct->setField('description', $inputString);
-```
+You can use the [[= product_name_base =]] flavor of the DocBook format in REST API requests by providing the DocBook content as a string.
 
 When creating RichText content with the REST API, use the `xml` key of the `fieldValue` tag:
 

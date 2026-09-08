@@ -30,7 +30,7 @@ The following attribute types are available:
 |`string`|String|-|
 |`url`|URL|-|
 |`text`|Text block|-|
-|`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
+|`richtext`|Rich text block|-|
 |`embed`|Embedded content item|`udw_config_name`: name of the Universal Discovery Widget's configuration |
 |`embedvideo`|Embedded content item|`udw_config_name`: name of the Universal Discovery Widget's configuration |
 |`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
@@ -53,82 +53,8 @@ attributes:
 
 The `embed`, `embedvideo`, and `locationlist` attribute types use the Universal Discovery Widget (UDW).
 When creating a block with these types you can use the `udw_config_name` option to configure the UDW behavior.
-See the [custom block example](create_custom_page_block.md#configure-block) to learn more.
 
-## Custom attribute types
-
-You can create custom attribute type to add to Page blocks.
-
-A custom attribute requires attribute type class, a mapper and a template.
-
-### Block attribute type
-
-First, create the attribute type class.
-
-It can extend one of the types available in `fieldtype-page/src/lib/Form/Type/BlockAttribute/`.
-You can also use one of the [built-in Symfony types]([[= symfony_doc =]]/reference/forms/types.html),
-for example `AbstractType` for any custom type or `IntegerType` for numeric types.
-
-To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` file:
-
-``` php hl_lines="5 6 17"
-[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
-```
-
-The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
-Adding `getBlockPrefix` (line 15) returns a unique prefix key for a custom template of the attribute.
-
-### Mapper
-
-At this point, the attribute type configuration is complete, but it requires a mapper.
-Depending on the complexity of the type, you can use a `GenericFormTypeMapper` or create your own.
-
-#### Generic mapper
-
-For a generic mapper, add a new service definition to `config/services.yaml`:
-
-``` yaml
-[[= include_file('code_samples/page/custom_attribute/config/custom_services.yaml', 0, 7) =]]
-```
-
-#### Custom mapper
-
-To use a custom mapper, create a class that inherits from `Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`,
-for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
-
-``` php
-[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
-```
-
-Then, add a new service definition for your mapper to `config/services.yaml`:
-
-``` yaml
-[[= include_file('code_samples/page/custom_attribute/config/custom_services.yaml', 8, 11) =]]
-```
-
-### Edit templates
-
-Next, configure a template for the attribute edit form by creating a `templates/themes/admin/custom_form_templates.html.twig` file:
-
-``` html+twig
-[[= include_file('code_samples/page/custom_attribute/templates/themes/admin/custom_form_templates.html.twig') =]]
-```
-
-Add the template to your configuration under the `system.<scope>.page_builder_forms` [configuration key](configuration.md#configuration-files):
-
-``` yaml
-[[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml', 16, 22) =]]
-```
-
-### Custom attribute configuration
-
-Now, you can create a block containing your custom attribute:
-
-``` yaml hl_lines="12-16"
-[[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml', 0, 15) =]]
-```
-
-### Nested attribute configuration
+## Nested attribute configuration
 
 The `nested_attribute` attribute is used when you want to create a group of attributes.
 

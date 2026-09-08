@@ -6,9 +6,7 @@ This field type validates and stores information about a user.
 |--------|---------------|----------------|
 | `User` | `ibexa_user`  | ignored        |
 
-## PHP API field type
-
-### Value object
+## Field value
 
 | Property           | Type      | Description                                                                                                                                      | Example                                           |
 |--------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
@@ -20,7 +18,7 @@ This field type validates and stores information about a user.
 | `passwordHashType` | `mixed`   | Algorithm user for generating password hash as a `PASSWORD_HASH_*` constant defined in `Ibexa\Contracts\Core\Repository\Values\User\User` class. | `User::PASSWORD_HASH_PHP_DEFAULT`                 |
 | `maxLogin`         | `int`     | Maximum number of concurrent logins.                                                                                                             | `1000`                                            |
 
-#### Available password hash types
+### Available password hash types
 
 | Constant                                                                      | Description                                                               |
 |-------------------------------------------------------------------------------|---------------------------------------------------------------------------|

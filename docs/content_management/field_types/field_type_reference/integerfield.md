@@ -6,17 +6,13 @@ This field type represents an integer value.
 |-----------|-----------------|----------------|
 | `Integer` | `ibexa_integer` | `integer`      |
 
-## PHP API field type
-
-### Input expectations
+## Input expectations
 
 | Type      | Example |
 |-----------|---------|
 | `integer` | `2397`  |
 
-### Value object
-
-#### Properties
+### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -24,38 +20,13 @@ The Value class of this field type contains the following properties:
 |----------|-------|------------|
 | `$value` | `int` | This property is used to store the value provided as an integer. |
 
-``` php
-// Value object content example
-/** @var \Ibexa\Core\FieldType\Integer\Value $integer */
-$integer->value = 8;
-```
-
-#### Constructor
-
-The `Integer\Value` constructor initializes a new value object with the value provided.
-It expects a numeric, integer value.
-
-``` php
-// Constructor example
-use Ibexa\Core\FieldType\Integer;
-
-// Instantiates a Integer Value object
-$integerValue = new Integer\Value(8);
-```
-
-#### Hash format
+### Hash format
 
 Hash value of this field type is an integer value as a string.
 
 Example: `"8"`
 
-#### String representation
-
-String representation of the field type's value returns the integer value as a string.
-
-Example: `"8"`
-
-### Validation
+## Validation
 
 This field type supports `IntegerValueValidator`, defining maximum and minimum float value:
 
@@ -64,14 +35,6 @@ This field type supports `IntegerValueValidator`, defining maximum and minimum f
 |`minIntegerValue`|`int`|`0`|This setting defines the minimum value this field type which is allowed as input.|
 |`maxIntegerValue`|`int`|`null`|This setting defines the maximum value this field type which is allowed as input.|
 
-``` php
-// Example of validator configuration in PHP
-$validatorConfiguration = [
-    'minIntegerValue' => 1,
-    'maxIntegerValue' => 24,
-];
-```
-
-### Settings
+## Settings
 
 This field type doesn't support settings.

@@ -16,18 +16,14 @@ It's capable of handling the following types of files:
 |---------|---------------|----------------|
 | `Media` | `ibexa_media` | mixed          |
 
-## PHP API field type
-
-### Input expectations
+## Input expectations
 
 | Type                               | Description                                                                              | Example                       |
 |------------------------------------|------------------------------------------------------------------------------------------|-------------------------------|
 | `string`                           | Path to the media file.                                                                  | `/Users/jane/butterflies.mp4` |
 | `Ibexa\Core\FieldType\Media\Value` | Media field type value object with path to the media file as the value of `id` property. | See below.                    |
 
-### Value object
-
-#### Properties
+### Properties
 
 `Ibexa\Core\FieldType\Media\Value` offers the following properties.
 
@@ -47,7 +43,7 @@ Both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstr
 | `width`         | int     | Width of the media.                                                                                                                                                                                                                                                                         | 400                                                                                |
 | `path`          | string  | **deprecated**                                                                                                                                                                                                                                                                              |                                                                                    |
 
-### Hash format
+## Hash format
 
 The hash format mostly matches the value object. It has the following keys:
 
@@ -63,7 +59,7 @@ The hash format mostly matches the value object. It has the following keys:
 - `height`
 - `width`
 
-### Validation
+## Validation
 
 The field type supports `FileSizeValidator`, defining maximum size of media file in bytes:
 
@@ -71,24 +67,7 @@ The field type supports `FileSizeValidator`, defining maximum size of media file
 |------|------|------|------|
 |`maxFileSize`|`int`|`false`|Maximum size of the file in bytes.|
 
-``` php
-// Example of using Media field type validator in PHP
-
-use Ibexa\Core\FieldType\Media\Type;
-
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
-$contentTypeService = $repository->getContentTypeService();
-$mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('media', 'ibexa_media');
-
-// Setting maximum file size to 5 megabytes
-$mediaFieldCreateStruct->validatorConfiguration = [
-    'FileSizeValidator' => [
-        'maxFileSize' => 5 * 1024 * 1024,
-    ],
-];
-```
-
-### Settings
+## Settings
 
 The field type supports the `mediaType` setting, defining how the media file should be handled in output.
 
@@ -107,18 +86,3 @@ List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldT
 | `TYPE_WINDOWSMEDIA` | Microsoft Windows Media |
 | `TYPE_HTML5_VIDEO`  | HTML5 Video             |
 | `TYPE_HTML5_AUDIO`  | HTML5 Audio             |
-
-``` php
-// Example of using Media field type settings in PHP
-
-use Ibexa\Core\FieldType\Media\Type;
-
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
-$contentTypeService = $repository->getContentTypeService();
-$mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('media', 'ibexa_media');
-
-// Setting Adobe Flash as the media type
-$mediaFieldCreateStruct->fieldSettings = [
-    'mediaType' => Type::TYPE_FLASH,
-];
-```

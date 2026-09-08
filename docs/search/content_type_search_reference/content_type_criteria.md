@@ -6,8 +6,6 @@ month_change: false
 
 # Content Type Search Criteria reference
 
-Content Type Search Criteria are only supported by [Content Type Search (`ContentTypeService::findContentTypes`)](managing_content.md#finding-and-filtering-content-types).
-
 | Criterion | Description |
 |-------|-------------|
 | ContainsFieldDefinitionId | Matches content types that contain a field definition with the specified ID. |

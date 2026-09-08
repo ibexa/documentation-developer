@@ -6,10 +6,6 @@ description: Form Builder enables creating dynamic forms to use in surveys, ques
 
 You can build forms consisting of different fields in the Form Builder.
 
-!!! tip
-
-    To learn how to get, create, and delete form submissions by using the PHP API, see [Form API](form_api.md).
-
 [[% include 'snippets/forms_caution.md' %]]
 
 ## Existing Form fields
@@ -35,24 +31,6 @@ The example configuration above resizes the Captcha image (line 3), changes the 
 ![Custom captcha field](extending_form_builder_captcha_result.png)
 
 For information about available options, see [Gregwar/CaptchaBundle's documentation](https://github.com/Gregwar/CaptchaBundle#options).
-
-## Form submission purging
-
-You can purge all submissions of a given form.
-To do this, run the following command, where `form-id` stands for Content ID of the form for which you want to purge data:
-
-```bash
-php bin/console ibexa:form-builder:purge-form-submissions [options] [--] <form-id>
-```
-
-The following table lists some of the available options and their meaning:
-
-| Switch | Option | Description |
-|--------------|------------|------------|
-| `-l` | `--language-code=LANGUAGE-CODE` | Passes a language code, for example, "eng-GB". |
-| `-u` | `--user[=USER]` | Passes a repository username. By default it's "admin". |
-| `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it's set to 50. |
-| | `--siteaccess[=SITEACCESS]` | Passes a SiteAccess to use for operations. If not provided, the default SiteAccess is used. |
 
 ## Form-uploaded files
 
