@@ -96,7 +96,7 @@ $(document).ready(function() {
 
             allVersions
                 .forEach((versionNode) => {
-                    versionNode.textContent = versionLabels[versionNode.textContent] ?? versionNode.textContent;
+                    versionNode.querySelector('a').textContent = versionLabels[versionNode.textContent] ?? versionNode.textContent;
                 });
 
             olderVersions.addEventListener('click', (event) => {
