@@ -83,8 +83,6 @@ For more information, see [CDP data export](raptor_cdp_data_export.md).
 With [[= product_name_cdp =]], you can export field types and field type values.
 They're exported with metadata and attributes, for example, ID, field definition name, type, or value.
 
-For more information, see [data customization](raptor_cdp_data_customization.md) documentation in Developer Documentation.
-
 ### Client-side Tracking
 
 The final step is setting up a tracking script.

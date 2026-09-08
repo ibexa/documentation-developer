@@ -48,7 +48,7 @@ For more information, see [Product attributes](products.md#product-attributes) a
 ### Product variants
 
 One product can have multiple versions, for example, there can be a t-shirt in different colors.
-You can [create variants of products](product_api.md#creating-variants), differing in some characteristics, based on product attributes.
+You can create variants of products, differing in some characteristics, based on product attributes.
 
 ![Product variants](img/product_attributes.png)
 

@@ -15,4 +15,4 @@ Each segment group can contain segments that you can target content for.
 
 ![Segment](admin_panel_segment.png)
 
-You can assign users to segments [through the API](segment_api.md#assigning-users).
+You can assign users to segments over the REST API.

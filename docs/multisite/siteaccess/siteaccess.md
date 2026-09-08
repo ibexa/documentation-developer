@@ -27,5 +27,4 @@ Many other settings in the application are also configured per SiteAccess (also 
 [[= cards([
     "multisite/siteaccess/siteaccess_matching",
     "multisite/siteaccess/siteaccess_aware_configuration",
-    "multisite/siteaccess/injecting_siteaccess",
 ], columns=3) =]]

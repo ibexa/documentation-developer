@@ -47,33 +47,7 @@ It's good practice to provide your labels in translations files, instead of lite
 
 To provide label strings, make use of the `Symfony\Component\Translation\TranslatorInterface` and its `trans()` method.
 
-The method takes as arguments:
-
-- `id` of the message you want to translate
-- an array of parameters
-- domain of the string
-
-Here's an example:
-
-``` php hl_lines="12-14"
-use Symfony\Contracts\Translation\TranslatorInterface;
-
-final readonly class MyService
-{
-    public function __construct(private TranslatorInterface $translator)
-    {
-    }
-
-    public function getTranslatedDescription(): string
-    {
-        return $this->translator->trans(
-            'custom.extension.description',
-            [],
-            'custom_extension'
-        );
-    }
-}
-```
+The method takes the message `id`, an array of parameters, and the string's domain as arguments.
 
 The strings are provided in .xliff files.
 The file should be stored in your project's or your bundle's `Resources/translations` folder.

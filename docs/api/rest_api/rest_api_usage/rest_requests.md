@@ -157,26 +157,11 @@ When searching for content items (or locations), the query grammar is also parti
 
 ### Creating content with binary attachments
 
-The example below is a command-line script to upload images. It's based on the [Symfony HttpClient]([[= symfony_doc =]]/http_client.html).
-
-This script:
-
-- receives an image path and optionally a name as command-line arguments,
-- uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it's enabled,
-- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_post),
-- and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
-
-=== "XML"
-
-    ``` php
-    [[= include_code('code_samples/api/rest_api/create_image.xml.php', 1, None, 1) =]]
-    ```
-
-=== "JSON"
-
-    ``` php
-    [[= include_code('code_samples/api/rest_api/create_image.json.php', indent_level=1) =]]
-    ```
+To create content with a binary attachment, such as an image, post the content
+data to [`/content/objects`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_post)
+to create a draft, then publish it through
+[`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
+Authenticate the requests as described in [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication).
 
 ### Search (`/views`)
 

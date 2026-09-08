@@ -115,50 +115,6 @@ An `ibexa.mcp.example` route is now available:
 php bin/console debug:router ibexa.mcp.example
 ```
 
-### Create capability class
-
-Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
-
-The class contains:
-
-- a method marked with an `McpTool` attribute that associates it with the `example` server as the `greet` tool
-- a method marked with an `McpPrompt` attribute that provides a prompt template to users
-
-``` php
-[[= include_code('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
-```
-
-In this example, the `servers` attribute parameter associates only this tool with the `example` server.
-Alternatively, you can assign all tools from the class to a server by using the `tools` parameter in the server configuration.
-For more information, see [tools configuration](mcp_config.md#tool-configuration).
-
-For the prompt, the `servers` parameter is required.
-Therefore, the example prompt must use it to be associated with the `example` server.
-
-During development and testing, you may need to clear the cache to ensure that new or modified capabilities are properly re-discovered.
-In this example, use the following command:
-
-```bash
-php bin/console cache:pool:clear cache.tagaware.filesystem
-```
-
-!!! tip "Cache clearing"
-
-    During development, clear caches aggressively.
-    The following commands clear all cache types, regardless of where they are stored:
-    ```bash
-    php bin/console cache:clear
-    php bin/console cache:pool:clear --all
-    ```
-
-### Create MCP server list command
-
-To check the MCP server configuration, create a small command that uses the MCP server configuration registry injected through `McpServerConfigurationRegistryInterface` and autowiring:
-
-``` php
-[[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
-```
-
 ### Perform `curl` test
 
 To test the `example` MCP server, a sequence of `curl` commands is used to simulate the communication between an AI client and the MCP server.

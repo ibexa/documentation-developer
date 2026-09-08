@@ -31,7 +31,6 @@ With the MCP Servers feature, you can:
 - create MCP servers [by using YAML configuration](mcp_config.md#mcp-server-configuration)
 - assign different tools, prompts, and resources to different MCP servers, varying them for each site and purpose
 - use [built-in tools](mcp_config.md#built-in-tools) included in the package
-- [create custom server capabilities](mcp_usage.md#create-capability-class) with PHP API
 
 MCP servers are defined specifically for each repository and assigned to individual [SiteAccesses](siteaccess.md) scopes.
 This way you can build flexible configurations that match different contexts.
