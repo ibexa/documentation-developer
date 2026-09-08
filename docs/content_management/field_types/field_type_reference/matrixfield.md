@@ -33,5 +33,3 @@ A row is considered empty if it contains only empty cells (or cells containing o
 Empty rows are removed.
 
 If, after removing empty rows, the number of rows doesn't fulfill the configured `Minimum number of rows`, the field doesn't validate.
-
-For example, the following input doesn't validate if `Minimum number of rows` is set to 3, because the second row is empty:

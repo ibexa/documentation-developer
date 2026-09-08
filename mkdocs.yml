@@ -211,7 +211,6 @@ nav:
         - User authentication:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
-          - User authentication: users/user_authentication.md
         - User grouping:
           - Customer groups: users/customer_groups.md
     - Recommendations:
