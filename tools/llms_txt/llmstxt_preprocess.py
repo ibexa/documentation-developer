@@ -25,13 +25,11 @@ from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup as Soup, NavigableString
 
-PILL_CLASS_TO_EDITION = {
-    "pill--lts-update": "LTS Update",
-    "pill--experience": "Experience",
-    "pill--headless": "Headless",
+PILL_CLASS_TO_CATEGORY = {
     "pill--new-feature": "New feature",
     "pill--first-release": "First release",
 }
+
 
 def preprocess(soup: Soup, output: str) -> None:
     """
@@ -171,28 +169,29 @@ def _autoclean(soup: Soup) -> None:
                 Soup(f"<pre{attr}>{html_module.escape(code_elem.get_text())}</pre>", "html.parser")
             )
 
+
 def _process_release_note_tags(soup: Soup) -> None:
-    """Append edition labels from release-note__tags divs to their preceding heading.
+    """Append release-note category labels from release-note__tags divs to their preceding heading.
 
     Release notes use a <div class="release-note__tags"> block after each <h2>
     containing empty <div class="pill pill--X"> elements rendered via CSS.
     This converts them to a readable parenthetical on the heading, e.g.:
-      ## Google Gemini connector v5.0.7 (Headless, Experience, LTS Update, New feature)
+      ## Google Gemini connector v5.0.7 (New feature, First release)
     """
     for tags_div in soup.find_all("div", class_="release-note__tags"):
-        editions = []
+        categories = []
         for pill_div in tags_div.find_all("div"):
             classes = pill_div.get("class", [])
-            for pill_cls, name in PILL_CLASS_TO_EDITION.items():
+            for pill_cls, name in PILL_CLASS_TO_CATEGORY.items():
                 if pill_cls in classes:
-                    editions.append(name)
+                    categories.append(name)
                     break
 
         heading = tags_div.find_previous_sibling(["h1", "h2", "h3", "h4"])
-        if heading and editions:
+        if heading and categories:
             # Insert before the permalink anchor so it's part of the heading text
             anchor = heading.find("a", class_="headerlink")
-            label = NavigableString(f" ({', '.join(editions)})")
+            label = NavigableString(f" ({', '.join(categories)})")
             if anchor:
                 anchor.insert_before(label)
             else:
