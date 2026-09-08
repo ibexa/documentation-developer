@@ -143,16 +143,16 @@
             padding: 2,
             templates: {
                 first: `<svg class="tile-icon" width="16" height="16">
-                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-double-back"></use>
+                    <use fill="var(--cohesivo-neutral-240)" xlink:href="../images/ez-icons.svg#caret-double-back"></use>
                 </svg>`,
                 previous: `<svg class="tile-icon" width="20" height="20">
-                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-back"></use>
+                    <use fill="var(--cohesivo-neutral-240)" xlink:href="../images/ez-icons.svg#caret-back"></use>
                 </svg>`,
                 next: `<svg class="tile-icon" width="20" height="20">
-                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-next"></use>
+                    <use fill="var(--cohesivo-neutral-240)" xlink:href="../images/ez-icons.svg#caret-next"></use>
                 </svg>`,
                 last: `<svg class="tile-icon" width="16" height="16">
-                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-double-next"></use>
+                    <use fill="var(--cohesivo-neutral-240)" xlink:href="../images/ez-icons.svg#caret-double-next"></use>
                 </svg>`,
             },
         }),
