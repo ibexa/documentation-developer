@@ -85,11 +85,11 @@
         });
 
         let logo = document.querySelector('img[src$="cohesivo-logo-alt.svg"]');
-          logo.onclick = () => {
-            let pathParts = document.location.pathname.split('/').slice(0, 3);
-            document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
-          };
-          logo.setAttribute('style', 'cursor: pointer; margin: 13px;');
+        logo.onclick = () => {
+          let pathParts = document.location.pathname.split('/').slice(0, 3);
+          document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
+        };
+        logo.setAttribute('style', 'cursor: pointer; margin: 13px;');
       }, 500);
     });
   </script>
