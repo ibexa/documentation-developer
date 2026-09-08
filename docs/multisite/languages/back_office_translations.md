@@ -26,7 +26,7 @@ ibexa:
             enabled: true
 ```
 
-Then clear the cache. Now you can reload your [[= product_name =]] back office.
+Now you can reload your [[= product_name =]] back office.
 If your browser language is set to French, the back office is displayed in French.
 
 !!! tip "Checking browser language"
@@ -40,8 +40,6 @@ If your browser language is set to French, the back office is displayed in Frenc
     Add the language to an array under `ibexa.system.<siteaccess>.user_preferences.additional_translations`, for example:
 
     `ibexa.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
-
-    Then, run `composer run post-update-cmd` and `php bin/console cache:clear --siteaccess=admin`.
 
 ### Selecting back office language
 
@@ -95,11 +93,3 @@ For example, in `custom_extension.de.xliff`:
 ```
 
 The language to display is then selected automatically based on [user preferences or browser setup](#selecting-back-office-language).
-
-!!! note
-
-    Run `composer run post-update-cmd` which installs your JavaScript translations by using `BazingaJsTranslationBundle`,
-    and clears the cache of the default SiteAccess.
-
-    Run `php bin/console cache:clear --siteaccess=admin` to clear the back office cache.
-    You may need to replace `admin` with the back office's SiteAccess name used in your installation.
