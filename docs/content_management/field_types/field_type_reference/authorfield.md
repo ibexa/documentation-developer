@@ -6,11 +6,7 @@ This field type allows the storage and retrieval of one or more authors. For eac
 |----------|----------------|----------------|----------|
 | `Author` | `ibexa_author` | mixed          | `string` |
 
-## PHP API field type
-
-### Value object
-
-#### Properties
+## Properties
 
 | Attribute | Type                                     | Description      | Example   |
 |-----------|------------------------------------------|------------------|-----------|
@@ -18,55 +14,17 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 Example:
 
-``` php
-use Ibexa\Core\FieldType\Author;
-
-$authorList = new Author\Value([
-   new Author\Author([
-       'id' => 1,
-       'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com',
-   ]),
-   new Author\Author([
-       'id' => 2,
-       'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com',
-   ]),
-]);
-```
-
-#### Hash format
+## Hash format
 
 The hash format mostly matches the value object. It has the following key `authors`.
 
 Example
 
-``` php
-[
-    [
-       'id' => 1,
-       'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com',
-    ],
-    [
-       'id' => 2,
-       'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com',
-    ],
-];
-```
-
-#### String representation
-
-The string contains all the authors with their names and emails.
-
-Example: `John Doe john@doe.com`
-
-### Validation
+## Validation
 
 This field type doesn't perform any special validation of the input value.
 
-### Settings
+## Settings
 
 The Field definition of this field type can be configured with a single option:
 
@@ -80,13 +38,3 @@ Following `defaultAuthor` default value options are available as constants in 
 |------------------------|-------------------------------------------|
 | `DEFAULT_VALUE_EMPTY`  | Default value is empty.                   |
 | `DEFAULT_CURRENT_USER` | Default value uses currently logged user. |
-
-``` php
-// Author field type example settings
-
-use Ibexa\Core\FieldType\Author\Type;
-
-$settings = [
-    'defaultAuthor' => Type::DEFAULT_VALUE_EMPTY,
-];
-```

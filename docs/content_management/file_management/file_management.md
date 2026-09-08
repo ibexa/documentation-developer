@@ -4,19 +4,6 @@ description: Configurations and management of binary files.
 
 # File management
 
-## Access binary files
-
-To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $field
- * @var \Ibexa\Core\IO\IOServiceInterface $ioService
- */
-$file = $ioService->loadBinaryFile($field->value->id);
-$fileContent = $ioService->getFileContents($file);
-```
-
 ## Handling binary files
 
 [[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](imagefield.md) field types.
@@ -126,4 +113,3 @@ To learn how to configure other adapters, see the [bundle's online documentation
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
 This is faster than accessing the remote NFS or S3 instance to read metadata.
-

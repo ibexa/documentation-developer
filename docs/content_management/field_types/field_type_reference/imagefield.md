@@ -8,13 +8,11 @@ The Image field type allows you to store an image file.
 
 A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations, for example, large, small, medium, or black and white thumbnail.
 
-## PHP API field type
-
-### Value object
+## Field value
 
 The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
 
-#### Properties
+### Properties
 
 | Property          | Type   | Example                                                          | Description                                                                                                                                                                                                                                                          |
 |-------------------|--------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -28,11 +26,11 @@ The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\Va
 | `width`           | int    | `960`                                                            | Original image width in pixels.                                                                                                                                                                                             |
 | `height`          | int    | `540`                                                            | Original image height in pixels.                                                                                                                                                                                            |
 
-### Settings
+## Settings
 
 This field type doesn't support settings.
 
-### Image variations
+## Image variations
 
 Using the variation Service, variations of the original image can be obtained.
 They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
@@ -50,7 +48,7 @@ They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the 
 | `uri`          | string   | `var/storage/images/test/199-2-eng-GB/apple.png` | The variation's URI. Complete path with a name of image file.                                                                              |
 | `lastModified` | DateTime | ``"2017-08-282 12:20 Europe/Berlin"``            | When the variation was last modified.                                                                                                      |
 
-### Field Definition options
+## Field Definition options
 
 The Image field type supports one `FieldDefinition` option: the maximum size for the file.
 

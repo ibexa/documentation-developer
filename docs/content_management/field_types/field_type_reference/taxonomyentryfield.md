@@ -6,9 +6,7 @@ TaxonomyEntry is a field type that stores information about the parent entry in 
 |----------------|-----------------------|----------------|
 | `TaxonomyEntry`| `ibexa_taxonomy_entry`| `array`|
 
-## PHP API field type
-
-### Input expectations
+## Input expectations
 
 A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
@@ -18,63 +16,23 @@ A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value
 
 Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
 
-``` php
-use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
-
-/** @var TaxonomyServiceInterface $taxonomyService */
-$taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-$taxonomyEntryField = new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value($taxonomyEntry);
-```
-
 Example using array:
 
-``` php
-use Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry;
-
-/** @var TaxonomyEntry $taxonomyEntry */
-return [
-    'taxonomy_entry' => $taxonomyEntry, // load Entry using TaxonomyService
-];
-```
-
-### Value object
-
-#### Properties
+### Properties
 
 |Property|Type|Description|
 |--------|----|-----------|
 |`taxonomyEntry`|`?Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
 
-#### Constructor
-
-The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
-
-``` php
-// Constructor example
-use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
-use Ibexa\Taxonomy\FieldType\TaxonomyEntry;
-
-// Fetches TaxonomyEntry from TaxonomyService
-/** @var TaxonomyServiceInterface $taxonomyService */
-$taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-
-// Instantiates a taxonomy entry value
-$taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
-```
-
-#### String representation
-
-`taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.
-
-#### Hash format
+### Hash format
 
 An array with `taxonomy_entry` key containing `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object or `null`.
 
-#### Validation
+### Validation
 
 No validation.
 
-#### Settings
+### Settings
 
 The field definition of this field type can be configured with the following options:
 

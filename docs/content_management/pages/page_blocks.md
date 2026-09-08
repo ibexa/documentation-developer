@@ -33,10 +33,6 @@ For example:
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 12) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 17) =]]# ...
 ```
 
-!!! tip
-
-    For a full example of block configuration, see [Create custom Page block](create_custom_page_block.md).
-
 ### Block name and help text
 
 The `name` setting accepts either a single translation key, a hard coded string of text that won't be translated, or an object with `text` and `help` property keys.
@@ -115,44 +111,3 @@ The following example wraps all form fields for block attributes in an ordered l
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
-
-## Block events
-
-To add functionalities to your block that go beyond the available attributes, you can use an event listener.
-
-You can listen to events related to block definition and block rendering.
-
-The following events are available:
-
-- `BlockDefinitionEvents::getBlockDefinitionEventName` - dispatched when block definition is created
-- `BlockDefinitionEvents::getBlockAttributeDefinitionEventName` - dispatched when block attribute definition is created
-- `BlockRenderEvents::getBlockPreRenderEventName` - dispatched before a block is rendered
-- `BlockRenderEvents::getBlockPostRenderEventName` - dispatched after a block is rendered
-
-For example, to modify a block by adding a new parameter to it, you can create the following listener:
-
-``` php
-[[= include_code('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
-```
-
-Before the block is rendered, the listener adds `my_parameter` to it with value `parameter_value`.
-You can use this parameter, for example, in block template:
-
-``` html+twig
-[[= include_file('code_samples/page/page_listener/templates/themes/standard/block/my_block.html.twig') =]]
-```
-
-### Exposing content relations from blocks
-
-Page blocks, for example Embed block or Collection block, can embed other content items.
-Publishing a page with such blocks creates Relations to those content items.
-
-When creating a custom block with embeds, you can ensure such Relations are created using the block Relation collection event.
-
-The event is dispatched on content publication.
-You can hook your event listener to the `BlockRelationEvents::getCollectBlockRelationsEventName` event.
-
-To expose relations, pass an array containing Content IDs to the `Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent::setRelations()` method.
-If embedded Content changes, old Relations are removed automatically.
-
-Providing Relations also invalidates HTTP cache for your block response in one of the related content items changes.
