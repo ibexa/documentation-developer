@@ -58,22 +58,6 @@ ibexa:
                     parent_location_id: 106
 ```
 
-## Customizing ImageAsset field type rendering
-
-Internally, the Image Asset Type is rendered via subrequest (similar to other relation types).
-Rendering customization is possible by configuring view type `asset_image`:
-
-```yaml
-ibexa:
-    system:
-       default:
-            content_view:
-                asset_image:
-                    default:
-                        template: ::custom_image_asset_template.html.twig
-                        match: []
-```
-
 ## Generating image variation from the Image Asset
 
 Thanks to the `Ibexa\Bundle\Core\Imagine\ImageAsset` decorator you can work with `Ibexa\Contracts\Core\Variation` in the same way as with [Image field type](imagefield.md).

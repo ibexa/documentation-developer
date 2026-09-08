@@ -65,28 +65,12 @@ ibexa_corporate_account:
 ## Registration
 
 You can define what fields are required in the Customer Portal registration form.
-To do so, [create and configure user registration form](create_user_registration_form.md).
+To do so, see [Registration form field configuration](user_registration.md#registration-form-field-configuration).
 
 ## Address
 
 With the Address field type, you can customize address fields and configure them per country.
 To learn more, see [Address field type documentation](addressfield.md).
-
-## Templates
-
-You can also define new templates for, among others: invitation email, reset password message and the information screens after any of the user's actions.
-
-```yaml
-ibexa:
-    system:
-        site_group:
-            content_view:
-                full:
-                  confirmation_page:
-                        template: "@@ibexadesign/customer_portal/account/forgot_password/confirmation_page.html.twig"
-                        match:
-                            Identifier\ContentType: confirmation_page
-```
 
 ## Order management
 

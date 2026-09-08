@@ -264,28 +264,6 @@ Embed video content by using the [`video` HTML element](https://developer.mozill
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 26, 30) =]]
 ```
 
-### Custom Twig template block
-
-For advanced content, use custom Twig templates that allows you to fully control the styling of the block:
-
-```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 37, 40) =]]
-```
-
-Create the dedicated template, for example in `templates/custom_template.html.twig`.
-
-``` html+twig
-{% trans_default_domain 'app' %}
-
-{{ 'custom_step_description'|trans }}
-```
-
-and provide the required translations in `translations/app.en.yaml`:
-
-``` yaml
-custom_step_description: "This is a description coming from a custom template."
-```
-
 ## Configuration examples
 
 ### Example 1: General welcome tour
