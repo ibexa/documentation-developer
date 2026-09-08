@@ -13,7 +13,7 @@ $(document).ready(function() {
         branchName = branchNameRegexp[1];
     }
 
-    const versionLavels = {
+    const versionLabels = {
         "2.5": "eZ Platform 2.5",
         "3.3": "Ibexa DXP 3.3",
         "4.6": "Ibexa DXP 4.6",
@@ -38,7 +38,7 @@ $(document).ready(function() {
         );
     });
 
-    $('.rst-current-version.switcher__label').html(productNames[branchName] ?? branchName);
+    $('.rst-current-version.switcher__label').html(versionLabels[branchName] ?? branchName);
 
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
