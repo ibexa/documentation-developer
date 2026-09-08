@@ -3,9 +3,14 @@ description: To configure the Raptor integration, follow the step-by-step proced
 month_change: false
 saas_review:
     - siteaccess
+    - links_removed
 saas_review_note: >-
     Confirm how customer_id, recommendations_api_key, and the other SiteAccess-aware
     connector settings on this page are exposed once SiteAccess configuration moves to a UI.
+
+    Links to the deleted background_tasks.md, recommendations_twig_functions.md and
+    hybrid_tracking.md pages were also removed from this page; check that the
+    surrounding text still reads correctly.
 ---
 
 # Configure [[= product_name_cdp_base =]]

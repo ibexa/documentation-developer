@@ -1,6 +1,17 @@
 ---
 month_change: false
 description: Embedding queries, embedding configuration, providers, and embedding search fields
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Embedding models must be configured per SiteAccess in system configuration. Confirm
+    how that per-SiteAccess model choice is made once SiteAccess configuration moves to
+    a UI.
+
+    Links to the deleted search_api.md, search_engines.md and
+    index_custom_elasticsearch_data.md pages and the generated PHP API reference were
+    removed; check that the surrounding text still reads correctly.
 ---
 
 # Embeddings search reference

@@ -1,5 +1,11 @@
 ---
 description: Customization of an approval process for new companies applications.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Company application reasons are listed under a SiteAccess-scoped corporate_accounts
+    key. Confirm how that list is set per SiteAccess once SiteAccess configuration moves
+    to a UI.
 ---
 
 # Customer Portal applications

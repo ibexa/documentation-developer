@@ -1,5 +1,14 @@
 ---
 description: Configure Fastly Image Optimizer.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The Fastly Image Optimizer variation handler is selected per SiteAccess. Confirm how
+    that per-SiteAccess choice is made once SiteAccess configuration moves to a UI.
+
+    Links to the deleted reverse_proxy.md and fastly.md pages were removed; check that
+    the surrounding text still reads correctly.
 ---
 
 # Fastly Image Optimizer (Fastly IO)

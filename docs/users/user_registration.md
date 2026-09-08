@@ -1,5 +1,15 @@
 ---
 description: Register new users.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Registration, forgotten password, and user settings templates are all configured per
+    SiteAccess. Confirm which of these per-SiteAccess settings survive once SiteAccess
+    configuration moves to a UI.
+
+    Links to the deleted 8_enable_account_registration.md page were removed; check that
+    the surrounding text still reads correctly.
 ---
 
 # Register new users

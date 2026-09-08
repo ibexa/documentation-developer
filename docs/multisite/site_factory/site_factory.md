@@ -1,6 +1,16 @@
 ---
 month_change: false
 description: Site Factory allows creating multiple sites (SiteAccesses) from the back office.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Site Factory is set up by adding empty SiteAccess groups and enabling the Site
+    Factory SiteAccess matcher in YAML. Confirm both steps, and how Site Factory sites
+    relate to configured SiteAccesses, once SiteAccess configuration moves to a UI.
+
+    Links to the deleted design_engine.md page were removed; check that the surrounding
+    text still reads correctly.
 ---
 
 # Site Factory

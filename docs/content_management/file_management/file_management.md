@@ -1,5 +1,14 @@
 ---
 description: Configurations and management of binary files.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    IO handlers are configurable per SiteAccess. Confirm how per-SiteAccess file handler
+    settings are exposed once SiteAccess configuration moves to a UI.
+
+    Links to the deleted clustering.md page were removed; check that the surrounding
+    text still reads correctly.
 ---
 
 # File management

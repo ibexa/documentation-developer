@@ -1,5 +1,10 @@
 ---
 description: Configure SiteAccess, displayed content items, depth and root location for the content tree.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Content tree settings are declared for a SiteAccess or a SiteAccess group. Confirm
+    how that scope is chosen once SiteAccess configuration moves to a UI.
 ---
 
 # Content tree

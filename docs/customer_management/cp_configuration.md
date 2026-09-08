@@ -1,5 +1,12 @@
 ---
 description: Configure Customer Portal to fit the needs of your business.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    The Customer Portal is served by a predefined SiteAccess in a SiteAccess group, and
+    roles and currencies are scoped per SiteAccess or SiteAccess group. Confirm how a
+    tenant adds Customer Portal SiteAccesses and scopes these settings once SiteAccess
+    configuration moves to a UI.
 ---
 
 # Customer Portal configuration

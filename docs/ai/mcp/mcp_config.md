@@ -3,9 +3,14 @@ description: Configure an MCP server that exposes built-in and custom tools, pro
 month_change: true
 saas_review:
     - siteaccess
+    - links_removed
 saas_review_note: >-
     Confirm how MCP server-to-SiteAccess assignment and the other SiteAccess-aware
     settings on this page are exposed once SiteAccess configuration moves to a UI.
+
+    Links to the deleted development_security.md, graphql.md, clustering.md and
+    persistence_cache.md pages were also removed from this page; check that the
+    surrounding text still reads correctly.
 ---
 
 # Configure MCP Servers

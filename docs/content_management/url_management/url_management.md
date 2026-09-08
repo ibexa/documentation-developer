@@ -1,6 +1,16 @@
 ---
 description: Manage URL aliases and wildcards, and validate external URLs.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    External URL validation is configured under the SiteAccess-aware url_checker key,
+    while URL aliases are not SiteAccess-aware but depend on the SiteAccess root path.
+    Confirm both statements once SiteAccess configuration moves to a UI.
+
+    Links to the deleted install_cohesivo.md and field_type_storage.md pages were
+    removed; check that the surrounding text still reads correctly.
 ---
 
 # URL management

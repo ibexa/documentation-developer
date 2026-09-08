@@ -1,5 +1,10 @@
 ---
 description: Configure image editor to crop, flip, and modify images.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Image Editor settings are SiteAccess-aware. Confirm how the SiteAccess scope is
+    chosen for them once SiteAccess configuration moves to a UI.
 ---
 
 # Configure Image Editor

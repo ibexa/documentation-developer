@@ -1,5 +1,16 @@
 ---
 description: Create unique Customer Portals for your clients with Page Builder.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Making a Customer Portal site template available in Page Builder requires adding the
+    SiteAccess to the SiteAccess list, to a SiteAccess group, and to the Page Builder
+    SiteAccess list. Confirm how a tenant does all three once SiteAccess configuration
+    moves to a UI.
+
+    Links to the deleted add_navigation_menu.md page were removed; check that the
+    surrounding text still reads correctly.
 ---
 
 # Create Customer Portal

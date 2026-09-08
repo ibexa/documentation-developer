@@ -1,5 +1,16 @@
 ---
 description: Make sure your custom development's configuration can be used with SiteAccesses.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Defines SiteAccess-aware configuration: the namespace, scope, and parameter name
+    format and the scope fallback order. Several other pages link here for that
+    definition, so confirm it stays accurate once SiteAccess configuration moves to a
+    UI.
+
+    Links to the deleted php_api.md and repository_configuration.md pages were removed;
+    check that the surrounding text still reads correctly.
 ---
 
 # SiteAccess-aware configuration

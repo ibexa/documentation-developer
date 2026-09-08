@@ -1,6 +1,17 @@
 ---
 description: Configure custom product tour scenarios with steps, blocks, and interaction modes.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Product tour scenarios are configured under the SiteAccess-aware
+    ibexa.system.<siteaccess>.product_tour key. Confirm how a tenant picks the
+    SiteAccess scope for a scenario once SiteAccess configuration moves to a UI.
+
+    Links to the deleted browser.md, customize_dashboard.md and
+    customize_product_tour.md pages were removed; check that the surrounding text still
+    reads correctly.
 ---
 
 # Configure product tour scenarios

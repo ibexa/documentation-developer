@@ -1,6 +1,16 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Activity log settings are shown scoped to a SiteAccess group. Confirm how that scope
+    is chosen once SiteAccess configuration moves to a UI.
+
+    Links to the deleted install_cohesivo.md, repository_configuration.md,
+    customize_dashboard.md and update_from_4.5.md pages and the generated PHP API
+    reference were removed; check that the surrounding text still reads correctly.
 ---
 
 # Recent activity

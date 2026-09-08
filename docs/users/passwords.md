@@ -1,5 +1,16 @@
 ---
 description: Set up user password rules.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The password recovery token validity is set with a SiteAccess-scoped security
+    parameter. Confirm how that per-SiteAccess setting is exposed once SiteAccess
+    configuration moves to a UI.
+
+    Links to the deleted add_forgot_password_option.md, add_login_form.md and
+    repository_configuration.md pages were removed; check that the surrounding text
+    still reads correctly.
 ---
 
 # Passwords

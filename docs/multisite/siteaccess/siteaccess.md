@@ -1,6 +1,16 @@
 ---
 description: SiteAccesses enable you to provide separate configuration for each site in a multisite setup.
 page_type: landing_page
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The landing page defines what a SiteAccess is and lists what can differ per
+    SiteAccess. Confirm that the definition and the list still match the product once
+    SiteAccess configuration moves to a UI.
+
+    Links to the deleted design_engine.md and persistence_cache.md pages were removed;
+    check that the surrounding text still reads correctly.
 ---
 
 # SiteAccess
