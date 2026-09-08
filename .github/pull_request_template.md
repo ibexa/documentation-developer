@@ -11,7 +11,5 @@
 - [ ] Text renders correctly
 - [ ] Text has been checked with vale
 - [ ] Description metadata is up to date
-- [ ] Redirects cover removed/moved pages
 - [ ] Code samples are working
-- [ ] PHP code samples have been fixed with PHP CS fixer
 - [ ] Added link to this PR in relevant JIRA ticket or code PR

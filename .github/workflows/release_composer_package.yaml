@@ -116,8 +116,10 @@ jobs:
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
                   GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
-            # Needed to resolve the PHP API classes referenced by the docs to
-            # their vendor/ source paths (dump_class_paths.php).
+            # Provides vendor/autoload.php for dump_class_paths.php. The developer
+            # documentation no longer links to a generated PHP class reference, so the
+            # dump is empty in practice, but build_package_docs.py still requires the
+            # --class-map file to exist.
             - uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda #4.0.0
               with:
                   dependency-versions: highest
@@ -135,7 +137,7 @@ jobs:
               env:
                   READTHEDOCS_VERSION_NAME: ${{ matrix.branch }}
 
-            - name: Resolve PHP API classes to vendor paths
+            - name: Dump PHP API class paths (empty map)
               run: php tools/llm_package/dump_class_paths.php site user-docs/site class_paths.json
 
             - name: Build package Markdown (developer/, user/)

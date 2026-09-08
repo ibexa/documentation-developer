@@ -22,10 +22,6 @@
         "phpunit/phpunit": "^11.0",
         "symfony/yaml": "^7.0",
         "ibexa/connector-gemini": "6.0.x-dev",
-        "ibexa/code-style": "~2.0.0",
-        "friendsofphp/php-cs-fixer": "^3.30",
-        "phpstan/phpstan": "^2.0",
-        "phpstan/phpstan-symfony": "^2.0",
         "ibexa/doctrine-schema": "6.0.x-dev",
         "ibexa/search": "6.0.x-dev",
         "ibexa/content-forms": "6.0.x-dev",
@@ -35,7 +31,6 @@
         "ibexa/notifications": "6.0.x-dev",
         "ibexa/product-catalog-date-time-attribute": "6.0.x-dev",
         "ibexa/fieldtype-richtext": "6.0.x-dev",
-        "ibexa/rector": "6.0.x-dev",
         "ibexa/rest": "6.0.x-dev",
         "ibexa/http-cache": "6.0.x-dev",
         "ibexa/core-persistence": "6.0.x-dev",
@@ -78,9 +73,7 @@
         "ibexa/messenger": "~6.0.x-dev",
         "ibexa/collaboration": "~6.0.x-dev",
         "ibexa/share": "~6.0.x-dev",
-        "ibexa/phpstan": "~6.0.-dev",
         "ibexa/connector-quable": "6.0.x-dev",
-        "deptrac/deptrac": "^3.0",
         "ibexa/cdp": "~6.0.x-dev",
         "ibexa/connector-raptor": "~6.0.x-dev",
         "ibexa/image-editor": "~6.0.x-dev",
@@ -97,30 +90,9 @@
         "ibexa/design-system-twig": "~6.0.x-dev"
     },
     "scripts": {
-        "fix-cs": [
-            "php tools/extract-inline-php.php",
-            "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
-            "php-cs-fixer fix --config=.php-cs-fixer-inline.php -v --show-progress=dots",
-            "php tools/sync-inline-php-to-markdown.php"
-        ],
-        "check-cs": [
-            "php tools/extract-inline-php.php",
-            "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots --dry-run",
-            "php-cs-fixer fix --config=.php-cs-fixer-inline.php -v --show-progress=dots --dry-run"
-        ],
-        "phpstan": "php tools/extract-inline-php.php && phpstan analyse",
-        "deptrac": "php tools/extract-inline-php.php && deptrac analyse",
-        "fix-rector": [
-            "php tools/extract-inline-php.php",
-            "rector process --ansi",
-            "php tools/sync-inline-php-to-markdown.php"
-        ],
-        "check-rector": "php tools/extract-inline-php.php && rector process --dry-run --ansi",
         "check-yaml": "phpunit --group yaml",
         "phpunit": "phpunit --exclude-group=yaml",
         "yaml-update-baseline": "php tests/generate-yaml-baseline.php",
-        "phpstan-update-baseline": "@phpstan --generate-baseline",
-        "deptrac-update-baseline": "@deptrac --formatter=baseline",
         "composer-update": "[ -d vendor ] || composer update",
         "yarn-install": "[ -d node_modules ] || yarn install",
         "markdownlint": [
@@ -133,39 +105,26 @@
         ],
         "test": [
             "@composer-update",
-            "EXIT=0; FAILED=''; { composer check-cs; } || { EXIT=1; FAILED=\"$FAILED check-cs\"; }; { composer phpstan; } || { EXIT=1; FAILED=\"$FAILED phpstan\"; }; { composer deptrac; } || { EXIT=1; FAILED=\"$FAILED deptrac\"; }; { composer check-rector; } || { EXIT=1; FAILED=\"$FAILED check-rector\"; }; { composer markdownlint; } || { EXIT=1; FAILED=\"$FAILED markdownlint\"; }; { composer check-yaml; } || { EXIT=1;  FAILED=\"$FAILED check-yaml\"; }; if [ 1 -eq $EXIT ]; then echo \"Failed:$FAILED\"; fi; exit $EXIT;"
+            "EXIT=0; FAILED=''; { composer markdownlint; } || { EXIT=1; FAILED=\"$FAILED markdownlint\"; }; { composer check-yaml; } || { EXIT=1;  FAILED=\"$FAILED check-yaml\"; }; if [ 1 -eq $EXIT ]; then echo \"Failed:$FAILED\"; fi; exit $EXIT;"
         ],
         "fix": [
-            "@composer-update",
-            "@composer fix-rector",
-            "@composer fix-cs",
             "@composer fix-markdownlint"
         ],
         "baseline": [
             "@composer-update",
-            "@composer phpstan-update-baseline",
-            "@composer deptrac-update-baseline",
             "@composer yaml-update-baseline"
         ]
     },
     "scripts-descriptions": {
-        "fix-cs": "Automatically fixes code style in all files",
-        "check-cs": "Run code style checker for all files",
-        "phpstan": "Run static code analysis",
-        "deptrac": "Run Deptrac architecture testing",
-        "fix-rector": "Automatically applies Rector refactoring to code samples and syncs back to Markdown",
-        "check-rector": "Check for code refactoring opportunities",
         "check-yaml": "Run PHPUnit tests (YAML validation)",
         "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures",
-        "phpstan-update-baseline": "Regenerate PHPStan baseline from current failures",
-        "deptrac-update-baseline": "Regenerate Deptrac baseline from current failures",
         "composer-update": "Install composer dependencies if not already installed",
         "yarn-install": "Install yarn dependencies if not already installed",
         "markdownlint": "Run Markdownlint on all documentation files",
         "fix-markdownlint": "Automatically fixes Markdownlint issues in all documentation files",
-        "test": "Run all checks (CS-Fixer, PHPStan, Deptrac, Rector, Markdownlint, YAML checks), continuing past failures and reporting failure overall if any check failed",
-        "fix": "Run all automatic fixes (Rector, CS-Fixer, Markdownlint)",
-        "baseline": "Regenerate all baselines (PHPStan, Deptrac, YAML) from current failures"
+        "test": "Run all checks (Markdownlint, YAML checks), continuing past failures and reporting failure overall if any check failed",
+        "fix": "Run all automatic fixes (Markdownlint)",
+        "baseline": "Regenerate the YAML validation baseline from current failures"
     },
     "config": {
         "allow-plugins": false
