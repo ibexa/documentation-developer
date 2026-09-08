@@ -1,0 +1,51 @@
+name: "Validate YAML samples"
+
+on:
+    pull_request: ~
+
+jobs:
+    yaml-samples-validation:
+        name: Validate YAML samples
+        runs-on: "ubuntu-26.04"
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - "8.4" # Upper supported version
+                    - "8.3" # Lower supported version
+        steps:
+            - uses: actions/checkout@v7
+
+            - name: Setup PHP Action
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
+                  extensions: "pdo_sqlite, gd"
+                  tools: cs2pr
+
+            - name: Generate token
+              id: generate_token
+              uses: actions/create-github-app-token@v3
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ${{ github.repository_owner }}
+
+            - name: Add composer keys for private packagist
+              run: |
+                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  composer config --global github-oauth.github.com $GITHUB_TOKEN
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+            # The installed ibexa/* bundles are what makes it possible to build the
+            # full Symfony configuration tree the YAML samples are validated against.
+            - uses: ramsey/composer-install@v4
+              with:
+                  dependency-versions: highest
+
+            - name: Validate YAML configuration samples
+              run: composer check-yaml --ansi
