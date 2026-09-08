@@ -16,12 +16,6 @@ At least one of `min` or `max` must be provided.
 
 ## Example
 
-### PHP
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/UpdatedAtRangeQuery.php') =]]
-```
-
 ### REST API
 
 === "XML"

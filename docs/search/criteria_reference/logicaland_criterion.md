@@ -14,21 +14,6 @@ When querying for [products](product_api.md), use LogicalAnd instead.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\LogicalAnd(
-    [
-        new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\SectionIdentifier(['sports', 'news']),
-    ]
-);
-```
-
 ### REST API
 
 === "XML"

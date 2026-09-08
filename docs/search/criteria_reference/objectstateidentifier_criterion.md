@@ -13,24 +13,6 @@ The `ObjectStateIdentifier` Search Criterion searches for content based on its o
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ObjectStateIdentifier(['ready']);
-```
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock');
-```
-
 ### REST API
 
 === "XML"

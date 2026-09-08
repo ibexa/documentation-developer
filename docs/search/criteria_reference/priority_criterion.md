@@ -17,15 +17,3 @@ The `value` argument requires:
 
 - a list of ints for `Operator::BETWEEN`
 - a single int for other Operators
-
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Location\Priority(Criterion\Operator::GTE, 50);
-```

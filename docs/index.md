@@ -109,7 +109,6 @@
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
                                 <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
-                                <li><a href="search/search_api/">Search API</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">

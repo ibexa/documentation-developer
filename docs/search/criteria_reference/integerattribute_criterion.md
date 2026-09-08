@@ -13,21 +13,6 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
-
-$query = new ProductQuery(
-    null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IntegerAttribute(
-        'size',
-        38
-    )
-);
-```
-
 ### REST API
 
 === "XML"

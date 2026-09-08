@@ -15,11 +15,3 @@ Sort Clauses are found in the `Ibexa\Contracts\Core\Repository\Values\ContentTyp
 | Id| Sort by content type's id |
 | Identifier| Sort by content type's identifier |
 | Name| Sort by content type's name |
-
-The following example shows how to use them to sort the searched content types:
-
-``` php hl_lines="34-36"
-[[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
-```
-
-You can change the default sorting order by using the `SORT_ASC` and `SORT_DESC` constants from `AbstractSortClause`.

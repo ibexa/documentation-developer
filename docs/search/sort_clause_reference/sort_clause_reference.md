@@ -6,8 +6,7 @@ month_change: false
 
 # Sort Clause reference
 
-Sort Clauses are the sorting options for Content and Location Search and
-[Repository filtering](search_api.md#repository-filtering).
+Sort Clauses are the sorting options for Content and Location Search.
 
 Capabilities of individual Sort Clauses can depend on the search engine.
 

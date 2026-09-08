@@ -5,7 +5,7 @@ description: Embedding queries, embedding configuration, providers, and embeddin
 
 # Embeddings search reference
 
-Embeddings provide vector representations of content or text, enabling [semantic similarity search](search_api.md#search-with-embeddings).
+Embeddings provide vector representations of content or text, enabling semantic similarity search.
 Foundational abstractions are provided for embedding-based search, while embedding providers generate vector representations.
 
 Searching with embeddings is designed for use with the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature.
@@ -86,10 +86,6 @@ For a real-life example of embedding models configuration, see [Taxonomy suggest
 
 Embedding vectors are stored in dedicated search fields.
 These fields can be used by the search engine to perform vector similarity comparisons when embedding queries are executed.
-
-``` php
-[[= include_code('code_samples/api/public_php_api/src/embedding_fields.php') =]]
-```
 
 - `Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory` creates dedicated search fields that store embedding vectors
 

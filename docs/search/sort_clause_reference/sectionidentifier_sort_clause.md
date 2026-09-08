@@ -13,13 +13,3 @@ The `SectionIdentifier` Sort Clause sorts search results by the Section IDs of t
 !!! note
 
     Solr search engine uses the `Query::SORT_DESC` sort direction by default.
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\SectionIdentifier()];
-```

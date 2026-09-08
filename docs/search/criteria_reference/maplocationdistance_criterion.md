@@ -18,19 +18,3 @@ The `distance` argument requires:
 
 - a list of floats for `Operator::IN` or `Operator::BETWEEN`
 - a single float for other Operators
-
-## Limitations
-
-The `MapLocationDistance` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
-
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\MapLocationDistance('location', Criterion\Operator::LTE, 5, 51.395973, 22.531696);
-```

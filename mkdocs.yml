@@ -260,7 +260,6 @@ nav:
         - Customize Raptor CDP data: raptor_cdp/raptor_cdp_data_customization.md
     - Search:
         - Search: search/search.md
-        - Search API: search/search_api.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md

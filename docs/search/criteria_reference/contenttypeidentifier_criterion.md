@@ -12,16 +12,6 @@ The `ContentTypeIdentifier` Search Criterion searches for content based on the i
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
-```
-
 ### REST API
 
 === "XML"

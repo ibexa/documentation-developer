@@ -13,16 +13,6 @@ The `IsUserEnabled` Search Criterion searches for user accounts that are enabled
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\IsUserEnabled();
-```
-
 ### REST API
 
 === "XML"

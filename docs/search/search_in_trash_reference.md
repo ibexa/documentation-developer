@@ -6,7 +6,7 @@ month_change: false
 
 # Search in trash reference
 
-When you [search for content items that are held in trash](search_api.md#search-in-trash), you can apply only a limited subset of Search Criteria and Sort Clauses
+When you search for content items that are held in trash, you can apply only a limited subset of Search Criteria and Sort Clauses
 which can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItems`.
 Some sort clauses are exclusive to trash search.
 

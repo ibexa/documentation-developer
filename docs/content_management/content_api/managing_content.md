@@ -128,7 +128,7 @@ $trashService->recover($trashItem, $newParent);
 ```
 
 You can also search through Trash items and sort the results using several public PHP API Search Criteria and Sort Clauses that have been exposed for `TrashService` queries.
-For more information, see [Search in trash](search_api.md#search-in-trash).
+For more information, see [Search in trash](../../search/search_in_trash_reference.md).
 
 ## Content types
 

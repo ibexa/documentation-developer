@@ -103,7 +103,7 @@ To list Relations to and from your content, you can:
 - use the `RelationListIteratorAdapter`
   within a `BatchIterator` which allow traversing the whole relation list
 
-See [Processing large result sets](search_api.md#process-large-result-sets) for more information about the `BatchIterator`.
+
 
 You can get the current version's `VersionInfo` using `ContentService::loadVersionInfo`.
 
@@ -218,7 +218,7 @@ To go through all the content items contained in a subtree, you need to use the 
 
 !!! note
 
-    Refer to [Searching](search_api.md) for information on more complex search queries.
+    Refer to [Search](../../search/search.md) for information on more complex search queries.
 
 ## Getting parent location
 

@@ -180,7 +180,7 @@ This script:
 
 ### Search (`/views`)
 
-The `/views` route allows you to [search in the repository](search.md). It works similarly to its [PHP API counterpart](search_api.md).
+The `/views` route allows you to [search in the repository](search.md).
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
