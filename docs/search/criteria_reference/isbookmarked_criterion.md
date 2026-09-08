@@ -17,8 +17,6 @@ This Criterion is available only for location Search.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

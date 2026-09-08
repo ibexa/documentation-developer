@@ -13,8 +13,6 @@ searches for content based on its remote content ID.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

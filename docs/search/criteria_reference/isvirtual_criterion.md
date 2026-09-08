@@ -12,8 +12,6 @@ The `IsVirtual` Search Criterion searches for virtual or physical products.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -14,8 +14,6 @@ Supported orientation values: landscape, portrait and square.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

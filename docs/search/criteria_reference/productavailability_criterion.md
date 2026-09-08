@@ -16,8 +16,6 @@ For more information, see [Availability and computed availability](products.md#a
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

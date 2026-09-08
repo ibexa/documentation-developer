@@ -12,8 +12,6 @@ The `LocationRemoteId` Search Criterion searches for content based in the locati
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

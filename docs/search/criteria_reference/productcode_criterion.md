@@ -12,8 +12,6 @@ The `ProductCode` Search Criterion searches for products by their codes.
 
 ## Example
 
-### REST API
-
 === "XML"
 
 ```xml

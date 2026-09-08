@@ -12,8 +12,6 @@ The `AttributeGroupIdentifier` Search Criterion searches for products by the val
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

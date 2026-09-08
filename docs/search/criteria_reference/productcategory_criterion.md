@@ -12,8 +12,6 @@ The `ProductCategory` Search Criterion searches for products by the category the
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

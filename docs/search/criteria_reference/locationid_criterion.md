@@ -12,8 +12,6 @@ The `LocationId` Search Criterion searches for content based in the location ID.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

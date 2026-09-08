@@ -13,8 +13,6 @@ The `Sibling` Search Criterion searches for content under the same parent as the
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -14,8 +14,6 @@ It takes only one Criterion in the array parameter.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

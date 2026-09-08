@@ -16,8 +16,6 @@ At least one of `min` or `max` must be provided.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

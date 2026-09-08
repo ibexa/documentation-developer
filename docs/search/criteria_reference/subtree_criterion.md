@@ -13,8 +13,6 @@ It returns the content item and all the content items below it in the subtree.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

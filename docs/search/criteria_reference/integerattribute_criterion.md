@@ -13,8 +13,6 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

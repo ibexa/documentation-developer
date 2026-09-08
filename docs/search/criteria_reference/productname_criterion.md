@@ -12,8 +12,6 @@ The `ProductName` Search Criterion searches for products by their names.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

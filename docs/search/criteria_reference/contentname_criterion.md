@@ -12,8 +12,6 @@ The [`ContentName` Search Criterion](https://github.com/ibexa/core/blob/6.0/src/
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

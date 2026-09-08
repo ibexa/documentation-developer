@@ -35,8 +35,6 @@ When using the Elasticsearch search engine, a full text query performs an OR que
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -14,8 +14,6 @@ The `UserMetadata` Search Criterion searches for content based on its creator or
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -13,8 +13,6 @@ The `Dimensions` Search Criterion searches for image with specified dimensions.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

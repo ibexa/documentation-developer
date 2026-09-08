@@ -13,8 +13,6 @@ The `ColorAttribute` Search Criterion searches for products by the value of thei
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

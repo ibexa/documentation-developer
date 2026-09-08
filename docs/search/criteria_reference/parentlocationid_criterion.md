@@ -13,8 +13,6 @@ searches for content based on the Location ID of its parent.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml
