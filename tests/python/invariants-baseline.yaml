@@ -27,26 +27,6 @@ deleted_product_variables: []
 
 # 314 page(s) contain a PHP code sample (fenced block or .php include macro).
 php_code_sample:
-  - administration/back_office/add_user_setting.md
-  - administration/back_office/back_office_elements/extending_thumbnails.md
-  - administration/back_office/back_office_elements/formatting_date_and_time.md
-  - administration/back_office/back_office_menus/add_menu_item.md
-  - administration/back_office/back_office_menus/back_office_menus.md
-  - administration/back_office/back_office_tabs/back_office_tabs.md
-  - administration/back_office/back_office_tabs/create_dashboard_tab.md
-  - administration/back_office/browser/browser.md
-  - administration/back_office/content_tab_switcher.md
-  - administration/back_office/customize_calendar.md
-  - administration/back_office/customize_integrated_help.md
-  - administration/back_office/customize_product_tour.md
-  - administration/back_office/customize_search_sorting.md
-  - administration/back_office/customize_search_suggestion.md
-  - administration/back_office/notifications.md
-  - administration/configuration/configuration.md
-  - administration/configuration/dynamic_configuration.md
-  - administration/configuration/repository_configuration.md
-  - administration/dashboard/php_api_dashboard_service.md
-  - administration/recent_activity/recent_activity.md
   - ai/ai_actions/configure_ai_actions.md
   - ai/ai_actions/extend_ai_actions.md
   - ai/mcp/mcp_usage.md
