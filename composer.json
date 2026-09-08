@@ -1,8 +1,8 @@
 {
     "name": "ibexa/documentation-developer",
-    "description": "Ibexa DXP developer documentation as Markdown files, for offline reading and AI coding assistants working inside your project.",
+    "description": "Cohesivo by Ibexa developer documentation as Markdown files, for offline reading and AI coding assistants working inside your project.",
     "type": "library",
-    "keywords": ["ibexa", "ibexa-dxp", "documentation", "markdown", "llm", "ai", "agents"],
+    "keywords": ["ibexa", "cohesivo", "documentation", "markdown", "llm", "ai", "agents"],
     "license": "GNU General Public License v2.0",
     "autoload-dev": {
         "psr-4": {

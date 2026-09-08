@@ -7,8 +7,6 @@ month_change: false
 
 A block has attributes that the editor fills in when adding the block to a Page.
 
-[[% include 'snippets/page_block_cache_clear.md' %]]
-
 Each block can have the following properties:
 
 | Attribute    | Description                                                                                                  |

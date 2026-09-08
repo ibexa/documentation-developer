@@ -21,8 +21,6 @@ The `IsUserBased` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -19,30 +19,8 @@ In the **Download** section, select **Stream file**.
 Copy generated steam ID and paste it into the configuration file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
-Next, you need to export your data to the CDP.
-Go to your installation and use this command:
-
-- for User:
-
-```bash
-php bin/console ibexa:cdp:stream-user-data --draft
-```
-
-- for Product:
-
-```bash
-php bin/console ibexa:cdp:stream-product-data --draft
-```
-
-- for Content:
-
-```bash
-php bin/console ibexa:cdp:stream-content-data --draft
-```
-
-There are two versions of this command `--draft/--no-draft`.
-The first one is used to send the test user data to the Data Manager.
-If it passes a validation test in the **Activation** section, use the latter one to send a full version.
+User, product and content data is then streamed to the Data Manager.
+Draft data is sent first, so that you can validate it in the **Activation** section before a full export.
 
 You can extend exported user data with custom fields from your user content, such as date of birth, preferences, or other profile information.
 
@@ -91,13 +69,7 @@ Next, select **userid** from a **Schema columns section** on the right and map i
 ## Activation
 
 In this section you can test the dataflow with provided test user data.
-If everything passes, go to your installation and export production data with this command:
-
-```bash
-php bin/console ibexa:cdp:stream-user-data --no-draft
-```
-
-Now you can run and activate the dataflow.
+If everything passes, production data is exported and you can run and activate the dataflow.
 
 ## Build new Audience/Segment
 
@@ -124,7 +96,7 @@ Specify name of your activation, select `userid` as **Person Identifier** and cl
 Next, you can fill in **Ibexa information** they must match the ones provided in the YAML configuration:
 
 - **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint.
-In the configuration they're taken from environment variables in `.env` file.
+They must match the credentials configured for the webhook.
 
 - **Segment Group Identifier** - identifier of the segment group in [[= product_name =]].
 It points to a segment group where all the CDP audiences are stored.
@@ -152,7 +124,7 @@ By using Messenger while working with large batches of data, requests are queued
 
 1\. Make sure that the transport layer is defined properly in [[= product_name_base =]] Messenger configuration.
 
-2\. Add `bulk_async_threshold` setting in the `config/packages/ibexa_cdp.yaml` configuration:
+2\. Add the `bulk_async_threshold` setting to the CDP configuration:
 
 ``` bash
 ibexa_cdp:
@@ -165,12 +137,6 @@ Available options:
     - below threshold - items are processed immediately in a single request, using the standard synchronous behavior
     - at/above threshold - items are automatically dispatched to the asynchronous queue for background processing
 
-3\. Make sure that the worker starts together with the application to watch the transport bus:
-
-``` bash
-php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
-```
-
 ### CDP Monolog channel
 
 CDP Monolog channel handles webhook logs for easier separation of logs.
@@ -182,7 +148,7 @@ CDP Monolog channel handles webhook logs for easier separation of logs.
 It's possible to configure `ibexa.cdp.webhook` Monolog channel to direct all logs to specific stream, file, or service.
 This allows webhook logs to be stored separately from the main application logs for easier debugging and analysis.
 
-To do it, in `config/packages/monolog.yaml` file, define a new handler for the `ibexa.cdp.webhook` channel that directs CPD Webhook events to a separate file.
+To do it, define a new logging handler for the `ibexa.cdp.webhook` channel that directs CDP webhook events to a separate file.
 It can be configured in both `dev` and `prod` environments, for example:
 
 ```yaml

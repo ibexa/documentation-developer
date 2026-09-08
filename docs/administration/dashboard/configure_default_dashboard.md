@@ -11,7 +11,6 @@ saas_review_note: >-
 
 You can configure default dashboard under the `ibexa.system.<scope>.admin_group` [configuration key](configuration.md#configuration-files).
 
-Create `ibexa_dashboard.yaml` file in the `config/packages/` directory.
 The following example configuration defines default dashboard:
 
 ``` yaml

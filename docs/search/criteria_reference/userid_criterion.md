@@ -12,8 +12,6 @@ The `UserId` Search Criterion searches for content based on the User ID.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

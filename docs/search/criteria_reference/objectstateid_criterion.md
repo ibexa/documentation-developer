@@ -12,8 +12,6 @@ The `ObjectStateId` Search Criterion searches for content based on its object st
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

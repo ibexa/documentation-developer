@@ -13,8 +13,6 @@ The `MimeType` Search Criterion searches for image with specified mime type(s).
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

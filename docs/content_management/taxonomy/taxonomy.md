@@ -20,7 +20,7 @@ Taxonomies (**Tags**) allow you to organize content to make it easy for your sit
 Taxonomies are classifications of logical relationships between content.
 In [[= product_name =]] you can create many taxonomies, each with many tags. The platform mechanism enables creating any entities with a tree structure and assign them to a content item.
 
-Default tag configuration is available in `config/packages/ibexa_taxonomy.yaml`
+The default tag configuration is as follows.
 The associated content type is `tag`.
 
 ``` yaml

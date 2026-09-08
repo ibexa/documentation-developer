@@ -17,8 +17,6 @@ Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -13,8 +13,6 @@ The `CreatedAt` Search Criterion searches for products based on the date when th
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

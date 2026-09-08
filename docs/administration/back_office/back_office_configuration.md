@@ -49,12 +49,6 @@ The limit applies only to the UI of the back office and disables the "Copy subtr
 
 The default value is `100`. You can set it to `-1` for no limit, or to `0` to completely disable copying subtrees.
 
-To copy a subtree regardless of the limit, use the following console command:
-
-``` bash
-php bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>
-```
-
 ### Query subtree limit
 
 When working with large content trees, counting child items or calculating subtree sizes can cause significant performance degradation due to unbounded database queries.

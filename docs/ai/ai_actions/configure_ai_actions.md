@@ -58,7 +58,7 @@ Provide the API key in your instance's Anthropic connector settings.
 By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://platform.claude.com/docs/en/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
-To do it, in `config/packages` folder, create a YAML file similar to this example:
+To do it, add configuration similar to this example:
 
 ```yaml
 ibexa_connector_anthropic:
@@ -141,7 +141,7 @@ Provide the API key in your instance's Google Gemini connector settings.
 By default, when reaching out for responses, the Gemini connector uses the Gemini Pro [model](https://ai.google.dev/gemini-api/docs/models) for text refinement and Gemini Flash model for alternative text generation.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
-To do it, in `config/packages` folder, create a YAML file similar to this example:
+To do it, add configuration similar to this example:
 
 ```yaml
 [[= include_file('code_samples/ai_actions/config/packages/ibexa_connector_gemini.yaml') =]]
@@ -199,40 +199,6 @@ Copy the token code that appears on the tokens list, next to the label.
 ### Set up credentials
 
 Provide the token that you got from [[= product_name_connect =]] and the team ID in your instance's [[= product_name_connect =]] integration settings.
-
-### Initiate integration
-
-Initiate the models provided by the handler by issuing the following command:
-
-```bash
-php bin/console ibexa:connect:init-connect-ai <team_id> <language> <action handler identifiers>
-```
-
-For example:
-
-```bash
-php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect-text-to-text
-```
-
-!!! note "Support for multiple [[= product_name_connect =]] languages"
-
-    The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#post-templates) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
-
-Then, create the `Ibexa AI handler` custom property in [[= product_name_connect =]] to store the list of available action handlers for this integration.
-You can do it by running the following command:
-
-``` bash
-php bin/console ibexa:connect:init-custom-property-structures <organization-id> <action handler identifiers>
-```
-
-For example:
-
-``` bash
-php bin/console ibexa:connect:init-custom-property-structures 4 connect-image-to-text connect-text-to-text
-```
-
-The `Ibexa AI handler` property attaches to a scenario to store information about the action handler associated with it.
-When creating a new [[= product_name_connect =]]-based AI action, the back office of [[= product_name =]] shows only the existing scenarios that work with selected action handler.
 
 ### Customize templates
 

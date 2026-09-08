@@ -18,8 +18,6 @@ Use Location Search to avoid this.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

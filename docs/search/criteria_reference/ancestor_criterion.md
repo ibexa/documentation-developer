@@ -12,8 +12,6 @@ The `Ancestor` Search Criterion searches for content that is an ancestor of the 
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

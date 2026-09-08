@@ -25,7 +25,7 @@ To connect to your remote PIM, provide your implementation of the following serv
 
 ## Switch to the new product catalog engine
 
-To inform the application that the product catalog engine has been replaced by an external one, in `config/packages/ibexa_product_catalog.yaml`, set the new product catalog engine, for example:
+To inform the application that the product catalog engine has been replaced by an external one, set the new product catalog engine, for example:
 
 ``` yaml
 ibexa_product_catalog:

@@ -14,8 +14,6 @@ The `FileSize` Search Criterion searches for image with specified size.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

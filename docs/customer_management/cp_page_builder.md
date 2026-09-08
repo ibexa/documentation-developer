@@ -185,7 +185,7 @@ If members of the Customer group don't have sufficient permissions for any Custo
 #### Build-in portal mapping
 
 Now, you need to assign your custom portals to Customer groups.
-Add portal mapping configuration in `config/services.yaml`:
+Add portal mapping configuration:
 
 ```yaml hl_lines="3 4"
 parameters:
@@ -203,11 +203,6 @@ There, you can specify which Customer Portals should be available to which Custo
 - Location remote ID of Customer Portal container or Customer Portal page. You can find it in the **Details** section.
 
 Portals are displayed to the Customer group in order specified in the configuration based on company member's permissions.
-
-#### Custom portal mapping
-
-You can specify your own custom logic for redirecting members to a specific Customer Portal.
-To do so, implement `\Ibexa\Contracts\CorporateAccount\CustomerPortal\PickRule\CustomerPortalPickRule` and tag it with `ibexa.corporate_account.customer_portal.pick_rule`.
 
 ### Multiple portals on single page
 
@@ -230,38 +225,3 @@ ibexa:
 ```
 
 ![Multiple portals in one view](img/cp_2_page_view.png)
-
-## Change Customer Portal layout
-
-You can change Customer Portal layout by adding your custom template under `ibexa.system.<portal_name>.page_layout`:
-
-```yaml hl_lines="5"
-ibexa:
-    system:
-        custom_portal:
-            languages: [ eng-GB ]
-            page_layout: "@App/my_page_layout.html.twig"
-            content:
-                tree_root:
-                    location_id: 12345 #location_id_of_customer_portals_root_folder
-                    excluded_uri_prefixes: [ /media/, /images/ ]
-```
-
-To generate the Customer Portal menu you should use `customer_portal.menu.main` key:
-
-```html+twig hl_lines="4"
-{% block side_column %}
-    <div class="ibexa-main-container__side-column {% block side_column_class %}{% endblock %}">
-        {% block left_sidebar %}
-            {% set main_menu = knp_menu_get('customer_portal.menu.main', [], {}) %}
-            {{ knp_menu_render(main_menu, {
-                depth: 1,
-                template: '@ibexadesign/customer_portal/menu.html.twig',
-                currentClass: 'active',
-                ancestorClass: 'active',
-            }) }}
-        {% endblock %}
-    </div>
-{% endblock %}
-```
-

@@ -12,8 +12,6 @@ The `ContentTypeIdentifier` Search Criterion searches for content based on the i
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -14,8 +14,6 @@ When querying for products, use LogicalOr instead.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

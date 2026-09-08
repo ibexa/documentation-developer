@@ -26,12 +26,12 @@ You have to create your own MCP servers by providing [their configuration](#mcp-
 
 AI agents use JWT authentication against [[= product_name =]]'s  MCP servers.
 
-In `config/packages/lexik_jwt_authentication.yaml`, enable the `authorization_header` token extractor to allow the use of JWT token bearer in `Authorization` header.
+The `authorization_header` token extractor must be enabled, so that a JWT token bearer can be sent in the `Authorization` header.
 
-In `config/packages/security.yaml`, make the following changes:
+Two firewalls are involved:
 
-- Uncomment the `ibexa_jwt_rest` firewall to enable requesting JWT tokens through the REST API.
-- Add the `ibexa_jwt_mcp` firewall to allow the use of JWT authentication against MCP servers.
+- `ibexa_jwt_rest` enables requesting JWT tokens through the REST API.
+- `ibexa_jwt_mcp` allows the use of JWT authentication against MCP servers.
 
 ``` yaml hl_lines="4-9"
 [[= include_code('code_samples/mcp/config/packages/mcp.security.yaml') =]]
@@ -66,19 +66,9 @@ You define MCP servers within a repository configuration and then assign those s
 ```
 
 Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
-You can list all defined servers by running the following command:
-
-```bash
-php bin/console debug:container ibexa.mcp.server
-```
 
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
-You can list them by running the following command:
-
-```bash
-php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
-```
 
 ### MCP server options
 
@@ -167,12 +157,6 @@ For example, you could set up a dedicated Redis/Valkey:
 ```
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
-
-Clear the cache pool after making changes:
-
-```bash
-php bin/console cache:pool:clear cache.redis.mcp
-```
 
 !!! tip
 

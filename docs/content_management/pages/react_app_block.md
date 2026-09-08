@@ -8,12 +8,6 @@ React App block allows an editor to embed a preconfigured React application into
 It's configured in YAML files, under the `ibexa_fieldtype_page` key.
 Page block configuration isn't SiteAccess-aware.
 
-Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener  which adds component and props variables.
-
-It's common to all the blocks.
-
-[[% include 'snippets/page_block_cache_clear.md' %]]
-
 ## React App Block configuration
 
 React App blocks are regular [Page blocks](page_blocks.md) and can be configured on field definition level as any other block.
@@ -29,7 +23,7 @@ Each configured React app block has an identifier and the following settings:
 | `name`       | Name of the block used in the Page Builder interface. Also accepts a [`help` key](page_blocks.md#block-name-and-help-text) that adds a helper text under the **Name** field in the block configuration form. |
 | `category`   | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
 | `thumbnail`  | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
-| `component`  | React App Component name used in `assets/page-builder/react/blocks` directory.                                                                                |
+| `component`  | Name of the React app component that this block is bound to.                                                                                                  |
 | `visible`    | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
 | <nobr>`attributes`</nobr> | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
 
@@ -58,47 +52,4 @@ attributes:
     type: string
     options:
       ...
-```
-
-Apps that are registered this way must be configured and referenced in the semantic configuration to be registered as blocks.
-
-Parameters passed as props must be converted so that they can be used as the configured type in the app.
-
-## Create React App block
-
-In the following example, you learn how to create the `Calculator` React App block [configured in the previous section's example](#react-app-block-configuration).
-
-### Configure React App Block
-
-First, install React.
-Run `yarn add react` command.
-
-Next, create a .jsx file which describes your component.
-You can place it in any location.
-
-In the following example, create `Calculator.jsx` file in `assets/page-builder/components/` directory:
-
-``` js
-[[= include_file('code_samples/page/react_app_block/assets/page-builder/components/Calculator.jsx') =]]
-```
-
-Then, create a `Calculator.js` file in `assets/page-builder/react/blocks` directory.
-
-Files in this directory create a map of Components which then are imported to `react.blocks.js` file.
-As a result, the components are rendered on the page.
-
-``` js
-[[= include_file('code_samples/page/react_app_block/assets/page-builder/react/blocks/Calculator.js') =]]
-```
-
-Now, you should see new `Calculator` block in the Page Builder blocks list:
-
-![Calculator](calculator.png "Calculator - React App Block")
-
-Then, make sure that your Page layout template (like `templates/themes/standard/pagelayout.html.twig`) has the following Twig code in its `{% block javascripts %}`:
-
-``` twig
-{% if encore_entry_exists('react-blocks-js') %}
-    {{ encore_entry_script_tags('react-blocks-js') }}
-{% endif %}
 ```

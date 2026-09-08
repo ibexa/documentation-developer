@@ -17,5 +17,4 @@ With this feature, your customers can self-register, edit their organization inf
     "customer_management/cp_applications",
     "users/invitations",
     "customer_management/cp_page_builder",
-    "customer_management/create_user_registration_form",
 ], columns=3) =]]

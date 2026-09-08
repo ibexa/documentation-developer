@@ -105,7 +105,7 @@ The server:
     For development, you can set `discovery_cache: ~` to avoid clearing the cache after each change.
     This example uses the filesystem storage to illustrate that you have to clear the cache pool to refresh the available capabilities, exactly as when deploying into production.
 
-In a new `config/packages/mcp.yaml` file, define a new MCP server for the `default` repository and assign it to all SiteAccesses:
+Define a new MCP server for the `default` repository and assign it to all SiteAccesses:
 
 ``` yaml
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
@@ -113,17 +113,7 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 
 Adapt the `allowed_hosts` to your case, for example, if you want to use a domain name instead of the equivalent `127.0.0.1` address.
 
-The server is automatically registered as a service with the ID `ibexa.mcp.server.default.example`:
-
-```bash
-php bin/console debug:container ibexa.mcp.server.default.example
-```
-
-An `ibexa.mcp.example` route is now available:
-
-```bash
-php bin/console debug:router ibexa.mcp.example
-```
+The server is automatically registered as a service with the ID `ibexa.mcp.server.default.example`, and an `ibexa.mcp.example` route becomes available.
 
 ### Perform `curl` test
 

@@ -10,8 +10,6 @@ Keep in mind that Page block configuration isn't SiteAccess-aware.
 [[= product_name =]] ships with a number of page blocks.
 For a list of all page blocks that are available out-of-the-box, see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
-[[% include 'snippets/page_block_cache_clear.md' %]]
-
 ## Block configuration
 
 Each configured block has an identifier and the following settings:
@@ -23,14 +21,13 @@ Each configured block has an identifier and the following settings:
 | `thumbnail`                           | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `views`                               | Available [templates for the block](#block-templates).                                                                                                                  |
 | `visible`                             | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
-| `configuration_template`              | (Optional) Template for the block settings modal.                                                                                                                       |
 | `attributes`                          | (Optional) List of [block attributes](page_block_attributes.md).                                                                                                        |
-| <nobr>`cacheable_query_params`</nobr> | (Optional) List of query parameters the block's ESI HTTP cache varies on.<br>For example, if the block is paginated using `?page=ℕ` from the page URL, add `page` to this list.<br>See the `ibexa_append_cacheable_query_params()` Twig function. |
+| <nobr>`cacheable_query_params`</nobr> | (Optional) List of query parameters the block's ESI HTTP cache varies on.<br>For example, if the block is paginated using `?page=ℕ` from the page URL, add `page` to this list. |
 
 For example:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 12) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 17) =]]# ...
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 7, 12) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 17) =]]# ...
 ```
 
 ### Block name and help text
@@ -91,23 +88,3 @@ The highest number shows first on the list.
 
     Default views have a `priority` of -255.
     It's good practice to keep the value between -255 and 255.
-
-### Block modal template
-
-The template for the configuration modal of built-in Page blocks is contained in
-`vendor/ibexa/page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
-
-You can override it by using the `configuration_template` [configuration key](configuration.md#configuration-files):
-
-``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]
-```
-
-The template can extend the default `config.html.twig` and modify its blocks.
-Blocks `basic_tab_content` and `design_tab_content` correspond to the **Basic** and **Design** tabs in the modal.
-
-The following example wraps all form fields for block attributes in an ordered list:
-
-``` html+twig
-[[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
-```

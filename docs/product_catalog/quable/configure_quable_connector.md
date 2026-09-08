@@ -10,7 +10,7 @@ You can customize the behavior of the [[= pim_product_name =]] integration add-o
 
 ## Configuration example
 
-In `config/packages/ibexa_connector_quable.yaml`, specify your configuration by using the `ibexa_connector_quable` key:
+Specify your configuration by using the `ibexa_connector_quable` key:
 
 ``` yaml
 ibexa_connector_quable:

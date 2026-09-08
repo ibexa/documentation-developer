@@ -51,22 +51,3 @@ To edit an existing draft, use the `/content/edit/draft/` route, with the follow
 | `languageCode`          | `string`  | Language code of the version. Example: `eng-GB`                          |
 
 For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of content item 1 in English.
-
-## Content editing templates
-
-You can use custom templates for the content editing forms.
-
-Define the templates under the `ibexa.system.<scope>.content_edit_view` [configuration key](configuration.md#configuration-files):
-
-``` yaml
-ibexa:
-    system:
-        default:
-            content_edit_view:
-                full:
-                    <identifier>:
-                        template: content/edit/content_edit.html.twig
-                        match: true
-                        params:
-                            viewbaseLayout: '@ibexadesign/ui/layout.html.twig'
-```

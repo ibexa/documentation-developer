@@ -13,8 +13,6 @@ The `LanguageCode` Search Criterion searches for content based on whether it's t
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

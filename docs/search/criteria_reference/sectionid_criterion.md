@@ -12,8 +12,6 @@ The `SectionId` Search Criterion searches for content based on the ID of the Sec
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

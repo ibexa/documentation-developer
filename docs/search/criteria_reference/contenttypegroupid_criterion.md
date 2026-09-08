@@ -12,8 +12,6 @@ The `ContentTypeGroupId` Search Criterion searches for content based on the ID o
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

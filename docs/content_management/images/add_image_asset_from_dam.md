@@ -28,34 +28,7 @@ The configuration for each connector depends on the requirements of the specific
 To add Image Assets directly in the Page Builder, you can do it by using the Embed block.
 The example below shows how to add images from [Unsplash](https://unsplash.com/).
 
-First, in `templates/themes/standard/embed/`, create a custom template `dam.html.twig`:
-
-``` html+twig
-{% set dam_image = ibexa_field_value(content, 'image') %}
-{% if dam_image.source is not null %}
-    {% set transformation = ibexa_dam_image_transformation(dam_image.source, '770px') %}
-    {% set asset = ibexa_dam_asset(dam_image.destinationContentId, dam_image.source, transformation) %}
-    {% set image_uri = asset.assetUri.path %}
-    <img src="{{ image_uri }}">
-{% endif %}
-```
-
-The `770px` parameter in the template above is used to render the DAM image. It's the `unsplash` specific image variation and must be defined separately.
-
-Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the content type, which you created for DAM images.
-
-``` yaml
-ibexa:
-    system:
-        site:
-            content_view:
-                embed:
-                    image_dam:
-                        template: '@ibexadesign/embed/dam.html.twig'
-                        match:
-                           Identifier\ContentType: <dam_image_content_type_identifier>
-```
-
+Every image variation that the connector may request must be declared for the connector.
 In your [configuration file](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
@@ -71,6 +44,7 @@ dam_unsplash:
 ```
 
 You can customize the parameters according to your needs.
+The `770px` variation declared above is an `unsplash`-specific image variation.
 
 For more information about supported parameters, see the [Unsplash documentation](https://unsplash.com/documentation#dynamically-resizable-images).
 
@@ -79,4 +53,4 @@ In the **Content** group, create a content type for DAM images, which includes t
 
 Now, when you use the Embed block in the Page Builder, you should see a DAM Image.
 
-For more information about block customization (defined templates, variations), see [Page blocks](../pages/page_blocks.md).
+For more information about block configuration, see [Page blocks](../pages/page_blocks.md).

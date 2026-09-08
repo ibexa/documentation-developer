@@ -13,8 +13,6 @@ The `SelectionAttribute` Search Criterion searches for products by the value of 
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

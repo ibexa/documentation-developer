@@ -14,8 +14,6 @@ The `FloatAttributeRange` Search Criterion searches for products by the range of
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

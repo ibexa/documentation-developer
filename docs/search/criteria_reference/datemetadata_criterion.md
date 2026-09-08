@@ -14,8 +14,6 @@ The `DateMetadata` Search Criterion searches for content based on the date when 
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

@@ -21,7 +21,7 @@ To connect to [[= pim_product_name =]], you need an API token:
 
 ## Configure [[= pim_product_name =]] connector
 
-In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for the [[= pim_product_name =]] connector:
+Specify the configuration for the [[= pim_product_name =]] connector:
 
 ``` yaml
 ibexa_connector_quable:
@@ -43,7 +43,7 @@ To use [[= pim_product_name =]] as a product data source, configure [[= product_
 
 ### Define [[= pim_product_name =]] engine
 
-In `config/packages/ibexa_product_catalog.yaml`, add a new engine configuration:
+Add a new engine configuration:
 
 ``` yaml hl_lines="8-13"
 ibexa_product_catalog:
@@ -70,7 +70,7 @@ By setting the `ibexa_product_catalog.engines.quable.options.taxonomy` key to `q
 
 ### Set [[= pim_product_name =]] as default engine
 
-In your repository configuration, typically in `config/packages/ibexa.yaml`, configure the product catalog to use the [[= pim_product_name =]] engine as the product data source:
+In your repository configuration, configure the product catalog to use the [[= pim_product_name =]] engine as the product data source:
 
 ``` yaml hl_lines="9"
 ibexa:
@@ -90,13 +90,7 @@ ibexa:
 
 To use the products from [[= pim_product_name =]] within [[= product_name =]] content, make sure the [data languages](https://docs.quable.com/v5-EN/docs/data-languages) in [[= pim_product_name =]] have corresponding [languages](languages.md) in [[= product_name =]].
 
-To compare the language configuration in both systems, run the following command:
-
-``` bash
-php bin/console ibexa:quable:languages:check
-```
-
-Based on the command output, configure the `language_map` in `config/packages/ibexa_connector_quable.yaml`, mapping each [[= product_name =]] language code to its [[= pim_product_name =]] locale code as in the following example:
+Configure the `language_map` setting, mapping each [[= product_name =]] language code to its [[= pim_product_name =]] locale code as in the following example:
 
 ``` yaml
 ibexa_connector_quable:
@@ -107,24 +101,6 @@ ibexa_connector_quable:
 ```
 
 The system uses the language map to retrieve data in the correct language from [[= pim_product_name =]].
-
-After configuring the map, rerun the `ibexa:quable:languages:check` command to confirm all languages are correctly mapped.
-
-## Synchronize taxonomy
-
-After configuring the integration, synchronize [product classifications from [[= pim_product_name =]]](https://docs.quable.com/v5-EN/docs/documents-classification-new-version) to [[= product_name =]]'s [taxonomies](taxonomy.md).
-
-Run the following command to synchronize classifications:
-
-``` bash
-php bin/console ibexa:quable:classification:sync
-```
-
-This command imports the product classification structure from [[= pim_product_name =]] into [[= product_name =]], ensuring that product categories are aligned.
-
-!!! tip
-
-    To keep the classifications aligned, it's recommended that you run the `ibexa:quable:classification:sync` command every night, even when using synchronization with webhooks.
 
 ## Set up real-time synchronization
 
@@ -153,7 +129,7 @@ The **Authorization Header** value is a secret that must be kept secure.
 
 ### Configure webhook in [[= product_name =]]
 
-In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for the [[= pim_product_name =]] connector:
+Specify the configuration for the [[= pim_product_name =]] connector:
 
 ``` yaml
 ibexa_connector_quable:

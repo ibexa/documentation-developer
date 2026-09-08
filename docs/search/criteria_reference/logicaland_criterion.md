@@ -14,8 +14,6 @@ When querying for products, use LogicalAnd instead.
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

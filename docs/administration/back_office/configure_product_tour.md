@@ -21,7 +21,7 @@ You can configure the product tour scenarios to adapt it to your project needs, 
 Product tour scenarios are configured with YAML configuration files.
 Configuration is SiteAccess-aware, allowing you to create separate onboarding experiences for different back offices in [multisite setups](multisite.md).
 
-Use the default provided configuration, available in `config/packages/ibexa_integrated_help_tours.yaml`, as a starting point that you can adjust to your needs.
+Use the default provided configuration as a starting point that you can adjust to your needs.
 
 ## Configuration structure
 
@@ -262,28 +262,6 @@ Embed video content by using the [`video` HTML element](https://developer.mozill
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 26, 30) =]]
-```
-
-### Custom Twig template block
-
-For advanced content, use custom Twig templates that allows you to fully control the styling of the block:
-
-```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 37, 40) =]]
-```
-
-Create the dedicated template, for example in `templates/custom_template.html.twig`.
-
-``` html+twig
-{% trans_default_domain 'app' %}
-
-{{ 'custom_step_description'|trans }}
-```
-
-and provide the required translations in `translations/app.en.yaml`:
-
-``` yaml
-custom_step_description: "This is a description coming from a custom template."
 ```
 
 ## Configuration examples

@@ -67,7 +67,6 @@ You can then [customize these configurations in the UI]([[= user_doc =]]/ai_acti
 
 ### Add YAML configuration
 
-In `config/packages`, create a `translations_management.yaml` file.
 You configure the providers in the SiteAccess-aware `translations_management` namespace.
 
 ``` yaml
@@ -102,16 +101,6 @@ In addition to their required authentication keys, all providers support two opt
 
 REST API-based providers come with their own language code lists and mappings, therefore both settings are optional.
 If configured, they replace the built-in defaults, so use them to restrict available languages or override mappings.
-
-!!! tip "Default values"
-
-    To check the built-in defaults for the existing providers, run:
-
-    ``` bash
-    php bin/console debug:container --parameters | grep ibexa.translations_management.auto_translate.provider
-    ```
-
-    The output lists the default `supported_language_codes` and `language_codes_map` values for each configured provider, which you can use as a reference.
 
 AI-based providers don't provide built-in language code lists or mappings.
 If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.

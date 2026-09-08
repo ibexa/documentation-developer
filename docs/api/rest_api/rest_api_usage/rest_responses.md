@@ -147,11 +147,9 @@ The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
 
 #### Configuration
 
-To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
+Allowed origins are controlled by the `CORS_ALLOW_ORIGIN` setting, which takes a regular expression matching the domains that may call the API, for example `^https?://example\.com`.
 
-For example, to allow the [JS test](testing_rest_api.md#js) to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
-
-To add several domains, filter on URIs, or change the default (like not allowing all the methods), refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration) to learn how to edit `config/packages/nelmio_cors.yaml`.
+For the full set of options, such as several domains, filtering on URIs, or restricting the allowed methods, see the [NelmioCorsBundle configuration documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration).
 
 ## Response body
 

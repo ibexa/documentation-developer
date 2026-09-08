@@ -12,8 +12,6 @@ The `SectionIdentifier` Search Criterion searches for content based on the ident
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

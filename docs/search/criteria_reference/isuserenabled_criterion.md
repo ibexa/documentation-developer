@@ -13,8 +13,6 @@ The `IsUserEnabled` Search Criterion searches for user accounts that are enabled
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

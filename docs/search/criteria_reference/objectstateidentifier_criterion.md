@@ -13,8 +13,6 @@ The `ObjectStateIdentifier` Search Criterion searches for content based on its o
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

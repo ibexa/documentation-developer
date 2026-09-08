@@ -19,8 +19,6 @@ Querying for a collection with the `EQ` operator returns result only when the wh
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

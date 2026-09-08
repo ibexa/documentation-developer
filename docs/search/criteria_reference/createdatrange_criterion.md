@@ -13,8 +13,6 @@ The `CreatedAtRange` Search Criterion searches for products based on the date ra
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml
