@@ -15,7 +15,7 @@ You can overwrite the default configuration of the Customer Portal to fit its ca
 
 ## `corporate` SiteAccess
 
-The predefined `corporate` SiteAccess in `corporate_group` (configured in `config/packages/ibexa.yaml`) serves the Customer Portal.
+The predefined `corporate` SiteAccess in `corporate_group` serves the Customer Portal.
 If you need a multisite setup with multiple Customer Portals, add any additional SiteAccesses to `corporate_group`.
 
 ## Customer identifier

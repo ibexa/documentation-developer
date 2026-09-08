@@ -19,7 +19,7 @@ To configure the [[[= product_name_cdp_base =]]](https://www.raptorservices.com/
 
 ## SiteAccess-aware configuration
 
-To configure the [[= product_name_cdp_base =]] connector, use the `ibexa.system.<scope>.connector_raptor` configuration key in the `config/packages/ibexa_connector_raptor.yaml` file:
+To configure the [[= product_name_cdp_base =]] connector, use the `ibexa.system.<scope>.connector_raptor` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml', 0, 17) =]]
@@ -71,7 +71,7 @@ The following settings are global and apply to the entire application (they are 
 
 - `hybrid_tracking_proxy_path` - by default, it's set to `/raptor/track`. The client-side shim sends tracking events to this same-origin endpoint, which forwards them to [[= product_name_cdp_base =]] asynchronously.
 
-This value can be overridden in `config/packages/ibexa_connector_raptor.yaml` file, for example:
+This value can be overridden in the connector configuration, for example:
 
 ``` yaml hl_lines="18-21"
 [[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml') =]]

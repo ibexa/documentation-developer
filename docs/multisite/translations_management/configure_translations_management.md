@@ -67,7 +67,6 @@ You can then [customize these configurations in the UI]([[= user_doc =]]/ai_acti
 
 ### Add YAML configuration
 
-In `config/packages`, create a `translations_management.yaml` file.
 You configure the providers in the SiteAccess-aware `translations_management` namespace.
 
 ``` yaml

@@ -16,7 +16,7 @@ The Captcha Form field is based on [Gregwar/CaptchaBundle](https://github.com/Gr
 
 ![Captcha field](extending_form_builder_captcha_default.png)
 
-You can customize the field by adding configuration to `config/packages/gregwar_captcha.yaml` under `gregwar_captcha`:
+You can customize the field by adding configuration under the `gregwar_captcha` key:
 
 ``` yaml
 gregwar_captcha:

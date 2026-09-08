@@ -96,7 +96,7 @@ Specify name of your activation, select `userid` as **Person Identifier** and cl
 Next, you can fill in **Ibexa information** they must match the ones provided in the YAML configuration:
 
 - **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint.
-In the configuration they're taken from environment variables in `.env` file.
+They must match the credentials configured for the webhook.
 
 - **Segment Group Identifier** - identifier of the segment group in [[= product_name =]].
 It points to a segment group where all the CDP audiences are stored.
@@ -124,7 +124,7 @@ By using Messenger while working with large batches of data, requests are queued
 
 1\. Make sure that the transport layer is defined properly in [[= product_name_base =]] Messenger configuration.
 
-2\. Add `bulk_async_threshold` setting in the `config/packages/ibexa_cdp.yaml` configuration:
+2\. Add the `bulk_async_threshold` setting to the CDP configuration:
 
 ``` bash
 ibexa_cdp:
@@ -148,7 +148,7 @@ CDP Monolog channel handles webhook logs for easier separation of logs.
 It's possible to configure `ibexa.cdp.webhook` Monolog channel to direct all logs to specific stream, file, or service.
 This allows webhook logs to be stored separately from the main application logs for easier debugging and analysis.
 
-To do it, in `config/packages/monolog.yaml` file, define a new handler for the `ibexa.cdp.webhook` channel that directs CPD Webhook events to a separate file.
+To do it, define a new logging handler for the `ibexa.cdp.webhook` channel that directs CDP webhook events to a separate file.
 It can be configured in both `dev` and `prod` environments, for example:
 
 ```yaml

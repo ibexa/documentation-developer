@@ -21,7 +21,7 @@ You can configure the product tour scenarios to adapt it to your project needs, 
 Product tour scenarios are configured with YAML configuration files.
 Configuration is SiteAccess-aware, allowing you to create separate onboarding experiences for different back offices in [multisite setups](multisite.md).
 
-Use the default provided configuration, available in `config/packages/ibexa_integrated_help_tours.yaml`, as a starting point that you can adjust to your needs.
+Use the default provided configuration as a starting point that you can adjust to your needs.
 
 ## Configuration structure
 

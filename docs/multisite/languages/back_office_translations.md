@@ -46,4 +46,4 @@ If your browser language is set to French, the back office is displayed in Frenc
 Once you have language packages enabled, you can switch the language of the back office in the **User Settings** menu.
 
 Otherwise, the language is selected based on the browser language.
-If you don't have a language defined in the browser, the language is selected based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
+If you don't have a language defined in the browser, the language is selected based on the `parameters.locale_fallback` setting.

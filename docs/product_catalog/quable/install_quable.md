@@ -21,7 +21,7 @@ To connect to [[= pim_product_name =]], you need an API token:
 
 ## Configure [[= pim_product_name =]] connector
 
-In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for the [[= pim_product_name =]] connector:
+Specify the configuration for the [[= pim_product_name =]] connector:
 
 ``` yaml
 ibexa_connector_quable:
@@ -43,7 +43,7 @@ To use [[= pim_product_name =]] as a product data source, configure [[= product_
 
 ### Define [[= pim_product_name =]] engine
 
-In `config/packages/ibexa_product_catalog.yaml`, add a new engine configuration:
+Add a new engine configuration:
 
 ``` yaml hl_lines="8-13"
 ibexa_product_catalog:
@@ -70,7 +70,7 @@ By setting the `ibexa_product_catalog.engines.quable.options.taxonomy` key to `q
 
 ### Set [[= pim_product_name =]] as default engine
 
-In your repository configuration, typically in `config/packages/ibexa.yaml`, configure the product catalog to use the [[= pim_product_name =]] engine as the product data source:
+In your repository configuration, configure the product catalog to use the [[= pim_product_name =]] engine as the product data source:
 
 ``` yaml hl_lines="9"
 ibexa:
@@ -129,7 +129,7 @@ The **Authorization Header** value is a secret that must be kept secure.
 
 ### Configure webhook in [[= product_name =]]
 
-In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for the [[= pim_product_name =]] connector:
+Specify the configuration for the [[= pim_product_name =]] connector:
 
 ``` yaml
 ibexa_connector_quable:

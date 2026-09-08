@@ -58,7 +58,7 @@ Provide the API key in your instance's Anthropic connector settings.
 By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://platform.claude.com/docs/en/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
-To do it, in `config/packages` folder, create a YAML file similar to this example:
+To do it, add configuration similar to this example:
 
 ```yaml
 ibexa_connector_anthropic:
@@ -141,7 +141,7 @@ Provide the API key in your instance's Google Gemini connector settings.
 By default, when reaching out for responses, the Gemini connector uses the Gemini Pro [model](https://ai.google.dev/gemini-api/docs/models) for text refinement and Gemini Flash model for alternative text generation.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
-To do it, in `config/packages` folder, create a YAML file similar to this example:
+To do it, add configuration similar to this example:
 
 ```yaml
 [[= include_file('code_samples/ai_actions/config/packages/ibexa_connector_gemini.yaml') =]]

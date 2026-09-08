@@ -185,7 +185,7 @@ If members of the Customer group don't have sufficient permissions for any Custo
 #### Build-in portal mapping
 
 Now, you need to assign your custom portals to Customer groups.
-Add portal mapping configuration in `config/services.yaml`:
+Add portal mapping configuration:
 
 ```yaml hl_lines="3 4"
 parameters:

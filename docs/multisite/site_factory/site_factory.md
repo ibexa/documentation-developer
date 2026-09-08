@@ -23,13 +23,8 @@ It enables you to configure new sites without editing [YAML-based SiteAccess con
     A SiteAccess that you define for a site by following the [configuration](multisite_configuration.md) is always treated with higher priority than a SiteAccess created by using the Site Factory.
     For example, if you define a French site within a YAML file, and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
 
-Site Factory is disabled by default after installation.
-
-If you plan to use Site Factory, you need to enable and configure it.
-To enable or disable Site Factory, follow:
-
-- [Enable Site Factory section](#enable-site-factory)
-- [Disable Site Factory section](#disable-site-factory)
+Site Factory is disabled by default.
+If you plan to use Site Factory, you need to [enable and configure it](#enable-site-factory).
 
 ## Enable Site Factory
 
@@ -111,57 +106,6 @@ You can check the results of your work in the back office by going to **Site man
 
 There, you should be able to add a new site and choose a design for it.
 
-### Define domains
-
-To be able to see your site online, you need to define a domain for it.
-
-!!! caution "Define domain for production environment"
-
-    These steps are for `dev` environment only.
-    If you want to define domains in production environment, you need to configure Apache or Nginx by yourself.
-
-In the `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
-
-Take a look into the `doc/docker/multihost.yml` file. Here you can define domains.
-To add a new domain, add it in `command:` and under frontend and backend aliases as shown in the example below:
-
-```yaml hl_lines="3 6 11"
-services:
-  web:
-    command: /bin/bash -c "cd /var/www && cp -a doc/nginx/ibexa_params.d /etc/nginx && bin/vhost.sh --host-name=site.example.com --host-alias='admin.example.com test.example.com' --template-file=doc/nginx/vhost.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-    networks:
-      frontend:
-        aliases:
-          - site.example.com
-          - admin.example.com
-          - test.example.com
-      backend:
-        aliases:
-          - site.example.com
-          - admin.example.com
-          - test.example.com
-```
-
-Next, you must define the domains in `etc/hosts`:
-
-`0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com`
-
-Then, run `docker-compose up`:
-
-```bash
-export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
-docker-compose up
-```
-
-Your sites should be now visible under:
-
-- `http://site.example.com:8080/`
-- `http://admin.example.com:8080/`
-- `http://localhost:8080/`
-- `http://test.example.com:8080/`
-
-![Site Factory enabled](site_factory_site_list.png "Site Factory enabled")
-
 ### Define site directory
 
 You can adjust the place where the directory of the new site is created (location with ID 2 by default).
@@ -192,41 +136,3 @@ Set the below policies to allow users to:
 For full documentation on how permissions work and how to set them up, see [the permissions section](permissions.md).
 
 To learn how to use Site Factory, see [User Documentation]([[= user_doc =]]/website_organization/work_with_sites/).
-
-## Disable Site Factory
-
-Enabled Site Factory may cause following performance issues:
-
-- [ConfigResolver](dynamic_configuration.md#configresolver) looks for SiteAccesses in the database
-- Site Factory matchers are connected to the database in search for new SiteAccesses
-
-You can disable Site Factory to boost ConfigResolver performance.
-Keep in mind that with disabled Site Factory you're unable to add new sites or use existing ones.
-
-1\. In `config/packages/ibexa_site_factory.yaml` change `enabled` to `false`.
-
-2\. In `config/packages/ibexa.yaml` comment the `ibexa.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it's uncommented.
-
-3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
-
-``` yaml
-doctrine:
-    dbal:
-        connections:
-            # ...
-            # This connection is dedicated for SiteFactory to avoid known issues
-            site_factory:
-```
-
-4\. Remove separate cache pool in `config/packages/cache.yaml`.
-
-``` yaml
-framework:
-    cache:
-        # ...
-        pools:
-            # This pool should be used only by SiteFactory bundle
-            site_factory_pool:
-```
-
-The Site Factory should be disabled.

@@ -48,7 +48,7 @@ A SiteAccess can be part of several groups. SiteAccess configuration has always 
 
 #### `admin` SiteAccess
 
-The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the back office.
+The predefined `admin` SiteAccess in `admin_group` serves the back office.
 Don't remove this group.
 If you need a multisite setup with multiple back offices, add any additional administration SiteAccesses to `admin_group`.
 
