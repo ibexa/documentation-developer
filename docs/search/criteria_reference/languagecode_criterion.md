@@ -13,16 +13,6 @@ The `LanguageCode` Search Criterion searches for content based on whether it's t
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\LanguageCode('ger-DE', false);
-```
-
 ### REST API
 
 === "XML"
@@ -48,28 +38,4 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
 ## Use case
 
 You can use the `LanguageCode` Criterion to search for articles that are lacking a translation
-into a specific language:
-
-``` php hl_lines="9"
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new LocationQuery();
-$query->query = new Criterion\LogicalAnd(
-    [
-    new Criterion\ContentTypeIdentifier('article'),
-    new Criterion\LogicalNot(
-        new Criterion\LanguageCode('ger-DE', false)
-    ),
-    ]
-);
-
-/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
-$results = $searchService->findContent($query);
-$articlesToTranslate = [];
-foreach ($results->searchHits as $searchHit) {
-    $articlesToTranslate[] = $searchHit;
-}
-
-return $articlesToTranslate;
-```
+into a specific language, by negating it and setting `matchAlwaysAvailable` to `false`.

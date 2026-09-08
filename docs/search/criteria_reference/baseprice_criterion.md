@@ -14,20 +14,3 @@ The `BasePrice` Search Criterion searches for products by their base price.
 ## Limitations
 
 The `BasePrice` Criterion isn't available in the Legacy Search engine.
-
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
-
-$query = new ProductQuery(
-    null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\BasePrice(
-        \Money\Money::EUR(12900),
-        \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator::GTE
-    )
-);
-```

@@ -19,9 +19,3 @@ Content Type Search Criteria are only supported by [Content Type Search (`Conten
 | LogicalAnd | Implements a logical AND Criterion. It matches if ALL of the provided Criteria match. |
 | LogicalOr | Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches. |
 | LogicalNot | Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match. |
-
-The following example shows how to use them to search for content types:
-
-``` php hl_lines="29-31"
-[[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
-```

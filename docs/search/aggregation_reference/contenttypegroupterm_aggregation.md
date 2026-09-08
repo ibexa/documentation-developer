@@ -9,15 +9,3 @@ The ContentTypeGroupTermAggregation aggregates search results by the content ite
 ## Arguments
 
 - `name` - name of the Aggregation object
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-
-$query = new Query();
-$query->aggregations[] = new Aggregation\ContentTypeGroupTermAggregation('content_type_group');
-```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -17,12 +17,6 @@ This Criterion is available only for location Search.
 
 ## Example
 
-### PHP
-
-``` php
-[[= include_code('code_samples/search/location/isbookmarked_criterion.php', 3, remove_indent=True) =]]
-```
-
 ### REST API
 
 === "XML"

@@ -33,39 +33,7 @@ supports asterisks as wildcards located at the beginning or end of a query.
 
 When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
 
-The `FullText` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
-
 ## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\FullText('victory');
-```
-
-Using double quotes to indicate a phrase:
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\FullText('"world cup"');
-```
-
-Using the AND operator and parenthesis to search for both words at the same time:
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\FullText('baseball AND cup');
-```
 
 ### REST API
 
@@ -91,15 +59,8 @@ $query->query = new Criterion\FullText('baseball AND cup');
 
 ## Use cases
 
-Assume the following search query:
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\FullText('(cup AND ba*ball) "breaking news"');
-```
+Assume a full-text search for `(cup AND ba*ball) "breaking news"`,
+which combines grouping, the `AND` operator, a wildcard, and a quoted phrase.
 
 It returns content containing phrases such as "Breaking news", "Baseball world cup", "Basketball cup",
 or "Breaking news: Baseball world cup victory".

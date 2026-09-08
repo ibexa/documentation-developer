@@ -12,16 +12,6 @@ The `LocationId` Search Criterion searches for content based in the location ID.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\LocationId(62);
-```
-
 ### REST API
 
 === "XML"

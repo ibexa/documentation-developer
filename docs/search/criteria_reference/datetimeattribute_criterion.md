@@ -15,19 +15,9 @@ The `DateTimeAttribute Search Criterion` searches for products by value of a spe
 
 The following operators are supported:
 
-- FieldValueCriterion::COMPARISON_EQ
-- FieldValueCriterion::COMPARISON_NEQ
-- FieldValueCriterion::COMPARISON_LT
-- FieldValueCriterion::COMPARISON_LTE
-- FieldValueCriterion::COMPARISON_GT
-- FieldValueCriterion::COMPARISON_GTE
-
-## Example
-
-### PHP
-
-The following example lists all products for which the `event_date` attribute has value equal to 2025-07-06.
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/DateTimeAttributeQuery.php') =]]
-```
+- `FieldValueCriterion::COMPARISON_EQ`
+- `FieldValueCriterion::COMPARISON_NEQ`
+- `FieldValueCriterion::COMPARISON_LT`
+- `FieldValueCriterion::COMPARISON_LTE`
+- `FieldValueCriterion::COMPARISON_GT`
+- `FieldValueCriterion::COMPARISON_GTE`

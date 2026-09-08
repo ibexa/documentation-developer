@@ -12,16 +12,6 @@ The `ContentId` Search Criterion searches for content by its ID.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ContentId([62, 64]);
-```
-
 ### REST API
 
 === "XML"

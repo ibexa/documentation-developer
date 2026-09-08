@@ -14,15 +14,3 @@ or disabled Currencies (`false`)
 ## Limitations
 
 The `IsCurrencyEnabledCriterion` Criterion isn't available in Solr or Elasticsearch engines.
-
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyQuery;
-
-$query = new CurrencyQuery(
-    new \Ibexa\Contracts\ProductCatalog\Values\Currency\Query\Criterion\IsCurrencyEnabledCriterion()
-);
-```

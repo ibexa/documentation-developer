@@ -7,7 +7,6 @@ description: Search Criteria and Sort Clauses help you fine-tune searches done b
 Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
 [[= product_name =]] provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
 
-For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](search_api.md).
 
 ## Search engine handling of Search Criteria and Sort Clauses
 
@@ -79,7 +78,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
     - for Criterion handlers: `ibexa.core.trash.search.legacy.gateway.criterion_handler`
     - for Sort Clause handlers: `ibexa.core.trash.search.legacy.gateway.sort_clause_handler`
 
-    For more information about searching for content items in Trash, see [Search in trash](search_api.md#search-in-trash).
+    For more information about searching for content items in Trash, see [Search in trash](search_in_trash_reference.md).
 
     For more information about the Criteria and Sort Clauses that are supported when searching for trashed content items, see [Searching in trash reference](search_in_trash_reference.md).
 

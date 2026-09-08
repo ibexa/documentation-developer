@@ -12,16 +12,6 @@ The `SectionId` Search Criterion searches for content based on the ID of the Sec
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\SectionId(3);
-```
-
 ### REST API
 
 === "XML"

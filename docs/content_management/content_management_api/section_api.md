@@ -30,7 +30,7 @@ You can use `SectionService` to retrieve section information such as whether it'
 
 ## Listing content in a section
 
-To list content items assigned to a section you need to make a [query](search_api.md) for content belonging to this section, by applying the `SearchService`.
+To list content items assigned to a section you need to make a query for content belonging to this section.
 You can also use the query to get the total number of assigned content items:
 
 ``` php

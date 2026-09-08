@@ -13,16 +13,6 @@ searches for content based on its remote content ID.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\RemoteId('abab615dcf26699a4291657152da4337');
-```
-
 ### REST API
 
 === "XML"

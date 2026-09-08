@@ -24,12 +24,6 @@ The `UpdatedAt` Search Criterion searches for products based on the date when th
 
 ## Example
 
-### PHP
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/UpdatedAtQuery.php') =]]
-```
-
 ### REST API
 
 === "XML"

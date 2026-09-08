@@ -15,14 +15,3 @@ Search criteria are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguratio
 | LogicalAnd | Composite criterion to group multiple criteria using the AND condition |
 | LogicalOr | Composite criterion to group multiple criteria using the OR condition |
 | Type | Find Action Configuration having the exact given type |
-
-The following example shows how to use them to find specific Action Configurations:
-
-``` php
-[[= include_code('code_samples/ai_actions/src/Query/Search.php') =]]
-```
-
-The result set contains Action Configurations that are:
-
-- enabled, and
-- with an identifier equal to `casual` or with a name starting with `Casual`.
