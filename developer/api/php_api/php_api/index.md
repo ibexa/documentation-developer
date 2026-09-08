@@ -1,0 +1,157 @@
+# PHP API
+
+Public PHP API exposes the Repository in a number of services and allows creating, reading, updating, managing, and deleting objects.
+
+The [public PHP API](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/index.md) enables you to interact with Ibexa DXP's Repository and content model from your PHP code.
+
+You can use it to create, read, update, manage, and delete all objects available in Ibexa DXP, namely content and related objects such as sections, locations, content types, or languages.
+
+The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage. Using the API ensures that your code is forward compatible with future releases based on other storage engines.
+
+## Using API services
+
+The API provides access to content, user, content types, and other features through various services.
+
+The full list of available services covers:
+
+- [BatchOrderService](../../../../../../ibexa/cart/src/contracts/BatchOrderServiceInterface.php)
+- [`Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService`](../../../../../../ibexa/corporate-account/src/contracts/Service/CorporateAccountService.php) (recommended for company creation)
+- [`Ibexa\Contracts\CorporateAccount\Service\CompanyService`](../../../../../../ibexa/corporate-account/src/contracts/Service/CompanyService.php)
+- [`Ibexa\Contracts\Core\Repository\ContentService`](../../../../../../ibexa/core/src/contracts/Repository/ContentService.php)
+- [`Ibexa\Contracts\Core\Repository\ContentTypeService`](../../../../../../ibexa/core/src/contracts/Repository/ContentTypeService.php)
+- [`Ibexa\Contracts\Core\Repository\FieldTypeService`](../../../../../../ibexa/core/src/contracts/Repository/FieldTypeService.php)
+- [`Ibexa\Contracts\User\Invitation\InvitationService`](../../../../../../ibexa/user/src/contracts/Invitation/InvitationService.php)
+- [`Ibexa\Contracts\Core\Repository\LanguageService`](../../../../../../ibexa/core/src/contracts/Repository/LanguageService.php)
+- [`Ibexa\Contracts\Core\Repository\LocationService`](../../../../../../ibexa/core/src/contracts/Repository/LocationService.php)
+- [`Ibexa\Contracts\CorporateAccount\Service\MemberService`](../../../../../../ibexa/corporate-account/src/contracts/Service/MemberService.php)
+- [`Ibexa\Contracts\Core\Repository\NotificationService`](../../../../../../ibexa/core/src/contracts/Repository/NotificationService.php)
+- [`Ibexa\Contracts\Core\Repository\ObjectStateService`](../../../../../../ibexa/core/src/contracts/Repository/ObjectStateService.php)
+- [`Ibexa\Contracts\Core\Repository\RoleService`](../../../../../../ibexa/core/src/contracts/Repository/RoleService.php)
+- [`Ibexa\Contracts\Core\Repository\SearchService`](../../../../../../ibexa/core/src/contracts/Repository/SearchService.php)
+- [`Ibexa\Contracts\Core\Repository\SectionService`](../../../../../../ibexa/core/src/contracts/Repository/SectionService.php)
+- [`Ibexa\Contracts\CorporateAccount\Service\ShippingAddressService`](../../../../../../ibexa/corporate-account/src/contracts/Service/ShippingAddressService.php)
+- [`Ibexa\Contracts\Cart\FileProcessor\SpreadsheetProcessorInterface`](../../../../../../ibexa/cart/src/contracts/FileProcessor/SpreadsheetProcessorInterface.php)
+- [TaxonomyService](../../../../../../ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php)
+- [`Ibexa\Contracts\Core\Repository\TranslationService`](../../../../../../ibexa/core/src/contracts/Repository/TranslationService.php)
+- [`Ibexa\Contracts\Core\Repository\TrashService`](../../../../../../ibexa/core/src/contracts/Repository/TrashService.php)
+- [`Ibexa\Contracts\Core\Repository\URLAliasService`](../../../../../../ibexa/core/src/contracts/Repository/URLAliasService.php)
+- [`Ibexa\Contracts\Core\Repository\URLService`](../../../../../../ibexa/core/src/contracts/Repository/URLService.php)
+- [`Ibexa\Contracts\Core\Repository\URLWildcardService`](../../../../../../ibexa/core/src/contracts/Repository/URLWildcardService.php)
+- [`Ibexa\Contracts\Core\Repository\UserPreferenceService`](../../../../../../ibexa/core/src/contracts/Repository/UserPreferenceService.php)
+- [`Ibexa\Contracts\Core\Repository\UserService`](../../../../../../ibexa/core/src/contracts/Repository/UserService.php)
+
+You can access the PHP API by injecting relevant services into your code:
+
+- By using [auto-wiring](https://symfony.com/doc/7.4/service_container/autowiring.html), and the service class name in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
+- By using [service parameters](https://symfony.com/doc/7.4/service_container.html#service-container-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
+- By using the repository's `get[ServiceName]()` methods, for example, [`Repository::getContentService()`](../../../../../../ibexa/core/src/contracts/Repository/Repository.php), or [`getUserService()`](../../../../../../ibexa/core/src/contracts/Repository/Repository.php). (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
+
+> **Caution: Caution**
+>
+> The PHP API's services can be accessed with `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from a [custom controller](../../../templating/queries_and_controllers/controllers/index.md), but such approach isn't recommended, and you should prefer dependency injection.
+
+## Value objects
+
+The services provide interaction with read-only value objects from the [`Ibexa\Contracts\Core\Repository\Values`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values.html) namespace. Those objects are divided into sub-namespaces, such as [`Content`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-content.html), [`User`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-user.html) or [`ObjectState`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-objectstate.html). Each sub-namespace contains a set of value objects, such as [`Content\Content`](../../../../../../ibexa/core/src/contracts/Repository/Values/Content/Content.php) or [`User\Role`](../../../../../../ibexa/core/src/contracts/Repository/Values/User/Role.php).
+
+Value objects come with their own properties, such as `$content->id` or `$location->hidden`, and with methods that provide access to more related information, such as [`Content\Relation::getSourceContentInfo()`](../../../../../../ibexa/core/src/contracts/Repository/Values/Content/Relation.php) or [`User\Role::getPolicies()`](../../../../../../ibexa/core/src/contracts/Repository/Values/User/Role.php).
+
+### Creating and updating objects
+
+Value objects fetch data from the repository and are read-only. To create and modify repository values, use data structures, such as [`ContentService::newContentCreateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/ContentService.php#L572) or [`LocationService::newLocationUpdateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/LocationService.php#L238).
+
+### Value info objects
+
+Some complex value objects have an `Info` counterpart, for example [`ContentInfo`](https://github.com/ibexa/core/blob/5.0/src/contracts/Repository/Values/Content/ContentInfo.php) for [`Content`](https://github.com/ibexa/core/blob/5.0/src/contracts/Repository/Values/Content/Content.php). These objects provide you with lower-level information. For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Content` enables you to retrieve fields, content type, or previous versions.
+
+> **Note: Note**
+>
+> The public PHP API value objects should not be serialized.
+>
+> Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` / `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
+
+## Authentication
+
+One of the responsibilities of the repository is user authentication. Every action is executed *as* a user.
+
+When you use the PHP API, authentication is performed in three ways:
+
+- [automatically in the back office](#back-office-authentication)
+- [by using `sudo()`](#using-sudo)
+- by [setting the Repository user](#setting-the-repository-user)
+
+### Back office authentication
+
+When actions are performed through the back office, they're executed as the logged-in user. This user's permissions affects the behavior of the repository. The user may, for example, not be allowed to create content, or view a particular section.
+
+### Using `sudo()`
+
+To skip permission checks, you can use the `sudo()` method. It allows API execution to be performed with full access, sand-boxed.
+
+You can use this method to perform an action that the current user doesn't have permissions for.
+
+For example, to [hide a Location](../../../content_management/content_api/managing_content/index.md#hiding-and-revealing-locations), use:
+
+```php
+use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+
+//...
+
+/**
+ * @var Repository $repository
+ * @var Location $location
+ */
+$hiddenLocation = $repository->sudo(static fn (Repository $repository): Location => $repository->getLocationService()->hideLocation($location));
+```
+
+### Setting the repository user
+
+In a command line script, the repository runs as if executed by the anonymous user. While [using `sudo()`](#using-sudo) is the recommended option, you can also set the current user to a user with necessary permissions to achieve the same effect.
+
+To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
+
+```php
+$user = $this->userService->loadUserByLogin('admin');
+$this->permissionResolver->setCurrentUserReference($user);
+```
+
+> **Tip: Tip**
+>
+> [`Ibexa\Contracts\Core\Repository\PermissionService`](../../../../../../ibexa/core/src/contracts/Repository/PermissionService.php) can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.
+
+This isn't required in template functions or controller code, as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
+
+## Exception handling
+
+PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors. Each API method may throw different exceptions, depending on what it does.
+
+It's good practice to cover every exception you expect to happen.
+
+For example if you're using a command which takes the content ID as a parameter, the ID may either not exist, or the referenced content item may not be visible to the user.
+
+Both cases should be covered with error messages:
+
+```php
+try {
+    // ...
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException) {
+    $output->writeln("<error>No content with id $contentId found</error>");
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException) {
+    $output->writeln("<error>Permission denied on content with id $contentId</error>");
+}
+```
+
+## Service container
+
+Ibexa DXP uses the [Symfony service container](https://symfony.com/doc/7.4/service_container.html) for dependency resolution.
+
+[Symfony dependency injection](https://symfony.com/doc/7.4/service_container.html) ensures that any required services are available in your custom code (for example, controllers) when you inject them into the constructor.
+
+Symfony service container uses service tags to dedicate services to a specific purpose. They're usually used for extension points.
+
+Ibexa DXP uses service tags to expose multiple features. For example, field types are tagged `ibexa.field_type`.
+
+> **Tip: Tip**
+>
+> For a list of all service tags exposed by Symfony, see its [reference documentation](https://symfony.com/doc/7.4/reference/dic_tags.html).

@@ -1,0 +1,156 @@
+# Update from v4.1.x to v4.2
+
+Update your installation to the v4.2.latest version from an v4.1 version.
+
+This update procedure applies if you're using a v4.1 installation.
+
+> **Caution: Temporary need of Composerconflict**
+>
+> To go through this update, [map the conflicting packages](https://getcomposer.org/doc/04-schema.md#conflict) in your `composer.json` file as following:
+>
+> ```json
+> "conflict": {
+>     "jms/serializer": ">=3.30.0",
+>     "gedmo/doctrine-extensions": ">=3.12.0"
+> },
+> ```
+>
+> These entries can be removed after fully upgrading to v4.6 LTS.
+
+## Update from v4.1.x to v4.1.latest
+
+Before you update to v4.2, you need to go through the following steps to update to the latest maintenance release of v4.1 (v4.1.5).
+
+### Update the application
+
+Run:
+
+**Ibexa Content**
+
+```bash
+composer require ibexa/content:4.1.5 --with-all-dependencies --no-scripts
+```
+
+**Ibexa Experience**
+
+```bash
+composer require ibexa/experience:4.1.5 --with-all-dependencies --no-scripts
+```
+
+**Ibexa Commerce**
+
+```bash
+composer require ibexa/commerce:4.1.5 --with-all-dependencies --no-scripts
+```
+
+### VCL configuration for Fastly
+
+The Fastly `.vcl` configuration files have changed. Follow the upgrade steps below to update them:
+
+1. Locate the `vendor/ibexa/fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
+2. Do the same with `vendor/ibexa/fastly/fastly/ez_user_hash.vcl`.
+3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl`.
+
+Once the VCL configuration has been updated, you may enable [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/) if you prefer.
+
+## Update from v4.1.latest to v4.2
+
+When you have the latest version of v4.1, you can update to v4.2.
+
+### Update the application
+
+First, run:
+
+**Ibexa Content**
+
+```bash
+composer require ibexa/content:4.2.4 --with-all-dependencies --no-scripts
+composer recipes:install ibexa/content --force -v
+```
+
+**Ibexa Experience**
+
+```bash
+composer require ibexa/experience:4.2.4 --with-all-dependencies --no-scripts
+composer recipes:install ibexa/experience --force -v
+```
+
+**Ibexa Commerce**
+
+```bash
+composer require ibexa/commerce:4.2.4 --with-all-dependencies --no-scripts
+composer recipes:install ibexa/commerce --force -v
+```
+
+The `recipes:install` command installs new YAML configuration files. Review the old YAML files and move your custom configuration to the relevant new files.
+
+#### Run data migration
+
+Next, run data migration required by Product Categories:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2022_06_23_09_39_product_categories.yaml --name=013_product_categories.yaml
+```
+
+If you're using Ibexa Experience or Ibexa Commerce, run data migration required by the Customer portal feature:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
+```
+
+If you're using Ibexa Commerce, additionally run:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_commerce.yaml --name=002_corporate_account_commerce.yaml
+```
+
+Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed. If the dry run is successful, run:
+
+```bash
+php bin/console ibexa:migrations:migrate
+```
+
+### Update the database
+
+Next, update the database.
+
+> **Caution: Caution**
+>
+> Always back up your data before running any database update scripts.
+>
+> After updating the database, clear the cache.
+>
+> Don't use `--force` argument for `mysql` / `psql` commands when performing update queries. If there is any problem during the update, it's best if the query fails immediately, so you can fix the underlying problem before you execute the update again. If you leave this for later you risk ending up with an incompatible database, though the problems might not surface immediately.
+
+Apply the following database update scripts:
+
+**MySQL**
+
+```bash
+mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.1.latest-to-4.2.0.sql
+mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
+```
+
+**PostgreSQL**
+
+```bash
+psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.latest-to-4.2.0.sql
+psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
+```
+
+#### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade isn't necessary.
+
+## Ensure password safety
+
+Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips), unless you can verify based on your log files that the vulnerability has not been exploited, you should [revoke passwords](https://doc.ibexa.co/en/4.6/users/passwords/#revoking-passwords) for all affected users.
+
+## Remove `node_modules` and `yarn.lock`
+
+Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`, otherwise you can encounter errors during compiling.
+
+```bash
+rm -Rf node_modules
+rm -Rf yarn.lock
+```

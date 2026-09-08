@@ -1,0 +1,780 @@
+# Extend Online Editor
+
+Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
+
+Ibexa DXP users edit the contents of RichText fields, for example, in the Content box of a Page, by using the Online Editor.
+
+You can extend the Online Editor by adding custom tags and styles, defining custom data attributes, re-arranging existing buttons, grouping buttons into custom toolbar, and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/widget_sdk_tutorial_1.html#widget-toolbar-button) and [custom plugins](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_plugins.html).
+
+Online Editor is based on the CKEditor5. Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn how you can extend the Online Editor with even more elements.
+
+For more information about extending the back office, see [Extend back office](../../../administration/back_office/back_office/index.md).
+
+## Configure custom tags
+
+With custom tags, you can enhance the Online Editor with features that go beyond the built-in ones. You configure custom tags under the `ibexa_richtext` key.
+
+Start preparing the tag by adding a configuration file:
+
+```yaml
+ibexa_fieldtype_richtext:
+    custom_tags:
+        factbox:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/factbox.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square' # Optional
+            is_inline: false # Optional
+            label: 'Factbox custom tag' # Optional
+            description: 'Highlight a piece of information in a box' # Optional
+            attributes:
+                name:
+                    type: string
+                    required: true # Optional
+                    label: 'My name attribute' # Optional
+                style:
+                    type: choice
+                    required: true # Optional
+                    default_value: light
+                    choices: [light, dark]
+                    label: 'My style attribute' # Optional
+
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_tags: [factbox]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                factbox:
+                                    priority: 5
+```
+
+The example enables the custom tag under the `admin_group` [SiteAccess group](../../../multisite/siteaccess/siteaccess/index.md), which controls where editors can use it. The custom tag renders in all SiteAccesses, including the front end.
+
+Custom tags can have as many attributes as needed. Supported attribute types are:
+
+- `string`
+- `number`
+- `boolean`
+- `link`
+- `choice`
+
+`choice` requires that you provide a list of options in the `choices` key.
+
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](../../../templating/twig_function_reference/icon_twig_functions/index.md#icons-reference).
+
+You must create your own file for the Twig template. Place the `factbox.html.twig` template in the `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
+
+```html+twig
+{{ encore_entry_link_tags('factbox') }}
+
+<div class="ibexa-factbox ibexa-factbox--{{ params.style }}">
+    <p>{{ params.name }}</p>
+    <div>
+        {{ content|raw }}
+    </div>
+</div>
+```
+
+If an attribute isn't required, check if it's defined by adding a check in the template, for example:
+
+```html+twig
+{% if params.your_attribute is defined %}
+    ...
+{% endif %}
+```
+
+In this example, the `style` attribute is a `choice` attribute with `light` and `dark` as possible values. The selected value is available as `params.style` in the template. Use it to build an `ibexa-factbox--light` or `ibexa-factbox--dark` modifier class on the wrapping `div` element for styling.
+
+You can then define the corresponding CSS for each choice, for example by using [Webpack Encore and assets](../../../templating/assets/index.md).
+
+Create a `assets/scss/factbox.scss` file for styling the custom tag:
+
+```css
+.ibexa-factbox--light {
+    background-color: #f5f5f5;
+    color: #202020;
+}
+
+.ibexa-factbox--dark {
+    background-color: #202020;
+    color: #f5f5f5;
+}
+```
+
+Then, register the file in `webpack.config.js` as an asset entry called `factbox`:
+
+```js
+Encore.addStyleEntry('factbox', [
+    path.resolve(__dirname, './assets/scss/factbox.scss'),
+]);
+```
+
+After you add the configuration, template, and asset files, clear the cache and run `yarn encore <dev|prod>`.
+
+### Provide translations for custom tags
+
+You can provide the label and description displayed for the custom tag and its attributes in the back office in one of two ways.
+
+#### Option 1: Manually add translations
+
+Add labels for the new tag by providing the translations manually in `translations/custom_tags.en.yaml`:
+
+```yaml
+ibexa_richtext.custom_tags.factbox.label: 'Factbox'
+ibexa_richtext.custom_tags.factbox.description: 'Highlight a piece of information in a box'
+ibexa_richtext.custom_tags.factbox.attributes.name.label: 'Name'
+ibexa_richtext.custom_tags.factbox.attributes.style.label: 'Style'
+ibexa_richtext.custom_tags.factbox.attributes.style.choice.dark.label: 'Dark'
+ibexa_richtext.custom_tags.factbox.attributes.style.choice.light.label: 'Light'
+```
+
+This approach is quick, but doesn't work when your custom tag is defined in a bundle. The configuration and the labels are defined in separate files, making it easier to miss updating them when the custom tag changes.
+
+#### Option 2: Extract translation source texts from configuration
+
+To provide the translations with the custom tag configuration, specify the `label` and `description` keys for the custom tag itself, and a `label` key for each attribute.
+
+```yaml
+ibexa_fieldtype_richtext:
+    custom_tags:
+        factbox:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/factbox.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square' # Optional
+            is_inline: false # Optional
+            label: 'Factbox custom tag' # Optional
+            description: 'Highlight a piece of information in a box' # Optional
+            attributes:
+                name:
+                    type: string
+                    required: true # Optional
+                    label: 'My name attribute' # Optional
+                style:
+                    type: choice
+                    required: true # Optional
+                    default_value: light
+                    choices: [light, dark]
+                    label: 'My style attribute' # Optional
+
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_tags: [factbox]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                factbox:
+                                    priority: 5
+```
+
+To make use of them, create a new service with `Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor` as the class.
+
+If it has `choice` attributes, add an additional service with `Ibexa\FieldTypeRichText\Translation\Extractor\ChoiceAttributeExtractor` as the class.
+
+In both cases, add your custom tag's identifier to the `allowlist` argument:
+
+```yaml
+services:
+    app.extractor.custom_tag:
+        class: Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor
+        arguments:
+            $customTags: '%ibexa.field_type.richtext.custom_tags%'
+            $domain: '%ibexa.field_type.richtext.custom_tags.translation_domain%'
+            $allowlist: ['factbox']
+        tags:
+            -   name: jms_translation.extractor
+                alias: app.translation_extractor.factbox
+
+    app.extractor.custom_tag_choice:
+        class: Ibexa\FieldTypeRichText\Translation\Extractor\ChoiceAttributeExtractor
+        arguments:
+            $customTags: '%ibexa.field_type.richtext.custom_tags%'
+            $domain: '%ibexa.field_type.richtext.custom_tags.translation_domain%'
+            $allowlist: ['factbox']
+        tags:
+            -   name: jms_translation.extractor
+                alias: app.translation_extractor.factbox_choice
+```
+
+Then, create your own translation extraction configuration, and specify the Symfony services created above as extractors:
+
+```yaml
+jms_translation:
+    configs:
+        app_translation_config:
+            dirs: ['%kernel.project_dir%/src']
+            output_dir: '%kernel.project_dir%/translations'
+            output_format: yaml
+            extractors:
+                - 'app.translation_extractor.factbox'
+                - 'app.translation_extractor.factbox_choice'
+```
+
+Run the translation extraction:
+
+```bash
+php bin/console translation:extract -c app_translation_config
+```
+
+This updates `translations/custom_tags.en.yaml` with the source texts taken from the configuration.
+
+If you omit `label` or `description`, the extraction uses the identifier of the custom tag or attribute as the source text.
+
+To provide translations for values of a `choice` attribute, `ChoiceAttributeExtractor` capitalizes the first letter of the value. For example, `light` and `dark` options become `Light` and `Dark`.
+
+Run the extraction again whenever you change the labels, descriptions, or attributes of the custom tag.
+
+### Use custom tag
+
+Now you can use the tag. In the back office, create or edit a content item that has a RichText field type. In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
+
+![FactBox Tag](https://doc.ibexa.co/en/5.0/content_management/img/custom_tag_factbox.png "FactBox Tag in the Online Editor")
+
+### Inline custom tags
+
+You can also place custom tags inline with the following configuration:
+
+```yaml
+ibexa_fieldtype_richtext:
+    custom_tags:
+        acronym:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/acronym.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#edit'
+            is_inline: true
+            attributes:
+                # ...
+```
+
+`is_inline` is an optional key. The default value is `false`, therefore, if it's not set, the custom tag is treated as a block tag.
+
+### Use cases
+
+#### Link tag
+
+You can configure a custom tag with a `link` attribute that offers a basic UI with text input. It's useful when migrating from eZ Publish to Ibexa DXP.
+
+The configuration is:
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_tags: [linktag]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                linktag:
+                                    priority: 6
+ibexa_fieldtype_richtext:
+    custom_tags:
+        linktag:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/linktag.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#link'
+            is_inline: true
+            attributes:
+                title:
+                    type: string
+                    required: false
+                description:
+                    type: string
+                    required: false
+                color:
+                    type: choice
+                    required: false
+                    choices: [Red, Blue, Green]
+                url:
+                    type: link
+                    required: false
+```
+
+Provide your own SVG icon, or choose one from the [built-in icons included in `all-icons.svg`](../../../templating/twig_function_reference/icon_twig_functions/index.md#icons-reference).
+
+Use your own file for the Twig template.
+
+The tag has the `url` attribute with the `type` parameter set as `link` (lines 30-31).
+
+Then create the `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags/linktag.html.twig` template:
+
+```html+twig
+<h2>Custom link</h2>
+{% for attr_name, attr_value in params %}
+    <div><strong>{{ attr_name }}</strong>: {{ attr_value }}</div>
+{% endfor %}
+```
+
+Add labels for the tag by providing translations in `translations/custom_tags.en.yaml`:
+
+```yaml
+ibexa_richtext.custom_tags.linktag.label: 'Link Tag'
+ibexa_richtext.custom_tags.linktag.attributes.title.label: 'Title'
+ibexa_richtext.custom_tags.linktag.attributes.description.label: 'Description'
+ibexa_richtext.custom_tags.linktag.attributes.color.label: 'Color'
+ibexa_richtext.custom_tags.linktag.attributes.url.label: 'URL'
+```
+
+Now you can use the tag. In the back office, create or edit a content item that has a RichText field type. In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
+
+![Link Tag](https://doc.ibexa.co/en/5.0/content_management/img/custom_tag_link.png "Link Tag in the Online Editor")
+
+#### Acronym
+
+You can create an inline custom tag that displays a hovering tooltip with an explanation of an acronym.
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_tags: [acronym]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                acronym:
+                                    priority: 7
+ibexa_fieldtype_richtext:
+    custom_tags:
+        acronym:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/acronym.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#edit'
+            is_inline: true
+            attributes:
+                explanation:
+                    type: string
+```
+
+The `explanation` attribute contains the meaning of the acronym that is provided while editing in the Online Editor.
+
+Add labels for the tag by providing translations in `translations/custom_tags.en.yaml`:
+
+```yaml
+ibexa_richtext.custom_tags.acronym.label: 'Acronym'
+ibexa_richtext.custom_tags.acronym.attributes.explanation.label: 'Explanation'
+```
+
+![Adding an explanation to an Acronym custom tag](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_tag_add_acronym.png)
+
+In the template file `acronym.html.twig` provide the explanation as attribute value to the title of the `abbr` tag:
+
+```html+twig
+<abbr title="{{ params.explanation }}">{{ content }}</abbr>
+```
+
+![Acronym custom tag](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_tag_acronym.png)
+
+## Configure custom styles
+
+You can extend the Online Editor with custom text styles. The styles are available in the text toolbar when a section of text is selected.
+
+There are two kinds of custom styles: block and inline. Inline styles apply to the selected portion of text only, while block styles apply to the whole paragraph.
+
+Start creating a custom style by providing configuration:
+
+- a global list of custom styles, defined under the node `ibexa_richtext.custom_styles`,
+- a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ibexa.system.<scope>.fieldtypes.ibexa_richtext.custom_styles`
+
+A sample configuration could look as follows:
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_styles: [highlighted_block, highlighted_word]
+ibexa_fieldtype_richtext:
+    custom_styles:
+        highlighted_word:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_styles/highlighted_word.html.twig'
+            inline: true
+        highlighted_block:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_styles/highlighted_block.html.twig'
+            inline: false
+```
+
+> **Note: Note**
+>
+> Currently, if you define these lists for a front site SiteAccess, it has no effect.
+
+Add labels for the new styles by providing translations in `translations/custom_styles.en.yaml`:
+
+```yaml
+ibexa_richtext.custom_styles.highlighted_block.label: Highlighted block
+ibexa_richtext.custom_styles.highlighted_word.label: Highlighted word
+```
+
+### Rendering
+
+The `template` key points to the template that is used to render the custom style. It's recommended that you use the [design engine](../../../templating/design_engine/design_engine/index.md).
+
+The template files for the front end could look as follows:
+
+- `templates/themes/standard/field_type/ibexa_richtext/custom_styles/highlighted_word.html.twig`:
+
+```html+twig
+<span {% if id is defined %}id="{{ id }}"{% endif %} class="ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</span>
+```
+
+- `templates/themes/standard/field_type/ibexa_richtext/custom_styles/highlighted_block.html.twig`:
+
+```html+twig
+<div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
+```
+
+Templates for Content View in the back office would be `templates/themes/admin/field_type/ibexa_richtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ibexa_richtext/custom_styles/highlighted_block.html.twig` (assuming that the back office SiteAccess uses the default `admin` theme).
+
+### Use cases
+
+#### Note box
+
+You can create a custom style that places a paragraph in a note box:
+
+![Example of a note box custom style](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_style_note_box.png)
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_styles: [note_box]
+ibexa_fieldtype_richtext:
+    custom_styles:
+        note_box:
+            template: field_type/ibexa_richtext/custom_styles/note_box.html.twig
+```
+
+The `note_box.html.twig` template wraps the content of the selected text (`{{ content }}`) in a custom CSS class:
+
+```html+twig
+<div class="note">{{ content }}</div>
+```
+
+You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](../../../templating/assets/index.md):
+
+```css
+.note {
+    display: block;
+    background-color: #faa015;
+    border-left: solid 5px #353535;
+    line-height: 18px;
+    padding: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+```
+
+Add label for the new style by providing a translation in `translations/custom_styles.en.yaml`:
+
+```yaml
+ibexa_richtext.custom_styles.note_box.label: 'Note box'
+```
+
+![Adding a Note box custom style](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_style_note_box_select.png)
+
+> **Tip: Tip**
+>
+> You can also create a similar note box with [custom classes](#note-box_1).
+
+#### Text highlight
+
+You can create an inline custom style that highlights a part of a text:
+
+![Example of a custom style highlighting a portion of text](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_style_highlight.png)
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_styles: [highlight]
+ibexa_fieldtype_richtext:
+    custom_styles:
+        highlight:
+            template: field_type/ibexa_richtext/custom_styles/highlight.html.twig
+            inline: true
+```
+
+The `highlight.html.twig` template wraps the content of the selected text (`{{ content }}`) in a custom CSS class:
+
+```html+twig
+<span class="highlight">{{ content }}</span>
+```
+
+You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](../../../templating/assets/index.md):
+
+```css
+.highlight {
+    background-color: #fcc672;
+    border-radius: 25% 40% 25% 40%;
+}
+```
+
+Add label for the new style by providing a translation in `translations/custom_styles.en.yaml`:
+
+```yaml
+ibexa_richtext.custom_styles.highlight.label: 'Highlight'
+```
+
+![Adding a Highlight custom style](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_style_highlight_select.png)
+
+## Configure custom data attributes and classes
+
+You can add custom data attributes and CSS classes to the following elements in the Online Editor:
+
+- `embedInline`
+- `embed`
+- `formatted`
+- `heading`
+- `heading1` to `heading6`
+- `embedImage`
+- `ul`
+- `ol`
+- `li`
+- `paragraph`
+- `table`
+- `tr`
+- `td`
+- `link`
+
+> **Note: Heading elements**
+>
+> `heading` applies to all heading elements, and `heading1` to `heading6` to specific heading levels.
+>
+> When you configure both `heading` and a specific heading level (for example, `heading2`) at the same time, only the more specific configuration applies, in this case, `heading2`.
+
+> **Caution: Overriding embed templates**
+>
+> If you override the default templates for `embedInline`, `embed` or `embedImage` elements, for example, `@IbexaCore/default/content/embed.html.twig`, the data attributes and classes aren't rendered automatically.
+>
+> Instead, you can make use of the `data_attributes` and `class` properties in your templates. With the `ibexa_data_attributes_serialize` helper you can serialize the data attribute array.
+
+### Custom data attributes
+
+You configure custom data attributes under the `fieldtypes.ibexa_fieldtype_richtext.attributes` key. The configuration is SiteAccess-aware.
+
+A custom data attribute can belong to one of the following types: `choice`, `boolean`, `string`, or `number`. You can also set each attribute to be `required` and set its `default_value`.
+
+For the `choice` type, you must provide an array of available `choices`. By adding `multiple`, you can decide whether more than one option can be selected. It's set to `false` by default.
+
+Use the example below to add two data attributes, `custom_attribute` and `another_attribute` to the Heading element in the `admin_group` SiteAccess:
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    attributes:
+                        heading:
+                            custom-attribute:
+                                type: boolean
+                                default_value: false
+                            another-attribute:
+                                type: choice
+                                choices: [attr1, attr2]
+                                default_value: attr2
+                                required: false
+                                multiple: true
+```
+
+The configuration outputs `data-ezattribute-<attribute_name>="<value>"` in the corresponding HTML element. Here, the resulting values are `data-ezattribute-custom-attribute="false"` and `data-ezattribute-another-attribute="attr1,attr2"`.
+
+### Custom CSS classes
+
+You configure custom CSS classes under the `fieldtypes.ibexa_richtext.classes` key. The configuration is SiteAccess-aware.
+
+You must provide the available `choices`. You can also set the values for `required`, `default_value` and `multiple`. `multiple` is set to true by default.
+
+Use the example below to add a class choice to the Paragraph element in the `admin_group` SiteAccess:
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:                            
+                    classes:
+                        paragraph:
+                            choices: [regular, special, tip_box, warning_box]
+                            default_value: regular
+                            required: false
+                            multiple: false
+```
+
+> **Note: Label translations**
+>
+> If there are many custom attributes, to provide label translations for these attributes, you can use the `ez_online_editor_attributes` translation extractor to get a full list of all custom attributes for all elements in all scopes.
+>
+> For example:
+>
+> ```bash
+> php ./bin/console jms:translation:extract --enable-extractor=ez_online_editor_attributes \
+> --dir=./templates --output-dir=./translations/ --output-format=yaml
+> ```
+
+### Use cases
+
+#### Note box
+
+You can create a custom class that enables you to place a paragraph element in a note box:
+
+![Example of a note box custom style](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_style_note_box.png)
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:                            
+                    classes:
+                        paragraph:
+                            choices: [regular, special, tip_box, warning_box]
+```
+
+With this class you can choose one of the following classes for each paragraph element: `regular`, `tip_box`, or `warning_box`. You can then style the class by using CSS.
+
+![Selecting a custom style for a paragraph](https://doc.ibexa.co/en/5.0/content_management/img/oe_custom_class_note_box_select.png)
+
+> **Tip: Tip**
+>
+> You can also create a similar note box with [custom styles](#note-box).
+
+## Rearrange buttons
+
+You can modify the order and visibility of buttons that are available in the Online Editor toolbar through configuration:
+
+```yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ibexa_richtext:
+                    custom_tags: [ezyoutube, eztwitter, ezfacebook]
+                    toolbar:
+                        group1:
+                            priority: 60
+                            buttons:
+                                ibexaMoveUp:
+                                    priority: 30
+                                ibexaMoveDown:
+                                    priority: 20
+                                heading:
+                                    priority: 10
+                        group2:
+                            priority: 50
+                            buttons:
+                                alignment:
+                                    priority: 10
+```
+
+For each button you can set `priority`, which defines the order of buttons in the toolbar.
+
+For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/5.0/src/bundle/Resources/config/prepend/ezpublish.yaml)
+
+## Add CKEditor plugins
+
+Regular CKEditor plugins can be added to the Online Editor. This procedure is illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
+
+You can install a CKEditor plugin locally by using `yarn add` or `npm install`, and deploy it by committing the `yarn.lock` file. A local installation looks like:
+
+```bash
+yarn add @ckeditor/ckeditor5-special-characters@40.2.0
+```
+
+Make sure to specify a version range compatible with the CKEditor's version used in Ibexa DXP.
+
+The CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array. For this purpose, create an `assets/js/richtext.ckeditor-plugins.js` to import the plugin elements and add them to the array using `ibexa.addConfig` :
+
+```js
+// The plugin itself
+import SpecialCharacters from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+// The character list that will be used by the plugin
+import SpecialCharactersEssentials from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
+ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials ], true);
+```
+
+The plugin is imported from `../../node_modules/@ckeditor` path and not directly from `@ckeditor` alias because this alias points at `./public/bundles/ibexaadminuiassets/vendors/@ckeditor`.
+
+Add the previous file to `ibexa-richtext-onlineeditor-js` Webpack Encore entry.
+
+Create the following `encore/ibexa.richtext.config.manager.js` file:
+
+```js
+const path = require('path');
+
+module.exports = (ibexaConfig, ibexaConfigManager) => {
+    ibexaConfigManager.add({
+        ibexaConfig,
+        entryName: 'ibexa-richtext-onlineeditor-js',
+        newItems: [path.resolve(__dirname, '../assets/js/richtext.ckeditor-plugins.js')],
+    });
+};
+```
+
+See [Importing assets from a bundle](../../../administration/back_office/back_office_elements/importing_assets_from_bundle/index.md) for alternative ways to add files to Webpack Encore entries.
+
+Add the plugin button to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ibexa_richtext.toolbar`).
+
+A new button group is defined in `config/packages/ibexa_admin_ui.yaml` with [the `specialcharacters` button exposed by the plugin API](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#common-api):
+
+```yaml
+ibexa:
+    # …
+    system:
+        admin_group:
+            # …
+            fieldtypes:
+                ibexa_richtext:
+                    toolbar:
+                        my_group:
+                            priority: 25
+                            buttons:
+                                specialCharacters:
+                                    priority: 10
+```
+
+Build the assets and clear the cache by running `composer run-script auto-scripts`.
+
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/framework/architecture/plugins.html).
+
+## Change CKEditor configuration
+
+You can add or override CKEditor configuration to set one of the [available properties](https://ckeditor.com/docs/ckeditor5/latest/api/module_core_editor_editorconfig-EditorConfig.html).
+
+To do it, add a custom config object to the `window.ibexa.richText.CKEditor.extraConfig` key by using the `addConfig` method:
+
+```js
+window.ibexa.addConfig('richText.CKEditor.extraConfig', {your_custom_config_object}, true);
+```
+
+To have `Arrows` category from [previously added Special characters plugin](#add-ckeditor-plugins) on [top of the filter menu](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#ordering-categories):
+
+```js
+ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: ['Arrows'] } }, true);
+```
+
+![CKEditor Special characters: Arrows category on top of the character filter](https://doc.ibexa.co/en/5.0/content_management/img/ckeditor-special-characters_arrows-on-top.png)
+
+You can also use custom functions to modify the plugin configuration. The following example adds two ways to add a non-breaking space character:
+
+```js
+function SpecialCharactersNbsp( editor ) {
+    // add non-breaking space to the SpecialCharacters plugin
+    editor.plugins.get( 'SpecialCharacters' ).addItems( 'Text', [
+        { title: 'Non-Breaking Space', character: '\u00a0' }
+    ] );
+    // add a keyboard shortcut
+    editor.keystrokes.set( 'Ctrl+space', ( key, stop ) => {
+        editor.execute( 'input', { text: '\u00a0' } );
+        stop();
+    } );
+}
+ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials, SpecialCharactersNbsp ], true);
+```
