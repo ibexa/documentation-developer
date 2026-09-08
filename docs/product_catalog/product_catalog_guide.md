@@ -1,6 +1,17 @@
 ---
 description: The product catalog guide provides a full description of the features and capabilities for managing products, their specifications, variants, pricing, and organization.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    States that a VAT rate can be set globally, meaning per SiteAccess. Confirm the
+    per-SiteAccess scope of VAT rates once SiteAccess configuration moves to a UI.
+
+    Links to the deleted create_custom_attribute_type.md, product_api.md,
+    shipping_management.md, discounts_guide.md, create_custom_catalog_filter.md,
+    commerce.md and content_aware_cache.md pages were removed; check that the
+    surrounding text still reads correctly.
 ---
 
 # Product catalog guide

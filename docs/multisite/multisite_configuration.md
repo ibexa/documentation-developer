@@ -1,5 +1,15 @@
 ---
 description: Configure SiteAccesses to serve different content in different layouts.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The whole page describes SiteAccess lists, SiteAccess groups, matching, and
+    per-SiteAccess settings as on-disk YAML. Confirm the equivalent UI, and whether
+    match rules stay author-editable, before this page is rewritten.
+
+    Links to the deleted repository_configuration.md and persistence_cache.md pages were
+    removed; check that the surrounding text still reads correctly.
 ---
 
 # Multisite configuration

@@ -3,10 +3,14 @@ description: Configure AI Actions.
 month_change: false
 saas_review:
     - siteaccess
+    - links_removed
 saas_review_note: >-
     Confirm where a tenant enters the OpenAI, Anthropic, Google Gemini, and
     Ibexa Connect credentials this page describes, and how SiteAccess-scoped
     API keys are set, once the credential-entry surface is specified.
+
+    Links to the deleted extend_ai_actions.md page were also removed from this page;
+    check that the surrounding text still reads correctly.
 ---
 
 # Configure AI Actions

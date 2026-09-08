@@ -1,5 +1,12 @@
 ---
 description: You can create multiple language versions (translations) of content and serve different language versions of your site with the help of SiteAccesses.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Translation SiteAccesses, the default SiteAccess, and per-SiteAccess-group overrides
+    of the translation SiteAccess list are all described as YAML. Confirm how the
+    language-to-SiteAccess mapping is expressed once SiteAccess configuration moves to a
+    UI.
 ---
 
 # Languages

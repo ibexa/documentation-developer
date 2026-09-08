@@ -1,5 +1,14 @@
 ---
 description: The price engine calculates product prices taking into account customer groups, currencies and taxes.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    States that a VAT rate can be set globally, meaning per SiteAccess. Confirm the
+    per-SiteAccess scope of VAT rates once SiteAccess configuration moves to a UI.
+
+    Links to the deleted discounts.md page and the generated PHP API reference were
+    removed; check that the surrounding text still reads correctly.
 ---
 
 # Prices

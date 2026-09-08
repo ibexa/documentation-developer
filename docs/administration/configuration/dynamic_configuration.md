@@ -1,5 +1,15 @@
 ---
 description: Use the ConfigResolver to inject dynamic configuration into your services.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Defines the ConfigResolver scope and namespace semantics that every SiteAccess-aware
+    setting depends on. Confirm that the scope fallback order and the parameter naming
+    stay accurate once SiteAccess configuration moves to a UI.
+
+    Links to the deleted php_api.md page were removed; check that the surrounding text
+    still reads correctly.
 ---
 
 # Dynamic configuration

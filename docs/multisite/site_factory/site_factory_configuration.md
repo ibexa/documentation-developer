@@ -1,5 +1,10 @@
 ---
 description: Configure Site Factory, including site skeletons.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Each site skeleton binds a template to a SiteAccess group. Confirm how skeletons
+    reference SiteAccess groups once SiteAccess configuration moves to a UI.
 ---
 
 # Site Factory configuration

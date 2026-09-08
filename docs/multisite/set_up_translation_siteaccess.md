@@ -1,5 +1,11 @@
 ---
 description: Set up SiteAccesses to hold different language versions of a site.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    A worked example that adds a translation SiteAccess to the SiteAccess list, puts it
+    in a SiteAccess group, and declares it as a translation SiteAccess. Confirm the
+    equivalent steps once SiteAccess configuration moves to a UI.
 ---
 
 # Set up translation SiteAccess

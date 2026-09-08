@@ -1,5 +1,10 @@
 ---
 description: Configure default dashboard.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    The default dashboard can be configured per SiteAccess or per SiteAccess group.
+    Confirm how that scope is chosen once SiteAccess configuration moves to a UI.
 ---
 
 # Configure default dashboard

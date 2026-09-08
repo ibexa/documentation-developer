@@ -1,5 +1,15 @@
 ---
 description: Start off working with Cohesivo by doing initial configuration and testing system capabilities.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The Add SiteAccesses section walks a new user through adding a SiteAccess to the
+    SiteAccess list in YAML and relying on URI matching. Confirm the equivalent first
+    steps once SiteAccess configuration moves to a UI.
+
+    Links to the deleted beginner_tutorial.md, security_checklist.md and templates.md
+    pages were removed; check that the surrounding text still reads correctly.
 ---
 
 # First steps

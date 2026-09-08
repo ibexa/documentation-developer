@@ -1,5 +1,11 @@
 ---
 description: Ensure your product catalog is ready for use with full configuration of products that enables purchasing them in the frontend shop.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Currencies valid for a SiteAccess are set under a SiteAccess-scoped product catalog
+    key. Confirm how that per-SiteAccess list is set once SiteAccess configuration moves
+    to a UI.
 ---
 
 # Enable purchasing products

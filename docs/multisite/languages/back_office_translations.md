@@ -1,5 +1,15 @@
 ---
 description: The language of the back office is selected automatically based on browser language, or you can choose it manually in user settings.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Additional back office translations are added to a SiteAccess-scoped user
+    preferences key. Confirm how that per-SiteAccess list is set once SiteAccess
+    configuration moves to a UI.
+
+    Links to the deleted contribute_translations.md page were removed; check that the
+    surrounding text still reads correctly.
 ---
 
 # Back office translations

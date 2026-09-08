@@ -1,5 +1,12 @@
 ---
 description: Manage files URL.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    The var and storage directory placeholders are SiteAccess-aware settings, and the
+    URL prefix is stored per scope under ibexa.site_access.config. Confirm how these
+    per-SiteAccess file URL settings are exposed once SiteAccess configuration moves to
+    a UI.
 ---
 
 # File URL handling

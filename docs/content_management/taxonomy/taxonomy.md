@@ -1,6 +1,17 @@
 ---
 description: A taxonomy uses tags to categorize and organize content
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The taxonomy subtree deletion limit is SiteAccess-aware and can be set per
+    SiteAccess, per SiteAccess group, or globally. Confirm how that scope is chosen once
+    SiteAccess configuration moves to a UI.
+
+    Links to the deleted search_engines.md, field_type_search.md and
+    configure_elasticsearch.md pages and the generated PHP API reference were removed;
+    check that the surrounding text still reads correctly.
 ---
 
 # Taxonomy

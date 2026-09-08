@@ -1,3 +1,16 @@
+---
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Each Measurement type and unit must be enabled for the back office SiteAccess before
+    it can be selected. Confirm where that per-SiteAccess enabling happens once
+    SiteAccess configuration moves to a UI.
+
+    Links to the deleted php_api.md and field_twig_functions.md pages were removed;
+    check that the surrounding text still reads correctly.
+---
+
 # Measurement field type
 
 The Measurement field type represents measurement information.

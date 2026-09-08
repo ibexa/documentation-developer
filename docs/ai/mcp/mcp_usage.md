@@ -1,6 +1,16 @@
 ---
 description: Create custom capabilities for your MCP servers and test them.
 month_change: true
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    An MCP server is declared for a repository and assigned to SiteAccesses in
+    configuration. Confirm how the server-to-SiteAccess assignment is expressed once
+    SiteAccess configuration moves to a UI.
+
+    Links to the deleted editions.md and graphql.md pages and the generated PHP API
+    reference were removed; check that the surrounding text still reads correctly.
 ---
 
 # Work with MCP servers

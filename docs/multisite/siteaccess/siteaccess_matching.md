@@ -1,6 +1,16 @@
 ---
 description: Use SiteAccess matchers to control which site is served when and to which user.
 page_type: reference
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    A reference of the SiteAccess matchers, all configured in YAML. Confirm which
+    matchers survive and how match rules are expressed once SiteAccess configuration
+    moves to a UI.
+
+    Links to the deleted ez_platform_v2.4.md page were removed; check that the
+    surrounding text still reads correctly.
 ---
 
 # SiteAccess matching
