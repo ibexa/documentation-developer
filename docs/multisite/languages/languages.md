@@ -1,5 +1,12 @@
 ---
 description: You can create multiple language versions (translations) of content and serve different language versions of your site with the help of SiteAccesses.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Translation SiteAccesses, the default SiteAccess, and per-SiteAccess-group overrides
+    of the translation SiteAccess list are all described as YAML. Confirm how the
+    language-to-SiteAccess mapping is expressed once SiteAccess configuration moves to a
+    UI.
 ---
 
 # Languages
@@ -23,13 +30,6 @@ However, even if work on a draft takes time and other translations are updated i
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation.
 Languages can be [added to this list from the **Admin** panel]([[= user_doc =]]/content_management/translate_content/) in the back office.
-After adding a language be sure to dump all assets to the file system:
-
-```bash
-yarn encore <environment>
-# OR php bin/console ibexa:encore:compile
-```
-
 **The new language must then be added to the [SiteAccess](multisite.md) configuration**.
 Once this is done, any user with proper permissions can create content item versions in these languages in the user interface.
 

@@ -1,7 +1,3 @@
----
-edition: experience
----
-
 # Form field type
 
 The Form field type stores a Form consisting of one or more form fields.

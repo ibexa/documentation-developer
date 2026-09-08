@@ -1,6 +1,5 @@
 ---
 description: Recommendation blocks in Page Builder
-edition: experience
 month_change: false
 ---
 

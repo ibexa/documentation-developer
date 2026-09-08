@@ -1,13 +1,16 @@
 ---
 description: Configure default dashboard.
-edition: experience
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    The default dashboard can be configured per SiteAccess or per SiteAccess group.
+    Confirm how that scope is chosen once SiteAccess configuration moves to a UI.
 ---
 
 # Configure default dashboard
 
 You can configure default dashboard under the `ibexa.system.<scope>.admin_group` [configuration key](configuration.md#configuration-files).
 
-Create `ibexa_dashboard.yaml` file in the `config/packages/` directory.
 The following example configuration defines default dashboard:
 
 ``` yaml

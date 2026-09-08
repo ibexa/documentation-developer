@@ -1,6 +1,16 @@
 ---
 description: Manage URL aliases and wildcards, and validate external URLs.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    External URL validation is configured under the SiteAccess-aware url_checker key,
+    while URL aliases are not SiteAccess-aware but depend on the SiteAccess root path.
+    Confirm both statements once SiteAccess configuration moves to a UI.
+
+    Links to the deleted install_cohesivo.md and field_type_storage.md pages were
+    removed; check that the surrounding text still reads correctly.
 ---
 
 # URL management
@@ -106,7 +116,7 @@ For each URL alias definition the history of changes is preserved, so that users
 
 !!! caution "Legacy storage engine limitation"
 
-    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) doesn't archive URL aliases, which initially had the same name in multiple languages.
+    URL aliases that initially had the same name in multiple languages aren't archived.
 
 URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
@@ -146,32 +156,6 @@ You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.
 To add commands to an existing group, provide the group name and list the commands that you want to add.
 
-### Regenerating URL aliases
-
-You can use the `ibexa:urls:regenerate-aliases` command to regenerate all URL aliases.
-After the command is applied, old aliases redirect to the new ones.
-
-Use it when:
-
-- you change URL alias configuration and want to regenerate old aliases
-- you encounter database corruption
-- you have content that doesn't have a URL alias
-
-!!! caution
-
-    Before you apply the command, back up your database and make sure it's not modified while the command is running.
-
-Execute the following command to regenerate aliases:
-
-``` bash
-bin/console ibexa:urls:regenerate-aliases
-```
-
-You can also extend the command with the following parameters:
-
-- `--iteration-count` — Defines how many locations are processed at once to reduce memory usage
-- `--location-id` — Regenerates URL addresses for specific locations only, for example, `ibexa:urls:regenerate-aliases --location-id=1 --location-id=2`
-
 ## URL wildcards
 
 With wildcards, you can change the URL address for many content items at the same time, by replacing a portion of the destination's URL address.
@@ -201,22 +185,3 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 
     To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` policy.
     For more information about permissions, see [Permissions](permissions.md).
-
-### Configuring URL wildcards with the public PHP API
-
-You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
-
-``` php
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
-$source = 'pictures/*/*';
-$destination = 'media/images/{1}/{2}';
-$redirect = true;
-
-$urlWildcardService = $repository->getURLWildcardService();
-$repository->sudo(static function ($repository) use ($urlWildcardService, $source, $destination, $redirect): void {
-    $urlWildcardService->create($source, $destination, $redirect);
-});
-```
-
-If `$redirect` is set to `true`, the redirection changes the URL address.
-If it's `false`, the old URL address is be used, with the new content.

@@ -21,8 +21,7 @@ A content item can have more than one location. It's then present in two or more
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main location.
 
-You can change the main location in the back office in the **Locations** tab,
-or [through the API](managing_content.md#changing-the-main-location).
+You can change the main location in the back office in the **Locations** tab.
 
 ![Locations](content_management_locations.png "Locations")
 
@@ -44,7 +43,7 @@ can be viewed by selecting the **Content structure** tab in the Content mode int
 ![Content structure](content_management_tree.png "Content structure")
 
 This part of the tree is typically used, for example, for organizing folders, articles, or information pages.
-The default ID number of this location is 2, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
+The default ID number of this location is 2.
 It contains a Folder content item.
 
 ### Media
@@ -55,7 +54,7 @@ that is frequently used by content items located below the **Content** node.
 ![Media](content_management_media.png "Media")
 
 It usually contains images, animations, documents and other files.
-The default ID number of the **Media** location is 43, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
+The default ID number of the **Media** location is 43.
 It contains a Folder content item.
 
 ### Users
@@ -73,7 +72,7 @@ which can be viewed by selecting the **Users** tab in the **Admin** Panel.
 The default ID number of the **Users** location is 5.
 It contains user group content items.
 
-### Forms [[% include 'snippets/experience_badge.md' %]]
+### Forms
 
 **Forms** is the top level location that is intended for Forms created using the [Form Builder]([[= user_doc =]]/content_management/work_with_forms/#create-forms).
 

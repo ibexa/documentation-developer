@@ -1,7 +1,11 @@
 ---
-description: Install translations management and configure translation providers, language pairs, and more.
-edition: lts-update
+description: Configure translation providers, language pairs, and more for translations management.
 month_change: true
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Confirm how the SiteAccess-aware translation provider namespace and its
+    API key settings are exposed once SiteAccess configuration moves to a UI.
 ---
 
 # Configure translations management
@@ -9,7 +13,6 @@ month_change: true
 `ibexa/translations-management` extends [[= product_name =]]'s built-in language management tools that editors use for content item and product translation.
 It introduces a plugin that handles automatic translations through the translation provider system by connecting to REST APIs and AI services.
 By using the new [side-by-side editing interface](#side-by-side-translation-view), editors can compare source and target values, provide content item and product translations in a single view, and reject or approve translations.
-There are multiple extension points that you can use to [customize different areas of the translation workflow](extend_translations_management.md).
 
 !!! note "Translation limitations"
 
@@ -20,51 +23,6 @@ There are multiple extension points that you can use to [customize different are
     - The value of `ibexa_form` field type is not translated.
 
     Also, [product attributes](products.md#product-attributes) remain non-translatable and are inactive in the side-by-side translation view.
-
-## Install package
-
-To install the Translations management [LTS Update](editions.md#lts-updates), run the following command:
-
-```bash
-composer require ibexa/translations-management
-```
-
-If you're installing Translations management LTS Update as part of the installation process of a fresh [[= product_name =]] instance, this step copies the migration files into the project's migrations directory.
-It also creates the database tables required for the review workflow, and adds the default action configurations in the database.
-Otherwise follow the steps below.
-
-### Existing installations
-
-To add the Translations management LTS Update to an existing [[= product_name =]] instance, after installation, you must create database tables and action configurations yourself.
-
-#### Modify database schema
-
-Add the tables needed by the bundle:
-
-=== "MySQL"
-
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.mysql.sql', indent_level=1) =]]
-    ```
-
-=== "PostgreSQL"
-
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.postgresql.sql', indent_level=1) =]]
-    ```
-
-The script creates the required data structures, but doesn't add any data to the database.
-
-#### Add action configurations
-
-To complete the setup, import and run the AI Action Configuration migrations required by the [AI connectors](configure_ai_actions.md) that you use:
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_06_15_00_auto_translate_openai_action_configuration.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_11_10_00_auto_translate_gemini_action_configuration.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_12_08_30_auto_translate_anthropic_action_configuration.yaml
-php bin/console ibexa:migrations:migrate
-```
 
 ## Configure translation providers
 
@@ -80,7 +38,7 @@ The Translations management package comes with two types of translation services
 
     Before you can configure translation providers, you must meet the following prerequisites:
 
-    - For the REST API-based translation providers, add API keys that you obtain from the machine translation services to the `.env` file in the root directory of your project.
+    - For the REST API-based translation providers, obtain API keys from the machine translation services and provide them in your instance's translation provider settings.
     - For the AI-based translation providers, [configure AI Actions and the corresponding connectors](configure_ai_actions.md).
 
 Out of the box, Translations management can support the following translation providers:
@@ -95,7 +53,7 @@ Out of the box, Translations management can support the following translation pr
 
 ### Built-in AI providers
 
-If you meet the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
+If you meet the above prerequisites, Translations management automatically provides AI Action Configurations for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
@@ -109,7 +67,6 @@ You can then [customize these configurations in the UI]([[= user_doc =]]/ai_acti
 
 ### Add YAML configuration
 
-In `config/packages`, create a `translations_management.yaml` file.
 You configure the providers in the SiteAccess-aware `translations_management` namespace.
 
 ``` yaml
@@ -131,7 +88,7 @@ ibexa:
                             actionConfigurationIdentifier: 'auto_translate_gemini'
 ```
 
-The `apiKey` values must reference API key values that you added to the `.env` file.
+The `apiKey` values must reference the API key values configured for the tenant.
 The `actionConfigurationIdentifier` values must reference existing Action Configurations.
 If a value is missing or empty, the provider doesn't appear in the UI as a selectable option.
 
@@ -144,16 +101,6 @@ In addition to their required authentication keys, all providers support two opt
 
 REST API-based providers come with their own language code lists and mappings, therefore both settings are optional.
 If configured, they replace the built-in defaults, so use them to restrict available languages or override mappings.
-
-!!! tip "Default values"
-
-    To check the built-in defaults for the existing providers, run:
-
-    ``` bash
-    php bin/console debug:container --parameters | grep ibexa.translations_management.auto_translate.provider
-    ```
-
-    The output lists the default `supported_language_codes` and `language_codes_map` values for each configured provider, which you can use as a reference.
 
 AI-based providers don't provide built-in language code lists or mappings.
 If `supportedLanguageCodes` is not configured, all enabled languages are used, converted to POSIX format.
@@ -208,12 +155,9 @@ The [side-by-side translation view]([[= user_doc =]]/content_management/translat
 Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
 Editors can open them in the standard single-language editor.
 
-You can exclude the support for additional content types if needed.
-To do it, [define custom exclusion rules](extend_translations_management.md#define-custom-exclusion-rules).
-
 !!! note "Meta fields"
 
-    Fields marked with [`meta: true`](content_tab_switcher.md#add-meta-tab) and fields that belong to groups listed in [`admin_ui_forms.content_edit.meta_field_groups_list`](content_tab_switcher.md#configure-field-groups-for-meta-tab) aren't rendered in the side-by-side translation view.
+    Fields marked with `meta: true` and fields that belong to groups listed in `admin_ui_forms.content_edit.meta_field_groups_list` aren't rendered in the side-by-side translation view.
 
 For a description of the side-by-side view and its functions from the editor's perspective, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
 

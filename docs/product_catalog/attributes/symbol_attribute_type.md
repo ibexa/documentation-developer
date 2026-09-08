@@ -29,59 +29,6 @@ The built-in symbol attribute formats in `ibexa/product-catalog-symbol-attribute
 
     Maximum length of the symbol value is 160 characters.
 
-## Create custom symbol attribute format
-
-Under the `ibexa_product_catalog_symbol_attribute.formats` key, you can use configuration to create your own symbol format.
-
-See the example below:
-
-``` yaml
-ibexa_product_catalog_symbol_attribute:
-    formats:
-        manufacturer_part_number:
-            name: 'Manufacturer Part Number'
-            pattern: '/^[A-Z]{3}-\d{5}$/'
-            examples:
-                - 'RPI-14645'
-                - 'MSS-24827'
-                - 'SEE-15444'
-```
-
-This following example specifies the format for a "Manufacturer Part Number", defined with the `manufacturer_part_number` identifier.
-
-The pattern is specified using a regular expression.
-According to the pattern option, the attribute value:
-
-- must be a string
-- begins with three capital letters (A-Z), followed by a hyphen ("-")
-- ends with five digits (0-9), with no other characters before or after
-
-Certain formats, such as the International Standard Book Number (ISBN-10) and the European Article Number (EAN-13), contain checksum digits and are self-validating.
-
-To validate checksum of symbol:
-
-1\. Create a class implementing the [`\Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Value-ChecksumInterface.html) interface.
-
-2\. Register the class as a service using the `ibexa.product_catalog.attribute.symbol.checksum` tag and specify the format identifier using the `format` attribute.
-
-See below the example implementation of checksum validation using Luhn formula:
-
-``` php
-[[= include_code('code_samples/product_catalog/Symbol/Format/Checksum/LuhnChecksum.php') =]]
-```
-
-Example service definition:
-
-``` yaml
-services:
-    App\PIM\Symbol\Format\Checksum\LuhnChecksum:
-        tags:
-            -   name: ibexa.product_catalog.attribute.symbol.checksum
-                format: my_format
-```
-
-The format attribute (`my_format`) is the identifier used under the `ibexa_product_catalog_symbol_attribute.formats` key.
-
 ## Search for products with given symbol attribute
 
 You can use `SymbolAttribute` Search Criterion to find products by symbol attribute:

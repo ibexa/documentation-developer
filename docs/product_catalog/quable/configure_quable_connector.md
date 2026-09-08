@@ -10,7 +10,7 @@ You can customize the behavior of the [[= pim_product_name =]] integration add-o
 
 ## Configuration example
 
-In `config/packages/ibexa_connector_quable.yaml`, specify your configuration by using the `ibexa_connector_quable` key:
+Specify your configuration by using the `ibexa_connector_quable` key:
 
 ``` yaml
 ibexa_connector_quable:
@@ -44,7 +44,7 @@ ibexa_connector_quable:
 | `language_map` | Empty | Maps [[= product_name =]] language codes (for example, `eng-GB`) to [[= pim_product_name =]] locale codes (for example, `en_GB`). For more information, see [Set up [[= pim_product_name =]] languages](/product_catalog/quable/install_quable.md#set-up-languages). |
 | <nobr>`throw_on_invalid_criteria`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for unsupported search criteria: `true` throws an exception, `false` only logs unsupported criteria. |
 | <nobr>`throw_on_invalid_mapping`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for mapping errors during data transformation: `true` throws an exception, `false` only logs mapping errors. |
-| `cache.enabled` | `true` | Global cache switch for the connector. When set to `false`, only [in-memory cache](persistence_cache.md#in-memory-cache-configuration) is used. When set to `true`, [Symfony's `cache.app` cache pool]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) is used. |
+| `cache.enabled` | `true` | Global cache switch for the connector. When set to `false`, only in-memory cache is used. When set to `true`, [Symfony's `cache.app` cache pool]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) is used. |
 | `cache.attribute` | `true` | Enables caching for attribute definition requests. |
 | `cache.`<br>`attribute_group` | `true` | Enables caching for attribute group requests. |
 | `cache.`<br>`product` | `true` | Enables caching for product requests. |
@@ -52,6 +52,6 @@ ibexa_connector_quable:
 
 In production environments, it's recommended to:
 
-- keep the `api_token` and the `webhook_secret` [secure](security_checklist.md#app_secret-and-other-secrets)
-- enable caching for better performance, by using Redis or Valkey as [persistence cache](persistence_cache.md#redisvalkey)
+- keep the `api_token` and the `webhook_secret` secure
+- enable caching for better performance, by using Redis or Valkey as persistence cache
 - disable `throw_on_invalid_criteria` and `throw_on_invalid_mapping` to prevent non-critical errors from causing application crashes

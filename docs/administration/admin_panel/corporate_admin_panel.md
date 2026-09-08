@@ -1,6 +1,5 @@
 ---
 description: You can manage companies profiles in the Admin Panel.
-edition: experience
 ---
 
 # Corporate

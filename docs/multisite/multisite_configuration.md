@@ -1,5 +1,15 @@
 ---
 description: Configure SiteAccesses to serve different content in different layouts.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The whole page describes SiteAccess lists, SiteAccess groups, matching, and
+    per-SiteAccess settings as on-disk YAML. Confirm the equivalent UI, and whether
+    match rules stay author-editable, before this page is rewritten.
+
+    Links to the deleted repository_configuration.md and persistence_cache.md pages were
+    removed; check that the surrounding text still reads correctly.
 ---
 
 # Multisite configuration
@@ -38,11 +48,11 @@ A SiteAccess can be part of several groups. SiteAccess configuration has always 
 
 #### `admin` SiteAccess
 
-The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the back office.
+The predefined `admin` SiteAccess in `admin_group` serves the back office.
 Don't remove this group.
 If you need a multisite setup with multiple back offices, add any additional administration SiteAccesses to `admin_group`.
 
-In cases where the sites are on separate databases, each needs its own [repository](repository_configuration.md) (including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration), and ideally also separate Varnish/Fastly configuration.
+In cases where the sites are on separate databases, each needs its own repository (including their own storage and search connection), var dir, cache pool, and ideally also separate Varnish/Fastly configuration.
 
 !!! caution
 
@@ -131,7 +141,7 @@ ibexa:
                             Identifier\ContentType: [article]
 ```
 
-### SiteAccesses and Page Builder [[% include 'snippets/experience_badge.md' %]]
+### SiteAccesses and Page Builder
 
 To define which SiteAccesses are available in the submenu in Page Builder, use the following configuration:
 

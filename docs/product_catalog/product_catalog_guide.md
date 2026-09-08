@@ -1,6 +1,17 @@
 ---
 description: The product catalog guide provides a full description of the features and capabilities for managing products, their specifications, variants, pricing, and organization.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    States that a VAT rate can be set globally, meaning per SiteAccess. Confirm the
+    per-SiteAccess scope of VAT rates once SiteAccess configuration moves to a UI.
+
+    Links to the deleted create_custom_attribute_type.md, product_api.md,
+    shipping_management.md, discounts_guide.md, create_custom_catalog_filter.md,
+    commerce.md and content_aware_cache.md pages were removed; check that the
+    surrounding text still reads correctly.
 ---
 
 # Product catalog guide
@@ -12,7 +23,7 @@ It lets you create, configure, and manage products, their specifications, assets
 
 ## Availability
 
-Product catalog capabilities are available in all [[= product_name =]] editions.
+Product catalog capabilities are available in [[= product_name =]].
 
 ## How does product catalog work
 
@@ -37,7 +48,7 @@ Product specifications rely on product attributes. Available attributes are defi
 
 Each product has its own, specific attributes. You can describe a product in technical terms, define its physical characteristics such as size, color, or shape, or functional characteristics (for example, for a laptop it could be the operating system, amount of memory, or available ports).
 
-Product attributes can belong to one of existing types (for example, numbers, selection, or checkout), but you can also [add custom attribute types](create_custom_attribute_type.md).
+Product attributes can belong to one of existing types, for example, numbers, selection, or checkout.
 Attributes are used as criteria for filtering and searching for products.
 You can also configure selected product attributes to be used as a basis for variants.
 
@@ -48,7 +59,7 @@ For more information, see [Product attributes](products.md#product-attributes) a
 ### Product variants
 
 One product can have multiple versions, for example, there can be a t-shirt in different colors.
-You can [create variants of products](product_api.md#creating-variants), differing in some characteristics, based on product attributes.
+You can create variants of products, differing in some characteristics, based on product attributes.
 
 ![Product variants](img/product_attributes.png)
 
@@ -149,7 +160,6 @@ To have a better overview for a specific group of products, you can filter the l
 - the date when the product was created
 
 Catalog filters let you narrow down the products from the product catalog that are available in the given catalog.
-Besides, the built-in catalog filters, you can also [create custom ones](create_custom_catalog_filter.md).
 
 ### Remote PIM support
 
@@ -192,7 +202,7 @@ Filtering and pagination function the same as with the product catalog, relying 
 However, criteria and sort clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
 
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
-For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
+For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of the example implementation described in [Add Remote PIM support](add_remote_pim_support.md).
 
 For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md).
 
@@ -227,7 +237,7 @@ You can customize them by extending the default implementation.
 
 ##### Limited HTTP Caching
 
-In the context of remote PIM, it's impossible to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
+In the context of remote PIM, it's impossible to use content-aware HTTP caching with `ibexa_http_cache_tag_relation_ids`.
 
 ## How to get started
 

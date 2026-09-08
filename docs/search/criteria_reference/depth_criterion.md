@@ -4,7 +4,7 @@ description: Depth Search Criterion
 
 # Depth Criterion
 
-The [`Location\Depth` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Depth.html) searches for locations based on their depth in the content tree.
+The `Location\Depth` Search Criterion searches for locations based on their depth in the content tree.
 
 This Criterion is available only for Location Search.
 
@@ -18,15 +18,3 @@ The `value` argument requires:
 - a list of ints for `Operator::IN`
 - exactly two ints for `Operator::BETWEEN`
 - a single int for other Operators
-
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Location\Depth(Criterion\Operator::LT, 3);
-```

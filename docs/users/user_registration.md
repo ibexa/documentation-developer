@@ -1,12 +1,22 @@
 ---
 description: Register new users.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Registration, forgotten password, and user settings templates are all configured per
+    SiteAccess. Confirm which of these per-SiteAccess settings survive once SiteAccess
+    configuration moves to a UI.
+
+    Links to the deleted 8_enable_account_registration.md page were removed; check that
+    the surrounding text still reads correctly.
 ---
 
 # Register new users
 
 You can allow your users to create accounts by using the `/register` route.
 This route leads to a registration form that, when filled in, creates a new user content item in the repository.
-To give your users a possibility to register themselves, follow the instructions on [enabling account registration](8_enable_account_registration.md).
+To give anonymous users the possibility to register themselves, grant the anonymous user the `user` / `register` [policy](/permissions/policies.md).
 
 ## User types
 
@@ -51,46 +61,3 @@ ibexa:
                         - last_name
                         - user_account
 ```
-
-## Other user management templates
-
-You can also modify form templates in the following way:
-
-### Changing user password
-
-``` yaml
-ibexa:
-    system:
-        <siteaccess>:
-            user_change_password:
-                templates:
-                    form: <path_to_template>
-```
-
-### Password recovery forms
-
-``` yaml
-ibexa.site_access.config.<siteaccess>.user_forgot_password.templates.form
-ibexa.site_access.config.<siteaccess>.user_forgot_password_success.templates.form
-ibexa.site_access.config.<siteaccess>.user_forgot_password_login.templates.form
-ibexa.site_access.config.<siteaccess>.user_forgot_password.templates.mail
-```
-
-### Resetting password
-
-``` yaml
-ibexa.site_access.config.<siteaccess>.user_reset_password.templates.form
-ibexa.site_access.config.<siteaccess>.user_reset_password.templates.invalid_link
-ibexa.site_access.config.<siteaccess>.user_reset_password.templates.success
-```
-
-### User settings
-
-``` yaml
-ibexa.site_access.config.<siteaccess>.user_settings.templates.list
-ibexa.site_access.config.<siteaccess>.user_settings.templates.update
-```
-
-### Changing registration form templates
-
-To change the registration form template, follow the instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).

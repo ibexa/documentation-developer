@@ -4,32 +4,15 @@ description: LogicalAnd Search Criterion
 
 # LogicalAnd Criterion
 
-The [`LogicalAnd` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalAnd.html) matches content if all provided Criteria match.
+The `LogicalAnd` Search Criterion matches content if all provided Criteria match.
 
-When querying for [products](product_api.md), use [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-LogicalAnd.html) instead.
+When querying for products, use LogicalAnd instead.
 
 ## Arguments
 
 - `criterion` - a set of Criteria combined by the logical operator
 
 ## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\LogicalAnd(
-    [
-        new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\SectionIdentifier(['sports', 'news']),
-    ]
-);
-```
-
-### REST API
 
 === "XML"
 

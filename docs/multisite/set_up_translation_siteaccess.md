@@ -1,5 +1,11 @@
 ---
 description: Set up SiteAccesses to hold different language versions of a site.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    A worked example that adds a translation SiteAccess to the SiteAccess list, puts it
+    in a SiteAccess group, and declares it as a translation SiteAccess. Confirm the
+    equivalent steps once SiteAccess configuration moves to a UI.
 ---
 
 # Set up translation SiteAccess
@@ -18,11 +24,6 @@ First, add a new language for the whole installation.
 
 1. In the back office, go to **Admin** -> **Languages**.
 1. Click **Create a new language** and provide the language name and code (examples below use French with `fre-FR`).
-1. After creating the new language, refresh the assets by running:
-
-```bash
-yarn encore <prod|dev>
-```
 
 ## Configure SiteAccesses
 
@@ -65,8 +66,6 @@ ibexa:
 With this configuration, the main English site displays content in English and ignores French content.
 The French site displays content in French, but also in English, if it doesn't exist in French.
 
-Clear the cache by running: `php bin/console cache:clear`.
-
 ## Set permissions
 
 By default, the Anonymous user role doesn't have permissions for new SiteAccesses.
@@ -75,7 +74,6 @@ As a next step, allow Anonymous users to read content on the new SiteAccesses:
 1. In the back office, go to **Admin** -> **Roles**.
 1. Click the **Anonymous** role.
 1. Edit the **Limitations** of the module `user`, select both SiteAccesses and click **Update**.
-1. Clear the cache by running: `php bin/console cache:clear`.
 
 You can now start translating content.
 When you reload the site, access a translated content item through both SiteAccesses to see the difference, for example: `<yourdomain>/<article-name>` and `<yourdomain>/fr/<article-name>`.

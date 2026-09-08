@@ -14,36 +14,6 @@ Supported orientation values: landscape, portrait and square.
 
 ## Example
 
-### PHP
-
-#### Single orientation value
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\Orientation;
-
-$query = new Query();
-$query->query = new Orientation('image', 'landscape');
-```
-
-#### Multiple orientation values
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\Orientation;
-
-$query = new Query();
-$orientations = [
-    'landscape',
-    'portrait',
-];
-
-$query->query = new Orientation('image', $orientations);
-```
-
-### REST API
-
 === "XML"
 
     ```xml

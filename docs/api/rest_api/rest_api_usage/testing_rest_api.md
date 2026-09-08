@@ -19,22 +19,6 @@ For examples of using `curl`, refer to:
 - [Location header](rest_responses.md#location-header)
 - [ContentInfo body](rest_responses.md#response-body)
 
-## PHP
-
-You can use [Symfony HttpClient]([[= symfony_doc =]]/http_client.html) to test REST API.
-Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
-
-``` php
-[[= include_code('code_samples/api/rest_api/load_content.php', 3, 9, remove_indent=True) =]]
-```
-
-`$resource` URI should be edited to address the right domain.
-
-On a freshly installed [[= product_name =]], `52` is the Content ID of the home page.
-If necessary, substitute `52` with the content ID of an item from your database.
-
-For a content creation example that uses PHP, see [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments)
-
 ## JS
 
 The REST API can help you implement JavaScript / AJAX interaction.

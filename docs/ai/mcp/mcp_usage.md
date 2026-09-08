@@ -1,12 +1,21 @@
 ---
 description: Create custom capabilities for your MCP servers and test them.
-edition: lts-update
 month_change: true
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    An MCP server is declared for a repository and assigned to SiteAccesses in
+    configuration. Confirm how the server-to-SiteAccess assignment is expressed once
+    SiteAccess configuration moves to a UI.
+
+    Links to the deleted editions.md and graphql.md pages and the generated PHP API
+    reference were removed; check that the surrounding text still reads correctly.
 ---
 
 # Work with MCP servers
 
-The MCP Servers [LTS Update](editions.md#lts-updates) includes several [built-in tools](mcp_config.md#built-in-tools).
+The MCP Servers feature includes several [built-in tools](mcp_config.md#built-in-tools).
 Additionally, you can create your own capabilities (tools, prompts, and resources) to expose custom features to AI agents through your MCP servers.
 
 ## MCP server capabilities
@@ -15,12 +24,12 @@ The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of t
 
 A PHP class that implements MCP server capabilities such as tools, prompts, or resources must:
 
-- implement [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) so that it can be scanned for capabilities
-- use attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to declare capabilities
+- implement `Ibexa\Contracts\Mcp\McpCapabilityInterface` so that it can be scanned for capabilities
+- use attributes from the `Ibexa\Contracts\Mcp\Attribute` namespace to declare capabilities
 
 ### Tools
 
-The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
+The `Ibexa\Contracts\Mcp\Attribute\McpTool` attribute declares a method as an MCP tool.
 It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
@@ -48,7 +57,7 @@ If an argument is an [enum](https://www.php.net/manual/en/language.types.enumera
 
 MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts) to help users interact with AI agents connected to the server.
 
-Methods that return a prompt are marked with the [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html).
+Methods that return a prompt are marked with the `Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute.
 
 It accepts several arguments that describe how the prompt is used:
 
@@ -96,7 +105,7 @@ The server:
     For development, you can set `discovery_cache: ~` to avoid clearing the cache after each change.
     This example uses the filesystem storage to illustrate that you have to clear the cache pool to refresh the available capabilities, exactly as when deploying into production.
 
-In a new `config/packages/mcp.yaml` file, define a new MCP server for the `default` repository and assign it to all SiteAccesses:
+Define a new MCP server for the `default` repository and assign it to all SiteAccesses:
 
 ``` yaml
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
@@ -104,61 +113,7 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 
 Adapt the `allowed_hosts` to your case, for example, if you want to use a domain name instead of the equivalent `127.0.0.1` address.
 
-The server is automatically registered as a service with the ID `ibexa.mcp.server.default.example`:
-
-```bash
-php bin/console debug:container ibexa.mcp.server.default.example
-```
-
-An `ibexa.mcp.example` route is now available:
-
-```bash
-php bin/console debug:router ibexa.mcp.example
-```
-
-### Create capability class
-
-Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
-
-The class contains:
-
-- a method marked with an [`McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) that associates it with the `example` server as the `greet` tool
-- a method marked with an [`McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html) that provides a prompt template to users
-
-``` php
-[[= include_code('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
-```
-
-In this example, the `servers` attribute parameter associates only this tool with the `example` server.
-Alternatively, you can assign all tools from the class to a server by using the `tools` parameter in the server configuration.
-For more information, see [tools configuration](mcp_config.md#tool-configuration).
-
-For the prompt, the `servers` parameter is required.
-Therefore, the example prompt must use it to be associated with the `example` server.
-
-During development and testing, you may need to clear the cache to ensure that new or modified capabilities are properly re-discovered.
-In this example, use the following command:
-
-```bash
-php bin/console cache:pool:clear cache.tagaware.filesystem
-```
-
-!!! tip "Cache clearing"
-
-    During development, clear caches aggressively.
-    The following commands clear all cache types, regardless of where they are stored:
-    ```bash
-    php bin/console cache:clear
-    php bin/console cache:pool:clear --all
-    ```
-
-### Create MCP server list command
-
-To check the MCP server configuration, create a small command that uses the MCP server configuration registry injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring:
-
-``` php
-[[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
-```
+The server is automatically registered as a service with the ID `ibexa.mcp.server.default.example`, and an `ibexa.mcp.example` route becomes available.
 
 ### Perform `curl` test
 
@@ -255,12 +210,11 @@ Get the [list of prompts](https://modelcontextprotocol.io/specification/2025-11-
 ### Perform MCP Inspector test
 
 You can test your server with the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
-You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
+You still need to ask for a JWT token through the REST API, and use it in the MCP Inspector configuration to connect to the server.
 
 You can use a web interface to obtain the JWT token:
 
 - [REST live documentation](rest_api_authentication.md#jwt-token-obtained-through-rest-documentation)
-- [GraphiQL](graphql.md#jwt-authentication)
 
 #### MCP server settings
 

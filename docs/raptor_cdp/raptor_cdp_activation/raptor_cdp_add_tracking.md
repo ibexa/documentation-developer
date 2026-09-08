@@ -1,6 +1,5 @@
 ---
 description: Adding tracking in Raptor CDP.
-edition: experience
 ---
 
 # Track with [[= product_name_cdp =]]
@@ -13,10 +12,8 @@ You can set it up in two ways:
 
 ## Set up tracking with built-in Raptor tracking functions
 
-If your project uses the [Raptor connector](raptor_connector.md), use the built-in [Raptor tracking functions](tracking_functions.md).
+If your project uses the [Raptor connector](raptor_connector.md), use the built-in Raptor tracking.
 This recommended approach supports both client-side and server-side tracking, handles cookie consent, and sets the tracking cookie required for [anonymous user segmentation](raptor_cdp_configuration.md#anonymous-user-segmentation).
-
-For setup instructions, see [Raptor tracking functions](tracking_functions.md).
 
 ## Manually set up tracking with tracking scripts
 

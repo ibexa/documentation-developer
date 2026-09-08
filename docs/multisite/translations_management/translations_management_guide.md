@@ -1,6 +1,5 @@
 ---
 description: Translations management helps managers, developers and localization teams with multilingual content delivery.
-edition: lts-update
 month_change: true
 ---
 
@@ -20,10 +19,6 @@ The Translations management package addresses these pain points through a side-b
 The package integrates with the [AI Actions framework](ai_actions_guide.md) to support machine translation providers such as Google Translate and DeepL, and AI-powered translation services like OpenAI, Anthropic, and Google Gemini.
 
 Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s back office, while editors can trigger machine translation from the content editing interface.
-
-## Availability
-
-Translations management is an opt-in capability available as an [LTS Update](editions.md#lts-updates) for all [[= product_name =]] editions, starting with the v5.0.10 version.
 
 ## How it works
 
@@ -71,15 +66,9 @@ Editors can:
 
     Products are editable in the side-by-side view, but [product attributes aren't translatable](products.md#product-attributes).
 
-### Command-line translation
-
-The Translations management package exposes a [console command](translate_with_cli.md) for translating content items from the command line.
-You can use it for batch processing or automated workflows.
-
 ### Translation review
 
 When a draft translation of a content item or product is created by going through the automatic translation process in the back office, the system creates a review status record and marks the draft as "For review".
-The console command bypasses this and drafts created with command-line translation aren't assigned a review status.
 Editors can [accept or reject the translation]([[= user_doc =]]/content_management/translate_content/#review-automatic-translation) directly in the side-by-side view.
 Accepted drafts are marked as "Translated".
 
@@ -92,15 +81,6 @@ Accepting or rejecting draft translations does not trigger editorial workflow tr
 !!! note "No review for human translations"
 
     Draft translations that were created by a human don't have a review status.
-
-### Extensibility
-
-Developers can [extend the translations management](extend_translations_management.md) package:
-
-- create custom translation providers
-- add support for custom fields
-- add custom content type exclusion rules
-- tap into the translation lifecycle with [events](translations_management_events.md)
 
 ## Benefits
 

@@ -1,34 +1,37 @@
 ---
 description: Configure AI Actions.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Confirm where a tenant enters the OpenAI, Anthropic, Google Gemini, and
+    Ibexa Connect credentials this page describes, and how SiteAccess-scoped
+    API keys are set, once the credential-entry surface is specified.
+
+    Links to the deleted extend_ai_actions.md page were also removed from this page;
+    check that the surrounding text still reads correctly.
 ---
 
 # Configure AI Actions
 
-AI Actions are available in [[= product_name =]] regardless of its edition.
-To use this feature you must first configure the built-in service connectors or build your own ones.
+AI Actions are available in [[= product_name =]].
+To use this feature you must first configure the built-in service connectors.
 
-Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
+Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below.
 
-Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
+Once the connectors are configured, you can start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
 !!! note "Taxonomy suggestions"
 
     The default OpenAI or the optional Google Gemini connectors can used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
     After you configure the OpenAI connector, or set up the optional Google Gemini connector and [modify the default taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini), you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
-    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
 
 ## Configure access to OpenAI
 
 To use the built-in connector with the OpenAI service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
-Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
-
-```bash
-###> ibexa/connector-openai ###
-OPENAI_API_KEY=<your_api_key>
-###< ibexa/connector-openai ###
-```
+Provide the API key in your instance's OpenAI connector settings.
 
 ### Sample OpenAI action configurations
 
@@ -36,21 +39,9 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
-## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
+## Configure Anthropic connector
 
-Run the following command to install the package:
-
-``` bash
-composer require ibexa/connector-anthropic
-```
-
-If not using Symfony Flex, enable the bundle in `config/bundles.php`:
-
-``` php {skip-validation}
-    Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => ['all' => true],
-```
-
-This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+The Anthropic connector adds basic handlers that let you refine text or generate alternative text for images.
 
 To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
@@ -62,18 +53,12 @@ To use the connector with the Anthropic services, you need to create an account,
 
 4. Take a note of the API key, because it is displayed only once.
 
-Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
-
-```bash
-###> ibexa/connector-anthropic ###
-ANTHROPIC_API_KEY=<your_api_key>
-###< ibexa/connector-anthropic ###
-```
+Provide the API key in your instance's Anthropic connector settings.
 
 By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://platform.claude.com/docs/en/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
-To do it, in `config/packages` folder, create a YAML file similar to this example:
+To do it, add configuration similar to this example:
 
 ```yaml
 ibexa_connector_anthropic:
@@ -95,24 +80,9 @@ You can now use the Anthropic connector in your project.
     Anthropic regularly releases new models and deprecates older ones.
     Before you configure the connector, check the [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for the current list of supported model identifiers.
 
-## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+## Configure Google Gemini connector
 
-Run the following command to install the package:
-
-``` bash
-composer require ibexa/connector-gemini
-```
-
-Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
-
-``` php
-return [
-    // ...
-    Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
-];
-```
-
-This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+The Google Gemini connector adds basic handlers that let you refine text or generate alternative text for images.
 
 ### Get API key
 
@@ -149,13 +119,7 @@ To use the connector with the Gemini services, you need to create an account, se
 
 ### Set API key in configuration
 
-Then, in the root folder of your project, modify the `.env` file: add an `GEMINI_API_KEY` variable and populate its value with the API key that you got from the AI service.
-
-```bash
-###> ibexa/connector-gemini ###
-GEMINI_API_KEY=<your_api_key>
-###< ibexa/connector-gemini ###
-```
+Provide the API key in your instance's Google Gemini connector settings.
 
 !!! note "Different API keys for different SiteAccesses"
 
@@ -177,7 +141,7 @@ GEMINI_API_KEY=<your_api_key>
 By default, when reaching out for responses, the Gemini connector uses the Gemini Pro [model](https://ai.google.dev/gemini-api/docs/models) for text refinement and Gemini Flash model for alternative text generation.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
-To do it, in `config/packages` folder, create a YAML file similar to this example:
+To do it, add configuration similar to this example:
 
 ```yaml
 [[= include_file('code_samples/ai_actions/config/packages/ibexa_connector_gemini.yaml') =]]
@@ -194,8 +158,6 @@ When setting up models, make sure that you follow these rules:
     To use Google Gemini for generating taxonomy suggestions, ensure that you [change the embeddings provider and model setting accordingly](taxonomy.md#change-embeddings-provider-to-google-gemini).
 
 You can now use the Gemini connector in your project.
-
-For more information, see [Extend Gemini connector](extend_ai_actions.md#extend-google-gemini-connector).
 
 ## Configure access to [[= product_name_connect =]]
 
@@ -236,54 +198,7 @@ Copy the token code that appears on the tokens list, next to the label.
 
 ### Set up credentials
 
-In the root folder of your project, modify the `.env` file.
-Replace a placeholder value of the `IBEXA_CONNECT_TOKEN` variable with the token that you got from [[= product_name_connect =]] and provide a value of the `IBEXA_CONNECT_TEAM_ID` variable.
-
-```bash
-###> ibexa/connect ###
-IBEXA_CONNECT_HOST=https://connect.ibexa.co
-IBEXA_CONNECT_API_PATH=/api/v2/
-# Token can be created in the user's profile in Ibexa Connect, under the 'API ACCESS' section.
-IBEXA_CONNECT_TOKEN=<your_api_token>
-# Use the URL below to read more on Ibexa Connect teams.
-# https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/
-IBEXA_CONNECT_TEAM_ID=2
-###< ibexa/connect ###
-```
-
-### Initiate integration
-
-Initiate the models provided by the handler by issuing the following command:
-
-```bash
-php bin/console ibexa:connect:init-connect-ai <team_id> <language> <action handler identifiers>
-```
-
-For example:
-
-```bash
-php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect-text-to-text
-```
-
-!!! note "Support for multiple [[= product_name_connect =]] languages"
-
-    The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#post-templates) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
-
-Then, create the `Ibexa AI handler` custom property in [[= product_name_connect =]] to store the list of available action handlers for this integration.
-You can do it by running the following command:
-
-``` bash
-php bin/console ibexa:connect:init-custom-property-structures <organization-id> <action handler identifiers>
-```
-
-For example:
-
-``` bash
-php bin/console ibexa:connect:init-custom-property-structures 4 connect-image-to-text connect-text-to-text
-```
-
-The `Ibexa AI handler` property attaches to a scenario to store information about the action handler associated with it.
-When creating a new [[= product_name_connect =]]-based AI action, the back office of [[= product_name =]] shows only the existing scenarios that work with selected action handler.
+Provide the token that you got from [[= product_name_connect =]] and the team ID in your instance's [[= product_name_connect =]] integration settings.
 
 ### Customize templates
 

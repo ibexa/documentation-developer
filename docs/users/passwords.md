@@ -1,5 +1,16 @@
 ---
 description: Set up user password rules.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The password recovery token validity is set with a SiteAccess-scoped security
+    parameter. Confirm how that per-SiteAccess setting is exposed once SiteAccess
+    configuration moves to a UI.
+
+    Links to the deleted add_forgot_password_option.md, add_login_form.md and
+    repository_configuration.md pages were removed; check that the surrounding text
+    still reads correctly.
 ---
 
 # Passwords
@@ -13,42 +24,8 @@ To change password, the user must have the `user/password` permission.
 When the user requests a reset of a forgotten password, an email is sent to them with a token.
 It allows them to create a new password.
 
-For information about how to create and configure the template, see [Add forgot password option](add_forgot_password_option.md)
-
-The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
-You can [customize it according to your needs](add_login_form.md#customize-login-form).
-
 The validity of the password recovery token can be set by using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it's set to `PT1H` (one hour).
-
-## Revoking passwords
-
-In case of a security situation such as a data leakage, you may need to force users to change their passwords.
-You can do it with the help of the `ibexa:user:expire-password` command, which revokes the passwords for specific users, user groups, or users belonging to the chosen content type.
-
-To select which users to revoke passwords for, use one of the following options with the command:
-
-- `--user-id|-u` - the ID of the user. Accepts multiple user IDs
-- `--user-group-id|-ug` - the ID of the user group. Accepts multiple group IDs
-- `--user-content-type-identifier|-ct` - the identifier of the user content type. Accepts multiple content types
-
-You can use the following additional options with the command:
-
-- `--force|-f` - commits the change, otherwise the command only performs a dry run
-- `--iteration-count|-c` - defines how many users are fetched at once. Lowering this value helps with memory issues
-- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user content types that don't use it yet.
-
-For example, to revoke the passwords of all users of the `user` content type, run:
-
-``` bash
-php bin/console ibexa:user:expire-password --user-content-type-identifier=user --force
-```
-
-To perform a dry run (without saving the results) of revoking passwords of all users from user group 13, run:
-
-``` bash
-php bin/console ibexa:user:expire-password --user-group-id=13
-```
 
 ## Password rules
 
@@ -66,7 +43,6 @@ To access the password settings:
 !!! tip
 
     There can be other content types that function as users, beyond the built-in user content type.
-    For details, see [User Identifiers](repository_configuration.md#user-identifiers).
 
 ## Password attributes
 

@@ -4,7 +4,7 @@ description: IsFieldEmpty Search Criterion
 
 # IsFieldEmpty Criterion
 
-The [`IsFieldEmpty` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html) searches for content based on whether a specified field is empty or not.
+The `IsFieldEmpty` Search Criterion searches for content based on whether a specified field is empty or not.
 
 ## Arguments
 
@@ -14,38 +14,11 @@ or non-empty fields (`false`)
 
 ## Limitations
 
-The `IsFieldEmpty` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
-
 The Richtext field type (`ibexa_richtext`) isn't searchable in the Legacy search engine.
 
 The `IsFieldEmpty` criterion doesn't work for [Taxonomy entry assignment](taxonomyentryassignmentfield.md) fields.
 For this use case, use [`TaxonomyNoEntries`](taxonomy_no_entries.md) instead.
 
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\IsFieldEmpty('title');
-```
-
 ## Use case
 
-You can use the `IsFieldEmpty` Criterion to search for articles that don't have an image:
-
-``` php hl_lines="8"
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new LocationQuery();
-$query->query = new Criterion\LogicalAnd(
-    [
-        new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\IsFieldEmpty('image'),
-    ]
-);
-```
+You can use the `IsFieldEmpty` Criterion to search for articles that don't have an image, by combining it with a content type Criterion and targeting the `image` field.

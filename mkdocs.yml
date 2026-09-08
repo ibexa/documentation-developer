@@ -1,6 +1,6 @@
 INHERIT: plugins.yml
 
-site_name: Developer Documentation
+site_name: Cohesivo Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 edit_uri: blob/saas/docs
 site_url: https://doc.ibexa.co/en/saas/
@@ -19,96 +19,23 @@ not_in_nav: |
     personalization/legacy_recommendation_api.md
     /snippets/*
 nav:
-    - Ibexa Developer Documentation: index.md
-    - Cohesivo editions:
-        - Editions: ibexa_products/editions.md
-        - Cohesivo Headless: ibexa_products/ibexa_headless.md
-        - Cohesivo Experience: ibexa_products/ibexa_experience.md
+    - Cohesivo Developer Documentation: index.md
+    - On-premise Cohesivo: on_premise.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - First steps: getting_started/first_steps.md
-    - Tutorials:
-        - Tutorials: tutorials/tutorials.md
-        - Beginner tutorial:
-            - Beginner tutorial: tutorials/beginner_tutorial/beginner_tutorial.md
-            - 1. Get ready: tutorials/beginner_tutorial/1_get_ready.md
-            - 2. Create the content model: tutorials/beginner_tutorial/2_create_the_content_model.md
-            - 3. Customize the front page: tutorials/beginner_tutorial/3_customize_the_front_page.md
-            - 4. Display a single content item: tutorials/beginner_tutorial/4_display_single_content_item.md
-            - 5. Display a list of content items: tutorials/beginner_tutorial/5_display_a_list_of_content_items.md
-            - 6. Improve configuration: tutorials/beginner_tutorial/6_improve_configuration.md
-            - 7. Embed content: tutorials/beginner_tutorial/7_embed_content.md
-            - 8. Enable account registration: tutorials/beginner_tutorial/8_enable_account_registration.md
-        - Page and Form tutorial:
-            - Page and Form tutorial: tutorials/page_and_form_tutorial/page_and_form_tutorial.md
-            - 1. Get a starter website: tutorials/page_and_form_tutorial/1_get_a_starter_website.md
-            - 2. Prepare the landing page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
-            - 3. Use existing blocks: tutorials/page_and_form_tutorial/3_use_existing_blocks.md
-            - 4. Create a custom block: tutorials/page_and_form_tutorial/4_create_a_custom_block.md
-            - 5. Create a newsletter form: tutorials/page_and_form_tutorial/5_create_newsletter_form.md
-        - Generic field type:
-            - Creating Point 2D field type: tutorials/generic_field_type/creating_a_point2d_field_type.md
-            - 1. Implement Value class: tutorials/generic_field_type/1_implement_the_point2d_value_class.md
-            - 2. Define field type: tutorials/generic_field_type/2_define_point2d_field_type.md
-            - 3. Create a form: tutorials/generic_field_type/3_create_form_for_point2d.md
-            - 4. Introduce a template: tutorials/generic_field_type/4_introduce_a_template.md
-            - 5. Add a new Field: tutorials/generic_field_type/5_add_a_field.md
-            - 6. Implement settings: tutorials/generic_field_type/6_settings.md
-            - 7. Add basic validation: tutorials/generic_field_type/7_add_a_validation.md
-            - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - API:
         - API: api/api.md
-        - PHP API:
-            - PHP API usage: api/php_api/php_api.md
-            - PHP API reference: api/php_api/php_api_reference/index.html
-        - REST API:
-            - REST API usage:
-                - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
-                - REST requests: api/rest_api/rest_api_usage/rest_requests.md
-                - REST responses: api/rest_api/rest_api_usage/rest_responses.md
-                - Testing REST API: api/rest_api/rest_api_usage/testing_rest_api.md
-            - REST API reference: api/rest_api/rest_api_reference/rest_api_reference.html
-            - Extending REST API:
-                - Adding custom media type: api/rest_api/extending_rest_api/adding_custom_media_type.md
-                - Creating new REST resource: api/rest_api/extending_rest_api/creating_new_rest_resource.md
-            - REST API authentication: api/rest_api/rest_api_authentication.md
-        - GraphQL:
-            - GraphQL: api/graphql/graphql.md
-            - GraphQL queries: api/graphql/graphql_queries.md
-            - GraphQL operations: api/graphql/graphql_operations.md
-            - GraphQL customization: api/graphql/graphql_customization.md
-            - GraphQL custom field type: api/graphql/graphql_custom_ft.md
-        - Event reference:
-            - Event reference: api/event_reference/event_reference.md
-            - Content events: api/event_reference/content_events.md
-            - Content type events: api/event_reference/content_type_events.md
-            - Location events: api/event_reference/location_events.md
-            - Language events: api/event_reference/language_events.md
-            - Section events: api/event_reference/section_events.md
-            - Object state events: api/event_reference/object_state_events.md
-            - Taxonomy events: api/event_reference/taxonomy_events.md
-            - Role events: api/event_reference/role_events.md
-            - User events: api/event_reference/user_events.md
-            - Segmentation events: api/event_reference/segmentation_events.md
-            - Page events: api/event_reference/page_events.md
-            - Site events: api/event_reference/site_events.md
-            - URL events: api/event_reference/url_events.md
-            - Trash events: api/event_reference/trash_events.md
-            - Twig Components: api/event_reference/twig_component_events.md
-            - AI Action events: api/event_reference/ai_action_events.md
-            - Integrated help events: api/event_reference/integrated_help_events.md
-            - Translations management events: api/event_reference/translations_management_events.md
-            - Other events: api/event_reference/other_events.md
+        - REST API usage:
+            - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
+            - REST requests: api/rest_api/rest_api_usage/rest_requests.md
+            - REST responses: api/rest_api/rest_api_usage/rest_responses.md
+            - Testing REST API: api/rest_api/rest_api_usage/testing_rest_api.md
+        - REST API reference: api/rest_api/rest_api_reference/rest_api_reference.html
+        - REST API authentication: api/rest_api/rest_api_authentication.md
     - Administration:
         - Administration: administration/administration.md
-        - Project organization:
-            - Project organization: administration/project_organization/project_organization.md
-            - Architecture: administration/project_organization/architecture.md
-            - Bundles: administration/project_organization/bundles.md
-        - Dashboard:
-            - Configure default dashboard: administration/dashboard/configure_default_dashboard.md
-            - Customize dashboard: administration/dashboard/customize_dashboard.md
-            - PHP API Dashboard service: administration/dashboard/php_api_dashboard_service.md
+        - Dashboard: administration/dashboard/configure_default_dashboard.md
         - Admin panel:
             - Admin panel: administration/admin_panel/admin_panel.md
             - Users: administration/admin_panel/users_admin_panel.md
@@ -126,45 +53,16 @@ nav:
         - Configuration:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
-            - Repository configuration: administration/configuration/repository_configuration.md
         - Back office:
             - Back office: administration/back_office/back_office.md
             - Configuration: administration/back_office/back_office_configuration.md
             - Content tree: administration/back_office/content_tree.md
-            - Back office elements:
-                - Reusable components: administration/back_office/back_office_elements/reusable_components.md
-                - Add drop-downs: administration/back_office/back_office_elements/add_dropdowns.md
-                - Custom icons: administration/back_office/back_office_elements/custom_icons.md
-                - Add drag and drop: administration/back_office/back_office_elements/add_drag_and_drop.md
-                - Custom components: administration/back_office/back_office_elements/custom_components.md
-                - Formatting date and time: administration/back_office/back_office_elements/formatting_date_and_time.md
-                - Extending thumbnails: administration/back_office/back_office_elements/extending_thumbnails.md
-                - Importing assets from a bundle: administration/back_office/back_office_elements/importing_assets_from_bundle.md
-            - Back office tabs:
-                - Back office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
-                - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
-            - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Add anchor menu to content type edit screen: administration/back_office/content_type_anchor_menu.md
-            - Back office menus:
-                - Back office menus: administration/back_office/back_office_menus/back_office_menus.md
-                - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
-            - Add user setting: administration/back_office/add_user_setting.md
-            - Customize calendar: administration/back_office/customize_calendar.md
-            - Browser:
-                - Browser: administration/back_office/browser/browser.md
-                - Add browser tab: administration/back_office/browser/add_browser_tab.md
-            - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
-            - Notifications: administration/back_office/notifications.md
             - Integrated help:
                 - Integrated help: administration/back_office/integrated_help.md
-                - Customize integrated help: administration/back_office/customize_integrated_help.md
                 - Product tour: administration/back_office/product_tour.md
                 - Configure product tour: administration/back_office/configure_product_tour.md
-                - Customize product tour: administration/back_office/customize_product_tour.md
-            - Customize search:
-                - Customize search suggestion: administration/back_office/customize_search_suggestion.md
-                - Customize search sorting: administration/back_office/customize_search_sorting.md
             - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
         - Content management: content_management/content_management.md
@@ -173,20 +71,15 @@ nav:
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
         - Content availability: content_management/content_availability.md
-        - Taxonomy:
-            - Taxonomy: content_management/taxonomy/taxonomy.md
-            - Taxonomy API: content_management/taxonomy/taxonomy_api.md
+        - Taxonomy: content_management/taxonomy/taxonomy.md
         - Images:
             - Images: content_management/images/images.md
             - Configure Image Editor: content_management/images/configure_image_editor.md
-            - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
             - Fastly Image Optimizer: content_management/images/fastly_io.md
         - RichText:
             - RichText: content_management/rich_text/rich_text.md
             - Online Editor guide: content_management/rich_text/online_editor_guide.md
-            - Extend Online Editor: content_management/rich_text/extend_online_editor.md
-            - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
         - File management:
             - File management: content_management/file_management/file_management.md
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
@@ -197,53 +90,17 @@ nav:
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
-            - Create custom Page block: content_management/pages/create_custom_page_block.md
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form Builder guide: content_management/forms/form_builder_guide.md
             - Work with Forms: content_management/forms/work_with_forms.md
-            - Form API: content_management/forms/form_api.md
-            - Create custom Form field: content_management/forms/create_custom_form_field.md
-            - Create Form attribute: content_management/forms/create_form_attribute.md
-            - Customize email notifications: content_management/forms/customize_email_notifications.md
-        - Workflow:
-            - Workflow: content_management/workflow/workflow.md
-            - Workflow API: content_management/workflow/workflow_api.md
-            - Add custom workflow action: content_management/workflow/add_custom_workflow_action.md
-        - URL management:
-            - URL management: content_management/url_management/url_management.md
-            - URL API: content_management/url_management/url_api.md   
+        - Workflow: content_management/workflow/workflow.md
+        - URL management: content_management/url_management/url_management.md
         - User-generated content: content_management/user_generated_content.md
-        - Content API:
-            - Browsing content: content_management/content_api/browsing_content.md
-            - Creating content: content_management/content_api/creating_content.md
-            - Managing content: content_management/content_api/managing_content.md
-        - Content management API:
-            - Bookmark API: content_management/content_management_api/bookmark_api.md
-            - Section API: content_management/content_management_api/section_api.md
-            - Object state API: content_management/content_management_api/object_state_api.md
-        - Data migration:
-            - Data migration: content_management/data_migration/data_migration.md
-            - Importing data: content_management/data_migration/importing_data.md
-            - Exporting data: content_management/data_migration/exporting_data.md
-            - Managing migrations: content_management/data_migration/managing_migrations.md
-            - Data migration actions: content_management/data_migration/data_migration_actions.md
-            - Create data migration step: content_management/data_migration/create_data_migration_step.md
-            - Create data migration action: content_management/data_migration/create_data_migration_action.md
-            - Add data migration matcher: content_management/data_migration/add_data_migration_matcher.md
-            - Data migration API: content_management/data_migration/data_migration_api.md
         - Field types:
             - Field types: content_management/field_types/field_types.md
-            - Type and Value: content_management/field_types/type_and_value.md
-            - Form and template: content_management/field_types/form_and_template.md
-            - Storage: content_management/field_types/field_type_storage.md
-            - Validation: content_management/field_types/field_type_validation.md
-            - Searching: content_management/field_types/field_type_search.md
-            - Create custom generic field type: content_management/field_types/create_custom_generic_field_type.md
-            - Create custom field type comparison: content_management/field_types/create_custom_field_type_comparison.md
-            - Customize field type metadata: content_management/field_types/customize_field_type_metadata.md
             - Field type reference:
                 - Field type reference: content_management/field_types/field_type_reference/field_type_reference.md
                 - Address field type: content_management/field_types/field_type_reference/addressfield.md
@@ -281,51 +138,16 @@ nav:
                 - Time field type: content_management/field_types/field_type_reference/timefield.md
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
                 - User field type: content_management/field_types/field_type_reference/userfield.md
-    - Templating:
-        - Templating: templating/templating.md
-        - Render content:
-            - Render content: templating/render_content/render_content.md
-            - Render Page: templating/render_content/render_page.md
-            - Render content in PHP: templating/render_content/render_content_in_php.md
-        - Templates:
-            - Templates: templating/templates/templates.md
-            - Template configuration: templating/templates/template_configuration.md
-            - View matcher reference: templating/templates/view_matcher_reference.md
-            - Create custom view matcher: templating/templates/create_custom_view_matcher.md
-        - Assets: templating/assets.md
-        - Image variations: templating/image_variations.md
-        - Twig Components: templating/components.md
-        - URLs and routes:
-            - URLs and routes: templating/urls_and_routes/urls_and_routes.md
-        - Design engine:
-            - Design engine: templating/design_engine/design_engine.md
-            - Add new design: templating/design_engine/add_new_design.md
-        - Queries and controllers:
-            - Content queries: templating/queries_and_controllers/content_queries.md
-            - Built-in Query types: templating/queries_and_controllers/built-in_query_types.md
-            - Create custom Query type: templating/queries_and_controllers/create_custom_query_type.md
-            - Controllers: templating/queries_and_controllers/controllers.md
-        - Embed and list content:
-            - List content: templating/embed_and_list_content/list_content.md
-            - Embed content: templating/embed_and_list_content/embed_content.md
-            - Render images: templating/embed_and_list_content/render_images.md
-        - Layout:
-            - Add breadcrumbs: templating/layout/add_breadcrumbs.md
-            - Add forgot password option: templating/layout/add_forgot_password_option.md
-            - Add login form: templating/layout/add_login_form.md
-            - Add navigation menu: templating/layout/add_navigation_menu.md
-            - Add search form to front page: templating/layout/add_search_form.md
     - AI:
         - AI: ai/ai.md
         - AI Actions:
             - AI Actions: ai/ai_actions/ai_actions.md
             - AI Actions guide: ai/ai_actions/ai_actions_guide.md
             - Configure AI Actions: ai/ai_actions/configure_ai_actions.md
-            - Extend AI Actions: ai/ai_actions/extend_ai_actions.md
         - MCP Servers:
             - MCP Servers: ai/mcp/mcp.md
             - MCP Servers guide: ai/mcp/mcp_guide.md
-            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Configure MCP Servers: ai/mcp/mcp_config.md
             - Work with MCP servers: ai/mcp/mcp_usage.md
     - Product catalog:
         - Product catalog: product_catalog/product_catalog.md
@@ -333,28 +155,16 @@ nav:
         - Quable integration:
             - Quable integration: product_catalog/quable/quable.md
             - Quable product guide: product_catalog/quable/quable_guide.md
-            - Install Quable: product_catalog/quable/install_quable.md
+            - Set up Quable synchronization: product_catalog/quable/install_quable.md
             - Configure Quable: product_catalog/quable/configure_quable_connector.md
-            - Quable API: product_catalog/quable/quable_api.md
         - Product catalog configuration: product_catalog/product_catalog_configuration.md
         - Products: product_catalog/products.md
         - Attributes:
             - Date and Time attribute: product_catalog/attributes/date_and_time.md
             - Symbol attribute type: product_catalog/attributes/symbol_attribute_type.md
-        - Product API: product_catalog/product_api.md
         - Catalogs: product_catalog/catalogs.md
-        - Catalog API: product_catalog/catalog_api.md
         - Enable purchasing products: product_catalog/enable_purchasing_products.md
         - Prices: product_catalog/prices.md
-        - Price API: product_catalog/price_api.md
-        - Customize product catalog:
-            - Customize product catalog: product_catalog/customize_product_catalog.md
-            - Create custom attribute type: product_catalog/create_custom_attribute_type.md
-            - Create custom availability strategy: product_catalog/create_custom_availability_strategy.md
-            - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
-            - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
-            - Create product code generator: product_catalog/create_product_code_generator.md
-            - Customize product embed templates: product_catalog/customize_product_embed_templates.md
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
@@ -362,10 +172,8 @@ nav:
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
-        - Create registration form: customer_management/create_user_registration_form.md
     - Data collection:
         - Qualifio integration: qualifio/qualifio.md
-        - Install Qualifio: qualifio/install_qualifio.md
         - Create campaign with Qualifio: qualifio/create_campaign.md
         - Integrate Qualifio with Ibexa Connect: qualifio/integrate_ibexa_connect.md
     - Multisite:
@@ -375,7 +183,6 @@ nav:
             - SiteAccess: multisite/siteaccess/siteaccess.md
             - SiteAccess matching: multisite/siteaccess/siteaccess_matching.md
             - SiteAccess-aware configuration: multisite/siteaccess/siteaccess_aware_configuration.md
-            - Injecting SiteAccess: multisite/siteaccess/injecting_siteaccess.md
         - Set up campaign SiteAccess: multisite/set_up_campaign_siteaccess.md
         - Set up translation SiteAccess: multisite/set_up_translation_siteaccess.md
         - Site Factory:
@@ -383,14 +190,11 @@ nav:
             - Site Factory configuration: multisite/site_factory/site_factory_configuration.md
         - Languages:
             - Languages: multisite/languages/languages.md
-            - Language API: multisite/languages/language_api.md
             - Back office translations: multisite/languages/back_office_translations.md
             - Translations management:
                 - Translations management: multisite/translations_management/translations_management.md
                 - Translations management guide: multisite/translations_management/translations_management_guide.md
                 - Configure translations management: multisite/translations_management/configure_translations_management.md
-                - Translate content items with CLI: multisite/translations_management/translate_with_cli.md
-                - Extend translations management: multisite/translations_management/extend_translations_management.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
@@ -398,58 +202,32 @@ nav:
         - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
         - Limitation reference: permissions/limitation_reference.md
-        - Custom policies: permissions/custom_policies.md
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md
         - User setup:
           - Invitations: users/invitations.md
           - Registration: users/user_registration.md
-          - Update basic user data: users/update_basic_user_data.md
         - User authentication:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
-          - User authentication: users/user_authentication.md
-          - OAuth client: users/oauth_client.md
-          - OAuth server: users/oauth_server.md
         - User grouping:
           - Customer groups: users/customer_groups.md
-          - Segment API: users/segment_api.md
     - Recommendations:
         - Raptor integration: recommendations/raptor_integration/raptor_connector.md
         - Raptor integration guide: recommendations/raptor_integration/raptor_connector_guide.md
-        - Install and configure Raptor: recommendations/raptor_integration/connector_installation_configuration.md
-        - Track with Raptor:
-            - Tracking functions: recommendations/raptor_integration/tracking_functions.md
-            - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
-            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
+        - Configure Raptor: recommendations/raptor_integration/connector_installation_configuration.md
         - Recommendation blocks: recommendations/raptor_integration/recommendation_blocks.md
-        - Render recommendations: recommendations/raptor_integration/custom_recommendation_rendering.md
     - Customer Data Platform:
         - Raptor CDP integration: raptor_cdp/raptor_cdp.md
         - Raptor CDP guide: raptor_cdp/raptor_cdp_guide.md
-        - Install Raptor CDP: raptor_cdp/raptor_cdp_installation.md
         - Activate Raptor CDP:
             - Activate Raptor CDP: raptor_cdp/raptor_cdp_activation/raptor_cdp_activation.md
             - Configure Raptor CDP: raptor_cdp/raptor_cdp_activation/raptor_cdp_configuration.md
             - Export Raptor CDP data: raptor_cdp/raptor_cdp_activation/raptor_cdp_data_export.md
             - Track with Raptor CDP: raptor_cdp/raptor_cdp_activation/raptor_cdp_add_tracking.md
-        - Schedule Raptor CDP data export: raptor_cdp/raptor_cdp_data_export_schedule.md
-        - Customize Raptor CDP data: raptor_cdp/raptor_cdp_data_customization.md
     - Search:
         - Search: search/search.md
-        - Search engines: 
-            - Search engines: search/search_engines/search_engines.md
-            - Elasticsearch search engine: 
-                - Overview: search/search_engines/elasticsearch/elasticsearch_overview.md
-                - Configure Elasticsearch: search/search_engines/elasticsearch/configure_elasticsearch.md
-            - Solr search engine:
-                - Overview: search/search_engines/solr_search_engine/solr_overview.md
-                - Configure Solr: search/search_engines/solr_search_engine/configure_solr.md
-            - Legacy search engine: 
-                - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
-                - Configure repository: search/search_engines/legacy_search_engine/configure_repository.md
-        - Search API: search/search_api.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
@@ -662,46 +440,7 @@ nav:
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
         - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
-        - Extend search:
-            - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
-            - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
-            - Create custom Aggregation: search/extensibility/create_custom_aggregation.md
-            - Solr document field mappers: search/extensibility/solr_document_field_mappers.md
-            - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
-            - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
-            - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
-        - Reindex search: search/reindex_search.md
-    - Infrastructure and maintenance:
-        - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
-        - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
-        - Databases: infrastructure_and_maintenance/databases.md
-        - Cache:
-            - Cache: infrastructure_and_maintenance/cache/cache.md
-            - HTTP cache: 
-              - HTTP cache: infrastructure_and_maintenance/cache/http_cache/http_cache.md
-              - HTTP cache configuration: infrastructure_and_maintenance/cache/http_cache/http_cache_configuration.md
-              - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
-              - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
-              - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
-              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md
-            - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
-        - Clustering:
-            - Clustering: infrastructure_and_maintenance/clustering/clustering.md
-            - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
-        - DevOps: infrastructure_and_maintenance/devops.md
-        - Backup: infrastructure_and_maintenance/backup.md
-        - Performance: infrastructure_and_maintenance/performance.md
-        - Background tasks: infrastructure_and_maintenance/background_tasks.md
-        - Environments: infrastructure_and_maintenance/environments.md
-        - Sessions: infrastructure_and_maintenance/sessions.md
-        - Security:
-            - Development security: infrastructure_and_maintenance/security/development_security.md
-            - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
-            - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
-            - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
-        - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
-    - Product guides:
-        - Product guides: product_guides/product_guides.md
+    - Product guides: product_guides/product_guides.md
     - Release notes: release_notes.md
 
 theme:
@@ -718,7 +457,7 @@ theme:
     palette:
         primary: 'blue grey'
         accent: 'deep orange'
-    logo: 'images/ibexa-dxp-logo.png'
+    logo: 'images/cohesivo-logo.png'
 
 extra:
   append_bootstrap:
@@ -726,7 +465,7 @@ extra:
     - '/guidelines/resources/'
     - '/index.md'
   related_docs:
-    - title: 'Developer Documentation'
+    - title: 'Cohesivo Developer Documentation'
       url: '/'
     - title: 'User Documentation'
       url: '/projects/userguide'
@@ -734,18 +473,12 @@ extra:
       url: '/projects/connect'
 
     # Global variables
-  site_display_name: 'Ibexa Documentation'
+  site_display_name: 'Cohesivo Documentation'
   product_name_base: 'Ibexa'
   product_name: 'Cohesivo'
-  product_name_content: 'Ibexa Content'
-  product_name_headless: 'Ibexa Headless'
-  product_name_exp: 'Ibexa Experience'
-  product_name_com: 'Ibexa Commerce'
   product_name_cdp: 'Raptor CDP'
   product_name_cdp_base: 'Raptor'
   product_name_connect: 'Ibexa Connect'
-  product_name_cloud: 'Ibexa Cloud'
-  product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Qualifio'
   pim_product_name: 'Quable'
 

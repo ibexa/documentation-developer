@@ -13,33 +13,6 @@ The `MimeType` Search Criterion searches for image with specified mime type(s).
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Image\MimeType('image', 'image/jpeg');
-```
-
-or
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$mimeTypes = [
-    'image/jpeg',
-    'image/png',
-];
-
-$query->query = new Criterion\Image\MimeType('image', $mimeTypes);
-```
-
-### REST API
-
 === "XML"
 
     ```xml

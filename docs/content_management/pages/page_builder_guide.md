@@ -1,6 +1,5 @@
 ---
 description: Read about the Page Builder - a powerful tool for creating and modifying pages in Cohesivo.
-edition: experience
 month_change: false
 ---
 
@@ -48,7 +47,7 @@ It's also important to choose a layout - it determines the arrangement of drop z
 
 ### Availability
 
-Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
+Page Builder is available in [[= product_name =]].
 
 ### How does Page Builder work
 
@@ -124,8 +123,6 @@ In the `Select layouts` section, you can select layouts that you want to be avai
 
 The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
 
-For more information, see [Configure layout](render_page.md#configure-layout).
-
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks.
@@ -135,7 +132,7 @@ When you add a new block to the drop zone, drop it in the blue highlighted area.
 
 ![Drop zone line](drop_zone_line.png)
 
-Ready-to-use blocks available in [[= product_name =]] have their own, unique functions, but you can also [add your own, custom blocks](create_custom_page_block.md). All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
+Ready-to-use blocks available in [[= product_name =]] have their own, unique functions. All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
 
 You can check all ready-to-use blocks available in Page Builder in User Documentation, [Block reference page]([[= user_doc =]]/content_management/block_reference/).
 

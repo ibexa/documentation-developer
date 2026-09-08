@@ -1,5 +1,18 @@
 ---
 description: In Cohesivo you store and manage configuration in project files, typically in YAML format.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Describes the configuration system, including SiteAccess-aware settings that take a
+    different value per SiteAccess, per SiteAccess group, or globally. Confirm how much
+    of this remains accurate once configuration is delivered through a UI rather than
+    project files.
+
+    Links to the deleted php_api.md, repository_configuration.md,
+    template_configuration.md, devops.md, development_security.md, sessions.md and
+    persistence_cache.md pages were removed; check that the surrounding text still reads
+    correctly.
 ---
 
 # Configuration
@@ -47,7 +60,7 @@ These files contain additional settings and point to the general (not environmen
 
 !!! note
 
-    Configuration is tightly related to the [service container](php_api.md#service-container).
+    Configuration is tightly related to the [service container]([[= symfony_doc =]]/service_container.html).
     To fully understand it, you must be familiar with the service container and [its configuration]([[= symfony_doc =]]/service_container.html#service-container-parameters).
 
 Basic configuration handling in [[= product_name =]] is similar to what is commonly possible with Symfony.
@@ -59,7 +72,7 @@ All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer), it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
 
-You can also [implement SiteAccess-aware semantic configuration](siteaccess_aware_configuration.md).
+Settings can also be [SiteAccess-aware](siteaccess_aware_configuration.md), taking a different value per SiteAccess, SiteAccess group, or globally.
 
 For example:
 
@@ -72,22 +85,10 @@ parameters:
         an_array: [apple, banana, pear]
 ```
 
-``` php
-// Usage inside a controller
-/** @var \Symfony\Component\DependencyInjection\ContainerInterface $container */
-$myParameter = $container->getParameter('myapp.parameter.name');
-```
-
 ## Configuration settings
 
 For specific configuration settings, see:
 
 - [Back office configuration](back_office_configuration.md)
-- [Repository configuration](repository_configuration.md)
-- [Content views](template_configuration.md)
 - [Multisite configuration](multisite_configuration.md)
 - [Image variations](images.md#configuring-image-variations)
-- [Logging and debug](devops.md#logging-and-debug-configuration)
-- [Authentication](development_security.md#symfony-authentication)
-- [Sessions](sessions.md#configuration)
-- [Persistence cache](persistence_cache.md#persistence-cache-configuration)

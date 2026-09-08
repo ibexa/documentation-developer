@@ -1,6 +1,5 @@
 ---
 description: Check all the capabilities and advantages that the Customer Portal offers to the clients by reading the Customer Portal product guide.
-edition: experience
 ---
 
 # Customer Portal product guide
@@ -15,7 +14,7 @@ With this feature, your customers can self-register, edit their organization inf
 
 ## Availability
 
-Customer Portal is available in [[= product_name_exp =]]. It's also compatible with Product catalog and [[= product_name_connect =]].
+Customer Portal is available in [[= product_name =]]. It's also compatible with Product catalog and [[= product_name_connect =]].
 
 ## How does Customer Portal work?
 

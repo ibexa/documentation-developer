@@ -1,6 +1,5 @@
 ---
 description: The Raptor CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
-edition: experience
 ---
 
 # [[= product_name_cdp =]] product guide
@@ -18,7 +17,7 @@ It includes first, second, and third-party data from multiple sources such as tr
 
 ## Availability
 
-[[= product_name_cdp =]] is available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
+[[= product_name_cdp =]] is available in [[= product_name =]].
 
 ## How does [[= product_name_cdp =]] work
 
@@ -29,12 +28,11 @@ Customer data is gathered through a system of trackers embedded in various areas
 
 ![CDP - how does it work](img/cdp.png)
 
-### Installation and configuration
+### Getting started
 
-To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](/raptor_cdp/raptor_cdp_installation.md#register-in-raptor-cdp-dashboard).
+To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to register your [[= product_name_cdp =]] account.
 When you're done with registration process, you're able to access a separate instance with the data needed to configure, activate, and use this feature.
 
-After your account is created, you can [download and install the [[= product_name_cdp =]] package](/raptor_cdp/raptor_cdp_installation.md#install-package) that is opt-in and needs to be downloaded separately.
 Last step is to go through the [configuration process](raptor_cdp_configuration.md).
 
 ### Customer profile
@@ -65,7 +63,7 @@ Remember to add a segment group identifier to the configuration, under the `segm
 ### Data export
 
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting content, users, and products.
-An `ibexa_cdp.data_export` [configuration key](raptor_cdp_data_export_schedule.md#configuration-key) includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
+An `ibexa_cdp.data_export` configuration key includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
 - `interval` - sets the frequency at which the command is invoked, uses cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour"
@@ -84,8 +82,6 @@ For more information, see [CDP data export](raptor_cdp_data_export.md).
 ​You can customize content and product data exported to [[= product_name_cdp =]] and control what field type information you want to export.
 With [[= product_name_cdp =]], you can export field types and field type values.
 They're exported with metadata and attributes, for example, ID, field definition name, type, or value.
-
-For more information, see [data customization](raptor_cdp_data_customization.md) documentation in Developer Documentation.
 
 ### Client-side Tracking
 

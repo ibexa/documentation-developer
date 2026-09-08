@@ -1,6 +1,5 @@
 ---
 description: Step-by-step configuration procedure of Raptor CDP.
-edition: experience
 ---
 
 # Configure [[= product_name_cdp =]]
@@ -96,7 +95,6 @@ Add the `membership.activation_id` and `membership.api_key` credentials to your 
 To control for how long resolved segment memberships are cached per visitor, use the `ibexa_segmentation.anonymous.cache` configuration key:
 
 ```yaml
-# config/packages/ibexa_segmentation.yaml
 ibexa_segmentation:
     anonymous:
         cache:

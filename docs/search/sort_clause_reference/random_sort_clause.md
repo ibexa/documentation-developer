@@ -4,7 +4,7 @@ description: Random Sort Clause
 
 # Random Sort Clause
 
-The [`Random` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Random.html) orders search results randomly.
+The `Random` Sort Clause orders search results randomly.
 
 ## Arguments
 
@@ -13,15 +13,4 @@ The [`Random` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contract
 
 ## Limitations
 
-The `Random` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).
 In Elasticsearch engine, you cannot combine the `Random` Sort Clause with any other Sort Clause.
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Random()];
-```

@@ -1,7 +1,17 @@
 ---
 description: Configure custom product tour scenarios with steps, blocks, and interaction modes.
-edition: lts-update
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Product tour scenarios are configured under the SiteAccess-aware
+    ibexa.system.<siteaccess>.product_tour key. Confirm how a tenant picks the
+    SiteAccess scope for a scenario once SiteAccess configuration moves to a UI.
+
+    Links to the deleted browser.md, customize_dashboard.md and
+    customize_product_tour.md pages were removed; check that the surrounding text still
+    reads correctly.
 ---
 
 # Configure product tour scenarios
@@ -11,9 +21,7 @@ You can configure the product tour scenarios to adapt it to your project needs, 
 Product tour scenarios are configured with YAML configuration files.
 Configuration is SiteAccess-aware, allowing you to create separate onboarding experiences for different back offices in [multisite setups](multisite.md).
 
-For more advanced customization cases that require PHP code, see [Customize product tour](customize_product_tour.md).
-
-Use the default provided configuration, available in `config/packages/ibexa_integrated_help_tours.yaml`, as a starting point that you can adjust to your needs.
+Use the default provided configuration as a starting point that you can adjust to your needs.
 
 ## Configuration structure
 
@@ -79,7 +87,7 @@ There are two [scenario types](product_tour.md#scenario-types):
 Targetable scenarios don't trigger in the user settings area as well.
 
 To control where a targetable tour appears, ensure that the first step targets an element unique to that specific page.
-You can target elements that appear after a user action, for example, modals like [content browser](browser.md), but the first step's target must be present in the DOM when the page is loaded.
+You can target elements that appear after a user action, for example, modals like the content browser, but the first step's target must be present in the DOM when the page is loaded.
 
 Once a scenario ends, the system evaluates the next scenario from the configuration and, if applicable, displays it.
 
@@ -256,28 +264,6 @@ Embed video content by using the [`video` HTML element](https://developer.mozill
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 26, 30) =]]
 ```
 
-### Custom Twig template block
-
-For advanced content, use custom Twig templates that allows you to fully control the styling of the block:
-
-```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 37, 40) =]]
-```
-
-Create the dedicated template, for example in `templates/custom_template.html.twig`.
-
-``` html+twig
-{% trans_default_domain 'app' %}
-
-{{ 'custom_step_description'|trans }}
-```
-
-and provide the required translations in `translations/app.en.yaml`:
-
-``` yaml
-custom_step_description: "This is a description coming from a custom template."
-```
-
 ## Configuration examples
 
 ### Example 1: General welcome tour
@@ -290,10 +276,8 @@ The following example showcases all the built-in block types for a `general` sce
 
 ### Example 2: Targetable feature tour with interactive steps
 
-The following example showcases how the three interaction modes of a `targetable` scenario can be used to build an onboarding tour for the [customizable dashboard](customize_dashboard.md):
+The following example showcases how the three interaction modes of a `targetable` scenario can be used to build an onboarding tour for the dashboard:
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml') =]]
 ```
-
-To learn how to customize your scenarios even further with PHP code, see [Customize product tour](customize_product_tour.md).

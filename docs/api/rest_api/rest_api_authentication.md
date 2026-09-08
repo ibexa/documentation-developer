@@ -268,13 +268,11 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 
 ## JWT authentication
 
-### Configuration
-
-See [JWT authentication](development_security.md#jwt-authentication) for configuration instructions.
+JWT authentication is available for the REST API.
 
 ### Usage example
 
-After you configure JWT authentication for REST, you can get the JWT token through the following request:
+You can get the JWT token through the following request:
 
 ```http
 POST /user/token/jwt HTTP/1.1

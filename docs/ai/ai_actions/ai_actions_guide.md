@@ -12,7 +12,6 @@ Wherever you look, artificial intelligence becomes more and more important by en
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
-The Anthropic and Gemini connectors are also available - as [LTS updates](editions.md#lts-updates).
 
 AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
@@ -31,7 +30,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-[[= product_name_cloud =]] is available in all [[= product_name =]] editions.
+AI Actions are available in [[= product_name =]].
 To begin using AI Actions, you must first [perform the initial configuration](configure_ai_actions.md).
 
 ### Prerequisites
@@ -130,14 +129,6 @@ An intuitive AI Actions interface within the **Admin** panel displays a list of 
 Here, you can search for specific actions and filter them by type or status.
 By accessing the detailed view of individual AI actions, you can quickly review all their parameters.
 
-### Extensibility
-
-Built-in AI action types offer a good starting point, but the real power of AI Actions lies in extensibility.
-Extending AI Actions opens up new possibilities for content management and editing.
-Developers can define new models and AI action types that use the existing AI service or even integrate additional services.
-The latter involves developing a new service connector, writing a handler that communicates with the new service, defining a new AI action type, and creating a form for configuring options, which extends the default action configuration form shown in the **Admin** panel.
-For example, if this is your organization's requirement, a developer could write a handler that uses an AI service available internally, without exposing your data to a third-party service.
-
 ## Use cases
 
 Out of the box, after you configure access to the OpenAI service, AI Actions come with two action types that can help your organization with the following tasks.
@@ -169,7 +160,7 @@ Instead of manually browsing through extensive taxonomy trees, editors can reque
 !!! note "Alternative suggestion provider"
 
     By default, embeddings used by the taxonomy suggestions feature are generated with OpenAI.
-    If you install and configure the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini) and use Google Gemini as an alternative embeddings provider.
+    If you configure the [Google Gemini connector](configure_ai_actions.md#configure-google-gemini-connector), you can modify the [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini) and use Google Gemini as an alternative embeddings provider.
 
 ### Performing advanced image to text analysis
 

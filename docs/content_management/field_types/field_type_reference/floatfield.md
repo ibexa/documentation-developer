@@ -6,9 +6,7 @@ This field type stores numeric values which are provided as floats.
 |---------|---------------|----------------|
 | `Float` | `ibexa_float` | `float`        |
 
-## PHP API field type
-
-### Input expectations
+## Input expectations
 
 The field type expects a number as input. Both decimal and integer numbers are accepted.
 
@@ -17,9 +15,7 @@ The field type expects a number as input. Both decimal and integer numbers are a
 | `float` | `194079.572` |
 | `int`   | `144`        |
 
-### Value object
-
-#### Properties
+### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -27,32 +23,7 @@ The Value class of this field type contains the following properties:
 |----------|---------|---------------------------------------------------------------|
 | `$value` | `float` | This property is used to store the value provided as a float. |
 
-``` php
-// Value object content example
-
-use Ibexa\Core\FieldType\Float\Value as FloatValue;
-
-// Instantiates a Float Value object
-$floatValue = new FloatValue();
-
-$floatValue->value = 284.773;
-```
-
-##### Constructor
-
-The `Float\Value` constructor initializes a new value object with the value provided.
-It expects a numeric value with or without decimals.
-
-``` php
-// Constructor example
-
-use Ibexa\Core\FieldType\Float\Value as FloatValue;
-
-// Instantiates a Float Value object
-$floatValue = new FloatValue(284.773);
-```
-
-### Validation
+## Validation
 
 This field type supports `FloatValueValidator`, defining maximum and minimum float value:
 
@@ -61,22 +32,6 @@ This field type supports `FloatValueValidator`, defining maximum and minimum flo
 | `minFloatValue` | `float` | `null         | This setting defines the minimum value this field type which is allowed as input. |
 | `maxFloatValue` | `float` | `null         | This setting defines the maximum value this field type which is allowed as input. |
 
-``` php
-// Validator configuration example in PHP
-
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
-$contentTypeService = $repository->getContentTypeService();
-$floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('float', 'ibexa_float');
-
-// Accept only numbers between 0.1 and 203.99
-$floatFieldCreateStruct->validatorConfiguration = [
-    'FileSizeValidator' => [
-        'minFloatValue' => 0.1,
-        'maxFloatValue' => 203.99,
-    ],
-];
-```
-
-### Settings
+## Settings
 
 This field type doesn't support settings.

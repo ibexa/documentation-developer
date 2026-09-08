@@ -9,11 +9,7 @@ The maximum allowed file size is determined by the "Max file size" class attribu
 |--------------|--------------------|----------------|---------|
 | `BinaryFile` | `ibexa_binaryfile` | mixed          | mixed |
 
-## PHP API field type
-
-### Value object
-
-#### Properties
+## Properties
 
 Both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract field type, and share common properties.
 
@@ -21,43 +17,13 @@ Both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstr
 
 | Attribute       | Type    | Description                                                                                                                                                                                                                                                                                  | Example                    |
 |-----------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
-| `id`            | string  | Binary file identifier. This ID depends on the [IO Handler](clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default). | application/63cd472dd7.pdf |
+| `id`            | string  | Binary file identifier. This ID depends on the IO Handler that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default). | application/63cd472dd7.pdf |
 | `fileName`      | string  | The human-readable file name, as exposed to the outside. Used when sending the file for download to name the file.                                                                                                                                                                           | 20130116_whitepaper.pdf    |
 | `fileSize`      | int     | File size, in bytes.                                                                                                                                                                                                                                                                         | 1077923                    |
 | `mimeType`      | string  | The file's MIME type.                                                                                                                                                                                                                                                                        | application/pdf            |
 | `uri`           | string  | The binary file's `content/download` URI. If the URI doesn't include a host or protocol, it applies to the request domain.                                                                                                                                                                   | /content/download/210/2707 |
 | `downloadCount` | integer | Number of times the file was downloaded                                                                                                                                                                                                                                                      | 0                          |
 | `inputUri`      | string  | Path to a local file when creating a field value, `null` when reading a field value                                                                                                                                                                                                          | `path/to/document.pdf`     |
-
-#### Constructor's hash format
-
-The hash format mostly matches the value object. It has the following keys:
-
-| Key             | Status     | Type    | Description                                                                              |
-|-----------------|------------|---------|------------------------------------------------------------------------------------------|
-| `inputUri`      | mandatory  | string  | Path to the local file to be uploaded into the field.                                    |
-| `id`            | deprecated | string  | Backward compatibility alias for `inputUri`.                                             |
-| `path`          | deprecated | string  | Backward compatibility alias for `inputUri`.                                             |
-| `fileName`      | optional   | string  | Name of the file when downloaded. If not given, the basename of `inputUri` is used       |
-| `fileSize`      | optional   | integer | Size of the file in bytes. If not given, the size of the `inputUri` target file is used. |
-| `downloadCount` | optional   | integer | Number of times the file was downloaded. If not given, set to `0` (zero).                |
-| `mimeType`      | ignored    |         |                                                                                          |
-| `uri`           | ignored    |         |                                                                                          |
-
-Example:
-
-``` php
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct $fileContentCreateStruct */
-$fileContentCreateStruct->setField('file', new Ibexa\Core\FieldType\BinaryFile\Value([
-    'fileName' => 'example.pdf',
-    'inputUri' => '/tmp/example_for_website.pdf',
-]));
-```
-
-The original local file name `example_for_website.pdf` is forgotten.
-When downloaded, the filename is `example.pdf`.
-
-To use a remote file, you have to download it locally first, then remove it after it's used in `ContentService::createContent`.
 
 ## REST API specifics
 

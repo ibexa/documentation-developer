@@ -26,9 +26,9 @@ This approach simplifies integration while supporting personalization across dif
 
 ## Availability
 
-[[= product_name_cdp_base =]] integration elements, such as tracking, Twig functions, and public API, are available in all supported [[= product_name =]] editions starting from v5.0.7 version.
+[[= product_name_cdp_base =]] integration elements, such as tracking, Twig functions, and public API, are available in [[= product_name =]] starting from v5.0.7 version.
 
-Recommendation blocks provided in Page Builder, are available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
+Recommendation blocks are available in Page Builder.
 
 ## How does [[= product_name_cdp_base =]] tracking work
 
@@ -39,15 +39,13 @@ The tracking works differently depending on the mode you choose.
 In server-side mode, tracking happens on the server, handling all events without loading scripts in the browser.
 In client-side mode, it inserts script tags so tracking runs directly in the browser.
 In hybrid mode, the browser loads a first-party [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that forwards tracking events to a same-origin proxy endpoint instead of the [[= product_name_cdp_base =]] SaaS script, helping prevent ad blockers from blocking tracking.
-For more information, see [Hybrid tracking](hybrid_tracking.md).
-
 You can switch between tracking modes at any time by changing the tracking type to fit your setup and needs.
 
 ## Capabilities
 
 ### Tracking
 
-[[= product_name_cdp_base =]] [tracking functions](tracking_functions.md) allow you to collect data about how users interact with your products and content.
+[[= product_name_cdp_base =]] tracking allows you to collect data about how users interact with your products and content.
 
 You can track product visits to better understand what users are viewing.
 Provided Twig functions simplify the implementation, allowing developers to quickly add tracking to templates without complex setup.
@@ -88,11 +86,6 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
 ![Recommendation blocks](recommendation_blocks.png)
 
 For a complete description of Recommendation blocks see [Recommendation blocks in User Documentation]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/).
-
-### Advanced usage for complex tracking scenarios
-
-For more complex tracking requirements, [PHP API](tracking_php_api.md) provides direct access to the service.
-It lets you track custom user actions, create more detailed tracking logic, and support scenarios not covered by the standard setups.
 
 ## Benefits
 

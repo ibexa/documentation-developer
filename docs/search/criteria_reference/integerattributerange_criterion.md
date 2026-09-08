@@ -14,8 +14,6 @@ The `IntegerAttributeRange` Search Criterion searches for products by the range 
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

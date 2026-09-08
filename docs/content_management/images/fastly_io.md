@@ -1,5 +1,14 @@
 ---
 description: Configure Fastly Image Optimizer.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    The Fastly Image Optimizer variation handler is selected per SiteAccess. Confirm how
+    that per-SiteAccess choice is made once SiteAccess configuration moves to a UI.
+
+    Links to the deleted reverse_proxy.md and fastly.md pages were removed; check that
+    the surrounding text still reads correctly.
 ---
 
 # Fastly Image Optimizer (Fastly IO)
@@ -11,7 +20,7 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 ## Enable shielding
 
-To use Fastly Image Optimizer, you first need a [working setup of [[= product_name =]] and Fastly](../../infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md#using-varnish-or-fastly)
+To use Fastly Image Optimizer, you first need a working setup of [[= product_name =]] and Fastly
 with shielding enabled.
 To enable shielding, follow the steps in [Fastly Developer Documentation](https://www.fastly.com/documentation/guides/concepts/shielding/#enabling-and-disabling-shielding).
 Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/#enabling-shielding).
@@ -45,8 +54,6 @@ fastly vcl snippet create --name="Ibexa Image Optimizer" --version=active --auto
 fastly service-version activate --version=latest
 ```
 
-For more information about Fastly configuration and CLI usage examples, see [Configure and customize Fastly](fastly.md).
-
 ## Define SiteAccess for Fastly IO
 
 Fastly IO configuration is SiteAccess aware.
@@ -62,13 +69,6 @@ ibexa:
             variation_handler_identifier: 'fastly'
 ```
 
-You can also use environmental variables to configure a specific handler for a SiteAccess.
-See the example below to configure it with the `.env` file:
-
-```bash
-IBEXA_VARIATION_HANDLER_IDENTIFIER="fastly"
-```
-
 ## Image configuration
 
 When you define image variation keys for Fastly IO, keep in mind
@@ -81,13 +81,7 @@ so you aren't able to reflect your original filters accurately with Fastly.
 The script below helps you find replacement filters within Fastly configuration for the basic filters.
 For more optimization options on Fastly side, see [Fastly IO reference](https://www.fastly.com/documentation/reference/io/).
 
-To generate your original image configuration run:
-
-```bash
-php bin/console ibexa:fastly:migrate-configuration
-```
-
-Paste the following configuration to define the same variations for Fastly IO:
+The following configuration defines the same variations for Fastly IO:
 
 ```yaml
 ibexa:

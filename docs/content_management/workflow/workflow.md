@@ -112,35 +112,9 @@ You can disable the default workflow, for example, if your project doesn't use w
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 63, 67) =]]
 ```
 
-## Custom actions
-
-Besides the built-in actions of publishing content and notifying the reviewers, you can also [create custom workflow actions](add_custom_workflow_action.md).
-
 ## Workflow event timeline
 
 Workflow event timeline displays workflow transitions.
-
-You can also use it to render custom entries in the timeline, for example system alerts on workflows.
-
-### Custom entry type
-
-To add a custom entry type, create a custom class extending `Ibexa\Workflow\WorkflowTimeline\Value\AbstractEntry`.
-Use an `Ibexa\Contracts\Workflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
-
-### Custom templates
-
-To provide custom templates for new event timeline entries, use the following configuration:
-
-``` yaml
-ibexa:
-    system:
-        default:
-            workflows_config:
-                timeline_entry_templates:
-                    - { template: '@IbexaWorkflow/ibexa_workflow/timeline/entries.html.twig', priority: 10 }
-```
-
-The template has to provide a block named `ez_workflow_timeline_entry_{ENTRY_IDENTIFIER}`.
 
 ## Permissions
 

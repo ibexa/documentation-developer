@@ -12,8 +12,6 @@ The `CatalogStatus` Search Criterion searches for catalogs by the value of their
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

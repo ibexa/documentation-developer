@@ -87,16 +87,6 @@
               {% endfor %}
                   <li class="breadcrumb-item breadcrumb-item-current">{{ page.title }}</li>
           </ul>
-          {% if page.meta.edition or page.meta.editions %}
-            <div class="pills">
-            {% if page.meta.edition == 'lts-update' or 'lts-update' in page.meta.editions  %}
-            <span class="pill pill--lts-update"></span>
-            {% endif %}
-            {% if page.meta.edition == 'experience' or 'experience' in page.meta.editions %}
-              <span class="pill pill--experience"></span>
-            {% endif %}
-            </div>
-          {% endif %}
           {% if config.extra.current_version_is_eol %}
             {% include "partials/eol_warning.html" %}
           {% endif %}

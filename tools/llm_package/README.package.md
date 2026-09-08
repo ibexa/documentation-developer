@@ -1,6 +1,6 @@
-# Ibexa DXP documentation
+# Cohesivo documentation
 
-Official Ibexa DXP documentation as plain Markdown files.
+Official Cohesivo by Ibexa documentation as plain Markdown files.
 
 ## Installation
 

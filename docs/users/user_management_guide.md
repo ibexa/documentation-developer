@@ -58,11 +58,6 @@ To help you understand further the role each element serves, here's a brief summ
 - Policy - is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying limitations.
 Policies allow for fine-grained control of access based on various factors, such as user attributes or system states.
 
-### Custom policies
-
-[Tailor user access control](custom_policies.md) to your unique requirements by using custom policies.
-Define complex rules and access criteria for different users or groups.
-
 ### Limitations
 
 [Implement limitations](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
@@ -76,8 +71,6 @@ Define complex rules and access criteria for different users or groups.
 Available options:
 
 - [Username and password](passwords.md) - ideal for most users, this traditional method offers a secure login process with username and password.
-- [OAuth client](oauth_client.md) - integrating OAuth authentication allows users to log in using their existing social media credentials (like Google, Facebook, and Twitter), or the enterprise's system (like Active Directory or LDAP).
-- [OAuth server](oauth_server.md) - client applications (such as mobile apps) can authenticate a user by using the platform's login screen, then access resources.
 
 ### Invitations
 

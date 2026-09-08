@@ -5,13 +5,3 @@ The `UserCriterion` Activity Log Criterion matches log groups that have an activ
 ## Argument
 
 - `ids` - list of user IDs
-
-## Example
-
-``` php
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
-
-$query = new ActivityLog\Query([
-    new ActivityLog\Criterion\UserCriterion([10, 14]),
-]);
-```

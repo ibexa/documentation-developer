@@ -1,5 +1,15 @@
 ---
 description: Create a special SiteAccess to host a campaign site with different content subtree.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    A worked example that adds a campaign SiteAccess and its URI match rule to the
+    SiteAccess configuration in YAML. Confirm the equivalent steps once SiteAccess
+    configuration moves to a UI.
+
+    Links to the deleted design_engine.md page were removed; check that the surrounding
+    text still reads correctly.
 ---
 
 # Set up campaign SiteAccess
@@ -65,4 +75,4 @@ ibexa:
 
 Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`, despite the fact that it's not a sub-item of the "Campaign" location.
 
-As a next step, you can configure different [designs](design_engine.md) for the two SiteAccesses.
+As a next step, you can configure different designs for the two SiteAccesses.

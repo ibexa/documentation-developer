@@ -1,20 +1,25 @@
 ---
-description: Cohesivo search functionalities allow working with three search engines and using search API to run complex and precise queries about content and products.
+description: Cohesivo search functionalities allow running complex and precise queries about content and products.
 page_type: landing_page
 ---
 
 # Search
 
-[[= product_name =]] exposes a very powerful [Search API](search_api.md), allowing both full-text search and querying the content repository by using several built-in Search Criteria and Sort Clauses.
-These are supported across different search engines, allowing you to plug in another search engine without changing your code.
+[[= product_name =]] exposes a powerful search capability, allowing both full-text search
+and querying the content repository by using several built-in Search Criteria and Sort Clauses.
+
+You build a query by combining [Search Criteria](criteria_reference/search_criteria_reference.md),
+which select the content to return, with [Sort Clauses](sort_clause_reference/sort_clause_reference.md),
+which order the results.
+[Aggregations](aggregation_reference/aggregation_reference.md) group the results into categories,
+and [embeddings](embeddings_reference/embeddings_reference.md) enable semantic similarity search.
+You run queries over the REST API by using the `/views` resource.
 
 [[= cards([
-    "search/search_engines/search_engines",
-    "search/search_engines/elasticsearch/elasticsearch_overview",
-    "search/search_engines/solr_search_engine/solr_overview",
-    "search/search_api",
     "search/search_criteria_and_sort_clauses",
-    "search/extensibility/create_custom_search_criterion",
-    "search/extensibility/create_custom_sort_clause",
-    "search/extensibility/create_custom_aggregation",
-], columns=4) =]]
+    "search/criteria_reference/search_criteria_reference",
+    "search/sort_clause_reference/sort_clause_reference",
+    "search/aggregation_reference/aggregation_reference",
+    "search/embeddings_reference/embeddings_reference",
+    "search/search_in_trash_reference",
+], columns=2) =]]

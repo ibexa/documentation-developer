@@ -88,7 +88,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 ```
 
-Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) in XML or JSON.
+Those example `Accept-Path` headers above indicate that the content could be modified by sending a ContentUpdateStruct in XML or JSON.
 
 ### Location header
 
@@ -147,17 +147,15 @@ The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
 
 #### Configuration
 
-To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
+Allowed origins are controlled by the `CORS_ALLOW_ORIGIN` setting, which takes a regular expression matching the domains that may call the API, for example `^https?://example\.com`.
 
-For example, to allow the [JS test](testing_rest_api.md#js) to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
-
-To add several domains, filter on URIs, or change the default (like not allowing all the methods), refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration) to learn how to edit `config/packages/nelmio_cors.yaml`.
+For the full set of options, such as several domains, filtering on URIs, or restricting the allowed methods, see the [NelmioCorsBundle configuration documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration).
 
 ## Response body
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
+For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a ContentInfo object.
 
 ```bash
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';

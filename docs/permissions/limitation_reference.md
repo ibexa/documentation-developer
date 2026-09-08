@@ -95,7 +95,7 @@ If you also combine it with `Owner of Parent` limitation, you effectively limit 
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
-## Field Group limitation [[% include 'snippets/experience_badge.md' %]]
+## Field Group limitation
 
 A Field Group (`FieldGroup`) limitation specifies whether the user can work with content fields belonging to a specific group.
 A user with this limitation is allowed to edit fields belonging to the indicated group.
@@ -226,7 +226,7 @@ This limitation can be used as a role limitation.
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## Segment group limitation [[% include 'snippets/experience_badge.md' %]]
+## Segment group limitation
 
 The segment group (`SegmentGroup`) limitation specifies whether the user has access segments within a specific segment group.
 

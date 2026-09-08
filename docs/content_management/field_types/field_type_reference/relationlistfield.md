@@ -6,9 +6,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 |----------------|------------------------|----------------|
 | `RelationList` | `ibexa_object_relation_list` | `mixed`        |
 
-## PHP API field type
-
-### Input expectations
+## Input expectations
 
 |Type|Description|Example|
 |------|------|------|
@@ -17,9 +15,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
 |`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type value object|See below.|
 
-### Value Object
-
-#### Properties
+### Properties
 
 `Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
 
@@ -27,45 +23,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 |------|------|------|------|
 |`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
-``` php
-/**
- * Value object content example.
- *
- * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
- */
-$relationList->destinationContentIds = [
-    $contentInfo1->id,
-    $contentInfo2->id,
-    170,
-];
-```
-
-#### Constructor
-
-The `RelationList\Value` constructor initializes a new value object with the value provided.
-It expects a mixed array as value.
-
-``` php
-//Constructor example
-use Ibexa\Core\FieldType\RelationList as RelationList;
-
-/**
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
- */
-// Instantiates a RelationList Value object
-$relationListValue = new RelationList\Value(
-    [
-        $contentInfo1->id,
-        $contentInfo2->id,
-        170,
-    ]
-);
-```
-
-### Validation
+## Validation
 
 This field type validates if:
 
@@ -78,7 +36,7 @@ This field type validates if:
 
     The dropdown selection method isn't implemented yet.
 
-### Settings
+## Settings
 
 The field definition of this field type can be configured with the following options:
 
@@ -95,31 +53,8 @@ Following selection methods are available:
 | `SELECTION_BROWSE` | Selection uses browse mode.|
 | `SELECTION_DROPDOWN` | *Not implemented yet* |
 
-### Validators
+## Validators
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the field. When set to 0, any number can be selected.|
-
-``` php
-// Example of using settings and validators configuration in PHP
-
-use Ibexa\Core\FieldType\RelationList\Type;
-
-$fieldSettings = [
-    'selectionMethod' => Type::SELECTION_BROWSE,
-    'selectionDefaultLocation' => null,
-    'selectionContentTypes' => [],
- ];
-
-$validators = [
-    'RelationListValueValidator' => [
-        'selectionLimit' => 0,
-    ],
-];
-```
-
-### GraphQL integration
-
-This field type is paginating the results when queried using [GraphQL](graphql.md).
-To learn more, see [Pagination in GraphQL](graphql_queries.md#pagination).

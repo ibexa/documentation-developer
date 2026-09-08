@@ -1,21 +1,17 @@
 ---
 description: Configurations and management of binary files.
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    IO handlers are configurable per SiteAccess. Confirm how per-SiteAccess file handler
+    settings are exposed once SiteAccess configuration moves to a UI.
+
+    Links to the deleted clustering.md page were removed; check that the surrounding
+    text still reads correctly.
 ---
 
 # File management
-
-## Access binary files
-
-To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\Field $field
- * @var \Ibexa\Core\IO\IOServiceInterface $ioService
- */
-$file = $ioService->loadBinaryFile($field->value->id);
-$fileContent = $ioService->getFileContents($file);
-```
 
 ## Handling binary files
 
@@ -126,5 +122,3 @@ To learn how to configure other adapters, see the [bundle's online documentation
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
 This is faster than accessing the remote NFS or S3 instance to read metadata.
-
-For more information, see [Clustering](clustering.md).

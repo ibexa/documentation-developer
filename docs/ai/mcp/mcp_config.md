@@ -1,20 +1,21 @@
 ---
 description: Configure an MCP server that exposes built-in and custom tools, prompts, and resources.
-edition: lts-update
 month_change: true
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    Confirm how MCP server-to-SiteAccess assignment and the other SiteAccess-aware
+    settings on this page are exposed once SiteAccess configuration moves to a UI.
+
+    Links to the deleted development_security.md, graphql.md, clustering.md and
+    persistence_cache.md pages were also removed from this page; check that the
+    surrounding text still reads correctly.
 ---
 
-# Install and configure MCP Servers
+# Configure MCP Servers
 
-With [[= product_name =]]'s MCP Servers LTS Update package, you can expose [MCP servers](mcp_guide.md) to external AI agents.
-
-## Installation
-
-Run the following command to install the package:
-
-```bash
-composer require ibexa/mcp
-```
+With [[= product_name =]]'s MCP Servers, you can expose [MCP servers](mcp_guide.md) to external AI agents.
 
 MCP Servers feature comes with [built-in tools](#built-in-tools) but doesn't come with a default configuration.
 You have to create your own MCP servers by providing [their configuration](#mcp-server-configuration) and [enable JWT authentication for them](#jwt-mcp-firewall).
@@ -25,12 +26,12 @@ You have to create your own MCP servers by providing [their configuration](#mcp-
 
 AI agents use JWT authentication against [[= product_name =]]'s  MCP servers.
 
-In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_header` token extractor](development_security.md#jwt-authentication) to allow the use of JWT token bearer in `Authorization` header.
+The `authorization_header` token extractor must be enabled, so that a JWT token bearer can be sent in the `Authorization` header.
 
-In `config/packages/security.yaml`, make the following changes:
+Two firewalls are involved:
 
-- Uncomment the `ibexa_jwt_rest` firewall to enable requesting JWT tokens through REST or GraphQL API.
-- Add the `ibexa_jwt_mcp` firewall to allow the use of JWT authentication against MCP servers.
+- `ibexa_jwt_rest` enables requesting JWT tokens through the REST API.
+- `ibexa_jwt_mcp` allows the use of JWT authentication against MCP servers.
 
 ``` yaml hl_lines="4-9"
 [[= include_code('code_samples/mcp/config/packages/mcp.security.yaml') =]]
@@ -38,9 +39,9 @@ In `config/packages/security.yaml`, make the following changes:
 
 !!! note "Authentication for the APIs"
 
-    You don't need to activate JWT authentication for the REST or GraphQL API.
+    You don't need to activate JWT authentication for the REST API.
     
-    For sample JWT token requests, see [REST JWT authentication](rest_api_authentication.md#jwt-authentication), [GraphQL JWT authentication](graphql.md#jwt-authentication) and [cURL test of MCP server](mcp_usage.md#perform-curl-test).
+    For sample JWT token requests, see [REST JWT authentication](rest_api_authentication.md#jwt-authentication) and [cURL test of MCP server](mcp_usage.md#perform-curl-test).
 
 ### Repository user
 
@@ -65,19 +66,9 @@ You define MCP servers within a repository configuration and then assign those s
 ```
 
 Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
-You can list all defined servers by running the following command:
-
-```bash
-php bin/console debug:container ibexa.mcp.server
-```
 
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
-You can list them by running the following command:
-
-```bash
-php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
-```
 
 ### MCP server options
 
@@ -116,7 +107,7 @@ There are two ways to associate tools with a server:
 
 #### Built-in tools
 
-MCP Servers LTS Update comes with the following **experimental** built-in tools:
+MCP Servers come with the following **experimental** built-in tools:
 
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
     - `get_content_type` - gets a content type by its ID.
@@ -167,15 +158,9 @@ For example, you could set up a dedicated Redis/Valkey:
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
 
-Clear the cache pool after making changes:
-
-```bash
-php bin/console cache:pool:clear cache.redis.mcp
-```
-
 !!! tip
 
-    Use `ibexa.cache_pool` as service identifier to have the default [cache service](persistence_cache.md#cache-service).
+    Use `ibexa.cache_pool` as service identifier to have the default cache service.
 
 It can be set to `null` to disable caching to ease development, which isn't recommended for production environment.
 
@@ -195,7 +180,7 @@ MCP servers store session data in their own way.
 | `directory` | string  | `null`             | Directory path for the `file` session store                    |
 | `ttl`       | integer | `3600`             | Session TTL in seconds                                         |
 
-In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, like with [regular sessions](clustering.md#shared-sessions).
+In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey.
 
 #### PSR-16
 

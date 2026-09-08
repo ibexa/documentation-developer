@@ -9,6 +9,4 @@ RichText is a type of field that you add in any content item in [[= product_name
 
 [[= cards([
     "content_management/rich_text/online_editor_guide",
-    "content_management/rich_text/extend_online_editor",
-    "content_management/rich_text/create_custom_richtext_block",
-], columns=3) =]]
+], columns=1) =]]

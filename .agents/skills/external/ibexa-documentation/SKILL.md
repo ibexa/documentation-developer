@@ -33,7 +33,6 @@ When the documentation and the installed code don't match, the code is right.
 ## Conventions
 
 - Links between pages are relative and work offline. Follow them for related topics.
-- PHP API references link to the class source in this project's `vendor/` directory. If the target file doesn't exist, that package isn't installed.
 
 ## Keep documentation up to date
 

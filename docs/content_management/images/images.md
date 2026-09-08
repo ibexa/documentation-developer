@@ -25,31 +25,10 @@ For an ImageAsset field to be reused, you must publish it.
 Only then is notification triggered, which states that an image has been published under the location and can now be reused.
 After you establish a media library, you can create [Relations](content_relations.md) between the image content item and the main content item that uses it.
 
-## Normalizing image file names
-
-If you use image files with unprintable UTF-8 characters in file names, you may come across a problem with images not displaying.
-Run the following command to normalize image file names:
-
-``` bash
-php bin/console ibexa:images:normalize-paths
-```
-
-Next, clear the cache:
-
-```bash
-php bin/console cache:clear
-```
-
-and run the following:
-
-```bash
-php bin/console liip:imagine:cache:remove
-```
-
 ## Configuring image variations
 
-With [image variations](image_variations.md) (image aliases) you can define and use different versions of the same image.
-You generate variations based on [filters](image_variations.md#available-variation-filters) that modify aspects such as size and proportions, quality or effects.
+With image variations (image aliases) you can define and use different versions of the same image.
+You generate variations based on filters that modify aspects such as size and proportions, quality or effects.
 
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/).
 The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP.
@@ -69,44 +48,6 @@ For more information, see the [bundle's documentation](https://symfony.com/bundl
       Make sure that metadata is properly escaped before use.
     - Images may contain specially crafted flaws that exploit vulnerabilities in common image libraries
       like GD or Imagick, leading to code execution. It's important to keep these libraries up to date with security updates.
-
-### Image URL resolution
-
-You can use LiipImagine's `liip:imagine:cache:resolve` command to resolve the path to image variations that are generated from the original image, with one or more paths as arguments.
-Paths to repository images must be relative to the `var/<site>/storage/images` directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
-
-For more information, see [LiipImagineBundle documentation](https://symfony.com/bundles/LiipImagineBundle/current/basic-usage.html#resolve-with-the-console).
-
-## Resizing images
-
-You can resize all original images of a chosen content type with the following command.
-
-``` bash
-php bin/console ibexa:images:resize-original <Field identifier> <content type identifier>  -f <variation name>
-```
-
-You must provide the command with:
-
-- identifier of the image content type
-- identifier of the field that you want to affect
-- name of the image variation to apply to the images
-
-For example:
-
-``` bash
-php bin/console ibexa:images:resize-original image photo -f small_image
-```
-
-You can also pass two additional parameters:
-
-- `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use.
-  The default value is `25`.
-- `user` is the identifier of a User with proper permission who performs the operation (`read`, `versionread`, `edit` and `publish`).
-  The default value is `admin`.
-
-!!! caution
-
-    The `resize-original` command publishes a new version of each content item it modifies.
 
 ## Generating placeholder images
 
@@ -186,50 +127,6 @@ If there is no configuration assigned to the `binary_handler`, the placeholder g
 [[= include_file('code_samples/back_office/images/config/packages/images_live.yaml') =]]
 ```
 
-## Support for SVG images
-
-You cannot store SVG images in [[= product_name =]] by using the Image or ImageAsset field type.
-However, you can work things around by relying on the File field type and implementing a custom extension that lets you display and download files in your templates.
-
-!!! caution
-
-    SVG images may contain JavaScript, so they may introduce XSS or other security vulnerabilities.
-    Make sure end users aren't allowed to upload SVG images, and be restrictive about which editors are allowed to do so.
-
-First, enable adding SVG files to content by removing them from the blacklist of allowed MIME types.
-
-To do it, overwrite `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` so that `svg` is removed from the blacklist.
-You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
-
-Then, add a download route to the `config/routes.yaml` file:
-
-```yaml
-[[= include_file('code_samples/back_office/images/config/routes.yaml') =]]
-```
-
-It points to a custom controller that handles the downloading of the SVG file.
-The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
-
-```yaml
-[[= include_file('code_samples/back_office/images/config/services.yaml', 0, 8) =]]
-```
-
-``` php
-[[= include_code('code_samples/back_office/images/src/SvgController.php') =]]
-```
-
-To be able to use a proper link in your templates, you also need a dedicated Twig extension:
-
-``` php
-[[= include_code('code_samples/back_office/images/src/SvgExtension.php') =]]
-```
-
-Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
-
-```twig
-[[= include_file('code_samples/back_office/images/templates/themes/standard/svg_helper.html.twig') =]]
-```
-
 ## Image optimization
 
 JPEG images are optimized using the ImageMagic library, which is available out of the box.
@@ -248,17 +145,6 @@ Install these libraries using your package manager, for example:
 
 ``` bash
 sudo apt-get install optipng
-```
-
-### Customizing image optimizers
-
-When the Image Editor saves a modified image, the system dispatches the [`ConfigureImageOptimizersEvent`](other_events.md#image-editor) event before running the optimizer chain.
-You can listen to this event to customize the list of image optimizers at runtime.
-
-The following example shows how to remove the Pngquant optimizer to prevent grayscale conversion of low-saturation PNG images:
-
-``` php
-[[= include_code('code_samples/back_office/images/src/Event/RemovePngquantOptimizer.php') =]]
 ```
 
 ## Embedding images in Rich Text

@@ -1,6 +1,11 @@
 ---
 description: Customization of an approval process for new companies applications.
-edition: experience
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Company application reasons are listed under a SiteAccess-scoped corporate_accounts
+    key. Confirm how that list is set per SiteAccess once SiteAccess configuration moves
+    to a UI.
 ---
 
 # Customer Portal applications
@@ -26,90 +31,25 @@ Below, you can find possible configurations for Customer Portal applications.
 
 ### Reasons for rejecting application
 
-To change or add reasons for not accepting Corporate Portal application go to `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
+The reasons offered when an application isn't accepted are listed under the SiteAccess-scoped `corporate_accounts.reasons` setting, separately for the `reject` and the `on_hold` outcome:
 
 ```yaml
-parameters:
-    ibexa.site_access.config.default.corporate_accounts.reasons:
-        reject: [Malicious intent / Spam]
-        on_hold: [Verification in progress]
+reject: [Malicious intent / Spam]
+on_hold: [Verification in progress]
 ```
 
 ### Timeout
 
 Registration form locks for 5 minutes after unsuccessful registration, if the user, for example, tried to use an email address that already exists in a Customer Portal clients database.
-To change that duration, go to `config/packages/ibexa.yaml`.
-
-```yaml
-framework:
-    rate_limiter:
-        corporate_account_application:
-            policy: 'fixed_window'
-            limit: 1
-            interval: '5 minutes'
-            lock_factory: 'lock.corporate_account_application.factory'
-```
+This duration is controlled by the `corporate_account_application` rate limiter.
 
 ## Customization of an approval process
 
-In this procedure, you add a new status to the approval process of business account application.
-
-### Add new status
-
-First, under the `ibexa.system.<scope>.corporate_accounts.application.states` add a `verify` status to the [configuration](configuration.md#configuration-files):
+You can add a new status to the approval process of business account application.
+To do it, under the `ibexa.system.<scope>.corporate_accounts.application.states` add a `verify` status to the [configuration](configuration.md#configuration-files):
 
 ```yaml
 [[= include_file('code_samples/customer_portal/config/packages/customer_portal.yaml') =]]
 ```
 
-### Create new Form Type
-
-Next, create a new form type in `src/Form/VerifyType.php`.
-It's displayed in the application review stage.
-
-``` php hl_lines="17-18 25"
-[[= include_code('code_samples/customer_portal/src/Form/VerifyType.php') =]]
-```
-
-Line 29 defines where the form should be displayed, line 21 adds **Note** field, and line 22 adds the **Verify** button.
-
-### Create event subscriber to pass the form
-
-Add an event subscriber that passes a new form type to the frontend.
-Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following the example below:
-
-``` php hl_lines="35"
-[[= include_code('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php') =]]
-```
-
-In line 39, you can see the `verify_form` parameter that passes the `verify` form to the application review view.
-
-### Add form template
-
-To be able to see the changes you need to add a new template `templates/themes/admin/corporate_account/application/details.html.twig`.
-
-``` html+twig
-[[= include_file('code_samples/customer_portal/templates/themes/admin/corporate_account/application/details.html.twig') =]]
-```
-
-It overrides the default view and adds a **Verify** button to the review view.
-To check the progress, go to **Members** -> **Applications**.
-Select one application from the list and inspect application review view for a new button.
-
-![Verify button](img/cp_new_status.png)
-
-### Create event subscriber to verify state
-
-Now, you need to pass the information that the button has been selected to the list of applications to change the application status.
-Create another event subscriber that passes the information from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
-
-``` php hl_lines="42 68"
-[[= include_code('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
-```
-
-In line 46, you can see that it handles changes to verify status.
-The subscriber only informs that the status has been changed (line 72).
-
-Now, if you click the **Verify** button during application review, the application gets **Verify** status.
-
-![Verify status](img/cp_verify_status.png)
+To check the progress, go to **Members** -> **Applications** and inspect the application review view.
