@@ -72,6 +72,16 @@ You can add participant to the collaboration session with [`SessionService::addP
 [[= include_code('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 81, 93, remove_indent=True) =]]
 ```
 
+Depending on the participant type, use one of the following classes to add a participant:
+
+- [`InternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipantCreateStruct.html#properties) for internal participants, based on an already existing user in the system
+- [`ExternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipantCreateStruct.html#properties) for external users, based on their email
+
+Two scopes are available:
+
+- [`ContentSessionScope::EDIT`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_EDIT) granting both read and edit access
+- [`ContentSessionScope::VIEW`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_VIEW) granting read-only access
+
 ### Get and update participant
 
 You can update participant added to the collaboration session with [`SessionService::updateParticipant()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateParticipant):
