@@ -121,7 +121,6 @@ Location: /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac
 ```
 
 cURL can follow those redirections. On CLI, there is the `--location` option (or its shorthand `-L`).
-In PHP, you can achieve the same effect with `CURLOPT_FOLLOWLOCATION`.
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
 ```bash
@@ -133,29 +132,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
-### Cross-origin
-
-[Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
-
-For more information about CORS, see [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol) and [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS).
-
-CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
-
-Using CORS isn't limited to REST API resources and can be used for any resource of the platform.
-
-The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
-
-#### Configuration
-
-Allowed origins are controlled by the `CORS_ALLOW_ORIGIN` setting, which takes a regular expression matching the domains that may call the API, for example `^https?://example\.com`.
-
-For the full set of options, such as several domains, filtering on URIs, or restricting the allowed methods, see the [NelmioCorsBundle configuration documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration).
-
 ## Response body
 
-The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
+The response body (both JSON and XML) contain two types of nodes:
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a ContentInfo object.
+- final nodes that fully give an information as a scalar value
+- reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more
 
 ```bash
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';
@@ -183,8 +165,3 @@ curl https://api.example.com/content/objects/52 --header 'Accept: application/vn
   <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/52/objectstates"/>
 </Content>
 ```
-
-The response body XML can contain two types of nodes:
-
-- Final nodes that fully give an information as a scalar value
-- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more
