@@ -66,7 +66,8 @@ You can create product variants automatically based on attributes that have the 
 You can create variants for any combination of values of selected attributes.
 In the back office you can automatically generate all possible variants for a product.
 
-Codes for product variants are generated automatically based on the [selected strategy](product_catalog_configuration.md#code-generation-strategy).
+Codes for product variants are generated automatically based on the base product code.
+For example, for a base product code `ErgoDesk`, the variants codes are `ErgoDesk-1`, `ErgoDesk-2`.
 
 Each product variant has separate availability and stock information.
 Each variant can also have separate price rules.
@@ -84,8 +85,6 @@ A collection is assigned to the variant or variants that have these attribute va
 You can embed products directly into content, including the [landing pages](pages.md), by using the [Online Editor](online_editor_guide.md).
 
 Use it to build marketing campaigns directly around the products, bridging product marketing and product data together.
-
-To customize the design of the embedded products, see [Customize product embed templates](customize_product_embed_templates.md).
 
 ## Product availability and stock
 
@@ -108,12 +107,9 @@ The product catalog distinguishes between two types of availability:
 
 - Availability as a value set per product or variant
 
-    Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability) or [PHP API](product_api.md#product-availability).
+    Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability).
 
 - Computed availability
 
     Computed availability represents whether the product can actually be ordered.
-    By default, a product can only be ordered when it's set as available and has either positive or infinite stock.
-
-You can implement a custom strategy to handle different selling scenarios, such as minimum order quantity, minimum stock quantity, or region-specific availability.
-For more information, see [Create custom availability strategy](create_custom_availability_strategy.md).
+    A product can only be ordered when it's set as available and has either positive or infinite stock.

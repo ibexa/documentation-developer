@@ -1,6 +1,17 @@
 ---
 description: The product catalog guide provides a full description of the features and capabilities for managing products, their specifications, variants, pricing, and organization.
 month_change: false
+saas_review:
+    - siteaccess
+    - links_removed
+saas_review_note: >-
+    States that a VAT rate can be set globally, meaning per SiteAccess. Confirm the
+    per-SiteAccess scope of VAT rates once SiteAccess configuration moves to a UI.
+
+    Links to the deleted create_custom_attribute_type.md, product_api.md,
+    shipping_management.md, discounts_guide.md, create_custom_catalog_filter.md,
+    commerce.md and content_aware_cache.md pages were removed; check that the
+    surrounding text still reads correctly.
 ---
 
 # Product catalog guide
@@ -12,7 +23,7 @@ It lets you create, configure, and manage products, their specifications, assets
 
 ## Availability
 
-Product catalog capabilities are available in all [[= product_name =]] editions.
+Product catalog capabilities are available in [[= product_name =]].
 
 ## How does product catalog work
 
@@ -37,7 +48,7 @@ Product specifications rely on product attributes. Available attributes are defi
 
 Each product has its own, specific attributes. You can describe a product in technical terms, define its physical characteristics such as size, color, or shape, or functional characteristics (for example, for a laptop it could be the operating system, amount of memory, or available ports).
 
-Product attributes can belong to one of existing types (for example, numbers, selection, or checkout), but you can also [add custom attribute types](create_custom_attribute_type.md).
+Product attributes can belong to one of existing types, for example, numbers, selection, or checkout.
 Attributes are used as criteria for filtering and searching for products.
 You can also configure selected product attributes to be used as a basis for variants.
 
@@ -48,7 +59,7 @@ For more information, see [Product attributes](products.md#product-attributes) a
 ### Product variants
 
 One product can have multiple versions, for example, there can be a t-shirt in different colors.
-You can [create variants of products](product_api.md#creating-variants), differing in some characteristics, based on product attributes.
+You can create variants of products, differing in some characteristics, based on product attributes.
 
 ![Product variants](img/product_attributes.png)
 
@@ -140,7 +151,7 @@ You can then modify the copied catalog and save the updated version.
 When you create a new catalog, all products are included in it by default.
 To have a better overview for a specific group of products, you can filter the list by:
 
-- price (Solr or Elasticsearch only)
+- price
 - product attributes
 - product type
 - product code
@@ -149,85 +160,11 @@ To have a better overview for a specific group of products, you can filter the l
 - the date when the product was created
 
 Catalog filters let you narrow down the products from the product catalog that are available in the given catalog.
-Besides, the built-in catalog filters, you can also [create custom ones](create_custom_catalog_filter.md).
 
-### Remote PIM support
+### Quable PIM integration
 
-[[= product_name =]] provides flexible product catalog infrastructure that works with external PIM systems.
-
-In [[= product_name =]], products are created and maintained by using the REST API or the back office, and their data is stored in a local database.
-However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
-To address such needs, [[= product_name =]] provides remote PIM support.
-You can install and configure a readily available [[[= pim_product_name =]] integration](/product_catalog/quable/quable.md) add-on, or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
-
-![Remote PIM](img/remote_pim_support.png)
-
-An example implementation is delivered as an optional package that you can [install and customize](add_remote_pim_support.md) to fulfill your requirements.
-
-#### Capabilities
-
-With remote PIM support, you can take advantage of the following capabilities:
-
-##### Product marketing
-
-Use the product information coming from another system in your marketing campaigns to promote certain products or brands.
-By embedding the products within content items and landing pages, you can leverage [[= product_name =]] marketing capabilities to showcase products.
-
-##### Pricing, stock and availability
-
-A product can only be ordered when it has defined [availability]([[= user_doc =]]/product_catalog/manage_availability_and_stock/), stock and [pricing information]([[= user_doc =]]/product_catalog/manage_prices/).
-
-By default, such information is held in the [[= product_name =]]'s local database.
-In your specific scenario, you can implement the support for availability and pricing information coming from an external source as well, by using a price/availability matching strategy that is an extension point exposed in the Product catalog module.
-
-#### Limitations
-
-The limitation of remote PIM depend on implementation details of specific integration and may arise in areas relying on [content model](content_model.md).
-
-To see the limitations of the [[= pim_product_name =]] integration add-on, see [[[= pim_product_name =]] known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
-
-##### Searching
-
-Filtering and pagination function the same as with the product catalog, relying on product attributes for effective organization of product data.
-However, criteria and sort clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
-
-Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
-For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
-
-For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md).
-
-##### Catalogs
-
-Depending on the implementation, creating [catalogs](#catalogs) might be supported, but the criteria for filtering can be limited.
-
-The default implementation, which serves as a basis for the example remote PIM package, has some limitations: certain functionalities either don't operate or operate within defined constraints.
-Therefore, if your specific requirements aren't met, you may need to extend [[= product_name =]].
-
-##### Editing product types, products and product attributes
-
- Editing product type, product and product attribute information stored in the remote PIM is impossible due to their read-only status.
- This means that, functionally speaking, communication with PIM is uni-directional, and information is pulled from a remote source but cannot be updated.
-
-##### Content-model-based features
-
-The following features rely on [[= product_name =]]'s content model capabilities, which aren't supported by the default implementation of remote PIM support.
-Therefore, if your specific requirements aren't met, you must extend the application by using extension points exposed in the product catalog module.
-
-- Assets
-- Product variants
-- Product categories
-- Taxonomy
-- URL aliases
-
-##### Simplified presentation of product-related blocks and views
-
-Enabling Remote PIM impacts a number of application views and blocks, such as Product view, Product list, Catalog, and Product Collection.
-They're simplified, for example, they don't include thumbnails and other assets, or refer to URL aliases.
-You can customize them by extending the default implementation.
-
-##### Limited HTTP Caching
-
-In the context of remote PIM, it's impossible to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
+You can store product information inside [[= product_name =]], or you can store it inside ([[= pim_product_name]]).
+For more information, see [Quable integration](quable.md).
 
 ## How to get started
 
@@ -265,11 +202,6 @@ Each product can have more than one variant on one or more levels.
 It makes it possible to have multiple-level variants of the products complicated in terms of specifications, such as laptops.
 
 ![Multiple-level variants](img/multilevel_variants.png)
-
-### Extensible availability
-
-By default, you can configure products with specific number in stock, or with infinite availability.
-You can also extend the availability mechanism to cover other use cases, such as pre-orders.
 
 ### Regional pricing including regional VAT rates
 

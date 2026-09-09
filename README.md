@@ -42,11 +42,12 @@ mkdocs serve
 After a short while your documentation should be reachable at http://localhost:8000. If it isn't, check the output
 of the command.
 
-## Testing the code samples
+## Testing the documentation
 
 ### YAML configuration
 
-To test the YAML configuration, run the following commands:
+The YAML snippets in `code_samples/` and in the Markdown pages are validated against the
+Symfony configuration trees of the installed Ibexa bundles. To run the validation, use:
 
 ``` bash
 composer update
@@ -76,54 +77,6 @@ Some issues can be fixed automatically:
 
 ```bash
 yarn markdownlint --fix
-```
-
-### PHPStan
-
-This repository uses PHPStan to test the code samples. To run the tests locally execute the commands below:
-```bash
-composer update
-composer phpstan
-```
-
-Regenerate the baseline by running:
-
-```bash
-composer phpstan-update-baseline
-```
-
-#### Skipping validation of inline PHP snippets
-
-PHP code blocks embedded directly in Markdown files are extracted and tested with PHPStan.
-To exclude a snippet from validation (for example, for an intentionally incomplete fragment), add the `skip-validation` marker to its opening fence:
-
-````markdown
-``` php {skip-validation}
-```
-````
-
-If the code block uses other options, such as `hl_lines`, they must be placed **inside the same curly-brace group** as the marker:
-
-````markdown
-``` php {skip-validation hl_lines="6 14"}
-```
-````
-
-Both `php {skip-validation} hl_lines="6 14"` and `php hl_lines="6 14" {skip-validation}` are rejected by the Markdown parser, and the whole code block is rendered as plain paragraph text.
-
-### Deptrac
-
-This repository uses Deptrac to test the code samples. To run the tests locally execute the commands below:
-
-```bash
-composer update
-composer deptrac
-```
-
-Regenerate the baseline by running:
-
-```bash
-composer deptrac-update-baseline
 ```
 
 ## Checking links
