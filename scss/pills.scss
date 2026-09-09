@@ -11,9 +11,6 @@
     color: variables.$color-primary-main;
 
     $types: (
-        "headless": (variables.$color-headless, "Headless"),
-        "experience": (variables.$color-experience, "Experience"),
-        "lts-update": (variables.$color-lts-update, "LTS Update"),
         "new-feature": (variables.$color-new-feature, "New feature"),
         "first-release": (variables.$color-first-release, "First release")
       );
@@ -44,8 +41,4 @@
       color: variables.$color-new-doc;
       text-transform: lowercase;
     }
-}
-
-div.pills {
-  float: right;
 }

@@ -1,12 +1,12 @@
 ---
-description: Ibexa DXP v5.0 incorporates features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
-title: Ibexa DXP v5.0 LTS
+description: Cohesivo release notes list the new features and improvements delivered to the platform.
+title: Cohesivo release notes
 month_change: true
 ---
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
-[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_notes_filters('Cohesivo release notes', ['New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
 
@@ -16,7 +16,7 @@ month_change: true
 [[= release_note_entry_begin(
     'TODO: Release notes for SaaS',
     date,
-    ['Headless', 'Experience', 'LTS Update', 'New feature']
+    ['New feature']
 ) =]]
 
 <!-- markdownlint-disable-next-line heading-increment -->

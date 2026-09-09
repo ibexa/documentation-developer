@@ -30,8 +30,6 @@ Here's how it works:
 
 - Roles and permissions - define roles and assign permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
 
-- Authentication methods - enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
-
 - User segmentation - segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
 
 - Invitations - invite users to join a platform streamlining an onboarding process, sending invitations for exclusive content or events.
@@ -58,26 +56,10 @@ To help you understand further the role each element serves, here's a brief summ
 - Policy - is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying limitations.
 Policies allow for fine-grained control of access based on various factors, such as user attributes or system states.
 
-### Custom policies
-
-[Tailor user access control](custom_policies.md) to your unique requirements by using custom policies.
-Define complex rules and access criteria for different users or groups.
-
 ### Limitations
 
-[Implement limitations](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
+[Define](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
 
-### Authentication methods
-
-[[= product_name_base =]] offers flexibility in authentication methods to cater to different user bases and security requirements.
-
-![Log in via Google](log_in_via_google.png)
-
-Available options:
-
-- [Username and password](passwords.md) - ideal for most users, this traditional method offers a secure login process with username and password.
-- [OAuth client](oauth_client.md) - integrating OAuth authentication allows users to log in using their existing social media credentials (like Google, Facebook, and Twitter), or the enterprise's system (like Active Directory or LDAP).
-- [OAuth server](oauth_server.md) - client applications (such as mobile apps) can authenticate a user by using the platform's login screen, then access resources.
 
 ### Invitations
 
@@ -117,7 +99,7 @@ With role-based access control and personalized content, users have a more engag
 
 ### Enhanced security
 
-The flexible authentication methods and permission management help safeguard sensitive data and maintain security.
+The permission management helps safeguard sensitive data and maintain security.
 
 With the ability to define and manage user roles and permissions, clients can ensure that sensitive data and actions are protected.
 User management helps prevent unauthorized access.
