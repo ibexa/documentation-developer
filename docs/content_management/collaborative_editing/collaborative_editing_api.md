@@ -80,7 +80,7 @@ Depending on the participant type, use one of the following classes to add a par
 Two scopes are available:
 
 - [`ContentSessionScope::EDIT`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_EDIT) granting both read and edit access
-- [`ContentSessionScope::VIEW`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_VIEW) granting readonly access
+- [`ContentSessionScope::VIEW`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html#constant_VIEW) granting read-only access
 
 ### Get and update participant
 
