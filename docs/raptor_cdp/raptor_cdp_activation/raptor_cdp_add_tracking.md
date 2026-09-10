@@ -1,28 +1,15 @@
 ---
 description: Adding tracking in Raptor CDP.
-edition: experience
 ---
 
 # Track with [[= product_name_cdp =]]
 
 The final step is setting up a tracking script that identifies visitors and records their interactions.
-You can set it up in two ways:
 
-- with Raptor's built in tracking functions
-- manually, with tracking scripts
+## Set up tracking with tracking scripts
 
-## Set up tracking with built-in Raptor tracking functions
 
-If your project uses the [Raptor connector](raptor_connector.md), use the built-in [Raptor tracking functions](tracking_functions.md).
-This recommended approach supports both client-side and server-side tracking, handles cookie consent, and sets the tracking cookie required for [anonymous user segmentation](raptor_cdp_configuration.md#anonymous-user-segmentation).
-
-For setup instructions, see [Raptor tracking functions](tracking_functions.md).
-
-## Manually set up tracking with tracking scripts
-
-If you aren't using the Raptor connector, you can set up tracking manually.
-
-It requires a head tracking script between the `<head></head>` tags on your website, a main script after the head script, and cookie consent.
+The tracking script requires a head tracking script between the `<head></head>` tags on your website, a main script after the head script, and cookie consent.
 
 For more information about setting up a tracking script manually, see [Raptor documentation](https://content.raptorservices.com/help-center/client-side-tracking).
 
