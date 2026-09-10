@@ -18,12 +18,6 @@ Certain limitations also serve as role limitations, which means they can be used
 Currently, this covers [subtree of location](limitation_reference.md#subtree-limitation) and [Section](limitation_reference.md#section-limitation).
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
-`LimitationTypes` have two modes of operation in regard to permission logic (see [`Ibexa\Contracts\Core\Limitation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Limitation-Type.html) interface for more info):
-
-| Method | Use |
-|--------|-----|
-| `evaluate` | Evaluates if the User has access to a given object in a certain context (for instance the context can be locations when the object is `Content`), under the condition of the `Limitation` value(s). |
-| `getCriterion` | Generates a `Criterion` based on `Limitation` value and current user which `SearchService` by default applies to Search Criteria for filtering search based on permissions. |
 
 ## Limitation reference
 
