@@ -122,7 +122,7 @@ Like everything in the back office, the calendar is extendable: you can add an e
 - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
 - Product variants can rapidly be created by the automatic declination of attributes that have a defined set of values.
 - With taxonomy, you can tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
-Tags themselves are organized in a tree, and synonyms are linked to favorite terms.
+Tags themselves are organized in a tree.
 Tag organization can be handled by a supervisor who doesn't need to move content items around a corporate content tree.
 At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
