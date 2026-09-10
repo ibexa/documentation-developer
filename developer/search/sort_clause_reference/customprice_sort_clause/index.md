@@ -1,0 +1,36 @@
+# CustomPrice Sort Clause
+
+CustomPrice Sort Clause
+
+The `CustomPrice` Sort Clause sorts search results by the product's custom price for a selected customer group.
+
+## Arguments
+
+- `currency` - a `CurrencyInterface` object representing the currency to check price for
+- (optional) `sortDirection` - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`
+- (optional) `customerGroup` - a `CustomerGroupInterface` object representing the customer group to check prices for. If you don't provide a customer group, the query uses the group related to the current user.
+
+## Limitations
+
+The `CustomPrice` Sort Clause isn't available in the Legacy Search engine.
+
+## Example
+
+```php
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
+use Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface;
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+
+/**
+ * @var CurrencyInterface $currency
+ * @var CustomerGroupInterface $customerGroup
+ */
+$sortClauses = [
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CustomPrice(
+        $currency,
+        ProductQuery::SORT_ASC,
+        $customerGroup
+    ),
+];
+$productQuery = new ProductQuery(null, null, $sortClauses);
+```
