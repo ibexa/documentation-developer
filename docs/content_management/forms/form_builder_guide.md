@@ -1,6 +1,5 @@
 ---
 description: See the Form Builder product guide and learn how to create various forms to increase the functionality of your website.
-edition: experience
 month_change: false
 ---
 
@@ -14,9 +13,6 @@ By adding forms on the website, you can increase its functionality and improve u
 Use Form Builder to create various forms, such as survey, questionnaire, sign-up form, using basic form fields available in the Form Builder.
 You can also manage your forms and review the results gathered from the website users.
 
-## Availability
-
-Form Builder is available in [[= product_name_exp =]] and [[= product_name_com =]].
 
 ## How does Form Builder work
 
@@ -40,9 +36,7 @@ E. Discard button
 
 ### Form fields
 
-To create forms, you can use available form fields or create custom ones.
-
-The available basic form fields are:
+To create forms, use the available form fields:
 
 | Field name | Icon | Description|
 |----|----|----|
@@ -83,34 +77,6 @@ Using the buttons in the right corner, you can also edit, move, copy, hide, or s
 
 ![Forms management](img/forms_management.png)
 
-### Form API
-
-To manage form submissions created in the Form Builder, use `FormSubmissionServiceInterface`.
-You can get existing form submission and create or delete one.
-Detailed instruction of getting, creating and deleting form submissions, you can find in [[= product_name_base =]] Developer Documentation in [Form API page](form_api.md).
-
-### Extend Form Builder
-
-You can extend the Form Builder by adding new Form fields or modifying existing ones.
-To create new form fields, you need to [define them in configuration](create_custom_form_field.md).
-Fields or fields attributes [can be modified](create_custom_form_field.md#modify-existing-form-fields) by subscribing `ibexa.form_builder.field.<FIELD_ID>` or `ibexa.form_builder.field.<FIELD_ID>.<ATTRIBUTE_ID>` events.
-
-### Create new Form attribute
-
-Each Form has available attributes, for example, string, text, or location.
-You can also [create a Form attribute](create_form_attribute.md) for new Form fields or existing ones.
-
-To do it, you have to:
-
-1. define a new Form attribute in the configuration,
-1. create a mapper,
-1. add Symfony form type,
-1. customize Form templates,
-1. add scripts,
-1. implement field,
-1. implement field mapper,
-1. create submission converter.
-
 ### View results
 
 You can preview the results of each published form.
@@ -121,12 +87,6 @@ To do it, go to **Submissions** tab in the content item view:
 Here you can view the details of each submission or delete any of them.
 
 The **Download submissions** button enables you to download all the submissions in a .CSV (comma-separated value) file.
-
-!!! tip "Restricting access to form submissions"
-
-    By default, back office users with access to the form content item can access the form submissions.
-    
-    If your form submissions require stricter access control than the form itself, you can introduce a [dedicated policy that manages access to submission data](custom_policies.md#restrict-access-to-form-submissions).
 
 ## Benefits
 
@@ -140,11 +100,6 @@ Form Builder interface is plain, which makes the creation of forms fast and intu
 
 Forms can be managed simply and effectively: you can copy them, move, organize into folders, create versions, and delete if necessary.
 Each field can be configured so that the form collects the exact details that you need.
-
-### Custom Form fields
-
-With Form Builder you can use existing Form fields, but also you can extend it by adding new or modifying existing ones.
-This allows you to create forms that fit your needs.
 
 ### Analytic tool
 
