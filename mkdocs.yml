@@ -485,6 +485,7 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_engage: 'Qualifio'
   pim_product_name: 'Quable'
+  ai_product_name: 'Ibexa Agentic Marketing Platform'
 
   eol_versions: ['2.5', '3.3']
 

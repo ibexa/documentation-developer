@@ -11,7 +11,6 @@ Wherever you look, artificial intelligence becomes more and more important by en
 [[= product_name =]] is equipped with the AI Actions feature, which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
-
 AI Actions solution comes with the following action types:
 
 - [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
