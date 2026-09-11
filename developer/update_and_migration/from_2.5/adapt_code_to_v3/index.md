@@ -1,0 +1,87 @@
+# Update code to v3
+
+Before you start this procedure, make sure you have completed the previous step, [Updating to v3.2](../to_3.2/index.md).
+
+## 4. Update the code
+
+To adapt you installation to v3, you need to make a number of modifications to your code.
+
+### New project structure
+
+> **Tip: Tip**
+>
+> If you run into issues, for details on all changes related to the switch to Symfony 5, see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/4.4/UPGRADE-4.0.md) and [for 5.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
+
+The latest Symfony versions changed the organization of your project into folders and bundles. When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
+
+![Project structure changes in v3](https://doc.ibexa.co/en/5.0/update_and_migration/img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
+
+#### Configuration
+
+Configuration files have been moved from `app/Resources/config` to `config`. Package-specific configuration is placed in `config/packages` (for example, `config/packages/ezplatform_admin_ui.yaml`). This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from Kernel.
+
+#### PHP code and bundle organization
+
+Since Symfony 4 `src/` code is no longer organized in bundles, `AppBundle` has been removed from the default eZ Platform install. To adapt, you need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
+
+> **Tip: How to make AppBundle continue to work, for now**
+>
+> Refactoring bundles for `src/` folder can involve extensive changes, if you want to make your `src/AppBundle` continue to work, follow [an Autoloading src/AppBundle guide on Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json).
+>
+> You can also follow [Using a "path" Repository guide](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle), to create a [composer path repository](https://getcomposer.org/doc/05-repositories.md#path). If you have several bundles you can move them into a `packages/` directory and load them all with:
+>
+> ```text
+> "repositories": [
+>     { "type": "path", "url": "packages/*" },
+> ],
+> ```
+>
+> Once you're ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle) article.
+
+#### View templates
+
+Templates are no longer stored in `app/Resources/views`. You need to move all your templates to the `templates` folder in your project's root.
+
+#### Translations
+
+Translation files have been moved out of `app/Resources/translations` into `translations` in your project's root.
+
+#### `web` and assets
+
+Content of the `web` folder is now placed in `public`. Content of `app/Resources/assets` has been moved to `assets`.
+
+> **Note: Note**
+>
+> You also need to update paths that refer to the old location, for example in [`webpack.config.js`](../../../administration/project_organization/project_organization/index.md#importing-configuration-from-a-bundle).
+
+> **Note: Full list of deprecations**
+>
+> If you encounter any issue during the upgrade, see [eZ Platform v3.0 deprecations](../../../release_notes/ez_platform_v3.0_deprecations/index.md#template-organization) for details of all required changes to your code.
+
+### Third-party dependencies
+
+Because eZ Platform v3 is based on Symfony 5, you need to make sure all additional third-party dependencies that your project uses have been adapted to Symfony 5.
+
+### Automatic code refactoring (optional)
+
+To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector) that automatically refactors your Symfony and PHPUnit code.
+
+To properly refactor your code, you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
+
+`vendor/bin/rector process src --set symfony40`
+
+You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). Keep in mind that after automatic refactoring finishes there might be some code chunks that you need to fix manually.
+
+### Update code for specific parts of the system
+
+Now, go through the following steps and ensure all your code is up to date with v3:
+
+- [1. Update templates](../update_code/1_update_templates/index.md)
+- [2. Update configuration](../update_code/2_update_configuration/index.md)
+- [3. Update field types](../update_code/3_update_field_types/index.md)
+- [4. Update Signal Slots](../update_code/4_update_signal_slots/index.md)
+- [5. Update Online Editor](../update_code/5_update_online_editor/index.md)
+- [6. Update workflow](../update_code/6_update_workflow/index.md)
+- [7. Update extended code](../update_code/7_update_extensions/index.md)
+- [8. Update REST](../update_code/8_update_rest/index.md)
+- [9. Other code updates](../update_code/9_update_other/index.md)

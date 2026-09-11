@@ -1,0 +1,27 @@
+# Shipment Status Sort Clause
+
+Shipment Status Sort Clause
+
+Editions: Commerce
+
+The `Status` Sort Clause sorts search results by shipment status.
+
+## Arguments
+
+- (optional) `sortDirection` - `Status` constant, either `Status::SORT_ASC` or `Status::SORT_DESC`
+
+## Example
+
+```php
+use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+
+/** @var \Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface $criteria */
+$shipmentQuery = new ShipmentQuery(
+    $criteria,
+    [
+        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status(
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status::SORT_ASC
+        ),
+    ]
+);
+```

@@ -1,0 +1,23 @@
+# Payment Method Id Criterion
+
+Payment Method Id Search Criterion
+
+Editions: Commerce
+
+The `Id` Search Criterion searches for payment methods based on the payment method ID.
+
+## Arguments
+
+- `id` - integer that represents the payment method ID
+
+## Example
+
+### PHP
+
+```php
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+
+$query = new PaymentMethodQuery(
+    new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Id(2)
+);
+```
