@@ -7,7 +7,6 @@ description: Site Factory allows creating multiple sites (SiteAccesses) from the
 
 Site Factory is a site management interface, integrated with the back office, enabling you to configure new sites.
 
-
 ## Provide access
 
 To set the Site Factory up, provide sufficient permissions to the users.

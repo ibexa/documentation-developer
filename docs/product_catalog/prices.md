@@ -22,8 +22,6 @@ You can set up basic price rules depending on [customer groups](customer_groups.
 Use this option to globally manage custom prices, for example for your resellers.
 Each customer group can have a default price discount that applies to all products.
 
-
-
 ## Currency
 
 [[= product_name =]] ships with a list of available currencies, and you can also add custom currencies.

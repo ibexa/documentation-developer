@@ -15,7 +15,6 @@ This central data storage supports business growth with a scalable infrastructur
 You can get customer data from both online and offline data sources.
 It includes first, second, and third-party data from multiple sources such as transactional systems, website tracking, and behavior, POS, CRM, and others.
 
-
 ## How does [[= product_name_cdp =]] work
 
 [[= product_name_cdp =]] unifies customer data throughout your whole organization.

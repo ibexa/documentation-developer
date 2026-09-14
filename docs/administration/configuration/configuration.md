@@ -19,14 +19,11 @@ saas_review_note: >-
 
 TODO: Rework this to describe the SiteAccess UI, and siteacces-aware settings.
 
-Merge the content from docs/multisite/siteaccess/siteaccess_aware_configuration.md 
-
+Merge the content from docs/multisite/siteaccess/siteaccess_aware_configuration.md
 
 #### `admin` SiteAccess
 
 The predefined `admin` SiteAccess in `admin_group` serves the back office.
-
-
 
 ## Location tree
 

@@ -23,7 +23,6 @@ To change password, the user must have the `user/password` permission.
 
 When the user requests a reset of a forgotten password, an email is sent to them and it allows them to create a new password.
 
-
 ## Password rules
 
 You can customize the password policy in your project.

@@ -10,6 +10,7 @@ The term “content management” covers all the tasks that you need to perform 
 
 The content management model applied in [[= product_name =]] lies at the foundation of the entire system.
 A system that relies on roles and permissions controls access to content items and is granular and powerful enough to be used in managing user accounts, corporate accounts, products, or process definitions.
+
 ## How does it work
 
 [[= product_name =]] revolves around content management. Many things here are content items, including:
@@ -27,6 +28,7 @@ You can set up content structure, define the templates to be filled with content
 Next steps would be to create the actual content, and then classify content items, and organize them as necessary.
 
 You can then build an external systems that uses [[= product_name =]] as a headless CMS, a single source of truth for anything related to content.
+
 ## Content structure
 
 All content in [[= product_name =]] is organized hierarchically, into what is called a **content tree**.

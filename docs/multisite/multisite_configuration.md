@@ -35,4 +35,3 @@ ibexa:
 You can use groups when you want to use common settings for several SiteAccesses and avoid duplicating configuration.
 SiteAccess groups act like regular SiteAccesses as far as configuration is concerned.
 A SiteAccess can be part of several groups. SiteAccess configuration has always precedence over group configuration.
-

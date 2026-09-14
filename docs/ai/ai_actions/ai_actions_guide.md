@@ -19,7 +19,6 @@ AI Actions solution comes with the following action types:
 
 ![AI Actions schematic](img/guide_ai_actions.png)
 
-
 ## Availability
 
 You can use AI Actions, unless your organization requested to disable all AI-powered features in your system.
@@ -110,7 +109,6 @@ Here, you can search for specific actions and filter them by type or status.
 By accessing the detailed view of individual AI actions, you can quickly review all their parameters.
 
 ## Use cases
-
 
 ### Refining text
 

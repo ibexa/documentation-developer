@@ -11,7 +11,6 @@ Consider it as internal to the [product catalog](product_catalog.md).
 |------------------------|-------------------------------|
 | `ProductSpecification` | `ibexa_product_specification` |
 
-
 !!! caution
 
     The presence of a specification (`ibexa_product_specification`) field distincts product types from content types.

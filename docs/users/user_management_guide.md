@@ -60,7 +60,6 @@ Policies allow for fine-grained control of access based on various factors, such
 
 [Define](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
 
-
 ### Invitations
 
 The [invitation system](invitations.md) streamlines user onboarding and engagement.

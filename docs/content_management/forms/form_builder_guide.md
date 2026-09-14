@@ -13,7 +13,6 @@ By adding forms on the website, you can increase its functionality and improve u
 Use Form Builder to create various forms, such as survey, questionnaire, sign-up form, using basic form fields available in the Form Builder.
 You can also manage your forms and review the results gathered from the website users.
 
-
 ## How does Form Builder work
 
 ### Form Builder interface

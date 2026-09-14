@@ -16,5 +16,3 @@ For more information, see [User Documentation]([[= user_doc =]]/image_management
 !!! note
 
     The Image Editor doesn't support images that come from a Digital Asset Management (DAM) system.
-
-

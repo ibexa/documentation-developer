@@ -20,7 +20,6 @@ By using the [side-by-side editing interface](#side-by-side-translation-view), e
 
     Also, [product attributes](products.md#product-attributes) remain non-translatable and are inactive in the side-by-side translation view.
 
-
 ## Define language pairs
 
 Language pair definitions decide which provider handles each source-to-target language combination by default.
@@ -38,7 +37,6 @@ The [side-by-side translation view]([[= user_doc =]]/content_management/translat
 
 Content types that contain the `ibexa_landing_page` or `ibexa_form` fields can't be opened in the side-by-side translation view.
 Editors can open them in the standard single-language editor.
-
 
 For a description of the side-by-side view and its functions from the editor's perspective, see [User Documentation]([[= user_doc =]]/content_management/translate_content/#side-by-side-translation-view).
 

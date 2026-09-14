@@ -36,7 +36,6 @@ This is specially important for admin accounts and other privileged users.
 
     See [setting up password rules](passwords.md#password-rules).
 
-
 ### Use secure roles and policies
 
 Use the following checklist to ensure the roles and policies are secure:
@@ -95,7 +94,6 @@ For experimentation and testing, you can use `Content-Security-Policy-Report-Onl
 This header has several directives for fine-tuning the referrer information.
 - `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, or microphone.
 For example, if someone succeeds in injecting their JavaScript into your site, this header prevents them from using those features to attack your users.
-
 
 ## Domain
 

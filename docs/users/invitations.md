@@ -18,4 +18,5 @@ Invitations are sent by email.
 The invitation contains a link that lets the recipient create their account.
 
 ## Invitation expiration
+
 If a user doesn't click the invitation link sent to them in time, you can refresh the invitation to reset the time limit.

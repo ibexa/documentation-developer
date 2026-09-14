@@ -12,8 +12,6 @@ It provides tools to collaboratively create content, and interfaces (API) to dis
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF) with product catalog capabilities, and a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete back office and several APIs to manage and access content.
 
-
-
 ## Availability
 
 To start using [[= product_name_headless =]] you must purchase a product license.
@@ -43,8 +41,6 @@ For performance, several bricks can be added to your stack such as a reverse pro
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
 Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
-
-
 
 APIs summary:
 

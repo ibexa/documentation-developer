@@ -12,9 +12,7 @@ Its primary goal is to enable editors and managers to deliver personalized exper
 
 By combining content management capabilities with advanced recommendation features, the connector allows teams to build and manage personalized experiences across integrated tools.
 
-
 This approach reduces integration complexity while providing a scalable foundation for personalization use cases across multiple sites and markets.
-
 
 For more information about tracking, check the [[= product_name_cdp_base =]] documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
 

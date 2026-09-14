@@ -67,7 +67,6 @@ The users are organized within user group content items below this location.
 In other words, the **Users** location contains the actual users and user groups,
 which can be viewed by selecting the **Users** tab in the **Admin** Panel.
 
-
 ### Forms
 
 **Forms** is the top level location that is intended for Forms created using the [Form Builder]([[= user_doc =]]/content_management/work_with_forms/#create-forms).

@@ -15,7 +15,6 @@ Its primary goal is to enable editors and managers to deliver personalized exper
 
 By bringing content and recommendations together, the connector makes it easy to build and manage personalized experiences.
 
-
 This approach simplifies integration while supporting personalization across different sites and markets.
 
 ## Availability

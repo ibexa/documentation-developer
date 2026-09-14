@@ -8,7 +8,6 @@ The final step is setting up a tracking script that identifies visitors and reco
 
 ## Set up tracking with tracking scripts
 
-
 The tracking script requires a head tracking script between the `<head></head>` tags on your website, a main script after the head script, and cookie consent.
 
 For more information about setting up a tracking script manually, see [Raptor documentation](https://content.raptorservices.com/help-center/client-side-tracking).

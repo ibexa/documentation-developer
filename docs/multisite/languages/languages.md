@@ -55,7 +55,6 @@ For more information of the permissions system, see [Permissions](permissions.md
 In addition, you can also control the access to the global translation list by using the `Content/Translations` policy.
 This policy allows users to add and remove languages from the global translation list.
 
-
 ### Fallback languages and missing translations
 
 When setting up SiteAccesses with different language versions, you can specify a list of preset languages for each SiteAccess.

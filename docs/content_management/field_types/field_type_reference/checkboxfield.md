@@ -18,4 +18,3 @@ It's never considered empty.
     "fieldValue": true
 }
 ```
-

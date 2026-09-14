@@ -26,8 +26,6 @@ A PHP class that implements MCP server capabilities such as tools, prompts, or r
 - implement `Ibexa\Contracts\Mcp\McpCapabilityInterface` so that it can be scanned for capabilities
 - use attributes from the `Ibexa\Contracts\Mcp\Attribute` namespace to declare capabilities
 
-
-
 ![Left panel of MCP Inspector with connection settings for MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
 
 #### Test MCP server within MCP Inspector
