@@ -56,7 +56,7 @@ By using more than one SiteAccess you can serve several sites, or several versio
 Each incoming request is assigned to a SiteAccess based on the input data.
 SiteAccesses can be gathered in groups, and many settings are SiteAccess-aware, which means that they can have a different value for each SiteAccess, and fall back to the value set for the group or for all SiteAccesses.
 
-For more information, see [Multisite](multisite.md), [SiteAccess](siteaccess.md), and [SiteAccess matching](siteaccess_matching.md).
+For more information, see [Multisite](multisite.md) and [SiteAccess](siteaccess.md).
 
 ## Add a language and translate Content
 
@@ -77,7 +77,7 @@ Edit the content item and publish it.
 
 The content item now exists in two languages.
 
-For more information, see [Languages](languages.md) and [Set up translation SiteAccess](set_up_translation_siteaccess.md).
+For more information, see [Languages](languages.md).
 
 ## Set up permissions
 

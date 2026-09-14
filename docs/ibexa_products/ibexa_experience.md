@@ -12,7 +12,7 @@ It offers smooth consumer journey and great online experience. In everything you
 With Experience edition you can empower Editors to quickly create new pages or personalized content, and improve their daily work.
 It also provides tools for using segmentation and targeting, and it can be widely used in B2B thanks its features and integrations.
 
-![Ibexa Experience](ibexa_experience.png)
+
 
 ## Availability
 
@@ -48,7 +48,7 @@ With its intuitive and user-friendly interface, you can develop pages, tailor co
 You build pages from ready-to-use elements called blocks, which can be easily configured and customized to suit your needs.
 Before you start building a page, you also need to select a layout. It has a significant impact on how the content pieces in the drop zones are arranged.
 
-![Page Builder](page_builder.png)
+
 
 #### Form Builder
 
@@ -57,7 +57,7 @@ With this tool, you can design, deploy, and manage online forms quickly.
 You can create a variety of forms that consist of different fields, including sign-up forms, surveys, or questionnaires.
 Additionally, you can monitor and manage the information obtained from website visitors and adjust your forms if needed.
 
-![Form Builder](form_builder.png)
+
 
 #### Site Factory
 
@@ -73,7 +73,7 @@ Starting from Experience edition of [[= product_name =]] you can [customize the 
 You can tailor dashboard to your specific needs by choosing from a set of widgets.
 You can easily preview the sections that you use more often and omit the less significant ones.
 
-![Customizable dashboard](customizable_dashboard.png)
+
 
 #### Publish Later
 
@@ -96,7 +96,7 @@ One of the tools that you can use right out of the box is the Targeting block th
 Segmentation is also useful with the [Recommendations](raptor_connector_guide.md).
 You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
 
-![Segments](segments.png)
+
 
 #### [[= product_name_cdp =]] (Customer Data Platform)
 
@@ -118,7 +118,7 @@ To use it, you must make arrangements with [[= product_name_base =]] to define t
 It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
 To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
 
-![Qualifio](qualifio.png)
+
 
 ### Use cases
 

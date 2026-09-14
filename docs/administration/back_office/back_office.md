@@ -9,7 +9,6 @@ The back office is the web interface where editors and administrators work with 
 
 
 [[= cards([
-    "administration/back_office/subitems_list",
     "administration/back_office/integrated_help",
     "administration/back_office/product_tour",
 ], columns=3) =]]

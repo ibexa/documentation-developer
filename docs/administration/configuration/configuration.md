@@ -33,7 +33,7 @@ The predefined `admin` SiteAccess in `admin_group` serves the back office.
 You can restrict SiteAccesses to different parts of the content tree.
 When you do it, only the selected location and its descendants are reachable from this SiteAccess.
 
-Configure this under the `ibexa.systems.<scope>.content.tree_root` [configuration key](configuration.md#configuration-files), for example:
+Configure this under the `ibexa.systems.<scope>.content.tree_root` configuration key, for example:
 
 ``` yaml
 ibexa:

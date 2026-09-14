@@ -30,8 +30,6 @@ Customer data is gathered through a system of trackers embedded in various areas
 To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to register your [[= product_name_cdp =]] account.
 When you're done with registration process, you're able to access a separate instance with the data needed to configure, activate, and use this feature.
 
-Last step is to go through the [configuration process](raptor_cdp_configuration.md).
-
 ### Customer profile
 
 In [[= product_name_cdp =]] you can build 360° customer profiles.
@@ -60,19 +58,6 @@ Remember to add a segment group identifier to the configuration, under the `segm
 ### Data export
 
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting content, users, and products.
-An `ibexa_cdp.data_export` configuration key includes the `schedule` setting where you can find separate sections for exporting user, content, and product.
-Structure of each section is exactly the same and includes `interval` and `options` elements:
-
-- `interval` - sets the frequency at which the command is invoked, uses cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour"
-
-- `options` - allows you to add arguments that have to be passed to the export command
-
-This configuration allows you to provide multiple export workflows with parameters.
-It's important, because all the types of content/product must have their own parameters on the CDP side, where each has a different Stream ID key and different required values configured per data source.
-
-Regarding data export, currently, only Stream File transport is supported and can be initialized from the configuration.
-
-For more information, see [CDP data export](raptor_cdp_data_export.md).
 
 ### Data customization
 

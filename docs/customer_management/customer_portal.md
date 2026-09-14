@@ -13,8 +13,6 @@ With this feature, your customers can self-register, edit their organization inf
 
 [[= cards([
     "customer_management/customer_portal_guide",
-    "customer_management/cp_configuration",
     "customer_management/cp_applications",
     "users/invitations",
-    "customer_management/cp_page_builder",
 ], columns=3) =]]

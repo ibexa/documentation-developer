@@ -16,7 +16,7 @@ Content managers, editors, translators, and proofreaders who work with multiling
 
 The Translations management package addresses these pain points through a side-by-side view, machine translation and the ability to invite reviewers to collaborate on the translation of content items or products.
 
-The package integrates with the [AI Actions](ai_actions_guide.md) to support machine translation providers such as Google Translate and DeepL, and AI-powered translation services through [[= ai_product_name =]].
+The package integrates with the [AI Actions](ai_actions_guide.md) to support AI-powered translation services through [[= ai_product_name =]].
 
 Administrators can manage providers and configure default provider-to-language-pair mappings directly in [[= product_name =]]'s back office, while editors can trigger machine translation from the content editing interface.
 
@@ -41,8 +41,6 @@ This allows administrators to define which provider handles which language combi
 Editors see the configured provider pre-selected when creating a new translation, but can override it if needed.
 
 ![Creating a language pair](translations_management_language_pairs.png "Creating a language pair")
-
-The package provides integrations with several translation providers, including REST API-based services such as Google Translate and DeepL, and AI-powered services through the [AI Actions](ai_actions_guide.md).
 
 ### Side-by-side translation view
 

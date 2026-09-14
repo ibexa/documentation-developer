@@ -24,12 +24,11 @@ By using the [side-by-side editing interface](#side-by-side-translation-view), e
 ## Define language pairs
 
 Language pair definitions decide which provider handles each source-to-target language combination by default.
-For example, you can decide that English to French translations should use DeepL.
 When an editor [opens the translation modal]([[= user_doc =]]/content_management/translate_content/#add-new-translation) and selects a matching language combination, the provider that you chose is pre-selected in the dropdown.
 The editor can override the pre-selection.
 
 The list of languages available when creating a language pair is determined by what each provider supports.
-You can only select the languages that are present in a provider's [supported list](#advanced-translation-provider-options) for that provider's pairs.
+You can only select the languages that are present in a provider's supported list for that provider's pairs.
 
 You [manage language pairs in the back office]([[= user_doc =]]/content_management/translate_content/#manage-translation-services-and-language-pairs).
 

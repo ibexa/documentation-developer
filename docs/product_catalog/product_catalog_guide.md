@@ -108,12 +108,10 @@ Currencies are used when calculating product price. In the system you can find a
 ### Regions
 
 Each product or product type can have different regional pricing and regional VAT rate.
-You can configure regions in [YAML configuration](enable_purchasing_products.md#region-and-currency).
 
 ### VAT
 
 For each product you can configure VAT rate. You can set it globally (per SiteAccess) or individually for each product type and product.
-To set up different VAT rates for different regions (countries),you need to first configure them in [YAML configuration](enable_purchasing_products.md#vat-rates).
 
 ### Base price
 
@@ -136,7 +134,7 @@ When you create or edit a product, under the product name, you can see visual in
 
 Product completeness doesn't impact product availability or visibility on the storefront.
 It is intended to help you ensure that product data is properly populated.
-As long as your product meets [basic requirements](enable_purchasing_products.md), it can be published and made available for purchase regardless of its completeness score.
+As long as your product meets the requirements, it can be published and made available for purchase regardless of its completeness score.
 
 ### Catalogs
 
@@ -163,7 +161,7 @@ Catalog filters let you narrow down the products from the product catalog that a
 
 ### Quable PIM integration
 
-You can store product information inside [[= product_name =]], or you can store it inside ([[= pim_product_name]]).
+You can store product information inside [[= product_name =]], or you can store it inside ([[= pim_product_name =]]).
 For more information, see [Quable integration](quable.md).
 
 ## How to get started

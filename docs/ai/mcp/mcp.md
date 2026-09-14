@@ -10,6 +10,5 @@ The Model Context Protocol (MCP) and MCP Servers allow AI agents to interact wit
 
 [[= cards([
     "ai/mcp/mcp_guide",
-    "ai/mcp/mcp_config",
     "ai/mcp/mcp_usage",
 ], columns=3) =]]

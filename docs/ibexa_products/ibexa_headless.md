@@ -12,7 +12,7 @@ It provides tools to collaboratively create content, and interfaces (API) to dis
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF) with product catalog capabilities, and a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete back office and several APIs to manage and access content.
 
-![Ibexa Headless](ibexa_headless.png)
+
 
 ## Availability
 
@@ -44,12 +44,12 @@ By using a version control system and environment variables, you can deploy your
 
 Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
 
-![Ibexa Headless data inputs and outputs](img/headless.png)
+
 
 APIs summary:
 
 - The REST and GraphQL APIs give access to the content in standardized ways.
-- The OAuth 2 [Client](oauth_client.md) and [Server](oauth_server.md) allow to connect to an SSO or be the SSO.
+- The OAuth 2 Client and Server allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
   For example, content can be computed, edited, or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.

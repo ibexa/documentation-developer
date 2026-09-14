@@ -29,7 +29,7 @@ Next steps would be to create the actual content, and then classify content item
 You can then build an external systems that uses [[= product_name =]] as a headless CMS, a single source of truth for anything related to content.
 ## Content structure
 
-All content in [[= product_name =]] is organized hierarchically, into what is called a [**content tree**](content_tree.md).
+All content in [[= product_name =]] is organized hierarchically, into what is called a **content tree**.
 This tree-like structure repeats throughout the system, and applies to content, taxonomies, categories, and the like.
 
 Traditional as the structure may look, with relations and multiple location support, a single content item can be referenced by another content item and accessed from different places of the tree, which allows you to build complex architectures with multiple locales and output channels.

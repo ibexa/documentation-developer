@@ -9,7 +9,7 @@ Field types are the smallest building blocks of content.
 
 Field types are responsible for:
 
-- Storing data, either using the native storage engine mechanisms or specific means
+- Storing data
 - Validating input data
 - Making the data searchable (if applicable)
 - Displaying fields of this type

@@ -67,7 +67,7 @@ To learn more, see [Work with forms]([[= user_doc =]]/content_management/work_wi
 
 ### Forms management
 
-[Form](work_with_forms.md) is one of available [content items]([[= user_doc =]]/content_management/content_items/) that you can find in the platform.
+Form is one of available [content items]([[= user_doc =]]/content_management/content_items/) that you can find in the platform.
 You can work with it as with other regular items, for example, create new one, edit existing one, or move.
 
 You can manage all the existing forms. To do it, in a selected place of the content tree find your form and click on it.
