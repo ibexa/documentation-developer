@@ -16,21 +16,13 @@ The `UpdatedAt` Search Criterion searches for products based on the date when th
 
 | Operator | Value | Description |
 |----------|-------|-------------|
-| [`Operator::EQ`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-Operator.html#constant_EQ) | `=` | Matches products updated exactly on the given date (default) |
-| [`Operator::GT`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-Operator.html#constant_GT) | `>` | Matches products updated after the given date |
-| [`Operator::GTE`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-Operator.html#constant_GTE) | `>=` | Matches products updated on or after the given date |
-| [`Operator::LT`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-Operator.html#constant_LT) | `<` | Matches products updated before the given date |
-| [`Operator::LTE`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-Operator.html#constant_LTE) | `<=` | Matches products updated on or before the given date |
+| `Operator::EQ` | `=` | Matches products updated exactly on the given date (default) |
+| `Operator::GT` | `>` | Matches products updated after the given date |
+| `Operator::GTE` | `>=` | Matches products updated on or after the given date |
+| `Operator::LT` | `<` | Matches products updated before the given date |
+| `Operator::LTE` | `<=` | Matches products updated on or before the given date |
 
 ## Example
-
-### PHP
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/UpdatedAtQuery.php') =]]
-```
-
-### REST API
 
 === "XML"
 

@@ -147,7 +147,6 @@ nav:
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
-        - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
     - Data collection:
         - Qualifio integration: qualifio/qualifio.md

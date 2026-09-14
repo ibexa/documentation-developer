@@ -4,18 +4,8 @@ description: DateTrashed Sort Clause
 
 # DateTrashed Sort Clause
 
-The [`DateTrashed` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Trash-DateTrashed.html) sorts the results of searching in Trash by the date and time when the content item was sent to trash.
+The `DateTrashed` Sort Clause sorts the results of searching in Trash by the date and time when the content item was sent to trash.
 
 ## Arguments
 
 - (optional) `sortDirection` - Query constant, either `Query::SORT_ASC` or `Query::SORT_DESC`
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-
-$query = new Query();
-$query->sortClauses = [new SortClause\Trash\DateTrashed()];
-```

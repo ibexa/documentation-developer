@@ -5,7 +5,7 @@ page_type: reference
 
 # Aggregation reference
 
-[Aggregation](search_api.md#aggregation) is used to group search results into categories.
+Aggregation is used to group search results into categories.
 
 There are three types of aggregations:
 

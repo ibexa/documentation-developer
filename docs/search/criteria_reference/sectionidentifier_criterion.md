@@ -4,25 +4,13 @@ description: SectionIdentifier Search Criterion
 
 # SectionIdentifier Criterion
 
-The [`SectionIdentifier` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-SectionIdentifier.html) searches for content based on the identifier of the Section it's assigned to.
+The `SectionIdentifier` Search Criterion searches for content based on the identifier of the Section it's assigned to.
 
 ## Arguments
 
 - `value` - string(s) representing the identifiers of the Section(s)
 
 ## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\SectionIdentifier(['sports', 'news']);
-```
-
-### REST API
 
 === "XML"
 

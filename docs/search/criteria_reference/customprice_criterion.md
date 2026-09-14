@@ -16,22 +16,3 @@ If you don't provide a customer group, the query uses the group related to the c
 ## Limitations
 
 The `CustomPrice` Criterion isn't available in the Legacy Search engine.
-
-## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
-
-/** @var \Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface $customerGroup */
-$query = new ProductQuery(
-    null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPrice(
-        \Money\Money::EUR(13800),
-        \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator::GTE,
-        $customerGroup
-    )
-);
-```

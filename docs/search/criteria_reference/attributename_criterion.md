@@ -12,8 +12,6 @@ The `AttributeName` Search Criterion searches for products by the value of their
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

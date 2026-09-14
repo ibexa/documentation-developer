@@ -12,11 +12,3 @@ Unlike the [`ProductCategory` criterion](productcategory_criterion.md), which ma
 ## Arguments
 
 - `taxonomyEntryId` - int representing the ID of the root taxonomy entry (product category) of the subtree to search within
-
-## Example
-
-### PHP
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/ProductCategorySubtreeQuery.php') =]]
-```

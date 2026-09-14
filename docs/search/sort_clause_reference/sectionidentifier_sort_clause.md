@@ -4,7 +4,7 @@ description: SectionIdentifier Sort Clause
 
 # SectionIdentifier Sort Clause
 
-The [`SectionIdentifier` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionIdentifier.html) sorts search results by the Section IDs of the content items.
+The `SectionIdentifier` Sort Clause sorts search results by the Section IDs of the content items.
 
 ## Arguments
 
@@ -13,13 +13,3 @@ The [`SectionIdentifier` Sort Clause](/api/php_api/php_api_reference/classes/Ibe
 !!! note
 
     Solr search engine uses the `Query::SORT_DESC` sort direction by default.
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\SectionIdentifier()];
-```

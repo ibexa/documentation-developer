@@ -4,7 +4,7 @@ description: DateMetadata Search Criterion
 
 # DateMetadata Criterion
 
-The [`DateMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-DateMetadata.html) searches for content based on the date when it was created or last modified.
+The `DateMetadata` Search Criterion searches for content based on the date when it was created or last modified.
 
 ## Arguments
 
@@ -13,22 +13,6 @@ The [`DateMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 - `value` - indicating the date(s) that should be matched, provided as a UNIX timestamp (or array of timestamps)
 
 ## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\DateMetadata(
-    Criterion\DateMetadata::CREATED,
-    Criterion\Operator::BETWEEN,
-    [1576800000, 1576972800]
-);
-```
-
-### REST API
 
 === "XML"
 
@@ -60,18 +44,4 @@ $query->query = new Criterion\DateMetadata(
 
 ## Use case
 
-You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:
-
-``` php hl_lines="9"
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new LocationQuery();
-$date = strtotime('-1 week');
-$query->query = new Criterion\LogicalAnd(
-    [
-        new Criterion\ContentTypeIdentifier('blog_post'),
-        new Criterion\DateMetadata(Criterion\DateMetadata::CREATED, Criterion\Operator::GTE, $date),
-    ]
-);
-```
+You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week, by combining it with a content type Criterion and the `GTE` operator.

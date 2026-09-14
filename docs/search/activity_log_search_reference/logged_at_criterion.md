@@ -15,15 +15,3 @@ The `LoggedAtCriterion` Activity Log Criterion matches activity log group that h
 | Less than or equal    | `<=`  | `LoggedAtCriterion::LTE` |
 | Greater than          | `>`   | `LoggedAtCriterion::GT`  |
 | Greater than or equal | `>=`  | `LoggedAtCriterion::GTE` |
-
-## Example
-
-The following example is to match all activity log groups that aren't older than a day:
-
-``` php
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
-
-$query = new ActivityLog\Query([
-    new ActivityLog\Criterion\LoggedAtCriterion(new \DateTime('- 1 day'), ActivityLog\Criterion\LoggedAtCriterion::GTE),
-]);
-```

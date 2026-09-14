@@ -10,11 +10,3 @@ The `SymbolAttribute` Search Criterion searches for products by [symbol attribut
 
 - `identifier` - identifier of the format
 - `value` - array with the values to search for
-
-## Example
-
-### PHP
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/SymbolAttributeTypeQuery.php') =]]
-```

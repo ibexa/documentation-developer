@@ -12,7 +12,7 @@ Those Criteria are to be used with `Ibexa\Contracts\ActivityLog\Values\ActivityL
 They're applied to log entry groups.
 For example, with the criterion `ActionCriterion`, you get log entry groups that have at least one entry with this action (and possibly other actions as well).
 
-See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-activity-log-groups) for how to use a query, and an example combining several criteria.
+See [Recent activity](../../administration/recent_activity/recent_activity.md#rest-api) for how to browse the activity log over the REST API.
 
 ## Value-based criteria
 

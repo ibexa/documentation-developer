@@ -12,8 +12,6 @@ The `CatalogIdentifier` Search Criterion searches for a catalog by the value of 
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

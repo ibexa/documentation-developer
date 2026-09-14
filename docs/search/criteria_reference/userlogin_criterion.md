@@ -4,7 +4,7 @@ description: UserLogin Search Criterion
 
 # UserLogin Criterion
 
-The [`UserLogin` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserLogin.html) searches for content based on the User ID.
+The `UserLogin` Search Criterion searches for content based on the User ID.
 
 ## Arguments
 
@@ -16,26 +16,6 @@ The [`UserLogin` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\UserLogin(['johndoe']);
-```
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\UserLogin('adm*', Criterion\Operator::LIKE);
-```
-
-### REST API
 
 === "XML"
 

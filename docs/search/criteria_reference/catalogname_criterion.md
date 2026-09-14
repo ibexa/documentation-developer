@@ -12,8 +12,6 @@ The `CatalogName` Search Criterion searches for catalogs by the value of their n
 
 ## Example
 
-### REST API
-
 === "XML"
 
     ```xml

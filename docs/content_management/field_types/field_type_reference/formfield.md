@@ -6,4 +6,4 @@ The Form field type stores a Form consisting of one or more form fields.
 |--------|---------------|
 | `Form` | `ibexa_form`  |
 
-For more information about working with Forms, see [Forms](work_with_forms.md).
+For more information about working with Forms, see the [Form Builder guide](form_builder_guide.md).

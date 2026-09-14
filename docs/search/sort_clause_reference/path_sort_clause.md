@@ -4,7 +4,7 @@ description: Path Sort Clause
 
 # Path Sort Clause
 
-The [`Location\Path` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Path.html) sorts search results by the pathString of the location.
+The `Location\Path` Sort Clause sorts search results by the pathString of the location.
 
 !!! note
 
@@ -13,13 +13,3 @@ The [`Location\Path` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-C
 ## Arguments
 
 [[= include_file('docs/snippets/sort_direction.md') =]]
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Location\Path()];
-```

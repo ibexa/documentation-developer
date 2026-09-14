@@ -5,7 +5,7 @@ month_change: false
 
 # Search Criteria reference
 
-Search Criteria are filters for content and location Search and [Repository filtering](search_api.md#repository-filtering).
+Search Criteria are filters for content and location Search.
 
 Criteria can take some of the following arguments:
 
@@ -78,8 +78,7 @@ Due to this storage limitation, searching content using the Country field type o
 
 ### Logical operators
 
-All Logical operators are supported by Content and Location Search and
-[Repository filtering](search_api.md#repository-filtering).
+All Logical operators are supported by Content and Location Search.
 
 | Search Criterion                      | Search based on                                                                                 |
 |---------------------------------------|-------------------------------------------------------------------------------------------------|

@@ -9,17 +9,3 @@ The `ProductAvailability` Sort Clause sorts search results by whether they have 
 ## Arguments
 
 [[= include_file('docs/snippets/sort_direction.md') =]]
-
-## Example
-
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-
-$query = new ProductQuery(
-    null,
-    null,
-    [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability(),
-    ]
-);
-```

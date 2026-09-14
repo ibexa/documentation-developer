@@ -4,7 +4,7 @@ description: Field Search Criterion
 
 # Field Criterion
 
-The [`Field` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html) searches for content based on the content of one of its fields.
+The `Field` Search Criterion searches for content based on the content of one of its fields.
 
 ## Arguments
 
@@ -17,23 +17,7 @@ The `LIKE` operator works together with wildcards (`*`). Without a wildcards its
 The `CONTAINS` operator works with collection fields like the Country field type, enabling you to retrieve results when the query value is one of the values of the collection.
 Querying for a collection with the `EQ` operator returns result only when the whole collection equals the query values.
 
-## Limitations
-
-The `Field` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
-
 ## Example
-
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platform');
-```
-
-### REST API
 
 === "XML"
 
@@ -67,17 +51,4 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
 
 ## Use case
 
-You can use the `Field` Criterion to search for articles that contain the word "featured":
-
-``` php hl_lines="8"
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new LocationQuery();
-$query->query = new Criterion\LogicalAnd(
-    [
-        new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Featured'),
-    ]
-);
-```
+You can use the `Field` Criterion to search for articles whose `name` field contains the word "Featured", by combining it with a content type Criterion and the `CONTAINS` operator.

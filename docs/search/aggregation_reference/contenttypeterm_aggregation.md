@@ -4,20 +4,8 @@ description: ContentTypeTermAggregation
 
 # ContentTypeTermAggregation
 
-The [ContentTypeTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeTermAggregation.html) aggregates search results by the content item's content type.
+The ContentTypeTermAggregation aggregates search results by the content item's content type.
 
 ## Arguments
 
 - `name` - name of the Aggregation object
-
-## Example
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-
-$query = new Query();
-$query->aggregations[] = new Aggregation\ContentTypeTermAggregation('content_type');
-```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]
