@@ -1,5 +1,10 @@
 ---
 description: Configure image editor to crop, flip, and modify images.
+saas_review:
+    - siteaccess
+saas_review_note: >-
+    Image Editor settings are SiteAccess-aware. Confirm how the SiteAccess scope is
+    chosen for them once SiteAccess configuration moves to a UI.
 ---
 
 # Configure Image Editor
@@ -12,77 +17,4 @@ For more information, see [User Documentation]([[= user_doc =]]/image_management
 
     The Image Editor doesn't support images that come from a Digital Asset Management (DAM) system.
 
-!!! note
 
-    If you intend to modify images in formats other than JPEG in image editor, consider [adding a library to optimize them](images.md#image-optimization).
-
-## Configuration
-
-You can modify the default settings to change the appearance or behavior of the Image Editor.
-You can also expand the default set of parameters to create buttons that may be required by custom features that you add by extending the Image Editor, for example, to enable changes to the color palette of an image.
-
-To do this, under the `ibexa.system.<scope>.image_editor` [configuration key](configuration.md#configuration-files) add a settings tree similar to the following example.
-The settings tree can contain one or more action groups.
-You can control the order of actions within a group by setting the `priority` parameter.
-You can also toggle the visibility of actions within the user interface.
-Image Editor settings are [SiteAccess-aware](dynamic_configuration.md).
-
-The following example sets the aspect ratio values and label names for buttons used by the Crop feature.
-
-``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 36) =]]
-```
-
-### Image file size optimization
-
-#### Image quality
-
-You can configure the quality of the images modified in the Image Editor with the following configuration.
-
-The setting accepts values between 0 and 1, which corresponds to the compression level, with 0 being the strongest compression.
-The default quality is 0.92:
-
-``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 39, 40) =]]
-```
-
-#### Gaussian blur strength
-
-You can configure the gaussian blur strength applied during image optimization with the following configuration.
-
-``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 40, 41) =]]
-```
-
-The setting accepts float values between 0 and 10.0, where higher values increase blur and reduce file size, while lower values maintain sharpness.
-The default value is 0.05.
-
-Processing large images with high blur values (above 5) can be time-consuming and may result in request timeouts.
-Keep this in mind when configuring blur strength for environments that handle high-resolution images, and adjust [PHP's `max_execution_time`](https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time) if needed.
-
-### Additional information
-
-Each image can be accompanied by additional information that isn't visible to the user.
-By default, additional information stores the coordinates of the [focal point]([[= user_doc =]]/image_management/edit_images/#focal-point), but you can use this extension point to pass various parameters of custom features that you add by extending the Image Editor.
-
-To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
-
-``` php
-use Ibexa\Core\FieldType\Image\Value as FieldValue;
-
-$value = new FieldValue([
-     'data' => [
-         'width' => '100',
-         'height' => '200',
-         'alternativeText' => 'test',
-         'mime' => 'image/png',
-         'id' => 1,
-         'fileName' => 'image.png',
-         'additionalData' => [
-             'focalPointX' => 50,
-             'focalPointY' => 100,
-             'author' => 'John Smith',
-         ],
-     ],
- ]);
-```

@@ -24,7 +24,7 @@ The fields can cover data ranging from single variables and text lines to media 
 
 ### Content information
 
-General information about a content item is stored in a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
+General information about a content item is stored in a `ContentInfo` object.
 `ContentInfo` doesn't include fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers aren't recycled, so if an item is deleted, its ID isn't reused when a new one is created.
@@ -83,8 +83,6 @@ The fields of a content item are defined by the content type to which the conten
 
 A field is the smallest unit of storage in the content model and the building block of all content items. Every field belongs to a field type.
 
-Beyond the built-in set of field types, you can [create your own](create_custom_generic_field_type.md).
-
 ### Field value validation
 
 The values entered in a field may undergo validation, which means the system makes sure that they're correct for the chosen field type and can be used without a problem.
@@ -117,10 +115,6 @@ The Searchable flag isn't available for some fields, because some field types do
 Depending on the field type, there may also be other, specific information to fill in. For example, the "Country" field type allows you to select the default country, and to allow selecting multiple countries at the same time.
 
 ![Diagram of content model](content_model_diagram.png)
-
-!!! tip
-
-    You can disable the possibility to edit specific field details per field type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
 
 ## Content versions
 

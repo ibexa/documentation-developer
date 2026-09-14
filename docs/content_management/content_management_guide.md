@@ -10,11 +10,6 @@ The term “content management” covers all the tasks that you need to perform 
 
 The content management model applied in [[= product_name =]] lies at the foundation of the entire system.
 A system that relies on roles and permissions controls access to content items and is granular and powerful enough to be used in managing user accounts, corporate accounts, products, or process definitions.
-
-## Availability
-
-Content management capabilities are available in all [[= product_name =]] editions.
-
 ## How does it work
 
 [[= product_name =]] revolves around content management. Many things here are content items, including:
@@ -31,8 +26,7 @@ Content management capabilities are available in all [[= product_name =]] editio
 You can set up content structure, define the templates to be filled with content, and assign different areas of the structure to your editors.
 Next steps would be to create the actual content, and then classify content items, and organize them as necessary.
 
-You can then publish the content directly, by building a website or a web store, or by using external systems together with a [headless CMS](https://developers.ibexa.co/headless-cms) that relies on the [[= product_name =]] technology.
-
+You can then build an external systems that uses [[= product_name =]] as a headless CMS, a single source of truth for anything related to content.
 ## Content structure
 
 All content in [[= product_name =]] is organized hierarchically, into what is called a [**content tree**](content_tree.md).
@@ -48,7 +42,6 @@ A structure of elements that *store* content information is referred to as the *
 [[= product_name =]] comes with a predefined content model that includes a broad set of various field types and several content types.
 
 You can customize and adapt the content model to your organization's needs and the type of output channel that you use.
-If need be, development teams can [create new field types](creating_a_point2d_field_type.md), to enhance editor and visitor experiences.
 Content managers or even editors can then apply such field types when they modify existing or create new content types.
 The editing interface lets all users, including those with no coding experience, create or modify certain areas of the content model.
 
@@ -100,7 +93,7 @@ For example, articles might have for example, a title, an author, a body, and an
 Forms could be seen as a special kind of content items, because their role is to gather information from website users and not present it.
 You create them from basic form fields available in [[= product_name =]].
 By adding forms to the website, you can increase the website’s functionality and improve user experience.
-Certain editions of [[= product_name =]] come with a visual [Form Builder]([[= user_doc =]]/content_management/work_with_forms/).
+[[= product_name =]] comes with a visual [Form Builder]([[= user_doc =]]/content_management/work_with_forms/).
 
 ## Content management capabilities
 
@@ -212,7 +205,7 @@ For example, you can build Pages that contain different recommendations, dependi
 
 ## How to get started
 
-Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on [[= product_name_cloud =]], you're ready to employ the content management features to good use.
+With your [[= product_name =]] instance ready, you can employ the content management features to good use.
 
 Since content management is an ongoing process, and, in your implementation, you might prefer focusing on other areas of configuration, the order of operations below is by all means conventional.
 
@@ -221,7 +214,7 @@ Since content management is an ongoing process, and, in your implementation, you
 Any content that you might want to deliver to a viewer can be structured and split into smaller elements.
 Reverse-engineer the intended concepts into individual fields, which can be categorized, and then picked from categories and combined into content items.
 
-Reuse existing fields types or [customize them to fit your needs](create_custom_generic_field_type.md), then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
+Reuse existing field types, then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
 
 **2\. Define permissions**
 
