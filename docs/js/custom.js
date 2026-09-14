@@ -2,18 +2,31 @@
 let jquery = jQuery;
 
 $(document).ready(function() {
-    const latestVersionNumber = '6.0';
+    const latestVersionNumber = '5.0';
+    const specialVersions = ['latest', 'saas'];
+
+    const versionLabels = {
+        "2.5": "eZ Platform 2.5",
+        "3.3": "Ibexa DXP 3.3",
+        "4.6": "Ibexa DXP 4.6",
+        "5.0": "Ibexa DXP 5.0",
+        "6.0": "Cohesivo 6.0",
+        "saas": "Cohesivo SaaS"
+    };
+
+    versionLabels[latestVersionNumber] = versionLabels[latestVersionNumber] + ' (latest)';
 
     // replace edit url
-    let branchName = '6.0';
+    let branchName = latestVersionNumber;
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
     const eolVersions = window.eol_versions ?? [];
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
-    if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
-        branchName = '6.0';
+
+    if (!/^\d+\.\d+$/.test(branchName) && !specialVersions.includes(branchName)) {
+        branchName = latestVersionNumber;
     }
 
     // Insert version into header links
@@ -70,12 +83,8 @@ $(document).ready(function() {
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
             const olderVersions = document.querySelector('#older-versions');
 
-            // Merge "X.Y" and "latest" entries into "X.Y (latest)"
+            // Remove latest version entry from the list
             const latestVersion = allVersions.find(v => v.textContent.trim() === 'latest');
-            const versionXY = allVersions.find(v => v.textContent.trim() === latestVersionNumber);
-            
-            const versionXYLink = versionXY.querySelector('a');
-            versionXYLink.textContent = `${latestVersionNumber} (latest)`;
             latestVersion.remove();
 
             if (eolVersions.length > 0) {
@@ -86,6 +95,11 @@ $(document).ready(function() {
                 .filter((versionNode) => eolVersions.includes(versionNode.textContent))
                 .forEach((versionNode) => {
                     versionNode.hidden = true;
+                });
+
+            allVersions
+                .forEach((versionNode) => {
+                    versionNode.querySelector('a').textContent = versionLabels[versionNode.textContent] ?? versionNode.textContent;
                 });
 
             olderVersions.addEventListener('click', (event) => {
