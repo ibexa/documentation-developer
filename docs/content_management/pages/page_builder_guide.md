@@ -221,8 +221,4 @@ B. **PIM** blocks:
 - Product collection - displays a list of specifically selected products.
 - Product embed - displays a specific product.
 
-C. **Commerce** blocks:
-
-- Orders - displays a list of orders associated with a particular company or individual customer.
-
-D. [**Recommendations** blocks](recommendation_blocks.md) - presents content recommendations delivered by Raptor integration.
+C. [**Recommendations** blocks](recommendation_blocks.md) - presents content recommendations delivered by Raptor integration.

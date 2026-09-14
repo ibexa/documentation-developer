@@ -73,7 +73,7 @@ which can be viewed by selecting the **Users** tab in the **Admin** Panel.
 The default ID number of the **Users** location is 5.
 It contains user group content items.
 
-### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Forms [[% include 'snippets/experience_badge.md' %]]
 
 **Forms** is the top level location that is intended for Forms created using the [Form Builder]([[= user_doc =]]/content_management/work_with_forms/#create-forms).
 

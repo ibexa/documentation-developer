@@ -63,7 +63,6 @@ Marketing teams can create pages and enrich content using up-to-date product inf
 
 The integration with [[= pim_product_name =]] has the following known limitations:
 
-- It's not compatible with [Commerce](commerce.md) functionalities. [Carts](cart.md), [order management](order_management.md), and [shopping lists](shopping_list.md) can't be used with products coming from [[= pim_product_name =]].
 - [Catalogs](product_catalog_guide.md#catalogs) can't be created from [[= pim_product_name =]] products.
 - [Product assets](product_catalog_guide.md#product-assets) are not fully synchronized. Only the main product thumbnail from [[= pim_product_name =]] is used.
 - [Product-level access restrictions](policies.md#products) based on product type are not supported.

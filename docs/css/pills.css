@@ -21,13 +21,6 @@
 .pill--experience::after {
   content: "Experience";
 }
-.pill--commerce {
-  color: var(--cohesivo-primary-80);
-  border-color: var(--cohesivo-primary-80);
-}
-.pill--commerce::after {
-  content: "Commerce";
-}
 .pill--lts-update {
   color: var(--cohesivo-info-80);
   border-color: var(--cohesivo-info-80);

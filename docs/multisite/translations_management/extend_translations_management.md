@@ -154,27 +154,3 @@ This interface is not registered for [Symfony autoconfiguration]([[= symfony_doc
 [[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
 [[= include_code('code_samples/translations_management/config/services.yaml', 15, 18) =]]
 ```
-
-## Use Twig component extension points
-
-Two [Twig component groups](custom_components.md#translations-management) allow you to inject custom UI elements into the translation interface without the need to override their templates.
-
-Such custom element could be, for example, a disclaimer or policy notice that the editor must acknowledge before a translation is created.
-
-The two groups behave differently:
-
-- `admin-ui-content-translation-modal-footer` — if any of the [components](components.md) renders output that is not empty, it entirely replaces the default footer buttons.
-Your component template must therefore include its own action buttons.
-- `admin-ui-content-edit-translation-select-footer` — component output is inserted between the existing **Edit** and **Discard** buttons of the content edit confirmation screen.
-
-Register a component with the `ibexa.twig.component` tag:
-
-``` yaml
-[[= include_code('code_samples/translations_management/config/services.yaml', 1, 1) =]]
-[[= include_code('code_samples/translations_management/config/services.yaml', 24, 28) =]]
-```
-
-!!! note
-
-    The `admin-ui-content-translation-modal-footer` group receives a `location` variable that may be `null` for an unpublished draft.
-    Always check for `null` before you access location properties in your component template.

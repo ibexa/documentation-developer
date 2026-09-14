@@ -114,12 +114,25 @@ services:
 ```
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 1, 3) =]]
+<?php
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 10, 15) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 17, 22) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 30, 31) =]]
+namespace App\Dispatcher;
+
+use App\Message\SomeMessage;
+use Symfony\Component\Messenger\MessageBusInterface;
+
+final readonly class SomeClassThatSchedulesExecutionInTheBackground
+{
+    public function __construct(
+        private MessageBusInterface $bus
+    ) {
+    }
+
+    public function schedule(): void
+    {
+        $this->bus->dispatch(new SomeMessage());
+    }
+}
 ```
 
 3\. [Route the message to the background queue](#route-message-to-background-queue).
@@ -154,10 +167,12 @@ On top of the supported Symfony stamps, [[= product_name =]] provides the follow
 The following example shows how you can attach the `SudoStamp` to the message:
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 7, 7, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 9, 10, remove_indent=True) =]]
+use App\Message\SomeMessage;
+use Ibexa\Contracts\Messenger\Stamp\SudoStamp;
+use Symfony\Component\Messenger\MessageBusInterface;
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 25, 25, remove_indent=True) =]]
+/** @var MessageBusInterface $bus */
+$bus->dispatch(new SomeMessage(), [new SudoStamp()]);
 ```
 
 #### UserPermissionStamp
@@ -171,10 +186,16 @@ By combing this stamp with [`SudoStamp`](#sudostamp), you can set the repository
 The following example shows how you can use `UserPermissionStamp` to preserve the current repository user after the message is dispatched.
 
 ``` php
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 5, 5, remove_indent=True) =]]
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 8, 10, remove_indent=True) =]]
+use App\Message\SomeMessage;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Messenger\Stamp\UserPermissionStamp;
+use Symfony\Component\Messenger\MessageBusInterface;
 
-[[= include_code('code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php', 23, 24, remove_indent=True) =]]
+/** @var PermissionResolver $permissionResolver */
+$currentUserId = $permissionResolver->getCurrentUserReference()->getUserId();
+
+/** @var MessageBusInterface $bus */
+$bus->dispatch(new SomeMessage(), [new UserPermissionStamp($currentUserId)]);
 ```
 
 #### SiteAccessStamp

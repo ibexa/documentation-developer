@@ -60,10 +60,9 @@ To do it, select **File** > **New Project...** > **Ibexa DXP**.
 In project settings form you can choose:
 
 - Location of the project
-- Product edition: [[= product_name_oss =]], [[= product_name_headless =]], [[= product_name_exp =]], [[= product_name_com =]]
-- Authentication token (for Content, Experience and Commerce editions)
+- Product edition: [[= product_name_oss =]], [[= product_name_headless =]], [[= product_name_exp =]]
+- Authentication token (for Content and Experience editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
-- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud.md)
 - Composer settings
 
 ![Create a project](phpstorm_plugin_create_project.png)

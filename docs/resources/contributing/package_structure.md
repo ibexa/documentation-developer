@@ -21,10 +21,10 @@ Define [[= product_name =]] core PHP code in a namespace with the following pref
 namespace Ibexa;
 ```
 
-A package which groups some [[= product_name =]] features can use an additional prefix, for example:
+A package which groups some [[= product_name =]] features can use an additional prefix:
 
 ``` php {skip-validation}
-namespace Ibexa\Commerce;
+namespace Ibexa\<FeatureGroup>;
 ```
 
 ## Packages
@@ -55,10 +55,6 @@ Examples:
 namespace Ibexa\Search;
 ```
 
-``` php {skip-validation}
-namespace Ibexa\Commerce\Shop;
-```
-
 ### Bundles
 
 The bundle class definition in the `src/bundle` directory must be:
@@ -77,12 +73,6 @@ namespace Ibexa\Bundle\Search;
 class IbexaSearchBundle // ...
 ```
 
-``` php {skip-validation}
-namespace Ibexa\Bundle\Commerce\Shop;
-
-class IbexaCommerceShopBundle // ...
-```
-
 ### Contracts
 
 A package may introduce a namespace for contracts, to be consumed by first and third party packages and projects, which must be prefixed as:
@@ -99,10 +89,6 @@ namespace Ibexa\Contracts\Kernel;
 
 ``` php {skip-validation}
 namespace Ibexa\Contracts\SiteFactory;
-```
-
-``` php {skip-validation}
-namespace Ibexa\Contracts\Commerce\Shop;
 ```
 
 That namespace needs to be mapped to the `src/contracts` directory of a package.

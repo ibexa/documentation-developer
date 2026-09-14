@@ -93,5 +93,5 @@ It reacts to specific events in the application and triggers tracking logic with
 [[= include_code('code_samples/recommendations/EventSubscriber.php') =]]
 ```
 
-You can also use [[= product_name =]] events, for example `CreateOrderEvent` from [Order management events](order_management_events.md).
+You can also use [[= product_name =]] events.
 For more information, see [Event reference](event_reference.md).

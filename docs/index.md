@@ -203,23 +203,6 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="commerce/commerce/">
-                            <svg><use xlink:href="images/icons.svg#cart" /></svg>
-                            Commerce
-                        </a>
-                    </h3>
-                    <ul>
-                        <li><a href="commerce/cart/cart/">Cart</a></li>
-                        <li><a href="commerce/payment/payment/">Payment</a></li>
-                        <li><a href="commerce/storefront/storefront/">Storefront</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
-            <div class="info-tile info-tile--link-card">
-                <div class="info-tile__content">
-                    <h3>
                         <a href="customer_management/customer_portal/">
                             <svg><use xlink:href="images/icons.svg#profile" /></svg>
                             Customer

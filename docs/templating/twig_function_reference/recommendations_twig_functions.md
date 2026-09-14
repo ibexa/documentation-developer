@@ -215,7 +215,7 @@ This event tracks when a product is bought.
 
 #### Product `basket` event
 
-This event tracks when a product is added to the [cart](cart.md).
+This event tracks when a product is added to the cart.
 
 It captures user interactions that indicate interest, which can be used for conversion tracking and to improve product recommendations.
 

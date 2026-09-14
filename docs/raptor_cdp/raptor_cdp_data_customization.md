@@ -26,6 +26,8 @@ The following example adds a custom date of birth field to the exported data:
 Register your processor as a Symfony service and tag it with `ibexa.cdp.export.user.item_processor`:
 
 ``` yaml
+services:
+
     App\Export\User\DateOfBirthUserItemProcessor:
         parent: Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor
         arguments:

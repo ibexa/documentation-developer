@@ -33,41 +33,6 @@ ignoreErrors:
         hash: 4cfc5ac559eb8db38edb6c8a29872883a95886b61cdae2b343a5ebaf4a9bca8e
         message: '~The value "\<general\|targetable\>" is not allowed for path "ibexa\.system\.\<scope\>\>\.product_tour\.\<scenario_identifier\>\.type"\. Permissible values\: "general", "targetable"\.~'
     -
-        path: docs/cdp/cdp_data_customization.md
-        line: 29
-        hash: bb2ecc0b96ca61cd004b9c1806e78d6afc3197a68acb723db7a52cfd5bdc89d6
-        message: '~Unable to parse at line 1 \(near "    App\\Export\\User\\DateOfBirthUserItemProcessor\:"\)\.~'
-    -
-        path: docs/commerce/checkout/customize_checkout.md
-        line: 130
-        hash: fb889cba0ffc081e7d0b0387d32835ae8e5d3c033f26144cb4d54b3e121f428a
-        message: '~Invalid configuration for path "framework\.workflows\.workflows\.ibexa_checkout"\: "supports" or "support_strategy" should be configured\.~'
-    -
-        path: docs/commerce/order_management/configure_order_management.md
-        line: 51
-        hash: 30a04aef21c825d6b59c938c2b5bb4078abd7156526a7f9f1b7b13203ff56ed7
-        message: '~The child config "transitions" under "framework\.workflows\.workflows\.ibexa_order" must be configured\.~'
-    -
-        path: docs/commerce/payment/enable_paypal_payments.md
-        line: 40
-        hash: bc714d63a541c63d24e2a882cc8c67b685fcee24feb0d80a327f02a4c3b0bef8
-        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
-    -
-        path: docs/commerce/payment/enable_stripe_payments.md
-        line: 41
-        hash: 09750e5c042fe1d6abc20d4088674195d78ca70ce113f8869818a76de1a8023a
-        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
-    -
-        path: docs/commerce/payment/payum_integration.md
-        line: 55
-        hash: c3f14ff441a95545c360aaab308050a2629a81f07d76d4fb65133ab89a6ad30d
-        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
-    -
-        path: docs/commerce/transactional_emails/extend_transactional_emails.md
-        line: 17
-        hash: f7073192f3b22201fe8d86bb71c76b4026f14efbfe6bb28ddbed657d93eca29c
-        message: '~The child config "transitions" under "framework\.workflows\.workflows\.ibexa_payment" must be configured\.~'
-    -
         path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
         line: 48
         hash: 629d37dcc688c9b11daec8de8c601522830f3b2175ac6ac692db3f17b89a01d7
@@ -124,22 +89,22 @@ ignoreErrors:
         message: '~Unable to parse at line 1 \(near "    actions\:"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 254
+        line: 250
         hash: 5fff20465655d9e52a258e3c1b1347a62b0f558d9e733bb377c003d5021822eb
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: show_children"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 282
+        line: 278
         hash: 7cec0a6d723dcb0d3d87904910e4870f05b885764116e447b8a4fe19025b8289
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: project_directory"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 274
+        line: 270
         hash: a08babaebc91ceb742a9a81a04be4d9e975291019794a0658bef1f99e62dccea
         message: '~Unable to parse at line 1 \(near "                \-   fieldDefIdentifier\: some_field"\)\.~'
     -
         path: docs/content_management/data_migration/importing_data.md
-        line: 385
+        line: 381
         hash: c94bdd7b27818ae0138b8c5bdba1ff33d77e25918609c1741f2c4d4236dcaff1
         message: '~Unable to parse at line 1 \(near "        \-   fieldDefIdentifier\: image"\)\.~'
     -
@@ -167,41 +132,6 @@ ignoreErrors:
         line: 207
         hash: 98de256c0b149da15bea944ff56da3dad8bf968f5aad2d2882855d8844541dc1
         message: '~The child config "list" under "ibexa\.siteaccess" must be configured\: Available SiteAccess list~'
-    -
-        path: docs/discounts/extend_discounts.md
-        line: 227
-        hash: 06089de0d522e5dc8e3a4973eeba57034d001867540768e1805211242768f23a
-        message: '~Unable to parse at line 1 \(near "    App\\Discounts\\RecentDiscountPrioritizationStrategy\:"\)\.~'
-    -
-        path: docs/discounts/extend_discounts.md
-        line: 62
-        hash: 24653d7f59ac0fca6cb86161ebf94516d356563f36bc69a65d1e210a13cba6e2
-        message: '~Unable to parse at line 1 \(near "    App\\Discounts\\ExpressionProvider\\CurrentUserRegistrationDateResolver\:"\)\.~'
-    -
-        path: docs/discounts/extend_discounts.md
-        line: 185
-        hash: 415de44b6fd825b157660aec16d415842cb0dadb636b1c0014ba167fc1115973
-        message: '~Unable to parse at line 1 \(near "    App\\Discounts\\Rule\\PurchasingPowerParityRuleFactory\:"\)\.~'
-    -
-        path: docs/discounts/extend_discounts.md
-        line: 209
-        hash: 8459adf86ffd3f1fe5cccf1c12d887d783c6b6e85be7dfc77ea6c3229ba9569e
-        message: '~Unable to parse at line 1 \(near "    App\\Discounts\\Rule\\PurchaseParityValueFormatter\:"\)\.~'
-    -
-        path: docs/discounts/extend_discounts.md
-        line: 80
-        hash: 9bf9dc0f20ec840e7c362adf00680d1e67d66f9a1fe6788d32950b3dd250feae
-        message: '~Unable to parse at line 1 \(near "    App\\Discounts\\ExpressionProvider\\IsAnniversaryResolver\:"\)\.~'
-    -
-        path: docs/discounts/extend_discounts.md
-        line: 137
-        hash: e049b49c97fe7c51ab27f584e15f9283a83664ed3b4d8b2fcae1866a15d46c72
-        message: '~Unable to parse at line 1 \(near "    App\\Discounts\\Condition\\IsAccountAnniversaryConditionFactory\:"\)\.~'
-    -
-        path: docs/discounts/extend_discounts_wizard.md
-        line: 140
-        hash: 2e79e1bc175f608e6b74a9e28e9145367f4210f44e254c4f188911df6d368645
-        message: '~Unable to parse at line 1 \(near "    App\\Form\\FormMapper\\PurchasingPowerParityValueMapper\: \~"\)\.~'
     -
         path: docs/getting_started/first_steps.md
         line: 120
@@ -343,16 +273,6 @@ ignoreErrors:
         hash: ca52a936f86a66c78951579cee005c4f5b87d844b8ff5d0b2f587b6aa68054b9
         message: '~Duplicate key "connector_raptor" detected at line 6 \(near "\# Hybrid tracking"\)\.~'
     -
-        path: docs/release_notes/ez_platform_v2.4.md
-        line: 221
-        hash: ce8c6170b6011d2a9c41b665109aaaafbcbfacc10d9d5b047c53647a10e58b84
-        message: '~Unrecognized option "require_previous_session" under "security\.firewalls\.ezpublish_front\.form_login"\. Available options are "always_use_default_target_path", "check_path", "csrf_parameter", "csrf_token_id", "default_target_path", "enable_csrf", "failure_forward", "failure_handler", "failure_path", "failure_path_parameter", "form_only", "login_path", "password_parameter", "post_only", "provider", "remember_me", "success_handler", "target_path_parameter", "use_forward", "use_referer", "username_parameter"\.~'
-    -
-        path: docs/release_notes/ibexa_dxp_v5.0.md
-        line: 85
-        hash: 7d4a5637a3e036ebcdc5a4be8282aebe2bfcbaee3222981b81f739ae773111d0
-        message: '~The child config "path" under "ibexa\.repositories\.\<repository\>\.mcp\.\<server\>" must be configured\: MCP server path~'
-    -
         path: docs/templating/design_engine/add_new_design.md
         line: 16
         hash: 00526df40a7b678b4caa97a887e2c6a47689cf3e2e3d52ff42b7ef1b9a74aa0d
@@ -362,41 +282,6 @@ ignoreErrors:
         line: 99
         hash: 2c225195371a55292ddf28e3ab7ef44855d194211bf48753fc65da1a93ef112c
         message: '~Duplicate key "match" detected at line 3 \(near "match\: \[\]"\)\.~'
-    -
-        path: docs/update_and_migration/from_3.3/to_4.0.md
-        line: 237
-        hash: 95c533291d7910e0abb29943e38be57ca5d60b5535ae4f051bbf8d5e0f5c7497
-        message: '~Unrecognized option "ezrichtext" under "ibexa\.system\.admin_group\.fieldtypes"\. Available options are "ibexa_image_asset", "ibexa_richtext"\.~'
-    -
-        path: docs/update_and_migration/from_4.3/update_from_4.3_old_commerce.md
-        line: 168
-        hash: 4bde18b55236541ba54dfba017b724848ef5b509a1ffa59f367dd64c45180136
-        message: '~The child config "list" under "ibexa\.siteaccess" must be configured\: Available SiteAccess list~'
-    -
-        path: docs/update_and_migration/from_4.6/update_from_4.6.md
-        line: 524
-        hash: a773b166515790f4dbce61a47e2553e73de5c4040e3aa3c21d8b63b3e8bfb688
-        message: '~Unrecognized option "trace" under "ibexa_elasticsearch\.connections\.default"\. Available options are "authentication", "connection_pool", "connection_selector", "debug", "elastic_cloud_id", "hosts", "index_templates", "node_pool_resurrect", "node_pool_selector", "retries", "ssl"\.~'
-    -
-        path: docs/update_and_migration/from_4.6/update_from_4.6.md
-        line: 84
-        hash: be04e17ca47844960603374e75d17e91e15afb8d6a74be42a7fab5b156121ab6
-        message: '~Unrecognized option "Ibexa\\Contracts\\Shipping\\Notification\\ShipmentStatusChange" under "ibexa\.system\.my_siteacces_name\.notifications\.subscriptions"\. Available option is "timeout"\.~'
-    -
-        path: docs/update_and_migration/from_5.0/update_from_5.0.md
-        line: 238
-        hash: 105a4065685d2da256b76b8b6f35f0893e0b04e278ed03445c3df07de6b6182f
-        message: '~Unrecognized option "trace" under "ibexa_elasticsearch\.connections\.default"\. Available options are "authentication", "connection_pool", "connection_selector", "debug", "elastic_cloud_id", "hosts", "index_templates", "node_pool_resurrect", "node_pool_selector", "retries", "ssl"\.~'
-    -
-        path: docs/update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
-        line: 537
-        hash: 0578015f89f42b10f703e4fa171d2283db34626cb66fe4802663cd46faf95e4f
-        message: '~Mapping values are not allowed in multi\-line blocks at line 2 \(near "    ezpublish\.persistence\.slug_converter\:"\)\.~'
-    -
-        path: docs/update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
-        line: 548
-        hash: 1c88285aea32c1ee15509cdb4f296773e3e47c804b26699e98a1c6dac51eb66f
-        message: '~Unable to parse at line 1 \(near "    ezpublish\.persistence\.slug_converter\:"\)\.~'
     -
         path: docs/users/oauth_server.md
         line: 78

@@ -66,13 +66,12 @@ For example, to create a new price for a given currency, use `ProductPriceServic
 
 ### Resolve prices
 
-To display a product price on a product page or in the cart, you must calculate its value based on a base price and the context.
+To display a product price on a product page, you must calculate its value based on a base price and the context.
 Context contains information about any price modifiers that may apply to a specific customer group.
 To determine the final price, or resolve the price, use the [`PriceResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-PriceResolverInterface.html) service, which takes the following conditions into account:
 
 1. Existence of base price for the product in the specified currency
 2. Existence of customer group-related modifiers
-3. Existence of applicable [discounts](discounts.md)
 
 If the base price in the specified currency is missing, the return value is `null`.
 

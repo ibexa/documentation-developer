@@ -59,6 +59,25 @@ Each role you assign to user or user group consists of policies which define, wh
 |                     | <nobr>`read`</nobr>   | view the roles list in Admin. Required for all other role-related policies |                      |
 |                     | <nobr>`update`</nobr> | modify existing roles                                                      |                      |
 
+#### Segments
+
+| Module                 | Function                      | Effect                   | Possible limitations                                              |
+|------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
+| <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign segments to users | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`create`</nobr>         | create segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`read`</nobr>           | load segment information | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`remove`</nobr>         | remove segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`update`</nobr>         | update segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+
+#### Segment groups
+
+| Module                       | Function              | Effect                         | Possible limitations |
+|------------------------------|-----------------------|--------------------------------|----------------------|
+| <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create segment groups          |                      |
+|                              | <nobr>`read`</nobr>   | load segment group information |                      |
+|                              | <nobr>`remove`</nobr> | remove segment groups          |                      |
+|                              | <nobr>`update`</nobr> | update segment groups          |                      |
+
 #### Setup
 
 | Module               | Function                    | Effect                                       | Possible limitations |
@@ -68,7 +87,7 @@ Each role you assign to user or user group consists of policies which define, wh
 |                      | <nobr>`setup`</nobr>        | unused                                       |                      |
 |                      | <nobr>`system_info`</nobr>  | view the **System Information** tab in Admin |                      |
 
-#### Sites [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Sites [[% include 'snippets/experience_badge.md' %]]
 
 | Module              | Function                     | Effect                                                                                                | Possible limitations |
 |---------------------|------------------------------|-------------------------------------------------------------------------------------------------------|----------------------|
@@ -90,124 +109,6 @@ Each role you assign to user or user group consists of policies which define, wh
 |                     | <nobr>`preferences`</nobr> | access and set user preferences                   |                      |
 |                     | <nobr>`register`</nobr>    | register using the <nobr>`/register`</nobr> route |                      |
 |                     | <nobr>`selfedit`</nobr>    | unused                                            |                      |
-
-### Commerce
-
-#### Cart [[% include 'snippets/commerce_badge.md' %]]
-
-| Module              | Function              | Effect                                                              | Possible limitations                                      |
-|---------------------|-----------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
-| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cart-owner-limitation) |
-|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cart-owner-limitation) |
-|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cart-owner-limitation) |
-|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cart-owner-limitation) |
-
-#### Checkout [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                  | Function              | Effect                                                              | Possible limitations |
-|-------------------------|-----------------------|---------------------------------------------------------------------|----------------------|
-| <nobr>`checkout`</nobr> | <nobr>`create`</nobr> | create new checkout, for example, after workflow fails to complete  |                      |
-|                         | <nobr>`delete`</nobr> | delete checkout, for example, after workflow completes successfully |                      |
-|                         | <nobr>`update`</nobr> | change currency, quantity                                           |                      |
-|                         | <nobr>`view`</nobr>   | access checkout                                                     |                      |
-
-#### Currencies and regions
-
-| Module                  | Function                | Effect            | Possible limitations |
-|-------------------------|-------------------------|-------------------|----------------------|
-| <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |                      |
-|                         | <nobr>`region`</nobr>   | manage regions    |                      |
-
-#### Discounts [[% include 'snippets/commerce_badge.md' %]]
-
-The [discount](discounts.md) policies decide which actions can be executed by given user or user group.
-
-!!! caution "Customers and discount policies"
-
-    Customers don't need any policies to use the discounts on the [storefront](storefront.md).
-    Even the `discount/view` policy would allow them to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
-
-| Module               | Function                 | Effect                      | Possible limitations                                         |
-|----------------------|--------------------------|-----------------------------|----------------------------------------------------|
-| <nobr>`discount`</nobr> | <nobr>`create`</nobr> | create a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
-|                      | <nobr>`update`</nobr>    | modify discount parameters           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
-|                      | <nobr>`view`</nobr>      | view discounts (including its details)              | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
-|                      | <nobr>`delete`</nobr>    | delete a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
-|                      | <nobr>`enable`</nobr>    | enable a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
-|                      | <nobr>`disable`</nobr>   | disable a discount          | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
-
-#### Orders [[% include 'snippets/commerce_badge.md' %]]
-
-| Module               | Function              | Effect                    | Possible limitations                                         |
-|----------------------|-----------------------|---------------------------|--------------------------------------------------------------|
-| <nobr>`order`</nobr> | <nobr>`cancel`</nobr> | cancel an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-|                      | <nobr>`create`</nobr> | create an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-|                      | <nobr>`update`</nobr> | change status of an order | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-|                      | <nobr>`view`</nobr>   | view orders               | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-
-#### Payments [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                 | Function              | Effect           | Possible limitations                                            |
-|------------------------|-----------------------|------------------|-----------------------------------------------------------------|
-| <nobr>`payment`</nobr> | <nobr>`create`</nobr> | create a payment | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-|                        | <nobr>`delete`</nobr> | delete a payment | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-|                        | <nobr>`edit`</nobr>   | modify a payment | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-|                        | <nobr>`view`</nobr>   | view payments    | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-
-#### Payment methods [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                        | Function              | Effect                  | Possible limitations |
-|-------------------------------|-----------------------|-------------------------|----------------------|
-| <nobr>`payment_method`</nobr> | <nobr>`create`</nobr> | create a payment method |                      |
-|                               | <nobr>`delete`</nobr> | delete a payment method |                      |
-|                               | <nobr>`edit`</nobr>   | modify a payment method |                      |
-|                               | <nobr>`view`</nobr>   | view payment methods    |                      |
-
-#### Segments [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                 | Function                      | Effect                   | Possible limitations                                              |
-|------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
-| <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign segments to users | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`create`</nobr>         | create segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`read`</nobr>           | load segment information | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`remove`</nobr>         | remove segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`update`</nobr>         | update segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-
-#### Segment groups [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                       | Function              | Effect                         | Possible limitations |
-|------------------------------|-----------------------|--------------------------------|----------------------|
-| <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create segment groups          |                      |
-|                              | <nobr>`read`</nobr>   | load segment group information |                      |
-|                              | <nobr>`remove`</nobr> | remove segment groups          |                      |
-|                              | <nobr>`update`</nobr> | update segment groups          |                      |
-
-#### Shipments [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                  | Function              | Effect                      | Possible limitations                                               |
-|-------------------------|-----------------------|-----------------------------|--------------------------------------------------------------------|
-| <nobr>`shipment`</nobr> | <nobr>`create`</nobr> | create a shipment           | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
-|                         | <nobr>`delete`</nobr> | delete a shipment           | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
-|                         | <nobr>`update`</nobr> | change status of a shipment | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
-|                         | <nobr>`view`</nobr>   | view shipments              | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
-
-#### Shipping methods [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                         | Function              | Effect                   | Possible limitations |
-|--------------------------------|-----------------------|--------------------------|----------------------|
-| <nobr>`shipping_method`</nobr> | <nobr>`create`</nobr> | create a shipping method |                      |
-|                                | <nobr>`delete`</nobr> | delete a shipping method |                      |
-|                                | <nobr>`update`</nobr> | modify a shipping method |                      |
-|                                | <nobr>`view`</nobr>   | view shipping methods    |                      |
-
-#### Shopping lists [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                       | Function              | Effect                 | Possible limitations                                                  |
-|------------------------------|-----------------------|------------------------|-----------------------------------------------------------------------|
-| <nobr>`shopping_list`</nobr> | <nobr>`create`</nobr> | create a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
-|                              | <nobr>`delete`</nobr> | delete a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
-|                              | <nobr>`edit`</nobr>   | modify a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
-|                              | <nobr>`view`</nobr>   | view shopping lists    | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
 
 ### Content management
 
@@ -290,6 +191,13 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                        | <nobr>`delete`</nobr> | delete a catalog |                      |
 |                        | <nobr>`edit`</nobr>   | edit a catalog   |                      |
 |                        | <nobr>`view`</nobr>   | view catalogs    |                      |
+
+#### Currencies and regions
+
+| Module                  | Function                | Effect            | Possible limitations |
+|-------------------------|-------------------------|-------------------|----------------------|
+| <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |                      |
+|                         | <nobr>`region`</nobr>   | manage regions    |                      |
 
 #### Products
 

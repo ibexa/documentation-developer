@@ -25,7 +25,7 @@ You can use the provided example DAM connector for [Unsplash](https://unsplash.c
 
 To add the Unsplash connector to your system, add the `ibexa/connector-unsplash` bundle to your installation.
 
-## Add Image Asset in Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Add Image Asset in Page Builder [[% include 'snippets/experience_badge.md' %]]
 
 To add Image Assets directly in the Page Builder, you can do it by using the Embed block.
 The example below shows how to add images from [Unsplash](https://unsplash.com/).

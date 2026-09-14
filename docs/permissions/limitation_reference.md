@@ -42,17 +42,6 @@ The Activity log Owner (`ActivityLogOwner`) limitation specifies if a user can s
 |-------|-----------------|--------------------------------------------------------------|
 | `1`   | "Only own logs" | Current user can only access their own activity log entries. |
 
-## Cart Owner limitation
-
-The Cart Owner (`CartOwner`) limitation specifies whether the user can modify a cart.
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|"self"|"self"|Only the user who is the owner of the cart gets access.|
-|`null`| none |User can access all carts.|
-
 ## Change Owner limitation
 
 The Change Owner (`ChangeOwner`) limitation specifies whether the user can change the owner of a content item.
@@ -103,16 +92,6 @@ The Public Link (`PublicLink`) limitation specifies whether the user can manage 
 |"Off"|"off"| User can't manage the settings|
 |"On"|"on"| User can manage the settings|
 
-## Discount Owner limitation [[% include 'snippets/commerce_badge.md' %]]
-
-The Discount Owner (`DiscountOwner`) limitation specifies whether the user can interact with a [discount](discounts.md).
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|"self"|"self"|Only the user who is the owner of the discount gets access.|
-
 ## Content type Group limitation
 
 The Content Type Group (`UserGroup`) limitation specifies that only users with at least one common *direct* user group with the owner of content get the selected access right.
@@ -156,7 +135,7 @@ If you also combine it with `Owner of Parent` limitation, you effectively limit 
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
-## Field Group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Field Group limitation [[% include 'snippets/experience_badge.md' %]]
 
 A Field Group (`FieldGroup`) limitation specifies whether the user can work with content fields belonging to a specific group.
 A user with this limitation is allowed to edit fields belonging to the indicated group.
@@ -229,16 +208,6 @@ The Object State (`ObjectState`) limitation specifies whether the user has acces
 |------|------|------|
 |`<ObjectState_id>`|`<ObjectState_name>`|All valid Object state IDs can be set as value(s)|
 
-## Order Owner limitation
-
-The Order Owner (`OrderOwner`) limitation specifies whether the user can modify an order.
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|"self"|"self"|Users can access only their own orders. |
-
 ## Owner limitation
 
 The Owner (`Owner`) limitation specifies that only the owner of the content item gets the selected access right.
@@ -271,17 +240,6 @@ The Parent Depth (`ParentDepth`) limitation specifies whether the user has acces
 |------|------|------|
 |`<int>`|`<int>`|All valid integers can be set as value(s)|
 
-## PaymentOwner limitation
-
-The Payment Owner (`PaymentOwner`) limitation specifies whether the user can modify a payment.
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|"self"|"self"|Users can access only their own payments. |
-|"all"| none |Users can access all payments.|
-
 ## Product Type limitation
 
 The Product Type (`ProductType`) limitation specifies whether the user has access to products belonging to a specific product type.
@@ -308,7 +266,7 @@ This limitation can be used as a role limitation.
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## Segment group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Segment group limitation [[% include 'snippets/experience_badge.md' %]]
 
 The segment group (`SegmentGroup`) limitation specifies whether the user has access segments within a specific segment group.
 
@@ -319,17 +277,6 @@ This limitation can be used as a role limitation.
 |Value|UI value|Description|
 |------|------|------|
 |`<Segment_group_id>`|`<Segment_group_name>`|All valid segment group IDs can be set as value(s).|
-
-## Shopping list limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-The Shopping List Owner (`ShoppingListOwner`) limitation specifies whether the user can modify a [shopping list](shopping_list.md).
-
-### Possible values
-
-| Value  | UI value | Description                                                      |
-|--------|----------|------------------------------------------------------------------|
-| "self" | "self"   | Only the user who is the owner of the shopping list gets access. |
-| `null` | none     | User can access all shopping lists.                              |
 
 ## SiteAccess limitation
 
@@ -344,16 +291,6 @@ The SiteAccess (`SiteAccess`) limitation specifies to which SiteAccesses a certa
 ### Legacy compatibility notes
 
 `SiteAccess` limitation is deprecated and isn't used actively in public PHP API, but is allowed for being able to read / create limitations for legacy.
-
-## Shipment Owner limitation
-
-The Shipment Owner (`ShipmentOwner`) limitation specifies whether the user can modify a shipment.
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|"self"|"self"|Users can access only their own shipments. |
 
 ## Subtree limitation
 

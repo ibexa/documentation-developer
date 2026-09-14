@@ -75,7 +75,7 @@ The [`activity_log/read`](policies.md#activity-log) policy gives a role the acce
 It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activity-log-owner-limitation)).
 
 The policy should be given to every roles having access to the back office, at least with the `ActivityLogOwner` owner limitation, to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
-This policy is required to view [activity log in user profile]([[= user_doc =]]/getting_started/get_started/#view-and-edit-user-profile), if [profile is enabled](update_from_4.5.md#user-profile).
+This policy is required to view [activity log in user profile]([[= user_doc =]]/getting_started/get_started/#view-and-edit-user-profile), if the user profile is enabled.
 
 !!! caution
 

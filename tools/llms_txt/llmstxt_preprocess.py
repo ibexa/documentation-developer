@@ -28,7 +28,6 @@ from bs4 import BeautifulSoup as Soup, NavigableString
 PILL_CLASS_TO_EDITION = {
     "pill--lts-update": "LTS Update",
     "pill--experience": "Experience",
-    "pill--commerce": "Commerce",
     "pill--headless": "Headless",
     "pill--new-feature": "New feature",
     "pill--first-release": "First release",
@@ -37,7 +36,6 @@ PILL_CLASS_TO_EDITION = {
 FRONTMATTER_EDITION_DISPLAY = {
     "lts-update": "LTS Update",
     "experience": "Experience",
-    "commerce": "Commerce",
     "headless": "Headless",
 }
 
@@ -206,8 +204,8 @@ def _process_inline_pills(soup: Soup) -> None:
     """Replace inline edition pill spans with readable text.
 
     Consecutive pills (possibly separated by whitespace) are merged into a
-    single parenthetical, e.g. ' (Experience, Commerce)' instead of
-    ' (Experience) (Commerce)'.
+    single parenthetical, e.g. ' (Headless, Experience)' instead of
+    ' (Headless) (Experience)'.
     """
     for span in soup.find_all("span", class_="pill--inline"):
         if span.parent is None:  # already consumed as part of a previous run

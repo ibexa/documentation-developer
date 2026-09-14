@@ -22,15 +22,13 @@ The minimal requirements are:
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
-For more information on requirements, see [Requirements page](requirements.md).
-
 It's also recommended to use:
 
 - [Solr](solr_overview.md) or [Elasticsearch](elasticsearch_overview.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
     - you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover
-- more recent versions of PHP and MySQL/MariaDB within [what is supported](requirements.md) for your [[= product_name =]] version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+- more recent versions of PHP and MySQL/MariaDB supported by your [[= product_name =]] version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
 
 ### Shared persistence cache
 

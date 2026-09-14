@@ -30,7 +30,6 @@ This feature also introduces new dashboard tabs for managing shared drafts and j
 "content_management/collaborative_editing/collaborative_editing_api",
 "api/event_reference/collaboration_events",
 ("https://doc.ibexa.co/en/6.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions", "REST API Reference", "See the available endpoints for Collaborative editing"),
-"content_management/collaborative_editing/extend_collaborative_editing",
 "search/collaboration_search_reference/collaboration_criteria",
 "search/collaboration_search_reference/collaboration_sort_clauses",
 ], columns=4) =]]

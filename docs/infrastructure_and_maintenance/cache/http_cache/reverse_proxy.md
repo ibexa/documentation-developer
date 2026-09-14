@@ -168,7 +168,7 @@ If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please 
 
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
-### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]]
 
 If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable sending Captcha data as a response to an Ajax request.
 Otherwise, Varnish doesn't allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
@@ -184,7 +184,7 @@ ibexa:
                     use_ajax: true
 ```
 
-### Update custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Update custom Captcha block [[% include 'snippets/experience_badge.md' %]]
 
 If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
 
