@@ -1,9 +1,30 @@
 openapi:
   hideHostname: true
   theme:
+    # Cohesivo palette. Without this block Redoc renders in its stock indigo.
+    # Values mirror docs/css/tokens.css; primary is --cohesivo-primary-80.
+    colors:
+      primary:
+        main: '#4E24A5'
+      success:
+        main: '#146D00'
+      warning:
+        main: '#A85000'
+      error:
+        main: '#BA2124'
+      text:
+        primary: '#0E1216'
+    typography:
+      fontFamily: "'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      headings:
+        fontFamily: "'Work Sans', 'Futura', 'Avenir Next', sans-serif"
+      code:
+        color: '#4E24A5'
+    sidebar:
+      activeTextColor: '#4E24A5'
     logo:
-      maxWidth: '76px!important'
-      maxHeight: '26px'
+      maxWidth: '160px!important'
+      maxHeight: '32px'
   downloadUrls:
     - title: Download as YAML
       url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/$VERSION/docs/api/rest_api/rest_api_reference/openapi.yaml'
