@@ -1,38 +1,35 @@
 # RichText field type
 
-The RichText field type is available via the RichText field type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
-
 This field type validates and stores structured rich text in [DocBook](https://docbook.org/) XML format, and exposes it in several formats.
 
-| Name       | Internal name    | Expected input |
-|------------|------------------|----------------|
-| `RichText` | `ibexa_richtext` | mixed          |
+| Name       | Internal name    |
+|------------|------------------|
+| `RichText` | `ibexa_richtext` |
 
-## PHP API field type
+## Field value
 
-### Value object
+The field value is an object with the following keys:
 
-`Ibexa\FieldTypeRichText\FieldType\RichText\Value` offers the following properties:
+| Key          | Type     | Description                                                                                       |
+|--------------|----------|-----------------------------------------------------------------------------------------------------|
+| `xml`        | `string` | The rich text in the field type's [internal format](#internal-format), a custom flavor of DocBook. |
+| `xhtml5edit` | `string` | The same content in the [XHTML5 edit format](#xhtml5-edit-format). Read-only, added by the API on output only. |
 
-| Property | Type          | Description                                            |
-|----------|---------------|--------------------------------------------------------|
-| `xml`    | `DOMDocument` | Internal format value as an instance of `DOMDocument`. |
+``` json
+{
+    "fieldDefinitionIdentifier": "description",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:ezxhtml=\"http://ibexa.co/xmlns/dxp/docbook/xhtml\" xmlns:ezcustom=\"http://ibexa.co/xmlns/dxp/docbook/custom\" version=\"5.0-variant ezpublish-1.0\">\n  <title ezxhtml:level=\"2\">This is a title.</title>\n  <para>This is a paragraph.</para>\n</section>\n",
+        "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+    }
+}
+```
 
-### Input expectations
+When you create or update a field, provide the `xml` key only.
+If the input doesn't conform to the internal format, it's converted into it.
 
-| Type                                               | Description                                                                      |
-|----------------------------------------------------|----------------------------------------------------------------------------------|
-| `string`                                           | XML document in one of the field type's input formats as a string.               |
-| `DOMDocument`                                      | XML document in one of the field type's input formats as a `DOMDocument` object. |
-| `Ibexa\FieldTypeRichText\FieldType\RichText\Value` | An instance of the field type's `Value` object.                                  |
-
-### Input formats
-
-The field type expects an XML value as input, in the form of a string, `DOMDocument` object, or field type's `Value` object.
-The field type's `Value` object must hold the value in the field type's [internal format](#internal-format).
-For a string of a `DOMDocument` object, if the input doesn't conform to this format, it's converted into it.
-
-#### Internal format
+### Internal format
 
 As its internal format, the RichText field type uses a [custom flavor of the DocBook format](#custom-docbook-format).
 
@@ -48,9 +45,9 @@ As its internal format, the RichText field type uses a [custom flavor of the Doc
 </section>
 ```
 
-#### XHTML5 edit format
+### XHTML5 edit format
 
-The XHTML5 format is used by the Online Editor.
+The XHTML5 format is used by the Online Editor and is returned under the `xhtml5edit` key.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -66,43 +63,8 @@ The XHTML5 format is used by the Online Editor.
 
     The custom DocBook format described below is subject to change and isn't covered by backwards compatibility promise.
 
-You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests by providing the DocBook content as a string.
-
-The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
-
-``` php
-/**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType $contentType
- */
-$contentCreateStruct = $contentService->newContentCreateStruct($contentType, 'eng-GB');
-
-$inputString = <<<DOCBOOK
-<?xml version="1.0" encoding="UTF-8"?>
-<section xmlns="http://docbook.org/ns/docbook"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
-         xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
-         version="5.0-variant ezpublish-1.0">
-    <title ezxhtml:level="2">This is a title.</title>
-    <para ezxhtml:class="paraClass">This is a paragraph.</para>
-</section>
-DOCBOOK;
-
-$contentCreateStruct->setField('description', $inputString);
-```
-
-When creating RichText content with the REST API, use the `xml` key of the `fieldValue` tag:
-
-``` xml
-<fieldValue>
-    <value key="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
-&lt;title ezxhtml:level="2"&gt;This is a title.&lt;/title&gt;
-&lt;/section&gt;
-    </value>
-</fieldValue>
-```
+You provide the DocBook content as a string under the `xml` key of the field value.
+The examples below show the DocBook markup that goes into that string.
 
 ### DocBook elements
 

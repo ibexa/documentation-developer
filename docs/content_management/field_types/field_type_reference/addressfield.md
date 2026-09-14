@@ -3,29 +3,57 @@
 This field represents and handles address fields.
 It allows you to customize address fields per country.
 
-| Name      | Internal name   | Expected input              |
-|-----------|-----------------|-----------------------------|
-| `Address` | `ibexa_address` | `string`, `string`, `array` |
+| Name      | Internal name   |
+|-----------|-----------------|
+| `Address` | `ibexa_address` |
 
+## Field value
 
-## Inputs
+The field value is an object with the following keys:
 
-| Type     | Description                                   | Example           |
-|----------|-----------------------------------------------|-------------------|
-| `string` | Name of the address.                          | `My home address` |
-| `string` | Country code in ISO 3166-1 alpha-2 format.    | `PL`              |
-| `array`  | Additional fields, defined by address format. | see below         |
+| Key       | Type     | Description                                                   | Example           |
+|-----------|----------|---------------------------------------------------------------|-------------------|
+| `name`    | `string` | Name of the address.                                          | `My home address` |
+| `country` | `string` | Country code in ISO 3166-1 alpha-2 format.                    | `NO`              |
+| `fields`  | `object` | Additional fields, keyed by identifier.                       | See below.        |
+
+The keys available under `fields` depend on the address format configured for the country and on the `type` field definition setting.
+
+``` json
+{
+    "fieldDefinitionIdentifier": "billing_address",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "name": "Headquarters",
+        "country": "NO",
+        "fields": {
+            "region": "Company HQ location region",
+            "locality": "Company HQ location city",
+            "street": "Company HQ location street and building",
+            "postal_code": "00000",
+            "email": "company@email.invalid",
+            "phone_number": "+47 000 000 000"
+        }
+    }
+}
+```
 
 ## Validation
 
-This field type validates whether `Country` and `Name` fields have been filled out.
+This field type validates whether the `name` and `country` keys have been filled out.
 
-### Properties
+## Settings
 
-| Property   | Type     | Description                                   |
-|------------|----------|-----------------------------------------------|
-| `$name`    | `string` | Name of the address.                          |
-| `$country` | `string` | Country code in ISO 3166-1 alpha-2 format.    |
-| `$fields`  | `array`  | Additional fields, defined by address format. |
+The field definition of this field type can be configured with a single option:
 
+| Name   | Type     | Default value  | Description                                              |
+|--------|----------|----------------|------------------------------------------------------------|
+| `type` | `string` | `"personal"`   | Identifier of the address format used by this field. |
+
+``` json
+{
+    "fieldSettings": {
+        "type": "personal"
+    }
+}
 ```

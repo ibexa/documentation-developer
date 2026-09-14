@@ -1,49 +1,21 @@
 # Checkbox field type
 
-The Checkbox field type stores the current status for a checkbox input, checked or unchecked, by storing a boolean value.
+The Checkbox field type stores the current status for a checkbox input, checked or unchecked.
 
-| Name       | Internal name   | Expected input type |
-|------------|-----------------|---------------------|
-| `Checkbox` | `ibexa_boolean` | `boolean`           |
+| Name       | Internal name   |
+|------------|-----------------|
+| `Checkbox` | `ibexa_boolean` |
 
-## PHP API field type
+## Field value
 
-### Value object
+The field value is a boolean: `true` when the checkbox is checked, `false` when it isn't.
+It's never considered empty.
 
-#### Properties
-
-The Value class of this field type contains the following properties:
-
-| Property | Type      | Default value | Description                                                                    |
-|----------|-----------|---------------|--------------------------------------------------------------------------------|
-| `$bool`  | `boolean` | `false`       | This property is used for the checkbox status, represented by a boolean value. |
-
-``` php
-//Value object content examples
-use Ibexa\Core\FieldType\Checkbox;
-
-// Instantiates a checkbox value with a default state (false)
-$checkboxValue = new Checkbox\Value();
-
-// Checked
-$checkboxValue->bool = true;
-
-// Unchecked
-$checkboxValue->bool = false;
+``` json
+{
+    "fieldDefinitionIdentifier": "enable_comments",
+    "languageCode": "eng-GB",
+    "fieldValue": true
+}
 ```
 
-##### Constructor
-
-The `Checkbox\Value` constructor accepts a boolean value:
-
-``` php
-// Constructor example
-use Ibexa\Core\FieldType\Checkbox;
-
-// Instantiates a checkbox value with a checked state
-$checkboxValue = new Checkbox\Value(true);
-```
-
-##### String representation
-
-As this field type isn't a string but a boolean, it returns "1" (true) or "0" (false) in cases where it's cast to string, and it's never considered empty.

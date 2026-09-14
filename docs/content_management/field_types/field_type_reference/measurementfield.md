@@ -3,142 +3,89 @@
 The Measurement field type represents measurement information.
 It stores the unit of measure, and either a single measurement value, or a pair of top and bottom values that defines a range.
 
-| Name          | Internal name       | Expected input type                                |
-|---------------|---------------------|----------------------------------------------------|
-| `Measurement` | `ibexa_measurement` | `Ibexa\Contracts\Measurement\Value\ValueInterface` |
+| Name          | Internal name       |
+|---------------|---------------------|
+| `Measurement` | `ibexa_measurement` |
 
-## PHP API field type
+## Field value
 
-### Input expectations
+The field value is an object, or `null` when the field is empty.
+Its shape depends on the `inputType` key:
 
-To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface`.
-You must inject the service directly with [dependency injection](php_api.md#service-container).
-The service contains the following API endpoints:
+| Key                            | Type      | Description                                                             | Example      |
+|--------------------------------|-----------|---------------------------------------------------------------------------|--------------|
+| `measurementType`              | `string`  | Type of measurement, for example `length` or `mass`.                     | `length`     |
+| `measurementUnit`              | `string`  | Identifier of the unit of measure, for example `centimeter`.             | `centimeter` |
+| `inputType`                    | `integer` | `0` for a single value, `1` for a range.                                 | `0`          |
+| `value`                        | `float`   | The measurement value. Used when `inputType` is `0`.                     | `2.5`        |
+| `measurementRangeMinimumValue` | `float`   | Bottom value of the range. Used when `inputType` is `1`.                 | `1.2`        |
+| `measurementRangeMaximumValue` | `float`   | Top value of the range. Used when `inputType` is `1`.                    | `4.5`        |
 
-- `buildSimpleValue` that is used to handle a single value
-- `buildRangeValue` that is used to handle a range
+A single value:
 
-Assuming that the service exists as `$measurementService`, the expected input examples are as follows:
-
-| Type                                                    | Example                                                              |
-|---------------------------------------------------------|----------------------------------------------------------------------|
-|`\Ibexa\Contracts\Measurement\Value\SimpleValueInterface`| `$measurementService->buildSimpleValue('length', 2.5, 'centimeter')` |
-|`\Ibexa\Contracts\Measurement\Value\RangeValueInterface` | `$measurementService->buildRangeValue('length', 1.2, 4.5,  'inch')`  |
-
-### Value object
-
-#### Properties
-
-The Value class of this field type contains the following properties:
-
-| Property | Type                                               | Description                                                                                                                                                                               |
-|----------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$value` | `Ibexa\Contracts\Measurement\Value\ValueInterface` | Stores the Measurement API Value, which can be either an instance of `Ibexa\Contracts\Measurement\Value\SimpleValueInterface` or `Ibexa\Contracts\Measurement\Value\RangeValueInterface`. |
-
-#### Constructor
-
-The `Measurement\Value` constructor for this value object initializes a new value object with the value provided.
-As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value\ValueInterface` type.
-
-Depending on the selected input type, the object resembles the following examples:
-
-``` php
-// Simple input (single value) example
-
-use Ibexa\Measurement\FieldType\MeasurementValue;
-
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
-
-// Instantiates a Measurement Value object
-$measurementValue = new MeasurementValue(
-    $measurementService->buildSimpleValue(
-        'length',
-        13.5,
-        'centimeter'
-    )
-);
+``` json
+{
+    "fieldDefinitionIdentifier": "length",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "measurementType": "length",
+        "measurementUnit": "centimeter",
+        "value": 2.5,
+        "inputType": 0
+    }
+}
 ```
 
-``` php
-// Range input value example
+A range:
 
-use Ibexa\Measurement\FieldType\MeasurementValue;
-
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
-
-// Instantiates a Measurement Value object
-$measurementValue = new MeasurementValue(
-    $measurementService->buildRangeValue(
-        'volume',
-        0.5,
-        0.7,
-        'liter'
-    )
-);
+``` json
+{
+    "fieldDefinitionIdentifier": "length",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "measurementType": "length",
+        "measurementUnit": "inch",
+        "measurementRangeMinimumValue": 1.2,
+        "measurementRangeMaximumValue": 4.5,
+        "inputType": 1
+    }
+}
 ```
 
-### Validation
+## Measurement types and units
 
-The Measurement field type validates measurement types and units passed within the value object against a list of the ones that the system supports, which can be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
+The following measurement types are available: `length`, `area`, `mass`, `pressure`, `speed`, `temperature`, `time`, `volume`, `datatransferrate`, and `energy`.
+Each type comes with a set of units, for example `meter`, `centimeter`, `millimeter`, `foot`, `inch`, and `yard` for `length`.
 
-### Modify and add Measurement types and units
+## Validation
 
-You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones.
-To do this, you modify the YAML configuration.
+The field type validates the measurement type and unit passed in the value against the list of supported ones.
 
-To override an existing designation of the unit of measure by changing the symbol that corresponds to a nautical unit of speed, and to add a rotational speed unit, add the following lines to your [YAML configuration](configuration.md#configuration-files):
+The field type supports `MeasurementValidator`, which constrains what the field accepts:
 
-```yaml
-ibexa_measurement:
-    types:
-        speed:
-            knot: { symbol: kt }
-            revolutions per minute: { symbol: RPM }
+| Name                       | Type      | Default value | Description                                                     |
+|----------------------------|-----------|---------------|-------------------------------------------------------------------|
+| `measurementType`          | `string`  | `null`        | The only measurement type accepted by the field.                |
+| `measurementUnit`          | `string`  | `null`        | The only unit of measure accepted by the field.                 |
+| `inputType`                | `integer` | `null`        | `0` to accept a single value only, `1` to accept a range only.  |
+| `sign`                     | `string`  | `null`        | Comparison operator applied to `minimum` and `maximum`.         |
+| `minimum`                  | `float`   | `null`        | Minimum accepted value.                                         |
+| `maximum`                  | `float`   | `null`        | Maximum accepted value.                                         |
+| `defaultValue`             | `float`   | `null`        | Default single value.                                           |
+| `defaultRangeMinimumValue` | `float`   | `null`        | Default bottom value of the range.                              |
+| `defaultRangeMaximumValue` | `float`   | `null`        | Default top value of the range.                                 |
 
-ibexa:
-    system:
-        default:
-            measurement:
-                types:
-                    speed:
-                        - revolutions per minute
+``` json
+{
+    "validatorConfiguration": {
+        "MeasurementValidator": {
+            "measurementType": "length",
+            "measurementUnit": "centimeter",
+            "inputType": 0,
+            "minimum": 0.0,
+            "maximum": 100.0
+        }
+    }
+}
 ```
 
-To add a new Measurement type with its own new units, add the following lines to your YAML configuration:
-
-```yaml hl_lines="4"
-ibexa_measurement:
-    types:
-        my_type:
-            my_unit: { symbol: my, is_base_unit: true }
-ibexa:
-    system:
-        default:
-            measurement:
-                types:
-                    my_type:
-                        - my_unit
-```
-
-The configuration also requires that exactly one unit needs to be marked as `is_base_unit` as in highlighted line above.
-
-!!! note
-
-    To be available for selection in the back office, each new Measurement type or unit must be enabled for the back office SiteAccess.
-
-Next, you need to define how the new unit should be converted under the `ibexa.system.<scope>.ibexa_measurement` [configuration key](configuration.md#configuration-files):
-
-```yaml
-ibexa_measurement:
-    conversion:
-        formulas:
-            - { source_unit: foo, target_unit: bar, formula: 'value / 100' }
-    types:
-        length:
-            foo: { symbol: foo }
-            bar: { symbol: bar }
-```
-
-!!! tip
-
-    The `target_unit` must be an existing unit, for example meter, otherwise the conversion results in an error.

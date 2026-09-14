@@ -2,98 +2,62 @@
 
 This field type represents a date without time information.
 
-| Name   | Internal name | Expected input type |
-|--------|---------------|---------------------|
-| `Date` | `ibexa_date`  | mixed               |
-
-## PHP API field type
-
-### Input expectations
-
-If input value is in `string` or `integer` format, it's passed directly to [PHP's built-in `\DateTime` class constructor](https://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
-
-It's also possible to directly pass an instance of `\DateTime`.
-
-| Type        | Example                            |
-|-------------|------------------------------------|
-| `string`    | `"2012-08-28 12:20 Europe/Berlin"` |
-| `integer`   | `1346149200`                       |
-| `\DateTime` | `new \DateTime()`                  |
-
 Time information is **not stored**.
-
 Before storing, the provided input value is set to the beginning of the day in the given or the environment timezone.
 
-### Value object
+| Name   | Internal name |
+|--------|---------------|
+| `Date` | `ibexa_date`  |
 
-#### Properties
+## Field value
 
-The Value class of this field type contains the following properties:
+The field value is an object with the following keys, or `null` when the field is empty:
 
-| Property | Type        | Description                                 |
-|----------|-------------|---------------------------------------------|
-| `$date`  | `\DateTime` | This property is used for the text content. |
+| Key         | Type      | Description                                                                          | Example                                 |
+|-------------|-----------|--------------------------------------------------------------------------------------|-----------------------------------------|
+| `timestamp` | `integer` | Date information in [Unix format timestamp](https://en.wikipedia.org/wiki/Unix_time). | `1400856992`                            |
+| `rfc850`    | `string`  | Date information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). | `"Friday, 23-May-14 14:56:14 GMT+0000"` |
 
-##### String representation
-
-String representation of the date value generates the date string in the format "l d F Y" as accepted by [PHP's built-in `date()` function](https://www.php.net/manual/en/function.date.php).
-
-| Character | Description                                                         | Example   |
-|-----------|---------------------------------------------------------------------|-----------|
-| l         | Textual representation of a day of the week, range Monday to Sunday | Wednesday |
-| d         | Two digit representation of a day, range 01 to 31                   | 22        |
-| F         | Textual representation of a month, range January to December        | May       |
-| Y         | Four digit representation of a year                                 | 2016      |
-
-Example: `Wednesday 22 May 2016`
-
-##### Constructor
-
-The constructor for this value object initializes a new value object with the value provided.
-It accepts an instance of [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php).
-
-### Hash format
-
-Hash value of this field type is an array with two keys:
-
-| Key         | Type      | Description                                                                                                                                                         | Example                                 |
-|-------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `timestamp` | `integer` | Time information in [Unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                               | `1400856992`                            |
-| `rfc850`    | `string`  | Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this has higher precedence over the timestamp value. | `"Friday, 23-May-14 14:56:14 GMT+0000"` |
-
-``` php
-// Example of the hash value in PHP
-$hash = [
-    'timestamp' => 1400856992,
-    'rfc850' => 'Friday, 23-May-14 14:56:14 GMT+0000',
-];
+``` json
+{
+    "fieldDefinitionIdentifier": "publication_date",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "timestamp": 1400856992,
+        "rfc850": "Friday, 23-May-14 14:56:14 GMT+0000"
+    }
+}
 ```
 
-### Validation
+On input, you can provide any one of the following keys. `rfc850` takes precedence over `timestring`, which takes precedence over `timestamp`:
+
+| Key          | Type      | Description                                    | Example                            |
+|--------------|-----------|------------------------------------------------|------------------------------------|
+| `rfc850`     | `string`  | Date as an RFC 850 string.                     | `"Friday, 23-May-14 14:56:14 GMT+0000"` |
+| `timestring` | `string`  | Date as a string in any commonly used format.  | `"2012-08-28 12:20 Europe/Berlin"` |
+| `timestamp`  | `integer` | Date as a Unix timestamp.                      | `1346149200`                       |
+
+## Validation
 
 This field type doesn't perform any special validation of the input value.
 
-### Settings
+## Settings
 
 The field definition of this field type can be configured with a single option:
 
-| Name          | Type    | Default value         | Description                                                                                                                             |
-|---------------|---------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `defaultType` | `mixed` | `Type::DEFAULT_EMPTY` | One of the `DEFAULT_*` constants, used by the administration interface for setting the default field value. See below for more details. |
+| Name          | Type     | Default value     | Description                                                        |
+|---------------|----------|-------------------|----------------------------------------------------------------------|
+| `defaultType` | `string` | `"DEFAULT_EMPTY"` | Default field value used by the editing interface. See the values below. |
 
-Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\Date\Type` class:
+| Value                    | Description                      |
+|--------------------------|----------------------------------|
+| `"DEFAULT_EMPTY"`        | Default value is empty.          |
+| `"DEFAULT_CURRENT_DATE"` | Default value uses current date. |
 
-| Constant               | Description                      |
-|------------------------|----------------------------------|
-| `DEFAULT_EMPTY`        | Default value is empty.          |
-| `DEFAULT_CURRENT_DATE` | Default value uses current date. |
-
-``` php
-// Date field type example settings
-
-use Ibexa\Core\FieldType\Date\Type;
-
-$settings = [
-    'defaultType' => Type::DEFAULT_EMPTY,
-];
+``` json
+{
+    "fieldSettings": {
+        "defaultType": "DEFAULT_CURRENT_DATE"
+    }
+}
 ```

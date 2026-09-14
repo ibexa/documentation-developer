@@ -8,154 +8,140 @@ The Image field type allows you to store an image file.
 
 A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations, for example, large, small, medium, or black and white thumbnail.
 
-## PHP API field type
+## Field value
 
-### Value object
+The field value is an object with the following keys, or `null` when the field is empty:
 
-The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
+| Key               | Type      | Description                                                                                     | Example                                       |
+|-------------------|-----------|-------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| `id`              | `string`  | The image's unique identifier. Usually the path, or a part of the path.                          | `0/8/4/1/1480-1-eng-GB/image.png`             |
+| `alternativeText` | `string`  | The alternative text, as entered in the field's properties. Optional unless the `AlternativeTextValidator` requires it. | `Picture of an apple.`                        |
+| `fileName`        | `string`  | The original image's filename, without the path.                                                 | `image.png`                                   |
+| `fileSize`        | `integer` | The original image's size, in bytes.                                                             | `37931`                                       |
+| `mime`            | `string`  | The image's MIME type.                                                                        | `image/png`                                   |
+| `uri`             | `string`  | The original image's URI.                                                                        | `/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` |
+| `imageId`         | `string`  | Image ID used to address image variations.                                                       | `240-1480`                                    |
+| `inputUri`        | `string`  | Input image file URI.                                                                            | `var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` |
+| `path`            | `string`  | Same value as `inputUri`, with a leading slash.                                                  | `/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` |
+| `width`           | `integer` | Original image width in pixels.                                                                  | `960`                                         |
+| `height`          | `integer` | Original image height in pixels.                                                                 | `540`                                         |
+| `additionalData`  | `object`  | Extra information about the image, if available.                                                 | `{}`                                          |
+| `variations`      | `object`  | Available image variations, keyed by variation identifier. Read-only, added by the API on output only. | See below.                                    |
 
-#### Properties
+``` json
+{
+    "id": 1480,
+    "fieldDefinitionIdentifier": "image",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "id": "0/8/4/1/1480-1-eng-GB/image.png",
+        "alternativeText": "Picture of an apple.",
+        "fileName": "image.png",
+        "fileSize": 37931,
+        "imageId": "240-1480",
+        "uri": "/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png",
+        "inputUri": "var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png",
+        "width": 960,
+        "height": 540,
+        "variations": {
+            "articleimage": {
+                "href": "/api/ibexa/v2/content/binary/images/240-1480/variations/articleimage"
+            },
+            "articlethumbnail": {
+                "href": "/api/ibexa/v2/content/binary/images/240-1480/variations/articlethumbnail"
+            }
+        }
+    }
+}
+```
 
-| Property          | Type   | Example                                                          | Description                                                                                                                                                                                                                                                          |
-|-------------------|--------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`              | string | `0/8/4/1/1480-1-eng-GB/image.png`                                | The image's unique identifier. Usually the path, or a part of the path. To get the full path, use the `uri` property.                                                                                                                                                |
-| `alternativeText` | string | `Picture of an apple.`                                           | The alternative text, as entered in the field's properties. This property is optional. It's recommended that you require the alternative text for an image when you add the Image field to a content type, by selecting the "Alternative text is required" checkbox. |
-| `fileName`        | string | `image.png`                                                      | The original image's filename, without the path.                                                                                                                                                                                                                     |
-| `fileSize`        | int    | `37931`                                                          | The original image's size, in bytes.                                                                                                                                                                                                                                 |
-| `uri`             | string | `var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` | The original image's URI.                                                                                                                                                                                                                                            |
-| `imageId`         | string | `240-1480`                                                       | A special image ID, used by REST.                                                                                                                                                                                                                                    |
-| `inputUri`        | string | `var/storage/images/test/199-2-eng-GB/image.png`                 | Input image file URI.                                                                                                                                                                                                                                                |
-| `width`           | int    | `960`                                                            | Original image width in pixels.                                                                                                                                                                                             |
-| `height`          | int    | `540`                                                            | Original image height in pixels.                                                                                                                                                                                            |
+## Image variations
 
-### Settings
+For each variation, the field value provides a URI.
+Requesting that resource generates the variation if it doesn't exist yet, and returns the variation details as a `ContentImageVariation`:
 
-This field type doesn't support settings.
+``` json
+{
+    "ContentImageVariation": {
+        "_media-type": "application/vnd.ibexa.api.ContentImageVariation+json",
+        "_href": "/api/ibexa/v2/content/binary/images/240-1480/variations/tiny",
+        "uri": "/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image_tiny.png",
+        "contentType": "image/png",
+        "width": 30,
+        "height": 30,
+        "fileSize": 1361
+    }
+}
+```
 
-### Image variations
+## Creating and updating an Image field
 
-Using the variation Service, variations of the original image can be obtained.
-They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
+To send image contents, provide them as a base64-encoded string under the `data` key, together with `fileName`:
 
-| Property       | Type     | Example                                          | Description                                                                                                                                |
-|----------------|----------|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `width`        | int      | `200`                                            | The variation's width in pixels.                                                                                                           |
-| `height`       | int      | `112`                                            | The variation's height in pixels.                                                                                                          |
-| `name`         | string   | `medium`                                         | The variation's identifier, name of the image variation.                                                                                   |
-| `info`         | mixed    | n/a                                              | Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value is `null`. |
-| `fileSize`     | int      | `31010`                                          | Size (in byte) of current variation.                                                                                                       |
-| `mimeType`     | string   | `image/png`                                      | The MIME type.                                                                                                                             |
-| `fileName`     | string   | `my_image.png`                                   | The name of the file.                                                                                                                      |
-| `dirPath`      | string   | `var/storage/images/test/199-2-eng-GB`           | The path to the file.                                                                                                                      |
-| `uri`          | string   | `var/storage/images/test/199-2-eng-GB/apple.png` | The variation's URI. Complete path with a name of image file.                                                                              |
-| `lastModified` | DateTime | ``"2017-08-282 12:20 Europe/Berlin"``            | When the variation was last modified.                                                                                                      |
+``` json
+{
+    "fieldDefinitionIdentifier": "image",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "fileName": "rest-rocks.jpg",
+        "alternativeText": "HTTP",
+        "data": "/9j/4AAQSkZJRgABAQEAZABkAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcG..."
+    }
+}
+```
 
-### Field Definition options
+Updating an Image field requires that you re-send the existing data.
+You can do this by reusing the field value you read from the API, **removing the `variations` key**, and updating `alternativeText`, `fileName`, or `data`.
+If you don't want to change the image itself, don't provide the `data` key.
 
-The Image field type supports one `FieldDefinition` option: the maximum size for the file.
+``` json
+{
+    "fieldDefinitionIdentifier": "image",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "id": "media/images/507-1-eng-GB/Existing-image.png",
+        "alternativeText": "Updated alternative text",
+        "fileName": "Updated-filename.png"
+    }
+}
+```
 
-!!! note
+## Validation
 
-    Maximum size is 10MB.
-    We recommend setting the `upload_max_filesize` key in the `php.ini` configuration file to a value equal to or higher than that.
-    It prevents validation errors while editing content types.
+The field type supports the following validators:
+
+| Name                                    | Type      | Default value | Description                                        |
+|-----------------------------------------|-----------|---------------|------------------------------------------------------|
+| `FileSizeValidator[maxFileSize]`        | `numeric` | `null`        | Maximum size of the image file in bytes.           |
+| `AlternativeTextValidator[required]`    | `boolean` | `false`       | When `true`, the `alternativeText` key is required. |
+
+``` json
+{
+    "validatorConfiguration": {
+        "FileSizeValidator": {
+            "maxFileSize": 10485760
+        },
+        "AlternativeTextValidator": {
+            "required": true
+        }
+    }
+}
+```
+
+## Settings
+
+| Name        | Type    | Default value | Description                                                                       |
+|-------------|---------|---------------|-------------------------------------------------------------------------------------|
+| `mimeTypes` | `array` | `[]`          | MIME types accepted by the field. When empty, all image MIME types are accepted. |
+
+``` json
+{
+    "fieldSettings": {
+        "mimeTypes": ["image/jpeg", "image/png"]
+    }
+}
+```
 
 ## Using an Image field
 
-To read more about handling images and image variations, see the [Images documentation](images.md).
-
-### With the REST API
-
-Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type.
-An Image field looks like this:
-
-``` xml
-<field>
-    <id>1480</id>
-    <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
-    <languageCode>eng-GB</languageCode>
-    <fieldValue>
-        <value key="inputUri">/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding.png</value>
-        <value key="alternativeText"></value>
-        <value key="fileName">kidding.png</value>
-        <value key="fileSize">37931</value>
-        <value key="imageId">240-1480</value>
-        <value key="uri">/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding.png</value>
-        <value key="variations">
-            <value key="articleimage">
-                <value key="href">/api/ibexa/v2/content/binary/images/240-1480/variations/articleimage</value>
-            </value>
-            <value key="articlethumbnail">
-                <value key="href">/api/ibexa/v2/content/binary/images/240-1480/variations/articlethumbnail</value>
-            </value>
-        </value>
-    </fieldValue>
-</field>
-```
-
-Children of the `fieldValue` node list the general properties of the field's original image (for example, `fileSize`, `fileName`, or `inputUri`), and its variations.
-For each variation, a URI is provided.
-Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
-
-``` xml
-<ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">
-  <uri>/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding_tiny.png</uri>
-  <contentType>image/png</contentType>
-  <width>30</width>
-  <height>30</height>
-  <fileSize>1361</fileSize>
-</ContentImageVariation>
-```
-
-### From REST
-
-The REST API expects field values to be provided in a hash-like structure.
-Those keys are identical to those expected by the `Image\Value` constructor: `fileName`, `alternativeText`.
-In addition, image data can be provided using the `data` property, with the image's content encoded as base64.
-
-#### Creating an Image field
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentCreate>
-    <!-- [...metadata...] -->
-
-    <fields>
-        <field>
-            <id>247</id>
-            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
-            <languageCode>eng-GB</languageCode>
-            <fieldValue>
-                <value key="fileName">rest-rocks.jpg</value>
-                <value key="alternativeText">HTTP</value>
-                <value key="data"><![CDATA[/9j/4AAQSkZJRgABAQEAZABkAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcG
-                    BwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2[...]</value>
-            </fieldValue>
-        </field>
-    </fields>
-</ContentCreate>
-```
-
-### Updating an Image field
-
-Updating an Image field requires that you re-send existing data.
-This can be done by re-using the field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`.
-If you don't want to change the image itself, don't provide the `data` key.
-
-``` xml
-<?xml version="1.0" encoding="UTF-8"?>
-<VersionUpdate>
-    <fields>
-        <field>
-            <id>247</id>
-            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
-            <languageCode>eng-GB</languageCode>
-            <fieldValue>
-                <value key="id">media/images/507-1-eng-GB/Existing-image.png</value>
-                <value key="alternativeText">Updated alternative text</value>
-                <value key="fileName">Updated-filename.png</value>
-            </fieldValue>
-        </field>
-    </fields>
-</VersionUpdate>
-```
+To read more about handling images, see the [Images documentation](images.md).
