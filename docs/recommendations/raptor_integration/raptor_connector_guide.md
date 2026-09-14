@@ -50,7 +50,7 @@ You can switch between tracking modes at any time by changing the tracking type 
 [[= product_name_cdp_base =]] [tracking functions](tracking_functions.md) allow you to collect data about how users interact with your products and content.
 
 You can track product visits to better understand what users are viewing.
-Provided [Twig functions](../../templating/twig_function_reference/recommendations_twig_functions.md) simplify the implementation, allowing developers to quickly add tracking to templates without complex setup.
+Provided Twig functions simplify the implementation, allowing developers to quickly add tracking to templates without complex setup.
 
 This gives you the data you need to better understand user behavior, improve recommendations, and support personalization.
 

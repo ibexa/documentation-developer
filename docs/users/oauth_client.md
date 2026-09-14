@@ -1,5 +1,6 @@
 ---
 description: Allow users to log into Cohesivo through external OAuth2 authorization servers.
+delete: true
 ---
 
 # OAuth client
@@ -108,7 +109,7 @@ Create the following template file in `templates/themes/admin/account/login/oaut
 [[= include_file('code_samples/user_management/oauth_google/templates/themes/admin/account/login/oauth2_login.html.twig') =]]
 ```
 
-For more information about the OAuth connection URL Twig functions, see [`ibexa_oauth2_connect_path`](url_twig_functions.md#ibexa_oauth2_connect_path) and [`ibexa_oauth2_connect_url`](url_twig_functions.md#ibexa_oauth2_connect_url).
+The OAuth connection URL Twig functions are `ibexa_oauth2_connect_path` and `ibexa_oauth2_connect_url`.
 
 Finally, add the template to the login form by using the `admin-ui-login-form-after` [Twig component group](components.md):
 

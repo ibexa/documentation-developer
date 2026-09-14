@@ -89,7 +89,3 @@ The field type validates if all Taxonomy Entries from the value are assigned to 
 | Name       | Type     | Default value | Description                          |
 |------------|----------|---------------|--------------------------------------|
 | `taxonomy` | `string` | `null`        | Taxonomy from which entry is chosen. |
-
-#### Template rendering
-
-The `TaxonomyEntryAssignment` field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.

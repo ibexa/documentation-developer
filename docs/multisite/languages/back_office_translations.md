@@ -33,10 +33,6 @@ If your browser language is set to French, the back office is displayed in Frenc
 
     Then, run `composer run post-update-cmd` and `php bin/console cache:clear --siteaccess=admin`.
 
-### Contributing back office translations
-
-To learn how to contribute to a translation, see [Contributing translations](contribute_translations.md).
-
 ### Selecting back office language
 
 Once you have language packages enabled, you can switch the language of the back office in the **User Settings** menu.
