@@ -22,14 +22,14 @@ Add the tables needed by the bundle:
 
 === "MySQL"
 
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ``` sql
+    [[= include_file('docs/users/sql/install_mysql.sql', glue='    ') =]]
     ```
 
 === "PostgreSQL"
 
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ``` sql
+    [[= include_file('docs/users/sql/install_postgresql.sql', glue='    ') =]]
     ```
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
