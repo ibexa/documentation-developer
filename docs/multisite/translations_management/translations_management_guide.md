@@ -1,6 +1,6 @@
 ---
 description: Translations management helps managers, developers and localization teams with multilingual content delivery.
-month_change: true
+month_change: false
 ---
 
 # Translations management product guide
