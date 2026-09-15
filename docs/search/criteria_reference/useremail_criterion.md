@@ -13,9 +13,11 @@ The `UserEmail` Search Criterion searches for content based on the email assigne
 
 ## Limitations
 
-Solr search engine and Elasticsearch support IN and EQ operators only.
+Only the `IN` and `EQ` operators are supported.
 
 ## Example
+
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

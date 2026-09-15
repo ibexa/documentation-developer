@@ -149,9 +149,8 @@ Several features help end users collaborate on the content, such as:
 - An OAuth 2 server offers the possibility to use the platform as the authentication service for other applications.
 - An OAuth 2 client supports authentication with a third-party OAuth 2 server.
 - A DAM Connector, previously mentioned, helps to access any image repository when needing to illustrate a content.
-- [[= product_name_headless =]] supports Elasticsearch and Solr.
-  It gives the choice between using Solr or Elasticsearch as a search engine, whether hosted on [[= product_name_cloud =]] or on-premises.
-  This choice might be influenced by technology you already use, or you want to invest in for other internal projects.
+- [[= product_name_headless =]] uses Solr as its search engine, which powers full-text search,
+  Search Criteria, Sort Clauses, and aggregations.
 - [[= product_name_headless =]] offers to export and import from command line part of the content model or content items.
   For example, it can be used to move new content types and items from a staging instance to the production one.
 

@@ -54,7 +54,7 @@ A range:
 
 ## Measurement types and units
 
-The following measurement types are available: `length`, `area`, `mass`, `pressure`, `speed`, `temperature`, `time`, `volume`, `datatransferrate`, and `energy`.
+The following measurement types are available: `length`, `area`, `mass`, `pressure`, `speed`, `temperature`, `time`, `volume`, `data transfer rate`, and `energy`.
 Each type comes with a set of units, for example `meter`, `centimeter`, `millimeter`, `foot`, `inch`, and `yard` for `length`.
 
 ## Validation
@@ -67,13 +67,17 @@ The field type supports `MeasurementValidator`, which constrains what the field 
 |----------------------------|-----------|---------------|-------------------------------------------------------------------|
 | `measurementType`          | `string`  | `null`        | The only measurement type accepted by the field.                |
 | `measurementUnit`          | `string`  | `null`        | The only unit of measure accepted by the field.                 |
-| `inputType`                | `integer` | `null`        | `0` to accept a single value only, `1` to accept a range only.  |
+| `inputType`                | `integer` | `0`           | `0` to accept a single value only, `1` to accept a range only.  |
 | `sign`                     | `string`  | `null`        | Comparison operator applied to `minimum` and `maximum`.         |
 | `minimum`                  | `float`   | `null`        | Minimum accepted value.                                         |
 | `maximum`                  | `float`   | `null`        | Maximum accepted value.                                         |
-| `defaultValue`             | `float`   | `null`        | Default single value.                                           |
-| `defaultRangeMinimumValue` | `float`   | `null`        | Default bottom value of the range.                              |
-| `defaultRangeMaximumValue` | `float`   | `null`        | Default top value of the range.                                 |
+| `defaultValue`             | `float`   | `null`        | Default single value. Used when `inputType` is `0`.             |
+| `defaultRangeMinimumValue` | `float`   | `null`        | Default bottom value of the range. Used when `inputType` is `1`. |
+| `defaultRangeMaximumValue` | `float`   | `null`        | Default top value of the range. Used when `inputType` is `1`.   |
+
+Which of these keys the API returns depends on `inputType`.
+When it's `0`, the response contains `sign` and `defaultValue`, but not the two range defaults.
+When it's `1`, the response contains `defaultRangeMinimumValue` and `defaultRangeMaximumValue`, but not `sign` or `defaultValue`.
 
 ``` json
 {

@@ -39,7 +39,7 @@ The field definition of this field type can be configured with the following opt
 | Name                    | Type      | Default value       | Description                                                                              |
 |-------------------------|-----------|---------------------|--------------------------------------------------------------------------------------------|
 | `selectionMethod`       | `string`  | `"SELECTION_BROWSE"` | Method of selection in the editing interface. Only `"SELECTION_BROWSE"` is implemented. |
-| `selectionRoot`         | `string`  | `null`              | ID of the Location that the selection is rooted at.                                       |
+| `selectionRoot`         | `string`  | `""`                | ID of the Location that the selection is rooted at.                                       |
 | `rootDefaultLocation`   | `boolean` | `false`             | When `true`, the selection starts from the default Location.                              |
 | `selectionContentTypes` | `array`   | `[]`                | An array of content type identifiers that are allowed for the related content item.      |
 

@@ -47,23 +47,26 @@ The field value is an object with the following keys, or `null` when the field i
 
 The field type supports `PasswordValueValidator`, defining the password policy:
 
-| Name                                        | Type      | Default value | Description                                                             |
-|---------------------------------------------|-----------|---------------|---------------------------------------------------------------------------|
-| `requireAtLeastOneUpperCaseCharacter`       | `integer` | `1`           | Minimum number of required upper case characters.                       |
-| `requireAtLeastOneLowerCaseCharacter`       | `integer` | `1`           | Minimum number of required lower case characters.                       |
-| `requireAtLeastOneNumericCharacter`         | `integer` | `1`           | Minimum number of required numeric characters.                          |
-| `requireAtLeastOneNonAlphanumericCharacter` | `integer` | `null`        | Minimum number of required non-alphanumeric characters.                 |
-| `requireNewPassword`                        | `integer` | `null`        | Number of previous passwords that the new password must differ from.    |
-| `requireNotCompromisedPassword`             | `boolean` | `false`       | When `true`, the password is checked against known compromised passwords. |
-| `minLength`                                 | `integer` | `10`          | Minimum password length.                                                |
+| Name                                        | Type      | Default value | Description                                                                       |
+|---------------------------------------------|-----------|---------------|-------------------------------------------------------------------------------------|
+| `requireAtLeastOneUpperCaseCharacter`       | `boolean` | `true`        | When `true`, the password must contain at least one upper case character.         |
+| `requireAtLeastOneLowerCaseCharacter`       | `boolean` | `true`        | When `true`, the password must contain at least one lower case character.         |
+| `requireAtLeastOneNumericCharacter`         | `boolean` | `true`        | When `true`, the password must contain at least one numeric character.            |
+| `requireAtLeastOneNonAlphanumericCharacter` | `boolean` | `false`       | When `true`, the password must contain at least one non-alphanumeric character.   |
+| `requireNewPassword`                        | `boolean` | `false`       | When `true`, the new password must differ from the previous one.                  |
+| `requireNotCompromisedPassword`             | `boolean` | `false`       | When `true`, the password is checked against known compromised passwords.         |
+| `minLength`                                 | `integer` | `10`          | Minimum password length.                                                          |
+
+The `require*` settings are on/off flags, not counts.
+The API accepts an integer for them and returns a boolean: any non-zero number becomes `true`, and `0` becomes `false`.
 
 ``` json
 {
     "validatorConfiguration": {
         "PasswordValueValidator": {
-            "requireAtLeastOneUpperCaseCharacter": 1,
-            "requireAtLeastOneLowerCaseCharacter": 1,
-            "requireAtLeastOneNumericCharacter": 1,
+            "requireAtLeastOneUpperCaseCharacter": true,
+            "requireAtLeastOneLowerCaseCharacter": true,
+            "requireAtLeastOneNumericCharacter": true,
             "minLength": 10
         }
     }

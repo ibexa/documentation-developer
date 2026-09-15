@@ -1,9 +1,0 @@
-ibexa:
-    system:
-        admin_group:
-            user_settings_update_view:
-                full:
-                    unit:
-                        template: '@ibexadesign/user/setting/update_unit.html.twig'
-                        match:
-                            Identifier: [ unit ]

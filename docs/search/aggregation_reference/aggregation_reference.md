@@ -7,15 +7,20 @@ page_type: reference
 
 Aggregation is used to group search results into categories.
 
+You use aggregations over the REST API, in the `Aggregations` element of the payload of the
+[`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request for content and location search,
+or of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request for product search.
+The `Aggregations` element takes a list of objects, each of them named after the aggregation to run.
+
+Product search runs as a content search that is limited to products, so you can also use
+content aggregations with product search.
+Product aggregations, on the other hand, only produce results for products.
+
 There are three types of aggregations:
 
 - Term aggregations group by value and count object in each group
 - Range aggregations count values in specified ranges
 - Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count, and sum of values
-
-!!! tip
-
-    Aggregations aren't available in the Legacy Search engine.
 
 ## Content aggregations
 
@@ -32,7 +37,6 @@ There are three types of aggregations:
 |[RawTermAggregation](rawterm_aggregation.md) | Term | Search index field |
 |[SectionTermAggregation](sectionterm_aggregation.md) | Term | Section |
 |[SubtreeTermAggregation](subtreeterm_aggregation.md) | Term | Location subtree path |
-|[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Taxonomy entry |
 |[UserMetadataTermAggregation](usermetadataterm_aggregation.md) | Term | Content owner/owner group or modifier |
 |[VisibilityTermAggregation](visibilityterm_aggregation.md) | Term | Content/Location visibility |
 
@@ -58,10 +62,7 @@ There are three types of aggregations:
 |Name | Type | Based on|
 |---|---|---|
 |[Product attribute](product_attribute_aggregations.md) | Term / Range | Product attribute values |
-|[BasePriceStats](basepricestats_aggregation.md) | Stats | Product base price |
-|[CustomPriceStats](custompricestats_aggregation.md) | Stats | Product custom price |
 |[ProductAvailabilityTerm](productavailabilityterm_aggregation.md) | Term | Product availability |
 |[ProductStockRange](productstockrange_aggregation.md) | Range | Product stock |
 |[ProductPriceRange](productpricerange_aggregation.md) | Range | Product price |
 |[ProductTypeTerm](producttypeterm_aggregation.md) | Term | Product type |
-|[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Product category |

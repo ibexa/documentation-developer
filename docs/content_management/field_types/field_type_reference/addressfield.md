@@ -40,7 +40,8 @@ The keys available under `fields` depend on the address format configured for th
 
 ## Validation
 
-This field type validates whether the `name` and `country` keys have been filled out.
+This field type doesn't perform any special validation of the input value.
+The REST API accepts an address in which `name`, `country`, or both, are `null`.
 
 ## Settings
 

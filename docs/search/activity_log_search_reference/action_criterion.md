@@ -1,9 +1,26 @@
 # Action Criterion
 
-The `ActionCriterion` Activity Log Criterion
-matches activity log group that has a log entry with one of the given actions.
+The `action` Activity Log Criterion matches activity log groups that have a log entry
+with one of the given actions.
 
-## Argument
+## Arguments
 
-- `actions` - list of action name strings.
-A set of built-in names is available as `ActivityLogServiceInterface`'s `ACTION_` prefixed constants.
+- `value` - list of action name strings, for example `create`, `publish`, or `delete`
+
+## Example
+
+You can use this Criterion over the REST API, in the `criteria` element of the payload of the
+[`POST /activity-log-group/list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Activity-Log/operation/ibexa.activity_log.rest.activity_log_group.list.post) request:
+
+``` json
+{
+    "ActivityLogGroupListInput": {
+        "criteria": [
+            {
+                "type": "action",
+                "value": ["create", "publish"]
+            }
+        ]
+    }
+}
+```

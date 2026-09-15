@@ -10,11 +10,11 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 The field value is an array of author objects, each with the following keys:
 
-| Key     | Type      | Description                        | Example                 |
-|---------|-----------|------------------------------------|-------------------------|
-| `id`    | `integer` | Identifier of the author entry.    | `1`                     |
-| `name`  | `string`  | Name of the author.                | `Boba Fett`             |
-| `email` | `string`  | Email address of the author.       | `boba.fett@example.com` |
+| Key     | Type     | Description                                                                | Example                 |
+|---------|----------|----------------------------------------------------------------------------|-------------------------|
+| `id`    | `string` | Identifier of the author entry. An integer is also accepted on input.      | `1`                     |
+| `name`  | `string` | Name of the author.                                                        | `Boba Fett`             |
+| `email` | `string` | Email address of the author.                                               | `boba.fett@example.com` |
 
 ``` json
 {
@@ -22,12 +22,12 @@ The field value is an array of author objects, each with the following keys:
     "languageCode": "eng-GB",
     "fieldValue": [
         {
-            "id": 1,
+            "id": "1",
             "name": "Boba Fett",
             "email": "boba.fett@example.com"
         },
         {
-            "id": 2,
+            "id": "2",
             "name": "Darth Vader",
             "email": "darth.vader@example.com"
         }

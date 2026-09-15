@@ -13,24 +13,26 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ## Example
 
+You can use this Search Criterion over the REST API, in the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
+
 === "XML"
 
     ```xml
-    <AttributeQuery>
+    <ProductQuery>
         <Query>
             <IntegerAttributeCriterion>
                 <identifier>size</identifier>
                 <value>38</value>
             </IntegerAttributeCriterion>
         </Query>
-    </AttributeQuery>
+    </ProductQuery>
     ```
 
 === "JSON"
 
     ```json
     {
-        "AttributeQuery": {
+        "ProductQuery": {
             "Query": {
                 "IntegerAttributeCriterion": {
                     "identifier": "size",

@@ -1,4 +1,0 @@
-services:
-    App\Thumbnails\FieldValueUrl:
-        tags:
-            - { name: ibexa.repository.thumbnail.strategy.field, priority: 100 }

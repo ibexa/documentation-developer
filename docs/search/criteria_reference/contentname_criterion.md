@@ -12,6 +12,8 @@ The [`ContentName` Search Criterion](https://github.com/ibexa/core/blob/6.0/src/
 
 ## Example
 
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
+
 === "XML"
 
     ```xml

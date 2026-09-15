@@ -1,6 +1,0 @@
-ibexa:
-    system:
-        admin:
-            oauth2:
-                enabled: true
-                clients: ['google']

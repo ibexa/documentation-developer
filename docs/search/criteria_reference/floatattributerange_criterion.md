@@ -14,10 +14,12 @@ The `FloatAttributeRange` Search Criterion searches for products by the range of
 
 ## Example
 
+You can use this Search Criterion over the REST API, in the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
+
 === "XML"
 
     ```xml
-    <AttributeQuery>
+    <ProductQuery>
         <Query>
             <FloatAttributeRangeCriterion>
                 <identifier>length</identifier>
@@ -25,14 +27,14 @@ The `FloatAttributeRange` Search Criterion searches for products by the range of
                 <max>25</max>
             </FloatAttributeRangeCriterion>
         </Query>
-    </AttributeQuery>
+    </ProductQuery>
     ```
 
 === "JSON"
 
     ```json
     {
-        "AttributeQuery": {
+        "ProductQuery": {
             "Query": {
                 "FloatAttributeRangeCriterion": {
                     "identifier": "length",

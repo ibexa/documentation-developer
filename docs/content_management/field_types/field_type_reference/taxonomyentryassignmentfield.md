@@ -22,7 +22,8 @@ The field value is an object with the following keys:
 | `taxonomy_entries` | `array`  | IDs of the assigned taxonomy entries.                                | `[3]`                |
 | `taxonomy`         | `string` | Identifier of the taxonomy that all the entries must be assigned to. | `product_categories` |
 
-The `taxonomy` value must match the `taxonomy` setting of the field definition.
+Set the `taxonomy` value to the same identifier as the `taxonomy` setting of the field definition.
+The REST API doesn't check that the two match.
 
 ``` json
 {
@@ -37,7 +38,8 @@ The `taxonomy` value must match the `taxonomy` setting of the field definition.
 
 ## Validation
 
-The field type validates if all taxonomy entries from the value are assigned to the configured taxonomy.
+Entry IDs that don't exist are removed from the value instead of causing an error, so a request can succeed with fewer entries than you sent.
+Check the entries in the response to confirm which of them were stored.
 
 ## Settings
 

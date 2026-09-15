@@ -12,28 +12,17 @@ The `FullText` Search Criterion searches for content based on the full text cont
 
 ## Supported syntax
 
-| Feature                                              | Elasticsearch | Apache Solr | Legacy Search Engine (SQL) |
-|------------------------------------------------------|---------------|-------------|----------------------------|
-| Boolean operators:<br/>AND (&&), OR ( \|\|), NOT (!) | No\*          | Yes         | No\*\*                     |
-| Require/exclude operators: +, -                      | No            | Yes         | No                         |
-| Grouping with parentheses                            | No            | Yes         | No                         |
-| Phrase search with double quotes                     | No            | Yes         | No                         |
-| Asterisks (\*) as wildcards                          | No            | Yes         | Yes, limited\*\*\*         |
+A full-text query supports the following syntax:
 
-\* When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
-
-\*\* When using the Legacy search engine, a full text query performs an OR query.
-
-\*\*\* Asterisk may only be located at the beginning or end of a query.
-
-## Limitations
-
-When using the Legacy search engine, a full text query performs an OR query by default, and
-supports asterisks as wildcards located at the beginning or end of a query.
-
-When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
+- Boolean operators: `AND` (`&&`), `OR` (`||`), `NOT` (`!`)
+- Require and exclude operators: `+`, `-`
+- Grouping with parentheses
+- Phrase search with double quotes
+- Asterisks (`*`) as wildcards
 
 ## Example
+
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

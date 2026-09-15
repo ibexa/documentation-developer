@@ -15,6 +15,7 @@ The field value is an object with the following keys:
 |------------------------|-------------------|-------------------------------------------------------------------------------------------------|--------------------------|
 | `destinationContentId` | `integer`, `null` | ID of the content item that holds the image asset.                                               | `150`                    |
 | `alternativeText`      | `string`, `null`  | The alternative image text (for example "Picture of an apple.").                                 | `Picture of an apple.`   |
+| `source`               | `string`, `null`  | Identifier of the external DAM system that the asset comes from. `null` for assets stored in [[= product_name =]]. | `null`                   |
 | `variations`           | `object`          | Available image variations, keyed by variation identifier. Read-only, added by the API on output only. | See below.               |
 
 ``` json
@@ -24,6 +25,7 @@ The field value is an object with the following keys:
     "fieldValue": {
         "destinationContentId": 150,
         "alternativeText": "Picture of an apple.",
+        "source": null,
         "variations": {
             "medium": {
                 "href": "/api/ibexa/v2/content/binary/images/150-345-1/variations/medium"

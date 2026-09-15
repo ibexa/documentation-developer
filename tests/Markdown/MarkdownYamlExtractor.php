@@ -18,7 +18,7 @@ namespace Ibexa\Tests\Documentation\Markdown;
  * - Blocks indented inside admonitions (4-space prefix)
  *
  * Blocks containing [[= include_file(...) =]], [[= include_code(...) =]], or --8<-- are skipped
- * because they reference code_samples/ files that are validated separately.
+ * because they pull in external files rather than holding YAML of their own.
  */
 final class MarkdownYamlExtractor
 {

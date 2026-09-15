@@ -1,4 +1,0 @@
-services:
-    App\ProductCatalog\Availability\ProductAvailabilityPurchasableWithoutStockStrategy:
-        tags:
-            - { name: ibexa.product_catalog.availability.strategy }

@@ -1,17 +1,35 @@
 ---
 month_change: false
-description: Search Criteria available for Action Configuration search
+description: Search options available for Action Configuration search
 ---
 
-# Action Configuration Search Criterion reference
+# Action Configuration search reference
 
-Search criteria are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\Criterion` namespace, implementing the CriterionInterface interface:
+You search for AI action configurations over the REST API, with the
+[`POST /ai/actions`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Connector-AI/operation/ibexa.rest.ai.action.list.post) request.
 
-| Criterion | Description |
+The request payload takes the following search options:
+
+| Option | Description |
 |---|---|
-| Name | Find Action Configurations matching given name. Use FieldValueCriterion's constants like `FieldValueCriterion::COMPARISON_CONTAINS` or `FieldValueCriterion::COMPARISON_STARTS_WITH` to specify the matching condition|
-| Enabled | Find enabled or disabled Action Configurations |
-| Identifier | Find Action Configuration having the exact given identifier |
-| LogicalAnd | Composite criterion to group multiple criteria using the AND condition |
-| LogicalOr | Composite criterion to group multiple criteria using the OR condition |
-| Type | Find Action Configuration having the exact given type |
+| `query` | Returns action configurations with a name that starts with the given string, or with exactly this identifier |
+| `action_type_identifier` | Returns action configurations of the given action type, for example `alt_text_generation` |
+| `enabled` | Returns enabled (`true`) or disabled (`false`) action configurations |
+| `limit` | Maximum number of action configurations to return |
+| `page` | Number of the page of results to return, starting from 1 |
+
+Results are sorted by action configuration ID, in descending order.
+
+## Example
+
+``` json
+{
+    "ActionConfigurationListInput": {
+        "query": "alt",
+        "action_type_identifier": "alt_text_generation",
+        "enabled": true,
+        "limit": 10,
+        "page": 1
+    }
+}
+```

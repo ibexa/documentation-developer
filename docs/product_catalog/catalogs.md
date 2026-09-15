@@ -10,7 +10,7 @@ Use them, for example, to build special catalogs for B2B and B2C uses, for retai
 
 When creating a catalog, all products are included by default, but you can filter the list by:
 
-- price (Solr or Elasticsearch only)
+- price
 - product attributes
 - product type
 - product code

@@ -1,4 +1,0 @@
-services:
-    App\CodeGenerator\Strategy\CustomIncrementalCodeGenerator:
-        tags:
-            - { name: 'ibexa.product_catalog.code_generator', type: 'custom_incremental' }

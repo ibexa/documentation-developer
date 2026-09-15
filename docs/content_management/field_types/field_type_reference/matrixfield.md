@@ -32,11 +32,9 @@ Each row is an object that maps the column identifiers defined in the field defi
 
 ## Validation
 
-Validation checks for empty rows.
-A row is considered empty if it contains only empty cells (or cells containing only spaces).
-Empty rows are removed.
-
-If, after removing empty rows, the number of rows doesn't fulfill the configured `minimum_rows` setting, the field doesn't validate.
+The REST API doesn't validate the contents of the matrix.
+Rows are stored as sent, including rows that contain only empty cells, or cells containing only spaces.
+A value with fewer rows than the `minimum_rows` setting is accepted.
 
 ## Settings
 

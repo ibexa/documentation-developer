@@ -56,7 +56,12 @@ To send file contents, provide them as a base64-encoded string under the `data` 
 }
 ```
 
-To keep the existing file while updating other keys, send the field value without the `data` key.
+To keep the existing file while updating other keys, send the field value without the `data` key, and remove the `url` key.
+
+!!! caution "Remove the `url` key before you send the value back"
+
+    The API returns both `uri` and `url`, but it doesn't accept `url` as input.
+    Sending the value back unchanged fails with `500 Property 'url' not found on class 'Ibexa\Core\FieldType\BinaryFile\Value'`.
 
 ## Validation
 

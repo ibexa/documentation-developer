@@ -46,7 +46,7 @@ of the command.
 
 ### YAML configuration
 
-The YAML snippets in `code_samples/` and in the Markdown pages are validated against the
+The YAML snippets in the Markdown pages are validated against the
 Symfony configuration trees of the installed Ibexa bundles. To run the validation, use:
 
 ``` bash

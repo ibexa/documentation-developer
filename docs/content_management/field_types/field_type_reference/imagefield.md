@@ -23,8 +23,8 @@ The field value is an object with the following keys, or `null` when the field i
 | `imageId`         | `string`  | Image ID used to address image variations.                                                       | `240-1480`                                    |
 | `inputUri`        | `string`  | Input image file URI.                                                                            | `var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` |
 | `path`            | `string`  | Same value as `inputUri`, with a leading slash.                                                  | `/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` |
-| `width`           | `integer` | Original image width in pixels.                                                                  | `960`                                         |
-| `height`          | `integer` | Original image height in pixels.                                                                 | `540`                                         |
+| `width`           | `string`  | Original image width in pixels. Returned as a string when you read a content item, and as an integer in the response to creating one. | `960`                                         |
+| `height`          | `string`  | Original image height in pixels. Returned as a string when you read a content item, and as an integer in the response to creating one. | `540`                                         |
 | `additionalData`  | `object`  | Extra information about the image, if available.                                                 | `{}`                                          |
 | `variations`      | `object`  | Available image variations, keyed by variation identifier. Read-only, added by the API on output only. | See below.                                    |
 
@@ -41,8 +41,8 @@ The field value is an object with the following keys, or `null` when the field i
         "imageId": "240-1480",
         "uri": "/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png",
         "inputUri": "var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png",
-        "width": 960,
-        "height": 540,
+        "width": "960",
+        "height": "540",
         "variations": {
             "articleimage": {
                 "href": "/api/ibexa/v2/content/binary/images/240-1480/variations/articleimage"
@@ -91,17 +91,27 @@ To send image contents, provide them as a base64-encoded string under the `data`
 ```
 
 Updating an Image field requires that you re-send the existing data.
-You can do this by reusing the field value you read from the API, **removing the `variations` key**, and updating `alternativeText`, `fileName`, or `data`.
+You can do this by reusing the field value you read from the API, **removing the `variations` and `path` keys**, and updating `alternativeText`, `fileName`, or `data`.
 If you don't want to change the image itself, don't provide the `data` key.
+
+!!! caution "Remove the `path` key before you send the value back"
+
+    The API returns a `path` key that it doesn't accept as input.
+    A request that still contains it fails with `406 Argument 'Image\Value::$path' is invalid: value must be of type 'Existing property', not 'string'`.
+
+If you send a reduced value instead of the whole one, it must contain `width`.
+Without it, the API treats `id` as the path of a new file to upload, and the request fails with `406 Argument 'BinaryFile::id' is invalid`.
 
 ``` json
 {
     "fieldDefinitionIdentifier": "image",
     "languageCode": "eng-GB",
     "fieldValue": {
-        "id": "media/images/507-1-eng-GB/Existing-image.png",
+        "id": "0/8/4/1/1480-1-eng-GB/image.png",
         "alternativeText": "Updated alternative text",
-        "fileName": "Updated-filename.png"
+        "fileName": "Updated-filename.png",
+        "width": "960",
+        "height": "540"
     }
 }
 ```

@@ -28,9 +28,3 @@ The built-in symbol attribute formats are listed below:
 !!! caution
 
     Maximum length of the symbol value is 160 characters.
-
-## Search for products with given symbol attribute
-
-You can use `SymbolAttribute` Search Criterion to find products by symbol attribute:
-
-For more information, see [SymbolAttribute Criterion](symbolattribute_criterion.md).

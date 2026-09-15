@@ -23,7 +23,7 @@ The field value is the text as a string, or `null` when the field is empty.
 
 The input passed into this field type is subject to validation by the `StringLengthValidator`.
 The length of the string provided must be between the minimum length defined in `minStringLength` and the maximum defined in `maxStringLength`.
-The default value for both properties is `0`, which means that the validation is disabled by default.
+The default value for both properties is `null`, which means that the validation is disabled by default.
 
 ``` json
 {
