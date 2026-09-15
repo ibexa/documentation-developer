@@ -8,20 +8,28 @@ The `CreatedAt` Sort Clause sorts search results by the date and time of the cre
 
 ## Arguments
 
-- (optional) `sortDirection` - `CreatedAt` constant, either `CreatedAt::SORT_ASC` or `CreatedAt::SORT_DESC`
+- (optional) sorting direction, either `ascending` (default) or `descending`
 
 ## Example
 
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
-$productQuery = new ProductQuery(
-    null,
-    null,
-    [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt(
-            \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt::SORT_ASC
-        ),
-    ]
-);
-```
+=== "XML"
+
+    ```xml
+    <ProductQuery>
+        <SortClauses>
+            <CreatedAt>ascending</CreatedAt>
+        </SortClauses>
+    </ProductQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    "ProductQuery": {
+        "SortClauses": {
+            "CreatedAt": "ascending"
+        }
+    }
+    ```

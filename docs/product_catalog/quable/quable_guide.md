@@ -16,15 +16,13 @@ This approach eliminates the need to manage product data in multiple systems, wh
 
 ## Availability
 
-The integration with [[= pim_product_name =]] is available as an add-on for all [[= product_name =]] editions.
+The integration with [[= pim_product_name =]] is available as an add-on for [[= product_name =]].
 
-Before installing and enabling the add-on, ensure that you have an active [[= pim_product_name =]] instance with defined products, classifications, and channels.
-
-Then, [perform the initial configuration](install_quable.md).
+Before enabling it, ensure that you have an active [[= pim_product_name =]] instance with defined products, classifications, and channels.
 
 ## How does [[= pim_product_name =]] integration work
 
-The integration is built on [[= product_name =]]'s [Remote PIM framework](add_remote_pim_support.md), which enables connection to external product data sources.
+The integration enables connection to external product data sources.
 
 Once configured, the system performs:
 

@@ -4,7 +4,7 @@ description: FloatRangeAggregation
 
 # FloatRangeAggregation
 
-The field-based [FloatRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FloatRangeAggregation.html) aggregates search results by the value of the Float field.
+The field-based FloatRangeAggregation aggregates search results by the value of the Float field.
 
 ## Arguments
 
@@ -14,20 +14,29 @@ The field-based [FloatRangeAggregation](/api/php_api/php_api_reference/classes/I
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\FloatRangeAggregation(
-    'float',
-    'product',
-    'weight',
-    [
-    Range::ofFloat(null, 0.25),
-    Range::ofFloat(0.25, 0.75),
-    Range::ofFloat(0.75, null),
-]
-);
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "FloatRangeAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "article",
+                "fieldDefinitionIdentifier": "rating",
+                "ranges": [
+                    {
+                        "from": null,
+                        "to": 2.5
+                    },
+                    {
+                        "from": 2.5,
+                        "to": 5
+                    }
+                ]
+            }
+        }
+    ]
+}
 ```

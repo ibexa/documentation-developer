@@ -4,7 +4,7 @@ description: UserId Search Criterion
 
 # UserId Criterion
 
-The [`UserId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserId.html) searches for content based on the User ID.
+The `UserId` Search Criterion searches for content based on the User ID.
 
 ## Arguments
 
@@ -12,17 +12,7 @@ The [`UserId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\UserId([14]);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

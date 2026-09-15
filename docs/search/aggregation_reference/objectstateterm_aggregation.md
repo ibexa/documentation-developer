@@ -4,7 +4,7 @@ description: ObjectStateTermAggregation
 
 # ObjectStateTermAggregation
 
-The [ObjectStateTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ObjectStateTermAggregation.html) aggregates search results by the content item's object state.
+The ObjectStateTermAggregation aggregates search results by the content item's object state.
 
 ## Arguments
 
@@ -13,12 +13,18 @@ The [ObjectStateTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Co
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\ObjectStateTermAggregation('object_state', 'ibexa_lock');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "ObjectStateTermAggregation": {
+                "name": "object_states",
+                "objectStateGroupIdentifier": "ibexa_lock"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -4,7 +4,7 @@ description: TimeRangeAggregation
 
 # TimeRangeAggregation
 
-The field-based [TimeRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-TimeRangeAggregation.html) aggregates search results by the value of the Date, DateTime, or Time field.
+The field-based TimeRangeAggregation aggregates search results by the value of the Date, DateTime, or Time field.
 
 ## Arguments
 
@@ -14,24 +14,29 @@ The field-based [TimeRangeAggregation](/api/php_api/php_api_reference/classes/Ib
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$timestamp = mktime(14, 0, 0);
-if ($timestamp === false) {
-    throw new RuntimeException('Failed to create timestamp with mktime.');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "TimeRangeAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "event",
+                "fieldDefinitionIdentifier": "start_time",
+                "ranges": [
+                    {
+                        "from": 0,
+                        "to": 43200
+                    },
+                    {
+                        "from": 43200,
+                        "to": 86400
+                    }
+                ]
+            }
+        }
+    ]
 }
-
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\TimeRangeAggregation(
-    'date',
-    'event',
-    'event_time',
-    [
-    Range::ofInt(null, $timestamp),
-    Range::ofInt($timestamp, null),
-]
-);
 ```

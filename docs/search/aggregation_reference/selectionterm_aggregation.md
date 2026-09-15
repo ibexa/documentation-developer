@@ -4,7 +4,7 @@ description: SelectionTermAggregation
 
 # SelectionTermAggregation
 
-The field-based [SelectionTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-SelectionTermAggregation.html) aggregates search results by the value of the Selection field.
+The field-based SelectionTermAggregation aggregates search results by the value of the Selection field.
 
 ## Arguments
 
@@ -12,12 +12,19 @@ The field-based [SelectionTermAggregation](/api/php_api/php_api_reference/classe
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\SelectionTermAggregation('selection', 'article', 'select');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "SelectionTermAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "article",
+                "fieldDefinitionIdentifier": "categories"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -1,6 +1,0 @@
-ibexa:
-    image_placeholder:
-        default:
-            provider: remote
-            options:
-                url_pattern: 'http://example.com/var/site/storage/%%id%%'

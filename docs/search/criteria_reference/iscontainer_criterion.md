@@ -5,7 +5,7 @@ month_change: false
 
 # IsContainer Criterion
 
-The [`IsContainer` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsContainer.html) searches for content items based on whether they are containers (i.e., can contain other content items).
+The `IsContainer` Search Criterion searches for content items based on whether they are containers (i.e., can contain other content items).
 
 ## Arguments
 
@@ -13,13 +13,24 @@ The [`IsContainer` Search Criterion](/api/php_api/php_api_reference/classes/Ibex
 
 ## Example
 
-### PHP
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+=== "XML"
 
-$query = new Query();
-$query->query = new Criterion\IsContainer(); // Finds containers
-$query->query = new Criterion\IsContainer(false); // Finds non-containers
-```
+    ```xml
+    <Query>
+        <Filter>
+            <IsContainerCriterion>true</IsContainerCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "IsContainerCriterion": true
+        }
+    }
+    ```

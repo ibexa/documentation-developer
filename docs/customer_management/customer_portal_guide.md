@@ -1,6 +1,5 @@
 ---
 description: Check all the capabilities and advantages that the Customer Portal offers to the clients by reading the Customer Portal product guide.
-edition: experience
 ---
 
 # Customer Portal product guide
@@ -15,7 +14,7 @@ With this feature, your customers can self-register, edit their organization inf
 
 ## Availability
 
-Customer Portal is available in [[= product_name_exp =]]. It's also compatible with Product catalog and [[= product_name_connect =]].
+Customer Portal is available in [[= product_name =]]. It's also compatible with Product catalog and [[= product_name_connect =]].
 
 ## How does Customer Portal work?
 
@@ -39,11 +38,6 @@ In the Page Builder creation box, you see the Customer Portal layout where you c
 If the built-in page blocks aren't sufficient to fulfill your needs, you can add your own.
 
 ![Editable in Page Builder](img/cp_edit_in_page_builder.png)
-
-You can allow company members to see multiple versions of Customer Portal on a single page by adding them under one Customer Portal container and combining SiteAccess matchers.
-This setup is recommended for global markets or company-specific portals, where each portal is designed specifically for its customers and their needs.
-
-![Multiple portals](img/cp_2_page_view.png)
 
 ### Company management
 
@@ -105,7 +99,6 @@ To apply for a business account, a company needs to provide their basic informat
 
 ![Company self-registration](img/cp_registration.png)
 
-The approval process is customizable.
 You can decide which user has approval rights by granting them `Company Application/Workflow` policy, you can also decide between which states the user may move applications:
 
 - on hold

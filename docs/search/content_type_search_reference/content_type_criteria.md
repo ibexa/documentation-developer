@@ -6,22 +6,35 @@ month_change: false
 
 # Content Type Search Criteria reference
 
-Content Type Search Criteria are only supported by [Content Type Search (`ContentTypeService::findContentTypes`)](managing_content.md#finding-and-filtering-content-types).
+Content Type Search Criteria filter the content types returned by content type search.
+
+You use them over the REST API, in the `Query` element of the payload of the
+[`POST /content/types/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Type/operation/ibexa.rest.content_types.view) request.
+All Criteria that you provide in one query are combined with a logical AND.
 
 | Criterion | Description |
 |-------|-------------|
-| [ContainsFieldDefinitionId](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html) | Matches content types that contain a field definition with the specified ID. |
-| [ContentTypeGroupId](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html) | Matches content types by their assigned group ID. |
-| [ContentTypeGroupName](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html) | Matches content types by the name of their assigned group. |
-| [ContentTypeId](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html) | Matches content types by their ID. |
-| [ContentTypeIdentifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html) | Matches content types by their identifier. |
-| [IsSystem](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html) | Matches content types based on whether the group they belong to is system or not. |
-| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalAnd.html) | Implements a logical AND Criterion. It matches if ALL of the provided Criteria match. |
-| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOr.html) | Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches. |
-| [LogicalNot](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalNot.html) | Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match. |
+| ContainsFieldDefinitionIdCriterion | Matches content types that contain a field definition with the specified ID. |
+| ContentTypeGroupIdCriterion | Matches content types by their assigned group ID. |
+| ContentTypeGroupNameCriterion | Matches content types by the name of their assigned group. |
+| ContentTypeIdCriterion | Matches content types by their ID. |
+| ContentTypeIdentifierCriterion | Matches content types by their identifier. |
+| IsSystemCriterion | Matches content types based on whether the group they belong to is system or not. |
 
-The following example shows how to use them to search for content types:
+## Example
 
-``` php hl_lines="29-31"
-[[= include_code('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
+``` json
+{
+    "ViewInput": {
+        "identifier": "ContentTypeView",
+        "ContentTypeQuery": {
+            "limit": 10,
+            "offset": 0,
+            "Query": {
+                "ContentTypeIdentifierCriterion": "folder",
+                "IsSystemCriterion": false
+            }
+        }
+    }
+}
 ```

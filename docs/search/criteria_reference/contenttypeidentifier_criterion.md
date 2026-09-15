@@ -4,7 +4,7 @@ description: ContentTypeIdentifier Search Criterion
 
 # ContentTypeIdentifier Criterion
 
-The [`ContentTypeIdentifier` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeIdentifier.html) searches for content based on the identifier of its content type.
+The `ContentTypeIdentifier` Search Criterion searches for content based on the identifier of its content type.
 
 ## Arguments
 
@@ -12,17 +12,7 @@ The [`ContentTypeIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

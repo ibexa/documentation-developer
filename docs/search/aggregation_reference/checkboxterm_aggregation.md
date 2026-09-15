@@ -4,7 +4,7 @@ description: CheckboxTermAggregation
 
 # CheckboxTermAggregation
 
-The field-based [CheckboxTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-CheckboxTermAggregation.html) aggregates search results by the value of the Checkbox field.
+The field-based CheckboxTermAggregation aggregates search results by the value of the Checkbox field.
 
 ## Arguments
 
@@ -12,12 +12,19 @@ The field-based [CheckboxTermAggregation](/api/php_api/php_api_reference/classes
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\CheckboxTermAggregation('checkbox', 'article', 'enable_comments');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "CheckboxTermAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "article",
+                "fieldDefinitionIdentifier": "featured"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

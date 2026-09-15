@@ -4,7 +4,7 @@ description: ContentTypeGroupId Search Criterion
 
 # ContentTypeGroupId Criterion
 
-The [`ContentTypeGroupId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeGroupId.html) searches for content based on the ID of its content type group.
+The `ContentTypeGroupId` Search Criterion searches for content based on the ID of its content type group.
 
 ## Arguments
 
@@ -12,17 +12,7 @@ The [`ContentTypeGroupId` Search Criterion](/api/php_api/php_api_reference/class
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ContentTypeGroupId([1, 2]);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 
@@ -46,21 +36,5 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 
 ## Use case
 
-You can use the `ContentTypeGroupId` Criterion to query all Media content items
-(the default ID for the Media content type group is 3):
-
-``` php hl_lines="6"
-use Ibexa\Contracts\Core\Repository\SearchService;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ContentTypeGroupId([3]);
-
-/** @var SearchService $searchService */
-$results = $searchService->findContent($query);
-$media = [];
-foreach ($results->searchHits as $searchHit) {
-    $media[] = $searchHit;
-}
-```
+You can use the `ContentTypeGroupId` Criterion to query all Media content items.
+The default ID for the Media content type group is 3.

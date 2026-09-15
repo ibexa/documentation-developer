@@ -7,27 +7,6 @@
   margin-right: 8px;
   color: var(--cohesivo-primary-80);
 }
-.pill--headless {
-  color: var(--cohesivo-error-80);
-  border-color: var(--cohesivo-error-80);
-}
-.pill--headless::after {
-  content: "Headless";
-}
-.pill--experience {
-  color: var(--cohesivo-warning-110);
-  border-color: var(--cohesivo-warning-110);
-}
-.pill--experience::after {
-  content: "Experience";
-}
-.pill--lts-update {
-  color: var(--cohesivo-info-80);
-  border-color: var(--cohesivo-info-80);
-}
-.pill--lts-update::after {
-  content: "LTS Update";
-}
 .pill--new-feature {
   color: var(--cohesivo-success-100);
   border-color: var(--cohesivo-success-100);
@@ -52,6 +31,4 @@
   text-transform: lowercase;
 }
 
-div.pills {
-  float: right;
-}
+/*# sourceMappingURL=pills.css.map */

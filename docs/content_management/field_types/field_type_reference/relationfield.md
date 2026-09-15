@@ -2,74 +2,55 @@
 
 This field type makes it possible to store and retrieve the value of a relation to another content item.
 
-| Name       | Internal name           | Expected input |
-|------------|-------------------------|----------------|
-| `Relation` | `ibexa_object_relation` | mixed          |
+| Name       | Internal name           |
+|------------|-------------------------|
+| `Relation` | `ibexa_object_relation` |
 
-## PHP API field type
+## Field value
 
-### Input expectations
+The field value is an object with the following keys:
 
-| Type      | Example |
-|-----------|---------|
-| `string`  | `"150"` |
-| `integer` | `150`   |
+| Key                      | Type              | Description                                                                       | Example                          |
+|--------------------------|-------------------|-----------------------------------------------------------------------------------|----------------------------------|
+| `destinationContentId`   | `integer`, `null` | ID of the related content item.                                                   | `14`                             |
+| `destinationContentHref` | `string`          | REST URI of the related content item. Read-only, added by the API on output only. | `/api/ibexa/v2/content/objects/14` |
 
-### Value object
-
-#### Properties
-
-The Value class of this field type contains the following properties:
-
-| Property               | Type                        | Description                                                                               |
-|------------------------|-----------------------------|-------------------------------------------------------------------------------------------|
-| `$destinationContentId` | `string`, `int`, or `null` | This property is used to store the value provided, which represents the related content.  |
-
-``` php
-/**
- * Value object content example.
- *
- * @var \Ibexa\Core\FieldType\Relation\Value $relation
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
- */
-$relation->destinationContentId = $contentInfo->id;
+``` json
+{
+    "fieldDefinitionIdentifier": "sales_rep",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "destinationContentId": 14,
+        "destinationContentHref": "/api/ibexa/v2/content/objects/14"
+    }
+}
 ```
 
-#### Constructor
+When you create or update a field, provide `destinationContentId` only.
 
-The `Relation\Value` constructor initializes a new value object with the value provided. It expects a mixed value.
+## Validation
 
-``` php
-// Constructor example
-use Ibexa\Core\FieldType\Relation as Relation;
+This field type validates whether the provided relation exists.
 
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
-// Instantiates a Relation Value object
-$relationValue = new Relation\Value($contentInfo->id);
-```
+## Settings
 
-### Validation
+The field definition of this field type can be configured with the following options:
 
-This field type validates whether the provided relation exists, but before that it checks that the value is either a string or an int.
+| Name                    | Type      | Default value       | Description                                                                              |
+|-------------------------|-----------|---------------------|--------------------------------------------------------------------------------------------|
+| `selectionMethod`       | `string`  | `"SELECTION_BROWSE"` | Method of selection in the editing interface. Only `"SELECTION_BROWSE"` is implemented. |
+| `selectionRoot`         | `string`  | `""`                | ID of the Location that the selection is rooted at.                                       |
+| `rootDefaultLocation`   | `boolean` | `false`             | When `true`, the selection starts from the default Location.                              |
+| `selectionContentTypes` | `array`   | `[]`                | An array of content type identifiers that are allowed for the related content item.      |
 
-### Settings
+On output, when `selectionRoot` is set, the API adds a read-only `selectionRootHref` key with the REST URI of that Location.
 
-The field definition of this field type can be configured with three options:
-
-| Name                    | Type     | Default value                     | Description                                                                    |
-|-------------------------|----------|-----------------------------------|--------------------------------------------------------------------------------|
-| `selectionMethod`       | `int`    | `Relation\Type::SELECTION_BROWSE` | *This setting is not implemented yet, only one selection method is available.* |
-| `selectionRoot`         | `string` | `null`                            | This setting defines the selection root.                                       |
-| `selectionContentTypes` | `array`  | `[]`                              | An array of content type IDs that are allowed for related Content.             |
-
-``` php
-// Relation FieldType example settings
-
-use Ibexa\Core\FieldType\Relation\Type;
-
-$settings = [
-    'selectionMethod' => 1,
-    'selectionRoot' => null,
-    'selectionContentTypes' => [],
-];
+``` json
+{
+    "fieldSettings": {
+        "selectionMethod": "SELECTION_BROWSE",
+        "selectionRoot": "",
+        "selectionContentTypes": []
+    }
+}
 ```

@@ -1,5 +1,0 @@
--   type: action_configuration
-    mode: delete
-    match:
-        field: identifier
-        value: foo_identifier

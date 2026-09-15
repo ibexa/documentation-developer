@@ -12,14 +12,24 @@ The `ProductAvailability` Sort Clause sorts search results by whether they have 
 
 ## Example
 
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
-$query = new ProductQuery(
-    null,
-    null,
-    [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability(),
-    ]
-);
-```
+=== "XML"
+
+    ```xml
+    <ProductQuery>
+        <SortClauses>
+            <ProductAvailability>ascending</ProductAvailability>
+        </SortClauses>
+    </ProductQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    "ProductQuery": {
+        "SortClauses": {
+            "ProductAvailability": "ascending"
+        }
+    }
+    ```

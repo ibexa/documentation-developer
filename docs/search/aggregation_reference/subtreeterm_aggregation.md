@@ -4,7 +4,7 @@ description: SubtreeTermAggregation
 
 # SubtreeTermAggregation
 
-The [SubtreeTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-SubtreeTermAggregation.html) aggregates search results by the location's subtree path.
+The SubtreeTermAggregation aggregates search results by the location's subtree path.
 
 ## Arguments
 
@@ -13,12 +13,18 @@ The [SubtreeTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contra
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Location\SubtreeTermAggregation('pathstring', '/1/2/');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "SubtreeTermAggregation": {
+                "name": "subtrees",
+                "pathString": "/1/2/"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

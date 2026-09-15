@@ -12,14 +12,24 @@ The `ProductName` Sort Clause sorts search results by the Product code.
 
 ## Example
 
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
-$query = new ProductQuery(
-    null,
-    null,
-    [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName(),
-    ]
-);
-```
+=== "XML"
+
+    ```xml
+    <ProductQuery>
+        <SortClauses>
+            <ProductName>ascending</ProductName>
+        </SortClauses>
+    </ProductQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    "ProductQuery": {
+        "SortClauses": {
+            "ProductName": "ascending"
+        }
+    }
+    ```

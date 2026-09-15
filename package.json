@@ -6,10 +6,9 @@
   "scripts": {
     "scss": "sass --watch scss:docs/css",
     "markdownlint": "markdownlint-cli2 \"docs/**/*.md\"",
-    "test": "yarn prettier-test && yarn eslint-test",
-    "fix": "yarn prettier-test --write && yarn eslint-test --fix",
-    "eslint-test": "eslint \"./docs/js/**/*.js\"",
-    "prettier-test": "yarn prettier \"./code_samples/**/*.{js,scss}\" --check"
+    "test": "yarn eslint-test",
+    "fix": "yarn eslint-test --fix",
+    "eslint-test": "eslint \"./docs/js/**/*.js\""
   },
   "prettier": "eslint-config-ibexa/prettier",
   "devDependencies": {

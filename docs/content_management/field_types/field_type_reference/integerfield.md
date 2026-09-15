@@ -2,76 +2,42 @@
 
 This field type represents an integer value.
 
-| Name      | Internal name   | Expected input |
-|-----------|-----------------|----------------|
-| `Integer` | `ibexa_integer` | `integer`      |
+| Name      | Internal name   |
+|-----------|-----------------|
+| `Integer` | `ibexa_integer` |
 
-## PHP API field type
+## Field value
 
-### Input expectations
+The field value is an integer, or `null` when the field is empty.
 
-| Type      | Example |
-|-----------|---------|
-| `integer` | `2397`  |
-
-### Value object
-
-#### Properties
-
-The Value class of this field type contains the following properties:
-
-| Property | Type  | Description|
-|----------|-------|------------|
-| `$value` | `int` | This property is used to store the value provided as an integer. |
-
-``` php
-// Value object content example
-/** @var \Ibexa\Core\FieldType\Integer\Value $integer */
-$integer->value = 8;
+``` json
+{
+    "fieldDefinitionIdentifier": "quantity",
+    "languageCode": "eng-GB",
+    "fieldValue": 2397
+}
 ```
 
-#### Constructor
+## Validation
 
-The `Integer\Value` constructor initializes a new value object with the value provided.
-It expects a numeric, integer value.
+This field type supports `IntegerValueValidator`, defining maximum and minimum integer value:
 
-``` php
-// Constructor example
-use Ibexa\Core\FieldType\Integer;
+| Name              | Type      | Default value | Description                                                |
+|-------------------|-----------|---------------|--------------------------------------------------------------|
+| `minIntegerValue` | `integer` | `null`        | Minimum value that this field type allows as input. |
+| `maxIntegerValue` | `integer` | `null`        | Maximum value that this field type allows as input. |
 
-// Instantiates a Integer Value object
-$integerValue = new Integer\Value(8);
+``` json
+{
+    "validatorConfiguration": {
+        "IntegerValueValidator": {
+            "minIntegerValue": 0,
+            "maxIntegerValue": 100
+        }
+    }
+}
 ```
 
-#### Hash format
-
-Hash value of this field type is an integer value as a string.
-
-Example: `"8"`
-
-#### String representation
-
-String representation of the field type's value returns the integer value as a string.
-
-Example: `"8"`
-
-### Validation
-
-This field type supports `IntegerValueValidator`, defining maximum and minimum float value:
-
-|Name|Type|Default value|Description|
-|------|------|------|------|
-|`minIntegerValue`|`int`|`0`|This setting defines the minimum value this field type which is allowed as input.|
-|`maxIntegerValue`|`int`|`null`|This setting defines the maximum value this field type which is allowed as input.|
-
-``` php
-// Example of validator configuration in PHP
-$validatorConfiguration = [
-    'minIntegerValue' => 1,
-    'maxIntegerValue' => 24,
-];
-```
-
-### Settings
+## Settings
 
 This field type doesn't support settings.

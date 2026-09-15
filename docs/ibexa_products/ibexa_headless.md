@@ -12,8 +12,6 @@ It provides tools to collaboratively create content, and interfaces (API) to dis
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF) with product catalog capabilities, and a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete back office and several APIs to manage and access content.
 
-![Ibexa Headless](ibexa_headless.png)
-
 ## Availability
 
 To start using [[= product_name_headless =]] you must purchase a product license.
@@ -44,12 +42,10 @@ By using a version control system and environment variables, you can deploy your
 
 Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
 
-![Ibexa Headless data inputs and outputs](img/headless.png)
-
 APIs summary:
 
 - The REST and GraphQL APIs give access to the content in standardized ways.
-- The OAuth 2 [Client](oauth_client.md) and [Server](oauth_server.md) allow to connect to an SSO or be the SSO.
+- The OAuth 2 Client and Server allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
   For example, content can be computed, edited, or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
@@ -153,9 +149,8 @@ Several features help end users collaborate on the content, such as:
 - An OAuth 2 server offers the possibility to use the platform as the authentication service for other applications.
 - An OAuth 2 client supports authentication with a third-party OAuth 2 server.
 - A DAM Connector, previously mentioned, helps to access any image repository when needing to illustrate a content.
-- [[= product_name_headless =]] supports Elasticsearch and Solr.
-  It gives the choice between using Solr or Elasticsearch as a search engine, whether hosted on [[= product_name_cloud =]] or on-premises.
-  This choice might be influenced by technology you already use, or you want to invest in for other internal projects.
+- [[= product_name_headless =]] uses Solr as its search engine, which powers full-text search,
+  Search Criteria, Sort Clauses, and aggregations.
 - [[= product_name_headless =]] offers to export and import from command line part of the content model or content items.
   For example, it can be used to move new content types and items from a staging instance to the production one.
 

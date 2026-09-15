@@ -4,7 +4,7 @@ description: UserMetadataTermAggregation
 
 # UserMetadataTermAggregation
 
-The [UserMetadataTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-UserMetadataTermAggregation.html) aggregates search results by the User content item's metadata.
+The UserMetadataTermAggregation aggregates search results by the User content item's metadata.
 
 ## Arguments
 
@@ -12,12 +12,18 @@ The [UserMetadataTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-C
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\UserMetadataTermAggregation('user_metadata');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "UserMetadataTermAggregation": {
+                "name": "owners",
+                "type": "owner"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

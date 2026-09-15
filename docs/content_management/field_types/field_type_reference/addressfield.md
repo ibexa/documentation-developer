@@ -1,142 +1,60 @@
----
-edition: experience
----
-
-
 # Address field type
 
 This field represents and handles address fields.
 It allows you to customize address fields per country.
 
-| Name      | Internal name   | Expected input              |
-|-----------|-----------------|-----------------------------|
-| `Address` | `ibexa_address` | `string`, `string`, `array` |
+| Name      | Internal name   |
+|-----------|-----------------|
+| `Address` | `ibexa_address` |
 
-The Address field type is available via the Address Bundle
-provided by the `ibexa/fieldtype-address` package.
+## Field value
 
-## PHP API field type
+The field value is an object with the following keys:
 
-### Inputs
+| Key       | Type     | Description                                                   | Example           |
+|-----------|----------|---------------------------------------------------------------|-------------------|
+| `name`    | `string` | Name of the address.                                          | `My home address` |
+| `country` | `string` | Country code in ISO 3166-1 alpha-2 format.                    | `NO`              |
+| `fields`  | `object` | Additional fields, keyed by identifier.                       | See below.        |
 
-| Type     | Description                                   | Example           |
-|----------|-----------------------------------------------|-------------------|
-| `string` | Name of the address.                          | `My home address` |
-| `string` | Country code in ISO 3166-1 alpha-2 format.    | `PL`              |
-| `array`  | Additional fields, defined by address format. | see below         |
+The keys available under `fields` depend on the address format configured for the country and on the `type` field definition setting.
 
-### Example input
-
-``` php
-use Ibexa\FieldTypeAddress\FieldType;
-
-new FieldType\Value(
-    'My home address',
-    'PL',
-    [
-        'city' => 'Warsaw',
-        'region' => 'Masovian',
-        'postal_code' => '11-123',
-    ]
-);
-```
-
-### Validation
-
-This field type validates whether `Country` and `Name` fields have been filled out.
-
-### Value object
-
-#### Properties
-
-| Property   | Type     | Description                                   |
-|------------|----------|-----------------------------------------------|
-| `$name`    | `string` | Name of the address.                          |
-| `$country` | `string` | Country code in ISO 3166-1 alpha-2 format.    |
-| `$fields`  | `array`  | Additional fields, defined by address format. |
-
-#### Constructor
-
-See above (Example input).
-
-### Formats
-
-The following default configuration defines default fields for `personal` address type:
-
-```yaml
-formats:
-    personal:
-        country:
-            default:
-                - region
-                - locality
-                - street
-                - postal_code
-```
-
-#### Modifying field configuration
-
-```yaml
-formats:
-    billing_address:
-        country:
-            DE:
-                - tax_number
-                - city
-                - address
-                - postal_code
-```
-
-Adds (or alters) an address format for `DE` country of `billing_address` type.
-
-### Field form types
-
-By default, each field is a simple text input with a label made of field identifier.
-To change the type of field, you need to listen to a specific event.
-For each field below events are dispatched (in order):
-
-```yaml
-ibexa.address.field.{FIELD_IDENTIFIER}
-ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}
-ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
-```
-
-#### Example
-
-```yaml
-ibexa.address.field.tax_number
-ibexa.address.field.tax_number.billing_address
-ibexa.address.field.tax_number.billing_address.DE
-```
-
-#### Example event listener
-
-An event listener can also provide validation by using either one of [constraints provided by Symfony]([[= symfony_doc =]]/validation.html#supported-constraints),
-or a custom constraint.
-
-``` php
-use Ibexa\Contracts\FieldTypeAddress\Event\MapFieldEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Validator\Constraints\Positive;
-
-class ExampleAddressSubscriber implements EventSubscriberInterface
+``` json
 {
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            'ibexa.address.field.tax_number.billing_address' => 'onBillingAddressTaxNumber',
-        ];
+    "fieldDefinitionIdentifier": "billing_address",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "name": "Headquarters",
+        "country": "NO",
+        "fields": {
+            "region": "Company HQ location region",
+            "locality": "Company HQ location city",
+            "street": "Company HQ location street and building",
+            "postal_code": "00000",
+            "email": "company@email.invalid",
+            "phone_number": "+47 000 000 000"
+        }
     }
+}
+```
 
-    public function onBillingAddressTaxNumber(MapFieldEvent $event): void
-    {
-        $event->setLabel('VAT');
-        $event->setType(IntegerType::class);
-        $event->setOptions([
-            'attr' => ['class' => 'some-tax-number'],
-            'constraints' => [new Positive()],
-        ]);
+## Validation
+
+This field type doesn't perform any special validation of the input value.
+The REST API accepts an address in which `name`, `country`, or both, are `null`.
+
+## Settings
+
+The field definition of this field type can be configured with a single option:
+
+| Name   | Type     | Default value  | Description                                              |
+|--------|----------|----------------|------------------------------------------------------------|
+| `type` | `string` | `"personal"`   | Identifier of the address format used by this field. |
+
+``` json
+{
+    "fieldSettings": {
+        "type": "personal"
     }
 }
 ```

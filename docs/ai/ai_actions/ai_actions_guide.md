@@ -11,13 +11,7 @@ Wherever you look, artificial intelligence becomes more and more important by en
 [[= product_name =]] is equipped with the AI Actions feature, which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
-Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
-The Anthropic and Gemini connectors are also available - as [LTS updates](editions.md#lts-updates).
-
-AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
-From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
-
-AI Actions solution comes pre-configured with the following action types:
+AI Actions solution comes with the following action types:
 
 - [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
 - [Generate alternative text](#generating-alternative-text): Generate alt text for images for accessibility purposes
@@ -25,31 +19,15 @@ AI Actions solution comes pre-configured with the following action types:
 
 ![AI Actions schematic](img/guide_ai_actions.png)
 
-You can extend the solution's capabilities beyond the default setup by creating custom connector modules, allowing users to take advantage of additional AI services, or customize the way data is processed and interpreted.
-For example, it could transform images, or generate illustrations for your articles based on their contents.
-The possibilities are endless and you're not limited to a specific AI service, avoiding vendor lock-in.
-
 ## Availability
 
-[[= product_name_cloud =]] is available in all [[= product_name =]] editions.
-To begin using AI Actions, you must first [perform the initial configuration](configure_ai_actions.md).
-
-### Prerequisites
-
-Connectors with external AI services delivered by [[= product_name_base =]] require that you first install them, and [configure other settings, such as an API key and billing method](configure_ai_actions.md).
-
-Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](configure_ai_actions.md#create-token).
-
-!!! note "[[= product_name_connect =]] Availability"
-
-    [[= product_name_connect =]] comes with all contracts signed from 2023.
-    If you signed your contract earlier, contact your customer success manager to use [[= product_name_connect =]].
+You can use AI Actions, unless your organization requested to disable all AI-powered features in your system.
 
 ## How it works
 
-AI Actions rely on an extensible AI framework, which is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
+AI Actions rely on an AI framework, which is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
 This data can then be combined with user input.
-It's then passed to a service connector, such as the default OpenAI connector or the [[= product_name_connect =]] connector, for final processing on [[= product_name =]] side.
+It's then passed to a service connector for final processing on [[= product_name =]] side.
 The service connector wraps all data into a prompt or another suitable format and sends it to an external service.
 
 When the external service returns a response, the response goes back through the service connector and passes to the framework.
@@ -130,17 +108,7 @@ An intuitive AI Actions interface within the **Admin** panel displays a list of 
 Here, you can search for specific actions and filter them by type or status.
 By accessing the detailed view of individual AI actions, you can quickly review all their parameters.
 
-### Extensibility
-
-Built-in AI action types offer a good starting point, but the real power of AI Actions lies in extensibility.
-Extending AI Actions opens up new possibilities for content management and editing.
-Developers can define new models and AI action types that use the existing AI service or even integrate additional services.
-The latter involves developing a new service connector, writing a handler that communicates with the new service, defining a new AI action type, and creating a form for configuring options, which extends the default action configuration form shown in the **Admin** panel.
-For example, if this is your organization's requirement, a developer could write a handler that uses an AI service available internally, without exposing your data to a third-party service.
-
 ## Use cases
-
-Out of the box, after you configure access to the OpenAI service, AI Actions come with two action types that can help your organization with the following tasks.
 
 ### Refining text
 
@@ -165,15 +133,3 @@ With some customization, administrators could use the API to run a batch process
 
 Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categories to content items and products.
 Instead of manually browsing through extensive taxonomy trees, editors can request suggestions based on the content's text fields, such as name and description.
-
-!!! note "Alternative suggestion provider"
-
-    By default, embeddings used by the taxonomy suggestions feature are generated with OpenAI.
-    If you install and configure the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini) and use Google Gemini as an alternative embeddings provider.
-
-### Performing advanced image to text analysis
-
-With some additional customization, store managers could benefit from automating part of product management by integrating their [[= product_name =]] with Google Cloud Vision and the [product catalog](product_catalog_guide.md) by using [[= product_name_connect =]].
-Instead of manually selecting and linking images stored in a [DAM](add_image_asset_from_dam.md) solution to their products, they could use of a no-code workflow where an AI service, for example, Google Cloud Vision, extracts text and attributes from product images, which are then matched with existing items in a product catalog.
-
-This would enable automatic product identification, tagging, and catalog updates, resulting in less manual work and more efficient product management.

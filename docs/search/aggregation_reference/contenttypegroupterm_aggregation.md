@@ -4,7 +4,7 @@ description: ContentTypeGroupTermAggregation
 
 # ContentTypeGroupTermAggregation
 
-The [ContentTypeGroupTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeGroupTermAggregation.html) aggregates search results by the content item's content type group.
+The ContentTypeGroupTermAggregation aggregates search results by the content item's content type group.
 
 ## Arguments
 
@@ -12,12 +12,17 @@ The [ContentTypeGroupTermAggregation](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\ContentTypeGroupTermAggregation('content_type_group');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "ContentTypeGroupTermAggregation": {
+                "name": "content_type_groups"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -4,7 +4,7 @@ description: SectionTermAggregation
 
 # SectionTermAggregation
 
-The [SectionTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-SectionTermAggregation.html) aggregates search results by the content item's section.
+The SectionTermAggregation aggregates search results by the content item's section.
 
 ## Arguments
 
@@ -12,12 +12,17 @@ The [SectionTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contra
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\SectionTermAggregation('section');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "SectionTermAggregation": {
+                "name": "sections"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

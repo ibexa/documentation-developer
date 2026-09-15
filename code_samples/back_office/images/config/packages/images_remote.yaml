@@ -1,6 +1,0 @@
-ibexa:
-    image_placeholder:
-        default:
-            provider: remote
-            options:
-                url_pattern: 'https://placecats.com/%%width%%/%%height%%'

@@ -13,21 +13,7 @@ The `CreatedAt` Search Criterion searches for products based on the date when th
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
-
-$criteria = new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAt(
-    new DateTime('2023-03-01'),
-    \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator::GTE,
-);
-
-$productQuery = new ProductQuery(null, $criteria);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
 === "XML"
 

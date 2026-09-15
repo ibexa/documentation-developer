@@ -67,7 +67,7 @@ foreach (array_keys($slugs) as $slug) {
 
 file_put_contents(
     $outputPath,
-    json_encode($map, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n"
+    json_encode($map, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_FORCE_OBJECT) . "\n"
 );
 
 printf("Resolved %d/%d API-referenced classes into %s\n", count($map), count($slugs), $outputPath);

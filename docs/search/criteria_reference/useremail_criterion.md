@@ -4,7 +4,7 @@ description: UserEmail Search Criterion
 
 # UserEmail Criterion
 
-The [`UserEmail` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserEmail.html) searches for content based on the email assigned to the user account.
+The `UserEmail` Search Criterion searches for content based on the email assigned to the user account.
 
 ## Arguments
 
@@ -13,29 +13,11 @@ The [`UserEmail` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 
 ## Limitations
 
-Solr search engine and Elasticsearch support IN and EQ operators only.
+Only the `IN` and `EQ` operators are supported.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\UserEmail(['johndoe']);
-```
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\UserEmail('nospam*', Criterion\Operator::LIKE);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

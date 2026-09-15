@@ -1,17 +1,26 @@
 # User Criterion
 
-The `UserCriterion` Activity Log Criterion matches log groups that have an activity by one of the users given by their IDs.
+The `user` Activity Log Criterion matches activity log groups that have an activity
+by one of the users given by their IDs.
 
-## Argument
+## Arguments
 
-- `ids` - list of user IDs
+- `value` - list of user IDs
 
 ## Example
 
-``` php
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+You can use this Criterion over the REST API, in the `criteria` element of the payload of the
+[`POST /activity-log-group/list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Activity-Log/operation/ibexa.activity_log.rest.activity_log_group.list.post) request:
 
-$query = new ActivityLog\Query([
-    new ActivityLog\Criterion\UserCriterion([10, 14]),
-]);
+``` json
+{
+    "ActivityLogGroupListInput": {
+        "criteria": [
+            {
+                "type": "user",
+                "value": [14]
+            }
+        ]
+    }
+}
 ```

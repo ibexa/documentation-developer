@@ -86,17 +86,10 @@ They determine what fields of what field types are included in all content items
 !!! note
 
     You can assign each field defined in a content type to a group by selecting one of the groups in the Category drop-down.
-    [Available groups can be configured in the content repository](repository_configuration.md).
 
 !!! caution
 
     In case of content types containing many field types you should be aware of possible memory-related issues with publishing/editing.
-    They're caused by the limitation of how many `$_POST` input variables can be accepted.
-
-    The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
-    This solution isn't universally recommended and you're proceeding on your own risk.
-
-    Setting the limit inappropriately may damage your project or cause other issues.
     You may also experience performance problems with such large content types, in particular when you have many content items.
     If you're experincing too many issues, consider rearranging your project to avoid them.
 
@@ -111,43 +104,4 @@ If a field definition is deleted from the content type, all the corresponding fi
 
 System content types are by default used for the File Uploads and removing them can cause errors.
 
-If you decide to remove a `file` or `image` content type, or change their identifiers, you need to change the configuration, so it reflects the available content types.
-
-Example configuration:
-
-```yaml
-parameters:
-    ibexa.multifile_upload.location.default_mappings:
-        # Image
-        - mime_types:
-            - image/jpeg
-            - image/jpg
-            - image/pjpeg
-            - image/pjpg
-            - image/png
-            - image/bmp
-            - image/gif
-            - image/tiff
-            - image/x-icon
-            - image/webp
-          content_type_identifier: custom_image_contenttype
-          content_field_identifier: image
-          name_field_identifier: name
-        # File
-        - mime_types:
-            - image/svg+xml
-            - application/msword
-            - application/vnd.openxmlformats-officedocument.wordprocessingml.document
-            - application/vnd.ms-excel
-            - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-            - application/vnd.ms-powerpoint
-            - application/vnd.openxmlformats-officedocument.presentationml.presentation
-            - application/pdf
-          content_type_identifier: custom_file_contenttype
-          content_field_identifier: file
-          name_field_identifier: name
-    ibexa.multifile_upload.fallback_content_type:
-        content_type_identifier: custom_file_contenttype
-        content_field_identifier: file
-        name_field_identifier: name
-```
+Don't remove the `file` or `image` content types, or change their identifiers.

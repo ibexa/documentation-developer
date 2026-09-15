@@ -9,7 +9,6 @@ month_change: false
 ## Blocking limitation
 
 A generic limitation type to use when no other limitation has been implemented.
-Without any limitation assigned, a `LimitationNotFoundException` is thrown.
 
 It's called "blocking" because it always informs the permissions system that the user doesn't have access to any policy the limitation is assigned to, making the permissions system move on to the next policy.
 
@@ -18,21 +17,6 @@ It's called "blocking" because it always informs the permissions system that the
 |Value|UI value|Description|
 |------|------|------|
 |`<mixed>`|`<mixed>`|This is a generic limitation which doesn't validate the values provided to it. Make sure that you validate the values passed to this limitation in your own logic.|
-
-### Configuration
-
-As this is a generic limitation, you can configure your custom limitations to use it.
-Out of the box FunctionList uses it in the following way:
-
-``` yaml
-    # FunctionList is an ezjscore limitation, it only applies to ezjscore policies not used by
-    # API/platform stack, so configure to use Blocking limitation to avoid LimitationNotFoundException
-    ibexa.api.role.limitation_type.function_list:
-        class: Ibexa\Core\Limitation\BlockingLimitationType
-        arguments: ['FunctionList']
-        tags:
-            - {name: ibexa.permissions.limitation_type, alias: FunctionList}
-```
 
 ## Activity log Owner limitation
 
@@ -95,7 +79,7 @@ If you also combine it with `Owner of Parent` limitation, you effectively limit 
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
-## Field Group limitation [[% include 'snippets/experience_badge.md' %]]
+## Field Group limitation
 
 A Field Group (`FieldGroup`) limitation specifies whether the user can work with content fields belonging to a specific group.
 A user with this limitation is allowed to edit fields belonging to the indicated group.
@@ -226,7 +210,7 @@ This limitation can be used as a role limitation.
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## Segment group limitation [[% include 'snippets/experience_badge.md' %]]
+## Segment group limitation
 
 The segment group (`SegmentGroup`) limitation specifies whether the user has access segments within a specific segment group.
 

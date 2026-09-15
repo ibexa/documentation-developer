@@ -4,7 +4,7 @@ description: ContentId Sort Clause
 
 # ContentId Sort Clause
 
-The [`ContentId` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentId.html) sorts search results by the content items' IDs.
+The `ContentId` Sort Clause sorts search results by the content items' IDs.
 
 ## Arguments
 
@@ -12,10 +12,24 @@ The [`ContentId` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contr
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\ContentId()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <ContentId>ascending</ContentId>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "ContentId": "ascending"
+        }
+    }
+    ```

@@ -2,124 +2,73 @@
 
 This field type makes it possible to store and retrieve values of a relation to other content items.
 
-| Name           | Internal name          | Expected input |
-|----------------|------------------------|----------------|
-| `RelationList` | `ibexa_object_relation_list` | `mixed`        |
+| Name           | Internal name                |
+|----------------|------------------------------|
+| `RelationList` | `ibexa_object_relation_list` |
 
-## PHP API field type
+## Field value
 
-### Input expectations
+The field value is an object with the following keys:
 
-|Type|Description|Example|
-|------|------|------|
-|`int` or `string`|ID of the related content item|`42`|
-|`array`|An array of related Content IDs|`[ 24, 42 ]`|
-|`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
-|`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type value object|See below.|
+| Key                       | Type    | Description                                                                          | Example                                                            |
+|---------------------------|---------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| `destinationContentIds`   | `array` | IDs of the related content items.                                                    | `[24, 42]`                                                         |
+| `destinationContentHrefs` | `array` | REST URIs of the related content items. Read-only, added by the API on output only.  | `["/api/ibexa/v2/content/objects/24", "/api/ibexa/v2/content/objects/42"]` |
 
-### Value Object
-
-#### Properties
-
-`Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
-
-|Property|Type|Description|Example|
-|------|------|------|------|
-|`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
-
-``` php
-/**
- * Value object content example.
- *
- * @var \Ibexa\Core\FieldType\RelationList\Value $relationList
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
- */
-$relationList->destinationContentIds = [
-    $contentInfo1->id,
-    $contentInfo2->id,
-    170,
-];
+``` json
+{
+    "fieldDefinitionIdentifier": "related_articles",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "destinationContentIds": [24, 42],
+        "destinationContentHrefs": [
+            "/api/ibexa/v2/content/objects/24",
+            "/api/ibexa/v2/content/objects/42"
+        ]
+    }
+}
 ```
 
-#### Constructor
+When you create or update a field, provide `destinationContentIds` only.
 
-The `RelationList\Value` constructor initializes a new value object with the value provided.
-It expects a mixed array as value.
-
-``` php
-//Constructor example
-use Ibexa\Core\FieldType\RelationList as RelationList;
-
-/**
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo1
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo2
- */
-// Instantiates a RelationList Value object
-$relationListValue = new RelationList\Value(
-    [
-        $contentInfo1->id,
-        $contentInfo2->id,
-        170,
-    ]
-);
-```
-
-### Validation
+## Validation
 
 This field type validates if:
 
-- the `selectionMethod` specified is `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value doesn't match.
-- the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
-- the value specified in `selectionContentTypes` is an `array`. If not, a validation error in given.
+- the `selectionMethod` specified is `"SELECTION_BROWSE"` or `"SELECTION_DROPDOWN"`. A validation error is returned if the value doesn't match.
+- the `selectionDefaultLocation` specified is `null`, a string, or an integer. If the type validation fails, a validation error is returned.
+- the value specified in `selectionContentTypes` is an array. If not, a validation error is returned.
 - the number of content items selected in the field isn't greater than the `selectionLimit`.
 
 !!! note
 
     The dropdown selection method isn't implemented yet.
 
-### Settings
+## Settings
 
 The field definition of this field type can be configured with the following options:
 
-|Name|Type|Default value|Description|
-|------|------|------|------|
-|`selectionMethod`|`mixed`|`SELECTION_BROWSE`|Method of selection in the back-end interface.|
-|`selectionDefaultLocation`|`string` or `integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
-|`selectionContentTypes`|`array`|`[]`|An array of content type IDs that are allowed for related Content.|
+| Name                       | Type                  | Default value        | Description                                                                         |
+|----------------------------|-----------------------|----------------------|---------------------------------------------------------------------------------------|
+| `selectionMethod`          | `string`              | `"SELECTION_BROWSE"` | Method of selection in the editing interface. Only `"SELECTION_BROWSE"` is implemented. |
+| `selectionDefaultLocation` | `string` or `integer` | `null`               | ID of the default Location for the selection in the editing interface.               |
+| `rootDefaultLocation`      | `boolean`             | `false`              | When `true`, the selection starts from the default Location.                          |
+| `selectionContentTypes`    | `array`               | `[]`                 | An array of content type identifiers that are allowed for the related content items. |
 
-Following selection methods are available:
+On output, when `selectionDefaultLocation` is set, the API adds a read-only `selectionDefaultLocationHref` key with the REST URI of that Location.
 
-| Name| Description|
-|-----|------------|
-| `SELECTION_BROWSE` | Selection uses browse mode.|
-| `SELECTION_DROPDOWN` | *Not implemented yet* |
+## Validators
 
-### Validators
+| Name                                         | Type      | Default value | Description                                                                                              |
+|----------------------------------------------|-----------|---------------|------------------------------------------------------------------------------------------------------------|
+| `RelationListValueValidator[selectionLimit]` | `integer` | `0`           | The number of content items that can be selected in the field. When set to `0`, any number can be selected. |
 
-|Name|Type|Default value|Description|
-|------|------|------|------|
-|`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the field. When set to 0, any number can be selected.|
-
-``` php
-// Example of using settings and validators configuration in PHP
-
-use Ibexa\Core\FieldType\RelationList\Type;
-
-$fieldSettings = [
-    'selectionMethod' => Type::SELECTION_BROWSE,
-    'selectionDefaultLocation' => null,
-    'selectionContentTypes' => [],
- ];
-
-$validators = [
-    'RelationListValueValidator' => [
-        'selectionLimit' => 0,
-    ],
-];
+``` json
+{
+    "validatorConfiguration": {
+        "RelationListValueValidator": {
+            "selectionLimit": 5
+        }
+    }
+}
 ```
-
-### GraphQL integration
-
-This field type is paginating the results when queried using [GraphQL](graphql.md).
-To learn more, see [Pagination in GraphQL](graphql_queries.md#pagination).

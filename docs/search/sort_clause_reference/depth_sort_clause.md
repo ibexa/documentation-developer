@@ -4,7 +4,7 @@ description: Depth Sort Clause
 
 # Depth Sort Clause
 
-The [`Location\Depth` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Depth.html) sorts search results by the depth of the location in the content tree.
+The `Location\Depth` Sort Clause sorts search results by the depth of the location in the content tree.
 
 ## Arguments
 
@@ -12,10 +12,25 @@ The [`Location\Depth` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+In the REST API, this Sort Clause is called `LocationDepth`.
+Use it in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Location\Depth()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <LocationDepth>ascending</LocationDepth>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "LocationDepth": "ascending"
+        }
+    }
+    ```

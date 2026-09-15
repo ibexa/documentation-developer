@@ -1,5 +1,5 @@
 ---
-description: Get started working with Cohesivo by taking your first steps in a new installation.
+description: Get started working with Cohesivo by taking your first steps after you log in.
 page_type: landing_page
 ---
 
