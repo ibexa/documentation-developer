@@ -8,7 +8,7 @@
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="getting_started/first_steps/">
-                <div class="info-tile__circle" style="background-color: #f3f3f6;">
+                <div class="info-tile__circle info-tile__circle--neutral">
                     <svg width="25" height="24"><use xlink:href="images/icons.svg#first-steps" /></svg>
                 </div>
                 <div class="info-tile__content">

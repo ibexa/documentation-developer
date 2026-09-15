@@ -163,19 +163,6 @@ nav:
         - Languages:
             - Languages: multisite/languages/languages.md
             - Translations management:
-                - Translations management: multisite/translations_management/translations_management.md
-                - Translations management guide: multisite/translations_management/translations_management_guide.md
-                - Configure translations management: multisite/translations_management/configure_translations_management.md
-    - Permissions:
-        - Permissions: permissions/permissions.md
-        - Permission overview: permissions/permission_overview.md
-        - Permission use cases: permissions/permission_use_cases.md
-        - Policies: permissions/policies.md
-        - Limitations: permissions/limitations.md
-        - Limitation reference: permissions/limitation_reference.md
-    - Users:
-        - Users: users/users.md
-        - User management guide: users/user_management_guide.md
         - User setup:
           - Invitations: users/invitations.md
         - User authentication:
@@ -395,6 +382,7 @@ extra:
 
 extra_css:
   - fonts/MavenPro.css
+  - css/tokens.css
   - css/codehilite.css
   - css/switcher.css
   - css/custom.css
