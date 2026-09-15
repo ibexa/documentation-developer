@@ -4,7 +4,7 @@ ibexa:
             calendar:
                 event_types:
                     future_publication:
-                        color: '#47BEDB'
+                        color: '#19628F'
                         actions:
                             reschedule:
                                 icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#alert-error'
