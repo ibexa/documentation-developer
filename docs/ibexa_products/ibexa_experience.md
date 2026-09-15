@@ -96,6 +96,7 @@ Using this tool, your customers can change their organization details, invite an
 [Segmentation](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) allows you to split up the user base.
 By assigning users to segments, you can display specific content to selected visitors and tailor the content that they can see.
 One of the tools that you can use right out of the box is the Targeting block that is available in the Page Builder.
+Segmentation is also useful with the [Personalization](personalization_guide.md).
 You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
 
 ![Segments](segments.png)

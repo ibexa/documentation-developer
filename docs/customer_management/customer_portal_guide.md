@@ -179,6 +179,6 @@ Customer portals help you to automate tasks that otherwise would be done by your
 An additional benefit of customer portals is their availability 24/7.
 Thus, reducing the need to allocate resources to extend working hours or hire more employees.
 
-### Localization
+### Localization and personalization
 
 The use of Page Builder in the Customer Portal creation process enables you to create unique experiences for each business customer based on their location, business type, company, or market they operate on.

@@ -83,6 +83,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/migrations|[Migration of repository data](data_migration.md)|
 |[ibexa/oauth2-client](oauth_client.md)|Authenticate user through a third-party OAuth 2 server, integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 |[ibexa/oauth2-server](oauth_server.md)|Allow resource access to OAuth 2 client|
+|ibexa/personalization|Functionality for personalized recommendations|
 |ibexa/product-catalog|Product catalog functionality|
 |ibexa/scheduler|Date-based publishing functionality|
 |ibexa/seo|Search Engine Optimization (SEO) tool|
@@ -90,6 +91,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/tree-builder|Tree builder functionality|
 |ibexa/version-comparison|Enables comparing between two versions of the same field|
 |ibexa/workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
+|ibexa/recommendation-client|Client for connecting with the personalization engine **deprecated**|
 |ibexa/commerce-base-design|Standard design and theme for the shop **deprecated** |
 |ibexa/commerce-checkout|Shop checkout functionality **deprecated** |
 |ibexa/commerce-fieldtypes|Shop-specific field types **deprecated** |
