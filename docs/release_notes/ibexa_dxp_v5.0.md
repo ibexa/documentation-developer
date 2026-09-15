@@ -10,6 +10,22 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.X' %]]
+[[% set date = 'YYYY-MM-DD' %]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Full changelog
+
+[[= release_note_entry_end() =]]
+
+[[% include 'snippets/release_50.md' %]]
+
 [[% set version = 'v5.0.10' %]]
 [[% set date = '2026-08-20' %]]
 
@@ -181,7 +197,7 @@ For more information, see [Built-in tools](https://doc.ibexa.co/en/5.0/ai/mcp/mc
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin(
-    "Ibexa DXP " + version,
+    product_name + ' ' + version,
     date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
