@@ -1,6 +1,6 @@
 ---
 description: Configure translation providers, language pairs, and more for translations management.
-month_change: true
+month_change: false
 ---
 
 # Configure translations management

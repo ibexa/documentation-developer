@@ -1,7 +1,7 @@
 ---
 description: Cohesivo release notes list the new features and improvements delivered to the platform.
 title: Cohesivo release notes
-month_change: true
+month_change: false
 ---
 
 <!-- vale Ibexa.VariablesVersion = NO -->
