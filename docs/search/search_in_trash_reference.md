@@ -12,27 +12,62 @@ Some sort clauses are exclusive to trash search.
 
 ## Search Criteria
 
-- [ContentName](contentname_criterion.md)
-- [ContentTypeId](contenttypeid_criterion.md)
-- [DateMetadata](datemetadata_criterion.md) (which can use the additional exclusive target `DateMetadata::TRASHED`)
-- [MatchAll](matchall_criterion.md)
-- [MatchNone](matchnone_criterion.md)
-- [SectionId](sectionid_criterion.md)
-- [UserMetadata](usermetadata_criterion.md)
+| Criterion | Description |
+|---|---|
+| [ContentName](contentname_criterion.md) | Find content items by their name |
+| [ContentTypeId](contenttypeid_criterion.md) | Find content items by their Content Type ID |
+| [DateMetadata](datemetadata_criterion.md) | Find content items by metadata dates. Can use the additional exclusive target `DateMetadata::TRASHED` for trash-specific searches |
+| [MatchAll](matchall_criterion.md) | Match all content items (no filtering) |
+| [MatchNone](matchnone_criterion.md) | Match no content items (filter out all) |
+| [SectionId](sectionid_criterion.md) | Find content items by their Section ID |
+| [UserMetadata](usermetadata_criterion.md) | Find content items by user metadata (creator or modifier) |
 
 ## Logical operators
 
-- [LogicalAnd](logicaland_criterion.md)
-- [LogicalNot](logicalor_criterion.md)
-- [LogicalOr](logicalor_criterion.md)
+| Operator | Description |
+|---|---|
+| [LogicalAnd](logicaland_criterion.md) | Composite criterion to group multiple criteria using the AND condition |
+| [LogicalNot](logicalor_criterion.md) | Negate the result of the wrapped criterion |
+| [LogicalOr](logicalor_criterion.md) | Composite criterion to group multiple criteria using the OR condition |
 
 ## Sort Clauses
 
-- [ContentName](contentname_sort_clause.md)
-- [ContentTypeName](contenttypename_sort_clause.md)
-- [DateTrashed](datetrashed_sort_clause.md)
-- [Depth](depth_sort_clause.md)
-- [Path](path_sort_clause.md)
-- [Priority](priority_sort_clause.md)
-- [SectionName](sectionname_sort_clause.md)
-- [UserLogin](userlogin_sort_clause.md)
+| Name | Description |
+| --- | --- |
+| [ContentName](contentname_sort_clause.md) | Sort by content item name |
+| [ContentTypeName](contenttypename_sort_clause.md) | Sort by Content Type name |
+| [DateTrashed](datetrashed_sort_clause.md) | Sort by the date when content was moved to trash (exclusive to trash search) |
+| [Depth](depth_sort_clause.md) | Sort by the original depth in the content tree |
+| [Path](path_sort_clause.md) | Sort by the original path in the content tree |
+| [Priority](priority_sort_clause.md) | Sort by content item priority |
+| [SectionName](sectionname_sort_clause.md) | Sort by Section name |
+| [UserLogin](userlogin_sort_clause.md) | Sort by the login of the user who created the content |
+
+The following example shows how you can use the criteria and sort clauses to find trashed content items:
+
+```php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
+$query = new Query();
+$query->filter = new Criterion\LogicalAnd([
+    new Criterion\ContentTypeId([2]), // Articles
+    new Criterion\DateMetadata(
+        Criterion\DateMetadata::TRASHED,
+        Criterion\Operator::GTE,
+        strtotime('-30 days')
+    )
+]);
+
+$query->sortClauses = [
+    new SortClause\Trash\DateTrashed(Query::SORT_DESC),
+    new SortClause\ContentName(Query::SORT_ASC),
+    new SortClause\Trash\ContentTypeName(Query::SORT_ASC)
+];
+
+// Search for articles trashed in the last 30 days
+// Results will be sorted by date trashed (most recent first),
+// then by content name and Content Type name (alphabetically)
+$results = $trashService->findTrashItems($query);
+```
