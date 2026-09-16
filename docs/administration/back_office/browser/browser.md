@@ -83,7 +83,7 @@ There you can set the following properties:
 
 ### Tabs config group
 
-General configuration for tabs, for example, browse, search, bookmarks.
+General configuration for tabs, for example, browse, search, favourites.
 
 |YML<br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
