@@ -1,0 +1,60 @@
+{% extends '@ibexadesign/layout.html.twig' %}
+
+{% block content %}
+    <div class="ibexa-blog-post">
+        <header class="ibexa-blog-post__header">
+            <div class="ibexa-blog-post__categories">
+                {% set categories = ibexa_field_value(content, 'categories') %}
+                {% for category in categories.getTaxonomyEntries() %}
+                    <a href="{{ ibexa_path(category) }}" class="ibexa-blog-post__category">
+                        {{ category.getName() }}
+                    </a>
+                {% endfor %}
+            </div>
+
+            <h1>{{ ibexa_content_name(content) }}</h1>
+        </header>
+
+        <div class="ibexa-blog-post__image">
+            {{ ibexa_render_field(content, 'image', { parameters: { alias: 'cover' }}) }}
+        </div>
+
+        <div class="ibexa-blog-post__body">
+            <main class="ibexa-blog-post__content">
+                {{ ibexa_render_field(content, 'content') }}
+            </main>
+
+            <aside class="ibexa-blog-post__aside">
+                <div class="ibexa-blog-post-meta">
+                    <div class="ibexa-blog-post-meta__label">
+                        Published:
+                    </div>
+                    <div class="ibexa-blog-post-meta__value">
+                        {{ content.versionInfo.creationDate|date('d-m-Y H:i') }}
+                    </div>
+                </div>
+
+                <div class="ibexa-blog-post-meta">
+                    <div class="ibexa-blog-post-meta__label">
+                        Rate:
+                    </div>
+                    <div class="ibexa-blog-post-meta__value">
+                        {% set rate = ibexa_field_value(content, 'rate').value %}
+                        {% for i in range(1, 5) %}
+                            {{ i <= rate ? '&#x2605;' : '&#x2606;' }}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="ibexa-blog-post__meta">
+                    <div class="ibexa-blog-post-meta__label">
+                        Author:
+                    </div>
+                    <div class="ibexa-blog-post-meta__value">
+                        {{ ibexa_render_field(content, 'author') }}
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+{% endblock %}

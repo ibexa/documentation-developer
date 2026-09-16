@@ -1,0 +1,112 @@
+.ibexa-blog-posts-list {
+  display: flex;
+  align-items: flex-start;
+
+  &__aside {
+    flex-basis: 300px;
+    margin-right: 20px;
+    background-color: #f9f9fa;
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  &__content {
+    flex-basis: calc(100% - 320px);
+  }
+}
+
+.ibexa-blog-post {
+  &__body {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+
+  .ezimage-field {
+    margin: 0 !important;
+  }
+
+  &__body {
+    padding: 30px;
+    margin: 0 30px;
+  }
+
+  &__aside {
+    background-color: #f9f9fa;
+    border-radius: 8px;
+    padding: 24px;
+    margin-left: 30px;
+    min-width: 300px;
+    width: 100%;
+  }
+
+  &__header {
+    margin: 0 60px;
+  }
+
+  &__image {
+    img {
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      width: 100%;
+    }
+  }
+
+  .ibexa-blog-post-meta {
+    margin: 20px 0;
+
+    &__label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__categories {
+    margin: 5px 0;
+  }
+
+  &__category {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: normal;
+    padding: 3px;
+    text-decoration: none;
+  }
+}
+
+.ibexa-blog-post-line {
+  display: flex;
+  align-items: flex-start;
+
+  &__image {
+    flex-basis: 200px;
+
+    .ezimage-field {
+      margin: 10px 10px 10px 0;
+      padding: 0;
+    }
+
+    img {
+      border: 1px solid #ccc;
+    }
+  }
+
+  &__categories {
+    margin: 5px 0;
+  }
+
+  &__category {
+    background: #dddddd;
+    border: 1px solid #666;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: normal;
+    padding: 3px;
+    text-decoration: none;
+  }
+}
