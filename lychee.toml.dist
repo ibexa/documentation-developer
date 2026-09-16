@@ -112,13 +112,15 @@ root_dir = "site"
 # requests to Cloudflare-protected hosts.
 #
 # - en/latest/           → current build's site/ directory (self-referential links from cards() macro)
+# - en/saas/             → current build's site/ directory (this branch *is* the SaaS documentation)
 # - en/4.6/              → repositories/devdoc-4.6/site/
 # - en/5.0/              → repositories/devdoc-5.0/site/
 # - en/6.0/              → repositories/devdoc-6.0/site/
-# - userguide/en/latest/ → repositories/userdoc-5.0/site/ (newest available, v6 is not released yet)
+# - userguide/en/latest/ → repositories/userdoc-5.0/site/ (what doc.ibexa.co currently serves as latest)
 # - userguide/en/4.6/    → repositories/userdoc-4.6/site/
 # - userguide/en/5.0/    → repositories/userdoc-5.0/site/
 # - userguide/en/6.0/    → repositories/userdoc-6.0/site/
+# - userguide/en/saas/   → repositories/userdoc-saas/site/
 # - connect/en/latest/   → repositories/connect/site/
 #
 # Three patterns per version handle all URL shapes.
@@ -149,6 +151,12 @@ remap = [
     "https://doc\\.ibexa\\.co/en/latest/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/site/$1$2",
     "https://doc\\.ibexa\\.co/en/latest/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/site/$1/index.html$2",
     "https://doc\\.ibexa\\.co/en/latest/$ file://__BASE_DIR__/site/index.html",
+    # doc.ibexa.co/en/saas/ is this branch's own canonical base URL (see site_url in
+    # mkdocs.yml), so those links are self-referential too — remap them to the local
+    # site/ build, where the exclude pattern above skips them.
+    "https://doc\\.ibexa\\.co/en/saas/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/site/$1$2",
+    "https://doc\\.ibexa\\.co/en/saas/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/site/$1/index.html$2",
+    "https://doc\\.ibexa\\.co/en/saas/$ file://__BASE_DIR__/site/index.html",
     # userguide en/latest/ — map to the newest available clone (userdoc-5.0)
     "https://doc\\.ibexa\\.co/projects/userguide/en/latest/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/latest/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1/index.html$2",
@@ -177,6 +185,10 @@ remap = [
     "https://doc\\.ibexa\\.co/projects/userguide/en/6\\.0/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-6.0/site/$1$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/6\\.0/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-6.0/site/$1/index.html$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/6\\.0/$ file://__BASE_DIR__/repositories/userdoc-6.0/site/index.html",
+    # userdoc saas
+    "https://doc\\.ibexa\\.co/projects/userguide/en/saas/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-saas/site/$1$2",
+    "https://doc\\.ibexa\\.co/projects/userguide/en/saas/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-saas/site/$1/index.html$2",
+    "https://doc\\.ibexa\\.co/projects/userguide/en/saas/$ file://__BASE_DIR__/repositories/userdoc-saas/site/index.html",
     # userdoc master — treated as the newest available (userdoc-5.0)
     "https://doc\\.ibexa\\.co/projects/userguide/en/master/([^#]+\\.html)(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1$2",
     "https://doc\\.ibexa\\.co/projects/userguide/en/master/([^#/]+(?:/[^#/]+)*)/?(#.*)?$ file://__BASE_DIR__/repositories/userdoc-5.0/site/$1/index.html$2",

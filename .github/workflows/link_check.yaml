@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - master
+            - saas
             - "[0-9]+.[0-9]+"
     workflow_dispatch:
         inputs:
@@ -23,6 +24,10 @@ on:
                 description: "ibexa/documentation-developer branch for 4.6"
                 type: string
                 default: "4.6"
+            userdoc_saas_branch:
+                description: "ibexa/documentation-user branch for SaaS"
+                type: string
+                default: "saas"
             userdoc_60_branch:
                 description: "ibexa/documentation-user branch for 6.0"
                 type: string
@@ -85,6 +90,7 @@ jobs:
                   "${{ inputs.devdoc_60_branch || '6.0' }}"
                   "${{ inputs.devdoc_50_branch || '5.0' }}"
                   "${{ inputs.devdoc_46_branch || '4.6' }}"
+                  "${{ inputs.userdoc_saas_branch || 'saas' }}"
                   "${{ inputs.userdoc_60_branch || '6.0' }}"
                   "${{ inputs.userdoc_50_branch || '5.0' }}"
                   "${{ inputs.userdoc_46_branch || '4.6' }}"
