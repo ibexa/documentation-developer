@@ -29,7 +29,7 @@ class BookmarkCommand extends Command
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, 'Location id'),
             ])
-            ->addOption('delete', 'd', InputOption::VALUE_NONE, 'Delete the created bookmark?', null);
+            ->addOption('delete', 'd', InputOption::VALUE_NONE, 'Delete the created Favourites entry?', null);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -39,11 +39,11 @@ class BookmarkCommand extends Command
 
         $this->bookmarkService->createBookmark($location);
 
-        $output->writeln('Added bookmark to ' . $location->getContentInfo()->name);
+        $output->writeln('Added ' . $location->getContentInfo()->name . ' to Favourites.');
 
         $bookmarkList = $this->bookmarkService->loadBookmarks();
 
-        $output->writeln('Total bookmarks: ' . $bookmarkList->totalCount);
+        $output->writeln('Total favourites: ' . $bookmarkList->totalCount);
 
         foreach ($bookmarkList->items as $bookmark) {
             $output->writeln($bookmark->getContentInfo()->name);
@@ -51,7 +51,7 @@ class BookmarkCommand extends Command
 
         if ($input->getOption('delete')) {
             $this->bookmarkService->deleteBookmark($location);
-            $output->writeln('Deleted bookmark from ' . $location->getContentInfo()->name);
+            $output->writeln('Deleted ' . $location->getContentInfo()->name . ' from Favourites.');
         }
 
         return self::SUCCESS;

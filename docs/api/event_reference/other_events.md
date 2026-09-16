@@ -8,7 +8,7 @@ month_change: false
 
 ## Favourites
 
-The following events are dispatched when adding content items to favourites.
+The following events are dispatched when adding content items to Favourites list.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
