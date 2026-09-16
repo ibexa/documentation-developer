@@ -330,7 +330,7 @@ You can use it to get rid of PHP code deprecations and start preparing your proj
 !!! note
 
     [[= product_name_base =]] Rector requires PHP 8.3 and you must upgrade your codebase first.
-    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-2-upgrade-php-first).
+    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-3-upgrade-php-first).
 
 To get started with [[= product_name_base =]] Rector, execute the following steps:
 
