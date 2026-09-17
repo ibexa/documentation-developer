@@ -4,7 +4,7 @@ description: AuthorTermAggregation
 
 # AuthorTermAggregation
 
-The field-based [AuthorTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-AuthorTermAggregation.html) aggregates search results by the value of the Author field.
+The field-based AuthorTermAggregation aggregates search results by the value of the Author field.
 
 ## Arguments
 
@@ -12,12 +12,19 @@ The field-based [AuthorTermAggregation](/api/php_api/php_api_reference/classes/I
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\AuthorTermAggregation('author', 'article', 'authors');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "AuthorTermAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "article",
+                "fieldDefinitionIdentifier": "authors"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

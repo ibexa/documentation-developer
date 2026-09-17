@@ -12,12 +12,17 @@ The ProductAvailabilityTermAggregation aggregates search results by product avai
 
 ## Example
 
-``` php
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductAvailabilityTermAggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
-$query = new ProductQuery();
-$query->setAggregations([
-    new ProductAvailabilityTermAggregation('product_availability'),
-]);
+``` json
+"ProductQuery": {
+    "Aggregations": [
+        {
+            "ProductAvailabilityTerm": {
+                "name": "availability"
+            }
+        }
+    ]
+}
 ```

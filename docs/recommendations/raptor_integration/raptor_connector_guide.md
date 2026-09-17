@@ -5,8 +5,7 @@ month_change: false
 
 # [[= product_name_cdp_base =]] integration product guide
 
-Discover [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations and tracking customer behaviors.
-It includes the connector with tracking scripts and events that are used to track and analyze customer behaviors, and a set of Recommendation blocks.
+Discover [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations for your visitors.
 
 ## What is [[= product_name_cdp_base =]] integration
 
@@ -16,41 +15,21 @@ Its primary goal is to enable editors and managers to deliver personalized exper
 
 By bringing content and recommendations together, the connector makes it easy to build and manage personalized experiences.
 
-It provides a seamless integration layer that supports:
-
-- event tracking of user interactions through the Tracking API
-- personalized delivery of content and product recommendations through the Recommendations API
-- flexible SiteAccess-aware configuration adapted to different sites and contexts
-
 This approach simplifies integration while supporting personalization across different sites and markets.
 
 ## Availability
 
-[[= product_name_cdp_base =]] integration elements, such as tracking, Twig functions, and public API, are available in all supported [[= product_name =]] editions starting from v5.0.7 version.
+To use the [[= product_name_cdp_base =]] integration, you must first make arrangements with [[= product_name_base =]].
 
-Recommendation blocks provided in Page Builder, are available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
-
-## How does [[= product_name_cdp_base =]] tracking work
+## [[= product_name_cdp_base =]] tracking
 
 To start [tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) user interactions, the tracking script needs to be added to the website’s layout.
-Tracking can be set up either on the client-side, server-side, or using hybrid mode, depending on how you want to capture and process the events.
-
-The tracking works differently depending on the mode you choose.
-In server-side mode, tracking happens on the server, handling all events without loading scripts in the browser.
-In client-side mode, it inserts script tags so tracking runs directly in the browser.
-In hybrid mode, the browser loads a first-party [shim](https://en.wikipedia.org/wiki/Shim_(computing)) that forwards tracking events to a same-origin proxy endpoint instead of the [[= product_name_cdp_base =]] SaaS script, helping prevent ad blockers from blocking tracking.
-For more information, see [Hybrid tracking](hybrid_tracking.md).
-
-You can switch between tracking modes at any time by changing the tracking type to fit your setup and needs.
 
 ## Capabilities
 
 ### Tracking
 
-[[= product_name_cdp_base =]] [tracking functions](tracking_functions.md) allow you to collect data about how users interact with your products and content.
-
-You can track product visits to better understand what users are viewing.
-Provided Twig functions simplify the implementation, allowing developers to quickly add tracking to templates without complex setup.
+[[= product_name_cdp_base =]] tracking allows you to collect data about how users interact with your products and content.
 
 This gives you the data you need to better understand user behavior, improve recommendations, and support personalization.
 
@@ -89,11 +68,6 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
 
 For a complete description of Recommendation blocks see [Recommendation blocks in User Documentation]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
-### Advanced usage for complex tracking scenarios
-
-For more complex tracking requirements, [PHP API](tracking_php_api.md) provides direct access to the service.
-It lets you track custom user actions, create more detailed tracking logic, and support scenarios not covered by the standard setups.
-
 ## Benefits
 
 ### Understand user behavior
@@ -126,8 +100,3 @@ Start building predictions of their behaviors and suggest products your visitors
 
 Use the [[= product_name_cdp_base =]] service in your Commerce shop and see how recommendations drive sales.
 Keep track of which recommendations are shown to visitors and measure conversion rates to evaluate their effectiveness against your goals.
-
-### Flexible tracking with PHP API
-
-Tracking using PHP API gives you full control over how events are recorded and processed.
-You can use it for complex scenarios, so tracking can be adapted to your specific needs or business requirements.

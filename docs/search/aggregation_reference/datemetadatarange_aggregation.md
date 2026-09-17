@@ -4,7 +4,7 @@ description: DateMetadataRangeAggregation
 
 # DateMetadataRangeAggregation
 
-The [DateMetadataRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-CountryTermAggregation.html) aggregates search results by the value of the content items' date metadata.
+The DateMetadataRangeAggregation aggregates search results by the value of the content items' date metadata.
 
 ## Arguments
 
@@ -14,19 +14,28 @@ The [DateMetadataRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\DateMetadataRangeAggregation(
-    'date_metadata',
-    Aggregation\DateMetadataRangeAggregation::PUBLISHED,
-    [
-        Range::ofDateTime(null, new DateTime('2020-06-01')),
-        Range::ofDateTime(new DateTime('2020-06-01'), new DateTime('2020-12-31')),
-        Range::ofDateTime(new DateTime('2020-12-31'), null),
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "DateMetadataRangeAggregation": {
+                "name": "modification_date",
+                "type": "modified",
+                "ranges": [
+                    {
+                        "from": null,
+                        "to": "2024-01-01T00:00:00+00:00"
+                    },
+                    {
+                        "from": "2024-01-01T00:00:00+00:00",
+                        "to": null
+                    }
+                ]
+            }
+        }
     ]
-);
+}
 ```

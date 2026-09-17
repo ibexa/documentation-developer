@@ -4,11 +4,11 @@ description: Path Sort Clause
 
 # Path Sort Clause
 
-The [`Location\Path` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Path.html) sorts search results by the pathString of the location.
+The `Location\Path` Sort Clause sorts search results by the pathString of the location.
 
 !!! note
 
-    Solr search engine uses dictionary sorting with the `Location/Path` Sort Clause.
+    The `Location/Path` Sort Clause uses dictionary sorting.
 
 ## Arguments
 
@@ -16,10 +16,25 @@ The [`Location\Path` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-C
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+In the REST API, this Sort Clause is called `LocationPath`.
+Use it in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Location\Path()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <LocationPath>ascending</LocationPath>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "LocationPath": "ascending"
+        }
+    }
+    ```

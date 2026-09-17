@@ -1,6 +1,5 @@
 ---
 description: Customer Portal allows your business clients to create and manage their company accounts.
-edition: experience
 page_type: landing_page
 ---
 
@@ -14,9 +13,6 @@ With this feature, your customers can self-register, edit their organization inf
 
 [[= cards([
     "customer_management/customer_portal_guide",
-    "customer_management/cp_configuration",
     "customer_management/cp_applications",
     "users/invitations",
-    "customer_management/cp_page_builder",
-    "customer_management/create_user_registration_form",
 ], columns=3) =]]

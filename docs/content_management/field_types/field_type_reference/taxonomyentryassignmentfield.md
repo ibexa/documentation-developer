@@ -2,7 +2,6 @@
 
 `TaxonomyEntryAssignment` field is used to integrate content with the Taxonomy module.
 It allows you to select tags or categories and assign them to content.
-This field type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this content item.
 
 !!! caution "Duplicate taxonomy fields"
 
@@ -10,82 +9,48 @@ This field type assigns tags to the content in the data action, so then you can 
 
 To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` field to the content type definition.
 
-| Name                      | Internal name                     | Expected input                                   |
-|---------------------------|-----------------------------------|--------------------------------------------------|
-| `TaxonomyEntryAssignment` | `ibexa_taxonomy_entry_assignment` | array with `taxonomyEntries` and `taxonomy` keys |
+| Name                      | Internal name                     |
+|---------------------------|-----------------------------------|
+| `TaxonomyEntryAssignment` | `ibexa_taxonomy_entry_assignment` |
 
-## PHP API field type
+## Field value
 
-### Input expectations
+The field value is an object with the following keys:
 
-| Type    | Description                                                                                                                                 | Example   |
-|---------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| `array` | array with `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` objects under `taxonomy_entries` key and Taxonomy identifier under `taxonomy` key | see below |
+| Key                | Type     | Description                                                          | Example              |
+|--------------------|----------|----------------------------------------------------------------------|----------------------|
+| `taxonomy_entries` | `array`  | IDs of the assigned taxonomy entries.                                | `[3]`                |
+| `taxonomy`         | `string` | Identifier of the taxonomy that all the entries must be assigned to. | `product_categories` |
 
-Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value` object:
+Set the `taxonomy` value to the same identifier as the `taxonomy` setting of the field definition.
+The REST API doesn't check that the two match.
 
-``` php
-use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
-
-/** @var TaxonomyServiceInterface $taxonomyService */
-$taxonomyEntry1 = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-$taxonomyEntry2 = $taxonomyService->loadEntryByIdentifier('example_entry_2', 'tags');
-new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
-    [
-        $taxonomyEntry1,
-        $taxonomyEntry2,
-        // ...
-    ],
-    'tags',
-);
+``` json
+{
+    "fieldDefinitionIdentifier": "category",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "taxonomy_entries": [3],
+        "taxonomy": "product_categories"
+    }
+}
 ```
 
-Example using array:
+## Validation
 
-``` php
-use Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry;
+Entry IDs that don't exist are removed from the value instead of causing an error, so a request can succeed with fewer entries than you sent.
+Check the entries in the response to confirm which of them were stored.
 
-/**
- * @var TaxonomyEntry $taxonomyEntry
- * @var TaxonomyEntry $taxonomyEntry2
- */
-return [
-    'taxonomy_entries' => [$taxonomyEntry, $taxonomyEntry2], // load entries using TaxonomyService
-    'taxonomy' => 'tags',
-];
+## Settings
+
+| Name       | Type     | Default value | Description                                                |
+|------------|----------|---------------|--------------------------------------------------------------|
+| `taxonomy` | `string` | `null`        | Identifier of the taxonomy from which the entries are chosen. |
+
+``` json
+{
+    "fieldSettings": {
+        "taxonomy": "product_categories"
+    }
+}
 ```
-
-### Value object
-
-#### Properties
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`taxonomyEntry`|array of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
-|`taxonomy`|`string`|Stores the taxonomy identifier, all `taxonomyEntries` have to be assigned to this taxonomy and the identifier has to match the settings of the field type in content type configuration.|
-
-#### Constructor
-
-The constructor accepts `taxonomyEntries` and `taxonomy` as described above.
-
-#### String representation
-
-If the field has no entries - empty string.
-If the field has entries (for example: "Cars and 5 more") - a string displaying the first taxonomy entry and the number of rest of the entries.
-
-#### Hash format
-
-An array of:
-
-- `taxonomy_entries` with numerical IDs of entries.
-- `taxonomy` string identifier of a taxonomy.
-
-#### Validation
-
-The field type validates if all Taxonomy Entries from the value are assigned to the configured taxonomy.
-
-#### Settings
-
-| Name       | Type     | Default value | Description                          |
-|------------|----------|---------------|--------------------------------------|
-| `taxonomy` | `string` | `null`        | Taxonomy from which entry is chosen. |

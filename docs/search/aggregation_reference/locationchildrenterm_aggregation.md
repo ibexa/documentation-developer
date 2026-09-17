@@ -4,7 +4,7 @@ description: LocationChildrenTermAggregation
 
 # LocationChildrenTermAggregation
 
-The [LocationChildrenTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-LocationChildrenTermAggregation.html) aggregates search results by the number of children of a location.
+The LocationChildrenTermAggregation aggregates search results by the number of children of a location.
 
 ## Arguments
 
@@ -12,12 +12,17 @@ The [LocationChildrenTermAggregation](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->aggregations[] = new Aggregation\Location\LocationChildrenTermAggregation('location_children');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "LocationChildrenTermAggregation": {
+                "name": "children"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -13,17 +13,27 @@ The ProductStockRangeAggregation aggregates search results by products' numerica
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
-use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductStockRangeAggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
-$productQuery = new ProductQuery();
-$productQuery->setAggregations([
-    new ProductStockRangeAggregation('stock', [
-        Range::ofInt(null, 10),
-        Range::ofInt(10, 100),
-        Range::ofInt(100, null),
-    ]),
-]);
+``` json
+"ProductQuery": {
+    "Aggregations": [
+        {
+            "ProductStockRange": {
+                "name": "stock",
+                "ranges": [
+                    {
+                        "from": 0,
+                        "to": 10
+                    },
+                    {
+                        "from": 10,
+                        "to": null
+                    }
+                ]
+            }
+        }
+    ]
+}
 ```

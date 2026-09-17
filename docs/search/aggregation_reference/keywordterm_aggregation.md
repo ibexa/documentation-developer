@@ -4,7 +4,7 @@ description: KeywordTermAggregation
 
 # KeywordTermAggregation
 
-The field-based [KeywordTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-KeywordTermAggregation.html) aggregates search results by the value of the Keyword field.
+The field-based KeywordTermAggregation aggregates search results by the value of the Keyword field.
 
 ## Arguments
 
@@ -12,12 +12,19 @@ The field-based [KeywordTermAggregation](/api/php_api/php_api_reference/classes/
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\KeywordTermAggregation('keyword', 'article', 'tags');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "KeywordTermAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "article",
+                "fieldDefinitionIdentifier": "tags"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

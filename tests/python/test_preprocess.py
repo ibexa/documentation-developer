@@ -50,11 +50,11 @@ def test_release_note_tags_appended_to_heading():
     html = (
         '<h2>Connector v5.0.7<a class="headerlink" href="#c">&para;</a></h2>'
         '<div class="release-note__tags">'
-        '<div class="pill pill--headless"></div>'
-        '<div class="pill pill--experience"></div>'
+        '<div class="pill pill--new-feature"></div>'
+        '<div class="pill pill--first-release"></div>'
         "</div>"
     )
-    assert "## Connector v5.0.7 (Headless, Experience)" in to_markdown(html)
+    assert "## Connector v5.0.7 (New feature, First release)" in to_markdown(html)
 
 
 def test_admonition_becomes_blockquote():
@@ -104,34 +104,6 @@ def test_card_with_empty_title_raises():
     )
     with pytest.raises(ValueError, match="empty title"):
         to_markdown(html)
-
-
-def test_inline_pill_becomes_parenthetical():
-    html = '<p>Feature<span class="pill--inline pill--experience"></span> is available.</p>'
-    assert "Feature (Experience) is available." in to_markdown(html)
-
-
-def test_adjacent_inline_pills_merged():
-    # Structure from update_from_5.0: pills separated by a space in a heading.
-    html = (
-        '<h3 id="db">Database update '
-        '<span class="pill pill--inline pill--headless"></span> '
-        '<span class="pill pill--inline pill--experience"></span>'
-        '<a class="headerlink" href="#db">&para;</a></h3>'
-    )
-    result = to_markdown(html)
-    assert "### Database update (Headless, Experience)" in result
-    assert ") (" not in result
-
-
-def test_three_adjacent_inline_pills_merged():
-    html = (
-        "<p>Feature"
-        '<span class="pill--inline pill--headless"></span> '
-        '<span class="pill--inline pill--experience"></span> '
-        '<span class="pill--inline pill--lts-update"></span> is available.</p>'
-    )
-    assert "Feature (Headless, Experience, LTS Update) is available." in to_markdown(html)
 
 
 def test_ol_start_attribute_preserved():

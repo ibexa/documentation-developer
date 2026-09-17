@@ -14,17 +14,7 @@ The `FileSize` Search Criterion searches for image with specified size.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Image\FileSize('image', 0, 1.5);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

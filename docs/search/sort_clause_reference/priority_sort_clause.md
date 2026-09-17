@@ -4,7 +4,7 @@ description: Priority Sort Clause
 
 # Priority Sort Clause
 
-The [`Location\Priority` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Priority.html) sorts search results by the priority of the location.
+The `Location\Priority` Sort Clause sorts search results by the priority of the location.
 
 ## Arguments
 
@@ -12,10 +12,25 @@ The [`Location\Priority` Sort Clause](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+In the REST API, this Sort Clause is called `LocationPriority`.
+Use it in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Location\Priority()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <LocationPriority>ascending</LocationPriority>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "LocationPriority": "ascending"
+        }
+    }
+    ```

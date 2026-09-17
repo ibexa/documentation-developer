@@ -13,28 +13,7 @@ The `Dimensions` Search Criterion searches for image with specified dimensions.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$imageCriteriaData = [
-    'width' => [
-        'min' => 100, // (default: 0, optional)
-        'max' => 1000, // (default: null, optional)
-    ],
-    'height' => [
-        'min' => 500, // (default: 0, optional)
-        'max' => 1500, // (default: null, optional)
-    ],
-];
-
-$query->query = new Criterion\Image\Dimensions('image', $imageCriteriaData);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

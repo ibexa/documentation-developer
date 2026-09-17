@@ -4,7 +4,7 @@ description: Subtree Search Criterion
 
 # Subtree Criterion
 
-The [`Subtree` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Subtree.html) searches for content based on its location ID subtree path.
+The `Subtree` Search Criterion searches for content based on its location ID subtree path.
 It returns the content item and all the content items below it in the subtree.
 
 ## Arguments
@@ -13,17 +13,7 @@ It returns the content item and all the content items below it in the subtree.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Subtree('/1/2/71/72/');
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

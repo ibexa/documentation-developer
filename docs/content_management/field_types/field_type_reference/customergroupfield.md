@@ -2,18 +2,24 @@
 
 This field type represents a customer group that a user belongs to.
 
-| Name             | Internal name          | Expected input type |
-|------------------|------------------------|---------------------|
-| `Customer group` | `ibexa_customer_group` | `int` or null       |
+| Name             | Internal name          |
+|------------------|------------------------|
+| `Customer group` | `ibexa_customer_group` |
 
-## PHP API field type
+## Field value
 
-### Value object
+The field value is an object with a single key, or `null` when the field is empty:
 
-#### Properties
+| Key                 | Type      | Description               | Example |
+|---------------------|-----------|---------------------------|---------|
+| `customer_group_id` | `integer` | ID of the customer group. | `1`     |
 
-The Value class of this field type contains the following properties:
-
-| Property | Type    | Description               |
-|----------|---------|---------------------------|
-| `$id`    | `int`   | ID of the customer group. |
+``` json
+{
+    "fieldDefinitionIdentifier": "customer_group",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "customer_group_id": 1
+    }
+}
+```

@@ -1,1 +1,1 @@
-- (optional) `sortDirection` - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`
+- (optional) sorting direction, either `ascending` (default) or `descending`

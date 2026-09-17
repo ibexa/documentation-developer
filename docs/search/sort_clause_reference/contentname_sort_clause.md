@@ -4,7 +4,7 @@ description: ContentName Sort Clause
 
 # ContentName Sort Clause
 
-The [`ContentName` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentName.html) sorts search results by the content items' names.
+The `ContentName` Sort Clause sorts search results by the content items' names.
 
 ## Arguments
 
@@ -12,10 +12,24 @@ The [`ContentName` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\ContentName()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <ContentName>ascending</ContentName>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "ContentName": "ascending"
+        }
+    }
+    ```

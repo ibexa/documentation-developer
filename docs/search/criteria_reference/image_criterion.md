@@ -13,38 +13,7 @@ The `Image` Search Criterion searches for image by specified image attributes.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$imageCriteriaData = [
-    'mimeTypes' => [
-       'image/png',
-    ],
-    'orientation' => [
-       'image/png',
-    ],
-    'width' => [
-        'min' => 0, // (default: 0, optional)
-        'max' => 1000, // (default: null, optional)
-    ],
-    'height' => [
-        'min' => 0, // (default: 0, optional)
-        'max' => 1000, // (default: null, optional)
-    ],
-    'size' => [
-        'min' => 0, // (default: 0, optional)
-        'max' => 2, // (default: null, optional)
-    ],
-];
-
-$query = new Query();
-$query->query = new Criterion\Image('image', $imageCriteriaData);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

@@ -2,82 +2,44 @@
 
 TaxonomyEntry is a field type that stores information about the parent entry in the taxonomy tree, placing the taxonomy entry (tag or product category) in the taxonomy structure.
 
-| Name           | Internal name         | Expected input |
-|----------------|-----------------------|----------------|
-| `TaxonomyEntry`| `ibexa_taxonomy_entry`| `array`|
+| Name            | Internal name          |
+|-----------------|------------------------|
+| `TaxonomyEntry` | `ibexa_taxonomy_entry` |
 
-## PHP API field type
+## Field value
 
-### Input expectations
+The field value is an object with a single key:
 
-A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
+| Key              | Type              | Description                                       | Example |
+|------------------|-------------------|---------------------------------------------------|---------|
+| `taxonomy_entry` | `integer`, `null` | ID of the selected taxonomy entry, or `null`.     | `3`     |
 
-| Type     | Description | Example         |
-|--------|-----------------|-----------------|
-| `array` | array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object under the `taxonomy_entry` key | see below |
-
-Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
-
-``` php
-use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
-
-/** @var TaxonomyServiceInterface $taxonomyService */
-$taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-$taxonomyEntryField = new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value($taxonomyEntry);
+``` json
+{
+    "fieldDefinitionIdentifier": "parent",
+    "languageCode": "eng-GB",
+    "fieldValue": {
+        "taxonomy_entry": 3
+    }
+}
 ```
 
-Example using array:
+## Validation
 
-``` php
-use Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry;
+This field type doesn't perform any special validation of the input value.
 
-/** @var TaxonomyEntry $taxonomyEntry */
-return [
-    'taxonomy_entry' => $taxonomyEntry, // load Entry using TaxonomyService
-];
+## Settings
+
+The field definition of this field type can be configured with the following option:
+
+| Name       | Type     | Default value | Description                              |
+|------------|----------|---------------|--------------------------------------------|
+| `taxonomy` | `string` | `null`        | Identifier of the taxonomy from which you choose an entry. |
+
+``` json
+{
+    "fieldSettings": {
+        "taxonomy": "tags"
+    }
+}
 ```
-
-### Value object
-
-#### Properties
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`taxonomyEntry`|`?Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
-
-#### Constructor
-
-The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
-
-``` php
-// Constructor example
-use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
-use Ibexa\Taxonomy\FieldType\TaxonomyEntry;
-
-// Fetches TaxonomyEntry from TaxonomyService
-/** @var TaxonomyServiceInterface $taxonomyService */
-$taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-
-// Instantiates a taxonomy entry value
-$taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
-```
-
-#### String representation
-
-`taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.
-
-#### Hash format
-
-An array with `taxonomy_entry` key containing `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object or `null`.
-
-#### Validation
-
-No validation.
-
-#### Settings
-
-The field definition of this field type can be configured with the following options:
-
-|Name|Type|Default value|Description|
-|------|------|------|------|
-|`taxonomy`|`string`|`null`|Taxonomy from which you choose an entry.|

@@ -1,26 +1,28 @@
 # Object Criterion
 
-The `ObjectCriterion` Activity Log Criterion matches log group with a log entry about the given class name, and eventually one of the given IDs.
+The `object_class` Activity Log Criterion matches activity log groups that have a log entry
+about the given class name, and optionally one of the given IDs.
 
 ## Arguments
 
-- `objectClass` - a class of the object concerned by the searched log entries
-- `ids` - an optional list of object IDs
+- `class` - class of the object concerned by the searched log entries
+- (optional) `ids` - list of object IDs
 
-## Examples
+## Example
 
-``` php
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
+You can use this Criterion over the REST API, in the `criteria` element of the payload of the
+[`POST /activity-log-group/list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Activity-Log/operation/ibexa.activity_log.rest.activity_log_group.list.post) request:
 
-$query = new ActivityLog\Query([
-    new ActivityLog\Criterion\ObjectCriterion(Ibexa\Contracts\Core\Repository\Values\Content\Content::class),
-]);
-```
-
-``` php
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
-
-$query = new ActivityLog\Query([
-    new ActivityLog\Criterion\ObjectCriterion(Ibexa\Contracts\ProductCatalog\Values\ProductVariantInterface::class, ['123', '234', '345']),
-]);
+``` json
+{
+    "ActivityLogGroupListInput": {
+        "criteria": [
+            {
+                "type": "object_class",
+                "class": "Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content",
+                "ids": [72, 73]
+            }
+        ]
+    }
+}
 ```

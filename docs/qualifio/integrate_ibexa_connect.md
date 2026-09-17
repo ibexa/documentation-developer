@@ -1,6 +1,5 @@
 ---
 description: Integrate Qualifio with Ibexa Connect.
-edition: experience
 ---
 
 # Integrate with [[= product_name_connect =]]

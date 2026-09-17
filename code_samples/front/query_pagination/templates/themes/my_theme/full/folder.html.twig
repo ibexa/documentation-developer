@@ -1,8 +1,0 @@
-{% for item in items %}
-    {{ ibexa_render(item.valueObject) }}
-{% endfor %}
-
-{{ pagerfanta(items, 'twitter_bootstrap5', {
-    'routeName': 'ibexa.url.alias',
-    'routeParams': {'location': location }
-}) }}

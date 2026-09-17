@@ -4,7 +4,7 @@ description: IntegerRangeAggregation
 
 # IntegerRangeAggregation
 
-The field-based [IntegerRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-IntegerRangeAggregation.html) aggregates search results by the value of the Integer field.
+The field-based IntegerRangeAggregation aggregates search results by the value of the Integer field.
 
 ## Arguments
 
@@ -14,20 +14,29 @@ The field-based [IntegerRangeAggregation](/api/php_api/php_api_reference/classes
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\Field\IntegerRangeAggregation(
-    'integer',
-    'product',
-    'amount',
-    [
-    Range::ofInt(null, 12),
-    Range::ofInt(12, 24),
-    Range::ofInt(24, null),
-]
-);
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "IntegerRangeAggregation": {
+                "name": "aggregation_name",
+                "contentTypeIdentifier": "article",
+                "fieldDefinitionIdentifier": "views",
+                "ranges": [
+                    {
+                        "from": null,
+                        "to": 100
+                    },
+                    {
+                        "from": 100,
+                        "to": null
+                    }
+                ]
+            }
+        }
+    ]
+}
 ```

@@ -4,7 +4,7 @@ description: ObjectStateId Search Criterion
 
 # ObjectStateId Criterion
 
-The [`ObjectStateId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html) searches for content based on its object state ID.
+The `ObjectStateId` Search Criterion searches for content based on its object state ID.
 
 ## Arguments
 
@@ -12,17 +12,7 @@ The [`ObjectStateId` Search Criterion](/api/php_api/php_api_reference/classes/Ib
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\ObjectStateId([4, 5]);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

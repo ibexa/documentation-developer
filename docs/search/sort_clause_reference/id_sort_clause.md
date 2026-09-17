@@ -4,7 +4,7 @@ description: Id Sort Clause
 
 # Id Sort Clause
 
-The [`Location\Id` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Id.html) sorts search results by the ID of the location.
+The `Location\Id` Sort Clause sorts search results by the ID of the location.
 
 ## Arguments
 
@@ -12,10 +12,25 @@ The [`Location\Id` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+In the REST API, this Sort Clause is called `LocationId`.
+Use it in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Location\Id()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <LocationId>ascending</LocationId>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "LocationId": "ascending"
+        }
+    }
+    ```

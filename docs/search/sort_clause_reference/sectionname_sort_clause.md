@@ -4,7 +4,7 @@ description: SectionName Sort Clause
 
 # SectionName Sort Clause
 
-The [`SectionName` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionName.html) sorts search results by the Section name of the content items.
+The `SectionName` Sort Clause sorts search results by the Section name of the content items.
 
 ## Arguments
 
@@ -12,10 +12,24 @@ The [`SectionName` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\SectionName()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <SectionName>ascending</SectionName>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "SectionName": "ascending"
+        }
+    }
+    ```

@@ -4,7 +4,7 @@ description: LanguageTermAggregation
 
 # LanguageTermAggregation
 
-The [LanguageTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LanguageTermAggregation.html) aggregates search results by the content item's language.
+The LanguageTermAggregation aggregates search results by the content item's language.
 
 ## Arguments
 
@@ -12,12 +12,17 @@ The [LanguageTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contr
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+You can use this Aggregation over the REST API, in the `Aggregations` element of the payload
+of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new Query();
-$query->aggregations[] = new Aggregation\LanguageTermAggregation('language');
+``` json
+"Query": {
+    "Aggregations": [
+        {
+            "LanguageTermAggregation": {
+                "name": "languages"
+            }
+        }
+    ]
+}
 ```
-
-[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

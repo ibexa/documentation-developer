@@ -5,7 +5,7 @@ month_change: false
 
 # IsBookmarked Criterion
 
-The [`IsBookmarked` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
+The `IsBookmarked` Search Criterion
 searches for location based on whether it's bookmarked or not.
 It works with current user reference.
 
@@ -17,13 +17,7 @@ This Criterion is available only for location Search.
 
 ## Example
 
-### PHP
-
-``` php
-[[= include_code('code_samples/search/location/isbookmarked_criterion.php', 3, remove_indent=True) =]]
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

@@ -4,7 +4,7 @@ description: DateModified Sort Clause
 
 # DateModified Sort Clause
 
-The [`DateModified` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-DateModified.html) sorts search results by the date and time of the last modification of a content item.
+The `DateModified` Sort Clause sorts search results by the date and time of the last modification of a content item.
 
 ## Arguments
 
@@ -12,10 +12,24 @@ The [`DateModified` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Co
 
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\DateModified()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <DateModified>ascending</DateModified>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "DateModified": "ascending"
+        }
+    }
+    ```

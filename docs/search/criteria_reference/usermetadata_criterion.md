@@ -4,7 +4,7 @@ description: UserMetadata Search Criterion
 
 # UserMetadata Criterion
 
-The [`UserMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserMetadata.html) searches for content based on its creator or modifier.
+The `UserMetadata` Search Criterion searches for content based on its creator or modifier.
 
 ## Arguments
 
@@ -14,17 +14,7 @@ The [`UserMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, 12);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 
@@ -58,20 +48,4 @@ $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criter
 
 ## Use case
 
-You can use the `UserMetadata` Criterion to search for blog posts created by the Contributor user group:
-
-``` php hl_lines="11"
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-// ID of your custom Contributor User Group
-$contributorGroupId = 32;
-
-$query = new LocationQuery();
-$query->query = new Criterion\LogicalAnd(
-    [
-        new Criterion\ContentTypeIdentifier('blog_post'),
-        new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, $contributorGroupId),
-    ]
-);
-```
+You can use the `UserMetadata` Criterion to search for blog posts created by a specific user group, such as Contributor, by using the `GROUP` target with the `EQ` operator.

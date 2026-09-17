@@ -4,22 +4,32 @@ description: Score Sort Clause
 
 # Score Sort Clause
 
-The [`Score` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Score.html) orders search results by their score.
+The `Score` Sort Clause orders search results by their score.
 
 ## Arguments
 
 [[= include_file('docs/snippets/sort_direction.md') =]]
 
-## Limitations
-
-The `Score` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).
-
 ## Example
 
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+You can use this Sort Clause over the REST API, in the `SortClauses` element of the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
-$query = new LocationQuery();
-$query->sortClauses = [new SortClause\Score()];
-```
+=== "XML"
+
+    ```xml
+    <Query>
+        <SortClauses>
+            <Score>ascending</Score>
+        </SortClauses>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "SortClauses": {
+            "Score": "ascending"
+        }
+    }
+    ```

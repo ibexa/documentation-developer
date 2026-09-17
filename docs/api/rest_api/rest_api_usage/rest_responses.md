@@ -88,7 +88,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 ```
 
-Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) in XML or JSON.
+Those example `Accept-Patch` headers above indicate that the content could be modified by sending a `ContentUpdateStruct` in XML or JSON.
 
 ### Location header
 
@@ -121,7 +121,6 @@ Location: /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac
 ```
 
 cURL can follow those redirections. On CLI, there is the `--location` option (or its shorthand `-L`).
-In PHP, you can achieve the same effect with `CURLOPT_FOLLOWLOCATION`.
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
 ```bash
@@ -133,31 +132,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
-### Cross-origin
-
-[Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
-
-For more information about CORS, see [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol) and [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS).
-
-CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
-
-Using CORS isn't limited to REST API resources and can be used for any resource of the platform.
-
-The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
-
-#### Configuration
-
-To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
-
-For example, to allow the [JS test](testing_rest_api.md#js) to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
-
-To add several domains, filter on URIs, or change the default (like not allowing all the methods), refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration) to learn how to edit `config/packages/nelmio_cors.yaml`.
-
 ## Response body
 
-The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
+The response body (both JSON and XML) contain two types of nodes:
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
+- final nodes that fully give an information as a scalar value
+- reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more
 
 ```bash
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';
@@ -185,8 +165,3 @@ curl https://api.example.com/content/objects/52 --header 'Accept: application/vn
   <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/52/objectstates"/>
 </Content>
 ```
-
-The response body XML can contain two types of nodes:
-
-- Final nodes that fully give an information as a scalar value
-- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more

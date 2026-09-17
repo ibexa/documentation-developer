@@ -4,7 +4,7 @@ description: Visibility Search Criterion
 
 # Visibility Criterion
 
-The [`Visibility` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Visibility.html) searches for content based on whether it's visible or not.
+The `Visibility` Search Criterion searches for content based on whether it's visible or not.
 
 This Criterion takes into account both hiding content and hiding locations.
 
@@ -18,17 +18,7 @@ Use Location Search to avoid this.
 
 ## Example
 
-### PHP
-
-``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-
-$query = new Query();
-$query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /views`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Views/operation/ibexa.rest.views.create) request:
 
 === "XML"
 

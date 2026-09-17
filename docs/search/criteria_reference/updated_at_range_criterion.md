@@ -16,13 +16,7 @@ At least one of `min` or `max` must be provided.
 
 ## Example
 
-### PHP
-
-``` php
-[[= include_code('code_samples/back_office/search/src/Query/UpdatedAtRangeQuery.php') =]]
-```
-
-### REST API
+You can use this Search Criterion over the REST API, in the payload of the [`POST /product/catalog/products/view`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/ibexa.product_catalog.rest.products.view) request:
 
 === "XML"
 
