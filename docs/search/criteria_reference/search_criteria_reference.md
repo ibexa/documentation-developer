@@ -38,7 +38,7 @@ Criteria can take some of the following arguments:
 | [ImageFileSize](imagefilesize_criterion.md)                   | Image size in MB                                                                            | &#10004;       | &#10004;        |           |
 | [ImageMimeType](imagemimetype_criterion.md)                   | Image type                                                                                  | &#10004;       | &#10004;        |           |
 | [ImageOrientation](imageorientation_criterion.md)             | Image orientation                                                                           | &#10004;       | &#10004;        |           |
-| [IsBookmarked](isbookmarked_criterion.md)                     | Whether a location is bookmarked or not                                                     |                | &#10004;        | &#10004;  |
+| [IsBookmarked](isbookmarked_criterion.md)                     | Whether a location is added to a list of Favourites or not                                                     |                | &#10004;        | &#10004;  |
 | [IsContainer](iscontainer_criterion.md)                       | Whether a content item is a container (can contain other content items)                     | &#10004;       | &#10004;        | &#10004;  |
 | [IsUserEnabled](isuserenabled_criterion.md)                   | Whether a User account is enabled                                                           | &#10004;       | &#10004;        | &#10004;  |
 | [LanguageCode](languagecode_criterion.md)                     | Whether a content item is translated into the selected language                             | &#10004;       | &#10004;        | &#10004;  |

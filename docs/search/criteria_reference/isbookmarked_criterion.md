@@ -6,14 +6,14 @@ month_change: false
 # IsBookmarked Criterion
 
 The `IsBookmarked` Search Criterion
-searches for location based on whether it's bookmarked or not.
+searches for location based on whether it's added to a list of Favourites or not.
 It works with current user reference.
 
 This Criterion is available only for location Search.
 
 ## Arguments
 
-- `value` - bool representing whether to search for bookmarked location (default `true`) or not bookmarked location (`false`)
+- `value` - bool representing whether to search for a location that is added (default `true`) or not added (`false`) to the Favourites list
 
 ## Example
 
