@@ -1,14 +1,14 @@
 ---
-description: Events that are triggered when working with bookmarks, notifications, settings, forms and others.
+description: Events that are triggered when working with favourites, notifications, settings, forms and others.
 page_type: reference
 month_change: false
 ---
 
 # Other events
 
-## Bookmarks
+## Favourites
 
-The following events are dispatched when adding content items to bookmarks.
+The following events are dispatched when adding content items to Favourites list.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
