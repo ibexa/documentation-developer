@@ -391,7 +391,7 @@ extra:
 
   symfony_version: '7.4' 
   symfony_doc: 'https://symfony.com/doc/7.4'
-  user_doc: 'https://doc.ibexa.co/projects/userguide/en/6.0'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/saas'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
