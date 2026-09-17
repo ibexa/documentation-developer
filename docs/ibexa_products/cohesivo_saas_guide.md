@@ -55,7 +55,7 @@ You're free to build and host your front end on a framework of your choice, whic
 
 The following capabilities are available to every [[= product_name =]] SaaS customer.
 Some capabilities integrate with other products in the wider [[= product_name_base =]] portfolio.
-In these cases, the integrated product, such as Raptor, Quable or Qualifio, requires its own license.
+In these cases, the integrated product, such as [[= product_name_cdp_base =]], [[= pim_product_name =]] or [[= product_name_engage =]], requires its own license.
 
 ### Site Factory
 
@@ -79,8 +79,8 @@ Translate your content with [language management tools]([[= user_doc =]]/content
 ### Product catalog
 
 Use the built-in Product Information Management (PIM) capability to manage products and their specifications, attributes, variants, assets, pricing, availability, categories, catalogs, and completeness scoring.
-You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to third-party commerce platforms, including [Quable](https://www.quable.com/en).
-When the Quable connector is enabled, you can view, select and embed its products in [[= product_name =]] SaaS, while you handle product management operations in Quable.
+You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to third-party commerce platforms, including [[[= pim_product_name =]]](https://www.quable.com/en).
+When the [[= pim_product_name =]] connector is enabled, you can view, select and embed its products in [[= product_name =]] SaaS, while you handle product management operations in [[= pim_product_name =]].
 
 ### [[= product_name_cdp =]] integration
 
@@ -110,12 +110,12 @@ In the future, should your project grow and need to be custom-tailored with broa
 ## Benefits
 
 [[= product_name =]] SaaS lets you focus on managing digital content and experiences without having to operate the [[= product_name =]] platform itself.
-[[= product_name_base =]] takes care of the application and infrastructure, while you manage your content, configuration and frontend applications.
+[[= product_name_base =]] takes care of the application and infrastructure, while you manage your content, configuration, and frontend applications.
 
 ### No platform team required
 
 With configuration through the back office, you don't have to worry about platform code changes, deployments or infrastructure maintenance.
-[[= product_name_base =]] operates the application and underlying infrastructure, including upgrades, backups, disaster recovery and monitoring.
+[[= product_name_base =]] operates the application and underlying infrastructure, including upgrades, backups, disaster recovery, and monitoring.
 Your team can focus on content, configuration and the frontend applications that consume it.
 
 ### Short time-to-value
@@ -127,9 +127,9 @@ While a complete client-facing website may take more time to be live, we call it
 ### One platform for multiple sites and languages
 
 Site Factory, content management and language management features provide a common back office for organizations that manage several websites and languages.
-You can share content and assets across sites, while using granular user permissions to control access to particular parts of the content tree.
+You can share content and assets across sites, while you use granular user permissions to control access to particular parts of the content tree.
 
-### Enterprise-grade reliability without the overhead
+### Enterprise-grade reliability without overhead
 
 [[= product_name =]] SaaS provides minimal downtime, 24/7 support, backups and disaster recovery up to the [[[= product_name_base =]] Cloud](https://www.ibexa.co/products/ibexa-cloud) standard, together with managed infrastructure and monitoring.
 You don't have to provision or maintain the infrastructure yourself.
@@ -167,9 +167,8 @@ Even if your company is located outside of the EU, it's a benefit rather than a 
 An EU-based hotelier company runs several boutique accommodations that are primarily targeted at B2B customers.
 A marketing team that consists of twelve people manages several websites that advertise their aesthetically distinct venues.
 Each of the websites is dedicated to a different clientele, but all must be available in multiple languages.
-There's no need for online transactions, because individual customers book their stays in an external booking system, and corporate events are handled offline through the sales team.
 With primarily visual storytelling in focus, websites that present photo galleries, room layouts, amenities, and dining menus, don't require custom code.
-At the same time, individual customer profiles can contain sensitive data, which forces the company to use EU data residency.
+At the same time, individual customer profiles can contain sensitive data, so the company prefers to use secure EU data residency.
 
 [[= product_name_base =]] provisions and manages the [[= product_name =]] SaaS instance.
 The company receives administrator access during onboarding.
