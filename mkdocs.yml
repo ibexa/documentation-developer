@@ -214,6 +214,7 @@ nav:
             - Create custom Page block: content_management/pages/create_custom_page_block.md
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
+            - Headless Page Builder: content_management/pages/headless_page_builder.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form Builder guide: content_management/forms/form_builder_guide.md
