@@ -343,7 +343,7 @@ theme:
     palette:
         primary: 'blue grey'
         accent: 'deep orange'
-    logo: 'images/cohesivo-logo.png'
+    logo: 'images/cohesivo-logo.svg'
 
 extra:
   append_bootstrap:
