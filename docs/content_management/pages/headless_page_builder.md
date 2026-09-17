@@ -68,27 +68,29 @@ So the front-end can declare which capabilities it supports and the Page Builder
 
 ### Message types and capabilities
 
-| Capability       | Message type              | Description                                                                                               |
-|------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
-| (handshake)      | APP:INITIALIZED           | To establish the communication and declare which protocol version and capabilities are supported.         |
-| (handshake)      | PB:INIT_MODE              | To validate the communication and give information about the edited content draft.                        |
-| (core)           | PB:UPDATE_FIELD_DATA      | To notify that the field has changed, like when a block have been edited or the layout has been switched. |
-| (core)           | PB:DISPATCH_EVENT         | To help converting message into custom event. TODO                                                        |
-| blocks.dnd       | PB:DRAG_START_PREVIEW     | TODO                                                                                                      |
-| blocks.dnd       | PB:DRAG_OVER              | To give the position of the mouse while a new block is dragged.                                                                                                      |
-| blocks.dnd       | PB:DRAG_END_PREVIEW       | TODO                                                                                                      |
-| blocks.dnd       | PB:DROP                   | To notify that a new block has been dropped.                                                              |
-| blocks.dnd       | APP:DROP_RESPONSE         | To notify that the drop action has been processed and declare which zone welcomed the new block.          |
-| blocks.dnd       | PB:SCROLL_BY              | TODO                                                                                                      |
-| blocks.geometry  | APP:POSITIONS_UPDATE      | To declare the actual position of the blocks (so the block editing menus can be positionned).                                                                                                      |
-| blocks.geometry  | APP:SCROLL_END            | TODO                                                                                                      |
-| blocks.remove    | PB:BLOCK_REMOVE           | TODO                                                                                                      |
-| blocks.remove    | APP:BLOCK_REMOVE_RESPONSE | TODO                                                                                                      |
-| blocks.remove    | APP:BLOCK_REMOVE_REQUEST  | TODO                                                                                                      |
-| blocks.reveal    | PB:SCROLL_INTO_BLOCK      | TODO                                                                                                      |
-| blocks.select    | APP:BLOCK_CLICKED         | To notify that a block has been clicked.                                                                                                      |
-| pointer.tracking | APP:MOUSE_POSITION        | To declare the actual position of the mouse (so the block editing menus can be displayed on hover).                                                                                                      |
-| preview.params   | PB:UPDATE_PREVIEW_PARAMS  | TODO                                                                                                      |
+The handshake and core messages are mandatory and not related to an optional capability.
+
+| Capability       | Message type                                       | Description                                                                                               |
+|------------------|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| (handshake)      | [`APP:INITIALIZED`](#communication-initialization) | To establish the communication and declare which protocol version and capabilities are supported.         |
+| (handshake)      | [`PB:INIT_MODE`](#communication-initialization)    | To validate the communication and give information about the edited content draft.                        |
+| (core)           | [`PB:UPDATE_FIELD_DATA`](#on-field-update)         | To notify that the field has changed, like when a block have been edited or the layout has been switched. |
+| (core)           | [`PB:DISPATCH_EVENT`](##re-dispatching-events)     | TODO: To notify of event that should be dispached                                                         |
+| blocks.dnd       | [`PB:DRAG_START_PREVIEW`](#drag-and-drop)          | To notify that an existing block starts being dragged in the preview.                                     |
+| blocks.dnd       | [`PB:DRAG_OVER`](#drag-and-drop)                   | To give the position of the mouse while a block is dragged.                                               |
+| blocks.dnd       | [`PB:DRAG_END_PREVIEW`](#drag-and-drop)            | To notify that an existing block stopped being dragged in the preview.                                    |
+| blocks.dnd       | [`PB:DROP`](#drag-and-drop)                        | To notify that a block has been dropped.                                                                  |
+| blocks.dnd       | [`APP:DROP_RESPONSE`](#drag-and-drop)              | To notify that the drop action has been processed and declare which zone welcomed the block.              |
+| blocks.dnd       | [`PB:SCROLL_BY`](#drag-and-drop)                   | TODO                                                                                                      |
+| blocks.geometry  | APP:POSITIONS_UPDATE                               | To declare the actual position of the blocks (so the block editing menus can be positionned).             |
+| blocks.geometry  | APP:SCROLL_END                                     | TODO                                                                                                      |
+| blocks.remove    | PB:BLOCK_REMOVE                                    | TODO                                                                                                      |
+| blocks.remove    | APP:BLOCK_REMOVE_RESPONSE                          | TODO                                                                                                      |
+| blocks.remove    | APP:BLOCK_REMOVE_REQUEST                           | TODO                                                                                                      |
+| blocks.reveal    | PB:SCROLL_INTO_BLOCK                               | TODO                                                                                                      |
+| blocks.select    | APP:BLOCK_CLICKED                                  | To notify that a block has been clicked.                                                                  |
+| pointer.tracking | APP:MOUSE_POSITION                                 | To declare the actual position of the mouse (so the block editing menus can be displayed on hover).       |
+| preview.params   | PB:UPDATE_PREVIEW_PARAMS                           | TODO                                                                                                      |
 
 ### Communication initialization
 
@@ -116,12 +118,12 @@ The Page Builder replies with a confirmation message.
 The initialization message might be sent several times until the Page Builder replies to it.
 
 This confirmation `data` contains:
-- the actual version of the protocol used (`protocol.version`) and the other supported versions (`protocol.supported`).
+- the actual version of the protocol used (`protocol.version`) and the other supported versions (`protocol.supported`)
 - a list of all available capabilities (`capabilities`)
 - a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
 - information about the actually edited content draft (`intentParameters`)
 - the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
-- a block ID to name mapping (`blocksIdMap`)
+- a block-ID-to-name mapping (`blocksIdMap`)
 - a list of translations for the front-end to use (`translations`)
 
 ```json
@@ -221,3 +223,76 @@ This confirmation `data` contains:
     }
 }
 ```
+
+### On field update
+
+The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the front-end resource when the Landing page field value is updated.
+
+Its data contains the new value of the field with the following structure:
+- a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
+- the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
+- a block-ID-to-name mapping (`blocksIdMap`)
+- a list of Ids from the new blocks that have been added (`highlightedBlockIds`)
+
+```json
+{
+    "type": "PB:UPDATE_FIELD_DATA",
+    "data": {
+        "blocksConfig": [],
+        "fieldValue": {
+            "layout": "…",
+            "zones": []
+        },
+        "blocksIdMap": {},
+        "highlightedBlockIds": []
+    }
+}
+```
+
+### Re-dispatching events
+
+The `PB:DISPATCH_EVENT` message is sent from the Page Builder to the front-end resource for being re-dispatched there as a custom event.
+
+```js
+window.addEventListener('message', (messageEvent) => {
+    switch (messageEvent.data.type) {
+        case 'PB:DISPATCH_EVENT':
+            document.body.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, { detail: messageEvent.data.data.eventDetail }));
+            break;
+    }
+});
+```
+
+TODO: Available events
+- `ibexa-active-block-clicked`?
+- `ibexa-post-update-blocks-preview`?
+
+### Drag and drop (`blocks.dnd`)
+
+`PB:DRAG_OVER` message is sent from the Page Builder to the front-end preview to give the position of the mouse while a (new or existing) block is dragged.
+
+`PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` are sent at the beginning and at the end of a drag operation on an existing block in the front-end preview.
+Its data contains the ID of the block being dragged (`blockId`).
+
+`PB:DROP` message is sent from the Page Builder to the front-end preview to notify that a block has been dropped.
+It has no data. Combined with the last `PB:DRAG_OVER` message, the front-end can determine where the block has been dropped.
+
+`APP:DROP_RESPONSE` message is sent from the front-end preview to the Page Builder to tell where the block has been dropped.
+
+Its data contains:
+- the ID of the zone where the block has been dropped (`zoneId`)
+- the ID of the block that is now next to the dropped block (`nextBlockId`) if the dropped block isn't the last one of the zone.
+
+In the following example, `targetBlockId` is the ID of a block the dropped block was dropped on or just before, so the dragged block takes its place and move it below, or `null` when dropped at the bottom of the zone.
+
+```js
+const dropResponseMessage = {
+    type: 'APP:DROP_RESPONSE',
+    data: {
+        zoneId: zoneId,
+        nextBlockId: targetBlockId,
+    }
+};
+```
+
+TODO: `PB:SCROLL_BY` when a block is dragged near the top or bottom of the preview, and it needs to be scrolled up or down.
