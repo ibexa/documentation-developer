@@ -9,19 +9,19 @@ month_change: false
 
 [[= product_name =]] SaaS is the fully managed version of [[= product_name =]] for organizations that want to manage their content through the [[= product_name =]] back office and deliver it to websites and other digital channels through APIs.
 
-[[= product_name =]] SaaS is a good solution when you don't need custom platform code or on-site payment transactions.
+[[= product_name =]] SaaS is a good solution when you don't need custom platform code or heavy customisation.
 It's designed for medium-sized mid-market B2B teams that run several brand sites across multiple languages.
 [[= product_name =]] SaaS is headless-only - you input and manage content through the back office, and deliver it through the REST and MCP APIs.
 An agency or in-house team can build the front end, for example, in Next.js, and host it independently of [[= product_name =]] SaaS.
 
 [[= product_name_base =]] operates the infrastructure and the application, while you provide the content and build your front end.
-You can configure everything that the back office exposes, including content types, Page Builder blocks, layout overrides, site settings and other available configuration.
+You can configure everything that the back office exposes, including content types, Page Builder blocks, layout overrides, site settings, and other available configuration.
 
 There's no PHP to write, no Composer packages to install, no database scripts to run, and no server or filesystem access.
 
 ## Availability
 
-To access the [[= product_name =]] SaaS instance, [contact the sales team](https://www.ibexa.co/about-ibexa/contact-us), who will prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
+To access the [[= product_name =]] SaaS instance, [contact the sales team](https://www.ibexa.co/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
 The environment is ready for you within a single working day.
 Your administrator can then invite other members of the team, up to the number of seats included in the plan.
 
@@ -31,9 +31,9 @@ For more information, see [Ibexa license pricing](https://www.ibexa.co/products/
 ## How does [[= product_name =]] SaaS work?
 
 [[= product_name =]] SaaS is a multi-tenant setup.
-Each organization uses an isolated database, search core, cache and asset storage.
+Each organization uses an isolated database, search core, cache, and asset storage.
 [[= product_name_base =]] SSO provides preconfigured identity management and automatic user provisioning.
-Under the bonnet, [[= product_name_base =]] runs the infrastructure on [Upsun](https://upsun.com/) systems located in the EU and takes care of automatic upgrades, backups, disaster recovery and monitoring.
+Under the bonnet, [[= product_name_base =]] runs the infrastructure on [Upsun](https://upsun.com/) systems located in the EU and takes care of automatic upgrades, backups, disaster recovery, and monitoring.
 
 ![[[= product_name =]] SaaS framework](img/saas_framework.png "[[= product_name =]] SaaS framework")
 
@@ -44,8 +44,8 @@ It's the same approach that is present in PaaS and on-premise projects, where yo
 From the administrator's standpoint, all configuration is done through the back office.
 This includes [content types]([[= user_doc =]]/content_management/content_model/), [Page Builder blocks]([[= user_doc =]]/content_management/block_reference/) and [layouts]([[= user_doc =]]/content_management/configure_ct_field_settings/#available-page-layouts) exposed by the available configuration screens.
 
-Content is authored in the back office and delivered through the REST API and MCP connectors, with both interfaces secured out-of-the-box.
-Once you've received the first administrator account created, you can start creating content and making it available through the APIs.
+Content is authored in the back office and delivered through the REST API and MCP server, with both interfaces secured out-of-the-box with OAuth2.
+Once you've received the first administrator account created, you can start setting up the content model, creating content and making it available through the APIs.
 
 ![[[= product_name =]] SaaS operating principle](img/saas_principle.png "[[= product_name =]] SaaS operating principle")
 
@@ -64,13 +64,13 @@ Sites can share content and assets, while granular [user permissions]([[= user_d
 
 ### Agentic AI
 
-With [AI Assistant]([[= user_doc =]]/content_management/create_edit_content_items/#ai-assistant) as the entry point, you can use a stable [MCP tool set](mcp_usage.md#use-built-in-tools) identical across the [[= product_name_base =]] ecosystem.
-The MCP interface allows AI tools and agents to interact with [[= product_name =]] capabilities through a standardized interface rather than requiring a separate integration for each agent or tool.
+With [AI Assistant]([[= user_doc =]]/content_management/create_edit_content_items/#ai-assistant) as the entry point, you can use an [MCP tool set](mcp_usage.md#use-built-in-tools) identical across the [[= product_name_base =]] ecosystem.
+The MCP server allows AI tools and agents to interact with [[= product_name =]] capabilities through a standardized interface rather than requiring a separate integration for each agent or tool.
 
 ### Secured remote MCP endpoint
 
-[[= product_name =]] SaaS provides a secured, bi-directional MCP endpoint out of the box.
-[MCP agents](mcp_guide.md) can use the available tools to retrieve information from [[= product_name =]] SaaS and, where supported, return modified content to the SaaS tenant.
+[[= product_name =]] SaaS provides a secured, bi-directional MCP server out of the box.
+[AI agents](mcp_guide.md) can use the available tools to retrieve information from [[= product_name =]] SaaS and, where supported, return modified content to the SaaS tenant.
 
 ### Automated translation
 
@@ -78,13 +78,13 @@ Translate your content with [language management tools]([[= user_doc =]]/content
 
 ### Product catalog
 
-Use the built-in Product Information Management (PIM) capability to manage products and their specifications, attributes, variants, assets, pricing, availability, categories, catalogs and completeness scoring.
+Use the built-in Product Information Management (PIM) capability to manage products and their specifications, attributes, variants, assets, pricing, availability, categories, catalogs, and completeness scoring.
 You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to third-party commerce platforms, including [Quable](https://www.quable.com/en).
 When the Quable connector is enabled, you can view, select and embed its products in [[= product_name =]] SaaS, while you handle product management operations in Quable.
 
 ### [[= product_name_cdp =]] integration
 
-The CDP connector provides an integration with the [Raptor recommendation engine](https://www.raptorservices.com/), to help you deliver personalized experiences across digital channels.
+The Raptor connector provides an integration with the [Raptor recommendation engine](https://www.raptorservices.com/) and [Customer Data Platform](https://www.raptorservices.com/) to help you deliver personalized experiences across digital channels.
 
 ### Rich-text editing
 
@@ -92,7 +92,7 @@ Use the advanced rich-text editing tools, such as the [Headless Page Builder]([[
 
 ### Back office-based configuration
 
-Configure your instance by setting up content types and Page Builder overrides through back-office screens.
+Configure your instance by setting up Content Types and Page Builder through back-office features.
 Compared to other variants of the [[= product_name =]] range, there's no need to maintain YAML configuration or deploy platform changes.
 
 ### Webhooks
@@ -141,7 +141,7 @@ The authentication layer is provided by [[= product_name_base =]], so you don't 
 
 ### True multi-tenancy
 
-Each organization or tenant has isolated data, search and cache, s well as their own asset storage.
+Each organization or tenant has isolated data, search and cache, as well as their own asset storage.
 This way you can use the service without having to operate a dedicated [[= product_name =]] infrastructure yourself.
 
 ### Preconfigured identity
