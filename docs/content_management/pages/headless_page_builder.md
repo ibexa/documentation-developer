@@ -345,6 +345,8 @@ window.addEventListener('message', (messageEvent) => {
 });
 ```
 
+TODO: Is there other events that should trigger a positions update?
+
 ### Drag and drop (`blocks.dnd`)
 
 `PB:DRAG_OVER` message is sent from the Page Builder to the front-end preview to give the position of the mouse while a (new or existing) block is dragged.
@@ -391,3 +393,5 @@ window.addEventListener('message', (messageEvent) => {
     }
 });
 ```
+
+TODO: See `APP:SCROLL_END` message to declare the end of the scroll operation and trigger a `APP:POSITIONS_UPDATE` message to update the blocks positions.
