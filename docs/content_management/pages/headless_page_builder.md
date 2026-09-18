@@ -395,3 +395,16 @@ window.addEventListener('message', (messageEvent) => {
 ```
 
 TODO: See `APP:SCROLL_END` message to declare the end of the scroll operation and trigger a `APP:POSITIONS_UPDATE` message to update the blocks positions.
+
+### Block removal (`blocks.remove`)
+
+`PB:BLOCK_REMOVE` message is sent from the Page Builder to the front-end preview to notify that a block should be removed, for example, from the Structure view.
+Its data contains the ID of the block to remove (`blockId`).
+
+`APP:BLOCK_REMOVE_RESPONSE` message is sent from the front-end preview to the Page Builder to confirm that the block has been removed as requested by `PB:BLOCK_REMOVE`.
+Its data contains the ID of the removed block (`blockId`).
+It can be sent immediately or after removal animation.
+
+`APP:BLOCK_REMOVE_REQUEST` message is sent from the front-end preview to the Page Builder to request the removal of a block.
+Its data contains the ID of the block to remove (`blockId`).
+The Page Builder responses with a `PB:UPDATE_FIELD_DATA`.
