@@ -9,7 +9,7 @@ month_change: false
 
 [[= product_name =]] SaaS is the fully managed version of [[= product_name =]] for organizations that want to manage their content through the [[= product_name =]] back office and deliver it to websites and other digital channels through APIs.
 
-[[= product_name =]] SaaS is a good solution when you don't need custom platform code or heavy customisation.
+[[= product_name =]] SaaS is a good solution when you don't need custom platform code or heavy customization.
 It's designed for medium-sized mid-market B2B teams that run several brand sites across multiple languages.
 [[= product_name =]] SaaS is headless-only - you input and manage content through the back office, and deliver it through the REST and MCP APIs.
 An agency or in-house team can build the front end, for example, in Next.js, and host it independently of [[= product_name =]] SaaS.
@@ -26,7 +26,7 @@ The environment is ready for you within a single working day.
 Your administrator can then invite other members of the team, up to the number of seats included in the plan.
 
 To start using [[= product_name =]] SaaS, you need to purchase a product license.
-For more information, see [Ibexa license pricing](https://www.ibexa.co/products/pricing).
+For more information, see [[[= product_name_base =]] license pricing](https://www.ibexa.co/products/pricing).
 
 ## How does [[= product_name =]] SaaS work?
 
@@ -35,7 +35,7 @@ Each organization uses an isolated database, search core, cache, and asset stora
 [[= product_name_base =]] SSO provides preconfigured identity management and automatic user provisioning.
 Under the bonnet, [[= product_name_base =]] runs the infrastructure on [Upsun](https://upsun.com/) systems located in the EU and takes care of automatic upgrades, backups, disaster recovery, and monitoring.
 
-![[[= product_name =]] SaaS framework](img/saas_framework.png "[[= product_name =]] SaaS framework")
+![[[= product_name =]] SaaS framework](img/saas_framework_purple.png "[[= product_name =]] SaaS framework")
 
 You access a single environment, which is always a production one.
 While there are no staging or preview environments, you can limit access to different parts of the content structure by using [user permissions]([[= user_doc =]]/permission_management/permission_system/).
@@ -47,7 +47,7 @@ This includes [content types]([[= user_doc =]]/content_management/content_model/
 Content is authored in the back office and delivered through the REST API and MCP server, with both interfaces secured out-of-the-box with OAuth2.
 Once you've received the first administrator account created, you can start setting up the content model, creating content and making it available through the APIs.
 
-![[[= product_name =]] SaaS operating principle](img/saas_principle.png "[[= product_name =]] SaaS operating principle")
+![[[= product_name =]] SaaS operating principle](img/saas_principle_purple.png "[[= product_name =]] SaaS operating principle")
 
 You're free to build and host your front end on a framework of your choice, which means that [[= product_name_base =]] can't estimate or control the time required to build the data-consuming application.
 
