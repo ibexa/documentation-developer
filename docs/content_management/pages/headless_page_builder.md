@@ -118,6 +118,7 @@ The Page Builder replies with a confirmation message.
 The initialization message might be sent several times until the Page Builder replies to it.
 
 This confirmation `data` contains:
+
 - the actual version of the protocol used (`protocol.version`) and the other supported versions (`protocol.supported`)
 - a list of all available capabilities (`capabilities`)
 - a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
@@ -229,6 +230,7 @@ This confirmation `data` contains:
 The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the front-end resource when the Landing page field value is updated.
 
 Its data contains the new value of the field with the following structure:
+
 - a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
 - the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
 - a block-ID-to-name mapping (`blocksIdMap`)
@@ -264,6 +266,7 @@ window.addEventListener('message', (messageEvent) => {
 ```
 
 TODO: Available events
+
 - `ibexa-active-block-clicked`?
 - `ibexa-post-update-blocks-preview`?
 
@@ -320,8 +323,9 @@ TODO: `APP:SCROLL_END` message is sent from the front-end preview to the Page Bu
 `PB:DRAG_OVER` message is sent from the Page Builder to the front-end preview to give the position of the mouse while a (new or existing) block is dragged.
 
 !!! tip
-- `APP:MOUSE_POSITION` helps the Page Builder to know where the mouse is when moved over the preview.
-- `PB:DRAG_OVER` helps the front-end to know where the mouse is when a block is dragged over the preview.
+
+    - `APP:MOUSE_POSITION` helps the Page Builder to know where the mouse is when moved over the preview.
+    - `PB:DRAG_OVER` helps the front-end to know where the mouse is when a block is dragged over the preview.
 
 `PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` are sent at the beginning and at the end of a drag operation on an existing block in the front-end preview.
 Its data contains the ID of the block being dragged (`blockId`).
@@ -332,6 +336,7 @@ It has no data. Combined with the last `PB:DRAG_OVER` message, the front-end can
 `APP:DROP_RESPONSE` message is sent from the front-end preview to the Page Builder to tell where the block has been dropped.
 
 Its data contains:
+
 - the ID of the zone where the block has been dropped (`zoneId`)
 - the ID of a block that is now below the dropped block (`nextBlockId`) if the dropped block isn't the last one of the zone.
 
