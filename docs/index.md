@@ -39,6 +39,22 @@
             </a>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
+            <a class="info-tile" href="ibexa_products/cohesivo_saas_guide">
+                <div class="info-tile__circle" style="background-color: #fdf2f7;">
+                    <svg width="20" height="25"><use xlink:href="images/icons.svg#profile" /></svg>
+                </div>
+                <div class="info-tile__content">
+                    <div class="info-tile__details">
+                        Details
+                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
+                    </div>
+                    <div>
+                        Discover <strong>Cohesivo SaaS</strong>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
             <a class="info-tile" href="product_guides/product_guides/">
                 <div class="info-tile__circle" style="background-color: #fdf2f7;">
                     <svg width="20" height="25"><use xlink:href="images/icons.svg#check-requirements" /></svg>
@@ -55,40 +71,7 @@
             </a>
         </div>
     </div>
-    <div class="row notifications">
-        <div class="col-12 col-lg-6">
-            <div class="notification notification--latest-release" id="tile2">
-                <div class="notification__content">
-                    <h2>What's new in Cohesivo</h2>
-                    <div>Cohesivo is delivered as a service, so new capabilities reach you without an upgrade project. The release notes list what has been delivered.</div>
-                </div>
-                <div class="notification__cta">
-                    <a href="release_notes/">Release notes</a>
-                </div>
-                <div class="notification__image">
-                    <img src="images/notification-latest-release.svg" alt="" />
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6">
-            <div class="notification notification--lts-update" id="tile3">
-                <div class="notification__content">
-                    <h2>Looking for the on-premise product?</h2>
-                    <div>Cohesivo is also available as an on-premise, self-hosted product that you install and extend yourself. It has its own documentation.</div>
-                </div>
-                <div class="notification__cta">
-                    <a href="on_premise/">About on-premise Cohesivo</a>
-                </div>
-                <div class="notification__image">
-                    <img src="images/notification-lts-update.svg" alt="" />
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
-        <div class="col-12">
-            <h2>What Cohesivo does</h2>
-        </div>
         <div class="col-12 col-lg-6 col-fhd-3">
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
@@ -102,7 +85,7 @@
                         <li><a href="content_management/content_model/">Content model</a></li>
                         <li><a href="content_management/pages/pages/">Pages</a></li>
                         <li><a href="content_management/forms/forms/">Forms</a></li>
-                        <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
+                        <li><a href="content_management/file_management/file_management/">File management</a></li>
                         <li><a href="content_management/images/images/">Images</a></li>
                         <li><a href="content_management/taxonomy/taxonomy/">Taxonomy</a></li>
                         <li><a href="content_management/workflow/workflow/">Editorial workflow</a></li>
@@ -170,34 +153,6 @@
                         <li><a href="raptor_cdp/raptor_cdp/">Customer Data Platform</a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="accordion">
-                <details>
-                    <summary>
-                        <h2>Most popular pages</h2>
-                        <div class="accordion__toggler">
-                            <svg><use xlink:href="images/icons.svg#toggler" /></svg>
-                        </div>
-                    </summary>
-                    <div class="row">
-                        <div class="col-12 col-lg-6 col-fhd-3">
-                            <ul>
-                                <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
-                                <li><a href="content_management/content_model/">Content model</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-lg-6 col-fhd-3">
-                            <ul>
-                                <li><a href="content_management/images/images/">Images</a></li>
-                                <li><a href="content_management/pages/page_blocks/">Page blocks</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
             </div>
         </div>
     </div>
