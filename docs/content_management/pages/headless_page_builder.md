@@ -70,27 +70,27 @@ So the front-end can declare which capabilities it supports and the Page Builder
 
 The handshake and core messages are mandatory and not related to an optional capability.
 
-| Capability         | Message type                                                                                | Description                                                                                               |
-|--------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| (handshake)        | [`APP:INITIALIZED`](#communication-initialization)                                          | To establish the communication and declare which protocol version and capabilities are supported.         |
-| (handshake)        | [`PB:INIT_MODE`](#communication-initialization)                                             | To validate the communication and give information about the edited content draft.                        |
-| (core)             | [`PB:UPDATE_FIELD_DATA`](#on-field-update)                                                  | To notify that the field has changed, like when a block have been edited or the layout has been switched. |
-| (core)             | [`PB:DISPATCH_EVENT`](#re-dispatching-events)                                               | To notify of event that should be dispached in front-end preview.                                         |
-| `blocks.dnd`       | [`PB:DRAG_START_PREVIEW`](#drag-and-drop-blocksdnd)                                         | To notify that an existing block starts being dragged in the preview.                                     |
-| `blocks.dnd`       | [`PB:DRAG_OVER`](#drag-and-drop-blocksdnd)                                                  | To give the position of the mouse while a block is dragged.                                               |
-| `blocks.dnd`       | [`PB:DRAG_END_PREVIEW`](#drag-and-drop-blocksdnd)                                           | To notify that an existing block stopped being dragged in the preview.                                    |
-| `blocks.dnd`       | [`PB:DROP`](#drag-and-drop-blocksdnd)                                                       | To notify that a block has been dropped.                                                                  |
-| `blocks.dnd`       | [`APP:DROP_RESPONSE`](#drag-and-drop-blocksdnd)                                             | To notify that the drop action has been processed and declare which zone welcomed the block.              |
-| `blocks.dnd`       | [`PB:SCROLL_BY`](#drag-and-drop-blocksdnd)                                                  | To notify that the preview should be scrolled.                                                            |
-| `blocks.geometry`  | [`APP:POSITIONS_UPDATE`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking) | To declare the actual position of the blocks (so the block editing menus can be positionned).             |
-| `blocks.geometry`  | [`APP:SCROLL_END`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)       | To notify that the preview stopped scrolling.                                                             |
-| `blocks.remove`    | [`PB:BLOCK_REMOVE`](#block-removal-blocksremove)                                            | To notify the preview that a block is removed.                                                            |
-| `blocks.remove`    | [`APP:BLOCK_REMOVE_RESPONSE`](#block-removal-blocksremove)                                  | To tell the Page Builder that the block has been removed.                                                  |
-| `blocks.remove`    | [`APP:BLOCK_REMOVE_REQUEST`](#block-removal-blocksremove)                                   | To ask the Page Builder to remove a block.                                                                |
-| `blocks.reveal`    | [`PB:SCROLL_INTO_BLOCK`](#block-reveal-blocksreveal)                                        | To notify the preview to scroll to have a specific block into view.                                       |
-| `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | TODO: To notify that a block has been clicked.                                                            |
-| `pointer.tracking` | [`APP:MOUSE_POSITION`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)   | To declare the actual position of the mouse (so the block editing menus can be displayed on hover).       |
-| `preview.params`   | `PB:UPDATE_PREVIEW_PARAMS`                                                                  | TODO                                                                                                      |
+| Capability         | Message type                                                                                | Description                          |
+|--------------------|---------------------------------------------------------------------------------------------|--------------------------------------|
+| (handshake)        | [`APP:INITIALIZED`](#communication-initialization)                                          | Establish protocol and capabilities. |
+| (handshake)        | [`PB:INIT_MODE`](#communication-initialization)                                             | Confirm protocol and draft info.     |
+| (core)             | [`PB:UPDATE_FIELD_DATA`](#on-field-update)                                                  | Send updated field data.             |
+| (core)             | [`PB:DISPATCH_EVENT`](#re-dispatching-events)                                               | Re-dispatch a front-end event.       |
+| `blocks.dnd`       | [`PB:DRAG_START_PREVIEW`](#drag-and-drop-blocksdnd)                                         | Existing block drag started.         |
+| `blocks.dnd`       | [`PB:DRAG_OVER`](#drag-and-drop-blocksdnd)                                                  | Mouse position during drag.          |
+| `blocks.dnd`       | [`PB:DRAG_END_PREVIEW`](#drag-and-drop-blocksdnd)                                           | Existing block drag ended.           |
+| `blocks.dnd`       | [`PB:DROP`](#drag-and-drop-blocksdnd)                                                       | Drop notification.                   |
+| `blocks.dnd`       | [`APP:DROP_RESPONSE`](#drag-and-drop-blocksdnd)                                             | Report where the block was dropped.  |
+| `blocks.dnd`       | [`PB:SCROLL_BY`](#drag-and-drop-blocksdnd)                                                  | Scroll the preview.                  |
+| `blocks.geometry`  | [`APP:POSITIONS_UPDATE`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking) | Report block positions.              |
+| `blocks.geometry`  | [`APP:SCROLL_END`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)       | Scroll ended.                        |
+| `blocks.remove`    | [`PB:BLOCK_REMOVE`](#block-removal-blocksremove)                                            | Remove a block.                      |
+| `blocks.remove`    | [`APP:BLOCK_REMOVE_RESPONSE`](#block-removal-blocksremove)                                  | Confirm removal.                     |
+| `blocks.remove`    | [`APP:BLOCK_REMOVE_REQUEST`](#block-removal-blocksremove)                                   | Request block removal.               |
+| `blocks.reveal`    | [`PB:SCROLL_INTO_BLOCK`](#block-reveal-blocksreveal)                                        | Scroll a block into view.            |
+| `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | TODO: Block clicked.                 |
+| `pointer.tracking` | [`APP:MOUSE_POSITION`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)   | Report mouse position.               |
+| `preview.params`   | `PB:UPDATE_PREVIEW_PARAMS`                                                                  | TODO: Update preview params.         |
 
 ### Communication initialization
 
