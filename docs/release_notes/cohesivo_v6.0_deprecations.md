@@ -69,3 +69,10 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | Old name | New name / Comment |
 | --- | --- |
 | `ibexa_system_info.system_info.powered_by.release` | Removed. See [X-Powered-By header](devops.md#x-powered-by-header) for how the header works in Cohesivo v6.0. |
+
+## Back office label renames
+
+### Bookmarks
+
+Bookmarks are renamed to favourites in the UI.
+In PHP and REST API they remain unchanged.
