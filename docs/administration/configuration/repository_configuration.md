@@ -64,7 +64,7 @@ Invalid configuration causes problems for different parts of the system, for exa
 
 ### Entity manager
 
-If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.18/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.20/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
 
 To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
 
