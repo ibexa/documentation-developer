@@ -281,9 +281,9 @@ It has no data. Combined with the last `PB:DRAG_OVER` message, the front-end can
 
 Its data contains:
 - the ID of the zone where the block has been dropped (`zoneId`)
-- the ID of the block that is now next to the dropped block (`nextBlockId`) if the dropped block isn't the last one of the zone.
+- the ID of a block that is now below the dropped block (`nextBlockId`) if the dropped block isn't the last one of the zone.
 
-In the following example, `targetBlockId` is the ID of a block the dropped block was dropped on or just before, so the dragged block takes its place and move it below, or `null` when dropped at the bottom of the zone.
+In the following example, `targetBlockId` value is the ID of a block the dropped block was dropped on or just before, so the dragged block takes its place and move it below, or `null` when dropped at the bottom of the zone.
 
 ```js
 const dropResponseMessage = {
@@ -295,4 +295,15 @@ const dropResponseMessage = {
 };
 ```
 
-TODO: `PB:SCROLL_BY` when a block is dragged near the top or bottom of the preview, and it needs to be scrolled up or down.
+`PB:SCROLL_BY` message is sent from the Page Builder when a block is dragged near a border of the preview which needs to be scrolled.
+Its data contains the `top` or `left` amount to scroll by.
+
+```js
+window.addEventListener('message', (messageEvent) => {
+    switch (messageEvent.data.type) {
+        case 'PB:SCROLL_BY':
+            window.scrollBy(messageEvent.data.data);
+            break;
+    }
+});
+```
