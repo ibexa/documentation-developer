@@ -117,7 +117,7 @@ This central data storage supports business growth with a scalable infrastructur
 Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [[[= product_name_engage =]]](/qualifio/qualifio.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
 [[= product_name_engage =]] is a data collection tool.
-It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
+It gives you the ability to use the [Qualifio](https://qualifio.com/en) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
 To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
 
 ![Qualifio](qualifio.png)
