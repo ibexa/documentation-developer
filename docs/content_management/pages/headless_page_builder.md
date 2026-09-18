@@ -290,6 +290,8 @@ window.addEventListener('mousemove', (mouseEvent) => {
 ```
 
 `APP:POSITIONS_UPDATE` message is sent from the front-end preview to the Page Builder to declare the actual position of the blocks.
+Its data contains a list of objects with block IDs, their positions, and dimensions in the front-end preview.
+This format is close to [`getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) method.
 
 ```js
 const positionsUpdate = () => {
@@ -316,7 +318,32 @@ const positionsUpdate = () => {
 };
 ```
 
-TODO: `APP:SCROLL_END` message is sent from the front-end preview to the Page Builder to notify that a scroll operation has ended.
+This message should be sent each time the positions of the blocks change.
+It should be sent after updating the blocks, like in response to [`PB:UPDATE_FIELD_DATA`](#on-field-update).
+It should be sent after scrolling or resizing.
+
+`APP:SCROLL_END` message is sent from the front-end preview to the Page Builder to notify that a scroll operation has ended.
+It has no data.
+
+```js
+window.addEventListener('scrollend', (event) => {
+    window.parent.postMessage({
+        type: 'APP:SCROLL_END',
+    }, pbOrigin);
+    positionsUpdate();
+});
+window.addEventListener('resize', (event) => {
+    positionsUpdate();
+});
+window.addEventListener('message', (messageEvent) => {
+    switch (messageEvent.data.type) {
+        case 'PB:UPDATE_FIELD_DATA':
+            renderZones(messageEvent.data.data.fieldValue.zones);
+            positionsUpdate();
+            break;
+    }
+});
+```
 
 ### Drag and drop (`blocks.dnd`)
 
