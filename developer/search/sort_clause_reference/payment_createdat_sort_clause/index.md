@@ -1,0 +1,28 @@
+# Payment CreatedAt Sort Clause
+
+Payment CreatedAt Sort Clause
+
+Editions: Commerce
+
+The `CreatedAt` Sort Clause sorts search results by the date and time when the payment was created.
+
+## Arguments
+
+- (optional) `sortDirection` - `CreatedAt` constant, either `CreatedAt::SORT_ASC` or `CreatedAt::SORT_DESC`
+
+## Example
+
+```php
+use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+
+$criteria = null;
+
+$paymentQuery = new PaymentQuery(
+    $criteria,
+    [
+        new \Ibexa\Contracts\Payment\Payment\Query\SortClause\CreatedAt(
+            \Ibexa\Contracts\Payment\Payment\Query\SortClause\CreatedAt::SORT_ASC
+        ),
+    ]
+);
+```
