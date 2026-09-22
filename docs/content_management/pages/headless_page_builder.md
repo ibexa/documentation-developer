@@ -90,7 +90,7 @@ The handshake and core messages are mandatory and not related to an optional cap
 | `blocks.reveal`    | [`PB:SCROLL_INTO_BLOCK`](#block-reveal-blocksreveal)                                        | Scroll a block into view.            |
 | `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | TODO: Block clicked.                 |
 | `pointer.tracking` | [`APP:MOUSE_POSITION`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)   | Report mouse position.               |
-| `preview.params`   | `PB:UPDATE_PREVIEW_PARAMS`                                                                  | TODO: Update preview params.         |
+| `preview.params`   | [`PB:UPDATE_PREVIEW_PARAMS`](#preview-parameters-update-previewparams)                      | TODO: Update preview params.         |
 
 ### Communication initialization
 
@@ -106,7 +106,6 @@ const initializedMessage = {
         capabilities: [
             'blocks.dnd',
             'blocks.geometry',
-            'blocks.select',
             'pointer.tracking',
             // …
         ],
@@ -231,20 +230,21 @@ The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the front-en
 
 Its data contains the new value of the field with the following structure:
 
-- a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
-- the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
-- a block-ID-to-name mapping (`blocksIdMap`)
-- a list of Ids from the new blocks that have been added (`highlightedBlockIds`)
+- Always, the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
+  <br>For example, only `fieldValue` is sent when manipulating the [timeline]([[= user_doc =]]/content_management/schedule_publishing/#timeline)![](page_builder_toolbartimelinetoggler.png){style="display:inline;width:27px;vertical-align:middle;"}.
+- Optionally, a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
+- Optionally, a block-ID-to-name mapping (`blocksIdMap`)
+- Optionally, a list of Ids from the new blocks that have been added (`highlightedBlockIds`)
 
 ```json
 {
     "type": "PB:UPDATE_FIELD_DATA",
     "data": {
-        "blocksConfig": [],
         "fieldValue": {
             "layout": "…",
             "zones": []
         },
+        "blocksConfig": [],
         "blocksIdMap": {},
         "highlightedBlockIds": []
     }
@@ -254,21 +254,32 @@ Its data contains the new value of the field with the following structure:
 ### Re-dispatching events
 
 The `PB:DISPATCH_EVENT` message is sent from the Page Builder to the front-end resource for being re-dispatched there as a custom event.
+Its data contains the name of the event to dispatch (`eventName`) and the data to pass to the event detail (`eventData`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:DISPATCH_EVENT':
-            document.body.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, { detail: messageEvent.data.data.eventDetail }));
+            window.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, { detail: messageEvent.data.data.eventData }));
             break;
     }
 });
 ```
 
-TODO: Available events
+#### Available events
 
-- `ibexa-active-block-clicked`?
-- `ibexa-post-update-blocks-preview`?
+- `ibexa-active-block-clicked`: It confirms `APP:BLOCK_CLICKED` have been received. It has no data.
+- `ibexa-post-update-blocks-preview`: It's a complement to [`PB:UPDATE_FIELD_DATA`](#on-field-update) with more data
+    - `fieldValue`: The same as in `PB:UPDATE_FIELD_DATA`
+    - `blockIds`: A list of all the block IDs
+    - `blocksMaps`: A map of block config per block ID
+
+```js
+window.addEventListener('ibexa-post-update-blocks-preview', (customEvent) => {
+    setLayout(customEvent.details.fieldValue.layout);
+    renderZones(customEvent.details.fieldValue.zones);
+});
+```
 
 ### Geometry and pointer tracking (`blocks.geometry` and `pointer.tracking`)
 
@@ -338,6 +349,7 @@ window.addEventListener('resize', (event) => {
 window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:UPDATE_FIELD_DATA':
+            setLayout(messageEvent.data.data.fieldValue.layout);
             renderZones(messageEvent.data.data.fieldValue.zones);
             positionsUpdate();
             break;
@@ -423,6 +435,47 @@ Its data contains the ID of the block to remove (`blockId`).
 Its data contains the ID of the removed block (`blockId`).
 It can be sent immediately or after removal animation.
 
+```js
+window.addEventListener('message', (messageEvent) => {
+    switch (messageEvent.data.type) {
+        case 'PB:BLOCK_REMOVE':
+            const blockId = messageEvent.data.data.blockId;
+            const blockElementToRemove = document.getElementById('block_' + blockId);
+            if (blockElementToRemove) {
+                blockElementToRemove.addEventListener('animationend', () => {
+                    blockElementToRemove.remove();
+                    window.parent.postMessage({
+                        type: 'APP:BLOCK_REMOVE_RESPONSE',
+                        data: {
+                            blockId: blockId,
+                        },
+                    });
+                });
+                blockElementToRemove.classList.add('c-pb-block-preview--is-removing');
+            } else {
+                console.error('No block element found for block ID ' + messageEvent.data.data.blockId, 'notification.headless_unresponsive_preview');
+            }
+            break;
+    }
+});
+```
+```css
+.c-pb-block-preview--is-removing {
+    animation-duration: 1s;
+    animation-name: c-pb-block-preview--is-removing;
+}
+@keyframes c-pb-block-preview--is-removing {
+    to {
+        opacity: 0;
+        height: 0;
+    }
+}
+```
+
 `APP:BLOCK_REMOVE_REQUEST` message is sent from the front-end preview to the Page Builder to request the removal of a block.
 Its data contains the ID of the block to remove (`blockId`).
 The Page Builder responses with a `PB:UPDATE_FIELD_DATA`.
+
+### Preview parameters update (`preview.params`)
+
+`PB:UPDATE_PREVIEW_PARAMS` message is sent from the Page Builder to the front-end preview when TODO: it's sent on several occasions without data. It seems also (if not mainly) used by segmentation.
