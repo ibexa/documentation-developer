@@ -65,7 +65,7 @@ A user is simply a content item of the user account content type.
 The users are organized within user group content items below this location.
 
 In other words, the **Users** location contains the actual users and user groups,
-which can be viewed by selecting the **Users** tab in the **Admin** Panel.
+which can be viewed by selecting the **Users** tab in the **Administration** Panel.
 
 ### Forms
 

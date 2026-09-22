@@ -20,11 +20,7 @@ not_in_nav: |
     /snippets/*
 nav:
     - Cohesivo Developer Documentation: index.md
-    - Cohesivo editions:
-        - On-premise Cohesivo: on_premise.md
-        - Editions: ibexa_products/editions.md
-        - Cohesivo Headless: ibexa_products/ibexa_headless.md
-        - Cohesivo Experience: ibexa_products/ibexa_experience.md
+    - Cohesivo:
         - Cohesivo SaaS: ibexa_products/cohesivo_saas_guide.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
@@ -155,7 +151,6 @@ nav:
         - Integrate Qualifio with Ibexa Connect: qualifio/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
-        - Multisite configuration: multisite/multisite_configuration.md
         - SiteAccess:
             - SiteAccess: multisite/siteaccess/siteaccess.md
         - Site Factory:
@@ -392,6 +387,7 @@ extra:
   symfony_version: '7.4' 
   symfony_doc: 'https://symfony.com/doc/7.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/saas'
+  on_premise_doc: 'https://doc.ibexa.co/en/latest'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:

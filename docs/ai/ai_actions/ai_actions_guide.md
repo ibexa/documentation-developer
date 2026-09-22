@@ -65,7 +65,7 @@ By defining AI action types, developers can create a wide range of functionaliti
 #### AI action configuration
 
 AI action configurations store detailed parameters needed to generate AI actions based on AI action types.
-Website administrators manage AI action configurations in the [**Admin** panel](admin_panel.md), where they customize and fine-tune the behavior of each AI action.
+Website administrators manage AI action configurations in the [**Administration** panel](admin_panel.md), where they customize and fine-tune the behavior of each AI action.
 It might involve setting specific parameters used by the AI service, a response length, an expense limit, or configuring how the output should be handled.
 By making such adjustments, administrators can ensure that the actions are tailored to meet the needs of your organization.
 
@@ -81,7 +81,7 @@ Handlers take parameters defined in the AI action type and configuration, combin
 
 Among other elements, AI Actions include UI components that are used in:
 
-- AI action management in the **Admin** panel
+- AI action management in the **Administration** panel
 - text modification in online editor
 - alt-text generation in the image management modal
 
@@ -104,7 +104,7 @@ Additionally, AI action configurations can be enabled or disabled depending on t
 
 ![Configurations management screen](img/ai_actions_list.png)
 
-An intuitive AI Actions interface within the **Admin** panel displays a list of all available AI actions.
+An intuitive AI Actions interface within the **Administration** panel displays a list of all available AI actions.
 Here, you can search for specific actions and filter them by type or status.
 By accessing the detailed view of individual AI actions, you can quickly review all their parameters.
 

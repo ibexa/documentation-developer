@@ -1,11 +1,11 @@
 ---
-description: Manage URL aliases and wildcards, and validate external URLs.
+description: Manage URL aliases and validate external URLs.
 month_change: false
 ---
 
 # URL management
 
-You can manage external URL addresses and URL wildcards in the back office, **Admin** tab, the **URL Management** node.
+You can manage external URL addresses in the back office, **Administration** tab, the **URL Management** node.
 Configure URL aliases to have human-readable URL addresses throughout your system.
 
 ## Link manager
