@@ -106,7 +106,6 @@ If you're an existing [[= product_name_base =]] customer and have a PaaS or on-p
 
 In the future, should your project grow and need to be custom-tailored with broader than out-of-the-box functionality, migration to PaaS or on-premise installation is straightforward because [[= product_name =]] SaaS uses the same codebase and content model.
 
-
 ## Benefits
 
 [[= product_name =]] SaaS lets you focus on managing digital content and experiences without having to operate the [[= product_name =]] platform itself.
