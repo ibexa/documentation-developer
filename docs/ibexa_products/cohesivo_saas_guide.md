@@ -79,16 +79,16 @@ Translate your content with [language management tools]([[= user_doc =]]/content
 ### Product catalog
 
 Use the built-in Product Information Management (PIM) capability to manage products and their specifications, attributes, variants, assets, pricing, availability, categories, catalogs, and completeness scoring.
-You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to third-party commerce platforms, including [[[= pim_product_name =]]](https://www.quable.com/en).
+You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to a PIM platform, such as [[[= pim_product_name =]]](https://www.quable.com/en).
 When the [[= pim_product_name =]] connector is enabled, you can view, select and embed its products in [[= product_name =]] SaaS, while you handle product management operations in [[= pim_product_name =]].
 
 ### [[= product_name_cdp =]] integration
 
 The Raptor connector provides an integration with the [Raptor recommendation engine](https://www.raptorservices.com/) and [Customer Data Platform](https://www.raptorservices.com/) to help you deliver personalized experiences across digital channels.
 
-### Rich-text editing
+### Visual editing
 
-Use the advanced rich-text editing tools, such as the [Headless Page Builder]([[= user_doc =]]/content_management/create_edit_pages/).
+Use the advanced editing tools, such as the [Headless Page Builder]([[= user_doc =]]/content_management/create_edit_pages/) where you can use blocks and layouts to visually compose pages, even when the front end is separate from the [[= product_name =]] back end.
 
 ### Back office-based configuration
 
@@ -167,7 +167,7 @@ Even if your company is located outside of the EU, it's a benefit rather than a 
 An EU-based hotelier company runs several boutique accommodations that are primarily targeted at B2B customers.
 A marketing team that consists of twelve people manages several websites that advertise their aesthetically distinct venues.
 Each of the websites is dedicated to a different clientele, but all must be available in multiple languages.
-With primarily visual storytelling in focus, websites that present photo galleries, room layouts, amenities, and dining menus, don't require custom code.
+With primarily visual storytelling in focus, websites that present photo galleries, room layouts, amenities, and dining menus, can be delivered with no custom code on the [[= product_name =]] SaaS side.
 At the same time, individual customer profiles can contain sensitive data, so the company prefers to use secure EU data residency.
 
 [[= product_name_base =]] provisions and manages the [[= product_name =]] SaaS instance.
