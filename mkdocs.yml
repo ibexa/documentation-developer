@@ -25,6 +25,7 @@ nav:
         - Editions: ibexa_products/editions.md
         - Cohesivo Headless: ibexa_products/ibexa_headless.md
         - Cohesivo Experience: ibexa_products/ibexa_experience.md
+        - Cohesivo SaaS: ibexa_products/cohesivo_saas_guide.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - First steps: getting_started/first_steps.md
@@ -390,7 +391,7 @@ extra:
 
   symfony_version: '7.4' 
   symfony_doc: 'https://symfony.com/doc/7.4'
-  user_doc: 'https://doc.ibexa.co/projects/userguide/en/6.0'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/saas'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
