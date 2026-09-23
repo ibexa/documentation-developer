@@ -48,22 +48,23 @@ to list the content items that have no translation into a given language,
 or to point out the content items that are missing a meta title.
 
 Because the tools act through the API, everything the agent can do is limited by the permissions
-of the user associated with the authorization
+of the user that the access token represents.
+With the [client credentials](rest_api_authentication.md#client-credentials) flow, this is the service account.
 
-## Perform Copilot or Claude Code test
+## Test the MCP server with Copilot CLI or Claude Code
 
-You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) or [Claude Code CLI](https://code.claude.com/docs/en/overview), as illustrated here, or with any other agent or interface.
+You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) or [Claude Code](https://code.claude.com/docs/en/overview), as illustrated here, or with any other agent or interface.
 
 ### Add MCP server to agent CLI
 
-You can handle the JWT token for this test in the following ways:
+You can handle the access token for this test in the following ways:
 
-- [Hard-code the JWT token](#hard-coded-variant) into the configuration and update it at every expiration.
-- [Wrap a JWT token request and an MCP server call into a script](#fully-scripted-variant).
+- [Hard-code the access token](#hard-coded-variant) into the configuration and update it every time it expires, which happens after 15 minutes.
+- [Wrap the token request and the MCP server connection into a script](#fully-scripted-variant).
 
 #### Hard-coded variant
 
-The hard-coded JWT token configuration in `.mcp.json` looks as follows:
+The configuration with a hard-coded access token in `.mcp.json` looks as follows:
 
 ```json
 {
@@ -72,7 +73,7 @@ The hard-coded JWT token configuration in `.mcp.json` looks as follows:
       "type": "http",
       "url": "https://example.cohesivo.app/mcp/management",
       "headers": {
-        "Authorization": "Bearer <JWT token>"
+        "Authorization": "Bearer <access_token>"
       },
       "tools": ["*"]
     }
@@ -80,29 +81,30 @@ The hard-coded JWT token configuration in `.mcp.json` looks as follows:
 }
 ```
 
-In this approach, you must edit the `.mcp.json` file every time the JWT token expires.
+In this approach, you must edit the `.mcp.json` file every time the access token expires.
 
-When Copilot or Claude Code complains that it can't communicate with the MCP server:
+When the agent can't connect to the MCP server:
 
-=== Copilot CLI
+=== "Copilot CLI"
 
-    - Update the JWT token in the `.mcp.json` file.
-    - Reload the MCP servers in Copilot CLI with one of these methods:
-    - Run `/mcp reload` command to reload all MCP servers.
-    - Run `/mcp disable cohesivo-example` and `/mcp enable cohesivo-example` to only reload the `cohesivo-example` server.
+    1. Update the access token in the `.mcp.json` file.
+    2. Reload the MCP servers in Copilot CLI with one of these methods:
+        - Run the `/mcp reload` command to reload all MCP servers.
+        - Run the `/mcp disable cohesivo-example` and `/mcp enable cohesivo-example` commands to reload only the `cohesivo-example` server.
 
-    > **Note: Reloading multiple MCP servers**
-    >
-    > If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming. Consider reloading them one by one.
+    !!! note "Reloading multiple MCP servers"
 
-=== Claude Code CLI
+        If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming.
+        Consider reloading them one by one.
 
-    - Update the JWT token in the `.mcp.json` file.
-    - Run `/mcp reconnect cohesivo-example` command to reconnect the `cohesivo-example` MCP server.
+=== "Claude Code"
 
-##### Fully scripted variant
+    1. Update the access token in the `.mcp.json` file.
+    2. Run the `/mcp reconnect cohesivo-example` command to reconnect the `cohesivo-example` MCP server.
 
-The wrapping script configuration in `.mcp.json` looks as follows:
+#### Fully scripted variant
+
+The configuration with a wrapper script in `.mcp.json` looks as follows:
 
 ```json
 {
@@ -117,18 +119,24 @@ The wrapping script configuration in `.mcp.json` looks as follows:
 }
 ```
 
-`mcp-cohesivo-example-wrapper.sh` is a script that [requests an authorization token through REST](rest_api_authentication.md) and establishes a connection with the MCP server.
+`mcp-cohesivo-example-wrapper.sh` is a script that [requests an access token](rest_api_authentication.md#client-credentials) and connects to the MCP server.
 
-For example, thanks to [`npx`](https://www.npmjs.com/package/npx), you can do it with [Supergateway](https://www.npmjs.com/package/supergateway):
+For example, you can use [Supergateway](https://www.npmjs.com/package/supergateway), run through [`npx`](https://www.npmjs.com/package/npx).
+The script below requires Node.js, `jq`, and the `TOKEN_ENDPOINT`, `CLIENT_ID`, and `CLIENT_SECRET` environment variables:
 
 ```bash
 #!/bin/bash
 set -e
 
 mcpServer="https://example.cohesivo.app/mcp/management"
-token=$(curl --request POST "$TOKEN_ENDPOINT" \
+token=$(curl --silent --fail --request POST "$TOKEN_ENDPOINT" \
     --user "$CLIENT_ID:$CLIENT_SECRET" \
     --data 'grant_type=client_credentials' | jq -r .access_token)
+
+if [ -z "$token" ] || [ "$token" = "null" ]; then
+    echo "Token request failed" >&2
+    exit 1
+fi
 
 exec npx -y supergateway \
   --streamableHttp "$mcpServer" \
@@ -136,28 +144,24 @@ exec npx -y supergateway \
   --logLevel none
 ```
 
-When the agent complains that it can't communicate with the MCP server, reload it:
+When the agent can't connect to the MCP server, reload it:
 
-=== Copilot CLI
+=== "Copilot CLI"
 
     Reload the MCP servers in Copilot CLI with one of these methods:
 
-    - Run `/mcp reload` command to reload all MCP servers.
-    - Run `/mcp disable cohesivo-example` and `/mcp enable cohesivo-example` to only reload the `cohesivo-example` server.
+    - Run the `/mcp reload` command to reload all MCP servers.
+    - Run the `/mcp disable cohesivo-example` and `/mcp enable cohesivo-example` commands to reload only the `cohesivo-example` server.
 
-    > **Note: Reloading multiple MCP servers**
-    >
-    > If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming. Consider reloading them one by one.
+=== "Claude Code"
 
-=== Claude Code CLI
-
-    Run `/mcp reconnect cohesivo-example` command to reconnect the `cohesivo-example` MCP server.
+    Run the `/mcp reconnect cohesivo-example` command to reconnect the `cohesivo-example` MCP server.
 
 ## Rate limits
 
-To prevent abuse, MCP server calls are rate limited to 300 requests per minute.
+To prevent abuse, MCP server calls are rate limited.
 
-Every response carries the current state:
+Responses carry the current state of the quota:
 
 | Header | Description |
 |---|---|

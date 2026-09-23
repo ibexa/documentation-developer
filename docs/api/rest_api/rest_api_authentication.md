@@ -40,7 +40,7 @@ To get an access token, use the values received during [[= product_name =]] onbo
 
 Two flows are available:
 
-- With [Client credentials](#client-credentials), the API runs as a [service account](users_admin_panel.md#service-account). Use it for server-to-server integrations.
+- With [Client credentials](#client-credentials), the API runs as a [service account](users_admin_panel.md#service-account-user). Use it for server-to-server integrations.
 - With [Authorization code with PKCE](#authorization-code-with-pkce), the API runs as the person who logged in, with their permissions.
 Use it for applications that act on behalf of a user.
 
@@ -63,7 +63,7 @@ The response contains the access token:
 }
 ```
 
-Requests made with this token run as the [service account](users_admin_panel.md#service-account).
+Requests made with this token run as the [service account](users_admin_panel.md#service-account-user).
 
 ### Authorization code with PKCE
 
