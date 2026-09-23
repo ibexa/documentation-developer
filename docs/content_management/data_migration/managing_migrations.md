@@ -161,6 +161,8 @@ The order of migration steps matters - they are executed sequentially from top t
     - path
 - `content_type`
     - content_type_id
+- `content_type_group`
+    - content_type_group_id
 - `language`
     - language_id
 - `role`
