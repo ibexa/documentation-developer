@@ -1,10 +1,10 @@
-# RelationList field type
+# Content relations (multiple) field type
 
 This field type makes it possible to store and retrieve values of a relation to other content items.
 
-| Name           | Internal name                |
-|----------------|------------------------------|
-| `RelationList` | `ibexa_object_relation_list` |
+| Name                         | Field type identifier        |
+|------------------------------|------------------------------|
+| Content relations (multiple) | `ibexa_object_relation_list` |
 
 ## Field value
 

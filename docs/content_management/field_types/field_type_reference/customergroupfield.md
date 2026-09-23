@@ -1,10 +1,10 @@
-# Customer group field
+# Customer group field type
 
 This field type represents a customer group that a user belongs to.
 
-| Name             | Internal name          |
-|------------------|------------------------|
-| `Customer group` | `ibexa_customer_group` |
+| Name           | Field type identifier  |
+|----------------|------------------------|
+| Customer group | `ibexa_customer_group` |
 
 ## Field value
 

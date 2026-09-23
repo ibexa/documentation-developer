@@ -1,11 +1,11 @@
-# Page field type
+# Landing Page field type
 
-Page field type represents a page with a layout consisting of multiple zones.
+The Landing Page field type represents a page with a layout consisting of multiple zones.
 Each zone can in turn contain blocks.
 
-| Name          | Internal name        |
-|---------------|----------------------|
-| `LandingPage` | `ibexa_landing_page` |
+| Name         | Field type identifier |
+|--------------|-----------------------|
+| Landing Page | `ibexa_landing_page`  |
 
 ## Field value
 

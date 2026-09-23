@@ -1,17 +1,17 @@
-# TaxonomyEntryAssignment field type
+# Taxonomy Entry Assignment field type
 
-`TaxonomyEntryAssignment` field is used to integrate content with the Taxonomy module.
+The Taxonomy Entry Assignment field type is used to integrate content with the Taxonomy module.
 It allows you to select tags or categories and assign them to content.
 
 !!! caution "Duplicate taxonomy fields"
 
     Because tags are assigned per content item, not per field, you cannot use two **Taxonomy Entry Assignment** fields with the same taxonomy type in one content type.
 
-To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` field to the content type definition.
+To be able to assign tags to the content, first, you need to add a Taxonomy Entry Assignment field to the content type definition.
 
-| Name                      | Internal name                     |
+| Name                      | Field type identifier             |
 |---------------------------|-----------------------------------|
-| `TaxonomyEntryAssignment` | `ibexa_taxonomy_entry_assignment` |
+| Taxonomy Entry Assignment | `ibexa_taxonomy_entry_assignment` |
 
 ## Field value
 

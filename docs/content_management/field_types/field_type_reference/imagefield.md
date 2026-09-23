@@ -2,9 +2,9 @@
 
 The Image field type allows you to store an image file.
 
-| Name    | Internal name |
-|---------|---------------|
-| `Image` | `ibexa_image` |
+| Name  | Field type identifier |
+|-------|-----------------------|
+| Image | `ibexa_image`         |
 
 A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations, for example, large, small, medium, or black and white thumbnail.
 

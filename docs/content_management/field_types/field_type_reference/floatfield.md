@@ -2,9 +2,9 @@
 
 This field type stores numeric values which are provided as floats.
 
-| Name    | Internal name |
-|---------|---------------|
-| `Float` | `ibexa_float` |
+| Name  | Field type identifier |
+|-------|-----------------------|
+| Float | `ibexa_float`         |
 
 ## Field value
 

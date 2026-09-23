@@ -87,38 +87,38 @@ nav:
             - Field type reference:
                 - Field type reference: content_management/field_types/field_type_reference/field_type_reference.md
                 - Address field type: content_management/field_types/field_type_reference/addressfield.md
-                - Author field type: content_management/field_types/field_type_reference/authorfield.md
-                - BinaryFile field type: content_management/field_types/field_type_reference/binaryfilefield.md
+                - Authors field type: content_management/field_types/field_type_reference/authorfield.md
+                - File field type: content_management/field_types/field_type_reference/binaryfilefield.md
                 - Checkbox field type: content_management/field_types/field_type_reference/checkboxfield.md
                 - Country field type: content_management/field_types/field_type_reference/countryfield.md
-                - CustomerGroup field type: content_management/field_types/field_type_reference/customergroupfield.md
-                - DateAndTime field type: content_management/field_types/field_type_reference/dateandtimefield.md
+                - Customer group field type: content_management/field_types/field_type_reference/customergroupfield.md
+                - Date and time field type: content_management/field_types/field_type_reference/dateandtimefield.md
                 - Date field type: content_management/field_types/field_type_reference/datefield.md
-                - EmailAddress field type: content_management/field_types/field_type_reference/emailaddressfield.md
+                - Email address field type: content_management/field_types/field_type_reference/emailaddressfield.md
                 - Float field type: content_management/field_types/field_type_reference/floatfield.md
                 - Form field type: content_management/field_types/field_type_reference/formfield.md
                 - Image field type: content_management/field_types/field_type_reference/imagefield.md
-                - ImageAsset field type: content_management/field_types/field_type_reference/imageassetfield.md
+                - Image Asset field type: content_management/field_types/field_type_reference/imageassetfield.md
                 - Integer field type: content_management/field_types/field_type_reference/integerfield.md
                 - ISBN field type: content_management/field_types/field_type_reference/isbnfield.md
-                - Keyword field type: content_management/field_types/field_type_reference/keywordfield.md
-                - MapLocation field type: content_management/field_types/field_type_reference/maplocationfield.md
+                - Keywords field type: content_management/field_types/field_type_reference/keywordfield.md
+                - Map location field type: content_management/field_types/field_type_reference/maplocationfield.md
                 - Matrix field type: content_management/field_types/field_type_reference/matrixfield.md
                 - Measurement field type: content_management/field_types/field_type_reference/measurementfield.md
                 - Media field type: content_management/field_types/field_type_reference/mediafield.md
-                - Page field type: content_management/field_types/field_type_reference/pagefield.md
-                - ProductSpecification field type: content_management/field_types/field_type_reference/productspecificationfield.md
-                - Relation field type: content_management/field_types/field_type_reference/relationfield.md
-                - RelationList field type: content_management/field_types/field_type_reference/relationlistfield.md
-                - RichText field type: content_management/field_types/field_type_reference/richtextfield.md
+                - Landing Page field type: content_management/field_types/field_type_reference/pagefield.md
+                - Product specification field type: content_management/field_types/field_type_reference/productspecificationfield.md
+                - Content relation (single) field type: content_management/field_types/field_type_reference/relationfield.md
+                - Content relations (multiple) field type: content_management/field_types/field_type_reference/relationlistfield.md
+                - Rich text field type: content_management/field_types/field_type_reference/richtextfield.md
                 - Selection field type: content_management/field_types/field_type_reference/selectionfield.md
-                - TaxonomyEntry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
-                - TaxonomyEntryAssignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
-                - TextBlock field type: content_management/field_types/field_type_reference/textblockfield.md
-                - TextLine field type: content_management/field_types/field_type_reference/textlinefield.md
+                - Taxonomy Entry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
+                - Taxonomy Entry Assignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
+                - Text block field type: content_management/field_types/field_type_reference/textblockfield.md
+                - Text line field type: content_management/field_types/field_type_reference/textlinefield.md
                 - Time field type: content_management/field_types/field_type_reference/timefield.md
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
-                - User field type: content_management/field_types/field_type_reference/userfield.md
+                - User account field type: content_management/field_types/field_type_reference/userfield.md
     - AI:
         - AI: ai/ai.md
         - AI Actions:

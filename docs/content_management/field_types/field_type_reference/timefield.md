@@ -5,9 +5,9 @@ This field type represents time information.
 Date information is **not stored**.
 What is stored is the number of seconds, calculated from the beginning of the day in the given or the environment timezone.
 
-| Name   | Internal name |
-|--------|---------------|
-| `Time` | `ibexa_time`  |
+| Name | Field type identifier |
+|------|-----------------------|
+| Time | `ibexa_time`          |
 
 ## Field value
 
