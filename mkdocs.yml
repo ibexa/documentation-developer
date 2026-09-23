@@ -47,7 +47,6 @@ nav:
             - URL Management: administration/admin_panel/url_management_admin_panel.md
             - Languages: administration/admin_panel/languages_admin_panel.md
             - Segments: administration/admin_panel/segments_admin_panel.md
-            - Corporate: administration/admin_panel/corporate_admin_panel.md
             - Workflow: administration/admin_panel/workflow_admin_panel.md
             - System Information: administration/admin_panel/system_information_admin_panel.md
         - Content organization:
@@ -58,9 +57,6 @@ nav:
             - Configuration: administration/configuration/configuration.md
         - Back office:
             - Back office: administration/back_office/back_office.md
-            - Integrated help:
-                - Integrated help: administration/back_office/integrated_help.md
-                - Product tour: administration/back_office/product_tour.md
             - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
         - Content management: content_management/content_management.md
@@ -145,10 +141,6 @@ nav:
             - Symbol attribute type: product_catalog/attributes/symbol_attribute_type.md
         - Catalogs: product_catalog/catalogs.md
         - Prices: product_catalog/prices.md
-    - Customer management:
-        - Customer Portal: customer_management/customer_portal.md
-        - Customer Portal guide: customer_management/customer_portal_guide.md
-        - Customer Portal Applications: customer_management/cp_applications.md
     - Data collection:
         - Qualifio integration: qualifio/qualifio.md
         - Create campaign with Qualifio: qualifio/create_campaign.md

@@ -9,7 +9,7 @@ description: Read the content management product guide and learn how to create, 
 The term “content management” covers all the tasks that you need to perform to create, edit and present content to its intended audience.
 
 The content management model applied in [[= product_name =]] lies at the foundation of the entire system.
-A system that relies on roles and permissions controls access to content items and is granular and powerful enough to be used in managing user accounts, corporate accounts, products, or process definitions.
+A system that relies on roles and permissions controls access to content items and is granular and powerful enough to be used in managing user accounts, products, or process definitions.
 
 ## How does it work
 

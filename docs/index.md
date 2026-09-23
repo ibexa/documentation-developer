@@ -141,11 +141,11 @@
                         </a>
                     </h3>
                     <ul>
+                        <li><a href="product_catalog/product_catalog_guide/">Product catalog guide</a></li>
                         <li><a href="product_catalog/products/">Products</a></li>
                         <li><a href="product_catalog/catalogs/">Catalogs</a></li>
                         <li><a href="product_catalog/prices/">Prices</a></li>
                         <li><a href="product_catalog/quable/quable/">Quable integration</a></li>
-                        <li><a href="customer_management/customer_portal/">Customer Portal</a></li>
                         <li><a href="qualifio/qualifio/">Data collection with Qualifio</a></li>
                     </ul>
                 </div>
