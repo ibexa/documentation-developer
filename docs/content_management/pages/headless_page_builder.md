@@ -22,11 +22,10 @@ First, set up the feature, for example, in `config/packages/ibexa_page_builder.y
 ibexa:
     system:
         admin_group:
-            page_builder:
-                headless:
-                    enabled: true
-                    base_url: 'https://frontend.example.com/page-builder-preview' # The front-end URL loaded by the Page Builder's iframe
-                    TODO: preview_url
+              headless:
+                  enabled: true
+                  page_builder:
+                      preview_url: 'https://frontend.example.com/page-builder-preview' # The front-end URL loaded by the Page Builder's iframe
 ```
 
 Then, edit the content types with Landing page field type that are used headless,
