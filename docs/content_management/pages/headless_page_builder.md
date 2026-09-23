@@ -12,7 +12,9 @@ You provide a single URL for the front-end page and let it communicate with the 
 
 The usage of this front-end page instead of the DXP one is set per content type. TODO: This is on-prem only, SaaS don't have the choice
 
-## Configuration TODO: How this is declared on Saas?
+## Configuration (on-prem)
+
+TODO: on-premise only, remove from SaaS documentation
 
 First, set up the feature, for example, in `config/packages/ibexa_page_builder.yaml`:
 
@@ -23,13 +25,26 @@ ibexa:
             page_builder:
                 headless:
                     enabled: true
-                    base_url: 'https://example.com/page.html' # The front-end URL loaded by the Page Builder's iframe
+                    base_url: 'https://frontend.example.com/page-builder-preview' # The front-end URL loaded by the Page Builder's iframe
+                    TODO: preview_url
 ```
 
 Then, edit the content types with Landing page field type that are used headless,
 edit that field, and check the option "Edit in the headless Page Builder".
 
-![Checked "Edit in the headless Page Builder"](page-edit-headless.png)
+![Checked "Edit in the headless Page Builder"](headless-page-field-edit.png)
+
+## Configuration (SaaS)
+
+TODO: Saas only, remove from on-premise documentation
+
+Navigate to **Administration** > **SiteAccess Configuration** > **Headless** (`/siteaccess-config/default/headless`)
+
+TODO: Should `admin` SiteAccess be picked instead of staying on `default`? (`/siteaccess-config/admin/headless`)
+
+Below the description, enable the **Headless mode**, fill in the **Page Builder preview URL**, and **Save** the configuration.
+
+![Headless mode enabled with Page Builder preview URL](headless-saas-siteaccess-config.png)
 
 ## Communication protocol
 
@@ -269,8 +284,8 @@ window.addEventListener('message', (messageEvent) => {
 #### Available events
 
 - `ibexa-active-block-clicked`: It confirms `APP:BLOCK_CLICKED` have been received. It has no data.
-- `ibexa-post-update-blocks-preview`: It's a complement to [`PB:UPDATE_FIELD_DATA`](#on-field-update) with more data
-    - `fieldValue`: The same as in `PB:UPDATE_FIELD_DATA`
+- `ibexa-post-update-blocks-preview`: It's sent when the timeline is used.
+    - `fieldValue`: The same as in [`PB:UPDATE_FIELD_DATA`](#on-field-update) TODO: Why when timeline move to a revelation time, the block is still invisible here while made visible in PB:UPDATE_FIELD_DATA?
     - `blockIds`: A list of all the block IDs
     - `blocksMaps`: A map of block config per block ID
 
