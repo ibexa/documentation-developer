@@ -23,7 +23,7 @@ By using the [side-by-side editing interface](#side-by-side-translation-view), e
 ## Define language pairs
 
 Language pair definitions decide which provider handles each source-to-target language combination by default.
-When an editor [opens the translation modal]([[= user_doc =]]/content_management/translate_content/#add-new-translation) and selects a matching language combination, the provider that you chose is pre-selected in the dropdown.
+When an editor [opens the translation modal]([[= user_doc =]]/content_management/translate_content/#add-translations) and selects a matching language combination, the provider that you chose is pre-selected in the dropdown.
 The editor can override the pre-selection.
 
 The list of languages available when creating a language pair is determined by what each provider supports.

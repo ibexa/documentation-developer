@@ -98,26 +98,33 @@ lychee --config lychee.toml --cache --cache-exclude-status "400.." site
 
 After fixing any reported links, run `mkdocs build --strict` before rerunning `lychee`.
 
-#### Using non-standard brancges
+#### Using non-standard branches
 
 The script accepts optional branch names before cloning repositories:
 
 ```bash
-./tools/clone-repositories.sh [DEVDOC_50] [DEVDOC_46] [USERDOC_50] [USERDOC_46] [CONNECT]
+./tools/clone-repositories.sh [DEVDOC_60] [DEVDOC_50] [DEVDOC_46] [USERDOC_SAAS] [USERDOC_60] [USERDOC_50] [USERDOC_46] [CONNECT]
 ```
 
-| Argument     | Repository                      | Default |
-|--------------|---------------------------------|---------|
-| `DEVDOC_50`  | `ibexa/documentation-developer` | `5.0`   |
-| `DEVDOC_46`  | `ibexa/documentation-developer` | `4.6`   |
-| `USERDOC_50` | `ibexa/documentation-user`      | `5.0`   |
-| `USERDOC_46` | `ibexa/documentation-user`      | `4.6`   |
-| `CONNECT`    | `ibexa/documentation-connect`   | `main`  |
+| Argument       | Repository                      | Default |
+|----------------|---------------------------------|---------|
+| `DEVDOC_60`    | `ibexa/documentation-developer` | `6.0`   |
+| `DEVDOC_50`    | `ibexa/documentation-developer` | `5.0`   |
+| `DEVDOC_46`    | `ibexa/documentation-developer` | `4.6`   |
+| `USERDOC_SAAS` | `ibexa/documentation-user`      | `saas`  |
+| `USERDOC_60`   | `ibexa/documentation-user`      | `6.0`   |
+| `USERDOC_50`   | `ibexa/documentation-user`      | `5.0`   |
+| `USERDOC_46`   | `ibexa/documentation-user`      | `4.6`   |
+| `CONNECT`      | `ibexa/documentation-connect`   | `main`  |
+
+The SaaS developer documentation is not cloned: this branch *is* the SaaS
+documentation, so `doc.ibexa.co/en/saas/` links are remapped to the local `site/`
+build instead.
 
 Example — checking link for release PRs:
 
 ```bash
-./tools/clone-repositories.sh release-5.0.10 release-4.6.70 4.6 4.6 main
+./tools/clone-repositories.sh 6.0 release-5.0.10 release-4.6.70 saas 6.0 4.6 4.6 main
 ```
 
 The same parameters are available as inputs when triggering the GitHub Actions workflow manually.
