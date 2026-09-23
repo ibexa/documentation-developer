@@ -44,9 +44,9 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Scheduler tab]([[= user_doc =]]/content_management/schedule_publishing/#scheduler-tab) |  | &#10004; | &#10004; |
 | [Content Scheduler block]([[= user_doc =]]/content_management/schedule_publishing/#content-scheduler-block) |  | &#10004; | &#10004; |
 | [Corporate account management]([[= user_doc =]]/customer_management/manage_customers/) |  | &#10004; | &#10004; |
-| [Customer Portal](customer_portal_guide.md) |  | &#10004; | &#10004; |
+| Customer Portal |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
-| [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
+| [Recent activity](recent_activity_admin_panel.md) |  | &#10004; | &#10004; |
 | [[[= product_name_engage =]] add-on]([[= user_doc =]]/qualifio/qualifio/) |  | &#10004; | &#10004; |
 | [[[= product_name_cdp =]] (Customer Data Platform) add-on](/raptor_cdp/raptor_cdp_guide.md) |  | &#10004; | &#10004; |
 
@@ -57,6 +57,6 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 
 | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |-----------------|-----------------|-----------------|-----------------|
-| [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
+| Integrated help | &#10004; | &#10004; | &#10004; |
 | [MCP servers](mcp_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Translations management](translations_management_guide.md) | &#10004; | &#10004; | &#10004; |

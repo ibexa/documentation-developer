@@ -20,7 +20,7 @@ It's called "blocking" because it always informs the permissions system that the
 
 ## Activity log Owner limitation
 
-The Activity log Owner (`ActivityLogOwner`) limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
+The Activity log Owner (`ActivityLogOwner`) limitation specifies if a user can see only their own [recent activity](recent_activity_admin_panel.md) log entries, and not entries from other users.
 
 | Value | UI value        | Description                                                  |
 |-------|-----------------|--------------------------------------------------------------|
