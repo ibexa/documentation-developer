@@ -73,7 +73,7 @@ By making such adjustments, administrators can ensure that the actions are tailo
 
 Once an AI action is defined and configured, it must be executed, and this is where models come into play.
 Each model is designed to work with a specific AI service and AI action type pair.
-Pieces of PHP code that are responsible for resolving a model are called handlers.
+Pieces of code that are responsible for resolving a model are called handlers.
 They may include hardcoded prompts for conversational AI services like ChatGPT, or operate without prompts in the case of other types of AI.
 Handlers take parameters defined in the AI action type and configuration, combine it with user input and any predefined settings or prompts, and pass this information to the AI service for processing.
 

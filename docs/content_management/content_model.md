@@ -95,15 +95,13 @@ Aside from the field type, the field definition in a content type provides the f
 
 **Name** – a user-friendly name that describes the field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces, and special characters (the maximum length is 255 characters). If no name is provided, a unique one is automatically generated.
 
-**Identifier** – an identifier for internal use, for example, in configuration files, templates, or PHP code. It can only contain lowercase letters, digits and underscores (the maximum length is 50 characters). This identifier is also used in name patterns for the content type.
+**Identifier** – an identifier for specific field. It can only contain lowercase letters, digits and underscores (the maximum length is 50 characters). Use it to detect a specific field when you consume content from [[= product_name =]]. This identifier is also used in name patterns for the content type.
 
 **Description** – a detailed description of the field.
 
 **Required** – a flag which indicates if the field is required for the system to accept the content item. By default, if a field is flagged as Required, a user isn't able to publish a content item without filling in this field.
 
 !!! note
-    You can use the `ContentService::validate()` method to decide whether the required fields or whole content items are checked for completeness at other stages of the editing process.
-
     The Required flag is in no way related to field validation. A field's value is validated whether the field is set as required or not.
 
 **[Searchable](search.md)** – a flag which indicates if the value of the field is indexed for searching.
@@ -126,8 +124,7 @@ A new version is created every time a content item is edited. The previous publi
 Only one version can be published at the same time.
 When you publish a new version, the previous published version changes its status to Archived.
 
-The number of preserved archived versions is set in `ibexa.repositories.default.options.default_version_archive_limit`.
-By default it's set to 5.
+The number of preserved archived versions is 5.
 
 A new version is also created when a new [language](languages.md) is added to the content item.
 

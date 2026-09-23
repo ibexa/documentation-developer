@@ -8,7 +8,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 !!! caution
 
-    Security is an ongoing process. After going live, you should pay attention to Ibexa security advisories released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+    Security is an ongoing process. After going live, you should pay attention to Ibexa security advisories released via [your Service portal](https://support.ibexa.co/).
 
 ## [[= product_name =]]
 
@@ -71,47 +71,3 @@ The [Code block]([[= user_doc =]]/content_management/block_reference/#code-block
 This means that editors who have access to Code blocks could add malicious JS including [cross site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting).
 As site administrator, be aware of this when giving editors access to the Page Builder features, and limit that access only to trusted editors.
 You can [limit access to specific blocks per content type]([[= user_doc =]]/content_management/configure_ct_field_settings/#default-configuration-of-pages) by defining which page blocks are available to editors.
-
-## Security headers
-
-There are a number of security related HTTP response headers that you can use to improve your security.
-Headers must be adapted to the site in question, and in most cases it's site owner's responsibility.
-
-You most likely need to vary the security headers based on the SiteAccess in question and site implementation details, such as frontend code and libraries used.
-
-- `Strict-Transport-Security` - ensures that all requests are sent over HTTPS, with no fallback to HTTP.
-All production sites should use HTTPS and this header unless they have particular needs.
-This header is less important during development provided that the site is on an internal, protected network.
-- `X-Frame-Options` - ensures that the site isn't embedded in a frame by a compliant browser.
-Set the header to `SAMEORIGIN` to allow embedding by your own site, or `DENY` to block framing completely.
-- `X-Content-Type-Options` - prevents the browser from second-guessing the mime-type of delivered content.
-This header is less important if users cannot upload content and/or you trust your editors. However, it's safer to use it at all times.
-Make sure that the `Content-Type` header is also correctly set, including for the top-level document, to avoid issues with HTML documents being downloaded while they should be rendered.
-- `Content-Security-Policy` - blocks cross site scripting (XSS) attacks by setting an allowlist (whitelist) of resources to be loaded for a given page.
-You can set separate lists for scripts, images, fonts, and more.
-For experimentation and testing, you can use `Content-Security-Policy-Report-Only` before activating the actual policy.
-- `Referrer-Policy` - limits what information is sent from the previous page or site when navigating to a new page or site.
-This header has several directives for fine-tuning the referrer information.
-- `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, or microphone.
-For example, if someone succeeds in injecting their JavaScript into your site, this header prevents them from using those features to attack your users.
-
-## Domain
-
-### Enable Domain Name System Security Extensions (DNSSEC)
-
-DNSSEC is a DNS feature that authenticates responses to DNS requests.
-It protects against DNS poisoning attacks, which is when an attacker manipulates the responses to DNS requests with the goal of directing users to an IP address the attacker controls.
-Enabling DNSSEC involves creating the DNSSEC records in your domain, activating DNSSEC with your domain registrar, and enabling DNSSEC signature validation on all DNS servers.
-[Read more on DNSSEC on ICANN's website](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
-
-### Enable domain update/delete protection
-
-Domain update/delete protection is a DNS setting that makes it harder for an attacker to take over a domain from the real owner, or hinder availability for users.
-You can enable this protection at your domain registrar's site.
-Log in to their site to enable these protection settings and save the new configuration.
-
-### Enable Certificate Authority Authorization (CAA)
-
-CAA allows domain owners to specify which Certificate Authorities (CAs) are permitted to issue SSL/TLS certificates for their domain.
-This prevents attackers from having certificates issued for domains they don't own, hindering some types of attack.
-CAA is configured in your DNS zone file.

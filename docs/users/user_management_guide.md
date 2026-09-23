@@ -12,10 +12,6 @@ User management is a fundamental aspect of any system.
 User management refers to the process of granting, configuring, and controlling access for users by administrators.
 This encompasses the creation of user accounts, assigning roles and permissions, setting authentication methods, and managing user-related data.
 
-## Availability
-
-User management is available in all [[= product_name =]] versions.
-
 ## How does user management work
 
 [[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, roles, permissions, groups, and segments.
@@ -119,8 +115,3 @@ This ensures quality and consistency in their digital properties.
 ### Content relevance
 
 By delivering content that resonates with different user segments, clients can increase user engagement and retention.
-
-### Customizability
-
-Clients can adapt the user management system to their unique needs.
-Custom policies and limitations enable tailored solutions that align with their specific use cases.

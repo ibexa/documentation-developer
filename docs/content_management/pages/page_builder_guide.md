@@ -45,10 +45,6 @@ It's also important to choose a layout - it determines the arrangement of drop z
 
 ![Page Builder - diagram](page_builder_diagram.png)
 
-### Availability
-
-Page Builder is available in [[= product_name =]].
-
 ### How does Page Builder work
 
 #### Page Builder interface
