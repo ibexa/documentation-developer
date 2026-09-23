@@ -46,7 +46,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Corporate account management]([[= user_doc =]]/customer_management/manage_customers/) |  | &#10004; | &#10004; |
 | Customer Portal |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
-| [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
+| [Recent activity](recent_activity_admin_panel.md) |  | &#10004; | &#10004; |
 | [[[= product_name_engage =]] add-on]([[= user_doc =]]/qualifio/qualifio/) |  | &#10004; | &#10004; |
 | [[[= product_name_cdp =]] (Customer Data Platform) add-on](/raptor_cdp/raptor_cdp_guide.md) |  | &#10004; | &#10004; |
 

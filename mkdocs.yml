@@ -48,6 +48,7 @@ nav:
             - Languages: administration/admin_panel/languages_admin_panel.md
             - Segments: administration/admin_panel/segments_admin_panel.md
             - Workflow: administration/admin_panel/workflow_admin_panel.md
+            - Recent activity: administration/admin_panel/recent_activity_admin_panel.md
             - System Information: administration/admin_panel/system_information_admin_panel.md
         - Content organization:
             - Sections: administration/content_organization/sections.md
@@ -55,9 +56,6 @@ nav:
             - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
-        - Back office:
-            - Back office: administration/back_office/back_office.md
-            - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
         - Content management: content_management/content_management.md
         - Content management guide: content_management/content_management_guide.md

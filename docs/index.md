@@ -124,7 +124,7 @@
                         <li><a href="multisite/site_factory/site_factory/">Site Factory</a></li>
                         <li><a href="multisite/languages/languages/">Languages and translations</a></li>
                         <li><a href="content_management/url_management/url_management/">URL management</a></li>
-                        <li><a href="administration/back_office/back_office/">Back office</a></li>
+                        <li><a href="administration/admin_panel/admin_panel/">Admin panel</a></li>
                         <li><a href="users/users/">Users</a></li>
                         <li><a href="permissions/permissions/">Permissions</a></li>
                     </ul>
