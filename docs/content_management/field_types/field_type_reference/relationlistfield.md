@@ -35,14 +35,10 @@ When you create or update a field, provide `destinationContentIds` only.
 
 This field type validates if:
 
-- the `selectionMethod` specified is `"SELECTION_BROWSE"` or `"SELECTION_DROPDOWN"`. A validation error is returned if the value doesn't match.
+- the `selectionMethod` specified is `"SELECTION_BROWSE"`. A validation error is returned if the value doesn't match.
 - the `selectionDefaultLocation` specified is `null`, a string, or an integer. If the type validation fails, a validation error is returned.
 - the value specified in `selectionContentTypes` is an array. If not, a validation error is returned.
 - the number of content items selected in the field isn't greater than the `selectionLimit`.
-
-!!! note
-
-    The dropdown selection method isn't implemented yet.
 
 ## Settings
 

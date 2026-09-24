@@ -23,7 +23,6 @@ The field value is an object with the following keys:
 | `taxonomy`         | `string` | Identifier of the taxonomy that all the entries must be assigned to. | `product_categories` |
 
 Set the `taxonomy` value to the same identifier as the `taxonomy` setting of the field definition.
-The REST API doesn't check that the two match.
 
 ``` json
 {
