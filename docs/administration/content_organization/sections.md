@@ -30,7 +30,7 @@ Other references to the section remain and thus the system most likely loses con
 
 !!! caution
 
-    Removing sections may corrupt permission settings, template output and other things in the system.
+    Removing sections may corrupt permission settings or other things in the system.
 
 Section ID numbers aren't recycled.
 If a section is removed, its ID number cannot be reused when a new section is created.

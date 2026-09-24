@@ -22,8 +22,7 @@ However, even if work on a draft takes time and other translations are updated i
 ### Adding available languages
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation.
-Languages can be [added to this list from the **Admin** panel]([[= user_doc =]]/content_management/translate_content/) in the back office.
-**The new language must then be added to the [SiteAccess](multisite.md) configuration**.
+Languages can be [added to this list from the **Administration** panel]([[= user_doc =]]/content_management/translate_content/) in the back office.
 Once this is done, any user with proper permissions can create content item versions in these languages in the user interface.
 
 ### Translatable and untranslatable fields
@@ -62,7 +61,7 @@ When this SiteAccess is used, the system goes through this list.
 If a content item is unavailable in the first (prioritized) language, it attempts to use the next language in the list, and more.
 Thanks to this you can have a fallback in case of a lacking translation.
 
-You can also assign a Default content availability flag to content types (available in the **Admin** panel).
+You can also assign a Default content availability flag to content types (available in the **Administration** panel).
 When this flag is assigned, content items of this type are available even when they don't have a language version in any of the languages configured for the current SiteAccess.
 
 If a language isn't provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.

@@ -1,13 +1,13 @@
-# BinaryFile field type
+# File field type
 
 This field type represents and handles a single binary file. It also counts the number of times the file has been downloaded.
 
 It's capable of handling virtually any file type and is typically used for storing document types, for example, PDF files, Word documents, or spreadsheets.
 The maximum allowed file size is determined by the `FileSizeValidator` configuration of the field definition.
 
-| Name         | Internal name      |
-|--------------|--------------------|
-| `BinaryFile` | `ibexa_binaryfile` |
+| Name | Field type identifier |
+|------|-----------------------|
+| File | `ibexa_binaryfile`    |
 
 ## Field value
 

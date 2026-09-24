@@ -1,10 +1,10 @@
-# RelationList field type
+# Content relations (multiple) field type
 
 This field type makes it possible to store and retrieve values of a relation to other content items.
 
-| Name           | Internal name                |
-|----------------|------------------------------|
-| `RelationList` | `ibexa_object_relation_list` |
+| Name                         | Field type identifier        |
+|------------------------------|------------------------------|
+| Content relations (multiple) | `ibexa_object_relation_list` |
 
 ## Field value
 
@@ -35,14 +35,10 @@ When you create or update a field, provide `destinationContentIds` only.
 
 This field type validates if:
 
-- the `selectionMethod` specified is `"SELECTION_BROWSE"` or `"SELECTION_DROPDOWN"`. A validation error is returned if the value doesn't match.
+- the `selectionMethod` specified is `"SELECTION_BROWSE"`. A validation error is returned if the value doesn't match.
 - the `selectionDefaultLocation` specified is `null`, a string, or an integer. If the type validation fails, a validation error is returned.
 - the value specified in `selectionContentTypes` is an array. If not, a validation error is returned.
 - the number of content items selected in the field isn't greater than the `selectionLimit`.
-
-!!! note
-
-    The dropdown selection method isn't implemented yet.
 
 ## Settings
 

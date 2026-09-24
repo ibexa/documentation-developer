@@ -2,9 +2,9 @@
 
 This field represents and handles a table of rows and columns of data.
 
-| Name     | Internal name  |
-|----------|----------------|
-| `Matrix` | `ibexa_matrix` |
+| Name   | Field type identifier |
+|--------|-----------------------|
+| Matrix | `ibexa_matrix`        |
 
 ## Field value
 

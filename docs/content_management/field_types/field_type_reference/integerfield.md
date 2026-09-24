@@ -2,9 +2,9 @@
 
 This field type represents an integer value.
 
-| Name      | Internal name   |
-|-----------|-----------------|
-| `Integer` | `ibexa_integer` |
+| Name    | Field type identifier |
+|---------|-----------------------|
+| Integer | `ibexa_integer`       |
 
 ## Field value
 

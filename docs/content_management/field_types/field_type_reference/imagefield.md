@@ -2,9 +2,9 @@
 
 The Image field type allows you to store an image file.
 
-| Name    | Internal name |
-|---------|---------------|
-| `Image` | `ibexa_image` |
+| Name  | Field type identifier |
+|-------|-----------------------|
+| Image | `ibexa_image`         |
 
 A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations, for example, large, small, medium, or black and white thumbnail.
 
@@ -25,7 +25,7 @@ The field value is an object with the following keys, or `null` when the field i
 | `path`            | `string`  | Same value as `inputUri`, with a leading slash.                                                  | `/var/site/storage/images/0/8/4/1/1480-1-eng-GB/image.png` |
 | `width`           | `string`  | Original image width in pixels. Returned as a string when you read a content item, and as an integer in the response to creating one. | `960`                                         |
 | `height`          | `string`  | Original image height in pixels. Returned as a string when you read a content item, and as an integer in the response to creating one. | `540`                                         |
-| `additionalData`  | `object`  | Extra information about the image, if available.                                                 | `{}`                                          |
+| `additionalData`  | `object`  | Extra information about the image, if available, for example, its [focal point](#focal-point).   | `{}`                                          |
 | `variations`      | `object`  | Available image variations, keyed by variation identifier. Read-only, added by the API on output only. | See below.                                    |
 
 ``` json
@@ -54,6 +54,24 @@ The field value is an object with the following keys, or `null` when the field i
     }
 }
 ```
+
+### Focal point
+
+When an editor [sets a focal point]([[= user_doc =]]/image_management/edit_images/#focal-point) for the image in the image editor, its coordinates are stored in `additionalData` under the `focalPointX` and `focalPointY` keys.
+The coordinates are in pixels, relative to the original image, and are returned as strings.
+If no focal point is set, the keys are absent.
+
+``` json
+"additionalData": {
+    "focalPointX": "480",
+    "focalPointY": "270"
+}
+```
+
+The focal point has no effect on how the image is rendered by itself.
+You can use it in your front end, for example, to decide which part of the image stays visible when it's cropped.
+
+To keep the focal point when you update the field, include `additionalData` in the value that you send.
 
 ## Image variations
 

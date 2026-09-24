@@ -2,9 +2,9 @@
 
 This field type represents one or multiple countries.
 
-| Name      | Internal name   |
-|-----------|-----------------|
-| `Country` | `ibexa_country` |
+| Name    | Field type identifier |
+|---------|-----------------------|
+| Country | `ibexa_country`       |
 
 ## Field value
 

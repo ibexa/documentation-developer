@@ -161,7 +161,7 @@ The Owner (`Owner`) limitation specifies that only the owner of the content item
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the user who is the owner gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" since it has no knowledge of user Sessions|
 
 ## Owner of Parent limitation
 
@@ -172,7 +172,7 @@ The Owner of Parent (`ParentOwner`) limitation specifies that only the users who
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the user who is the owner of all parent locations gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" since it has no knowledge of user Sessions|
 
 ## Parent Depth limitation
 
@@ -234,7 +234,7 @@ The SiteAccess (`SiteAccess`) limitation specifies to which SiteAccesses a certa
 
 ### Legacy compatibility notes
 
-`SiteAccess` limitation is deprecated and isn't used actively in public PHP API, but is allowed for being able to read / create limitations for legacy.
+`SiteAccess` limitation is deprecated and isn't used actively, but is allowed for being able to read / create limitations for legacy.
 
 ## Subtree limitation
 

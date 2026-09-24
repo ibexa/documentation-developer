@@ -1,11 +1,11 @@
-# ImageAsset field type
+# Image Asset field type
 
 Image Asset field type enables storing images in independent content items of a generic Image content type, in the media library.
 It makes them reusable across system.
 
-| Name         | Internal name       |
-|--------------|---------------------|
-| `ImageAsset` | `ibexa_image_asset` |
+| Name        | Field type identifier |
+|-------------|-----------------------|
+| Image Asset | `ibexa_image_asset`   |
 
 ## Field value
 

@@ -1,10 +1,10 @@
-# RichText field type
+# Rich text field type
 
 This field type validates and stores structured rich text in [DocBook](https://docbook.org/) XML format, and exposes it in several formats.
 
-| Name       | Internal name    |
-|------------|------------------|
-| `RichText` | `ibexa_richtext` |
+| Name      | Field type identifier |
+|-----------|-----------------------|
+| Rich text | `ibexa_richtext`      |
 
 ## Field value
 
@@ -31,7 +31,7 @@ If the input doesn't conform to the internal format, it's converted into it.
 
 ### Internal format
 
-As its internal format, the RichText field type uses a [custom flavor of the DocBook format](#custom-docbook-format).
+As its internal format, the Rich text field type uses a [custom flavor of the DocBook format](#custom-docbook-format).
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -70,7 +70,7 @@ The examples below show the DocBook markup that goes into that string.
 
 The RichText format enriches [DocBook](https://docbook.org/) with the following custom elements:
 
-- `section` - main element of a RichText field
+- `section` - main element of a Rich text field
 - `ezembed` - holds embedded images
 - `ezembedinline` - holds embedded content items
 - `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter, and YouTube content
@@ -81,7 +81,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 
 !!! note "Unsupported DocBook elements"
 
-    Some DocBook elements aren't supported by RichText.
+    Some DocBook elements aren't supported by the Rich text field type.
     Refer to [`ezpublish.rng`](https://github.com/ibexa/fieldtype-richtext/blob/6.0/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L137) for a full list.
 
 ### Online Editor elements

@@ -1,10 +1,10 @@
-# EmailAddress field type
+# Email address field type
 
-The EmailAddress field type represents an email address, in the form of a string.
+The Email address field type represents an email address, in the form of a string.
 
-| Name           | Internal name |
-|----------------|---------------|
-| `EmailAddress` | `ibexa_email` |
+| Name          | Field type identifier |
+|---------------|-----------------------|
+| Email address | `ibexa_email`         |
 
 ## Field value
 

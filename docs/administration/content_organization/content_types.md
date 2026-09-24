@@ -32,7 +32,7 @@ It can consist of letters, digits, spaces, and special characters (it's mandator
 
     Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), don't confuse it with this Name, which is a piece of metadata, not a field.
 
-**Identifier** – an identifier for internal use in configuration, for example, files, templates, or PHP code.
+**Identifier** – an identifier for internal use in configuration, for example, website templates.
 It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).
 
 **Description** – a detailed description of the content type (optional).
@@ -56,7 +56,7 @@ If no pattern is provided, the system automatically uses the name of the content
 
     The old URL aliases continue to redirect to the same content items.
 
-**Container** – a flag which indicates if content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
+**Container** – a flag which indicates if content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every API).
 
 !!! note
 
@@ -91,7 +91,7 @@ They determine what fields of what field types are included in all content items
 
     In case of content types containing many field types you should be aware of possible memory-related issues with publishing/editing.
     You may also experience performance problems with such large content types, in particular when you have many content items.
-    If you're experincing too many issues, consider rearranging your project to avoid them.
+    If you're experiencing too many issues, consider rearranging your project to avoid them.
 
 ## Modifying content types
 

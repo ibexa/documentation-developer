@@ -21,7 +21,7 @@ These fields allow you to select one or more other content items in the field va
 
 *Relations at content item level* can be of three different types:
 
-- *Common Relations* are created between two content items using the public PHP API.
+- *Common Relations* are created between two content items by using the back office or [API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/ibexa.rest.create_relation).
 - *RichText linked Relations* are created using a field of the RichText type.
 When an internal link (a link to another location or content item) is placed in a RichText field,
 the system automatically creates a Relation.

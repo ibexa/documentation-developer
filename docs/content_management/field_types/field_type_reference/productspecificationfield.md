@@ -7,9 +7,9 @@ month_change: false
 This field represents and handles [product attributes](products.md#product-attributes) and VAT.
 Consider it as internal to the [product catalog](product_catalog.md).
 
-| Name                   | Internal name                 |
-|------------------------|-------------------------------|
-| `ProductSpecification` | `ibexa_product_specification` |
+| Name                  | Field type identifier         |
+|-----------------------|-------------------------------|
+| Product specification | `ibexa_product_specification` |
 
 !!! caution
 

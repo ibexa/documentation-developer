@@ -1,10 +1,10 @@
-# User field type
+# User account field type
 
 This field type validates and stores information about a user.
 
-| Name   | Internal name |
-|--------|---------------|
-| `User` | `ibexa_user`  |
+| Name         | Field type identifier |
+|--------------|-----------------------|
+| User account | `ibexa_user`          |
 
 ## Field value
 

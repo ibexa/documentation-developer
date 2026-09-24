@@ -1,5 +1,5 @@
 ---
-description: Multisite enables hosting multiple websites with different content, templates and configuration by using one repository.
+description: Multisite enables hosting multiple websites with different content configuration by using one repository.
 page_type: landing_page
 ---
 
@@ -13,7 +13,6 @@ To quickly set up new sites with predefined site templates, use [Site Factory](s
 
 [[= cards([
     "multisite/siteaccess/siteaccess",
-    "multisite/multisite_configuration",
+    "administration/configuration/configuration",
     "multisite/site_factory/site_factory",
-    "multisite/site_factory/site_factory_configuration",
 ], columns=3) =]]

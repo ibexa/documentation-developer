@@ -3,9 +3,9 @@
 This field represents and handles address fields.
 It allows you to customize address fields per country.
 
-| Name      | Internal name   |
-|-----------|-----------------|
-| `Address` | `ibexa_address` |
+| Name    | Field type identifier |
+|---------|-----------------------|
+| Address | `ibexa_address`       |
 
 ## Field value
 

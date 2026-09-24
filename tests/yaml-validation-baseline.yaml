@@ -2,8 +2,3 @@
 # To suppress a failure: regenerate this file after confirming it is expected.
 # To fix a suppressed failure: fix the doc error and regenerate.
 ignoreErrors:
-    -
-        path: docs/multisite/multisite_configuration.md
-        line: 28
-        hash: 306a74d1cc587b13c8d3378a9b05815d16cfe0a0e10f9766685e8f39e81f98fd
-        message: '~The child config "list" under "ibexa\.siteaccess" must be configured\: Available SiteAccess list~'

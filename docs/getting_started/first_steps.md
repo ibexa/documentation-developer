@@ -62,7 +62,7 @@ For more information, see [Multisite](multisite.md) and [SiteAccess](siteaccess.
 
 One of the most common use cases for SiteAccesses is having different language versions of a site.
 
-1\. Go to the back office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
+1\. Go to the back office and select **Administration** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
 Make sure it's enabled.
 
 ![Creating a language](first-steps-create-language.png)
@@ -87,7 +87,7 @@ Users and user groups are assigned roles.
 A role can contain a number of policies, which are rules that permit the user to perform a specific function.
 Policies can be additionally restricted by limitations.
 
-1\. Go to **Admin** -> **Users**.
+1\. Go to **Administration** -> **Users**.
 Create a new user group (the same way you create regular content).
 Call the group "Bloggers".
 
@@ -97,7 +97,7 @@ Mark the user as "Enabled".
 
 ![Creating a User](first-steps-create-user.png)
 
-3\. Go to **Admin** -> **Roles**.
+3\. Go to **Administration** -> **Roles**.
 Create a new role called "Blogger".
 
 4\. Add the following policies to ensure the user can log in and access content:

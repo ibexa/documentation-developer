@@ -58,7 +58,7 @@ You can also set up policies for every user who has a business account by editin
 ### Members
 
 Company members aren't standard users. They belong to a separate category called Corporate Accounts.
-This category is located in **Admin** -> **Corporate** -> **Corporate Accounts**.
+This category is located in **Administration** -> **Corporate** -> **Corporate Accounts**.
 There, you can find a list of companies and their members.
 
 This feature comes with a set of new roles:

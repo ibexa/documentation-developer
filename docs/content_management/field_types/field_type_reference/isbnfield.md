@@ -2,9 +2,9 @@
 
 This field type represents an ISBN string either an ISBN-10 or ISBN-13 format.
 
-| Name   | Internal name |
-|--------|---------------|
-| `ISBN` | `ibexa_isbn`  |
+| Name | Field type identifier |
+|------|-----------------------|
+| ISBN | `ibexa_isbn`          |
 
 ## Field value
 
