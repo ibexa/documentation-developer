@@ -64,6 +64,8 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
     - [The Personal Shopping Assistant (conversion)]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-conversion-block)
     - [User's item history]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#users-item-history-block)
 
+![Recommendation blocks](recommendation_blocks.png)
+
 For a complete description of Recommendation blocks see [Recommendation blocks in User Documentation]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
 ## Benefits

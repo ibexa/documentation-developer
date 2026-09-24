@@ -34,6 +34,8 @@ All links added to a RichText field by using the link element are listed and can
 
 While editing Rich Text fields, you can switch to distraction free mode that expands the workspace to full screen.
 
+![Distraction free mode](distraction_free_mode.png)
+
 For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 
 ## Benefits
@@ -41,6 +43,8 @@ For more information, see [Distraction free mode]([[= user_doc =]]/content_manag
 ### Familiar editing tools
 
 Online editor offers rich text editing tools familiar to most editors and contributors, which allows quick adoption to the editorial flow.
+![Familiar editing tools](img/familiar_editing_tools.png)
+
 
 ## Use cases
 
