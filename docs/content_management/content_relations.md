@@ -6,6 +6,8 @@ description: Content Relations control links between different content items, ei
 
 Content items are located in a tree structure through the locations they're placed in.
 However, content items themselves can also be related to one another.
+![Content Relations](content_management_relations.png "Content Relations")
+
 
 A **Relation** can exist between any two content items in the repository.
 For example, images are linked to news articles they're used in.

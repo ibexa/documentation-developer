@@ -26,6 +26,8 @@ To create a new page:
 
 5\. Select the layout and click **Create**.
 
+![Create page](create_page.png)
+
 ### Edit page
 
 You can edit any existing page with the Page Builder.
@@ -95,6 +97,8 @@ Page Builder has two main views that you can use while creating a page:
 
 - Page blocks toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
 
+![Page blocks](page_blocks_toolbar.png)
+
 - Structure view - shows a structure of the page, including its division into zones and the blocks that it contains.
 It follows the behavior of the content tree.
 Structure view has ability to reorder blocks using drag and drop.
@@ -114,6 +118,8 @@ Now you're ready to add blocks of content to the Page.
 
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.
+![Selecting a layout for a new Page](switch_layout_window.png)
+
 
 #### Add blocks
 
@@ -155,6 +161,8 @@ Available settings are:
 #### Distraction free mode
 
 While configuring blocks that include Rich Text section, for example, Text block, you can switch to distraction free mode that expands the workspace to full screen.
+![Distraction free mode](distraction_free_mode.png)
+
 
 For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 

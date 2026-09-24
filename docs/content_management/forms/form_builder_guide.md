@@ -73,6 +73,8 @@ You can manage all the existing forms. To do it, in a selected place of the cont
 In this window you can see all the information about your form, view submissions, create versions, and more
 
 Using the buttons in the right corner, you can also edit, move, copy, hide, or send your form to the trash.
+![Forms management](img/forms_management.png)
+
 
 ### View results
 

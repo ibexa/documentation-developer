@@ -9,9 +9,13 @@ When a new content item is published, it's automatically placed in a new locatio
 All locations form a tree which is the basic way of organizing content in the system.
 Every published content item has a location and, as a consequence, also a place in this tree.
 
+![Content tree - locations](content_management_tree_locations.png "Content tree - locations")
+
 A content item receives a location only once it has been published.
 This means that a new unpublished draft doesn't have a location yet.
 You can find drafts in the **Drafts** tab in the **Content** menu.
+![Drafts](content_management_drafts.png "Drafts")
+
 
 A content item can have more than one location. It's then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
@@ -36,6 +40,8 @@ Under this root there are preset top level locations in each installation which 
 The top level location for the actual contents of a site
 can be viewed by selecting the **Content structure** tab in the Content mode interface.
 
+![Content structure](content_management_tree.png "Content structure")
+
 This part of the tree is typically used, for example, for organizing folders, articles, or information pages.
 The default ID number of this location is 2.
 It contains a Folder content item.
@@ -45,11 +51,15 @@ It contains a Folder content item.
 **Media** is the top level location which stores and organizes information
 that is frequently used by content items located below the **Content** node.
 
+![Media](content_management_media.png "Media")
+
 It's a folder that contains images, animations, documents and other files.
 
 ### Users
 
 **Users** is the top level location that contains the built-in system for managing user accounts.
+![Users location](content_management_users.png "Users location")
+
 
 A user is simply a content item of the user account content type.
 The users are organized within user group content items below this location.
@@ -60,6 +70,8 @@ which can be viewed by selecting the **Users** tab in the **Admin** Panel.
 ### Forms
 
 **Forms** is the top level location that is intended for Forms created using the [Form Builder]([[= user_doc =]]/content_management/work_with_forms/#create-forms).
+![Forms](content_management_forms.png "Forms")
+
 
 ### Other top level locations
 
