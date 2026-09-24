@@ -72,8 +72,6 @@ This decides the sort order for the criterion chosen above.
 <a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if content items of this content type should be available even without a corresponding language version.
 See [Content availability](content_availability.md).
 
-![Creating a new content type](admin_panel_new_content_type.png)
-
 ## Field definitions
 
 Aside from the metadata, a content type may contain any number of field definitions (but has to contain at least one).

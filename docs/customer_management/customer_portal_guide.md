@@ -26,8 +26,6 @@ This means that [[= product_name =]] provides containers, user management, conte
 The Customer Portal allows company members to log in and manage their profiles and order history.
 With user differentiation, company buyers can only purchase products while company admins can invite and manage members and change company information, such as billing addresses.
 
-![Customer Portal dashboard](img/cp_dashboard_customer_portal.png)
-
 ### Editable in Page Builder
 
 Custom Customer Portal can be created and edited in Page Builder to meet the needs of each business type, company, or market they operate on.
@@ -47,8 +45,6 @@ The main company management takes place in the back office where each company ha
 - company profile with billing information and contact person
 - list of members and pending invitations
 - address book with multiple shipping addresses
-
-![Companies section in back office](img/cp_back_office.png)
 
 From there, they can activate and deactivate the company, edit its information, invite members, manage their roles, and edit their basic information.
 
@@ -82,12 +78,8 @@ Then, in a pop-up fill out email addresses one by one, or use drag and drop to u
 You also have to assign a role to each new member from a drop-down list.
 Click **Send** to send out invitations.
 
-![Invitations](img/cp_invitations.png)
-
 Invited users receive an email message with a registration link.
 With it, they can register and create their account in the Customer Portal.
-
-![Create account](img/cp_create_account.png)
 
 ### Company self-registration
 
@@ -96,8 +88,6 @@ Applications go through the approval process in the back office where they can b
 If they're accepted, the business partner receives an invitation link to the Customer Portal, where they can set up their team and manage their account.
 
 To apply for a business account, a company needs to provide their basic information, contact information and billing address in an application.
-
-![Company self-registration](img/cp_registration.png)
 
 You can decide which user has approval rights by granting them `Company Application/Workflow` policy, you can also decide between which states the user may move applications:
 

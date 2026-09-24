@@ -44,8 +44,6 @@ You can also set the minimum password length.
 
 In the **User account (ibexa_user)** field definition, you can set password expiration rules, which forces users to change their passwords periodically.
 
-![Password expiry settings](password_expiry.png)
-
 You can also decide when the user is notified that they need to change their password.
 The notification is displayed in the back office after login and in the user content item's preview.
 
@@ -65,8 +63,6 @@ This rule is valid by default when password expiration is set.
 
 You can set a rule that prevents using passwords which have been exposed in a public breach.
 To do this, in the **User account (ibexa_user)** field definition, select "Password must not be contained in a public breach".
-
-![Protection against using breached passwords](password_breached.png)
 
 This rule checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
 It doesn't check existing passwords, so it doesn't block login for anyone.
