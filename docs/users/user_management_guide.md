@@ -22,8 +22,6 @@ User management is available in all [[= product_name =]] versions.
 You can find all user groups and users in the **Admin** panel by selecting **Users**.
 Here, you can manage users, their relations, roles, and policies.
 
-![User's section](users_section.png)
-
 Here's how it works:
 
 - User accounts - create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
@@ -65,14 +63,10 @@ Policies allow for fine-grained control of access based on various factors, such
 The [invitation system](invitations.md) streamlines user onboarding and engagement.
 Track the status of invitations, including when they were sent, whether they were accepted, and the actions taken by users who accepted them.
 
-![Invitations](users_invitation.png)
-
 ### User segmentation and recommendations
 
 [[= product_name_base =]]'s segmentation and recommendations features allow organizations to deliver customized user experiences.
 Track user behavior, such as page views, search queries, and interactions, to create segments and segment groups for users who share similar behaviors.
-
-![Segment groups](../administration/img/admin_panel_segment_groups.png)
 
 Possible uses:
 

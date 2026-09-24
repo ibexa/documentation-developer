@@ -26,15 +26,13 @@ To create a new page:
 
 5\. Select the layout and click **Create**.
 
-![Create page](create_page.png)
-
 ### Edit page
 
 You can edit any existing page with the Page Builder.
 To do it, in the back office go to **Content** and select **Content structure**.
 Then, from the content tree choose the page and click **Edit**.
 
-<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/d4T5EgOwz6bri2Zgy53M?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Edit existing page" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
+<!-- TODO: re-record walkthrough -->
 
 ## What is Page Builder
 
@@ -97,15 +95,13 @@ Page Builder has two main views that you can use while creating a page:
 
 - Page blocks toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
 
-![Page blocks](page_blocks_toolbar.png)
-
 - Structure view - shows a structure of the page, including its division into zones and the blocks that it contains.
 It follows the behavior of the content tree.
 Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 
-<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/kbdnGkdrkXL2VAJW6c3O?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Page Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
+<!-- TODO: re-record walkthrough -->
 
 ##### Choose layout
 
@@ -118,8 +114,6 @@ Now you're ready to add blocks of content to the Page.
 
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.
-
-![Switch layout](switch_layout_window.png)
 
 #### Add blocks
 
@@ -161,8 +155,6 @@ Available settings are:
 #### Distraction free mode
 
 While configuring blocks that include Rich Text section, for example, Text block, you can switch to distraction free mode that expands the workspace to full screen.
-
-![Distraction free mode](distraction_free_mode.png)
 
 For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 

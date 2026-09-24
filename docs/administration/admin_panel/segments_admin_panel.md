@@ -13,6 +13,4 @@ You can collect segments in segment groups:
 
 Each segment group can contain segments that you can target content for.
 
-![Segment](admin_panel_segment.png)
-
 You can assign users to segments over the [REST API](rest_api_usage.md).
