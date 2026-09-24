@@ -23,7 +23,7 @@ month_change: false
 
 [[= product_name =]] SaaS is now available.
 
-To learn more about this product, see the [Cohesivo SaaS product guide](TODO: link) and the [official website](https://cohesivo.com/en).
+To learn more about this product, see the [Cohesivo SaaS product guide](cohesivo_saas_guide.md) and the [official website](https://cohesivo.com/en).
 
 [[= release_note_entry_end() =]]
 
