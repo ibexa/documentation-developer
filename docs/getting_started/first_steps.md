@@ -96,7 +96,6 @@ Remember their username and password.
 Mark the user as "Enabled".
 ![Creating a User](first-steps-create-user.png)
 
-
 3\. Go to **Admin** -> **Roles**.
 Create a new role called "Blogger".
 

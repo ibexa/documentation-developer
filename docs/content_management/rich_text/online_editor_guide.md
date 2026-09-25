@@ -45,7 +45,6 @@ For more information, see [Distraction free mode]([[= user_doc =]]/content_manag
 Online editor offers rich text editing tools familiar to most editors and contributors, which allows quick adoption to the editorial flow.
 ![Familiar editing tools](img/familiar_editing_tools.png)
 
-
 ## Use cases
 
 ### Product marketing campaigns
