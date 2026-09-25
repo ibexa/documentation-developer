@@ -11,9 +11,14 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/ibexa/data-intelligence-layer"
+        },
+        {
             "type": "composer",
             "url": "https://updates.ibexa.co"
         }
+
     ],
     "require": {
         "php": "^8.3"
@@ -104,7 +109,8 @@
         "ibexa/fastly": "~6.0.x-dev",
         "ibexa/connect": "~6.0.x-dev",
         "ibexa/connector-qualifio": "~6.0.x-dev",
-        "ibexa/design-system-twig": "~6.0.x-dev"
+        "ibexa/design-system-twig": "~6.0.x-dev",
+        "ibexa/data-intelligence-layer": "~6.0.x-dev"
     },
     "scripts": {
         "fix-cs": [
