@@ -94,7 +94,6 @@ Call the group "Bloggers".
 2\. In the new group create a user.
 Remember their username and password.
 Mark the user as "Enabled".
-
 ![Creating a User](first-steps-create-user.png)
 
 3\. Go to **Admin** -> **Roles**.

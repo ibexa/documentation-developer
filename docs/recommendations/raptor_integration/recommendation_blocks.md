@@ -42,7 +42,5 @@ In the toolbar, corresponding categories for recommendation blocks are available
 After opening the settings of a recommendation block, a link is available at the bottom of the window.
 It leads to the [[[= product_name_cdp_base =]] Control Panel](https://controlpanel.raptorsmartadvisor.com/) (opens in a separate tab), where you can configure advanced settings and fine-tune the recommendation strategy.
 
-![Advanced settings](img/advanced_settings.png)
-
 For a complete description of Recommendation blocks see [Recommendation blocks]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/).
 For the list of all page blocks that are available in Page Builder, see [Block reference page]([[= user_doc =]]/content_management/block_reference/).
