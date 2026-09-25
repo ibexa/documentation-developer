@@ -134,7 +134,7 @@ This confirmation `data` contains:
 
 - the actual version of the protocol used (`protocol.version`) and the other supported versions (`protocol.supported`)
 - a list of all available capabilities (`capabilities`)
-- a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
+- a list of the existing block types, their attributes, and their configuration (`blocksConfig`) - It contains all the block types but mark as not visible the blocks not available for this field.
 - information about the actually edited content draft (`intentParameters`)
 - the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
 - a block-ID-to-name mapping (`blocksIdMap`)
@@ -377,13 +377,26 @@ TODO: Is there other events that should trigger a positions update?
 
 `PB:DRAG_OVER` message is sent from the Page Builder to the front-end preview to give the position of the mouse while a (new or existing) block is dragged.
 
-!!! tip
+!!! tip "Mouse tracking"
 
-    - `APP:MOUSE_POSITION` helps the Page Builder to know where the mouse is when moved over the preview.
+    - `APP:MOUSE_POSITION` helps the Page Builder to know where the mouse is when moved over the preview. It's associated to `APP:POSITIONS_UPDATE` to know if a preview block is hovered.
     - `PB:DRAG_OVER` helps the front-end to know where the mouse is when a block is dragged over the preview.
 
 `PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` are sent at the beginning and at the end of a drag operation on an existing block in the front-end preview.
 Its data contains the ID of the block being dragged (`blockId`).
+
+```js
+window.addEventListener('message', (messageEvent) => {
+    switch (messageEvent.data.type) {
+        case 'PB:DRAG_START_PREVIEW':
+            document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`).classList.add('c-pb-block-preview--is-dragging-out');
+            break;
+        case 'PB:DRAG_END_PREVIEW':
+            document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`).classList.remove('c-pb-block-preview--is-dragging-out');
+            break;
+    }
+});
+```
 
 `PB:DROP` message is sent from the Page Builder to the front-end preview to notify that a block has been dropped.
 It has no data. Combined with the last `PB:DRAG_OVER` message, the front-end can determine where the block has been dropped.
@@ -433,7 +446,7 @@ It can be used with the [`scrollIntoView()`](https://developer.mozilla.org/en-US
 window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:SCROLL_INTO_BLOCK':
-            const blockElementToScrollInto = document.getElementById('block_' + messageEvent.data.data.blockId);
+            const blockElementToScrollInto = document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`);;
             blockElementToScrollInto.scrollIntoView({ behavior: 'smooth', block: 'center' });
             break;
     }
@@ -454,7 +467,7 @@ window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:BLOCK_REMOVE':
             const blockId = messageEvent.data.data.blockId;
-            const blockElementToRemove = document.getElementById('block_' + blockId);
+            const blockElementToRemove = document.querySelector(`[data-ibexa-block-id="${blockId}"]`);;
             if (blockElementToRemove) {
                 blockElementToRemove.addEventListener('animationend', () => {
                     blockElementToRemove.remove();
@@ -493,3 +506,48 @@ The Page Builder responses with a `PB:UPDATE_FIELD_DATA`.
 ### Preview parameters update (`preview.params`)
 
 `PB:UPDATE_PREVIEW_PARAMS` message is sent from the Page Builder to the front-end preview when TODO: it's sent on several occasions without data. It seems also (if not mainly) used by segmentation.
+
+## Guidelines for front-end implementation
+
+The protocol documentation is illustrated with Vanilla JS examples.
+You should use a framework to implement the front-end like React or Next.js.
+Each block type view should be implemented as a component so you can easily add new block types and new views.
+
+CSS classes can be named however you wish, but it may be advisable to follow certain conventions to help the reuse of existing style sheets.
+
+### CSS classes and data attribute conventions
+
+Some class names are, by convention, only used when the front-end is used in the Page Builder preview, some are always used.
+
+For example, the convention is that when the front-end is used in the Page Builder preview, the `c-pb-iframe__preview-body` class is added to the document body.
+
+#### Zones
+
+The always present `data-ibexa-zone-id` attribute (`zoneElement.dataset.ibexaZoneId`) contains the zone ID.
+
+`data-ibexa-zone-id`
+
+| Class name                       | PB only | Description                                         |
+|----------------------------------|---------|-----------------------------------------------------|
+| `landing-page__zone`             | No      | Every zone container                                |
+| `landing-page__zone--${zone.id}` | No      | Each zone container with its own ID                 |
+| `m-page-builder__zone`           | Yes     | Every zone container when previewed in Page Builder |
+| `m-page-builder__zone--dragover` | Yes     | When a block is dragged over the zone               |
+| `m-page-builder__zone--empty`    | Yes     | When the zone has no block                          |
+
+### Blocks
+
+The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaBlockId`) contains the block ID.
+
+| Class name                            | PB only | Description                                                                                           |
+|---------------------------------------|---------|-------------------------------------------------------------------------------------------------------|
+| `landing-page__block`                 | No      | Every block container                                                                                 |
+| `c-pb-block-preview`                  | Yes     | Every block container when previewed in Page Builder                                                  |
+| `c-pb-block-preview--is-dragging-out` | Yes     | When a block is being dragged                                                                         |
+| `c-pb-block-preview--is-removing`     | Yes     | When a block is being removed                                                                         |
+| `ibexa-mark-invisible`                | Yes     | When a scheduled block is marked as invisible                                                         |
+| `c-pb-block-preview--unavailable`     | Yes     | When a block is unavailable for this field                                                            |
+| `c-pb-block-preview__inner`           | Yes     | The inner container of a block                                                                        |
+| `c-pb-block-preview__inner--invalid`  | Yes     | The inner container of a block with invalid attribute value                                           |
+| `droppable-placeholder`               | Yes     | The placeholder element shown when a block is being dragged over a zone to indicate the drop position |
+| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted TODO: When more precisely? Seems to be newly dropped                      |
