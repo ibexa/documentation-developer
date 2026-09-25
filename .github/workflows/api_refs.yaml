@@ -18,7 +18,7 @@ on:
                 type: boolean
                 default: false
             base_branch:
-                description: 'Start from this branch of the doc to build the refs (default: Maj.min from version)'
+                description: 'Start from this branch of the doc to build the refs (default: saas)'
                 required: false
                 type: string
             work_branch:
@@ -50,7 +50,7 @@ jobs:
                   version="${version#v}"
                   base_branch="$INPUT_BASE_BRANCH"
                   if [ -z "$base_branch" ]; then
-                    base_branch="$(echo "$version" | sed 's/\(.*\..*\)\..*/\1/')"
+                    base_branch="saas"
                   fi
                   work_branch="$INPUT_WORK_BRANCH"
                   if [ -z "$work_branch" ]; then
