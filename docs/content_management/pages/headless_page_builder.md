@@ -248,7 +248,7 @@ Its data contains the new value of the field with the following structure:
   <br>For example, only `fieldValue` is sent when manipulating the [timeline]([[= user_doc =]]/content_management/schedule_publishing/#timeline)![](page_builder_toolbartimelinetoggler.png){style="display:inline;width:27px;vertical-align:middle;"}.
 - Optionally, a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
 - Optionally, a block-ID-to-name mapping (`blocksIdMap`)
-- Optionally, a list of Ids from the new blocks that have been added (`highlightedBlockIds`)
+- Optionally, a list of IDs from the new blocks that have been added (`highlightedBlockIds`)
 
 ```json
 {
