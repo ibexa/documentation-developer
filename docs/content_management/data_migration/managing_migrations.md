@@ -156,16 +156,16 @@ The order of migration steps matters - they are executed sequentially from top t
 ## Available reference types
 
 - `content`
-    - content_id
-    - location_id
-    - path
+    - `content_id`
+    - `location_id`
+    - `path`
 - `content_type`
-    - content_type_id
+    - `content_type_id`
 - `content_type_group`
-    - content_type_group_id
+    - `content_type_group_id`
 - `language`
-    - language_id
+    - `language_id`
 - `role`
-    - role_id
+    - `role_id`
 - `user_group`
-    - user_group_id
+    - `user_group_id`
