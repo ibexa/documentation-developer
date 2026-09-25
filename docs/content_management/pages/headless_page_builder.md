@@ -512,7 +512,10 @@ The Page Builder responses with a `PB:UPDATE_FIELD_DATA`.
 ## Guidelines for front-end implementation
 
 The protocol documentation is illustrated with Vanilla JS examples.
-You should use a framework to implement the front-end like React or Next.js.
+You should use a framework to implement the front-end, like React or Next.js.
+
+TODO: A React front-end kit should be available through npm package in the future. What about Next.js?
+
 Each block type view should be implemented as a component so you can easily add new block types and new views.
 
 CSS classes can be named however you wish, but it may be advisable to follow certain conventions to help the reuse of existing style sheets.
@@ -546,10 +549,10 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 | `landing-page__block`                 | No      | Every block container                                                                                 |
 | `c-pb-block-preview`                  | Yes     | Every block container when previewed in Page Builder                                                  |
 | `c-pb-block-preview--is-dragging-out` | Yes     | When a block is being dragged                                                                         |
-| `c-pb-block-preview--is-removing`     | Yes     | When a block is being removed                                                                         |
+| `c-pb-block-preview--is-removing`     | Yes     | When a block is being removed (see [Block removal (`blocks.remove`)](#block-removal-blocksremove))    |
 | `ibexa-mark-invisible`                | Yes     | When a scheduled block is marked as invisible                                                         |
 | `c-pb-block-preview--unavailable`     | Yes     | When a block is unavailable for this field                                                            |
 | `c-pb-block-preview__inner`           | Yes     | The inner container of a block                                                                        |
 | `c-pb-block-preview__inner--invalid`  | Yes     | The inner container of a block with invalid attribute value                                           |
 | `droppable-placeholder`               | Yes     | The placeholder element shown when a block is being dragged over a zone to indicate the drop position |
-| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted as when newly dropped                      |
+| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted as when newly dropped                                                     |
