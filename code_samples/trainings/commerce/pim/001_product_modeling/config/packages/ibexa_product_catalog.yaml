@@ -1,0 +1,8 @@
+ibexa_product_catalog:
+    engines:
+        default:
+            type: local
+            options:
+                root_location_remote_id: ibexa_product_catalog_root
+                product_type_group_identifier: 'product'
+                variant_code_generator_strategy: 'per_product_type_code_generator'
