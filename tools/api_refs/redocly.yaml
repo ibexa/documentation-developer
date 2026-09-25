@@ -27,6 +27,6 @@ openapi:
       maxHeight: '32px'
   downloadUrls:
     - title: Download as YAML
-      url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/6.0/docs/api/rest_api/rest_api_reference/openapi.yaml'
+      url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/saas/docs/api/rest_api/rest_api_reference/openapi.yaml'
     - title: Download as JSON
-      url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/6.0/docs/api/rest_api/rest_api_reference/openapi.json'
+      url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/saas/docs/api/rest_api/rest_api_reference/openapi.json'

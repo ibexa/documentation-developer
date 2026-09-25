@@ -16,10 +16,21 @@ function sortOpenApiContent(array &$openApi): void
     }
 }
 
+function removeBadges(array &$openApi): void
+{
+    foreach ($openApi['paths'] as $path => &$pathMethods) {
+        foreach ($pathMethods as $method => &$methodDefinition) {
+            unset($methodDefinition['x-badges']);
+        }
+    }
+}
+
 $openApi = yaml_parse_file('openapi.yaml');
 sortOpenApiContent($openApi);
+removeBadges($openApi);
 yaml_emit_file('openapi.yaml', $openApi);
 
 $openApiJson = json_decode(file_get_contents('openapi.json'), true);
 sortOpenApiContent($openApiJson);
+removeBadges($openApiJson);
 file_put_contents('openapi.json', json_encode($openApiJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
