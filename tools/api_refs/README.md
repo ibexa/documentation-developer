@@ -20,6 +20,9 @@ The reference documents Ibexa DXP SaaS:
   The build fails if a package listed in `DXP_FORBIDDEN_PACKAGES`, for example a _Commerce_ one, gets installed.
 - `tools/api_refs/openapi.php` removes the edition badges (`x-badges`) from the OpenAPI specification and the reference.
   The build fails if any badge remains.
+- `tools/api_refs/openapi.php` removes the endpoints unavailable on SaaS (Corporate Account), their tag, and the schemas only they use.
+- `tools/api_refs/openapi.php` sets the title to "Cohesivo SaaS REST API", and removes the version.
+- The build fails if Redocly fails.
 
 - For Composer, if you do not use a global authentication to retrieve _Experience_ edition, a path to an auth.json file can be given as first optional argument. For example:
   ```

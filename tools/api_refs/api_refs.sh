@@ -123,6 +123,10 @@ echo 'Build REST Reference… ';
 echo 'Generate Redocly config from template… ';
 cp $REDOCLY_CONFIG_TEMPLATE $REDOCLY_CONFIG;
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
+if [ $? -ne 0 ]; then
+  echo 'Redocly failed to build the REST Reference.';
+  exit 6;
+fi;
 echo 'Copy OpenAPI spec to documentation… ';
 cp openapi.yaml $REST_API_OPENAPI_FILE_YAML;
 cp openapi.json $REST_API_OPENAPI_FILE_JSON;
