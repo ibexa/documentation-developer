@@ -420,6 +420,8 @@ const dropResponseMessage = {
 };
 ```
 
+After a drop `APP:DROP_RESPONSE` from the front-end, the next `PB:UPDATE_FIELD_DATA` message from the Page Builder contains the dropped block ID in its `highlightedBlockIds` array (`messageEvent.data.data.highlightedBlockIds`).
+
 `PB:SCROLL_BY` message is sent from the Page Builder when a block is dragged near a border of the preview which needs to be scrolled.
 Its data contains the `top` or `left` amount to scroll by.
 
@@ -550,4 +552,4 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 | `c-pb-block-preview__inner`           | Yes     | The inner container of a block                                                                        |
 | `c-pb-block-preview__inner--invalid`  | Yes     | The inner container of a block with invalid attribute value                                           |
 | `droppable-placeholder`               | Yes     | The placeholder element shown when a block is being dragged over a zone to indicate the drop position |
-| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted TODO: When more precisely? Seems to be newly dropped                      |
+| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted as when newly dropped                      |
