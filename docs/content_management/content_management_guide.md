@@ -204,7 +204,6 @@ With segments, you can reach specific groups, or categories, of visitors with sp
 For example, you can build Pages that contain different recommendations, depending on who is visiting them.
 ![Segment groups with their user segments](img/user_segments.png)
 
-
 ## How to get started
 
 With your [[= product_name =]] instance ready, you can employ the content management features to good use.

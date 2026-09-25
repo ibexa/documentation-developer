@@ -75,7 +75,6 @@ In this window you can see all the information about your form, view submissions
 Using the buttons in the right corner, you can also edit, move, copy, hide, or send your form to the trash.
 ![Forms management](img/forms_management.png)
 
-
 ### View results
 
 You can preview the results of each published form.

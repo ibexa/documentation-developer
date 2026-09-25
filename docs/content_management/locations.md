@@ -16,7 +16,6 @@ This means that a new unpublished draft doesn't have a location yet.
 You can find drafts in the **Drafts** tab in the **Content** menu.
 ![Drafts](content_management_drafts.png "Drafts")
 
-
 A content item can have more than one location. It's then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main location.
@@ -60,7 +59,6 @@ It's a folder that contains images, animations, documents and other files.
 **Users** is the top level location that contains the built-in system for managing user accounts.
 ![Users location](content_management_users.png "Users location")
 
-
 A user is simply a content item of the user account content type.
 The users are organized within user group content items below this location.
 
@@ -71,7 +69,6 @@ which can be viewed by selecting the **Users** tab in the **Admin** Panel.
 
 **Forms** is the top level location that is intended for Forms created using the [Form Builder]([[= user_doc =]]/content_management/work_with_forms/#create-forms).
 ![Forms](content_management_forms.png "Forms")
-
 
 ### Other top level locations
 
