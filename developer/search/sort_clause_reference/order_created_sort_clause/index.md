@@ -1,0 +1,28 @@
+# Order Created Sort Clause
+
+Order Created Sort Clause
+
+Editions: Commerce
+
+The `Created` Sort Clause sorts search results by the date and time when the order was created.
+
+## Arguments
+
+- (optional) `sortDirection` - `Created` constant, either `Created::SORT_ASC` or `Created::SORT_DESC`
+
+## Example
+
+```php
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+
+$criteria = null;
+
+$orderQuery = new OrderQuery(
+    $criteria,
+    [
+        new \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Created(
+            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Created::SORT_ASC
+        ),
+    ]
+);
+```

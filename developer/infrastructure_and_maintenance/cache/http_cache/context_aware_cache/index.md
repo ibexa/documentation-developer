@@ -1,0 +1,195 @@
+# Context-aware HTTP cache
+
+Context-aware HTTP cache caches requests depending on the logged-in user context.
+
+Ibexa DXP allows caching requests made by logged-in users. This is called (user) context-aware cache.
+
+It means that HTTP cache is unique per set of user permissions (roles and limitations), and there are variations of cache shared only among users that have the exact same permissions. So if a user browses a list of children locations, they only see children locations they have access to, even if their rendering is served from HTTP cache.
+
+This is accomplished by varying on a header called `X-User-Context-Hash`, which the system populates on the request. The [logic for this](#request-lifecycle) is accomplished in the provided VCL for Varnish and Fastly. A similar but internal logic is done in the provided enhanced Symfony Proxy (AppCache).
+
+## Request lifecycle
+
+This expands steps covered in [FOSHttpCacheBundle documentation on user context feature](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#how-it-works):
+
+1. A client (browser) requests URI `/foo`.
+2. The caching proxy receives the request and holds it. It first sends a hash request to the application's context hash route: `/_fos_user_context_hash`.
+3. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied. The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-User-Context-Hash`).
+4. The caching proxy receives the hash response, copies the hash header to the client's original request for `/foo` and restarts the modified original request.
+5. If the response to `/foo` should differ per user context, the application sets a `Vary: X-User-Context-Hash` header, which makes Proxy store the variations of this cache varying on the hash value.
+
+The next time a request comes in from the same user, application lookup for the hash (step 3) doesn't take place, as the hash lookup itself is cached by the cache proxy as described below.
+
+### User context hash caching
+
+Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [Ibexa DXP's default config](#default-options-for-foshttpcachebundle):
+
+```http
+HTTP/1.1 200 OK
+X-User-Context-Hash: <hash>
+Content-Type: application/vnd.fos.user-context-hash
+Cache-Control: public, max-age=600
+Vary: Cookie, Authorization
+```
+
+In the example above the response is set to be cached for 10 minutes. It varies on the `Cookie` header to be able to cache it for the given user. To optimize it, the default VCL strips any cookie other than session cookies to make this work.
+
+It also varies on `Authorization` to cover any possible basic authorization headers in case that is used over sessions for some requests.
+
+> **Note: Problems with stale user hash**
+>
+> If you notice issues with stale hash usage, before you disable this cache, make sure login or logout always generates new session IDs and performs a full redirect to make sure no requests are being made with stale user context hashes.
+
+> **Caution: Limitations of the user context hash**
+>
+> If you use URI-based SiteAccess matching on a multi-repository installation (multiple databases), the default SiteAccess on the domain needs to point to the same repository (database), because `/_fos_user_context_hash` isn't SiteAccess-aware by default (see `ibexa.rest.default_router.non_siteaccess_aware_routes` parameter). This occurs because reverse proxy doesn't have knowledge about SiteAccesses and it doesn't pass the whole URL to be able to cache the user context hash response.
+>
+> The only known workaround is to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess matching with Varnish/Fastly, to send the SiteAccess prefix as URI.
+
+> **Caution: Default options for FOSHttpCacheBundle**
+>
+> The following configuration is defined by default for FOSHttpCacheBundle. You should not override these settings unless you know what you're doing.
+>
+> ```yaml
+> fos_http_cache:
+>     proxy_client:
+>         default: varnish
+>         varnish:
+>             http:
+>                 servers: ['$http_cache.purge_servers$']
+>             tag_mode: 'purgekeys'
+>
+>     user_context:
+>         enabled: true
+>         hash_cache_ttl: 600
+>         # NOTE: These are also defined/used in AppCache, in Varnish VCL, and Fastly VCL
+>         session_name_prefix: IBX_SESSION_ID
+> ```
+
+## Personalize responses
+
+Here are some generic recommendations on how to approach personalized content with Ibexa DXP / Symfony:
+
+1. ESI with vary by cookie:
+
+Default VCL strips everything except session cookie, so this is effectively "per user". If you're on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
+
+This a low effort solution, and can be enough for one fragment that is reused across the whole site, for example, in header to show user name:
+
+Example:
+
+```php
+use Symfony\Component\HttpFoundation\Response;
+
+// Inside a custom controller action, or even a Content View controller
+/** @var Response $response */
+$response->setVary('Cookie');
+```
+
+2. Ajax/JS lookup to "uncached" custom Symfony controllers:
+
+This method doesn't consume memory in Varnish. It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques. This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it's done as ESI.
+
+This solution requires more effort depending on project requirements (for example, traffic load).
+
+3. Custom vary by logic, for example, `X-User-Preference-Hash` inspired by `X-User-Context-Hash`:
+
+This method allows for fine-grained caching as you can explicitly vary on this in only the places that need it.
+
+This solution requires more effort (controller, VCL logic and adapting your own code), see the examples below.
+
+> **Tip: Dealing with paywall use cases**
+>
+> If you need to handle a paywall on a per-item basis, or example, do a lookup to backend for each URL where this is relevant.
+>
+> You can find an example for paywall authorization in [FOSHTTPCache documentation](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request).
+
+### Best practices for custom vary by logic
+
+For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#generating-hashes).
+
+Ibexa DXP implements a custom context provider to make user context hash reflect the current user's roles and limitations. This is needed given Ibexa DXP's more complex permission model compared to Symfony's.
+
+You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/user-context.html#custom-context-providers). However, **this is strongly discouraged** as it means increasing the amount of cache variations stored in proxy for every single cache item, lowering cache hit ratio and increasing memory use.
+
+Instead, you can create your own hash header for use cases where you need it. This way only controllers and views that really vary by your custom logic varies on it.
+
+You can use several methods to do it, ranging from completely custom VCL logic and dedicated controller to respond with hash to trusted proxy lookups, but this means additional lookups.
+
+### Example for custom vary by logic
+
+You can extend `/_fos_user_context_hash` lookup to add another HTTP header with custom hash for your needs, and adapt the user context hash VCL logic to use the additional header.
+
+To avoid overloading any application code, take advantage of Symfony's event system:
+
+1. Add a [Response event (`kernel.response`)](https://symfony.com/doc/7.4/reference/events.html#kernel-response) [listener or subscriber](https://symfony.com/doc/7.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+
+```php
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
+
+final class MyEventSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ResponseEvent::class => 'addPreferenceHash',
+        ];
+    }
+
+    public function addPreferenceHash(ResponseEvent $event): void
+    {
+        $response = $event->getResponse();
+        if ($response->headers->get('Content-Type') !== 'application/vnd.fos.user-context-hash') {
+            return;
+        }
+
+        $response->headers->set('X-User-Preference-Hash', '<your-hash>');
+    }
+}
+```
+
+2. Adapt VCL logic to pass the header to requests:
+
+```diff
+@@ -174,6 +174,7 @@ sub ibexa_user_context_hash {
+     if (req.restarts == 0
+         && (req.http.accept ~ "application/vnd.fos.user-context-hash"
+             || req.http.x-user-context-hash
++            || req.http.x-user-preference-hash
+         )
+     ) {
+         return (synth(400, "Bad Request"));
+@@ -263,12 +264,19 @@ sub vcl_deliver {
+         && resp.http.content-type ~ "application/vnd.fos.user-context-hash"
+     ) {
+         set req.http.x-user-context-hash = resp.http.x-user-context-hash;
++        set req.http.x-user-preference-hash = resp.http.x-user-preference-hash;
+
+         return (restart);
+     }
+
+     // If we get here, this is a real response that gets sent to the client.
+
++    // Remove the vary on user preference hash, no need to expose this publicly.
++    if (resp.http.Vary ~ "X-User-Preference-Hash") {
++        set resp.http.Vary = regsub(resp.http.Vary, "(?i),? *X-User-Preference-Hash *", "");
++        set resp.http.Vary = regsub(resp.http.Vary, "^, *", "");
++    }
++
+     // Remove the vary on user context hash, this is nothing public. Keep all
+     // other vary headers.
+     if (resp.http.Vary ~ "X-User-Context-Hash") {
+```
+
+3. Add `Vary` in your custom controller or content view controller:
+
+```php
+use Symfony\Component\HttpFoundation\Response;
+
+/** @var Response $response */
+$response->setVary('X-User-Preference-Hash');
+
+// If you _also_ need to vary on Ibexa DXP permissions, instead use:
+//$response->setVary(['X-User-Context-Hash', 'X-User-Preference-Hash']);
+```

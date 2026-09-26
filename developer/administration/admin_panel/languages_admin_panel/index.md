@@ -1,0 +1,13 @@
+# Languages
+
+Ibexa DXP offers the ability to create multiple translations of your website.
+
+Ibexa DXP offers the ability to create multiple translations of your website. Which version is shown to a visitor depends on the way your installation is set up. You can add a new language version for the website in the [Admin Panel](../admin_panel/index.md) in the **Languages** tab.
+
+Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-GB`.
+
+![Languages](https://doc.ibexa.co/en/5.0/administration/img/admin_panel_languages.png "Languages")
+
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. After adding a language you may have to reload the application to be able to use it. Depending on your set up, additional configuration may be necessary for the new language to work properly, especially with SiteAccesses.
+
+See [Languages](../../../multisite/languages/languages/index.md) for further information.
