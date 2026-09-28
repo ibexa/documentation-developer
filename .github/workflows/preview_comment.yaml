@@ -31,7 +31,7 @@ jobs:
                     file_limit=150
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
-                    md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
+                    md_change_list=$(git diff --diff-filter=d --name-only "origin/$GITHUB_BASE_REF" HEAD -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|" | sed -E "s|(/en/[0-9]+)/index/\)$|\1/)|")
                     change_count=$(echo "$md_change_list" | wc -l)
 
                     echo -e "Markdown files:\n$md_change_list" | perl -p -e 's/\e/\\E/g'
