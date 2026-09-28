@@ -31,7 +31,7 @@ jobs:
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
-                    md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
+                    md_change_list=$(git diff --diff-filter=d --name-only "origin/$GITHUB_BASE_REF" HEAD -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|" | sed -E "s|(/en/[0-9]+)/index/\)$|\1/)|")
                     par_change_list='';
                     for par_file in $(git diff --diff-filter=A --name-only "origin/$GITHUB_BASE_REF" HEAD -- docs/api/php_api/php_api_reference/ | grep -E '^docs\/.*\.html$'); do
                       fqcn=$(grep -o 'data-copy-value=".*">Copy FQCN' $par_file | sed -E 's|data-copy-value="(.*)">.*|\1|' | sed 's|\\|\\\\|g')
