@@ -1,16 +1,16 @@
 ---
-description: Manage user invitations to create an account in the frontend or the back office.
+description: Manage user invitations to create an account in the back office.
 ---
 
 # Inviting users
 
-[[= product_name =]] allows you to create and send invitations to create an account in the frontend as a customer, the back office as an employee, or the Corporate Portal as an organisation member.
+[[= product_name =]] allows you to create and send invitations to create an account in the back office.
 You can send invitations to individual users or in bulk.
 
 ## Roles and policies
 
-To invite other members to the site or the back office, a user needs to have the `user/invite` permission added to their role.
-You can limit the ability to invite other members to specific user groups, such as Editors, or to the specific roles within the group, for example: Admin, Buyer.
+To invite other users to the back office, a user needs to have the `user/invite` permission added to their role.
+You can limit the ability to invite other users to specific user groups, such as Editors, or to the specific roles within the group, for example: Administrator, Editor.
 
 ## Creating and sending invitations
 

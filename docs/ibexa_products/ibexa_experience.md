@@ -76,7 +76,7 @@ Publish Later feature combined with Page Builder allows you to see all changes t
 
 #### Customer Portal
 
-Use the [Customer Portal](customer_portal.md) and customer management capabilities that come with it, to establish new corporate accounts, manage existing ones, and communicate with your partners within a personalized space.
+Use the Customer Portal and customer management capabilities that come with it, to establish new corporate accounts, manage existing ones, and communicate with your partners within a personalized space.
 With the help of this feature, you can create customized areas that give users a smooth, integrated experience and provide them with access to a variety of resources, apps, and services from a single point of entry.
 Using this tool, your customers can change their organization details, invite and see members, self-register, and more.
 

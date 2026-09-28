@@ -15,7 +15,7 @@ Criteria are applied to log entry groups.
 For example, with the `action` criterion, you get log entry groups that have at least one entry
 with this action (and possibly other actions as well).
 
-For more information about the activity log itself, see [Recent activity](../../administration/recent_activity/recent_activity.md).
+For more information about the activity log itself, see [Recent activity](../../administration/admin_panel/recent_activity_admin_panel.md).
 
 ## Value-based criteria
 
