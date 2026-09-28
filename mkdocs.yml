@@ -1,6 +1,6 @@
 INHERIT: plugins.yml
 
-site_name: Cohesivo Developer Documentation
+site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 edit_uri: blob/saas/docs
 site_url: https://doc.ibexa.co/en/saas/
@@ -19,7 +19,7 @@ not_in_nav: |
     personalization/legacy_recommendation_api.md
     /snippets/*
 nav:
-    - Cohesivo Developer Documentation: index.md
+    - Cohesivo SaaS Developer Documentation: index.md
     - Cohesivo editions:
         - On-premise Cohesivo: on_premise.md
         - Editions: ibexa_products/editions.md
@@ -352,7 +352,7 @@ extra:
     - '/guidelines/resources/'
     - '/index.md'
   related_docs:
-    - title: 'Cohesivo Developer Documentation'
+    - title: 'Developer Documentation'
       url: '/'
     - title: 'User Documentation'
       url: '/projects/userguide'
