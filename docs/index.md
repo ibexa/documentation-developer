@@ -3,7 +3,7 @@
 <div class="front-page">
     <div class="row">
         <div class="col-12">
-            <h1>Ibexa Developer Documentation</h1>
+            <h1>Ibexa Developer Documentation (TEMPORARY EDIT)</h1>
             <h2>How to start?</h2>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
