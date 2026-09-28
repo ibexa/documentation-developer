@@ -473,6 +473,7 @@ plugins:
             'guide/search/extensibility/create_custom_aggregation.md': 'search/extensibility/create_custom_aggregation.md'
             'guide/search/extensibility/solr_document_field_mappers.md': 'search/extensibility/solr_document_field_mappers.md'
             'guide/search/extensibility/index_custom_elasticsearch_data.md': 'search/extensibility/index_custom_elasticsearch_data.md'
+            'guide/search/extensibility/manipulate_elasticsearch_query.md': 'search/extensibility/manipulate_elasticsearch_query.md'
             'guide/search/shop_search/shop_search.md': 'search/search.md'
             'guide/search/shop_search/search_configuration.md': 'search/search.md'
             'guide/search/shop_search/search_api.md': 'search/search.md'
