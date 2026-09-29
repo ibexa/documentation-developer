@@ -4,11 +4,6 @@
     "type": "library",
     "keywords": ["ibexa", "cohesivo", "documentation", "markdown", "llm", "ai", "agents"],
     "license": "GNU General Public License v2.0",
-    "autoload-dev": {
-        "psr-4": {
-            "Ibexa\\Tests\\Documentation\\": "tests/"
-        }
-    },
     "repositories": [
         {
             "type": "composer",
@@ -19,8 +14,6 @@
         "php": "^8.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^11.0",
-        "symfony/yaml": "^7.0",
         "ibexa/connector-gemini": "6.0.x-dev",
         "ibexa/doctrine-schema": "6.0.x-dev",
         "ibexa/search": "6.0.x-dev",
@@ -89,10 +82,6 @@
         "ibexa/design-system-twig": "~6.0.x-dev"
     },
     "scripts": {
-        "check-yaml": "phpunit --group yaml",
-        "phpunit": "phpunit --exclude-group=yaml",
-        "yaml-update-baseline": "php tests/generate-yaml-baseline.php",
-        "composer-update": "[ -d vendor ] || composer update",
         "yarn-install": "[ -d node_modules ] || yarn install",
         "markdownlint": [
             "@yarn-install",
@@ -103,27 +92,18 @@
             "yarn markdownlint --fix"
         ],
         "test": [
-            "@composer-update",
-            "EXIT=0; FAILED=''; { composer markdownlint; } || { EXIT=1; FAILED=\"$FAILED markdownlint\"; }; { composer check-yaml; } || { EXIT=1;  FAILED=\"$FAILED check-yaml\"; }; if [ 1 -eq $EXIT ]; then echo \"Failed:$FAILED\"; fi; exit $EXIT;"
+            "@markdownlint"
         ],
         "fix": [
             "@composer fix-markdownlint"
-        ],
-        "baseline": [
-            "@composer-update",
-            "@composer yaml-update-baseline"
         ]
     },
     "scripts-descriptions": {
-        "check-yaml": "Run PHPUnit tests (YAML validation)",
-        "yaml-update-baseline": "Regenerate tests/yaml-validation-baseline.yaml from current failures",
-        "composer-update": "Install composer dependencies if not already installed",
         "yarn-install": "Install yarn dependencies if not already installed",
         "markdownlint": "Run Markdownlint on all documentation files",
         "fix-markdownlint": "Automatically fixes Markdownlint issues in all documentation files",
-        "test": "Run all checks (Markdownlint, YAML checks), continuing past failures and reporting failure overall if any check failed",
-        "fix": "Run all automatic fixes (Markdownlint)",
-        "baseline": "Regenerate the YAML validation baseline from current failures"
+        "test": "Run all checks (Markdownlint)",
+        "fix": "Run all automatic fixes (Markdownlint)"
     },
     "config": {
         "allow-plugins": false

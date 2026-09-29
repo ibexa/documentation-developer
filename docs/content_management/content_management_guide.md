@@ -24,7 +24,7 @@ A system that relies on roles and permissions controls access to content items a
 - media (for example, images or videos)
 - user accounts
 
-You can set up content structure, define the templates to be filled with content, and assign different areas of the structure to your editors.
+You can set up content structure and assign different areas of the structure to your editors.
 Next steps would be to create the actual content, and then classify content items, and organize them as necessary.
 
 You can then build an external systems that uses [[= product_name =]] as a headless CMS, a single source of truth for anything related to content.
@@ -47,7 +47,7 @@ You can customize and adapt the content model to your organization's needs and t
 Content managers or even editors can then apply such field types when they modify existing or create new content types.
 The editing interface lets all users, including those with no coding experience, create or modify certain areas of the content model.
 
-For technical details, see [a Content model](content_model.md#content-model).
+For technical details, see [Content model](content_model.md#content-model).
 
 ### Field types
 

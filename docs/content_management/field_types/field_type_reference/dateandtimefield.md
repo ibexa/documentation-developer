@@ -1,10 +1,10 @@
-# DateAndTime field type
+# Date and time field type
 
 This field type represents a full date and time information.
 
-| Name          | Internal name    |
-|---------------|------------------|
-| `DateAndTime` | `ibexa_datetime` |
+| Name          | Field type identifier |
+|---------------|-----------------------|
+| Date and time | `ibexa_datetime`      |
 
 ## Field value
 

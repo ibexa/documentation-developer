@@ -9,7 +9,7 @@ The `ObjectStateIdentifier` Search Criterion searches for content based on its o
 ## Arguments
 
 - `value` - string(s) representing the object state identifier(s)
-- `target` (optional for PHP)  - string representing the object state group
+- `target` - string representing the object state group
 
 ## Example
 

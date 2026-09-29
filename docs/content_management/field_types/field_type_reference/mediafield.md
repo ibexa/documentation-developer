@@ -12,9 +12,9 @@ It's capable of handling the following types of files:
 - HTML5 Video
 - HTML5 Audio
 
-| Name    | Internal name |
-|---------|---------------|
-| `Media` | `ibexa_media` |
+| Name  | Field type identifier |
+|-------|-----------------------|
+| Media | `ibexa_media`         |
 
 ## Field value
 

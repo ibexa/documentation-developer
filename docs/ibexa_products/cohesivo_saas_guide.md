@@ -64,7 +64,7 @@ Sites can share content and assets, while granular [user permissions]([[= user_d
 
 ### Agentic AI
 
-With [AI Assistant]([[= user_doc =]]/content_management/create_edit_content_items/#ai-assistant) as the entry point, you can use an [MCP tool set](mcp_usage.md#use-built-in-tools) identical across the [[= product_name_base =]] ecosystem.
+With [AI Assistant]([[= user_doc =]]/content_management/create_edit_content_items/#ai-assistant) as the entry point, you can use an [MCP tool set](mcp_guide.md#built-in-tools) identical across the [[= product_name_base =]] ecosystem.
 The MCP server allows AI tools and agents to interact with [[= product_name =]] capabilities through a standardized interface rather than requiring a separate integration for each agent or tool.
 
 ### Secured remote MCP endpoint

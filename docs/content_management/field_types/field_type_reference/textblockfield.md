@@ -1,10 +1,10 @@
-# TextBlock field type
+# Text block field type
 
 The field type handles a block of multiple lines of unformatted text. It's capable of handling up to 16,777,216 characters.
 
-| Name        | Internal name |
-|-------------|---------------|
-| `TextBlock` | `ibexa_text`  |
+| Name       | Field type identifier |
+|------------|-----------------------|
+| Text block | `ibexa_text`          |
 
 ## Field value
 

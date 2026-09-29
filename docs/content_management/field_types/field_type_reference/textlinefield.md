@@ -1,11 +1,11 @@
-# TextLine field type
+# Text line field type
 
 This field type makes possible to store and retrieve a single line of unformatted text.
 It's capable of handling up to 255 characters.
 
-| Name       | Internal name  |
-|------------|----------------|
-| `TextLine` | `ibexa_string` |
+| Name      | Field type identifier |
+|-----------|-----------------------|
+| Text line | `ibexa_string`        |
 
 ## Field value
 

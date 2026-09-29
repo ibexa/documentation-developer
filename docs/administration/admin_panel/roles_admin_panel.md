@@ -4,7 +4,7 @@ description: To give users an access to your website you need to assign them rol
 
 # Roles
 
-To give users an access to your website you need to assign them roles in the **Admin** panel.
+To give users an access to your website you need to assign them roles in the **Administration** panel.
 
 ![Roles](admin_panel_roles.png "Roles")
 

@@ -9,8 +9,8 @@ The `UpdatedAtRange` Search Criterion searches for products based on the date ra
 
 ## Arguments
 
-- `min` - the start of the date range (inclusive), provided as a [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) object in PHP, or as a string acceptable by `DateTimeInterface` constructor in REST
-- `max` - the end of the date range (inclusive), provided as a [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) object in PHP, or as a string acceptable by `DateTimeInterface` constructor in REST
+- `min` - the start of the date range (inclusive), provided as a string acceptable by [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php)
+- `max` - the end of the date range (inclusive), provided as a string acceptable by [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php)
 
 At least one of `min` or `max` must be provided.
 

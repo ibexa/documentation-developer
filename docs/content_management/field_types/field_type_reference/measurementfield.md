@@ -3,9 +3,9 @@
 The Measurement field type represents measurement information.
 It stores the unit of measure, and either a single measurement value, or a pair of top and bottom values that defines a range.
 
-| Name          | Internal name       |
-|---------------|---------------------|
-| `Measurement` | `ibexa_measurement` |
+| Name        | Field type identifier |
+|-------------|-----------------------|
+| Measurement | `ibexa_measurement`   |
 
 ## Field value
 

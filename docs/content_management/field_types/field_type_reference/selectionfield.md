@@ -2,9 +2,9 @@
 
 The Selection field type stores single selections or multiple choices from a list of options defined in the field definition.
 
-| Name        | Internal name     |
-|-------------|-------------------|
-| `Selection` | `ibexa_selection` |
+| Name      | Field type identifier |
+|-----------|-----------------------|
+| Selection | `ibexa_selection`     |
 
 ## Field value
 

@@ -16,14 +16,14 @@ You can use this Search Criterion over the REST API, in the payload of the [`POS
 
 === "XML"
 
-```xml
-<ProductQuery>
-    <Filter>
-        <ProductCodeCriterion>ski</ProductCodeCriterion>
-        <ProductCodeCriterion>snowboard</ProductCodeCriterion>
-    </Filter>
-</ProductQuery>
-```
+    ```xml
+    <ProductQuery>
+        <Filter>
+            <ProductCodeCriterion>ski</ProductCodeCriterion>
+            <ProductCodeCriterion>snowboard</ProductCodeCriterion>
+        </Filter>
+    </ProductQuery>
+    ```
 
 === "JSON"
 

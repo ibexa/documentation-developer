@@ -3,9 +3,9 @@
 This field type represents and handles a URL.
 It's formed by the combination of a link and the respective text.
 
-| Name  | Internal name |
-|-------|---------------|
-| `Url` | `ibexa_url`   |
+| Name | Field type identifier |
+|------|-----------------------|
+| URL  | `ibexa_url`           |
 
 ## Field value
 

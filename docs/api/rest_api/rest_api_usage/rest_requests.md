@@ -101,11 +101,6 @@ Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: restapi
 ```
 
-One of the principles of REST is that the same resource (such as content item, location, content type) should be unique.
-It allows caching your REST API with a reverse proxy such as Varnish.
-If the same resource is available in multiple locations, cache purging is noticeably more complex.
-This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
-
 ### Media types
 
 On top of methods, HTTP request headers allow you to personalize the request's behavior.

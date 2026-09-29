@@ -2,9 +2,9 @@
 
 The Checkbox field type stores the current status for a checkbox input, checked or unchecked.
 
-| Name       | Internal name   |
-|------------|-----------------|
-| `Checkbox` | `ibexa_boolean` |
+| Name     | Field type identifier |
+|----------|-----------------------|
+| Checkbox | `ibexa_boolean`       |
 
 ## Field value
 

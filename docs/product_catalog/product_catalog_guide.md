@@ -10,10 +10,6 @@ month_change: false
 The product catalog is a comprehensive set of capabilities for managing products in [[= product_name =]] that can be used standalone.
 It lets you create, configure, and manage products, their specifications, assets, variants, and prices, and group products into categories and catalogs.
 
-## Availability
-
-Product catalog capabilities are available in [[= product_name =]].
-
 ## How does product catalog work
 
 Products in [[= product_name =]]’s product catalog have underlying content items enriched with product-specific information such as attributes, assets, prices, and others.
@@ -150,7 +146,7 @@ Catalog filters let you narrow down the products from the product catalog that a
 
 ### Quable PIM integration
 
-You can store product information inside [[= product_name =]], or you can store it inside ([[= pim_product_name =]]).
+You can store product information inside [[= product_name =]], or you can store it inside [[= pim_product_name =]].
 For more information, see [Quable integration](quable.md).
 
 ## How to get started
