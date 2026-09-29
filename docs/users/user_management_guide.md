@@ -87,6 +87,7 @@ The permission management helps safeguard sensitive data and maintain security.
 
 With the ability to define and manage user roles and permissions, clients can ensure that sensitive data and actions are protected.
 User management helps prevent unauthorized access.
+
 ### Efficient user onboarding
 
 Quick account creation streamlines the process of onboarding new users.
