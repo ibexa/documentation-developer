@@ -26,7 +26,7 @@ The environment is ready for you within a single working day.
 Your administrator can then invite other members of the team, up to the number of seats included in the plan.
 
 To start using [[= product_name =]] SaaS, you need to purchase a product license.
-For more information, see [[[= product_name_base =]] license pricing](https://www.ibexa.co/products/pricing).
+For more information, see [[[= product_name_base =]] license pricing](https://ibexa.ai/en/plans).
 
 ## How does [[= product_name =]] SaaS work?
 
