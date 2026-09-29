@@ -261,6 +261,9 @@ Check if current user has this custom limitation set to true from a custom contr
 [[= include_code('code_samples/back_office/limitation/src/Controller/CustomLimitationController.php') =]]
 ```
 
+The `siteaccess_group_whitelist` route default limits the route to the back office SiteAccess group.
+For more information, see [Request lifecycle](../infrastructure_and_maintenance/request_lifecycle.md#siteaccess_group_whitelist).
+
 ## Restrict access to form submissions
 
 By default, access to a [Form content item](form_builder_guide.md#forms-management) is controlled by the `content/read` policy.

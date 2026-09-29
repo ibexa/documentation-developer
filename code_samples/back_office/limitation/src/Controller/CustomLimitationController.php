@@ -6,17 +6,13 @@ use App\Security\Limitation\CustomLimitationValue;
 use Ibexa\Contracts\AdminUi\Controller\Controller;
 use Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Ibexa\Contracts\User\Controller\AuthenticatedRememberedCheckTrait;
 use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 class CustomLimitationController extends Controller
 {
-    use AuthenticatedRememberedCheckTrait {
-        AuthenticatedRememberedCheckTrait::performAccessCheck as public traitPerformAccessCheck;
-    }
-
     public function __construct(
         // ...,
         private readonly PermissionResolver $permissionResolver,
@@ -25,6 +21,11 @@ class CustomLimitationController extends Controller
     }
 
     // Controller actions...
+    #[Route(
+        '/custom-limitation',
+        name: 'app.custom_limitation',
+        defaults: ['siteaccess_group_whitelist' => '%admin_group_name%']
+    )]
     public function customAction(Request $request): Response
     {
         // ...
@@ -51,9 +52,10 @@ class CustomLimitationController extends Controller
         return $customLimitationValues['value'] ?? false;
     }
 
+    #[\Override]
     public function performAccessCheck(): void
     {
-        $this->traitPerformAccessCheck();
+        parent::performAccessCheck();
         $this->denyAccessUnlessGranted(new Attribute('custom_module', 'custom_function_2'));
     }
 }
