@@ -1,0 +1,43 @@
+# SectionId Criterion
+
+SectionId Search Criterion
+
+The [`SectionId` Search Criterion](../../../../../../ibexa/core/src/contracts/Repository/Values/Content/Query/Criterion/SectionId.php) searches for content based on the ID of the Section it's assigned to.
+
+## Arguments
+
+- `value` - int(s) representing the IDs of the Section(s)
+
+## Example
+
+### PHP
+
+```php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+
+$query = new Query();
+$query->query = new Criterion\SectionId(3);
+```
+
+### REST API
+
+**XML**
+
+```xml
+<Query>
+    <Filter>
+        <SectionIdCriterion>3</SectionIdCriterion>
+    </Filter>
+</Query>
+```
+
+**JSON**
+
+```json
+"Query": {
+    "Filter": {
+        "SectionIdCriterion": "3"
+    }
+}
+```

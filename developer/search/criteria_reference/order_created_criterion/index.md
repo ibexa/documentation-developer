@@ -1,0 +1,28 @@
+# Order CreatedAt Criterion
+
+Order CreatedAt Search Criterion
+
+Editions: Commerce
+
+The `CreatedAtCriterion` Search Criterion searches for orders based on the date when they were created.
+
+## Arguments
+
+- `createdAt` - date to be matched, provided as a `DateTimeInterface` object
+- `operator` - optional operator string (EQ, GT, GTE, LT, LTE)
+
+## Example
+
+### PHP
+
+```php
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
+$criteria = new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CreatedAtCriterion(
+    new DateTime('2023-03-01'),
+    'GTE'
+);
+
+$orderQuery = new OrderQuery($criteria);
+```

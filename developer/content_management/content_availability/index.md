@@ -1,0 +1,25 @@
+# Content availability
+
+Control the availability of content items with relation to translations by using the Default content availability flag.
+
+The Default content availability flag enables you to control whether content is available when its translation is missing.
+
+You can set the flag in content type definition by checking the "Make content available even with missing translations" option. It's automatically applied to any new content item of this Type.
+
+![Default content availability](https://doc.ibexa.co/en/5.0/content_management/img/availability_flag.png "Default content availability")
+
+A content item with this flag is available in its main language even if it's not translated into the language of the current SiteAccess.
+
+Without the flag, a content item isn't available at all if it doesn't have a language version corresponding to the current SiteAccess.
+
+> **Note: Note**
+>
+> There is currently no way in the back office to edit the Content availability flag for an already published content item.
+>
+> To do this via [PHP API](../content_api/creating_content/index.md#updating-content), set the [`alwaysAvailable` property](../../../../../ibexa/core/src/contracts/Repository/Values/Content/ContentMetadataUpdateStruct.php) of the Content metadata.
+
+The Default availability flag is used for the out-of-the box content types representing content that should always be visible to the user, such as media files or user content items.
+
+You can also use it for organizational content types.
+
+For example, you can assign the flag to a Blog content type which is intended to contain Blog Posts in multiple languages. If the Blog is in English only, it would not be visible for readers using the Norwegian or German SiteAcceses. However, if you set the default availability flag for the Blog content type, it's displayed to them in English (if it's set as a main language) and enables the users to browse individual posts in other languages.

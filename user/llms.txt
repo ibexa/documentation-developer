@@ -1,0 +1,144 @@
+# User Documentation
+
+> User documentation for Ibexa DXP covers content management, product catalog, commerce, and site administration for editors and business users.
+
+## Ibexa User Documentation
+
+- [Ibexa User Documentation](index.md)
+
+## Getting started
+
+- [Get started](getting_started/get_started/index.md)
+- [User interface](getting_started/discover_ui/index.md)
+- [Dashboard](getting_started/dashboard/dashboard/index.md)
+- [Work with dashboard](getting_started/dashboard/work_with_dashboard/index.md)
+- [Dashboard block reference](getting_started/dashboard/dashboard_block_reference/index.md)
+- [Content tree](getting_started/content_tree/content_tree/index.md)
+- [Notifications](getting_started/notifications/index.md)
+
+## Content model management
+
+- [Content model](content_management/content_model/index.md)
+- [Create and edit content types](content_management/create_edit_content_types/index.md)
+- [Configure content type fields](content_management/configure_ct_field_settings/index.md)
+
+## Content management
+
+- [Content management](content_management/content_management/index.md)
+- [Content items](content_management/content_items/index.md)
+- [Create and edit content items](content_management/create_edit_content_items/index.md)
+- [Create and edit pages](content_management/create_edit_pages/index.md)
+- [Block reference](content_management/block_reference/index.md)
+- [Preview content items](content_management/preview_content_items/index.md)
+- [Translate content](content_management/translate_content/index.md)
+- [Work with forms](content_management/work_with_forms/index.md)
+- [Taxonomy](content_management/taxonomy/taxonomy/index.md)
+- [Work with tags](content_management/taxonomy/work_with_tags/index.md)
+- [Content versions](content_management/content_versions/index.md)
+- [Work with versions](content_management/workflow_management/work_with_versions/index.md)
+- [Editorial workflow](content_management/workflow_management/editorial_workflow/index.md)
+- [View workflow list](content_management/workflow_management/view_workflow_list/index.md)
+- [Copy, move or hide content](content_management/content_organization/copy_move_hide_content/index.md)
+- [Classify content](content_management/content_organization/classify_content/index.md)
+- [Manage content locations and URLs](content_management/content_organization/manage_locations_urls/index.md)
+- [Collaborative editing](content_management/collaborative_editing/index.md)
+
+## AI Actions
+
+- [AI Actions](ai_actions/ai_actions/index.md)
+- [Work with AI Actions](ai_actions/work_with_ai_actions/index.md)
+
+## Product catalog
+
+- [Product catalog](product_catalog/product_catalog/index.md)
+- [Quable PIM integration](product_catalog/quable_pim_integration/index.md)
+- [Product types](product_catalog/product_types/index.md)
+- [Create product types](product_catalog/create_product_types/index.md)
+- [Work with product attributes](product_catalog/work_with_product_attributes/index.md)
+- [Work with currencies](product_catalog/manage_currencies/index.md)
+- [Products](product_catalog/products/index.md)
+- [Create and edit products](product_catalog/create_edit_product/index.md)
+- [Create virtual products](product_catalog/create_virtual_product/index.md)
+- [Work with product assets](product_catalog/work_with_product_assets/index.md)
+- [Work with product variants](product_catalog/work_with_product_variants/index.md)
+- [Work with product prices](product_catalog/manage_prices/index.md)
+- [Work with product availability and stock](product_catalog/manage_availability_and_stock/index.md)
+- [Work with catalogs](product_catalog/work_with_catalogs/index.md)
+- [Work with product categories](product_catalog/work_with_product_categories/index.md)
+- [Work with product page URLs](product_catalog/work_with_product_page_urls/index.md)
+
+## Content publishing
+
+- [Publish content](content_management/publish_instantly/index.md)
+- [Schedule publication](content_management/schedule_publishing/index.md)
+
+## Image management
+
+- [Upload and store images](image_management/upload_images/index.md)
+- [Edit images](image_management/edit_images/index.md)
+
+## Search
+
+- [Search for content](search/search_for_content/index.md)
+- [SEO](search_engine_optimization/seo/index.md)
+- [Work with SEO](search_engine_optimization/work_with_seo/index.md)
+
+## Commerce
+
+- [Commerce](commerce/commerce/index.md)
+- [Order management](commerce/order_management/order_management/index.md)
+- [Work with orders](commerce/order_management/work_with_orders/index.md)
+- [Shipping management](commerce/shipping_management/shipping_management/index.md)
+- [Work with shipments](commerce/shipping_management/work_with_shipments/index.md)
+- [Work with shipping methods](commerce/shipping_management/work_with_shipping_methods/index.md)
+- [Payment management](commerce/payment/payment_management/index.md)
+- [Work with payments](commerce/payment/work_with_payments/index.md)
+- [Work with payment methods](commerce/payment/work_with_payment_methods/index.md)
+- [Discounts](commerce/discounts/discounts/index.md)
+- [Work with Discounts](commerce/discounts/work_with_discounts/index.md)
+
+## Recommendations
+
+- [Recommendation blocks](recommendations/raptor_integration/raptor_recommendation_blocks/index.md)
+
+## Ibexa Engage
+
+- [Ibexa Engage](ibexa_engage/ibexa_engage/index.md)
+
+## DAM
+
+- [Ibexa DAM](dam/ibexa_dam/index.md)
+
+## Customer management
+
+- [Customer management](customer_management/customer_management/index.md)
+- [Customer Portal](customer_management/customer_portal/index.md)
+- [Create and edit Customer Portal](customer_management/build_customer_portal/index.md)
+- [Manage customers](customer_management/manage_customers/index.md)
+- [Company self-registration](customer_management/company_self_registration/index.md)
+
+## Website organization
+
+- [Multisite](website_organization/multisite/index.md)
+- [Work with sites](website_organization/work_with_sites/index.md)
+
+## Permissions and users
+
+- [Permission system](permission_management/permission_system/index.md)
+- [Work with permissions](permission_management/work_with_permissions/index.md)
+- [Manage users](user_management/manage_users/index.md)
+- [Recent activity](recent_activity/recent_activity/index.md)
+
+## User paths
+
+- [Explorer](persona_paths/explorer/index.md)
+- [Application administrator](persona_paths/administrator/index.md)
+- [Manage permissions and users](permission_management/permissions_and_users/index.md)
+- [Manage content model](persona_paths/manage_content_model/index.md)
+- [Content editor](persona_paths/editor/index.md)
+- [Author content](persona_paths/author_content/index.md)
+- [Publish content](persona_paths/publish_content/index.md)
+- [Organize content](persona_paths/organize_content/index.md)
+- [Store manager](persona_paths/shop_manager/index.md)
+- [Manage products](persona_paths/manage_products/index.md)
+

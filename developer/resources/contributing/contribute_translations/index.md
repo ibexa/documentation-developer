@@ -1,0 +1,21 @@
+# Contribute translations
+
+You can contribute back office translations to Ibexa DXP by using Crowdin.
+
+If you'd like to see Ibexa DXP in your language, you can contribute to the translations.
+
+[`ibexa-i18n`](https://github.com/ibexa/i18n) contains the XLIFF files providing translations under a `/translations` directory. You can use an XLIFF editor of your choice to contribute strings in your language.
+
+> **Note: Professional localization**
+>
+> Translations into French, German and Spanish are managed through Ibexa’s internal localization process and are therefore not open for community contributions.
+
+## Translating interface using Crowdin
+
+If you wish to contribute to an existing translation of back office or start a new one you can use the Crowdin website.
+
+Visit [Ibexa DXP's Crowdin page](https://crowdin.com/project/ibexa-dxp), choose a language, and you can see a list of files containing strings. Here you can suggest your translations.
+
+If the language you want to translate to isn't available, you can ask for it to be added in the [Crowdin discussion forum for Ibexa DXP](https://crowdin.com/project/ibexa-dxp/discussions).
+
+Crowdin then automatically creates a GitHub PR and the translations are updated in the product.

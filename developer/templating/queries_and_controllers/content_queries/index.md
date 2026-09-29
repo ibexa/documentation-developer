@@ -1,0 +1,164 @@
+# Content queries
+
+Query content by using Query types and content query field.
+
+With content queries you can find and render specific content according to criteria that you define.
+
+You can use queries to list or embed content items, such as:
+
+- [children in a folder](../../embed_and_list_content/list_content/index.md#list-children-with-query-type)
+- related articles
+- [most recent blog posts](../create_custom_query_type/index.md)
+- recommended products
+
+Content queries use the built-in Query controller which simplifies querying. For more complex cases, you can build custom [controllers](../controllers/index.md).
+
+## Query types
+
+The Query controller offers a set of [built-in Query types](../built-in_query_types/index.md). You can use them in the content view configuration, or in the [content query field](#content-query-field).
+
+You can also write [custom Query types](../create_custom_query_type/index.md) for the cases that aren't covered by the built-in ones.
+
+### Query type configuration
+
+To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](../../templates/template_configuration/index.md) and select the Query type under `params.query.query_type`:
+
+```yaml
+folder:
+    controller: ibexa_query::contentQueryAction
+    template: '@ibexadesign/full/folder.html.twig'
+    params:
+        query:
+            query_type: 'Children'
+            parameters:
+                content: '@=content'
+            assign_results_to: items
+    match:
+        Identifier\ContentType: folder
+```
+
+Use one of the following Query controller methods:
+
+- `locationQueryAction` runs a location Search
+- `contentQueryAction` runs a content Search
+- `contentInfoQueryAction` runs a ContentInfo search
+- `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#pagination)
+
+See the [Search](../../../search/search/index.md) documentation page for more details about different types of search.
+
+All Query types take the following parameters:
+
+- `query_type` is the name of the Query type to use.
+- `parameters` can include:
+  - arbitrary values
+  - expressions based on the `content`, `location` and `view` variables. For example, `@=location.id` is evaluated to the current Location's ID.
+- `assign_results_to` declares the Twig variable that contains the search results.
+
+> **Tip: Tip**
+>
+> Search results are a `SearchResult` object, which contains `SearchHit` objects. To get the content or Locations that are in search results, you access the `valueObject` of the `SearchHit`.
+
+### Pagination
+
+To paginate the results of a query, use the `pagingQueryAction` of the Query controller and assign a limit per page in `params.query.limit`:
+
+```yaml
+            content_view:
+                full:
+                    folder:
+                        controller: ibexa_query::pagingQueryAction
+                        template: '@ibexadesign/full/folder.html.twig'
+                        params:
+                            query:
+                                query_type: 'Children'
+                                parameters:
+                                    content: '@=content'
+                                assign_results_to: items
+                                limit: 3
+                        match:
+                            Identifier\ContentType: folder
+```
+
+Use the [`pagerfanta`](https://www.babdev.com/open-source/packages/pagerfanta/docs/3.x/intro) function to render pagination controls:
+
+```html+twig
+{% for item in items %}
+    {{ ibexa_render(item.valueObject) }}
+{% endfor %}
+
+{{ pagerfanta(items, 'twitter_bootstrap5', {
+    'routeName': 'ibexa.url.alias',
+    'routeParams': {'location': location }
+}) }}
+```
+
+## Content query field
+
+The [Content query field](../../../content_management/field_types/field_type_reference/contentqueryfield/index.md) is a field that defines a query. The results of the query are available in the field value.
+
+![Content query field definition](https://doc.ibexa.co/en/5.0/templating/img/content_query_field_definition.png)
+
+### Query type
+
+When adding the field to a content type definition, select the Query type in the **Query type** dropdown. All Query types in the application are available, both [built-in](../built-in_query_types/index.md) and [custom ones](../create_custom_query_type/index.md).
+
+### Returned types
+
+Select the content type of items you want to return in the **Returned type** dropdown. To take it into account, your Query type must filter on the content type. Provide the selected content type through the `returnedType` variable:
+
+```yaml
+contentType: '@=returnedType'
+```
+
+### Pagination
+
+Select **Enable pagination** and set the number of items per page to paginate the results.
+
+You can override the pagination settings from field definition by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the content query field:
+
+```html+twig
+{{ ibexa_render_field(content, 'query', {
+    location: location|default(null), 'parameters': {
+        'enablePagination': true,
+        'itemsPerPage': 8
+    }
+}) }}
+```
+
+You can also define an offset for the results. Provide the offset in the Query type, or in parameters:
+
+```yaml
+offset: 3
+```
+
+If pagination is disabled and an offset value is defined, the query's offset is added to the offset calculated for a page. For example, with `offset` 5 and `itemsPerPage` 10, the first page starts with 5, the second page starts with 15, and so on.
+
+Without offset defined, pagination defines the starting number for each page. For example, with `itemsPerPage` 10, first page starts with 0, second page starts with 10, and so on.
+
+### Parameters
+
+The following variables are available in parameter expressions:
+
+- `returnedType` - the identifier of the content type selected in the **Returned type** dropdown
+- `content` - the current content item
+- `location` - the current Location of the content item
+- `mainLocation` - the main Location of the content item
+- `contentInfo` - the current content item's ContentInfo
+
+### Content view configuration
+
+To render a content query field, in the content view configuration, use the `content_query_field` view type:
+
+```yaml
+            content_view:
+                content_query_field:
+                    blog:
+                        template: '@ibexadesign/content_query/blog_posts.html.twig'
+                        match:
+                            Identifier\ContentType: blog
+                            '@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher': query
+```
+
+The identifier of the content query field must be matched by using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
+
+Query results are provided to the template in the `items` variable. See [List content](../../embed_and_list_content/list_content/index.md#list-children-in-content-query-field) for an example of using the content query field.
