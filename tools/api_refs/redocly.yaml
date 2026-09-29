@@ -39,7 +39,7 @@ decorators:
     # Empty so that the version isn't displayed next to the title.
     version: ''
     x-logo:
-      url: 'https://doc.ibexa.co/en/saas/images/cohesivo-logo.svg'
+      url: 'https://doc.ibexa.co/en/saas/images/cohesivo-logo-alt.svg'
   # Groups not available on SaaS.
   filter-out:
     property: tags
