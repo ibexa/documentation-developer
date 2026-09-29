@@ -14,7 +14,6 @@ docs/css/*.map
 lychee.toml
 /repositories/
 lychee-report.md
-.phpunit.result.cache
 /build/
 *.egg-info/
 /doc/

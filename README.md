@@ -44,19 +44,6 @@ of the command.
 
 ## Testing the documentation
 
-### YAML configuration
-
-The YAML snippets in the Markdown pages are validated against the
-Symfony configuration trees of the installed Ibexa bundles. To run the validation, use:
-
-``` bash
-composer update
-composer check-yaml
-```
-
-To add an error into a baseline, run `composer yaml-update-baseline` and commit the result.
-Error added to the baseline are not reported again.
-
 ### markdownlint
 
 This repository uses [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown formatting, including table syntax.
