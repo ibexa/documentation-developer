@@ -103,11 +103,9 @@ Each role you assign to user or user group consists of policies which define, wh
 | Module              | Function                   | Effect                                            | Possible limitations |
 |---------------------|----------------------------|---------------------------------------------------|----------------------|
 | <nobr>`user`</nobr> | <nobr>`activation`</nobr>  | unused                                            |                      |
-|                     | <nobr>`invite`</nobr>      | create and send invitations to create an account  |                      |
 |                     | <nobr>`login`</nobr>       | log in to the application                         |                      |
 |                     | <nobr>`password`</nobr>    | unused                                            |                      |
 |                     | <nobr>`preferences`</nobr> | access and set user preferences                   |                      |
-|                     | <nobr>`register`</nobr>    | register using the <nobr>`/register`</nobr> route |                      |
 |                     | <nobr>`selfedit`</nobr>    | unused                                            |                      |
 
 ### Content management

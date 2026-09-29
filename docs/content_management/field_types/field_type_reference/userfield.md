@@ -14,7 +14,7 @@ The field value is an object with the following keys, or `null` when the field i
 |---------------------|-------------------|----------------------------------------------------------------------------|--------------------------|
 | `hasStoredLogin`    | `boolean`         | Denotes if the user has a stored login.                                    | `true`                   |
 | `contentId`         | `integer`         | ID of the content item corresponding to the user.                          | `144`                    |
-| `login`             | `string`          | Username.                                                                  | `jay.kowalski`           |
+| `login`             | `string`          | Login. In the back office, it's the user's email address.                  | `jay.kowalski@email.invalid` |
 | `email`             | `string`          | The user's email address.                                                  | `jay.kowalski@email.invalid` |
 | `passwordUpdatedAt` | `integer`, `null` | Unix timestamp of the last password change.                                | `1682691427`             |
 | `enabled`           | `boolean`         | Whether the user account is enabled.                                       | `false`                  |
@@ -28,7 +28,7 @@ The field value is an object with the following keys, or `null` when the field i
     "fieldValue": {
         "hasStoredLogin": true,
         "contentId": 144,
-        "login": "jay.kowalski",
+        "login": "jay.kowalski@email.invalid",
         "email": "jay.kowalski@email.invalid",
         "passwordUpdatedAt": 1682691427,
         "enabled": false,
@@ -80,7 +80,7 @@ The API accepts an integer for them and returns a boolean: any non-zero number b
 | `PasswordTTL`        | `integer` | `null`        | Number of days after which the password expires.                               |
 | `PasswordTTLWarning` | `integer` | `null`        | Number of days before password expiry when the user starts getting a warning. |
 | `RequireUniqueEmail` | `boolean` | `true`        | When `true`, the email address must be unique across users.                   |
-| `UsernamePattern`    | `string`  | `"^[^@]+$"`   | Regular expression that the username must match.                              |
+| `UsernamePattern`    | `string`  | `"^.+$"`      | Regular expression that the login must match.                                 |
 
 ``` json
 {
@@ -88,7 +88,7 @@ The API accepts an integer for them and returns a boolean: any non-zero number b
         "PasswordTTL": 90,
         "PasswordTTLWarning": 14,
         "RequireUniqueEmail": true,
-        "UsernamePattern": "^[^@]+$"
+        "UsernamePattern": "^.+$"
     }
 }
 ```
