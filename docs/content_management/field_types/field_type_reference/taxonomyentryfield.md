@@ -1,10 +1,10 @@
-# TaxonomyEntry field type
+# Taxonomy Entry field type
 
-TaxonomyEntry is a field type that stores information about the parent entry in the taxonomy tree, placing the taxonomy entry (tag or product category) in the taxonomy structure.
+Taxonomy Entry is a field type that stores information about the parent entry in the taxonomy tree, placing the taxonomy entry (tag or product category) in the taxonomy structure.
 
-| Name            | Internal name          |
-|-----------------|------------------------|
-| `TaxonomyEntry` | `ibexa_taxonomy_entry` |
+| Name           | Field type identifier  |
+|----------------|------------------------|
+| Taxonomy Entry | `ibexa_taxonomy_entry` |
 
 ## Field value
 

@@ -5,8 +5,7 @@ page_type: landing_page
 
 # SiteAccess
 
-A SiteAccess is a set of configuration settings that the application uses when you access the site through a specific address.
-When the user visits the site, the system analyzes the URI and compares it to rules specified in the configuration.
-If it finds a set of fitting rules, this SiteAccess is used.
+A SiteAccess is a set of configuration settings that can vary between sites, for example, the primary language of the site.
+When the user visits the site, the delivered content can vary based on [selected SiteAccess](rest_requests.md#siteaccess), changing the response.
 
 Each SiteAccess can have different [configuration](configuration.md).

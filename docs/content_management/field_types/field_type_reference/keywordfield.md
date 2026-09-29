@@ -1,10 +1,10 @@
-# Keyword field type
+# Keywords field type
 
 This field type stores one or several keywords.
 
-| Name      | Internal name   |
-|-----------|-----------------|
-| `Keyword` | `ibexa_keyword` |
+| Name     | Field type identifier |
+|----------|-----------------------|
+| Keywords | `ibexa_keyword`       |
 
 ## Field value
 

@@ -5,9 +5,9 @@ This field type represents a date without time information.
 Time information is **not stored**.
 Before storing, the provided input value is set to the beginning of the day in the given or the environment timezone.
 
-| Name   | Internal name |
-|--------|---------------|
-| `Date` | `ibexa_date`  |
+| Name | Field type identifier |
+|------|-----------------------|
+| Date | `ibexa_date`          |
 
 ## Field value
 

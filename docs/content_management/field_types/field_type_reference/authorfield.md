@@ -1,10 +1,10 @@
-# Author field type
+# Authors field type
 
 This field type allows the storage and retrieval of one or more authors. For each author, it can handle a name and an email address. It's typically used to store information about additional authors who have written/created different parts of a content item.
 
-| Name     | Internal name  |
-|----------|----------------|
-| `Author` | `ibexa_author` |
+| Name    | Field type identifier |
+|---------|-----------------------|
+| Authors | `ibexa_author`        |
 
 ## Field value
 

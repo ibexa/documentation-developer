@@ -12,14 +12,10 @@ User management is a fundamental aspect of any system.
 User management refers to the process of granting, configuring, and controlling access for users by administrators.
 This encompasses the creation of user accounts, assigning roles and permissions, setting authentication methods, and managing user-related data.
 
-## Availability
-
-User management is available in all [[= product_name =]] versions.
-
 ## How does user management work
 
 [[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, roles, permissions, groups, and segments.
-You can find all user groups and users in the **Admin** panel by selecting **Users**.
+You can find all user groups and users in the **Administration** panel by selecting **Users**.
 Here, you can manage users, their relations, roles, and policies.
 ![User's section](users_section.png)
 
@@ -30,8 +26,6 @@ Here's how it works:
 - Roles and permissions - define roles and assign permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
 
 - User segmentation - segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
-
-- Invitations - invite users to join a platform streamlining an onboarding process, sending invitations for exclusive content or events.
 
 - Customer groups - organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
 
@@ -58,13 +52,6 @@ Policies allow for fine-grained control of access based on various factors, such
 ### Limitations
 
 [Define](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
-
-### Invitations
-
-The [invitation system](invitations.md) streamlines user onboarding and engagement.
-Track the status of invitations, including when they were sent, whether they were accepted, and the actions taken by users who accepted them.
-
-![Invitations](users_invitation.png)
 
 ### User segmentation and recommendations
 
@@ -103,7 +90,7 @@ User management helps prevent unauthorized access.
 
 ### Efficient user onboarding
 
-Invitations and account creation streamline the process of onboarding new users.
+Quick account creation streamlines the process of onboarding new users.
 
 ### Targeted marketing
 
@@ -117,8 +104,3 @@ This ensures quality and consistency in their digital properties.
 ### Content relevance
 
 By delivering content that resonates with different user segments, clients can increase user engagement and retention.
-
-### Customizability
-
-Clients can adapt the user management system to their unique needs.
-Custom policies and limitations enable tailored solutions that align with their specific use cases.

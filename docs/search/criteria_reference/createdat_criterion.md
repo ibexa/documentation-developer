@@ -8,8 +8,18 @@ The `CreatedAt` Search Criterion searches for products based on the date when th
 
 ## Arguments
 
-- `createdAt` (PHP), `created_at` (REST) - indicating the date that should be matched, provided as a `DateTimeInterface` object in PHP, or as a string acceptable by `DateTime` constructor in REST
-- `operator` - Operator constant (EQ, GT, GTE, LT, LTE) in PHP or its value in REST
+- `created_at` - indicating the date that should be matched, provided as a string acceptable by[`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) constructor
+- `operator` - Operator value
+
+## Operators
+
+| Value | Description |
+|-------|-------------|
+| `=` | Matches products updated exactly on the given date (default) |
+| `>` | Matches products updated after the given date |
+| `>=` | Matches products updated on or after the given date |
+| `<` | Matches products updated before the given date |
+| `<=` | Matches products updated on or before the given date |
 
 ## Example
 

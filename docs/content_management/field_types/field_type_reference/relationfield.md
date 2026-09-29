@@ -1,10 +1,10 @@
-# Relation field type
+# Content relation (single) field type
 
 This field type makes it possible to store and retrieve the value of a relation to another content item.
 
-| Name       | Internal name           |
-|------------|-------------------------|
-| `Relation` | `ibexa_object_relation` |
+| Name                      | Field type identifier   |
+|---------------------------|-------------------------|
+| Content relation (single) | `ibexa_object_relation` |
 
 ## Field value
 

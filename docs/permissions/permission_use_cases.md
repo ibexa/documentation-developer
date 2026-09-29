@@ -18,6 +18,9 @@ To allow the user to enter the back office interface and view all content, set t
 
 These policies are necessary for all other cases below that require access to the content structure.
 
+The built-in **SSO user** role contains the default set of policies required to log in to the back office.
+For more information, see [SSO users group](users_admin_panel.md#sso-users-group).
+
 ## Create content without publishing
 
 You can use this option together with [[= product_name =]]'s content review options.
@@ -85,7 +88,7 @@ You do it by creating two new roles for a user group:
 Follow the example below to learn how to do that.
 
 **Cookbook**, **Dinner recipes** and **Dessert recipes** containers aren't accessible in the frontend.
-Edit access to them in the **Admin** panel.
+Edit access to them in the **Administration** panel.
 
 ![Subtree file structure](subtree_usability_notes_1.png)
 
@@ -157,13 +160,6 @@ To let users create and assign taxonomy entries, set the following permissions:
 - `taxonomy/manage` to create, edit and delete tags
 
 With limitations, you can configure whether permissions apply to Tags, product categories, or both.
-
-## Register users
-
-To allow anonymous users to register through the `/register` or `/from-invite/register` routes, grant the following policies to the Anonymous role:
-
-- `user/register`
-- `content/create`, limited to the User content type and chosen user groups
 
 ## Admin
 

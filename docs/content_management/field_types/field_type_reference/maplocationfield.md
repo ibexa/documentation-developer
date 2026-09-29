@@ -1,10 +1,10 @@
-# MapLocation field type
+# Map location field type
 
 This field type represents a geographical location.
 
-| Name          | Internal name         |
-|---------------|-----------------------|
-| `MapLocation` | `ibexa_gmap_location` |
+| Name         | Field type identifier |
+|--------------|-----------------------|
+| Map location | `ibexa_gmap_location` |
 
 ## Field value
 

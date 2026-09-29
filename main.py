@@ -190,7 +190,7 @@ def define_env(env):
         """.format(header=header, visible_filters=filters, categories_dropdown=categories_dropdown)
 
     @env.macro
-    def release_note_entry_begin(header : str, date: str, categories : List[str]) -> str:
+    def release_note_entry_begin(date: str, categories : List[str]) -> str:
         validate_categories(categories)
 
         category_badges = "".join(
@@ -204,12 +204,11 @@ def define_env(env):
 
         return """
 <div class="release-note" markdown="1">
-## {header}
+## {date}
 <div class="release-note__tags">
 {category_badges}
 </div>
-<div class="release-note__date">{date}</div>
-""".format(header=header, date=date, category_badges=category_badges)
+""".format(date=date, category_badges=category_badges)
 
     @env.macro
     def release_note_entry_end() -> str:

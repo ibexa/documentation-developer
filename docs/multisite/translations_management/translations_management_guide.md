@@ -99,7 +99,3 @@ Seeing the translation in context makes it easier to identify omissions, inconsi
 
 Regardless of technical and conceptual differences, the experience of working with various translation providers is the same.
 Administrators can assign providers to specific language pairs and editors can override the assignment when needed.
-
-### Readiness for automated processing
-
-The CLI command enables integration with automated processes, which can help you reduce manual effort for large content volumes.

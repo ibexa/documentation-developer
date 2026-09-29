@@ -11,19 +11,19 @@ month_change: false
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v5.0.9' %]]
-[[% set date = '2026-07-01' %]]
+[[% set date = '2026-10-01' %]]
 
 [[= release_note_entry_begin(
-    'TODO: Release notes for SaaS',
     date,
-    ['New feature']
+    ['New feature', 'First release']
 ) =]]
 
 <!-- markdownlint-disable-next-line heading-increment -->
 ### Highlights
 
-- ASD
-- QWE
+[[= product_name =]] SaaS is now available.
+
+To learn more about this product, see the [Cohesivo SaaS product guide](cohesivo_saas_guide.md) and the [official website](https://cohesivo.com/en).
 
 [[= release_note_entry_end() =]]
 
