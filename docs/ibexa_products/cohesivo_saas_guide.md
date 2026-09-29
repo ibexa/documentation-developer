@@ -79,7 +79,7 @@ Translate your content with [language management tools]([[= user_doc =]]/content
 ### Product catalog
 
 Use the built-in Product Information Management (PIM) capability to manage products and their specifications, attributes, variants, assets, pricing, availability, categories, catalogs, and completeness scoring.
-You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to a PIM platform, such as [[[= pim_product_name =]]](https://www.quable.com/en).
+You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to a PIM platform, such as [[[= pim_product_name =]]](https://quable.com/en).
 When the [[= pim_product_name =]] connector is enabled, you can view, select and embed its products in [[= product_name =]] SaaS, while you handle product management operations in [[= pim_product_name =]].
 
 ### [[= product_name_cdp =]] integration
