@@ -84,7 +84,7 @@ When the [[= pim_product_name =]] connector is enabled, you can view, select and
 
 ### [[= product_name_cdp =]] integration
 
-The Raptor connector provides an integration with the [Raptor recommendation engine](https://www.raptorservices.com/) and [Customer Data Platform](https://www.raptorservices.com/) to help you deliver personalized experiences across digital channels.
+The Raptor connector provides an integration with the [Raptor recommendation engine](https://raptorservices.com/en) and [Customer Data Platform](https://raptorservices.com/en) to help you deliver personalized experiences across digital channels.
 
 ### Visual editing
 
