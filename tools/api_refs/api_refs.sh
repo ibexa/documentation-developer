@@ -11,8 +11,7 @@ DXP_EDITION='experience'; # Edition from and for which the Reference is built; S
 DXP_VERSION="${DXP_VERSION:-6.0.*}"; # Version from and for which the Reference is built; can be overridden by the DXP_VERSION env var (e.g. v5.0.x-dev for a dev build)
 DXP_ADD_ONS=(cdp connector-raptor connector-quable mcp); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_FORBIDDEN_PACKAGES=(commerce cart checkout order-management payment shipping discounts discounts-codes shopping-list); # Commerce packages which must not be installed, as SaaS doesn't provide them, listed without their vendor "ibexa"
-REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
-REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
+REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file, including the decorators adapting the schema to SaaS
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
 OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
@@ -107,29 +106,31 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 fi;
 
 echo 'Dump REST OpenAPI schema… ';
-$PHP_BINARY bin/console ibexa:openapi --yaml \
-  | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/saas/images/cohesivo-logo.png'@" \
-> openapi.yaml;
-$PHP_BINARY bin/console ibexa:openapi \
-  | sed 's@"info": {@"info": {\n    "x-logo": {\n      "url": "https://doc.ibexa.co/en/saas/images/cohesivo-logo.png"\n    },@' \
-> openapi.json;
+$PHP_BINARY bin/console ibexa:openapi --yaml > openapi.yaml;
 echo 'Fix REST OpenAPI schema… ';
 $PHP_BINARY $OPENAPI_FIX;
-if grep -q 'x-badges' openapi.yaml openapi.json; then
-  echo 'Badges remain in the OpenAPI schema after fixing it.';
+echo 'Adapt REST OpenAPI schema to SaaS… ';
+mkdir -p saas;
+for extension in yaml json; do
+  redocly bundle openapi.yaml --config $REDOCLY_CONFIG --output saas/openapi.$extension;
+  if [ $? -ne 0 ]; then
+    echo "Redocly failed to bundle the OpenAPI schema as ${extension}.";
+    exit 7;
+  fi;
+done;
+if grep -q 'x-badges' saas/openapi.yaml saas/openapi.json; then
+  echo 'Badges remain in the OpenAPI schema after adapting it.';
   exit 5;
 fi;
 echo 'Build REST Reference… ';
-echo 'Generate Redocly config from template… ';
-cp $REDOCLY_CONFIG_TEMPLATE $REDOCLY_CONFIG;
-redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
+redocly build-docs saas/openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
 if [ $? -ne 0 ]; then
   echo 'Redocly failed to build the REST Reference.';
   exit 6;
 fi;
 echo 'Copy OpenAPI spec to documentation… ';
-cp openapi.yaml $REST_API_OPENAPI_FILE_YAML;
-cp openapi.json $REST_API_OPENAPI_FILE_JSON;
+cp saas/openapi.yaml $REST_API_OPENAPI_FILE_YAML;
+cp saas/openapi.json $REST_API_OPENAPI_FILE_JSON;
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';

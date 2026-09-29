@@ -30,3 +30,20 @@ openapi:
       url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/saas/docs/api/rest_api/rest_api_reference/openapi.yaml'
     - title: Download as JSON
       url: 'https://raw.githubusercontent.com/ibexa/documentation-developer/saas/docs/api/rest_api/rest_api_reference/openapi.json'
+plugins:
+  - ./redocly-saas-plugin.js
+# Applied by `redocly bundle` only, not by `redocly build-docs`: api_refs.sh bundles the schema before building the reference from it.
+decorators:
+  info-override:
+    title: Cohesivo SaaS REST API
+    # Empty so that the version isn't displayed next to the title.
+    version: ''
+    x-logo:
+      url: 'https://doc.ibexa.co/en/saas/images/cohesivo-logo.svg'
+  # Groups not available on SaaS.
+  filter-out:
+    property: tags
+    value: ['Corporate Account', 'Url Wildcard', 'User Token']
+  saas/remove-badges: on
+  saas/remove-unused-tags: on
+  remove-unused-components: on

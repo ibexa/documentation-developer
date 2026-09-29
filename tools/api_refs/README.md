@@ -12,16 +12,22 @@ Requires [`jq`](https://stedolan.github.io/jq/download/) and the [Redocly CLI](h
 by default, under `docs/api/rest_api/rest_api_reference/`.
 
 It installs a temporary Ibexa DXP, dumps its OpenAPI schema with `bin/console ibexa:openapi`,
-fixes the dumped schema with `tools/api_refs/openapi.php`, and renders the reference with Redocly.
+fixes the dumped schema with `tools/api_refs/openapi.php`, adapts it to SaaS with `redocly bundle`,
+and renders the reference with Redocly.
 
 The reference documents Ibexa DXP SaaS:
 
 - It's built from the _Experience_ edition and the add-ons listed in `DXP_ADD_ONS`.
   The build fails if a package listed in `DXP_FORBIDDEN_PACKAGES`, for example a _Commerce_ one, gets installed.
-- `tools/api_refs/openapi.php` removes the edition badges (`x-badges`) from the OpenAPI specification and the reference.
-  The build fails if any badge remains.
-- `tools/api_refs/openapi.php` removes the endpoints unavailable on SaaS (Corporate Account), their tag, and the schemas only they use.
-- `tools/api_refs/openapi.php` sets the title to "Cohesivo SaaS REST API", and removes the version.
+- The decorators in `tools/api_refs/redocly.yaml` adapt the OpenAPI specification to SaaS:
+    - `info-override` sets the title and the logo, and empties the version so that it isn't displayed.
+    - `filter-out` removes the groups (tags) unavailable on SaaS, for example Corporate Account, and their endpoints.
+    - `saas/remove-badges` removes the edition badges (`x-badges`). The build fails if any badge remains.
+    - `saas/remove-unused-tags` removes the tags left without endpoints, so that they aren't displayed as empty groups.
+    - `remove-unused-components` removes the schemas no longer used.
+
+  `saas/*` decorators are defined in `tools/api_refs/redocly-saas-plugin.js`.
+  Decorators are applied by `redocly bundle` only, not by `redocly build-docs`, which is why the reference is built from the bundled specification.
 - The build fails if Redocly fails.
 
 - For Composer, if you do not use a global authentication to retrieve _Experience_ edition, a path to an auth.json file can be given as first optional argument. For example:
@@ -55,7 +61,7 @@ In `tools/api_refs/api_refs.sh`:
 ### Templates
 
 The reference is rendered by Redocly from `tools/api_refs/redocly.hbs`,
-configured by `tools/api_refs/redocly.yaml`, which is copied from `tools/api_refs/redocly.yaml.template`.
+configured by `tools/api_refs/redocly.yaml`.
 Its download links point to the OpenAPI specification files on the `saas` branch.
 
 ## Advanced usage
