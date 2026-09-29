@@ -16,8 +16,8 @@ To access **Administration** panel, click the icon: ![Admin panel Icon](admin_pa
     "administration/admin_panel/url_management_admin_panel",
     "administration/admin_panel/languages_admin_panel",
     "administration/admin_panel/segments_admin_panel",
-    "administration/admin_panel/corporate_admin_panel",
     "administration/admin_panel/workflow_admin_panel",
+    "administration/admin_panel/recent_activity_admin_panel",
     "administration/admin_panel/system_information_admin_panel",
     "administration/configuration/configuration",
 ], columns=4) =]]

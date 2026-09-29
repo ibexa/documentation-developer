@@ -9,7 +9,7 @@ description: Read the content management product guide and learn how to create, 
 The term “content management” covers all the tasks that you need to perform to create, edit and present content to its intended audience.
 
 The content management model applied in [[= product_name =]] lies at the foundation of the entire system.
-A system that relies on roles and permissions controls access to content items and is granular and powerful enough to be used in managing user accounts, corporate accounts, products, or process definitions.
+A system that relies on roles and permissions controls access to content items and is granular and powerful enough to be used in managing user accounts, products, or process definitions.
 
 ## How does it work
 
@@ -195,15 +195,14 @@ While reviewing the details of each individual content item in your content tree
 Then you can set a permission that allows or denies users access to content items in a specific state.
 This setting isn't inherited.
 
-![Object states in content item’s Details](img/object_states.png)
+![Changing a content item’s Object state](img/object_states.png)
 
 ### User segments
 
 Although segments aren't meant to classify content, they could fall into this category, because their role is about targeting users, and not controlling their access to content.
 With segments, you can reach specific groups, or categories, of visitors with specific information about content or products that could be of their interest.
 For example, you can build Pages that contain different recommendations, depending on who is visiting them.
-
-![A segment group with two user segments](img/user_segments.png)
+![Segment groups with their user segments](img/user_segments.png)
 
 ## How to get started
 
