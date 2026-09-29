@@ -71,7 +71,7 @@ If no focal point is set, the keys are absent.
 The focal point has no effect on how the image is rendered by itself.
 You can use it in your front end, for example, to decide which part of the image stays visible when it's cropped.
 
-To keep the focal point when you update the field, include `additionalData` in the value that you send.
+To keep the focal point when you update the field through an API, include `additionalData` in the value that you send.
 
 ## Image variations
 

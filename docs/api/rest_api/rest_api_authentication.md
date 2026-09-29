@@ -106,7 +106,7 @@ curl https://example.cohesivo.app/api/ibexa/v2/user/current \
 The response describes the user that the request runs as, which is the quickest way to confirm
 which identity a token carries.
 
-Access tokens are valid for 15 minutes.
+Access tokens are valid for 15 minutes after their creation.
 
 ## Rate limits
 
