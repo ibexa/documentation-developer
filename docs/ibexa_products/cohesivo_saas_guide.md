@@ -21,7 +21,7 @@ There's no PHP to write, no Composer packages to install, no database scripts to
 
 ## Availability
 
-To access the [[= product_name =]] SaaS instance, [contact the sales team](https://www.ibexa.co/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
+To access the [[= product_name =]] SaaS instance, [contact the sales team](https://ibexa.ai/en/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
 The environment is ready for you within a single working day.
 Your administrator can then invite other members of the team, up to the number of seats included in the plan.
 
