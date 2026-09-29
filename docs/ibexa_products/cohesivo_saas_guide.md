@@ -23,7 +23,7 @@ There's no PHP to write, no Composer packages to install, no database scripts to
 
 To access the [[= product_name =]] SaaS instance, [contact the sales team](https://www.ibexa.co/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
 The environment is ready for you within a single working day.
-Your administrator can then invite other members of the team, up to the number of seats included in the plan.
+Your administrator can then [create accounts](users_admin_panel.md) for other members of the team, up to the number of seats included in the plan.
 
 To start using [[= product_name =]] SaaS, you need to purchase a product license.
 For more information, see [[[= product_name_base =]] license pricing](https://www.ibexa.co/products/pricing).
@@ -171,7 +171,7 @@ At the same time, individual customer profiles can contain sensitive data, so th
 
 [[= product_name_base =]] provisions and manages the [[= product_name =]] SaaS instance.
 The company receives administrator access during onboarding.
-It can then invite the remaining users up to the number of seats included in their licensing plan.
+It can then create accounts for the remaining users up to the number of seats included in their licensing plan.
 With [[= product_name =]] SaaS, the marketing team can add and edit content, and handle other configuration through the back office.
 The team can manage their websites through the Site Factory, share content and media assets between them where appropriate, and set user permissions to distinguish offerings and presences according to visitor type.
 Translation management tools help support the languages, while the available content and Page Builder templates allow the team to structure the sites without having to maintain any code.

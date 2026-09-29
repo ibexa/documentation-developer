@@ -160,8 +160,6 @@ nav:
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md
-        - User setup:
-          - Invitations: users/invitations.md
         - User authentication:
           - Passwords: users/passwords.md
         - User grouping:
