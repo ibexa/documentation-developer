@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Headless Page Builder test</title>
+    <style>
+        /* Front-end style */
+
+        body {
+            background: oklch(47.52% 0.0999 241.4deg);
+        }
+
+        header, footer {
+            color: white;
+            background: oklch(62.57% 0.0038 247.89deg);
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .layout {
+            margin: 10px 0;
+        }
+
+        #layout-2-columns {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 3px;
+        }
+
+        .landing-page__zone {
+            background: oklch(86.53% 0.0233 241.92deg);
+            border: 1px solid oklch(47.52% 0.0999 241.4deg);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .landing-page__block {
+            border: 1px solid black;
+            border-radius: 10px;
+            background: oklch(95.81% 0 0deg);
+            margin: 5px;
+            padding: 10px;
+        }
+
+        .landing-page__block .loader {
+            margin: 0;
+            padding: 0;
+        }
+
+        .block-contentlist ul {
+            margin: 0;
+            padding: 0;
+            list-style-position: inside;
+        }
+    </style>
+    <style>
+        /* Page Builder embedded style */
+
+        .m-page-builder__zone::after {
+            display: block;
+            content: attr(data-drag-drop-blocks-here);
+            text-align: center;
+            opacity: 67%;
+        }
+
+        .m-page-builder__zone--empty {
+            border: 1px dashed oklch(47.52% 0.0999 241.4deg);
+        }
+
+        .m-page-builder__zone--dragover {
+            border: 1px dashed white;
+        }
+
+        .droppable-placeholder {
+            opacity: 90%;
+            border: 1px dashed black;
+            border-radius: 10px;
+            background: oklch(95.81% 0 0deg);
+            margin: 5px;
+            padding: 10px;
+            content: '&nbsp;';
+        }
+
+        .c-pb-block-preview--is-dragging-out {
+            opacity: 75%;
+            border-style: dashed;
+        }
+
+        .c-pb-block-preview.ibexa-mark-invisible {
+            opacity: 50%;
+            border-style: dotted;
+        }
+
+        .c-pb-block-preview--highlighted {
+            animation-duration: 3s;
+            animation-name: c-pb-block-preview--highlighted;
+        }
+        @keyframes c-pb-block-preview--highlighted {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 100%;
+            }
+        }
+
+        .c-pb-block-preview .c-pb-block-preview__inner {
+            margin: 0;
+            padding: 0;
+        }
+
+        .landing-page__block:has(.c-pb-block-preview__inner--invalid) {
+            cursor: help;
+            background: orange;
+        }
+        .landing-page__block .c-pb-block-preview__inner--invalid::before {
+            content: '⚠';
+            display: block;
+            height: 10px;
+            line-height: 10px;
+        }
+
+        .c-pb-block-preview--unavailable {
+            cursor: not-allowed;
+            background: oklch(51.12% 0.1876 26.3deg);
+        }
+        .c-pb-block-preview--unavailable:hover:after {
+            position: absolute;
+            z-index: 1;
+            content: attr(data-block-no-availability);
+            white-space: pre-wrap;
+            font-family: sans-serif;
+            font-size: smaller;
+            color: oklch(51.12% 0.1876 26.3deg);
+            background: white;
+            border: 3px solid oklch(51.12% 0.1876 26.3deg);
+            border-radius: 3px;
+            padding: 1px 3px;
+        }
+
+        .c-pb-block-preview--is-removing {
+            animation-duration: 1s;
+            animation-name: c-pb-block-preview--is-removing;
+        }
+        @keyframes c-pb-block-preview--is-removing {
+            to {
+                opacity: 0;
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>Header</header>
+
+<main>
+    <div class="layout" id="layout-default" style="display: none;">
+        <div class="zone-0 zone-default landing-page__zone" data-ibexa-zone-id=""></div>
+    </div>
+    <div class="layout" id="layout-2-columns" style="display: none;">
+        <div class="zone-0 zone-left landing-page__zone"></div>
+        <div class="zone-1 zone-right landing-page__zone"></div>
+    </div>
+</main>
+
+<footer>Footer</footer>
+
+</body>
+
+<script>
+    const apiBaseUrl = 'https://www.example.com';
+
+    /**
+     * @param {string} layout - Layout identifier
+     */
+    const setLayout = (layout) => {
+        for (const layoutElement of document.getElementsByClassName('layout')) {
+            layoutElement.setAttribute('style', 'display: none;');
+        }
+        const layoutElement = document.getElementById('layout-' + layout);
+        if (layoutElement) {
+            layoutElement.removeAttribute('style');
+        } else {
+            console.error('No layout found for layout "' + layout + '".');
+        }
+    };
+
+    /**
+     * @typedef PageBuilderConfig
+     * @type {object}
+     * @property {string} pbOrigin - Page Builder origin, the full URL to the back office root with scheme, domain, and port.
+     * @property {Array.<object>} blocksConfig - the array of block configurations.
+     * @property {blockClickedEventHandler} blockClickedEventHandler - the function handling the ID of a clicked block.
+     * @property {unavailableBlockClickedEventHandler} unavailableBlockClickedEventHandler - the function handling the ID of a clicked unavailable block.
+     * @property {Array.<string>} highlightedBlockIds - the array of highlighted block IDs.
+     * @property {boolean} init - if the Page Builder is initializing and its config passed for the first time.
+     */
+    /**
+     * @callback blockClickedEventHandler
+     * @param {number} blockId - the ID of the clicked block
+     */
+    /**
+     * @callback unavailableBlockClickedEventHandler
+     * @param {number} blockId - the ID of the clicked unavailable block
+     */
+    /**
+     * @function renderZones
+     * @param {Array.<object>} zones
+     * @param {PageBuilderConfig} pageBuilderConfig
+     */
+    const renderZones = (zones, pageBuilderConfig = null) => {
+        for (const zone of zones) {
+            //console.log('zone', zone);
+            const zoneElement = document.getElementsByClassName('zone-' + zone.name.replace(/\s+/g, '-').toLowerCase())[0]; // Not conventional
+            if (!zoneElement) {
+                console.error('No zone element found for zone "' + zone.name + '".', zone);
+                continue;
+            }
+            if (!pageBuilderConfig || pageBuilderConfig.init) {
+                zoneElement.dataset.ibexaZoneId = zone.id;
+                zoneElement.classList.add(`landing-page__zone--${zone.id}`);
+                if (pageBuilderConfig) {
+                    zoneElement.classList.add('m-page-builder__zone');
+                    zoneElement.dataset.dragDropBlocksHere = window.translations['drag.drop.blocks.here'];
+                }
+            } else {
+                zoneElement.innerHTML = '';
+            }
+            if (zone.blocks.length) {
+                zoneElement.classList.remove('m-page-builder__zone--empty');
+                for (const block of zone.blocks) {
+                    //console.log('block', block);
+                    if (block.visible || pageBuilderConfig) {
+                        const blockElement = document.createElement('div');
+                        blockElement.dataset.ibexaBlockId = block.id;
+                        blockElement.setAttribute('title', block.name + (pageBuilderConfig ? ' (' + block.id + ') [' + block.type + ']' : ''));
+                        const innerHTML = getBlockInnerHTML(block, null !== pageBuilderConfig);
+                        if (!innerHTML) {
+                            console.error('Unable to render', block);
+                            continue;
+                        }
+                        blockElement.innerHTML = innerHTML;
+                        blockElement.classList.add('landing-page__block');
+                        blockElement.classList.add('block-' + block.type);
+                        blockElement.dataset.type = block.type;
+                        blockElement.dataset.name = block.name;
+                        if (block.class) {
+                            blockElement.classList.add(...block.class.split(' '));
+                        }
+                        if (block.style) {
+                            blockElement.setAttribute('style', block.style);
+                        }
+                        if (pageBuilderConfig) {
+                            blockElement.classList.add('c-pb-block-preview');
+                            if (null !== block.visible && false === block.visible) {
+                                blockElement.classList.add('ibexa-mark-invisible');
+                            }
+                            if (pageBuilderConfig.blockClickedEventHandler) {
+                                blockElement.addEventListener('click', (clickEvent) => {
+                                    pageBuilderConfig.blockClickedEventHandler(block.id);
+                                });
+                            }
+                            if (pageBuilderConfig.highlightedBlockIds && pageBuilderConfig.highlightedBlockIds.includes(block.id)) {
+                                console.log('Start highlighting block', block.id);
+                                blockElement.addEventListener('animationend', () => {
+                                    console.log('End highlighting block', block.id);
+                                    blockElement.classList.remove('c-pb-block-preview--highlighted');
+                                    //positionsUpdate();
+                                });
+                                blockElement.classList.add('c-pb-block-preview--highlighted');
+                            }
+                        }
+                        zoneElement.appendChild(blockElement);
+                    }
+                }
+            } else {
+                zoneElement.classList.add('m-page-builder__zone--empty');
+            }
+            if (pageBuilderConfig && pageBuilderConfig.blocksConfig && pageBuilderConfig.blocksConfig.length) {
+                const setBlockAsUnavailable = (blockElement) => {
+                    blockElement.classList.add('c-pb-block-preview--unavailable');
+                    if (pageBuilderConfig.unavailableBlockClickedEventHandler) {
+                        blockElement.dataset.blockNoAvailability = '🚫 ' + window.translations['block.no_availability.title'] + '. ' + window.translations['block.no_availability.content'] + '.\n\r 🗑 ' + window.translations['block.no_availability.delete'];
+                        blockElement.addEventListener('click', (clickEvent) => {
+                            pageBuilderConfig.unavailableBlockClickedEventHandler(blockElement.dataset.ibexaBlockId);
+                        });
+                    }
+                };
+                let existingBlockTypes = [];
+                for (const blockConfig of pageBuilderConfig.blocksConfig) {
+                    existingBlockTypes.push(blockConfig.type);
+                    if (!blockConfig.visible) {
+                        for (const unavailableBlockElement of document.getElementsByClassName('block-' + blockConfig.type)) {
+                            setBlockAsUnavailable(unavailableBlockElement);
+                        }
+                    }
+                }
+                for (const blockElement of document.querySelectorAll('.landing-page__block:not(.c-pb-block-preview--unavailable)')) {
+                    if (!existingBlockTypes.includes(blockElement.dataset.type)) {
+                        console.error(window.translations['block.unknown.type'].replace('%type%', blockElement.dataset.type).replace('%name%', blockElement.dataset.name));
+                        setBlockAsUnavailable(blockElement);
+                    }
+                }
+            }
+        }
+    };
+
+    /**
+     * @param {object} block
+     * @param {string} attributeName
+     * @returns {*|null}
+     */
+    const getBlockAttributeValue = (block, attributeName) => {
+        for (const attribute of block.attributes) {
+            if (attribute.name === attributeName) {
+                return attribute.value;
+            }
+        }
+        console.error('No attribute "' + attributeName + '" found for block "' + block.name + '" (' + block.id + ') [' + block.type + '].');
+        return null;
+    };
+
+    /**
+     * @param {object} block
+     * @param {boolean} pb - if the block is rendered inside the Page Builder
+     * @returns {string|null}
+     */
+    const getBlockInnerHTML = (block, pb = false) => {
+        switch (block.type) {
+            case 'tag': // </> Code
+                switch (block.view) {
+                    case 'source_code':
+                        return '<pre' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '><code>' + getBlockAttributeValue(block, 'content').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>';
+                    default:
+                        console.warn('Unhandled view "' + block.view + '" for block type "' + block.type + '". Using "default" view.');
+                    case 'default':
+                        let content = getBlockAttributeValue(block, 'content');
+                        if (!content) {
+                            if (pb) {
+                                content = '&nbsp;';
+                            } else {
+                                return null;
+                            }
+                        }
+                        return '<div' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '>' + content + '</div>';
+                }
+            case 'contentlist': // • Content List
+                let content = '';
+                let isInvalid = false;
+                const contentId = getBlockAttributeValue(block, 'contentId');
+                if (!contentId) {
+                    isInvalid = true;
+                    console.error('contentId is not set for block "' + block.name + '" (' + block.id + ').');
+                    if (pb) {
+                        if (window.translations && window.translations['block.attribute.invalid']) {
+                            content += (content.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>contentId</code>');
+                        }
+                    } else {
+                        return null;
+                    }
+                }
+                const contentTypes = getBlockAttributeValue(block, 'contentType')?.split(',') ?? [];
+                if (!contentTypes || !contentTypes.length) {
+                    isInvalid = true;
+                    console.error('No contentType selected for block "' + block.name + '" (' + block.id + ').');
+                    if (pb) {
+                        if (window.translations && window.translations['block.attribute.invalid']) {
+                            content += (content.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>contentType</code>');
+                        }
+                    } else {
+                        return null;
+                    }
+                }
+                const limit = getBlockAttributeValue(block, 'limit');
+                if (!limit || isNaN(limit) || limit < 0) {
+                    isInvalid = true;
+                    console.error('Invalid limit "' + limit + '" for block "' + block.name + '" (' + block.id + ').');
+                    if (pb) {
+                        if (window.translations && window.translations['block.attribute.invalid']) {
+                            content += (content.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>limit</code>');
+                        }
+                    } else {
+                        return null;
+                    }
+                }
+                if (isInvalid) {
+                    return '<p class="c-pb-block-preview__inner c-pb-block-preview__inner--invalid">' + content + '</p>';
+                }
+                getContentInfoList(contentId, contentTypes, limit)
+                    .then((contentInfoList) => {
+                        let innerHTML = '<div' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '>';
+                        if (contentInfoList.length > 0) {
+                            innerHTML += '<ul>';
+                            for (const contentInfo of contentInfoList) {
+                                innerHTML += '<li>' + contentInfo.Content.Name + '</li>';
+                            }
+                            innerHTML += '</ul>';
+                        }
+                        innerHTML += '</div>';
+                        const blockElement = document.querySelector(`[data-ibexa-block-id="${block.id}"]`);
+                        if (blockElement) {
+                            blockElement.innerHTML = innerHTML;
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching content list:', error);
+                    });
+                return '<p class="' + (pb ? 'c-pb-block-preview__inner ' : '') + 'loader">Loading content list…</p>';
+            case 'richtext': // ¶ Text
+                richTextToHtml5(getBlockAttributeValue(block, 'content'))
+                    .then((html5) => {
+                        const blockElement = document.querySelector(`[data-ibexa-block-id="${block.id}"]`);
+                        if (blockElement) {
+                            blockElement.innerHTML = '<div' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '>' + html5 + '</div>';
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error converting richtext to HTML5:', error);
+                    });
+                return '<p class="' + (pb ? 'c-pb-block-preview__inner ' : '') + 'loader">Converting XML to HTML…</p>';
+                break;
+            default:
+                console.error('No rendering for block type "' + block.type + '".');
+                if (pb) {
+                    return '<p' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '>Block &ldquo;' + block.name + '&rdquo; (' + block.id + ') [' + block.type + ']</p>';
+                }
+                return null;
+        }
+    };
+
+    /**
+     * @param {number} contentId - the parent content ID to fetch children from
+     * @param {Array.<string>} contentTypes - list of content type identifiers to filter by
+     * @param {number} limit - maximum number of content items to return
+     * @returns {Promise<Array.<object>>} - a promise that resolves to an array of content info objects
+     */
+    const getContentInfoList = async (contentId, contentTypes, limit) => {
+        let contentInfoList = [];
+        if (0 === limit) {
+            return contentInfoList;
+        }
+
+        let response;
+        let contentTypeHrefIdentifierMap = {};
+
+        // contentId -> mainLocationId
+        response = await fetch(`${apiBaseUrl}/api/ibexa/v2/content/objects/${contentId}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/vnd.ibexa.api.ContentInfo+json',
+            },
+        });
+
+        const parent = await response.json();
+
+        // mainLocationId -> children
+        response = await fetch(`${apiBaseUrl}${parent.Content.MainLocation._href}/children`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/vnd.ibexa.api.LocationList+json',
+            },
+        });
+
+        const children = await response.json();
+
+        // child -> contentId + ContentType
+        for (const child of children.LocationList.Location) {
+            response = await fetch(`${apiBaseUrl}${child._href}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': child['_media-type'],
+                },
+            });
+            const location = await response.json();
+            // ContentType._href -> ContentType.identifier
+            const contentTypeHref = location.Location.ContentInfo.Content.ContentType._href;
+            let contentTypeIdentifier;
+            if (undefined === contentTypeHrefIdentifierMap[contentTypeHref]) {
+                response = await fetch(`${apiBaseUrl}${contentTypeHref}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': child['_media-type'],
+                    },
+                });
+                const contentType = await response.json();
+                contentTypeIdentifier = contentType.ContentType.identifier;
+                contentTypeHrefIdentifierMap[contentTypeHref] = contentTypeIdentifier;
+            } else {
+                contentTypeIdentifier = contentTypeHrefIdentifierMap[contentTypeHref];
+            }
+            // Filter by content type identifier
+            if (contentTypes.includes(contentTypeIdentifier)) {
+                response = await fetch(`${apiBaseUrl}${contentTypeHref}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': child['_media-type'],
+                    },
+                });
+                contentInfoList.push(location.Location.ContentInfo);
+            }
+            // Loop until limit or no more children
+            if (contentInfoList.length >= limit) {
+                break;
+            }
+        }
+
+        return contentInfoList;
+    };
+
+    /**
+     * @param {string} docBook - the RichText DocBook XML string to convert to HTML5
+     * @returns {Promise<string>} - a promise that resolves to the converted HTML5 string
+     */
+    const richTextToHtml5 = async (docBook) => {
+        const response = await fetch(`${apiBaseUrl}/richtext-to-html5`, {
+            method: 'POST',
+            body: docBook,
+        });
+        return await response.text();
+    };
+
+    if (window.parent !== window) { // Inside the Page Builder iframe
+        const pbOrigin = 'https://admin.example.com';
+        const capabilities = [
+            'blocks.dnd',       // 100%
+            'blocks.geometry',  // 100%
+            'blocks.remove',    // 100%
+            'blocks.reveal',    //   100%
+            'blocks.select',    // 100%
+            'pointer.tracking', // 100%
+            'preview.params', //   0%
+        ];
+        const initInterval = 1500; // ms
+        const initRetries = -1; // -1 = infinite, 0 = no retry, 1 = 1 retry, etc.
+        const idleLogDelay = 500; // ms
+
+        const postMessageToPB = (type, data = {}) => {
+            window.parent.postMessage({
+                type: type,
+                data: data,
+            }, pbOrigin);
+            logMessage(type, data);
+        };
+        const logMessage = (type, data) => {
+            if (['APP:MOUSE_POSITION', 'PB:DRAG_OVER'].includes(type)) {
+                window.clearTimeout(window.logIdleTimer);
+                window.logIdleTimer = window.setTimeout(() => {
+                    console.log(type + ' (idle ' + idleLogDelay + 'ms)', data);
+                }, idleLogDelay);
+            } else {
+                console.log(type, data);
+            }
+        }
+
+        window.addEventListener('message', (messageEvent) => {
+            logMessage(messageEvent.data.type, messageEvent.data.data);
+            switch (messageEvent.data.type) {
+                case 'PB:INIT_MODE':
+                    window.clearInterval(window.initIntervalId);
+                    window.blocksConfig = messageEvent.data.data.blocksConfig;
+                    window.translations = messageEvent.data.data.translations;
+
+                    document.body.classList.add('c-pb-iframe__preview-body');
+                    setLayout(messageEvent.data.data.fieldValue.layout);
+                    renderZones(messageEvent.data.data.fieldValue.zones, {
+                        pbOrigin: pbOrigin,
+                        blocksConfig: window.blocksConfig,
+                        blockClickedEventHandler: blockClicked,
+                        unavailableBlockClickedEventHandler: blockRemoveRequest,
+                        highlightedBlockIds: [],
+                        init: true,
+                    });
+
+                    window.addEventListener('mousemove', (mouseEvent) => {
+                        window.mouseX = mouseEvent.clientX;
+                        window.mouseY = mouseEvent.clientY;
+                        postMessageToPB('APP:MOUSE_POSITION', {
+                            x: window.mouseX,
+                            y: window.mouseY,
+                        });
+                    });
+                    window.addEventListener('scrollend', (event) => {
+                        postMessageToPB('APP:SCROLL_END');
+                        positionsUpdate();
+                    });
+                    window.addEventListener('resize', (event) => {
+                        positionsUpdate();
+                    });
+
+                    positionsUpdate();
+                    break;
+                case 'PB:DRAG_START_PREVIEW':
+                    document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`).classList.add('c-pb-block-preview--is-dragging-out');
+                    break;
+                case 'PB:DRAG_END_PREVIEW':
+                    document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`).classList.remove('c-pb-block-preview--is-dragging-out');
+                    break;
+                case 'PB:DRAG_OVER':
+                    window.mouseX = messageEvent.data.data.x;
+                    window.mouseY = messageEvent.data.data.y;
+                    const hoveredElement = document.elementFromPoint(window.mouseX, window.mouseY);
+                    const hoveredZoneElement = hoveredElement.closest('.landing-page__zone');
+                    if (hoveredZoneElement) {
+                        hoveredZoneElement.classList.add('m-page-builder__zone--dragover');
+                    }
+                    for (const zoneElement of document.getElementsByClassName('m-page-builder__zone--dragover')) {
+                        if (zoneElement !== hoveredZoneElement) {
+                            zoneElement.classList.remove('m-page-builder__zone--dragover');
+                        }
+                    }
+                    let hoveredPlaceHolderElement = hoveredElement.closest('.droppable-placeholder');
+                    for (const placeHolderElement of document.getElementsByClassName('droppable-placeholder')) {
+                        if (placeHolderElement !== hoveredPlaceHolderElement) {
+                            placeHolderElement.remove();
+                        }
+                    }
+                    if (hoveredZoneElement && !hoveredPlaceHolderElement) {
+                        let hoveredBlockElement = hoveredElement.closest('.landing-page__block');
+                        if (!hoveredBlockElement) {
+                            hoveredBlockElement = document.elementFromPoint(window.mouseX, window.mouseY - 5).closest('.landing-page__block');
+                        }
+                        let newPlaceHolderElement = document.createElement('div');
+                        newPlaceHolderElement.classList.add('droppable-placeholder');
+                        if (hoveredBlockElement) {
+                            hoveredBlockElement.before(newPlaceHolderElement);
+                        } else {
+                            hoveredZoneElement.appendChild(newPlaceHolderElement);
+                        }
+                    }
+                    break;
+                case 'PB:DROP':
+                    for (const zoneElement of document.getElementsByClassName('m-page-builder__zone--dragover')) {
+                        zoneElement.classList.remove('m-page-builder__zone--dragover');
+                    }
+                    for (const placeHolderElement of document.getElementsByClassName('droppable-placeholder')) {
+                        placeHolderElement.remove();
+                    }
+                    const dropTargetElement = document.elementFromPoint(window.mouseX, window.mouseY);
+                    if (!dropTargetElement) {
+                        console.error('No drop target element found.', 'notification.headless_unresponsive_preview');
+                        return;
+                    }
+                    const dropTargetOffsetBlockElement = dropTargetElement.closest('.landing-page__block');
+                    let nextBlockId;
+                    if (dropTargetOffsetBlockElement) {
+                        nextBlockId = dropTargetOffsetBlockElement.dataset.ibexaBlockId;
+                    }
+                    const zoneElement = dropTargetElement.closest('.landing-page__zone');
+                    if (!zoneElement) {
+                        console.error('No zone element found. Drop target element: ', dropTargetElement, 'notification.headless_unresponsive_preview');
+                        return;
+                    }
+                    postMessageToPB('APP:DROP_RESPONSE', {
+                        zoneId: zoneElement.dataset.ibexaZoneId,
+                        nextBlockId: nextBlockId,
+                    });
+                    break;
+                case 'PB:SCROLL_BY':
+                    window.scrollBy(messageEvent.data.data);
+                    break;
+                case 'PB:SCROLL_INTO_BLOCK':
+                    const blockElementToScrollInto = document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`);
+                    if (blockElementToScrollInto) {
+                        blockElementToScrollInto.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    } else {
+                        console.error('No block element found for block ID "' + messageEvent.data.data.blockId + '".');
+                    }
+                    break;
+                case 'PB:UPDATE_FIELD_DATA':
+                    renderZones(messageEvent.data.data.fieldValue.zones, {
+                        pbOrigin: pbOrigin,
+                        blocksConfig: window.blocksConfig,
+                        blockClickedEventHandler: blockClicked,
+                        unavailableBlockClickedEventHandler: blockRemoveRequest,
+                        highlightedBlockIds: messageEvent.data.data.highlightedBlockIds,
+                        init: false,
+                    });
+                    positionsUpdate();
+                    break;
+                case 'PB:DISPATCH_EVENT':
+                    window.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, {detail: messageEvent.data.data.eventData}));
+                    break;
+                case 'PB:BLOCK_REMOVE':
+                    const blockId = messageEvent.data.data.blockId;
+                    const blockElementToRemove = document.querySelector(`[data-ibexa-block-id="${blockId}"]`);
+                    if (blockElementToRemove) {
+                        blockElementToRemove.addEventListener('animationend', () => {
+                            blockElementToRemove.remove();
+                            postMessageToPB('APP:BLOCK_REMOVE_RESPONSE', {
+                                blockId: blockId,
+                            });
+                        });
+                        blockElementToRemove.classList.add('c-pb-block-preview--is-removing');
+                    } else {
+                        console.error('No block element found for block ID "' + messageEvent.data.data.blockId + '".', 'notification.headless_unresponsive_preview');
+                    }
+                    break;
+                case 'PB:UPDATE_PREVIEW_PARAMS':
+                    //TODO?
+                    break;
+                default:
+                    // As you can't receive an optional message from undeclared capabilities, to receive an unsupported one has to be an error.
+                    // The unsupported received message reaching this is a mandatory message or one from a capability declared as supported.
+                    console.error('Unsupported message type "' + messageEvent.data.type + '".');
+                    console.log(messageEvent);
+            }
+        });
+
+        window.addEventListener('ibexa-active-block-clicked', (customEvent) => {
+            console.log(customEvent);
+        });
+        window.addEventListener('ibexa-post-update-blocks-preview', (customEvent) => {
+            console.log(customEvent);
+            setLayout(customEvent.detail.fieldValue.layout);
+            renderZones(customEvent.detail.fieldValue.zones, {
+                pbOrigin: pbOrigin,
+                blocksConfig: window.blocksConfig,
+                blockClickedEventHandler: blockClicked,
+                unavailableBlockClickedEventHandler: blockRemoveRequest,
+                highlightedBlockIds: [],
+                init: false,
+            });
+        });
+
+        let initRetry = 0;
+        window.initIntervalId = window.setInterval(() => {
+            postMessageToPB('APP:INITIALIZED', {
+                protocol: {supported: [1]},
+                capabilities: capabilities,
+            });
+            if (initRetries >= 0 && initRetry >= initRetries) {
+                window.clearInterval(window.initIntervalId);
+            }
+            initRetry++;
+        }, initInterval);
+
+        const positionsUpdate = () => {
+            let blocks = [];
+            for (const blockElement of document.getElementsByClassName('landing-page__block')) {
+                const blockId = blockElement.dataset.ibexaBlockId;
+                const blockRect = blockElement.getBoundingClientRect();
+                blocks.push({
+                    id: blockId,
+                    top: blockRect.top,
+                    left: blockRect.left,
+                    right: blockRect.right,
+                    bottom: blockRect.bottom,
+                    width: blockRect.width,
+                    height: blockRect.height,
+                });
+            }
+            postMessageToPB('APP:POSITIONS_UPDATE', {
+                blocks: blocks,
+            });
+        };
+        window.positionsUpdate = positionsUpdate; // TMP
+        const blockClicked = (blockId) => {
+            postMessageToPB('APP:BLOCK_CLICKED', {
+                blockId: blockId,
+            });
+        };
+        const blockRemoveRequest = (blockId) => {
+            postMessageToPB('APP:BLOCK_REMOVE_REQUEST', {
+                blockId: blockId,
+            });
+        };
+
+    } else { // Stand-alone front page
+        // ⚠ This is done purely on client side for demo purposes only.
+        // In real project, content rendering, API requests, as much as possible should be done on front-end server's side.
+
+        // For example: /page.html?contentId=52
+
+        const pageContentTypeIds = [42/*landing_page*/];
+        const searchParams = new URLSearchParams(window.location.search);
+
+        const renderContent = async (contentId) => {
+            try {
+                const response = await fetch(`${apiBaseUrl}/api/ibexa/v2/content/objects/${contentId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/vnd.ibexa.api.Content+json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Response status "' + response.status + '" is not OK.');
+                }
+
+                const result = await response.json();
+                const contentTypeId = parseInt(result.Content.ContentType._href.replace('/api/ibexa/v2/content/types/', ''));
+                if (pageContentTypeIds && !pageContentTypeIds.includes(contentTypeId)) {
+                    throw new Error('Wrong content type ' + contentTypeId + '.');
+                }
+                let fieldIsFound = false;
+                for (field of result.Content.CurrentVersion.Version.Fields.field) {
+                    if (field.fieldDefinitionIdentifier === 'page') {
+                        fieldIsFound = true;
+                        setLayout(field.fieldValue.layout);
+                        renderZones(field.fieldValue.zones);
+                        break;
+                    }
+                }
+                if (!fieldIsFound) {
+                    throw new Error('No field "page" found in content with ID ' + contentId + '.');
+                }
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        renderContent(searchParams.get('contentId'));
+    }
+</script>
+
+</html>

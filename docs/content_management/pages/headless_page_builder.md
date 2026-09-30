@@ -556,3 +556,81 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 | `c-pb-block-preview__inner--invalid`  | Yes     | The inner container of a block with invalid attribute value                                           |
 | `droppable-placeholder`               | Yes     | The placeholder element shown when a block is being dragged over a zone to indicate the drop position |
 | `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted as when newly dropped                                                     |
+
+### Static example
+
+The following example is just a demo in vanilla JS provided as-is to illustrate the Page Builder protocol usage.
+It can be used to observe the messages exchanged between the Page Builder and a front-end preview in the browser JS console.
+It doesn't support all the block types or views.
+
+- `page.html` is a static HTML page with some JS to handle the Page Builder protocol messages and basic CSS to show how conventional classes are for.
+  It works both as a standalone page and as a Page Builder preview.
+- `RichTextController.php` contains a controller that converts RichText to HTML.
+
+This example needs some setup on a development installation:
+
+- RichText to HTML conversion controller service TODO: on SaaS, how to do this?
+- Declaration of DXP URLs in `page.html` itself
+- Declaration of content types having a Landing Page `ibexa_landing_page` type field
+- Being served by a web server
+- Headless Page Builder setup in the DXP
+- Optionally, an additional layout `2-columns`
+- Optionally, an additional `source_code` block type view for Code (`tag`) block type
+
+??? note "`page.html`"
+
+    ``` php hl_lines="175 527 778"
+    [[= include_code('code_samples/page/headless/page.html', indent_level=1) =]]
+    ```
+
+Edit `page.html`:
+
+- Change the `apiBaseUrl` constant to declare the origin on which the REST API and the conversion controller are called.
+- Change the `pbOrigin` constant to declare the origin of the Page Builder.
+- Change the `pageContentTypeIds` to list content type IDs that have a Landing Page field. You can set this to `false` to skip the content type test.
+
+`page.html` supports two layouts:
+
+- "Default layout for Landing Page" (`default`)
+- Custom "Two columns layout" (`2-columns`)
+
+It supports the following block types and views:
+
+- Text (`richtext`) block type with `default` view
+- Code (`tag`) block type with `default` and `source_code` views
+- Content List (`contentlist`) block type with `default` view
+
+For local test, it can simply be served by [PHP built-in server](https://www.php.net/manual/en/features.commandline.webserver.php).
+For example, by running the following command in the directory where `page.html` is located and a free port:
+
+```bash
+php -S localhost:8081
+```
+
+Then, the Page Builder can be configured to use the corresponding `page.html` URL, for example in `config/packages/ibexa_page_builder.yaml`:
+
+``` yaml
+[[= include_code('code_samples/page/headless/config/packages/ibexa_page_builder.yaml', 10, 16) =]]
+```
+
+Optionally, declare additional layout `2-columns`, and a `source_code` view for `tag`:
+
+``` yaml
+[[= include_code('code_samples/page/headless/config/packages/ibexa_page_builder.yaml', 18, 37) =]]
+```
+
+Optionally, create two template files, even empty, to avoid errors when reaching a landing page through DXP front site. TODO: won't happen on SaaS.
+
+`page.html`'s `richTextToHtml5(docBook)` function use `RichTextController.php`. You can modify this function if you don't want to use this controller.
+
+??? note "RichTextController.php"
+
+    ```php
+    [[= include_code('code_samples/page/headless/src/Controller/RichTextController.php', indent_level=1) =]]
+    ```
+
+Inject the RichText to HTML converter service in the controller:
+
+``` yaml hl_lines="5"
+[[= include_code('code_samples/page/headless/config/services.yaml') =]]
+```
