@@ -12,9 +12,25 @@ Requires [`jq`](https://stedolan.github.io/jq/download/) and the [Redocly CLI](h
 by default, under `docs/api/rest_api/rest_api_reference/`.
 
 It installs a temporary Ibexa DXP, dumps its OpenAPI schema with `bin/console ibexa:openapi`,
-fixes the dumped schema with `tools/api_refs/openapi.php`, and renders the reference with Redocly.
+fixes the dumped schema with `tools/api_refs/openapi.php`, adapts it to SaaS with `redocly bundle`,
+and renders the reference with Redocly.
 
-- For Composer, if you do not use a global authentication to retrieve _Commerce_ edition, a path to an auth.json file can be given as first optional argument. For example:
+The reference documents Ibexa DXP SaaS:
+
+- It's built from the _Experience_ edition and the add-ons listed in `DXP_ADD_ONS`.
+  The build fails if a package listed in `DXP_FORBIDDEN_PACKAGES`, for example a _Commerce_ one, gets installed.
+- The decorators in `tools/api_refs/redocly.yaml` adapt the OpenAPI specification to SaaS:
+    - `info-override` sets the title and the logo, and empties the version so that it isn't displayed.
+    - `filter-out` removes the groups (tags) unavailable on SaaS, for example Corporate Account, and their endpoints.
+    - `saas/remove-badges` removes the edition badges (`x-badges`). The build fails if any badge remains.
+    - `saas/remove-unused-tags` removes the tags left without endpoints, so that they aren't displayed as empty groups.
+    - `remove-unused-components` removes the schemas no longer used.
+
+  `saas/*` decorators are defined in `tools/api_refs/redocly-saas-plugin.js`.
+  Decorators are applied by `redocly bundle` only, not by `redocly build-docs`, which is why the reference is built from the bundled specification.
+- The build fails if Redocly fails.
+
+- For Composer, if you do not use a global authentication to retrieve _Experience_ edition, a path to an auth.json file can be given as first optional argument. For example:
   ```
   tools/api_refs/api_refs.sh ~/www/ibexa-dxp-commerce/auth.json
   ```
@@ -36,14 +52,17 @@ git push
 
 In `tools/api_refs/api_refs.sh`:
 
-`DXP_VERSION` should target the version of Ibexa DXP Commerce corresponding to the doc's branch.
+`DXP_VERSION` should target the version of Ibexa DXP Experience corresponding to SaaS.
 
 `DXP_ADD_ONS` lists the packages installed on top of the edition so that their REST endpoints are dumped.
+
+`DXP_FORBIDDEN_PACKAGES` lists the packages unavailable on SaaS which mustn't be pulled in by the edition or the add-ons.
 
 ### Templates
 
 The reference is rendered by Redocly from `tools/api_refs/redocly.hbs`,
-configured by `tools/api_refs/redocly.yaml`, which is generated from `tools/api_refs/redocly.yaml.template`.
+configured by `tools/api_refs/redocly.yaml`.
+Its download links point to the OpenAPI specification files on the `saas` branch.
 
 ## Advanced usage
 
@@ -130,7 +149,7 @@ gh workflow run api_refs.yaml -f version=<tag> -f use_dev_version=<false|true> -
 `-f version=<tag>` to pass the Ibexa DXP version tag for which the API Reference is built.
 `-f use_dev_version=<false|true>` to use the released version designed by the tag, or to use the development version (`v5.0.x-dev`) for an incoming tag.
 `--ref <branch>` to use the `api_refs.yaml` workflow from a given branch instead of the default branch (`5.0`).
-`-f base_branch=<branch>` to use the `api_refs.sh` from a given branch and make a PR to that branch.
+`-f base_branch=<branch>` to use the `api_refs.sh` from a given branch and make a PR to that branch (default: `saas`).
 `-f work_branch=<branch>` to use a given target branch to commit the build and make a PR from that branch.
 `-f force=<false|true>` to force the commit on the target branch even if it already exists.
 
