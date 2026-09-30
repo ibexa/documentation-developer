@@ -1,7 +1,7 @@
 {
     "ViewInput": {
         "identifier": "TitleView",
-        "Query": {
+        "LocationQuery": {
             "Filter": {
                 "FullTextCriterion": "Platform",
                 "OR": {
