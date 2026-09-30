@@ -13,7 +13,6 @@ DXP_ADD_ONS=(cdp connector-raptor connector-quable mcp); # Packages not included
 DXP_FORBIDDEN_PACKAGES=(commerce cart checkout order-management payment shipping discounts discounts-codes shopping-list); # Commerce packages which must not be installed, as SaaS doesn't provide them, listed without their vendor "ibexa"
 REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file, including the decorators adapting the schema to SaaS
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
-OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid deprecation messages from the Symfony console when using PHP 8.2 or higher
 COMPOSER_BINARY='composer';
@@ -107,8 +106,6 @@ fi;
 
 echo 'Dump REST OpenAPI schema… ';
 $PHP_BINARY bin/console ibexa:openapi --yaml > openapi.yaml;
-echo 'Fix REST OpenAPI schema… ';
-$PHP_BINARY $OPENAPI_FIX;
 echo 'Adapt REST OpenAPI schema to SaaS… ';
 mkdir -p saas;
 for extension in yaml json; do
