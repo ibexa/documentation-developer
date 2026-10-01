@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -15,16 +15,18 @@ class RichTextController extends AbstractController
     }
 
     /**
-     * Convert RichText DocBook XML into HTML 5
+     * Convert RichText DocBook XML into HTML 5.
      *
-     * @param Request $request
-     * @return Response
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     #[Route('/richtext-to-html5')]
     public function richTextToHtml5(Request $request): Response
     {
         $xml = new \DOMDocument();
         $xml->loadXML($request->getContent());
+
         return new Response($this->richTextOutputConverter->convert($xml)->saveHTML());
     }
 }
