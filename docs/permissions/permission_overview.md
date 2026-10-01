@@ -34,23 +34,21 @@ The more role assignments and complex policies you add for a given user, the mor
 
 ## Permissions for custom controllers
 
-You can control access to a custom controller by implementing the `performAccessCheck()` method.
+You can control access to a custom controller by implementing the [`RestrictedControllerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Controller-RestrictedControllerInterface.html) interface directly or, for back office controllers, by extending the [`\Ibexa\Contracts\AdminUi\Controller\Controller`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Controller-Controller.html) class.
 
-In the following example the user doesn't have access to the controller unless they have the `section/view` policy:
+In the following example, the user doesn't have access to the controller unless they are [logged in]([[= symfony_doc =]]/security.html#checking-to-see-if-a-user-is-logged-in) and have the `section/view` policy.
+The controller uses [`AuthenticatedRememberedCheckTrait::performAccessCheck()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Controller-AuthenticatedRememberedCheckTrait.html#method_performAccessCheck), aliased as `traitPerformAccessCheck()`, for the login check.
 
-``` php {skip-validation}
-use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
-
-public function performAccessCheck(): void
-{
-    parent::performAccessCheck();
-    $this->denyAccessUnlessGranted(new Attribute('section', 'view'));
-}
+``` php hl_lines="14-16 18-23"
+[[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
 ```
+
+Back office controllers that extend `Ibexa\Contracts\AdminUi\Controller\Controller` already use `AuthenticatedRememberedCheckTrait`.
+To add a policy check, override `performAccessCheck()` and call `parent::performAccessCheck()` first, as in the [custom limitation check example](custom_policies.md#custom-limitation-check).
 
 `Attribute` accepts three arguments:
 
-- `module` is the policy module (for example,`content`)
+- `module` is the policy module (for example, `content`)
 - `function` is the function inside the module (for example, `read`)
 - `limitations` are optional limitations to check against. Here you can provide two keys:
     - `valueObject` is the object you want to check for, for example `ContentInfo`.
