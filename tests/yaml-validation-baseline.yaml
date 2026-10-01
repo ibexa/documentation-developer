@@ -323,11 +323,6 @@ ignoreErrors:
         hash: e6259973305f42d67138e6b99f919b28b817968c03743bc8533540a5d3453d12
         message: '~The child config "list" under "ibexa\.siteaccess" must be configured\: Available SiteAccess list~'
     -
-        path: docs/permissions/limitation_reference.md
-        line: 28
-        hash: c989b346cda18ba902f44d6dfb2aa9129a1da96c87fcd7be9df0f84710155ebc
-        message: '~Unable to parse at line 3 \(near "    ibexa\.api\.role\.limitation_type\.function_list\:"\)\.~'
-    -
         path: docs/product_catalog/enable_purchasing_products.md
         line: 106
         hash: 86fafb34287eaa9ce0fc52bec555e34c8e91f61778421cff734c8d42eb40e300
@@ -349,7 +344,7 @@ ignoreErrors:
         message: '~Unrecognized option "require_previous_session" under "security\.firewalls\.ezpublish_front\.form_login"\. Available options are "always_use_default_target_path", "check_path", "csrf_parameter", "csrf_token_id", "default_target_path", "enable_csrf", "failure_forward", "failure_handler", "failure_path", "failure_path_parameter", "form_only", "login_path", "password_parameter", "post_only", "provider", "remember_me", "success_handler", "target_path_parameter", "use_forward", "use_referer", "username_parameter"\.~'
     -
         path: docs/release_notes/ibexa_dxp_v5.0.md
-        line: 85
+        line: 84
         hash: 7d4a5637a3e036ebcdc5a4be8282aebe2bfcbaee3222981b81f739ae773111d0
         message: '~The child config "path" under "ibexa\.repositories\.\<repository\>\.mcp\.\<server\>" must be configured\: MCP server path~'
     -
