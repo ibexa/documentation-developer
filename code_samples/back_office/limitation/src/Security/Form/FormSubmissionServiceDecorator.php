@@ -16,10 +16,10 @@ use Ibexa\FormBuilder\FormSubmission\Gateway\FormSubmissionGateway;
 class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
 {
     public function __construct(
-        public readonly FormSubmissionServiceInterface $innerService,
-        public readonly PermissionResolver $permissionResolver,
-        public readonly ContentService $contentService,
-        public readonly FormSubmissionGateway $gateway,
+        readonly FormSubmissionServiceInterface $innerService,
+        readonly PermissionResolver $permissionResolver,
+        readonly ContentService $contentService,
+        readonly FormSubmissionGateway $gateway,
     ) {
     }
 
