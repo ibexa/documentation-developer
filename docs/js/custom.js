@@ -80,12 +80,13 @@ $(document).ready(function() {
             const versionList = document.querySelector('.switcher__list dl.versions');
             const olderVersions = document.querySelector('#older-versions');
 
-            // Remove latest version entry from the list
-            const latestVersion = [...versionList.querySelectorAll('dd')].find(v => v.textContent.trim() === 'latest');
-            latestVersion?.remove();
-
-            const allVersions = [...versionList.querySelectorAll('dd')];
             const versionName = (versionNode) => versionNode.textContent.trim();
+            const versionNodes = [...versionList.querySelectorAll('dd')];
+
+            // Remove latest version entry from the list
+            const latestVersion = versionNodes.find((versionNode) => versionName(versionNode) === 'latest');
+            latestVersion?.remove();
+            const allVersions = versionNodes.filter((versionNode) => versionNode !== latestVersion);
 
             // Order: SaaS first, then supported versions, then EOL versions at the bottom
             const saasVersions = allVersions.filter((versionNode) => versionName(versionNode) === 'saas');
@@ -101,10 +102,9 @@ $(document).ready(function() {
                 versionNode.hidden = true;
             });
 
-            allVersions
-                .forEach((versionNode) => {
-                    versionNode.querySelector('a').textContent = versionLabels[versionName(versionNode)] ?? versionName(versionNode);
-                });
+            allVersions.forEach((versionNode) => {
+                versionNode.querySelector('a').textContent = versionLabels[versionName(versionNode)] ?? versionName(versionNode);
+            });
 
             olderVersions.addEventListener('click', (event) => {
                 event.stopPropagation();
