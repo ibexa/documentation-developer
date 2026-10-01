@@ -25,6 +25,8 @@ As this is a generic limitation, you can configure your custom limitations to us
 Out of the box FunctionList uses it in the following way:
 
 ``` yaml
+services:
+
     # FunctionList is an ezjscore limitation, it only applies to ezjscore policies not used by
     # API/platform stack, so configure to use Blocking limitation to avoid LimitationNotFoundException
     ibexa.api.role.limitation_type.function_list:
