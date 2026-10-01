@@ -23,7 +23,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Translations management
 
-- Added a **Benefits** section in the [Translations management produst guide](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management_guide/)
+- Added a [Benefits](https://doc.ibexa.co/en/latest/multisite/translations_management/translations_management_guide/#benefits) section in the Translations management product guide
 
 ### Users
 
