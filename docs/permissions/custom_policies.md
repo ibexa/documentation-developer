@@ -262,7 +262,7 @@ Check if current user has this custom limitation set to true from a custom contr
 ```
 
 The `siteaccess_group_whitelist` route default limits the route to the back office SiteAccess group.
-For more information, see [Request lifecycle](../infrastructure_and_maintenance/request_lifecycle.md#siteaccess_group_whitelist).
+For more information, see [Request lifecycle](request_lifecycle.md#siteaccess_group_whitelist).
 
 ## Restrict access to form submissions
 
