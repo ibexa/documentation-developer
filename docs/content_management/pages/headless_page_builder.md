@@ -557,6 +557,14 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 | `droppable-placeholder`               | Yes     | The placeholder element shown when a block is being dragged over a zone to indicate the drop position |
 | `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted as when newly dropped                                                     |
 
+## Implementation helpers
+
+### Frontend kit(s)
+
+TODO: keep up-to-date, incoming npm packages, their installation process, maybe usage examples and integration guidelines
+
+TODO: On ibexa/frontend-kit, packages for several frameworks: [React](https://react.dev/), [Angular](https://angular.dev/), and [Vue](https://vuejs.org/).
+
 ### Static example
 
 The following example is just a demo in vanilla JS provided as-is to illustrate the Page Builder protocol usage.
