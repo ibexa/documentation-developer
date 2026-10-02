@@ -40,3 +40,9 @@ With the MCP Servers feature, you can:
 
 MCP servers are defined specifically for each [repository](repository_configuration.md) and assigned to individual [SiteAccesses](siteaccess.md) scopes.
 This way you can build flexible configurations that match different contexts.
+
+## Built-in MCP servers
+
+### DIL MCP server
+
+The [Data Intelligence Layer](data_intelligence_layer.md) MCP server is an already set up server that expose tools to access metrics about content so an AI agent can work on content quality or translation coverage.
