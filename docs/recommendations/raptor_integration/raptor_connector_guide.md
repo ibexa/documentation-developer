@@ -5,7 +5,7 @@ month_change: false
 
 # [[= product_name_cdp_base =]] integration product guide
 
-Discover [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations for your visitors.
+Discover [[[= product_name_cdp_base =]]](https://raptorservices.com/en) integration - an add-on that is focused on recommendations for your visitors.
 
 ## What is [[= product_name_cdp_base =]] integration
 
