@@ -21,12 +21,12 @@ There's no PHP to write, no Composer packages to install, no database scripts to
 
 ## Availability
 
-To access the [[= product_name =]] SaaS instance, [contact the sales team](https://ibexa.ai/en/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
+To access the [[= product_name =]] SaaS instance, [contact the sales team](https://cohesivo.com/en/about-us/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
 The environment is ready for you within a single working day.
 Your administrator can then [create accounts](users_admin_panel.md) for other members of the team, up to the number of seats included in the plan.
 
 To start using [[= product_name =]] SaaS, you need to purchase a product license.
-For more information, see [[[= product_name_base =]] license pricing](https://ibexa.ai/en/plans).
+For more information, see [[[= product_name_base =]] license pricing](https://cohesivo.com/en/platform/pricing).
 
 ## How does [[= product_name =]] SaaS work?
 
