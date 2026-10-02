@@ -19,6 +19,11 @@ You can configure everything that the back office exposes, including content typ
 
 There's no PHP to write, no Composer packages to install, no database scripts to run, and no server or filesystem access.
 
+!!! note "[[= product_name =]] Saas vs. v6.0"
+
+    [[= product_name =]] SaaS is not the [[= product_name =]] v6.0 release.
+    [[= product_name =]] v6.0 is a separate product offering and is expected to be available soon.
+
 ## Availability
 
 To access the [[= product_name =]] SaaS instance, [contact the sales team](https://www.ibexa.co/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
