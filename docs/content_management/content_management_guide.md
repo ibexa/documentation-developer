@@ -1,5 +1,6 @@
 ---
 description: Read the content management product guide and learn how to create, modify, and display information to the target audience.
+month_change: true
 ---
 
 # Content management product guide
@@ -207,6 +208,9 @@ This setting isn't inherited.
 Although segments aren't meant to classify content, they could fall into this category, because their role is about targeting users, and not controlling their access to content.
 With segments, you can reach specific groups, or categories, of visitors with specific information about content or products that could be of their interest.
 For example, you can build Pages that contain different recommendations, depending on who is visiting them.
+
+Each segment, also referred to as an audience, contains metadata such as size, description, tags, and last update timestamp, synced from your CDP.
+This metadata is available in the [Segments view](segments_admin_panel.md#segments-view), and while configuring the [Targeting block](targeting_block.md) in Page Builder.
 
 ![A segment group with two user segments](img/user_segments.png)
 
