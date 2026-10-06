@@ -512,11 +512,17 @@ The Page Builder responses with a `PB:UPDATE_FIELD_DATA`.
 ## Guidelines for front-end implementation
 
 The protocol documentation is illustrated with Vanilla JS examples.
-You should use a framework to implement the front-end, like React or Next.js.
+You should use a JS framework to implement the front-end.
 
-TODO: A React front-end kit should be available through npm package in the future. What about Next.js?
+TODO: React, Angular, and Vue front-end kits should be available through npm packages in the future. What about the Next.js used for a demo?
+
+Pure frontend and Page Builder preview should share most code as possible.
+It could be a same controller called in a different ways to know which content to render on frontend or if it's framed into a Page Builder preview.
 
 Each block type view should be implemented as a component so you can easily add new block types and new views.
+
+TODO: Text block type (`richtext`) need a conversion from [RichText DocBook XML](richtextfield.md#custom-docbook-format) to HTML.
+TODO: You shouldn't implement this conversion fully on your own. Use Ibexa library, extend a DocBook library, use the XSL files, . For more information see [RichText to HTML helpers](#richtext-to-html-conversion)
 
 CSS classes can be named however you wish, but it may be advisable to follow certain conventions to help the reuse of existing style sheets.
 
@@ -529,8 +535,6 @@ For example, the convention is that when the front-end is used in the Page Build
 #### Zones
 
 The always present `data-ibexa-zone-id` attribute (`zoneElement.dataset.ibexaZoneId`) contains the zone ID.
-
-`data-ibexa-zone-id`
 
 | Class name                       | PB only | Description                                         |
 |----------------------------------|---------|-----------------------------------------------------|
@@ -563,7 +567,13 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 
 TODO: keep up-to-date, incoming npm packages, their installation process, maybe usage examples and integration guidelines
 
-TODO: On ibexa/frontend-kit, packages for several frameworks: [React](https://react.dev/), [Angular](https://angular.dev/), and [Vue](https://vuejs.org/).
+TODO: On ibexa/frontend-kit, packages for several frameworks: [React](https://react.dev/), [Angular](https://angular.dev/), and [Vue](https://vuejs.org/). What do they provide exactly?
+
+### RichText to HTML conversion
+
+TODO: The frontend kits provide converters. Here way to implement your own:
+
+TODO: To provide the .xsl files is enough to implement own converter.
 
 ### Static example
 
@@ -637,7 +647,7 @@ Optionally, create two template files, even empty, to avoid errors when reaching
     [[= include_code('code_samples/page/headless/src/Controller/RichTextController.php', indent_level=1) =]]
     ```
 
-Inject the RichText to HTML converter service in the controller:
+Inject the RichText to HTML converter service `ibexa.richtext.converter.output.xhtml5` in the controller:
 
 ``` yaml hl_lines="5"
 [[= include_code('code_samples/page/headless/config/services.yaml') =]]
