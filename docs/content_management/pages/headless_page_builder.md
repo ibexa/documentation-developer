@@ -28,11 +28,6 @@ ibexa:
                       preview_url: 'https://frontend.example.com/page-builder-preview' # The front-end URL loaded by the Page Builder's iframe
 ```
 
-Then, edit the content types with Landing page field type that are used headless,
-edit that field, and check the option "Edit in the headless Page Builder".
-
-![Checked "Edit in the headless Page Builder"](headless-page-field-edit.png)
-
 ## Configuration (SaaS)
 
 TODO: Saas only, remove from on-premise documentation
