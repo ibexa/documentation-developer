@@ -10,8 +10,6 @@ The Page Builder can preview pages hosted outside the DXP.
 
 You provide a single URL for the front-end page and let it communicate with the Page Builder using the JavaScript message API.
 
-The usage of this front-end page instead of the DXP one is set per content type. TODO: This is on-prem only, SaaS don't have the choice
-
 ## Configuration (on-prem)
 
 TODO: on-premise only, remove from SaaS documentation
