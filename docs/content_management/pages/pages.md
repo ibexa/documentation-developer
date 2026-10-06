@@ -10,4 +10,5 @@ Pages are block-based special types of content that editors can create and modif
 [[= cards([
     "content_management/pages/page_builder_guide",
     "content_management/pages/page_blocks",
+    "content_management/pages/headless_page_builder",
 ], columns=3) =]]
