@@ -26,12 +26,12 @@ There's no PHP to write, no Composer packages to install, no database scripts to
 
 ## Availability
 
-To access the [[= product_name =]] SaaS instance, [contact the sales team](https://www.ibexa.co/about-ibexa/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
+To access the [[= product_name =]] SaaS instance, [contact the sales team](https://cohesivo.com/en/about-us/contact-us), who prepare a demo environment, and later provision the first account with administrator permissions during onboarding.
 The environment is ready for you within a single working day.
 Your administrator can then [create accounts](users_admin_panel.md) for other members of the team, up to the number of seats included in the plan.
 
 To start using [[= product_name =]] SaaS, you need to purchase a product license.
-For more information, see [[[= product_name_base =]] license pricing](https://www.ibexa.co/products/pricing).
+For more information, see [[[= product_name_base =]] license pricing](https://cohesivo.com/en/platform/pricing).
 
 ## How does [[= product_name =]] SaaS work?
 
@@ -84,12 +84,12 @@ Translate your content with [language management tools]([[= user_doc =]]/content
 ### Product catalog
 
 Use the built-in Product Information Management (PIM) capability to manage products and their specifications, attributes, variants, assets, pricing, availability, categories, catalogs, and completeness scoring.
-You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to a PIM platform, such as [[[= pim_product_name =]]](https://www.quable.com/en).
+You can use the product catalog independently within [[= product_name =]] SaaS, or connect it to a PIM platform, such as [[[= pim_product_name =]]](https://quable.com/en).
 When the [[= pim_product_name =]] connector is enabled, you can view, select and embed its products in [[= product_name =]] SaaS, while you handle product management operations in [[= pim_product_name =]].
 
 ### [[= product_name_cdp =]] integration
 
-The Raptor connector provides an integration with the [Raptor recommendation engine](https://www.raptorservices.com/) and [Customer Data Platform](https://www.raptorservices.com/) to help you deliver personalized experiences across digital channels.
+The Raptor connector provides an integration with the [Raptor recommendation engine](https://raptorservices.com/en) and [Customer Data Platform](https://raptorservices.com/en) to help you deliver personalized experiences across digital channels.
 
 ### Visual editing
 
