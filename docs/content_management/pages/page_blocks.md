@@ -13,9 +13,9 @@ You can change the name, category, icon, or availability of a block type.
 
 - Navigate to **Administration** > **SiteAccess Configuration**
 - Click **Page Builder Overrides**
-- In the **Block overrides** section, configure an override in the blank line
-- Click the **Add** button if you need to configure more overrides
-- Use the trash icon at the end of the line if you need to remove an override
-- Click the **Save** button when ready
+- In the **Block overrides** section, enter the override details in the empty row.
+- Click **Add** to add another override.
+- Use the trash icon at the end of a row to remove an override.
+- Click **Save** to apply your changes.
 
 ![Screenshot of tag block made unavailable](block_overrides.png "Code block type (`tag`) made unavailable")
