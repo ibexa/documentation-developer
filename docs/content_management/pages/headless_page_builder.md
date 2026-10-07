@@ -1,14 +1,14 @@
 ---
-description: The Page Builder can preview pages outside the DXP.
+description: Preview and edit in Page Builder using your frontend.
 edition: experience
 month_change: true
 ---
 
-# Headless front-end preview in Page Builder
+# Headless frontend preview in Page Builder
 
-The Page Builder can preview pages hosted outside the DXP.
+The Page Builder can preview landing pages rendered by your frontend application.
 
-You provide a single URL for the front-end page and let it communicate with the Page Builder using the JavaScript message API.
+You provide a single URL for the frontend page and let it communicate with the Page Builder using the JavaScript message API.
 
 ## Configuration (on-prem)
 
@@ -28,11 +28,9 @@ ibexa:
 
 ## Configuration (SaaS)
 
-TODO: Saas only, remove from on-premise documentation
-
-Navigate to **Administration** > **SiteAccess Configuration** > **Headless** (`/siteaccess-config/default/headless`)
-
-TODO: Should `admin` SiteAccess be picked instead of staying on `default`? (`/siteaccess-config/admin/headless`)
+- Navigate to **Administration** > **SiteAccess Configuration**
+- Choose the SiteAccess for which you want to set up a preview. Choose none to set up a default preview for SiteAccesses that do not have a specific preview.
+- Then, click **Headless**
 
 Below the description, enable the **Headless mode**, fill in the **Page Builder preview URL**, and **Save** the configuration.
 
@@ -40,14 +38,14 @@ Below the description, enable the **Headless mode**, fill in the **Page Builder 
 
 ## Communication protocol
 
-The front-end resource targeted by `base_url` is loaded by the Page Builder when editing a content having a Landing page field "Edit in the headless Page Builder" enabled.
-This resource must follow a protocol to communicate with the Page Builder from the iframe is loaded in.
+The specified frontend resource is loaded by the Page Builder when you edit content with a Landing page field.
+This resource must follow a protocol to communicate with the Page Builder from within the iframe in which it's loaded.
 This protocol is based on the JavaScript message API.
 
-The Page Builder sends messages to the framed front-end resource.
-They can be received by listening the [message event](https://developer.mozilla.org/en-US/docs/Web/API/EventSource/message_event).
+The Page Builder sends messages to the frontend resource in the iframe.
+You can receive them by listening for the [message event](https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event).
 
-The front-end resource sends back messages to the Page Builder.
+The frontend resource sends back messages to the Page Builder.
 They can be sent using the [`postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.
 The target origin of those messages must be the Page Builder's origin.
 
@@ -56,7 +54,7 @@ const pbOrigin = 'https://admin.example.com/';
 window.parent.postMessage(message, pbOrigin);
 ```
 
-Those messages are JS objects with the following structure:
+These messages are JavaScript objects with the following structure:
 
 ```js
 let message = {
@@ -65,24 +63,26 @@ let message = {
 };
 ```
 
-The `PREFIX` sort message types by their sender.
-`PB:` for messages sent by the Page Builder, `APP:` for messages sent by the front-end resource.
+The `PREFIX` identifies the sender of each message type:
+
+- `PB:` for messages sent by the Page Builder
+- `APP:` for messages sent by the frontend resource
 
 The data depends on the message type.
 
-Message types are then sorted by capabilities.
-So the front-end can declare which capabilities it supports and the Page Builder can refrain from sending or expecting unsupported messages.
+Message types are also grouped by capability.
+The frontend can declare which capabilities it supports, so the Page Builder can avoid sending or expecting unsupported messages.
 
 ### Message types and capabilities
 
-The handshake and core messages are mandatory and not related to an optional capability.
+Handshake and core messages are mandatory and don't depend on optional capabilities.
 
 | Capability         | Message type                                                                                | Description                          |
 |--------------------|---------------------------------------------------------------------------------------------|--------------------------------------|
 | (handshake)        | [`APP:INITIALIZED`](#communication-initialization)                                          | Establish protocol and capabilities. |
 | (handshake)        | [`PB:INIT_MODE`](#communication-initialization)                                             | Confirm protocol and draft info.     |
 | (core)             | [`PB:UPDATE_FIELD_DATA`](#on-field-update)                                                  | Send updated field data.             |
-| (core)             | [`PB:DISPATCH_EVENT`](#re-dispatching-events)                                               | Re-dispatch a front-end event.       |
+| (core)             | [`PB:DISPATCH_EVENT`](#re-dispatching-events)                                               | Re-dispatch a frontend event.       |
 | `blocks.dnd`       | [`PB:DRAG_START_PREVIEW`](#drag-and-drop-blocksdnd)                                         | Existing block drag started.         |
 | `blocks.dnd`       | [`PB:DRAG_OVER`](#drag-and-drop-blocksdnd)                                                  | Mouse position during drag.          |
 | `blocks.dnd`       | [`PB:DRAG_END_PREVIEW`](#drag-and-drop-blocksdnd)                                           | Existing block drag ended.           |
@@ -95,13 +95,13 @@ The handshake and core messages are mandatory and not related to an optional cap
 | `blocks.remove`    | [`APP:BLOCK_REMOVE_RESPONSE`](#block-removal-blocksremove)                                  | Confirm removal.                     |
 | `blocks.remove`    | [`APP:BLOCK_REMOVE_REQUEST`](#block-removal-blocksremove)                                   | Request block removal.               |
 | `blocks.reveal`    | [`PB:SCROLL_INTO_BLOCK`](#block-reveal-blocksreveal)                                        | Scroll a block into view.            |
-| `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | TODO: Block clicked.                 |
+| `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | Block clicked.                       |
 | `pointer.tracking` | [`APP:MOUSE_POSITION`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)   | Report mouse position.               |
 | `preview.params`   | [`PB:UPDATE_PREVIEW_PARAMS`](#preview-parameters-update-previewparams)                      | TODO: Update preview params.         |
 
 ### Communication initialization
 
-First, the front-end send an initialization message to the Page Builder, indicating which version of the protocol and which capabilities are supported:
+First, the frontend sends an initialization message to the Page Builder, indicating which protocol versions and capabilities it supports:
 
 ```js
 const initializedMessage = {
@@ -121,17 +121,17 @@ const initializedMessage = {
 ```
 
 The Page Builder replies with a confirmation message.
-The initialization message might be sent several times until the Page Builder replies to it.
+The frontend may send the initialization message several times until the Page Builder replies.
 
 This confirmation `data` contains:
 
-- the actual version of the protocol used (`protocol.version`) and the other supported versions (`protocol.supported`)
+- the protocol version in use (`protocol.version`) and the other supported versions (`protocol.supported`)
 - a list of all available capabilities (`capabilities`)
-- a list of the existing block types, their attributes, and their configuration (`blocksConfig`) - It contains all the block types but mark as not visible the blocks not available for this field.
-- information about the actually edited content draft (`intentParameters`)
-- the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
+- all block types, their attributes, and their configuration (`blocksConfig`) - types unavailable for this field are marked as not visible
+- information about the content draft currently being edited (`intentParameters`)
+- the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks
 - a block-ID-to-name mapping (`blocksIdMap`)
-- a list of translations for the front-end to use (`translations`)
+- a list of translations for the frontend to use (`translations`)
 
 ```json
 {
@@ -233,12 +233,12 @@ This confirmation `data` contains:
 
 ### On field update
 
-The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the front-end resource when the Landing page field value is updated.
+The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the frontend resource when the Landing page field value is updated.
 
-Its data contains the new value of the field with the following structure:
+Its data contains the field's new value, with the following structure:
 
-- Always, the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
-  <br>For example, only `fieldValue` is sent when manipulating the [timeline]([[= user_doc =]]/content_management/schedule_publishing/#timeline)![](page_builder_toolbartimelinetoggler.png){style="display:inline;width:27px;vertical-align:middle;"}.
+- Always included: the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks.
+  <br>For example, only `fieldValue` is sent when you use the [timeline]([[= user_doc =]]/content_management/schedule_publishing/#timeline)![Timeline toggler icon](page_builder_toolbartimelinetoggler.png){style="display:inline;width:27px;vertical-align:middle;"}.
 - Optionally, a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
 - Optionally, a block-ID-to-name mapping (`blocksIdMap`)
 - Optionally, a list of IDs from the new blocks that have been added (`highlightedBlockIds`)
@@ -275,9 +275,9 @@ window.addEventListener('message', (messageEvent) => {
 
 #### Available events
 
-- `ibexa-active-block-clicked`: It confirms `APP:BLOCK_CLICKED` have been received. It has no data.
-- `ibexa-post-update-blocks-preview`: It's sent when the timeline is used.
-    - `fieldValue`: The same as in [`PB:UPDATE_FIELD_DATA`](#on-field-update) TODO: Why when timeline move to a revelation time, the block is still invisible here while made visible in PB:UPDATE_FIELD_DATA?
+- `ibexa-active-block-clicked`: Confirms that `APP:BLOCK_CLICKED` was received. It has no data.
+- `ibexa-post-update-blocks-preview`: Sent when the timeline is used.
+    - `fieldValue`: The same as in [`PB:UPDATE_FIELD_DATA`](#on-field-update)
     - `blockIds`: A list of all the block IDs
     - `blocksMaps`: A map of block config per block ID
 
@@ -290,10 +290,10 @@ window.addEventListener('ibexa-post-update-blocks-preview', (customEvent) => {
 
 ### Geometry and pointer tracking (`blocks.geometry` and `pointer.tracking`)
 
-The pointer tracking and the geometry helps the Page Builder to position the block editing menus above the front-end preview.
-Such menu is a `.c-pb-headless-preview-menu` element positioned by the Page Builder from its DOM above the preview `iframe`.
+Pointer tracking and geometry help the Page Builder position block-editing menus over the frontend preview.
+These menus are `.c-pb-headless-preview-menu` elements positioned by the Page Builder in its DOM above the preview `iframe`.
 
-`APP:MOUSE_POSITION` message is sent from the front-end preview to the Page Builder to declare the actual position of the mouse.
+The frontend preview sends the `APP:MOUSE_POSITION` message to report the mouse's current position to the Page Builder.
 
 ```js
 window.addEventListener('mousemove', (mouseEvent) => {
@@ -307,9 +307,9 @@ window.addEventListener('mousemove', (mouseEvent) => {
 });
 ```
 
-`APP:POSITIONS_UPDATE` message is sent from the front-end preview to the Page Builder to declare the actual position of the blocks.
-Its data contains a list of objects with block IDs, their positions, and dimensions in the front-end preview.
-This format is close to [`getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) method.
+The frontend preview sends the `APP:POSITIONS_UPDATE` message to report the blocks' current positions to the Page Builder.
+Its data contains a list of objects with block IDs, positions, and dimensions in the frontend preview.
+This format is similar to the object returned by the [`getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) method.
 
 ```js
 const positionsUpdate = () => {
@@ -336,11 +336,9 @@ const positionsUpdate = () => {
 };
 ```
 
-This message should be sent each time the positions of the blocks change.
-It should be sent after updating the blocks, like in response to [`PB:UPDATE_FIELD_DATA`](#on-field-update).
-It should be sent after scrolling or resizing.
+Send this message whenever the positions of the blocks change, for example, after updating the blocks in response to [`PB:UPDATE_FIELD_DATA`](#on-field-update), scrolling, or resizing.
 
-`APP:SCROLL_END` message is sent from the front-end preview to the Page Builder to notify that a scroll operation has ended.
+The frontend preview sends the `APP:SCROLL_END` message to notify the Page Builder that a scroll operation has ended.
 It has no data.
 
 ```js
@@ -368,15 +366,15 @@ TODO: Is there other events that should trigger a positions update?
 
 ### Drag and drop (`blocks.dnd`)
 
-`PB:DRAG_OVER` message is sent from the Page Builder to the front-end preview to give the position of the mouse while a (new or existing) block is dragged.
+The Page Builder sends the `PB:DRAG_OVER` message to the frontend preview to report the mouse position while a new or existing block is being dragged.
 
 !!! tip "Mouse tracking"
 
-    - `APP:MOUSE_POSITION` helps the Page Builder to know where the mouse is when moved over the preview. It's associated to `APP:POSITIONS_UPDATE` to know if a preview block is hovered.
-    - `PB:DRAG_OVER` helps the front-end to know where the mouse is when a block is dragged over the preview.
+    - `APP:MOUSE_POSITION` helps the Page Builder track the mouse as it moves over the preview. Together with `APP:POSITIONS_UPDATE`, it lets the Page Builder determine whether the pointer is over a preview block.
+    - `PB:DRAG_OVER` helps the frontend track the mouse as a block is dragged over the preview.
 
-`PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` are sent at the beginning and at the end of a drag operation on an existing block in the front-end preview.
-Its data contains the ID of the block being dragged (`blockId`).
+The Page Builder sends `PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` at the beginning and end of a drag operation on an existing block in the frontend preview.
+Their data contains the ID of the block being dragged (`blockId`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
@@ -391,17 +389,19 @@ window.addEventListener('message', (messageEvent) => {
 });
 ```
 
-`PB:DROP` message is sent from the Page Builder to the front-end preview to notify that a block has been dropped.
-It has no data. Combined with the last `PB:DRAG_OVER` message, the front-end can determine where the block has been dropped.
+The Page Builder sends the `PB:DROP` message to the frontend preview to notify it that a block has been dropped.
+The message has no data. Combined with the most recent `PB:DRAG_OVER` message, it lets the frontend determine where the block was dropped.
 
-`APP:DROP_RESPONSE` message is sent from the front-end preview to the Page Builder to tell where the block has been dropped.
+The frontend preview sends the `APP:DROP_RESPONSE` message to the Page Builder to report where the block was dropped.
 
 Its data contains:
 
 - the ID of the zone where the block has been dropped (`zoneId`)
-- the ID of a block that is now below the dropped block (`nextBlockId`) if the dropped block isn't the last one of the zone.
+- the ID of the block that will follow the dropped block (`nextBlockId`), if the dropped block is not the last block in the zone
 
-In the following example, `targetBlockId` value is the ID of a block the dropped block was dropped on or just before, so the dragged block takes its place and move it below, or `null` when dropped at the bottom of the zone.
+In the following example, `targetBlockId` is the ID of the block that the dragged block was dropped on or just before.
+The dragged block is inserted in that block's place, moving the existing block down one position.
+If the dragged block is dropped at the bottom of the zone, `targetBlockId` is `null`.
 
 ```js
 const dropResponseMessage = {
@@ -413,10 +413,10 @@ const dropResponseMessage = {
 };
 ```
 
-After a drop `APP:DROP_RESPONSE` from the front-end, the next `PB:UPDATE_FIELD_DATA` message from the Page Builder contains the dropped block ID in its `highlightedBlockIds` array (`messageEvent.data.data.highlightedBlockIds`).
+After the frontend sends `APP:DROP_RESPONSE`, the next `PB:UPDATE_FIELD_DATA` message from the Page Builder contains the dropped block's ID in its `highlightedBlockIds` array (`messageEvent.data.data.highlightedBlockIds`).
 
-`PB:SCROLL_BY` message is sent from the Page Builder when a block is dragged near a border of the preview which needs to be scrolled.
-Its data contains the `top` or `left` amount to scroll by.
+The Page Builder sends the `PB:SCROLL_BY` message when a block is dragged near an edge of the preview, indicating that the preview needs to be scrolled.
+Its data contains the amount to scroll vertically (`top`) or horizontally (`left`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
@@ -428,12 +428,11 @@ window.addEventListener('message', (messageEvent) => {
 });
 ```
 
-See [Geometry (`blocks.geometry`)](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)'s `APP:SCROLL_END` message to declare the end of the scroll operation
-and `APP:POSITIONS_UPDATE` message to update the blocks positions.
+For information about reporting the end of a scroll operation and updating block positions, see `APP:SCROLL_END` and `APP:POSITIONS_UPDATE` in [Geometry (`blocks.geometry`)](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking).
 
 ### Block reveal (`blocks.reveal`)
 
-`PB:SCROLL_INTO_BLOCK` is send by the Page Builder to the front-end preview to request that a block is scrolled into view.
+The Page Builder sends the `PB:SCROLL_INTO_BLOCK` message to the frontend preview to request that a block be scrolled into view.
 Its data contains the ID of the block to scroll into view (`blockId`).
 It can be used with the [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) method.
 
@@ -441,7 +440,7 @@ It can be used with the [`scrollIntoView()`](https://developer.mozilla.org/en-US
 window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:SCROLL_INTO_BLOCK':
-            const blockElementToScrollInto = document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`);;
+            const blockElementToScrollInto = document.querySelector(`[data-ibexa-block-id="${messageEvent.data.data.blockId}"]`);
             blockElementToScrollInto.scrollIntoView({ behavior: 'smooth', block: 'center' });
             break;
     }
@@ -450,19 +449,19 @@ window.addEventListener('message', (messageEvent) => {
 
 ### Block removal (`blocks.remove`)
 
-`PB:BLOCK_REMOVE` message is sent from the Page Builder to the front-end preview to notify that a block should be removed, for example, from the Structure view.
+The Page Builder sends the `PB:BLOCK_REMOVE` message to the frontend preview to notify it that a block should be removed, for example, from the Structure view.
 Its data contains the ID of the block to remove (`blockId`).
 
-`APP:BLOCK_REMOVE_RESPONSE` message is sent from the front-end preview to the Page Builder to confirm that the block has been removed as requested by `PB:BLOCK_REMOVE`.
+The frontend preview sends the `APP:BLOCK_REMOVE_RESPONSE` message to the Page Builder to confirm that the block has been removed as requested by `PB:BLOCK_REMOVE`.
 Its data contains the ID of the removed block (`blockId`).
-It can be sent immediately or after removal animation.
+You can send it immediately or after the removal animation.
 
 ```js
 window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:BLOCK_REMOVE':
             const blockId = messageEvent.data.data.blockId;
-            const blockElementToRemove = document.querySelector(`[data-ibexa-block-id="${blockId}"]`);;
+            const blockElementToRemove = document.querySelector(`[data-ibexa-block-id="${blockId}"]`);
             if (blockElementToRemove) {
                 blockElementToRemove.addEventListener('animationend', () => {
                     blockElementToRemove.remove();
@@ -481,6 +480,7 @@ window.addEventListener('message', (messageEvent) => {
     }
 });
 ```
+
 ```css
 .c-pb-block-preview--is-removing {
     animation-duration: 1s;
@@ -494,36 +494,35 @@ window.addEventListener('message', (messageEvent) => {
 }
 ```
 
-`APP:BLOCK_REMOVE_REQUEST` message is sent from the front-end preview to the Page Builder to request the removal of a block.
+The frontend preview sends the `APP:BLOCK_REMOVE_REQUEST` message to the Page Builder to request that a block be removed.
 Its data contains the ID of the block to remove (`blockId`).
-The Page Builder responses with a `PB:UPDATE_FIELD_DATA`.
+The Page Builder responds with a `PB:UPDATE_FIELD_DATA` message.
 
 ### Preview parameters update (`preview.params`)
 
 `PB:UPDATE_PREVIEW_PARAMS` message is sent from the Page Builder to the front-end preview when TODO: it's sent on several occasions without data. It seems also (if not mainly) used by segmentation.
 
-## Guidelines for front-end implementation
+## Guidelines for frontend implementation
 
-The protocol documentation is illustrated with Vanilla JS examples.
-You should use a JS framework to implement the front-end.
+The protocol documentation uses vanilla JavaScript examples, but you should use a JavaScript framework to implement the frontend.
 
 TODO: React, Angular, and Vue front-end kits should be available through npm packages in the future. What about the Next.js used for a demo?
 
-Pure frontend and Page Builder preview should share most code as possible.
-It could be a same controller called in a different ways to know which content to render on frontend or if it's framed into a Page Builder preview.
+The frontend and Page Builder preview should share as much code as possible.
+For example, you could use the same controller, called in different ways, to determine whether to render the regular frontend or the Page Builder preview.
 
 Each block type view should be implemented as a component so you can easily add new block types and new views.
 
 TODO: Text block type (`richtext`) need a conversion from [RichText DocBook XML](richtextfield.md#custom-docbook-format) to HTML.
 TODO: You shouldn't implement this conversion fully on your own. Use Ibexa library, extend a DocBook library, use the XSL files, . For more information see [RichText to HTML helpers](#richtext-to-html-conversion)
 
-CSS classes can be named however you wish, but it may be advisable to follow certain conventions to help the reuse of existing style sheets.
+You can name CSS classes as you wish, but following these conventions can make existing stylesheets easier to reuse.
 
 ### CSS classes and data attribute conventions
 
-Some class names are, by convention, only used when the front-end is used in the Page Builder preview, some are always used.
+By convention, some class names are used only in the Page Builder preview, while others are always used.
 
-For example, the convention is that when the front-end is used in the Page Builder preview, the `c-pb-iframe__preview-body` class is added to the document body.
+For example, when the frontend is used in the Page Builder preview, the `c-pb-iframe__preview-body` class is added to the document body.
 
 #### Zones
 
@@ -533,7 +532,7 @@ The always present `data-ibexa-zone-id` attribute (`zoneElement.dataset.ibexaZon
 |----------------------------------|---------|-----------------------------------------------------|
 | `landing-page__zone`             | No      | Every zone container                                |
 | `landing-page__zone--${zone.id}` | No      | Each zone container with its own ID                 |
-| `m-page-builder__zone`           | Yes     | Every zone container when previewed in Page Builder |
+| `m-page-builder__zone`           | Yes     | Every zone container in the Page Builder preview    |
 | `m-page-builder__zone--dragover` | Yes     | When a block is dragged over the zone               |
 | `m-page-builder__zone--empty`    | Yes     | When the zone has no block                          |
 
@@ -544,7 +543,7 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 | Class name                            | PB only | Description                                                                                           |
 |---------------------------------------|---------|-------------------------------------------------------------------------------------------------------|
 | `landing-page__block`                 | No      | Every block container                                                                                 |
-| `c-pb-block-preview`                  | Yes     | Every block container when previewed in Page Builder                                                  |
+| `c-pb-block-preview`                  | Yes     | Every block container in the Page Builder preview                                                     |
 | `c-pb-block-preview--is-dragging-out` | Yes     | When a block is being dragged                                                                         |
 | `c-pb-block-preview--is-removing`     | Yes     | When a block is being removed (see [Block removal (`blocks.remove`)](#block-removal-blocksremove))    |
 | `ibexa-mark-invisible`                | Yes     | When a scheduled block is marked as invisible                                                         |
@@ -552,7 +551,7 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 | `c-pb-block-preview__inner`           | Yes     | The inner container of a block                                                                        |
 | `c-pb-block-preview__inner--invalid`  | Yes     | The inner container of a block with invalid attribute value                                           |
 | `droppable-placeholder`               | Yes     | The placeholder element shown when a block is being dragged over a zone to indicate the drop position |
-| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted as when newly dropped                                                     |
+| `c-pb-block-preview--highlighted`     | Yes     | When a block is highlighted, for example, when newly dropped                                          |
 
 ## Implementation helpers
 
@@ -570,11 +569,11 @@ TODO: To provide the .xsl files is enough to implement own converter.
 
 ### Static example
 
-The following example is just a demo in vanilla JS provided as-is to illustrate the Page Builder protocol usage.
-It can be used to observe the messages exchanged between the Page Builder and a front-end preview in the browser JS console.
-It doesn't support all the block types or views.
+The following vanilla JavaScript demo is provided as-is to illustrate how to use the Page Builder protocol.
+You can use it to observe the messages exchanged between the Page Builder and a frontend preview in the browser's JavaScript console.
+It does not support all block types or views.
 
-- `page.html` is a static HTML page with some JS to handle the Page Builder protocol messages and basic CSS to show how conventional classes are for.
+- `page.html` is a static HTML page with JavaScript that handles Page Builder protocol messages and demonstrates the intended uses of the conventional CSS classes.
   It works both as a standalone page and as a Page Builder preview.
 - `RichTextController.php` contains a controller that converts RichText to HTML.
 
@@ -590,22 +589,22 @@ This example needs some setup on a development installation:
 
 ??? note "`page.html`"
 
-    ``` php hl_lines="175 527 778"
+    ``` html hl_lines="175 527 778"
     [[= include_code('code_samples/page/headless/page.html', indent_level=1) =]]
     ```
 
 Edit `page.html`:
 
-- Change the `apiBaseUrl` constant to declare the origin on which the REST API and the conversion controller are called.
-- Change the `pbOrigin` constant to declare the origin of the Page Builder.
-- Change the `pageContentTypeIds` to list content type IDs that have a Landing Page field. You can set this to `false` to skip the content type test.
+- Change the `apiBaseUrl` constant to set the origin to which requests are sent for the REST API and conversion controller.
+- Change the `pbOrigin` constant to set the Page Builder's origin.
+- Change `pageContentTypeIds` to list the content type IDs that have a Landing Page field. You can set it to `false` to skip the content type check.
 
 `page.html` supports two layouts:
 
 - "Default layout for Landing Page" (`default`)
 - Custom "Two columns layout" (`2-columns`)
 
-It supports the following block types and views:
+The demo supports the following block types and views:
 
 - Text (`richtext`) block type with `default` view
 - Code (`tag`) block type with `default` and `source_code` views
