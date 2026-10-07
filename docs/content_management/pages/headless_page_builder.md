@@ -22,7 +22,7 @@ Below the description, enable the **Headless mode**, fill in the **Page Builder 
 
 ## Communication protocol
 
-The frontend resource targeted by `base_url` is loaded by the Page Builder when editing a content having a Landing page field "Edit in the headless Page Builder" enabled.
+The specified frontend resource is loaded by the Page Builder when you edit content with a Landing page field.
 This resource must follow a protocol to communicate with the Page Builder from the iframe is loaded in.
 This protocol is based on the JavaScript message API.
 
