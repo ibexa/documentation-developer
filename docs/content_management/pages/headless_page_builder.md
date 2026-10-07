@@ -531,7 +531,7 @@ The following example is just a demo in vanilla JS provided as-is to illustrate 
 It can be used to observe the messages exchanged between the Page Builder and a frontend preview in the browser JS console.
 It doesn't support all the block types or views.
 
-`page.html` is a static HTML page with some JS to handle the Page Builder protocol messages and basic CSS to show how conventional classes are for.
+`page.html` is a static HTML page with some JS to handle the Page Builder protocol messages and basic CSS to show what conventional CSS classes are designed for.
 It works both as a standalone page and as a Page Builder preview.
 
 ??? note "`page.html`"
