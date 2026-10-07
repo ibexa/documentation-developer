@@ -13,4 +13,5 @@ page_type: landing_page
     "infrastructure_and_maintenance/databases",
     "infrastructure_and_maintenance/environments",
     "infrastructure_and_maintenance/support_and_maintenance_faq",
+    "infrastructure_and_maintenance/security/development_security",
 ], columns=3) =]]
