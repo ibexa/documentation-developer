@@ -18,7 +18,7 @@ For example, a `content/publish` policy with a `ContentType` limitation on the "
 A limitation, like a policy, specifies what a user *can* do, not what they *can't do*.
 A `Section` limitation, for example, *gives* the user access to the selected section, not *prohibits* it.
 
-For more information, see [Policies](policies.md), [Limitations reference](limitation_reference.md) and [Permission use cases](permission_use_cases.md).
+For more information, see [Policies](policies.md), [Limitations reference](limitation_reference.md), and [Permission use cases](permission_use_cases.md).
 
 ## Assigning roles to users
 
