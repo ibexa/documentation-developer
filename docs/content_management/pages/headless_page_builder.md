@@ -1,5 +1,5 @@
 ---
-description: Preview in Page Builder using your frontend.
+description: Preview and edit in Page Builder using your frontend.
 edition: experience
 month_change: true
 ---
