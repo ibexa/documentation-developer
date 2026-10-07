@@ -5,7 +5,7 @@ month_change: false
 
 # [[= product_name_cdp_base =]] integration product guide
 
-Discover [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations and tracking customer behaviors.
+Discover [[[= product_name_cdp_base =]]](https://raptorservices.com/en) integration - an add-on that is focused on recommendations and tracking customer behaviors.
 It includes the connector with tracking scripts and events that are used to track and analyze customer behaviors, and a set of Recommendation blocks.
 
 ## What is [[= product_name_cdp_base =]] integration

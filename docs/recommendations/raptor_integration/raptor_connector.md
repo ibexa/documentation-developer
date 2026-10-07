@@ -6,7 +6,7 @@ month_change: false
 
 # [[= product_name_cdp_base =]] integration
 
-The [[[= product_name_cdp_base =]]](https://www.raptorservices.com/) integration is an add-on that provides a seamless integration between [[= product_name =]] and [[= product_name_cdp_base =]] recommendation engine.
+The [[[= product_name_cdp_base =]]](https://raptorservices.com/en) integration is an add-on that provides a seamless integration between [[= product_name =]] and [[= product_name_cdp_base =]] recommendation engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps increase conversion rates, drive sales, and improve user engagement.
 

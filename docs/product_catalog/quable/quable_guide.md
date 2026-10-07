@@ -7,7 +7,7 @@ month_change: false
 
 ## Overview
 
-[[= pim_product_name =]] integration connects [[= product_name =]] with [[[= pim_product_name =]]](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
+[[= pim_product_name =]] integration connects [[= product_name =]] with [[[= pim_product_name =]]](https://quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
 [[= pim_product_name =]] serves as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 [[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
