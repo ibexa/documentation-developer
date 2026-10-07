@@ -13,7 +13,7 @@ You provide a single URL for the frontend page and let it communicate with the P
 ## Configuration
 
 - Navigate to **Administration** > **SiteAccess Configuration**
-- Choose a SiteAccess you want this set up a preview for. None if you want to set up a default preview for SiteAccesses not having a specific preview.
+- Choose the SiteAccess for which you want to set up a preview. Choose none to set up a default preview for SiteAccesses that do not have a specific preview.
 - Then, click **Headless**
 
 Below the description, enable the **Headless mode**, fill in the **Page Builder preview URL**, and **Save** the configuration.
@@ -23,11 +23,11 @@ Below the description, enable the **Headless mode**, fill in the **Page Builder 
 ## Communication protocol
 
 The specified frontend resource is loaded by the Page Builder when you edit content with a Landing page field.
-This resource must follow a protocol to communicate with the Page Builder from the iframe is loaded in.
+This resource must follow a protocol to communicate with the Page Builder from within the iframe in which it's loaded.
 This protocol is based on the JavaScript message API.
 
-The Page Builder sends messages to the framed frontend resource.
-They can be received by listening the [message event](https://developer.mozilla.org/en-US/docs/Web/API/EventSource/message_event).
+The Page Builder sends messages to the frontend resource in the iframe.
+You can receive them by listening for the [message event](https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event).
 
 The frontend resource sends back messages to the Page Builder.
 They can be sent using the [`postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.
@@ -38,7 +38,7 @@ const pbOrigin = 'https://my-company.cohesivo.app';
 window.parent.postMessage(message, pbOrigin);
 ```
 
-Those messages are JS objects with the following structure:
+These messages are JavaScript objects with the following structure:
 
 ```js
 let message = {
@@ -47,17 +47,19 @@ let message = {
 };
 ```
 
-The `PREFIX` sort message types by their sender.
-`PB:` for messages sent by the Page Builder, `APP:` for messages sent by the frontend resource.
+The `PREFIX` identifies the sender of each message type:
+
+- `PB:` for messages sent by the Page Builder
+- `APP:` for messages sent by the frontend resource
 
 The data depends on the message type.
 
-Message types are then sorted by capabilities.
-So the frontend can declare which capabilities it supports and the Page Builder can refrain from sending or expecting unsupported messages.
+Message types are also grouped by capability.
+The frontend can declare which capabilities it supports, so the Page Builder can avoid sending or expecting unsupported messages.
 
 ### Message types and capabilities
 
-The handshake and core messages are mandatory and not related to an optional capability.
+Handshake and core messages are mandatory and don't depend on optional capabilities.
 
 | Capability         | Message type                                                                                | Description                          |
 |--------------------|---------------------------------------------------------------------------------------------|--------------------------------------|
@@ -82,7 +84,7 @@ The handshake and core messages are mandatory and not related to an optional cap
 
 ### Communication initialization
 
-First, the frontend send an initialization message to the Page Builder, indicating which version of the protocol and which capabilities are supported:
+First, the frontend sends an initialization message to the Page Builder, indicating which protocol versions and capabilities it supports:
 
 ```js
 const initializedMessage = {
@@ -102,15 +104,15 @@ const initializedMessage = {
 ```
 
 The Page Builder replies with a confirmation message.
-The initialization message might be sent several times until the Page Builder replies to it.
+The frontend may send the initialization message several times until the Page Builder replies.
 
 This confirmation `data` contains:
 
-- the actual version of the protocol used (`protocol.version`) and the other supported versions (`protocol.supported`)
+- the protocol version in use (`protocol.version`) and the other supported versions (`protocol.supported`)
 - a list of all available capabilities (`capabilities`)
-- a list of the existing block types, their attributes, and their configuration (`blocksConfig`) - It contains all the block types but mark as not visible the blocks not available for this field.
-- information about the actually edited content draft (`intentParameters`)
-- the current value of the Landing page field being edited (`fieldValue`) including the layout, zones, and blocks.
+- all block types, their attributes, and their configuration (`blocksConfig`) - types unavailable for this field are marked as not visible
+- information about the content draft currently being edited (`intentParameters`)
+- the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks
 - a block-ID-to-name mapping (`blocksIdMap`)
 - a list of translations for the frontend to use (`translations`)
 
