@@ -5,7 +5,7 @@ description: The permission system is based on policies that you assign to users
 # Permission overview
 
 A new user doesn't have permissions for any part of the system, unless they're explicitly given access.
-To get access they need to inherit roles, typically assigned to the user group they belong to.
+To get access they need to inherit **Roles**, typically assigned to the user group they belong to.
 
 Each role can contain one or more **Policies**.
 A policy is a rule that gives access to a single **function** in a **module**.
@@ -18,7 +18,7 @@ For example, a `content/publish` policy with a `ContentType` limitation on the "
 A limitation, like a policy, specifies what a user *can* do, not what they *can't do*.
 A `Section` limitation, for example, *gives* the user access to the selected section, not *prohibits* it.
 
-For more information, see [Limitation reference](limitation_reference.md) and [Permission use cases](permission_use_cases.md).
+For more information, see [Policies](policies.md), [Limitations reference](limitation_reference.md) and [Permission use cases](permission_use_cases.md).
 
 ## Assigning roles to users
 
