@@ -19,7 +19,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Presented the [available notification types](https://doc.ibexa.co/en/5.0/api/notification_channels/#available-notification-types) in a table showing when each notification is sent, its default recipients, and the channels it supports
 - Described which [notification channels](https://doc.ibexa.co/en/5.0/api/notification_channels/#available-notification-channels) accept any notification and which require a specific notification interface
-- Added an example of checking the [subscriptions configuration](https://doc.ibexa.co/en/5.0/api/notification_channels/#subscriptions-configuration) for a given siteaccess
+- Added an example of checking the [subscriptions configuration](https://doc.ibexa.co/en/5.0/api/notification_channels/#subscriptions-configuration) for a given SiteAccess
 
 ### Translations management
 
