@@ -397,7 +397,7 @@ const dropResponseMessage = {
 After the frontend sends `APP:DROP_RESPONSE`, the next `PB:UPDATE_FIELD_DATA` message from the Page Builder contains the dropped block's ID in its `highlightedBlockIds` array (`messageEvent.data.data.highlightedBlockIds`).
 
 The Page Builder sends the `PB:SCROLL_BY` message when a block is dragged near an edge of the preview, indicating that the preview needs to be scrolled.
-Its data contains the amount to scroll vertically (`top`) or horizontally (`left`).
+Its data contains the amount to scroll vertically (`top`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
