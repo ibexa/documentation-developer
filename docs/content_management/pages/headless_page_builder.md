@@ -220,11 +220,10 @@ The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the frontend
 
 Its data contains the field's new value, with the following structure:
 
-- Always included: the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks.
-  <br>For example, only `fieldValue` is sent when you use the [timeline]([[= user_doc =]]/content_management/schedule_publishing/#timeline)![Timeline toggler icon](page_builder_toolbartimelinetoggler.png){style="display:inline;width:27px;vertical-align:middle;"}.
-- Optionally, a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
-- Optionally, a block-ID-to-name mapping (`blocksIdMap`)
-- Optionally, a list of IDs from the new blocks that have been added (`highlightedBlockIds`)
+- the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks.
+- the list of the existing block types, their attributes, and their configuration (`blocksConfig`)
+- the block-ID-to-name mapping (`blocksIdMap`)
+- the list of IDs from the new blocks that have been added (`highlightedBlockIds`)
 
 ```json
 {
