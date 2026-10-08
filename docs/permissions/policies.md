@@ -6,8 +6,9 @@ month_change: false
 
 # Policies
 
-Policies are the main building block of the permissions system.
+Policies are the main building block of the [permissions system](permissions.md).
 Each role you assign to user or user group consists of policies which define, which parts of the application or website the user has access to.
+To limit access granted to users through policies, you can use [limitations](limitations.md).
 
 ## Available policies
 
