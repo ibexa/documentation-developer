@@ -244,13 +244,13 @@ Its data contains the field's new value, with the following structure:
 ### Re-dispatching events
 
 The Page Builder sends the `PB:DISPATCH_EVENT` message to the frontend resource to be re-dispatched there as a custom event.
-Its data contains the name of the event to dispatch (`eventName`) and the data to pass in the event's `detail` property (`eventData`).
+Its data contains the name of the event to dispatch (`eventName`) and the data to pass in the event's `detail` property (`eventDetail`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
     switch (messageEvent.data.type) {
         case 'PB:DISPATCH_EVENT':
-            window.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, { detail: messageEvent.data.data.eventData }));
+            window.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, { detail: messageEvent.data.data.eventDetail }));
             break;
     }
 });
