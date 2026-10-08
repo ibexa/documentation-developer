@@ -4,13 +4,15 @@ description: Ensure the security of your Ibexa DXP installation by using one of 
 
 # Development security
 
-!!! tip
+# Prerequisites
 
-    See [Permissions](permissions.md) for information about the permissions system in [[= product_name =]].
+Before you start creating a solution based on [[= product_name =]], make sure you've become familiar with the following information:
 
-!!! note "Security checklist"
+- **Permission system** - See [Permissions](permissions.md) for information about the permissions system in [[= product_name =]].
 
-    See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
+- **Security checklist** - See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
+
+- **Security advisories** - See the [Security advisories](security_checklist.md) for a list of newly discovered vulnerabilities and remediation instructions.
 
 ## Symfony authentication
 

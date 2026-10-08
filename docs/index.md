@@ -155,8 +155,8 @@
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
                                 <li><a href="content_management/content_model/">Content model</a></li>
-                                <li><a href="content_management/images/images/">Images</a></li>
                                 <li><a href="content_management/pages/page_blocks/">Page blocks</a></li>
+                                <li><a href="infrastructure_and_maintenance/security/development_security/">Development security</a></li>
                             </ul>
                         </div>
                     </div>

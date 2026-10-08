@@ -10,7 +10,6 @@ The permission system of [[= product_name =]] enables you to control in detail w
 [[= cards([
     "permissions/permission_overview",
     "permissions/policies",
-    "permissions/permission_use_cases",
     "permissions/limitations",
+    "permissions/permission_use_cases",
 ], columns=4) =]]
-

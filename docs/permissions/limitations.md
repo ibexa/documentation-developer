@@ -5,7 +5,7 @@ page_type: reference
 
 # Limitations
 
-Limitations are part of the permissions system.
+Limitations are part of the [permissions system](permissions.md).
 They limit the access granted to users by [policies](permission_overview.md).
 While a policy grants the user access to a function, Limitations narrow it down by different criteria.
 
