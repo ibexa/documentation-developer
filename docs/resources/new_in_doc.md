@@ -7,6 +7,40 @@ month_change: true
 
 This page contains recent highlights and notable changes in Ibexa DXP and [[= product_name =]] documentation.
 
+## September 2026
+
+### Cohesivo SaaS
+
+- Published the [Cohesivo SaaS documentation](https://doc.ibexa.co/en/saas/), now available at the top of the **Change version** drop-down menu
+    - Added the [Cohesivo SaaS guide](https://doc.ibexa.co/en/saas/ibexa_products/cohesivo_saas_guide/) that provides an overview of key SaaS concepts and capabilities
+    - Added a [REST API reference](https://doc.ibexa.co/en/saas/api/rest_api/rest_api_reference/rest_api_reference.html) page for SaaS
+
+### Notifications
+
+- Presented the [available notification types](https://doc.ibexa.co/en/5.0/api/notification_channels/#available-notification-types) in a table showing when each notification is sent, its default recipients, and the channels it supports
+- Described which [notification channels](https://doc.ibexa.co/en/5.0/api/notification_channels/#available-notification-channels) accept any notification and which require a specific notification interface
+- Added an example of checking the [subscriptions configuration](https://doc.ibexa.co/en/5.0/api/notification_channels/#subscriptions-configuration) for a given SiteAccess
+
+### Translations management
+
+- Added a [Benefits](https://doc.ibexa.co/en/latest/multisite/translations_management/translations_management_guide/#benefits) section in the Translations management product guide
+
+### Users
+
+- Listed the policies required to let anonymous users [register](https://doc.ibexa.co/en/5.0/permissions/permission_use_cases/#register-users)
+
+### Permissions
+
+- Marked the [Segment and Segment group policies](https://doc.ibexa.co/en/5.0/permissions/policies/#segments) as available in both Experience and Commerce versions
+
+### Data migration
+
+- Added `content_type_group_id` to the list of [available reference types](https://doc.ibexa.co/en/5.0/content_management/data_migration/managing_migrations/#available-reference-types)
+
+### Documentation improvements
+
+- The **Change version** drop-down menu now shows full product names and versions
+
 ## August 2026
 
 ### Releases
