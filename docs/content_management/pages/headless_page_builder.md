@@ -260,8 +260,8 @@ Its data contains the field's new value, with the following structure:
 
 ### Re-dispatching events
 
-The `PB:DISPATCH_EVENT` message is sent from the Page Builder to the front-end resource for being re-dispatched there as a custom event.
-Its data contains the name of the event to dispatch (`eventName`) and the data to pass to the event detail (`eventData`).
+The Page Builder sends the `PB:DISPATCH_EVENT` message to the frontend resource to be re-dispatched there as a custom event.
+Its data contains the name of the event to dispatch (`eventName`) and the data to pass in the event's `detail` property (`eventData`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
