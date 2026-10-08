@@ -451,7 +451,7 @@ window.addEventListener('message', (messageEvent) => {
                         data: {
                             blockId: blockId,
                         },
-                    });
+                    }, pbOrigin);
                 });
                 blockElementToRemove.classList.add('c-pb-block-preview--is-removing');
             } else {
