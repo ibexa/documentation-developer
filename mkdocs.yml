@@ -884,11 +884,6 @@ nav:
         - Environments: infrastructure_and_maintenance/environments.md
         - Sessions: infrastructure_and_maintenance/sessions.md
         - Logging: infrastructure_and_maintenance/logging.md
-        - Security:
-            - Development security: infrastructure_and_maintenance/security/development_security.md
-            - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
-            - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
-            - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
     - Update and migration:
         - Update your system: update_and_migration/update_system.md
@@ -948,6 +943,11 @@ nav:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
             - Package structure: resources/contributing/package_structure.md
+    - Security:
+        - Development security: infrastructure_and_maintenance/security/development_security.md
+        - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
+        - Security advisories: infrastructure_and_maintenance/security/security_advisories.md
+        - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
     - Product guides:
         - Product guides: product_guides/product_guides.md
     - Release notes:
