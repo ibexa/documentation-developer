@@ -526,13 +526,12 @@
     if (window.parent !== window) { // Inside the Page Builder iframe
         const pbOrigin = 'https://admin.example.com';
         const capabilities = [
-            'blocks.dnd',       // 100%
-            'blocks.geometry',  // 100%
-            'blocks.remove',    // 100%
-            'blocks.reveal',    //   100%
-            'blocks.select',    // 100%
-            'pointer.tracking', // 100%
-            'preview.params', //   0%
+            'blocks.dnd',
+            'blocks.geometry',
+            'blocks.remove',
+            'blocks.reveal',
+            'blocks.select',
+            'pointer.tracking',
         ];
         const initInterval = 1500; // ms
         const initRetries = -1; // -1 = infinite, 0 = no retry, 1 = 1 retry, etc.
@@ -682,7 +681,7 @@
                     positionsUpdate();
                     break;
                 case 'PB:DISPATCH_EVENT':
-                    window.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, {detail: messageEvent.data.data.eventData}));
+                    window.dispatchEvent(new CustomEvent(messageEvent.data.data.eventName, {detail: messageEvent.data.data.eventDetail}));
                     break;
                 case 'PB:BLOCK_REMOVE':
                     const blockId = messageEvent.data.data.blockId;
