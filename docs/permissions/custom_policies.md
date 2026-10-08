@@ -257,9 +257,12 @@ For example, `translations/ibexa_content_forms_policies.en.yaml`:
 
 Check if current user has this custom limitation set to true from a custom controller:
 
-``` php
-[[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
+```php
+[[= include_code('code_samples/back_office/limitation/src/Controller/CustomLimitationController.php') =]]
 ```
+
+The `siteaccess_group_whitelist` route default limits the route to the back office SiteAccess group.
+For more information, see [Request lifecycle](request_lifecycle.md#siteaccess_group_whitelist).
 
 ## Restrict access to form submissions
 

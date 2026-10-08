@@ -189,6 +189,8 @@ You can also set a reference value manually with the `set` mode, and use the `li
     - `path`
 - `content_type`
     - `content_type_id`
+- `content_type_group`
+    - `content_type_group_id`
 - `language`
     - `language_id`
     - `language_code`

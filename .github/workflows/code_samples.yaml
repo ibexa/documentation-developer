@@ -24,26 +24,13 @@ jobs:
                   extensions: "pdo_sqlite, gd"
                   tools: cs2pr
 
-            - name: Generate token
-              id: generate_token
-              uses: actions/create-github-app-token@v3
+            - uses: ibexa/gh-workflows/actions/composer-install@main
               with:
-                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
-                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
-                  owner: ${{ github.repository_owner }}
-
-            - name: Add composer keys for private packagist
-              run: |
-                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
-                  composer config --global github-oauth.github.com $GITHUB_TOKEN
-              env:
-                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
-                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-
-            - uses: ramsey/composer-install@v4
-              with:
-                  dependency-versions: highest
+                  php-version: ${{ matrix.php }}
+                  gh-client-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  gh-client-secret: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  satis-network-key: ${{ secrets.SATIS_NETWORK_KEY }}
+                  satis-network-token: ${{ secrets.SATIS_NETWORK_TOKEN }}
 
             - name: Run code sample quality tests
               id: phpstan

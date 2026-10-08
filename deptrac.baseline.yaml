@@ -84,6 +84,8 @@ deptrac:
     App\Controller\CustomFilterController:
       - Ibexa\Bundle\Core\Controller
       - Ibexa\Core\MVC\Symfony\View\ContentView
+    App\Controller\CustomLimitationController:
+      - Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute
     App\Controller\PaginationController:
       - Ibexa\Bundle\Core\Controller
       - Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter
