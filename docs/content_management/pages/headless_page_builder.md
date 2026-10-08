@@ -266,8 +266,8 @@ window.addEventListener('message', (messageEvent) => {
 
 ```js
 window.addEventListener('ibexa-post-update-blocks-preview', (customEvent) => {
-    setLayout(customEvent.details.fieldValue.layout);
-    renderZones(customEvent.details.fieldValue.zones);
+    setLayout(customEvent.detail.fieldValue.layout);
+    renderZones(customEvent.detail.fieldValue.zones);
 });
 ```
 
