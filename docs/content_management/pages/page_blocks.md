@@ -12,6 +12,7 @@ For a list of all page blocks that are available out-of-the-box, see [Page block
 You can change the name, category, icon, or availability of a block type.
 
 - Navigate to **Administration** > **SiteAccess Configuration**
+- Select the frontend SiteAccess you want to override the block for - for example, select **site** so when editing and previewing this brand context, the available blocks are different
 - Click **Page Builder Overrides**
 - In the **Block overrides** section, enter the override details in the empty row.
 - Click **Add** to add another override.
