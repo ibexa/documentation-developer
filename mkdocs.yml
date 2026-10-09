@@ -71,6 +71,7 @@ nav:
             - Pages: content_management/pages/pages.md
             - Page Builder guide: content_management/pages/page_builder_guide.md
             - Page blocks: content_management/pages/page_blocks.md
+            - Headless Page Builder: content_management/pages/headless_page_builder.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form Builder guide: content_management/forms/form_builder_guide.md
