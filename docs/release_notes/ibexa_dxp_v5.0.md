@@ -31,8 +31,8 @@ Several new [MCP tools](mcp_config.md#built-in-tools) have been added for [taxon
 
 ### Schemas
 
-Input and output formats have changes for several tools.
-If you have written prompts, skill files, or other resources to help your agents to produce inputs or interpret outputs, you have to adapt them to those new formats.
+Input and output formats have been optimized for several tools.
+If you have written prompts, skill files, or other resources to help your agents to produce inputs or interpret outputs, you have to adapt them to those format changes.
 
 [[= release_note_entry_end() =]]
 
