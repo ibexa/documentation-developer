@@ -338,18 +338,18 @@
                     default:
                         console.warn('Unhandled view "' + block.view + '" for block type "' + block.type + '". Using "default" view.');
                     case 'default':
-                        let content = getBlockAttributeValue(block, 'content');
-                        if (!content) {
+                        let tagBlockContent = getBlockAttributeValue(block, 'content');
+                        if (!tagBlockContent) {
                             if (pb) {
-                                content = '&nbsp;';
+                                tagBlockContent = '&nbsp;';
                             } else {
                                 return null;
                             }
                         }
-                        return '<div' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '>' + content + '</div>';
+                        return '<div' + (pb ? ' class="c-pb-block-preview__inner"' : '') + '>' + tagBlockContent + '</div>';
                 }
             case 'contentlist': // • Content List
-                let content = '';
+                let listBlockContent = '';
                 let isInvalid = false;
                 const contentId = getBlockAttributeValue(block, 'contentId');
                 if (!contentId) {
@@ -357,7 +357,7 @@
                     console.error('contentId is not set for block "' + block.name + '" (' + block.id + ').');
                     if (pb) {
                         if (window.translations && window.translations['block.attribute.invalid']) {
-                            content += (content.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>contentId</code>');
+                            listBlockContent += (listBlockContent.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>contentId</code>');
                         }
                     } else {
                         return null;
@@ -369,7 +369,7 @@
                     console.error('No contentType selected for block "' + block.name + '" (' + block.id + ').');
                     if (pb) {
                         if (window.translations && window.translations['block.attribute.invalid']) {
-                            content += (content.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>contentType</code>');
+                            listBlockContent += (listBlockContent.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>contentType</code>');
                         }
                     } else {
                         return null;
@@ -381,14 +381,14 @@
                     console.error('Invalid limit "' + limit + '" for block "' + block.name + '" (' + block.id + ').');
                     if (pb) {
                         if (window.translations && window.translations['block.attribute.invalid']) {
-                            content += (content.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>limit</code>');
+                            listBlockContent += (listBlockContent.length ? '<br/>' : '') + window.translations['block.attribute.invalid'].replace('%name%', '<code>limit</code>');
                         }
                     } else {
                         return null;
                     }
                 }
                 if (isInvalid) {
-                    return '<p class="c-pb-block-preview__inner c-pb-block-preview__inner--invalid">' + content + '</p>';
+                    return '<p class="c-pb-block-preview__inner c-pb-block-preview__inner--invalid">' + listBlockContent + '</p>';
                 }
                 getContentInfoList(contentId, contentTypes, limit)
                     .then((contentInfoList) => {
@@ -526,12 +526,13 @@
     if (window.parent !== window) { // Inside the Page Builder iframe
         const pbOrigin = 'https://admin.example.com';
         const capabilities = [
-            'blocks.dnd',
-            'blocks.geometry',
-            'blocks.remove',
-            'blocks.reveal',
-            'blocks.select',
-            'pointer.tracking',
+            'blocks.dnd',       // 100%
+            'blocks.geometry',  // 100%
+            'blocks.remove',    // 100%
+            'blocks.reveal',    // 100%
+            'blocks.select',    // 100%
+            'pointer.tracking', // 100%
+            'preview.params',   //   0%
         ];
         const initInterval = 1500; // ms
         const initRetries = -1; // -1 = infinite, 0 = no retry, 1 = 1 retry, etc.
