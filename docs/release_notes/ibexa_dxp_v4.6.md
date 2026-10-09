@@ -10,9 +10,30 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v4.6.32' %]]
+[[% set version = 'v4.6.X' %]]
+[[% set date = 'YYYY-MM-DD' %]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2026-08-20', ['Headless', 'Experience', 'Commerce']) =]]
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.32' %]]
+[[% set date = '2026-08-20' %]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce']
+) =]]
 
 <!-- markdownlint-disable-next-line heading-increment -->
 ### Security
@@ -50,8 +71,13 @@ The following additions were made to the PHP API:
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.31' %]]
+[[% set date = '2026-07-01' %]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2026-07-01', ['Headless', 'Experience', 'Commerce', ]) =]]
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce']
+) =]]
 
 [[% include 'snippets/release_46.md' %]]
 
