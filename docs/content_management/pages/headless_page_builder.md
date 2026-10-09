@@ -215,7 +215,7 @@ The confirmation `data` property object contains:
 
 ### On field update
 
-The `PB:UPDATE_FIELD_DATA` message is sent from the Page Builder to the frontend resource when the Landing page field value is updated.
+When the **Landing page* field value is updated, the Page Builder sends the `PB:UPDATE_FIELD_DATA` message to the frontend resource.
 
 Its data contains the field's new value, with the following structure:
 
