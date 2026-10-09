@@ -220,9 +220,9 @@ When the **Landing page* field value is updated, the Page Builder sends the `PB:
 The message's data contains the field's new value, with the following structure:
 
 - the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks
-- the list of the existing block types, their attributes, and their configuration (`blocksConfig`)
+- a list of the existing block types, their attributes, and their configuration (`blocksConfig`)
 - the block-ID-to-name mapping (`blocksIdMap`)
-- the list of IDs from the new blocks that have been added (`highlightedBlockIds`)
+- a list of IDs from the new blocks that have been added (`highlightedBlockIds`)
 
 ```json
 {
