@@ -12,25 +12,24 @@ You provide a single URL for the frontend page and let it communicate with the P
 
 ## Configuration
 
-- Navigate to **Administration** > **SiteAccess Configuration**
-- Choose the SiteAccess for which you want to set up a preview. Choose none to set up a default preview for SiteAccesses that do not have a specific preview.
-- Then, click **Headless**
-
-Below the description, enable the **Headless mode**, fill in the **Page Builder preview URL**, and **Save** the configuration.
+1. In the left panel, go to **Administration** -> **SiteAccess Configuration**
+1. Choose the SiteAccess that you want to set up a preview for. Do not choose a SiteAccess if you want to set up a default preview for the SiteAccesses that don't have a specific preview.
+1. In **Available configurations** list, click **Headless**.
+1. In **Edit configuration** section, expand the **Headless mode** drop-down list and select **Enabled**.
+1. Populate the **Page Builder preview URL** field and click **Save**.
 
 ![Headless mode enabled with Page Builder preview URL](headless-saas-siteaccess-config.png)
 
 ## Communication protocol
 
-The specified frontend resource is loaded by the Page Builder when you edit content with a Landing page field.
-This resource must follow a protocol to communicate with the Page Builder from within the iframe in which it's loaded.
-This protocol is based on the JavaScript message API.
+The Page Builder loads the specified frontend resource when you edit a content item with the **Landing page** field.
+The resource must use the JavaScript message API-based protocol to communicate with the Page Builder from within the iframe in which the Page Builder loads it.
 
 The Page Builder sends messages to the frontend resource in the iframe.
 You can receive them by listening for the [message event](https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event).
 
-The frontend resource sends back messages to the Page Builder.
-They can be sent using the [`postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.
+The frontend resource sends messages back to the Page Builder.
+You can send them by using the [`postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.
 The target origin of those messages must be the Page Builder's origin.
 
 ```js
@@ -42,20 +41,20 @@ These messages are JavaScript objects with the following structure:
 
 ```js
 let message = {
-    type: 'PREFIX:MESSAGE_TYPE',
+    type: '<PREFIX>:<MESSAGE_TYPE>',
     data: {}
 };
 ```
 
 The `PREFIX` identifies the sender of each message type:
 
-- `PB:` for messages sent by the Page Builder
-- `APP:` for messages sent by the frontend resource
+- `PB:` - for messages sent by the Page Builder
+- `APP:` - for messages sent by the frontend resource
 
 The data depends on the message type.
 
-Message types are also grouped by capability.
-The frontend can declare which capabilities it supports, so the Page Builder can avoid sending or expecting unsupported messages.
+Message types are grouped by capability.
+The frontend can declare which capabilities it supports, so that the Page Builder can avoid sending or expecting unsupported messages.
 
 ### Message types and capabilities
 
@@ -103,14 +102,14 @@ const initializedMessage = {
 };
 ```
 
-The Page Builder replies with a confirmation message.
 The frontend may send the initialization message several times until the Page Builder replies.
+The Page Builder replies with a confirmation message.
 
-This confirmation `data` contains:
+The confirmation `data` property object contains:
 
-- the protocol version in use (`protocol.version`) and the other supported versions (`protocol.supported`)
+- the protocol version in use (`protocol.version`) and other supported versions (`protocol.supported`)
 - a list of all available capabilities (`capabilities`)
-- all block types, their attributes, and their configuration (`blocksConfig`) - types unavailable for this field are marked as not visible
+- all block types, their attributes, and their configuration (`blocksConfig`) - types unavailable for this field are marked as not `visible`
 - information about the content draft currently being edited (`intentParameters`)
 - the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks
 - a block-ID-to-name mapping (`blocksIdMap`)
@@ -243,7 +242,7 @@ Its data contains the field's new value, with the following structure:
 ### Re-dispatching events
 
 The Page Builder sends the `PB:DISPATCH_EVENT` message to the frontend resource to be re-dispatched there as a custom event.
-Its data contains the name of the event to dispatch (`eventName`) and the data to pass in the event's `detail` property (`eventDetail`).
+The message's data contains the name of the event to dispatch (`eventName`) and the data to pass in the event's `detail` property (`eventDetail`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
@@ -257,11 +256,11 @@ window.addEventListener('message', (messageEvent) => {
 
 #### Available events
 
-- `ibexa-active-block-clicked`: Confirms that `APP:BLOCK_CLICKED` was received. It has no data.
-- `ibexa-post-update-blocks-preview`: Sent when the timeline is used.
-    - `fieldValue`: The same as in [`PB:UPDATE_FIELD_DATA`](#on-field-update)
-    - `blockIds`: A list of all the block IDs
-    - `blocksMaps`: A map of block config per block ID
+- `ibexa-active-block-clicked` - Confirms that `APP:BLOCK_CLICKED` was received. It has no data
+- `ibexa-post-update-blocks-preview` - Sent when the timeline is used
+    - `fieldValue` - The same as in [`PB:UPDATE_FIELD_DATA`](#on-field-update)
+    - `blockIds` - A list of all the block IDs
+    - `blocksMaps` - A map of block config per block ID
 
 ```js
 window.addEventListener('ibexa-post-update-blocks-preview', (customEvent) => {
@@ -344,7 +343,7 @@ window.addEventListener('message', (messageEvent) => {
 });
 ```
 
-### Drag and drop (`blocks.dnd`)
+### Dragging and dropping (`blocks.dnd`)
 
 The Page Builder sends the `PB:DRAG_OVER` message to the frontend preview to report the mouse position while a new or existing block is being dragged.
 
@@ -353,8 +352,8 @@ The Page Builder sends the `PB:DRAG_OVER` message to the frontend preview to rep
     - `APP:MOUSE_POSITION` helps the Page Builder track the mouse as it moves over the preview. Together with `APP:POSITIONS_UPDATE`, it lets the Page Builder determine whether the pointer is over a preview block.
     - `PB:DRAG_OVER` helps the frontend track the mouse as a block is dragged over the preview.
 
-The Page Builder sends `PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` at the beginning and end of a drag operation on an existing block in the frontend preview.
-Their data contains the ID of the block being dragged (`blockId`).
+The Page Builder sends `PB:DRAG_START_PREVIEW` and `PB:DRAG_END_PREVIEW` messages at the beginning and end of a drag operation on an existing block in the frontend preview.
+Message data contains the ID of the block being dragged (`blockId`).
 
 ```js
 window.addEventListener('message', (messageEvent) => {
@@ -370,7 +369,8 @@ window.addEventListener('message', (messageEvent) => {
 ```
 
 The Page Builder sends the `PB:DROP` message to the frontend preview to notify it that a block has been dropped.
-The message has no data. Combined with the most recent `PB:DRAG_OVER` message, it lets the frontend determine where the block was dropped.
+The message has no data.
+Combined with the most recent `PB:DRAG_OVER` message, it lets the frontend determine where the block was dropped.
 
 The frontend preview sends the `APP:DROP_RESPONSE` message to the Page Builder to report where the block was dropped.
 
@@ -380,7 +380,7 @@ Its data contains:
 - the ID of the block that will follow the dropped block (`nextBlockId`), if the dropped block is not the last block in the zone
 
 In the following example, `targetBlockId` is the ID of the block that the dragged block was dropped on or just before.
-The dragged block is inserted in that block's place, moving the existing block down one position.
+The dragged block is inserted in that block's place, moving the existing block down by one position.
 If the dragged block is dropped at the bottom of the zone, `targetBlockId` is `null`.
 
 ```js
@@ -430,10 +430,10 @@ window.addEventListener('message', (messageEvent) => {
 ### Block removal (`blocks.remove`)
 
 The Page Builder sends the `PB:BLOCK_REMOVE` message to the frontend preview to notify it that a block should be removed, for example, from the Structure view.
-Its data contains the ID of the block to remove (`blockId`).
+Message data contains the ID of the block to remove (`blockId`).
 
 The frontend preview sends the `APP:BLOCK_REMOVE_RESPONSE` message to the Page Builder to confirm that the block has been removed as requested by `PB:BLOCK_REMOVE`.
-Its data contains the ID of the removed block (`blockId`).
+Message data contains the ID of the removed block (`blockId`).
 You can send it immediately or after the removal animation.
 
 ```js
@@ -475,7 +475,7 @@ window.addEventListener('message', (messageEvent) => {
 ```
 
 The frontend preview sends the `APP:BLOCK_REMOVE_REQUEST` message to the Page Builder to request that a block be removed.
-Its data contains the ID of the block to remove (`blockId`).
+Message data contains the ID of the block to remove (`blockId`).
 The Page Builder responds with a `PB:UPDATE_FIELD_DATA` message.
 
 ## Guidelines for frontend implementation
@@ -528,7 +528,7 @@ The always present `data-ibexa-block-id` attribute (`blockElement.dataset.ibexaB
 
 The following vanilla JavaScript demo is provided as-is to illustrate how to use the Page Builder protocol.
 You can use it to observe the messages exchanged between the Page Builder and a frontend preview in the browser's JavaScript console.
-It does not support all block types or views.
+It doesn't support all block types or views.
 
 `page.html` is a static HTML page with JavaScript that handles Page Builder protocol messages and demonstrates the intended uses of the conventional CSS classes.
 It works both as a standalone page and as a Page Builder preview.
