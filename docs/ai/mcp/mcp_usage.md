@@ -94,7 +94,7 @@ The server:
     For production, it is recommended that you use Redis or Valkey to share cache among the cluster and improve performance.
 
     For development, you can set `discovery_cache: ~` to avoid clearing the cache after each change.
-     This example uses the filesystem storage to illustrate that you have to clear the cache pool to refresh the available capabilities, exactly as when deploying into production.
+    This example uses the filesystem storage to illustrate that you have to clear the cache pool to refresh the available capabilities, exactly as when deploying into production.
 
 In a new `config/packages/mcp.yaml` file, define a new MCP server for the `default` repository and assign it to all SiteAccesses:
 
