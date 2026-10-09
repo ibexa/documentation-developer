@@ -491,7 +491,7 @@ You can name CSS classes as you wish, but following these conventions can make e
 
 ### CSS classes and data attribute conventions
 
-By convention, some class names are used only in the Page Builder preview, while others are always used.
+By convention, some class names are used only in the Page Builder preview, while others are used in both final frontend and Page Builder frontend preview.
 
 For example, when the frontend is used in the Page Builder preview, the `c-pb-iframe__preview-body` class is added to the document body.
 
