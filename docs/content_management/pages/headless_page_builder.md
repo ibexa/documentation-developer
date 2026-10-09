@@ -60,26 +60,26 @@ The frontend can declare which capabilities it supports, so that the Page Builde
 
 Handshake and core messages are mandatory and don't depend on optional capabilities.
 
-| Capability         | Message type                                                                                | Description                          |
-|--------------------|---------------------------------------------------------------------------------------------|--------------------------------------|
-| (handshake)        | [`APP:INITIALIZED`](#communication-initialization)                                          | Establishes protocol and capabilities. |
-| (handshake)        | [`PB:INIT_MODE`](#communication-initialization)                                             | Confirms protocol and draft info.     |
-| (core)             | [`PB:UPDATE_FIELD_DATA`](#on-field-update)                                                  | Sends updated field data.             |
-| (core)             | [`PB:DISPATCH_EVENT`](#re-dispatching-events)                                               | Re-dispatches a frontend event.       |
-| `blocks.dnd`       | [`PB:DRAG_START_PREVIEW`](#drag-and-drop-blocksdnd)                                         | Informs that existing block dragging has started.         |
-| `blocks.dnd`       | [`PB:DRAG_OVER`](#drag-and-drop-blocksdnd)                                                  | Passes mouse position during dragging.          |
-| `blocks.dnd`       | [`PB:DRAG_END_PREVIEW`](#drag-and-drop-blocksdnd)                                           | Informs that existing block dragging has ended.           |
-| `blocks.dnd`       | [`PB:DROP`](#drag-and-drop-blocksdnd)                                                       | Drop notification.                   |
-| `blocks.dnd`       | [`APP:DROP_RESPONSE`](#drag-and-drop-blocksdnd)                                             | Reports where the block was dropped.  |
-| `blocks.dnd`       | [`PB:SCROLL_BY`](#drag-and-drop-blocksdnd)                                                  | Scrolls the preview.                  |
-| `blocks.geometry`  | [`APP:POSITIONS_UPDATE`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking) | Reports block positions.              |
-| `blocks.geometry`  | [`APP:SCROLL_END`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)       | Informs that scrolling has ended.                        |
-| `blocks.remove`    | [`PB:BLOCK_REMOVE`](#block-removal-blocksremove)                                            | Removes a block.                      |
-| `blocks.remove`    | [`APP:BLOCK_REMOVE_RESPONSE`](#block-removal-blocksremove)                                  | Confirms removal.                     |
-| `blocks.remove`    | [`APP:BLOCK_REMOVE_REQUEST`](#block-removal-blocksremove)                                   | Requests block removal.               |
-| `blocks.reveal`    | [`PB:SCROLL_INTO_BLOCK`](#block-reveal-blocksreveal)                                        | Scrolls a block into view.            |
-| `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | Informs that block is clicked.                       |
-| `pointer.tracking` | [`APP:MOUSE_POSITION`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)   | Reports mouse position.               |
+| Capability         | Message type                                                                                | Description                                       |
+|--------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------|
+| (handshake)        | [`APP:INITIALIZED`](#communication-initialization)                                          | Establishes protocol and capabilities.            |
+| (handshake)        | [`PB:INIT_MODE`](#communication-initialization)                                             | Confirms protocol and draft info.                 |
+| (core)             | [`PB:UPDATE_FIELD_DATA`](#on-field-update)                                                  | Sends updated field data.                         |
+| (core)             | [`PB:DISPATCH_EVENT`](#re-dispatching-events)                                               | Re-dispatches a frontend event.                   |
+| `blocks.dnd`       | [`PB:DRAG_START_PREVIEW`](#dragging-and-dropping-blocksdnd)                                 | Informs that existing block dragging has started. |
+| `blocks.dnd`       | [`PB:DRAG_OVER`](#dragging-and-dropping-blocksdnd)                                          | Passes mouse position during dragging.            |
+| `blocks.dnd`       | [`PB:DRAG_END_PREVIEW`](#dragging-and-dropping-blocksdnd)                                   | Informs that existing block dragging has ended.   |
+| `blocks.dnd`       | [`PB:DROP`](#dragging-and-dropping-blocksdnd)                                               | Drop notification.                                |
+| `blocks.dnd`       | [`APP:DROP_RESPONSE`](#dragging-and-dropping-blocksdnd)                                     | Reports where the block was dropped.              |
+| `blocks.dnd`       | [`PB:SCROLL_BY`](#dragging-and-dropping-blocksdnd)                                          | Scrolls the preview.                              |
+| `blocks.geometry`  | [`APP:POSITIONS_UPDATE`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking) | Reports block positions.                          |
+| `blocks.geometry`  | [`APP:SCROLL_END`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)       | Informs that scrolling has ended.                 |
+| `blocks.remove`    | [`PB:BLOCK_REMOVE`](#block-removal-blocksremove)                                            | Removes a block.                                  |
+| `blocks.remove`    | [`APP:BLOCK_REMOVE_RESPONSE`](#block-removal-blocksremove)                                  | Confirms removal.                                 |
+| `blocks.remove`    | [`APP:BLOCK_REMOVE_REQUEST`](#block-removal-blocksremove)                                   | Requests block removal.                           |
+| `blocks.reveal`    | [`PB:SCROLL_INTO_BLOCK`](#block-reveal-blocksreveal)                                        | Scrolls a block into view.                        |
+| `blocks.select`    | `APP:BLOCK_CLICKED`                                                                         | Informs that block is clicked.                    |
+| `pointer.tracking` | [`APP:MOUSE_POSITION`](#geometry-and-pointer-tracking-blocksgeometry-and-pointertracking)   | Reports mouse position.                           |
 
 ### Communication initialization
 
