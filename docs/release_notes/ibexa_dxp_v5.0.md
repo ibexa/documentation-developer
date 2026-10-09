@@ -10,6 +10,32 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.11' %]]
+[[% set date = 'YYYY-MM-DD' %]]
+
+[[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update']
+) =]]
+
+### Tools
+
+Several new [MCP tools](mcp_config.md#built-in-tools) have been added for [taxonomy](taxonomy.md) and [workflow](workflow.md):
+
+- `list_taxonomies`
+- `list_taxonomy_entries`
+- `list_workflows`
+- `get_content_workflow_status`
+- `apply_workflow_transition`
+
+### Schemas
+
+Input and output formats have changes for several tools.
+If you have written prompts, skill files, or other resources to help your agents to produce inputs or interpret outputs, you have to adapt them to those new formats.
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.10' %]]
 [[% set date = '2026-08-20' %]]
 
