@@ -138,6 +138,14 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code.
 - `Ibexa\Mcp\Tool\SeoTools`
     - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
+- `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
+    - `list_taxonomies` - Lists the taxonomies.
+    - `list_taxonomy_entries` - Lists entries of a taxonomy, below its root or a specific entry, with depth and pagination options. Useful for traversing taxonomy tree.
+- `Ibexa\Workflow\Mcp\Tool\WorkflowTools`
+    - `list_workflows` - Lists the editorial workflows.
+    - `get_content_workflow_status` - Gets the workflow status of a content version.
+    - `apply_workflow_transition` - Applies a workflow transition to a content version.
+
 
 ``` yaml hl_lines="5-7"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
