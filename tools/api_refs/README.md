@@ -127,6 +127,11 @@ fi;
 
 ### Run as GitHub Action
 
+#### On tagging
+
+The action is triggered automatically when a Commerce skeleton is tagged:
+https://github.com/ibexa/commerce-skeleton/blob/master/.github/workflows/api_refs.yaml
+
 #### By using `gh`
 
 With [GitHub CLI `gh`](https://cli.github.com/), you can trigger a GitHub Action workflow to build the API References.
@@ -135,16 +140,22 @@ With [GitHub CLI `gh`](https://cli.github.com/), you can trigger a GitHub Action
 gh workflow run api_refs.yaml -f version=<tag> -f use_dev_version=<false|true> --ref <branch> -f base_branch=<branch> -f work_branch=<branch> -f force=<false|true>
 ```
 
-`-f version=<tag>` to pass the Ibexa DXP version tag for which the API References are built.
-`-f use_dev_version=<false|true>` to use the released version designed by the tag, or to use the development version (`v5.0.x-dev`) for an incoming tag.
-`--ref <branch>` to use the `api_refs.yaml` workflow from a given branch instead of the default branch (`5.0`).
-`-f base_branch=<branch>` to use the `api_refs.sh` from a given branch and make a PR to that branch.
-`-f work_branch=<branch>` to use a given target branch to commit the build and make a PR from that branch.
-`-f force=<false|true>` to force the commit on the target branch even if it already exists.
+- `-f version=<tag>` to pass the Ibexa DXP version tag for which the API References are built.
+- `-f use_dev_version=<false|true>` to use the released version designed by the tag, or to use the development version (`v5.0.x-dev`) for an incoming tag.
+- `--ref <branch>` to use the `api_refs.yaml` workflow from a given branch instead of the default branch (`5.0`).
+- `-f base_branch=<branch>` to use the `api_refs.sh` from a given branch and make a PR to that branch.
+- `-f work_branch=<branch>` to use a given target branch to commit the build and make a PR from that branch.
+- `-f force=<false|true>` to force the commit on the target branch even if it already exists.
 
 Examples:
 
-Build from the dev branch `5.0.x-dev` API references for `v5.0.999`:
+Build the references for the already released version `v5.0.0`:
+
+```bash
+gh workflow run api_refs.yaml -f version=v5.0.0
+```
+
+Build from the dev branch `5.0.x-dev` API references for an incoming `v5.0.999`:
 
 ```bash
 gh workflow run api_refs.yaml -f version=v5.0.999 -f use_dev_version=true
