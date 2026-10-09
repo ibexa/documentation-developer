@@ -272,7 +272,7 @@ window.addEventListener('ibexa-post-update-blocks-preview', (customEvent) => {
 ### Geometry and pointer tracking (`blocks.geometry` and `pointer.tracking`)
 
 Pointer tracking and geometry help the Page Builder position block-editing menus over the frontend preview.
-These menus are `.c-pb-headless-preview-menu` elements positioned by the Page Builder in its DOM above the preview `iframe`.
+The menus are the `.c-pb-headless-preview-menu` elements that the Page Builder positions in its DOM above the preview `iframe`.
 
 The frontend preview sends the `APP:MOUSE_POSITION` message to report the mouse's current position to the Page Builder.
 
