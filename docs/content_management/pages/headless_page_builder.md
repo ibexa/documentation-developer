@@ -217,7 +217,7 @@ The confirmation `data` property object contains:
 
 When the **Landing page* field value is updated, the Page Builder sends the `PB:UPDATE_FIELD_DATA` message to the frontend resource.
 
-Its data contains the field's new value, with the following structure:
+The message's data contains the field's new value, with the following structure:
 
 - the current value of the Landing page field being edited (`fieldValue`), including the layout, zones, and blocks.
 - the list of the existing block types, their attributes, and their configuration (`blocksConfig`)
