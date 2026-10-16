@@ -14,7 +14,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 ### Carefully select admin users
 
-Make sure Admin users and other privileged users who have access to System Information and setup in the back end are vetted and fully trustworthy.
+Make sure [Admin users](permission_use_cases.md#admin) and other privileged users who have access to System Information and setup in the back end are vetted and fully trustworthy.
 
 As administrator, you have access to full information about the system through the `setup/system_info` policy, and also to user data, role editing, and many other critical aspects.
 
@@ -87,7 +87,7 @@ This is currently `bcrypt`, and it's enabled by default.
 
 ### Use secure roles and policies
 
-Use the following checklist to ensure the roles and policies are secure:
+Use the following checklist to ensure the [roles and policies](permission_overview.md) are secure:
 
 - Do roles restrict read/write access to content as they should? Is read/write access to personal data, like User content items, properly restricted?
 - Are the roles and their use properly differentiated and restricted? Is an editor role used for everyday editorial work?

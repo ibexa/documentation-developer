@@ -3,9 +3,21 @@ let jquery = jQuery;
 
 $(document).ready(function() {
     const latestVersionNumber = '5.0';
+    const specialVersions = ['latest', 'saas'];
+
+    const versionLabels = {
+        "2.5": "eZ Platform 2.5",
+        "3.3": "Ibexa DXP 3.3",
+        "4.6": "Ibexa DXP 4.6",
+        "5.0": "Ibexa DXP 5.0",
+        "6.0": "Cohesivo 6.0",
+        "saas": "Cohesivo SaaS"
+    };
+
+    versionLabels[latestVersionNumber] = versionLabels[latestVersionNumber] + ' (latest)';
 
     // replace edit url
-    let branchName = '5.0';
+    let branchName = latestVersionNumber;
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
     const eolVersions = window.eol_versions ?? [];
 
@@ -29,7 +41,7 @@ $(document).ready(function() {
     // Add version pill to top of navigation
     $('#site-name').append('<span class="pill pill--inline">' + branchName + '</span>');
 
-    $('.rst-current-version.switcher__label').html(branchName);
+    $('.rst-current-version.switcher__label').html(versionLabels[branchName] ?? branchName);
 
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
@@ -58,7 +70,7 @@ $(document).ready(function() {
                     </div>
                 `);
             }
-            $('.rst-current-version.switcher__label').html(version.length ? version : 'Change version');
+            $('.rst-current-version.switcher__label').html(version.length ? (versionLabels[version] ?? version) : 'Change version');
             $('.rst-other-versions.switcher__list dl.versions dd strong').parent().addClass('rtd-current-item');
 
             if ('latest' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
@@ -67,26 +79,34 @@ $(document).ready(function() {
                 });
             }
 
-            const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
+            const versionList = document.querySelector('.switcher__list dl.versions');
             const olderVersions = document.querySelector('#older-versions');
 
-            // Merge "X.Y" and "latest" entries into "X.Y (latest)"
-            const latestVersion = allVersions.find(v => v.textContent.trim() === 'latest');
-            const versionXY = allVersions.find(v => v.textContent.trim() === latestVersionNumber);
-            
-            const versionXYLink = versionXY.querySelector('a');
-            versionXYLink.textContent = `${latestVersionNumber} (latest)`;
-            latestVersion.remove();
+            const versionName = (versionNode) => versionNode.textContent.trim();
+            const versionNodes = [...versionList.querySelectorAll('dd')];
 
-            if (eolVersions.length > 0) {
+            // Remove latest version entry from the list
+            const latestVersion = versionNodes.find((versionNode) => versionName(versionNode) === 'latest');
+            latestVersion?.remove();
+            const allVersions = versionNodes.filter((versionNode) => versionNode !== latestVersion);
+
+            // Order: SaaS first, then supported versions, then EOL versions at the bottom
+            const saasVersions = allVersions.filter((versionNode) => versionName(versionNode) === 'saas');
+            const eolVersionNodes = allVersions.filter((versionNode) => eolVersions.includes(versionName(versionNode)));
+            const supportedVersions = allVersions.filter((versionNode) => !saasVersions.includes(versionNode) && !eolVersionNodes.includes(versionNode));
+            [...saasVersions, ...supportedVersions, ...eolVersionNodes].forEach((versionNode) => versionList.appendChild(versionNode));
+
+            if (eolVersionNodes.length > 0) {
                 olderVersions.hidden = false;
             }
 
-            allVersions
-                .filter((versionNode) => eolVersions.includes(versionNode.textContent))
-                .forEach((versionNode) => {
-                    versionNode.hidden = true;
-                });
+            eolVersionNodes.forEach((versionNode) => {
+                versionNode.hidden = true;
+            });
+
+            allVersions.forEach((versionNode) => {
+                versionNode.querySelector('a').textContent = versionLabels[versionName(versionNode)] ?? versionName(versionNode);
+            });
 
             olderVersions.addEventListener('click', (event) => {
                 event.stopPropagation();

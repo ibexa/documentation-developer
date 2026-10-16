@@ -7,6 +7,78 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## September 2026
+
+### Cohesivo SaaS
+
+- Published the [Cohesivo SaaS documentation](https://doc.ibexa.co/en/saas/), now available at the top of the **Change version** drop-down menu
+    - Added the [Cohesivo SaaS guide](https://doc.ibexa.co/en/saas/ibexa_products/cohesivo_saas_guide/) that provides an overview of key SaaS concepts and capabilities
+    - Added a [REST API reference](https://doc.ibexa.co/en/saas/api/rest_api/rest_api_reference/rest_api_reference.html) page for SaaS
+
+### Notifications
+
+- Presented the [available notification types](https://doc.ibexa.co/en/5.0/api/notification_channels/#available-notification-types) in a table showing when each notification is sent, its default recipients, and the channels it supports
+- Described which [notification channels](https://doc.ibexa.co/en/5.0/api/notification_channels/#available-notification-channels) accept any notification and which require a specific notification interface
+- Added an example of checking the [subscriptions configuration](https://doc.ibexa.co/en/5.0/api/notification_channels/#subscriptions-configuration) for a given SiteAccess
+
+### Translations management
+
+- Added a [Benefits](https://doc.ibexa.co/en/latest/multisite/translations_management/translations_management_guide/#benefits) section in the Translations management product guide
+
+### Users
+
+- Listed the policies required to let anonymous users [register](https://doc.ibexa.co/en/5.0/permissions/permission_use_cases/#register-users)
+
+### Permissions
+
+- Marked the [Segment and Segment group policies](https://doc.ibexa.co/en/5.0/permissions/policies/#segments) as available in both Experience and Commerce versions
+
+### Data migration
+
+- Added `content_type_group_id` to the list of [available reference types](https://doc.ibexa.co/en/5.0/content_management/data_migration/managing_migrations/#available-reference-types)
+
+### Documentation improvements
+
+- The **Change version** drop-down menu now shows full product names and versions
+
+## August 2026
+
+### Releases
+
+- [v5.0.10 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v5010)
+- [v4.6.32 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4632)
+
+### Translations management
+
+- Introduced the [Translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management/) LTS Update, which helps developers and editors deliver automated content item and product translations:
+    - [Product guide](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management_guide/)
+    - [Configuration](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/)
+    - [Extending Translations management](https://doc.ibexa.co/en/5.0/multisite/translations_management/extend_translations_management/)
+    - [Using the CLI command](https://doc.ibexa.co/en/5.0/multisite/translations_management/translate_with_cli/)
+    - [Events](https://doc.ibexa.co/en/5.0/api/event_reference/translations_management_events/)
+    - [PHP API reference](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html)
+
+### Cohesivo v6.0
+
+- Added the [Cohesivo v6.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/cohesivo_v6.0_deprecations/) page
+
+### Ibexa Rector
+
+- Added a dedicated page describing [Ibexa Rector](rector.md), an optional package for handling PHP and JavaScript code deprecations
+
+### Background tasks
+
+- Described the [`DeduplicateStamp`](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/#deduplicatestamp) and how to inject the `ibexa.messenger.bus` service directly
+
+### Infrastructure
+
+- Added a disclaimer about the `ibexa-5.0.9-to-5.0.10.sql` [database upgrade script](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/), needed for the Translations management LTS Update
+- Added the [`webpack.config.js` usage update](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/#webpackconfigjs-usage-update) instructions for 5.0
+
+### DDEV
+
+- Updated [Clustering with DDEV](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering_with_ddev/#elasticsearch) to install a supported version of Elasticsearch
+
 ## July 2026
 
 ### AI

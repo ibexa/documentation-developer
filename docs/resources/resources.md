@@ -10,5 +10,6 @@ See additional information about [[= product_name =]] development process, helpf
 [[= cards([
     "resources/release_process_and_roadmap",
     "resources/phpstorm_plugin",
+    "resources/rector",
     "resources/contributing/report_and_follow_issues",
 ], columns=3) =]]

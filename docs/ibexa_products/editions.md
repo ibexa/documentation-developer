@@ -71,3 +71,4 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
 | [MCP servers](mcp_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Shopping list](shopping_list_guide.md) |  |  | &#10004; |
+| [Translations management](translations_management_guide.md) | &#10004; | &#10004; | &#10004; |

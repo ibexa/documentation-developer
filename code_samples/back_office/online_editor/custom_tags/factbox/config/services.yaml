@@ -1,0 +1,20 @@
+services:
+    app.extractor.custom_tag:
+        class: Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor
+        arguments:
+            $customTags: '%ibexa.field_type.richtext.custom_tags%'
+            $domain: '%ibexa.field_type.richtext.custom_tags.translation_domain%'
+            $allowlist: ['factbox']
+        tags:
+            -   name: jms_translation.extractor
+                alias: app.translation_extractor.factbox
+
+    app.extractor.custom_tag_choice:
+        class: Ibexa\FieldTypeRichText\Translation\Extractor\ChoiceAttributeExtractor
+        arguments:
+            $customTags: '%ibexa.field_type.richtext.custom_tags%'
+            $domain: '%ibexa.field_type.richtext.custom_tags.translation_domain%'
+            $allowlist: ['factbox']
+        tags:
+            -   name: jms_translation.extractor
+                alias: app.translation_extractor.factbox_choice

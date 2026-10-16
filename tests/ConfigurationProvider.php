@@ -45,7 +45,13 @@ final class ConfigurationProvider
 
     public function createConfiguration(string $alias): ConfigurationInterface
     {
-        return $this->container->getExtension($alias)->getConfiguration([], $this->container);
+        $configuration = $this->container->getExtension($alias)->getConfiguration([], $this->container);
+
+        if ($configuration === null) {
+            throw new \Exception('Cannot create configuration for extension "' . $alias . '"');
+        }
+
+        return $configuration;
     }
 
     /**

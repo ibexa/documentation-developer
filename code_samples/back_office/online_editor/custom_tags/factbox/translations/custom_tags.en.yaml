@@ -1,3 +1,6 @@
 ibexa_richtext.custom_tags.factbox.label: 'Factbox'
+ibexa_richtext.custom_tags.factbox.description: 'Highlight a piece of information in a box'
 ibexa_richtext.custom_tags.factbox.attributes.name.label: 'Name'
 ibexa_richtext.custom_tags.factbox.attributes.style.label: 'Style'
+ibexa_richtext.custom_tags.factbox.attributes.style.choice.dark.label: 'Dark'
+ibexa_richtext.custom_tags.factbox.attributes.style.choice.light.label: 'Light'

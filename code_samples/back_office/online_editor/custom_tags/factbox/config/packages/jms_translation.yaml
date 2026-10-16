@@ -1,0 +1,9 @@
+jms_translation:
+    configs:
+        app_translation_config:
+            dirs: ['%kernel.project_dir%/src']
+            output_dir: '%kernel.project_dir%/translations'
+            output_format: yaml
+            extractors:
+                - 'app.translation_extractor.factbox'
+                - 'app.translation_extractor.factbox_choice'

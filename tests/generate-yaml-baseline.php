@@ -68,8 +68,8 @@ foreach ($testcases as $testcase) {
     // Extract file path and line from failure message
     // Patterns:
     //   "Invalid configuration for "X" in path/to/file.yaml: error"
-    //   "Invalid configuration for "X" in path/to/file.md:123 — error"
-    //   "YAML parse error in path/to/file.md at line 123: error"
+    //   "Invalid configuration for "X" in path/to/file.md:123 [hash:abc] — error"
+    //   "YAML parse error at path/to/file.md:123 [hash:abc]: error"
     $path = null;
     $line = null;
     $bodyHash = null;
@@ -83,7 +83,7 @@ foreach ($testcases as $testcase) {
     } elseif (preg_match('/Invalid configuration for "[^"]*" in ([^\n:]+?): (.+)/s', $message, $m)) {
         $path = trim($m[1]);
         $errorMessage = trim(explode("\n", $m[2])[0]);
-    } elseif (preg_match('/YAML parse error in ([^\n]+?) at line (\d+) \[hash:([a-f0-9]+)\]: (.+)/s', $message, $m)) {
+    } elseif (preg_match('/YAML parse error at ([^\n:]+?):(\d+) \[hash:([a-f0-9]+)\]: (.+)/s', $message, $m)) {
         $path = trim($m[1]);
         $line = (int) $m[2];
         $bodyHash = $m[3];
@@ -91,6 +91,11 @@ foreach ($testcases as $testcase) {
     }
 
     if ($path === null) {
+        fwrite(STDERR, sprintf(
+            "WARNING: could not parse failure message of %s, it will NOT be baselined:\n%s\n",
+            (string) $testcase['name'],
+            $message,
+        ));
         continue;
     }
 

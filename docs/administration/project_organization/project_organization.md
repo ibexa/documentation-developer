@@ -36,7 +36,7 @@ For more information, see [Configuration](configuration.md).
 
 If you're keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious if you maintain it in the main `config/packages/ibexa.yaml` configuration file.
 
-You can import configuration from a bundle by following the Symfony tutorial [How to Import Configuration Files/Resources]([[= symfony_doc =]]/service_container/import.html).
+You can import configuration from a bundle by following the Symfony tutorial [How to Import Configuration Files/Resources]([[= symfony_doc =]]/service_container.html#service-container-imports-directive).
 
 ## Versioning a project
 

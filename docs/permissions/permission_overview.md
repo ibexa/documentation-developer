@@ -5,7 +5,7 @@ description: The permission system is based on policies that you assign to users
 # Permission overview
 
 A new user doesn't have permissions for any part of the system, unless they're explicitly given access.
-To get access they need to inherit roles, typically assigned to the user group they belong to.
+To get access they need to inherit **Roles**, typically assigned to the user group they belong to.
 
 Each role can contain one or more **Policies**.
 A policy is a rule that gives access to a single **function** in a **module**.
@@ -18,7 +18,7 @@ For example, a `content/publish` policy with a `ContentType` limitation on the "
 A limitation, like a policy, specifies what a user *can* do, not what they *can't do*.
 A `Section` limitation, for example, *gives* the user access to the selected section, not *prohibits* it.
 
-For more information, see [Limitation reference](limitation_reference.md) and [Permission use cases](permission_use_cases.md).
+For more information, see [Policies](policies.md), [Limitations reference](limitation_reference.md), and [Permission use cases](permission_use_cases.md).
 
 ## Assigning roles to users
 
@@ -34,23 +34,21 @@ The more role assignments and complex policies you add for a given user, the mor
 
 ## Permissions for custom controllers
 
-You can control access to a custom controller by implementing the `performAccessCheck()` method.
+You can control access to a custom controller by implementing the [`RestrictedControllerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Controller-RestrictedControllerInterface.html) interface directly or, for back office controllers, by extending the [`\Ibexa\Contracts\AdminUi\Controller\Controller`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Controller-Controller.html) class.
 
-In the following example the user doesn't have access to the controller unless they have the `section/view` policy:
+In the following example, the user doesn't have access to the controller unless they are [logged in]([[= symfony_doc =]]/security.html#checking-to-see-if-a-user-is-logged-in) and have the `section/view` policy.
+The controller uses [`AuthenticatedRememberedCheckTrait::performAccessCheck()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Controller-AuthenticatedRememberedCheckTrait.html#method_performAccessCheck), aliased as `traitPerformAccessCheck()`, for the login check.
 
-``` php {skip-validation}
-use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
-
-public function performAccessCheck(): void
-{
-    parent::performAccessCheck();
-    $this->denyAccessUnlessGranted(new Attribute('section', 'view'));
-}
+``` php hl_lines="14-16 18-23"
+[[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
 ```
+
+Back office controllers that extend `Ibexa\Contracts\AdminUi\Controller\Controller` already use `AuthenticatedRememberedCheckTrait`.
+To add a policy check, override `performAccessCheck()` and call `parent::performAccessCheck()` first, as in the [custom limitation check example](custom_policies.md#custom-limitation-check).
 
 `Attribute` accepts three arguments:
 
-- `module` is the policy module (for example,`content`)
+- `module` is the policy module (for example, `content`)
 - `function` is the function inside the module (for example, `read`)
 - `limitations` are optional limitations to check against. Here you can provide two keys:
     - `valueObject` is the object you want to check for, for example `ContentInfo`.

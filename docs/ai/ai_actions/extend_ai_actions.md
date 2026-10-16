@@ -366,7 +366,7 @@ And include it into the back office using Webpack Encore.
 See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
 
 ``` js
-[[= include_file('code_samples/ai_actions/webpack.config.js') =]]
+[[= include_code('code_samples/ai_actions/webpack.config.js') =]]
 ```
 
 Your custom Action Type is now fully integrated into the back office UI and can be used by the Editors.

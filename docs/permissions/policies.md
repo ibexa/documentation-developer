@@ -6,8 +6,9 @@ month_change: false
 
 # Policies
 
-Policies are the main building block of the permissions system.
+Policies are the main building block of the [permissions system](permissions.md).
 Each role you assign to user or user group consists of policies which define, which parts of the application or website the user has access to.
+To limit access granted to users through policies, you can use [limitations](limitations.md).
 
 ## Available policies
 
@@ -58,6 +59,25 @@ Each role you assign to user or user group consists of policies which define, wh
 |                     | <nobr>`delete`</nobr> | delete roles                                                               |                      |
 |                     | <nobr>`read`</nobr>   | view the roles list in Admin. Required for all other role-related policies |                      |
 |                     | <nobr>`update`</nobr> | modify existing roles                                                      |                      |
+
+#### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+| Module                 | Function                      | Effect                   | Possible limitations                                              |
+|------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
+| <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign segments to users | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`create`</nobr>         | create segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`read`</nobr>           | load segment information | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`remove`</nobr>         | remove segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`update`</nobr>         | update segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+
+#### Segment groups [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+| Module                       | Function              | Effect                         | Possible limitations |
+|------------------------------|-----------------------|--------------------------------|----------------------|
+| <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create segment groups          |                      |
+|                              | <nobr>`read`</nobr>   | load segment group information |                      |
+|                              | <nobr>`remove`</nobr> | remove segment groups          |                      |
+|                              | <nobr>`update`</nobr> | update segment groups          |                      |
 
 #### Setup
 
@@ -162,25 +182,6 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                               | <nobr>`delete`</nobr> | delete a payment method |                      |
 |                               | <nobr>`edit`</nobr>   | modify a payment method |                      |
 |                               | <nobr>`view`</nobr>   | view payment methods    |                      |
-
-#### Segments [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                 | Function                      | Effect                   | Possible limitations                                              |
-|------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
-| <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign segments to users | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`create`</nobr>         | create segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`read`</nobr>           | load segment information | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`remove`</nobr>         | remove segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`update`</nobr>         | update segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-
-#### Segment groups [[% include 'snippets/commerce_badge.md' %]]
-
-| Module                       | Function              | Effect                         | Possible limitations |
-|------------------------------|-----------------------|--------------------------------|----------------------|
-| <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create segment groups          |                      |
-|                              | <nobr>`read`</nobr>   | load segment group information |                      |
-|                              | <nobr>`remove`</nobr> | remove segment groups          |                      |
-|                              | <nobr>`update`</nobr> | update segment groups          |                      |
 
 #### Shipments [[% include 'snippets/commerce_badge.md' %]]
 

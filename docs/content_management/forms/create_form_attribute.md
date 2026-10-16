@@ -72,8 +72,8 @@ Provide the required script in a new `assets/js/formbuilder-richtext-checkbox.js
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="49"
-[[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
+``` js hl_lines="46"
+[[= include_code('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 
 Clear the cache and regenerate the assets by running the following commands:

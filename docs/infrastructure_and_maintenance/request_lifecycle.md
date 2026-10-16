@@ -111,6 +111,7 @@ If it finds a location, the request receives the attributes **`locationId`** and
 
 The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
+<a id="siteaccess_group_whitelist">
 !!! note "Permission control"
 
     Another `kernel.request` event listener is the `Ibexa\AdminUi\EventListener\RequestListener` (priority 13).

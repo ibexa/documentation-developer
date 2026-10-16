@@ -134,3 +134,10 @@ For more information, see [this example using few of those components](component
 |`admin-ui-discount-condition-code-usage-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
 |`admin-ui-discount-condition-code-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
 |`admin-ui-discount-condition-code-usage-limit-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+
+## Translations management [[% include 'snippets/lts-update_badge.md' %]]
+
+| Group name | Template file |
+|---|---|
+|`admin-ui-content-translation-modal-footer`| `vendor/ibexa/translations-management/src/bundle/Resources/views/themes/admin/translations_management/component/side_by_side_modal_footer.html.twig` |
+|`admin-ui-content-edit-translation-select-footer`| `vendor/ibexa/translations-management/src/bundle/Resources/views/themes/admin/translations_management/component/side_by_side_content_edit_footer.html.twig` |

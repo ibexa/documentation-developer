@@ -13,7 +13,7 @@ When you work with your Commerce implementation, you can review and modify the s
 
 ## Configure shipment workflow
 
-Shipment workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
+Shipment workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/workflow.html).
 Each transition represents a separate shipment step.
 
 The default fallback workflow is `ibexa_shipment`, which is prepended at bundle level.

@@ -13,7 +13,7 @@ When you work with your Commerce implementation, you can modify and customize th
 
 ## Configure order processing workflow
 
-Order processing workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
+Order processing workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/workflow.html).
 Each transition represents a separate order processing step.
 
 ### Default order processing configuration

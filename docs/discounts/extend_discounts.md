@@ -20,7 +20,7 @@ Together with the existing [events](event_reference.md) and the [Discounts PHP A
 
 With custom [conditions](discounts_api.md#conditions) and [rules](discounts_api.md#rules) you can create more advanced discounts that apply only in specific scenarios.
 
-For both of them, you need to specify their logic with [Symfony's expression language](https://symfony.com/doc/current/components/expression_language.html).
+For both of them, you need to specify their logic with [Symfony's expression language]([[= symfony_doc =]]/expression_language.html).
 
 ### Available expressions
 

@@ -47,7 +47,7 @@ The full list of available services covers:
 You can access the PHP API by injecting relevant services into your code:
 
 - By using [auto-wiring]([[= symfony_doc =]]/service_container/autowiring.html), and the service class name in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
-- By using [service parameters]([[= symfony_doc =]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
+- By using [service parameters]([[= symfony_doc =]]/service_container.html#service-container-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
 - By using the repository's `get[ServiceName]()` methods, for example, [`Repository::getContentService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), or [`getUserService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService).
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
 
@@ -163,7 +163,7 @@ try {
 
 [[= product_name =]] uses the [Symfony service container]([[= symfony_doc =]]/service_container.html) for dependency resolution.
 
-[Symfony dependency injection]([[= symfony_doc =]]/components/dependency_injection.html) ensures that any required services are available in your custom code (for example, controllers) when you inject them into the constructor.
+[Symfony dependency injection]([[= symfony_doc =]]/service_container.html) ensures that any required services are available in your custom code (for example, controllers) when you inject them into the constructor.
 
 Symfony service container uses service tags to dedicate services to a specific purpose.
 They're usually used for extension points.

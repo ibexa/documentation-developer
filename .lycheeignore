@@ -16,6 +16,7 @@
 ^https://support\.ibexa\.co/
 ^https://redocly\.com/redoc/
 ^https://updates\.ibexa\.co
+https://cohesivo.com
 
 # Hosts that block automated requests (403)
 ^https?://(www\.)?linkedin\.com

@@ -1,0 +1,11 @@
+-
+    type: language
+    mode: update
+    languageCode: ger-DE
+    metadata:
+        name: 'German (Germany)'
+        enabled: true
+    references:
+        -
+            name: ref__ger_de__language_id
+            type: language_id

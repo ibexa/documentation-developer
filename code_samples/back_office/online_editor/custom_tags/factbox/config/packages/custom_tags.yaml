@@ -1,3 +1,23 @@
+ibexa_fieldtype_richtext:
+    custom_tags:
+        factbox:
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/factbox.html.twig'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square' # Optional
+            is_inline: false # Optional
+            label: 'Factbox custom tag' # Optional
+            description: 'Highlight a piece of information in a box' # Optional
+            attributes:
+                name:
+                    type: string
+                    required: true # Optional
+                    label: 'My name attribute' # Optional
+                style:
+                    type: choice
+                    required: true # Optional
+                    default_value: light
+                    choices: [light, dark]
+                    label: 'My style attribute' # Optional
+
 ibexa:
     system:
         admin_group:
@@ -9,17 +29,3 @@ ibexa:
                             buttons:
                                 factbox:
                                     priority: 5
-ibexa_fieldtype_richtext:
-    custom_tags:
-        factbox:
-            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/factbox.html.twig'
-            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square'
-            attributes:
-                name:
-                    type: string
-                    required: true
-                style:
-                    type: choice
-                    required: true
-                    default_value: light
-                    choices: [light, dark]

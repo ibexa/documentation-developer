@@ -6,7 +6,7 @@ description: Use the ConfigResolver to inject dynamic configuration into your se
 
 ## ConfigResolver
 
-Dynamic configuration is handled by a ConfigResolver.
+Dynamic configuration is handled by the [`ConfigResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-SiteAccess-ConfigResolverInterface.html).
 
 It exposes the `hasParameter()` and `getParameter()` methods.
 You can use them to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
@@ -68,7 +68,7 @@ services:
         arguments: ['@ibexa.config.resolver']
 ```
 
-You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
+You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against [`ConfigResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-SiteAccess-ConfigResolverInterface.html).
 
 For more information about dependency injection, see [Service container](php_api.md#service-container).
 

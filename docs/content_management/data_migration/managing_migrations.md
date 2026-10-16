@@ -1,6 +1,6 @@
 ---
 description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
-month_change: true
+month_change: false
 ---
 
 # Managing migrations
@@ -189,6 +189,8 @@ You can also set a reference value manually with the `set` mode, and use the `li
     - `path`
 - `content_type`
     - `content_type_id`
+- `content_type_group`
+    - `content_type_group_id`
 - `language`
     - `language_id`
     - `language_code`

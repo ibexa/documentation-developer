@@ -4,7 +4,7 @@ description: Set up permission sets for common use cases.
 
 # Permission use cases
 
-Here are a few examples of sets of policies that you can use to get some common permission configurations.
+Here are a few examples of sets of [policies](policies.md) that you can use to get some common [permission](permissions.md) configurations.
 
 ## Enter back office
 
@@ -50,7 +50,7 @@ To move a content item or a subtree to another location, the user must have the 
 
 To send content to Trash, the user needs to have the `content/remove` policy.
 If content has more than one language, the user must have access to all the languages.
-That is, the `content/remove` policy must have either no limitation, or a limitation for all languages of the content item.
+That is, the `content/remove` policy must have either no [limitation](limitation_reference.md), or a limitation for all languages of the content item.
 
 To remove an archived version of content, the user must have the `content/versionremove` policy.
 
@@ -164,7 +164,10 @@ With limitations, you can configure whether permissions apply to Tags, product c
 
 ## Register users
 
-To allow anonymous users to register through the `/register` route, grant the `user/register` policy to the Anonymous user group.
+To allow anonymous users to register through the `/register` or `/from-invite/register` routes, grant the following policies to the Anonymous role:
+
+- `user/register`
+- `content/create`, limited to the User content type and chosen user groups
 
 ## Admin
 

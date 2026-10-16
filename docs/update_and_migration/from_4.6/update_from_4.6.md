@@ -330,7 +330,7 @@ You can use it to get rid of PHP code deprecations and start preparing your proj
 !!! note
 
     [[= product_name_base =]] Rector requires PHP 8.3 and you must upgrade your codebase first.
-    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-2-upgrade-php-first).
+    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-3-upgrade-php-first).
 
 To get started with [[= product_name_base =]] Rector, execute the following steps:
 
@@ -734,11 +734,15 @@ In addition, consider upgrading your project to one of [the actively supported P
 
 No additional steps needed.
 
-## v4.6.3X
+## v4.6.32
+
+No additional steps needed.
+
+## v4.6.33
 
 ### Database update
 
-v4.6.3X introduces Ibexa Doctrine Migrations to manage database schema changes.
+v4.6.33 introduces Ibexa Doctrine Migrations to manage database schema changes.
 It replaces the previous usage of SQL files (like vendor/ibexa/installer/upgrade/db/<server>/ibexa-x.y.a-to-x.y.b.sql).
 
 Run the following to run a basic schema check and store the database status.
@@ -752,18 +756,6 @@ php bin/console ibexa:doctrine:migrations:migrate
     Notice that this command isn't a full schema conformity checker.
     It tests the presence of key elements to determine if a previous change has been applied or not.
     If, in the past, you had incomplete schema upgrades, Ibexa Doctring Migrations command can be misled into considering a change as fully applied while it's only partially applied.
-
-## v4.6.(3X+N)
-
-### TODO: Add config for new feature, anything needed to have the console running again
-
-### Database update
-
-Run Ibexa Doctrine Migrations through the following command:
-
-```bash
-php bin/console ibexa:doctrine:migrations:migrate
-```
 
 ## LTS Updates
 
