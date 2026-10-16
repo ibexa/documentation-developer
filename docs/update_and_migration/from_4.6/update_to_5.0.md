@@ -9,6 +9,13 @@ month_change: true
 
 Before you update to v5.0, you need to [update to the latest maintenance release of v4.6 (v[[= latest_tag_4_6 =]])](update_from_4.6.md).
 
+!!! caution Database migration sequence"
+
+    Before you update the database, make sure that you run `ibexa:doctrine:migrations:migrate` when your project is on the latest v4.6.x patch version.
+    See [Database update](update_from_4.6.md#database-update).
+
+    Running v5.0 migrations on a database when v4.6 migrations are not applied can cause schema inconsistencies.
+
 ### Move from old to new Commerce
 
 If you've chosen to use the [deprecated Commerce packages](update_from_4.3_old_commerce.md) during the update to 4.4,
@@ -308,18 +315,31 @@ composer run-script post-update-cmd
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
-Ibexa Doctrine Migrations manage the database schema updates.
-The following command will migrate from the 4.6's schema to 5.0's one:
+Doctrine migrations manage the database schema updates.
+The following command migrates your database from the v4.6 schema to the v5.0 schema:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
-If you're using [multiple repositories](repository_configuration.md#defining-custom-connection), run the command with option `--siteaccess=<siteaccess>` for each repository with a SiteAccess using it.
+If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository. 
+Running the command more than once is safe.
+It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
 
-Many tables and columns are renamed between 4.6 and 5.0.
-If you have custom code directly querying those, you will need to update them.
-You can track the renaming below.
+Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you also manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+!!! caution "Command scope"
+
+    Many tables and columns are renamed between v4.6 and v5.0.
+    If you have custom code that directly queries those, you need to update them.
+    You can track the renaming below.
 
 ??? note "Tables and columns renaming map"
 
@@ -408,7 +428,7 @@ You can track the renaming below.
 ??? note "DFS (Distributed File System)"
 
     If [DFS IO handler](clustering.md#dfs-io-handler) is used and, as recommended, its table is on its own database, you'll have to rename table and columns there.
-    Here are the DFS renaming queries (extracted from `ibexa-4.6.latest-to-5.0.0.sql`):
+    Here are the DFS renaming queries:
 
     ```sql
     ALTER TABLE ezdfsfile RENAME TO ibexa_dfs_file;
@@ -1104,6 +1124,6 @@ composer ibexa:setup --platformsh
 
 #### Conclusion
 
-Your packages and database are now update to date.
+Your project is now running [[= product_name =]] v5.0, with packages and database schema both up to date.
 
-TODO: Look in [Update from v5.0.x to v5.0.latest](update_from_5.0.md) for configuration updates, PHP API usage modifications, and every change between v5.0.0 and v[[= latest_tag_5_0 =]] that isn't related to database.
+To learn about cnfiguration updates, PHP API changes, or other changes introduced between v5.0.0 and v[[= latest_tag_5_0 =]] that aren't related to the database, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md).

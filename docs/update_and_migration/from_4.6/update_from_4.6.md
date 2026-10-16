@@ -742,20 +742,32 @@ No additional steps needed.
 
 ### Database update
 
-v4.6.33 introduces Ibexa Doctrine Migrations to manage database schema changes.
-It replaces the previous usage of SQL files (like vendor/ibexa/installer/upgrade/db/<server>/ibexa-x.y.a-to-x.y.b.sql).
+With v4.6.33, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to run the SQL upgrade scripts.
+The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
 
-Run the following to run a basic schema check and store the database status.
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+Run the following command to apply all database migrations present in your currently installed code:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
-!!! caution
+If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository. 
+Running the command more than once is safe.
+It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
 
-    Notice that this command isn't a full schema conformity checker.
-    It tests the presence of key elements to determine if a previous change has been applied or not.
-    If, in the past, you had incomplete schema upgrades, Ibexa Doctring Migrations command can be misled into considering a change as fully applied while it's only partially applied.
+[[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you also manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+    Always back up your database and test this command in a non-production environment first.
 
 ## LTS Updates
 
