@@ -754,7 +754,7 @@ Run the following command to apply all database migrations present in your curre
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
-If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository. 
+If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository.
 Running the command more than once is safe.
 It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
 

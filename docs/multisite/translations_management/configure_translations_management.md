@@ -39,8 +39,6 @@ To add the Translations management LTS Update to an existing [[= product_name =]
 
 #### Modify database schema
 
-#### Modify database schema
-
 Check which database migrations the bundle needs, then apply them:
 
 ```bash

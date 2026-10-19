@@ -39,7 +39,7 @@ In all examples, replace `upsun` with `ibexa_cloud`.
 
 ## Examples
 
-### Run an SQL script
+### Run SQL script
 
 To execute an SQL upgrade script on a [[= product_name_cloud =]] environment, pass it to `ibexa_cloud sql`:
 
@@ -55,16 +55,21 @@ To execute an SQL upgrade script on a [[= product_name_cloud =]] environment, pa
     ibexa_cloud sql < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-x.x.x-to-x.x.y.sql
     ```
 
-### Run a database migration
+### Run database migration
 
 To run Ibexa Doctrine Migrations on a [[= product_name_cloud =]] environment, connect via SSH and run the command directly:
 
 ```bash
 ibexa_cloud ssh
+```
+
+and
+
+```bash
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
-### Connect with an SQL client
+### Connect with SQL client
 
 To connect to the database using any SQL client, start SSH tunnels to all services (database, Redis, Solr, and others except Varnish) by running the following command in the project directory:
 
