@@ -39,21 +39,16 @@ To add the Translations management LTS Update to an existing [[= product_name =]
 
 #### Modify database schema
 
-Add the tables needed by the bundle:
+#### Modify database schema
 
-=== "MySQL"
+Check which database migrations the bundle needs, then apply them:
 
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.mysql.sql', indent_level=1) =]]
-    ```
+```bash
+php bin/console ibexa:doctrine:migrations:status
+php bin/console ibexa:doctrine:migrations:migrate
+```
 
-=== "PostgreSQL"
-
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.postgresql.sql', indent_level=1) =]]
-    ```
-
-The script creates the required data structures, but doesn't add any data to the database.
+The command creates the required data structures, but doesn't add any data to the database.
 
 #### Add action configurations
 

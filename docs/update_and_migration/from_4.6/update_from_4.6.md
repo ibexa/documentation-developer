@@ -759,7 +759,7 @@ Running the command more than once is safe.
 It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
 
 [[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
-Your custom tables are not affected, even if you also manage them with standard Doctrine migrations.
+Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
 
 !!! caution "Command scope"
 
@@ -767,7 +767,7 @@ Your custom tables are not affected, even if you also manage them with standard 
     It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
     If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
 
-    Always back up your database and test this command in a non-production environment first.
+    Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
 
 ## LTS Updates
 

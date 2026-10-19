@@ -18,21 +18,12 @@ You can install it with the following command:
 composer require ibexa/oauth2-server --with-all-dependencies
 ```
 
-Add the tables needed by the bundle:
+Add the tables needed by the bundle by running [[= product_name_base =]] Doctrine migrations:
 
-TODO: Ibexa Doctrine Migrations
-
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
+```bash
+php bin/console ibexa:doctrine:migrations:status
+php bin/console ibexa:doctrine:migrations:migrate
+```
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
