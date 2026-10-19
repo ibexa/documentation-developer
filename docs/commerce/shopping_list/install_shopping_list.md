@@ -38,23 +38,14 @@ ibexa.rest.shopping_list:
 
 ## Modify database schema
 
-Add the tables needed by the bundle:
+Check which database migrations the bundle needs, then apply them:
 
-TODO: Ibexa Doctrine Migrations
+```bash
+php bin/console ibexa:doctrine:migrations:status
+php bin/console ibexa:doctrine:migrations:migrate
+```
 
-=== "MySQL"
-
-    ```sql
-    [[= include_file('code_samples/shopping_list/install/schema.mysql.sql', 0, None, '    ') =]]
-    ```
-
-=== "PostgreSQL"
-
-    ```sql
-    [[= include_file('code_samples/shopping_list/install/schema.postgresql.sql', 0, None, '    ') =]]
-    ```
-
-The script creates the required data structures, but doesn't add any data to the database.
+The command creates the required data structures, but doesn't add any data to the database.
 
 The users don't have any shopping lists, not even the default “My Wishlist” list.
 The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
