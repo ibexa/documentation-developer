@@ -21,7 +21,7 @@ month_change: false
 
 ### Tools
 
-Several new [MCP tools](mcp_config.md#built-in-tools) have been added to the MCP Servers feature:
+Several new [MCP tools](mcp_config.md#built-in-tools) have been added for [content management](https://doc.ibexa.co/en/5.0/content_management/content_management/), [taxonomy](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) and [workflow](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow/):
 
 - `Ibexa\McpExperimental\Tool\Taxonomy\TaxonomyTools`
     - `list_taxonomies`
@@ -42,6 +42,11 @@ Several new [MCP tools](mcp_config.md#built-in-tools) have been added to the MCP
     - `ibexa/mcp:get_content`
     - `ibexa/mcp:get_language`
     - `publish_version`
+
+### Schemas
+
+Input and output formats have been optimized for several tools. 
+If you have prompts, skill files, or other resources to help your agents produce inputs or interpret outputs, you must adapt them to those format changes.
 
 [[= release_note_entry_end() =]]
 
