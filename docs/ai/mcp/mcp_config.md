@@ -119,33 +119,44 @@ There are two ways to associate tools with a server:
 MCP Servers LTS Update comes with the following **experimental** built-in tools:
 
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
-    - `get_content_type` - gets a content type by its ID.
-    - `get_content_type_by_identifier` - gets a content type by its identifier.
-    - `get_content_type_list` - gets content types by their IDs.
-    - `create_content_type` - creates a draft for a new content type.
-    - `create_content_type_draft` - creates a draft for an existing content type.
-    - `get_content_type_draft` - gets a content type draft by content type ID.
-    - `publish_content_type_draft` - publishes a content type draft by content type ID.
+    - `get_content_type` - gets a content type by its ID
+    - `get_content_type_by_identifier` - gets a content type by its identifier
+    - `get_content_type_list` - gets content types by their IDs
+    - `create_content_type` - creates a draft for a new content type
+    - `create_content_type_draft` - creates a draft for an existing content type
+    - `get_content_type_draft` - gets a content type draft by content type ID
+    - `publish_content_type_draft` - publishes a content type draft by content type ID
+- `Ibexa\Mcp\Tool\Content\ContentTools`
+    - `ibexa/mcp:update_content` - sets field values on a draft, in the draft's initial language (unless `initialLanguageCode` is given)
+    - `ibexa/mcp:create_content` - creates an unpublished draft
+    - `ibexa/mcp:convert_to_richtext_xml` - converts plain text, HTML fragments or complete DocBook / XHTML5 edit documents into the DocBook XML stored in RichText fields
+    - `ibexa/mcp:create_content_draft` - creates a new draft from the published or archived version
+    - `ibexa/mcp:list_locations` - lists direct children of a parent Location, and/or Locations that match a pattern, paginated
+    - `ibexa/mcp:get_content_info` - gets version-independent metadata of a content item
+    - `ibexa/mcp:get_content_version_info` - gets metadata of a specific version of a content item (current by default)
+    - `ibexa/mcp:get_default_language_code` - gets the first configured language of the current SiteAccess
+    - `ibexa/mcp:get_root_location` - gets the root Location of the content tree of a SiteAccess (current if no SiteAccess name is given)
+    - `ibexa/mcp:get_content` - gets a content item with its metadata, a version and the field values of that version
+    - `ibexa/mcp:get_language` - gets a language by its language code, together with information whether it is enabled
+    -`publish_version` - publishes a draft
 - `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
-    - `add_field_definition` - adds a field definition to a content type draft.
-    - `update_field_definition` - updates a field definition in a content type draft.
-    - `remove_field_definition` - removes a field definition from a content type draft.
+    - `add_field_definition` - adds a field definition to a content type draft
+    - `update_field_definition` - updates a field definition in a content type draft
+    - `remove_field_definition` - removes a field definition from a content type draft
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeGroupTools`
-    - `get_content_type_groups` - gets all content type groups.
+    - `get_content_type_groups` - gets all content type groups
 - `Ibexa\Mcp\Tool\TranslationTools`
-    - `list_languages` - lists all languages in the current SiteAccess.
-    - `list_content_languages` - lists languages which have translations for a given content item.
-    - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code.
+    - `list_languages` - lists all languages in the current SiteAccess
+    - `list_content_languages` - lists languages which have translations for a given content item
+    - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
+    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention
 - `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
-    - `list_taxonomies` - Lists the taxonomies.
-    - `list_taxonomy_entries` - Lists entries of a taxonomy, below its root or a specific entry, with depth and pagination options. Useful for traversing taxonomy tree.
+    - `list_taxonomies` - Lists the taxonomies
 - `Ibexa\Workflow\Mcp\Tool\WorkflowTools`
-    - `list_workflows` - Lists the editorial workflows.
-    - `get_content_workflow_status` - Gets the workflow status of a content version.
-    - `apply_workflow_transition` - Applies a workflow transition to a content version.
-
+    - `list_workflows` - Lists the editorial workflows
+    - `get_content_workflow_status` - Gets the workflow status of a content version
+    - `apply_workflow_transition` - Applies a workflow transition to a content version
 
 ``` yaml hl_lines="5-7"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
