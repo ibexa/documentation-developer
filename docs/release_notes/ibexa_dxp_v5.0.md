@@ -19,8 +19,9 @@ month_change: false
     ['Headless', 'Experience', 'Commerce', 'LTS Update']
 ) =]]
 
-### Tools
 <!-- markdownlint-disable-next-line heading-increment -->
+### Tools
+
 Several new tools have been added to the [MCP package](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools):
 
 - `get_field_type_list`
