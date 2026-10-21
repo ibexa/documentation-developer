@@ -144,12 +144,12 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `get_language` - gets a language by its language code, together with information whether it is enabled
     - `get_default_language_code` - gets the first configured language of the current SiteAccess
 - `Ibexa\Mcp\Tool\Location\LocationTools`
-    - `list_locations` - lists direct children of a parent Location, and/or Locations that match a pattern, paginated
-    - `get_root_location` - gets the root Location of the content tree of a SiteAccess (current if no SiteAccess name is given)
+    - `list_locations` - lists direct children of a parent location, and/or locations that match a pattern, paginated
+    - `get_root_location` - gets the root location of the content tree of a SiteAccess (current if no SiteAccess name is given)
 - `Ibexa\Mcp\Tool\RichText\RichTextTools`
     - `convert_to_richtext_xml` - converts plain text, HTML fragments or complete DocBook / XHTML5 edit documents into the DocBook XML stored in RichText fields
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention
+    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). You can use it to identify content that needs SEO attention
 - `Ibexa\Mcp\Tool\TranslationTools`
     - `list_languages` - lists all languages in the current SiteAccess
     - `list_content_languages` - lists languages which have translations for a given content item
