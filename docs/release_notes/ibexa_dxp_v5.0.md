@@ -20,32 +20,37 @@ month_change: false
 ) =]]
 
 ### Tools
+<!-- markdownlint-disable-next-line heading-increment -->
+Several new tools have been added to the [MCP package](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools):
 
-Several new [MCP tools](mcp_config.md#built-in-tools) have been added for [content management](https://doc.ibexa.co/en/5.0/content_management/content_management/), [taxonomy](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) and [workflow](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow/):
+- `get_field_type_list`
+- `get_content_info`
+- `get_content_version_info`
+- `get_content`
+- `create_content`
+- `create_content_draft`
+- `update_content`
+- `publish_version`
+- `list_locations`
+- `get_root_location`
+- `get_default_language_code`
+- `get_language`
+- `convert_to_richtext_xml`
 
-- `Ibexa\McpExperimental\Tool\Taxonomy\TaxonomyTools`
-    - `list_taxonomies`
-- `Ibexa\Workflow\Mcp\Tool\WorkflowTools`
-    - `list_workflows`
-    - `get_content_workflow_status`
-    - `apply_workflow_transition`
-- `Ibexa\Mcp\Tool\Content\ContentTools`
-    - `ibexa/mcp:update_content`
-    - `ibexa/mcp:create_content`
-    - `ibexa/mcp:convert_to_richtext_xml`
-    - `ibexa/mcp:create_content_draft`
-    - `ibexa/mcp:list_locations`
-    - `ibexa/mcp:get_content_info`
-    - `ibexa/mcp:get_content_version_info`
-    - `ibexa/mcp:get_default_language_code`
-    - `ibexa/mcp:get_root_location`
-    - `ibexa/mcp:get_content`
-    - `ibexa/mcp:get_language`
-    - `publish_version`
+The following tools were added to their respective packages: [Taxonomy](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) and [Workflow](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow/):
+
+- `list_taxonomies`
+- `list_workflows`
+- `get_content_workflow_status`
+- `apply_workflow_transition`
+
+### Removed tools
+
+- `get_content_type_by_identifier` is removed. Use `get_content_type` instead, which now accepts a content type ID or identifier
 
 ### Schemas
 
-Input and output formats have been optimized for several tools. 
+Input and output formats have been optimized for several tools.
 If you have prompts, skill files, or other resources to help your agents produce inputs or interpret outputs, you must adapt them to those format changes.
 
 [[= release_note_entry_end() =]]
@@ -64,7 +69,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 ### [[= product_name_base =]] Doctrine migrations
 
 Applying database schema upgrades no longer requires that you find and run SQL scripts manually.
-[[= product_name_base =]] Doctrine migrations ships with every Ibexa package and allows you to manages schema changes through a single console command:
+[[= product_name_base =]] Doctrine migrations ships with every [[= product_name =]] package and allows you to manages schema changes through a single console command:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate
@@ -77,7 +82,7 @@ For more information, see [Database update](https://doc.ibexa.co/en/5.0/update_a
 
 ### Flysystem 3 support
 
-[[= product_name =]] now supports Flysystem 3.x for file storage adapters, in addition to Flysystem 2.x. 
+[[= product_name =]] now supports Flysystem 3.x for file storage adapters, in addition to Flysystem 2.x.
 Since [[= product_name =]] 5.0 requires PHP 8.3 or later, `league/flysystem` now installs as 3.36 or later by default.
 
 If you use a custom storage adapter, a custom [`local:` IO handler](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler), or a cloud adapter such as `league/flysystem-aws-s3-v3`, review the [Flysystem 3 support notes](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#flysystem-3-support) before updating.
