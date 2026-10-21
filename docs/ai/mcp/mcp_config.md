@@ -60,8 +60,8 @@ You define MCP servers within a repository configuration and then assign those s
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 1, 8) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 17) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 31, 35) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 13, 18) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 32, 36) =]]
 ```
 
 Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
@@ -156,6 +156,7 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code
 
 The following tools are included with their respective packages, [Taxonomy](taxonomy.md) and [Workflow](workflow.md):
+
 - `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
     - `list_taxonomies` - lists the taxonomies
 - `Ibexa\Workflow\Mcp\Tool\WorkflowTools`
@@ -163,9 +164,9 @@ The following tools are included with their respective packages, [Taxonomy](taxo
     - `get_content_workflow_status` - gets the workflow status of a content version
     - `apply_workflow_transition` - applies a workflow transition to a content version
 
-``` yaml hl_lines="5-7"
+``` yaml hl_lines="5-8"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 12) =]]
                     # …
 ```
 
@@ -186,7 +187,7 @@ You must provide a PSR-6 or PSR-16 cache pool for this caching.
 For example, you could set up a dedicated Redis/Valkey:
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 19, 19) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 20, 20) =]]
 ```
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
@@ -229,8 +230,8 @@ Optionally, you could use a more specific `prefix` option than the default `mcp_
 Such setup is suitable for production environments.
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 20, 23) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 36, 45) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 21, 24) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 37, 46) =]]
 ```
 
 #### File
@@ -242,7 +243,7 @@ Such setup is suitable for development environments.
 In this example, sessions are stored in the `var/cache/<environment>/mcp/sessions/` directory (for example, `var/cache/dev/mcp/session/` for the `dev` environment, and `var/cache/prod/mcp/sessions/` for the `prod` environment):
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 25, 27) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 26, 28) =]]
 ```
 
 ### Allowed hosts
@@ -256,7 +257,7 @@ IPv6 addresses must be bracketed, for example `[::1]`.
 In this example, only requests from `admin.example.com` domain, `my-ddev-project.ddev.site` domain, or from 127.0.0.1 IP are accepted:
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
                         - 'www.example.com'
                         - 'my-ddev-project.ddev.site'
                         - '127.0.0.1'
