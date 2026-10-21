@@ -33,7 +33,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
 
 ## Set up [[= product_name =]] for AWS S3
 
-In your [[= product_name =]] root directory, run `php composer require league/flysystem-aws-s3-v3:^2.0`.
+In your [[= product_name =]] root directory, run `php composer require league/flysystem-aws-s3-v3:^3.0`.
 Then, register the AWS S3 client as a service:
 
 ``` yaml
@@ -48,7 +48,13 @@ services:
                     secret: abc123... # Your AWS secret key
 ```
 
-Set up the Flysystem v2 adapter that uses the S3 client under the `oneup_flysystem.adapters` [configuration key](configuration.md#configuration-files):
+!!! note "Flysystem version"
+
+    Cloud adapters such as `league/flysystem-aws-s3-v3` are versioned together with Flysystem itself.
+    If your project still requires the `^2.0` adapter elsewhere, Composer silently keeps Flysystem on 2.5.
+    To use Flysystem 3.x, require `^3.0` of the adapter instead.
+
+Set up the Flysystem adapter that uses the S3 client under the `oneup_flysystem.adapters` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 oneup_flysystem:

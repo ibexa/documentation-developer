@@ -738,6 +738,24 @@ No additional steps needed.
 
 No additional steps needed.
 
+## v4.6.33
+
+### Flysystem 3 support
+
+Depending on a [PHP version](requirements.md#php), your [[= product_name =]] supports either Flysystem 2.x or 3.x.
+On PHP 8.x, `league/flysystem` now installs as 3.36 or later.
+Projects on PHP 7.4 stay on Flysystem 2.5.
+
+If you have a custom adapter, any class that implements `League\Flysystem\FilesystemAdapter` must add `directoryExists(string $path): bool`.
+Otherwise, Flysystem 3 throws a fatal error.
+
+If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
+If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
+
+If you use a custom `local:` adapter as an IO handler, check that it explicitly configures `League\MimeTypeDetection\FinfoMimeTypeDetector` as its `mimeTypeDetector`.
+Flysystem 3.x's default detector returns no MIME type for inconclusive files, such as extensionless text or empty files, which can cause downloads to fail.
+[[= product_name =]]'s own adapters already do this.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.

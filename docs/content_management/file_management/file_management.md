@@ -40,8 +40,22 @@ ibexa:
                 binarydata_handler: nfs
 ```
 
-The adapter is the *driver* used by Flysystem v2 to read/write files. Adapters are declared using `oneup_flysystem`.
-Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem v2 adapter, labeled `default` as well.
+The adapter is the **driver** used by Flysystem to read/write files.
+You declare adapters with `oneup_flysystem`.
+Metadata and binary data handlers are configured under `ibexa_io`.
+For the configuration of the default handlers, see below.
+The configuration declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
+
+!!! note "Flysystem version"
+
+    [[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later.
+
+    If you use a custom adapter, make sure that the class that implements `League\Flysystem\FilesystemAdapter` also implements `directoryExists(string $path): bool`, which Flysystem 3.x requires.
+    Otherwise, Flysystem throws a fatal error.
+
+    If you use a custom `local:` adapter as an IO handler, check that it explicitly configures `League\MimeTypeDetection\FinfoMimeTypeDetector` as its `mimeTypeDetector`.
+    Flysystem 3.x's default detector returns no MIME type for inconclusive files, such as extensionless text or empty files, which can cause downloads to fail.
+    [[= product_name =]]'s own adapters already do this.
 
 ``` yaml
 ibexa_io:
@@ -95,10 +109,10 @@ Default values:
                     service: ibexa.io.nfs.adapter.site_access_aware
     ```
 
-### Native Flysystem v2 handler
+### Native Flysystem handler
 
 [[= product_name =]] uses it as the default way to read and write content in form of binary files.
-Flysystem v2 can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+Flysystem can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 [league/flysystem](https://flysystem.thephpleague.com/docs/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 #### Handler options
