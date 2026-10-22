@@ -743,7 +743,7 @@ No additional steps needed.
 ### Database update
 
 With v4.6.33, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
-With [[= product_name_base =]] Doctrine migrations, you no longer have to run the SQL upgrade scripts.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
 The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]

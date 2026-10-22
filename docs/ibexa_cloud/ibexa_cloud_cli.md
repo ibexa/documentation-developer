@@ -57,7 +57,7 @@ To execute an SQL upgrade script on a [[= product_name_cloud =]] environment, pa
 
 ### Run database migration
 
-To run Ibexa Doctrine Migrations on a [[= product_name_cloud =]] environment, connect via SSH and run the command directly:
+To run [[= product_name_base =]] Doctrine migrations on a [[= product_name_cloud =]] environment, connect via SSH and run the command directly:
 
 ```bash
 ibexa_cloud ssh
