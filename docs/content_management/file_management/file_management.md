@@ -48,14 +48,17 @@ The configuration declares a metadata handler and a binary data handler, both la
 
 !!! note "Flysystem version"
 
-    [[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later.
+    [[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later or later by default.
 
     If you use a custom adapter, make sure that the class that implements `League\Flysystem\FilesystemAdapter` also implements `directoryExists(string $path): bool`, which Flysystem 3.x requires.
     Otherwise, Flysystem throws a fatal error.
 
-    If you use a custom `local:` adapter as an IO handler, check that it explicitly configures `League\MimeTypeDetection\FinfoMimeTypeDetector` as its `mimeTypeDetector`.
-    Flysystem 3.x's default detector returns no MIME type for inconclusive files, such as extensionless text or empty files, which can cause downloads to fail.
+    If you use Flysystem's `local:` adapter type as an IO handler, note that it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly. 
+    Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
+    To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom:` adapter pointing to that service instead of `local:`.
     [[= product_name =]]'s own adapters already do this.
+
+    Flysystem 2.5 is also supported to provide backward compatibility.
 
 ``` yaml
 ibexa_io:

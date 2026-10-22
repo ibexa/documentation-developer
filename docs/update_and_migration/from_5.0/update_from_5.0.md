@@ -501,9 +501,14 @@ Otherwise, Flysystem 3 throws a fatal error.
 If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
 If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
 
-If you use a custom `local:` adapter as an IO handler, check that it explicitly configures `League\MimeTypeDetection\FinfoMimeTypeDetector` as its `mimeTypeDetector`.
-Flysystem 3.x's default detector returns no MIME type for inconclusive files, such as extensionless text or empty files, which can cause downloads to fail.
+If you use Flysystem's `local:` adapter type as an IO handler, note that it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly. 
+Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
+To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom:` adapter pointing to that service instead of `local:`.
 [[= product_name =]]'s own adapters already do this.
+
+!!! note "Backward compatibility"
+
+    Flysystem 2.5 is also supported to provide backward compatibility.
 
 ## LTS Updates and additional packages
 
