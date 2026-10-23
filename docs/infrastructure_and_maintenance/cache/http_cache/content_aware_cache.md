@@ -204,24 +204,6 @@ $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTa
 
 See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
 
-4\. Use deprecated `X-Location-Id` header.
-
-For custom or built-in controllers (for example, REST) that still use `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
-It supports singular and comma-separated location ID value(s):
-
-``` php
-/** @var \Symfony\Component\HttpFoundation\Response $response */
-$response->headers->set('X-Location-Id', '123');
-
-// Alternatively using several Location ID values
-$response->headers->set('X-Location-Id', '123,212,42');
-```
-
-!!! caution "X-Location-Id use is deprecated"
-
-    `X-Location-Id` is deprecated and removed in future.
-    For rendering content it's advised to refactor to use content view, if not applicable `ContentTagInterface` or lastly manually output tags.
-
 ## Response tagging in templates
 
 1\. `ibexa_http_cache_tag_location()`
