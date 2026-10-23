@@ -48,7 +48,7 @@ The configuration declares a metadata handler and a binary data handler, both la
 
 !!! note "Flysystem version"
 
-    [[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later or later by default.
+    [[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later by default.
 
     If you use a custom adapter, make sure that the class that implements `League\Flysystem\FilesystemAdapter` also implements `directoryExists(string $path): bool`, which Flysystem 3.x requires.
     Otherwise, Flysystem throws a fatal error.
