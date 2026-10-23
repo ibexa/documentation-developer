@@ -23,7 +23,7 @@ final readonly class AssignSectionExecutor implements ExecutorInterface
     public function handle(ValueObject\Step\Action $action, APIValueObject $content): void
     {
         $contentInfo = $this->contentService->loadContentInfo($content->id);
-        $section = $this->sectionService->loadSectionByIdentifier($action->getValue());
+        $section = $this->sectionService->loadSectionByIdentifier($action->getSectionIdentifier());
         $this->sectionService->assignSection($contentInfo, $section);
     }
 }
