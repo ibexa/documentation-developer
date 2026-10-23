@@ -159,6 +159,9 @@ The following tools are included with their respective packages, [Taxonomy](taxo
 
 - `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
     - `list_taxonomies` - lists the taxonomies
+    - `assign_to_taxonomy_entry` - assigns up to 100 content items to a taxonomy entry
+    - `list_taxonomy_entry_content` - lists the content items assigned to a taxonomy entry
+    - `unassign_from_taxonomy_entry` - removes the assignment of content items to a taxonomy entry
 - `Ibexa\Workflow\Mcp\Tool\WorkflowTools`
     - `list_workflows` - lists the editorial workflows
     - `get_content_workflow_status` - gets the workflow status of a content version
