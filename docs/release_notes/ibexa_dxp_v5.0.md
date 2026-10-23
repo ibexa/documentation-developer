@@ -41,6 +41,9 @@ Several new tools have been added to the [MCP package](https://doc.ibexa.co/en/5
 The following tools were added to their respective packages: [Taxonomy](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) and [Workflow](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow/):
 
 - `list_taxonomies`
+- `assign_to_taxonomy_entry`
+- `list_taxonomy_entry_content`
+- `unassign_from_taxonomy_entry`
 - `list_workflows`
 - `get_content_workflow_status`
 - `apply_workflow_transition`
@@ -87,6 +90,14 @@ For more information, see [Database update](https://doc.ibexa.co/en/5.0/update_a
 Since [[= product_name =]] 5.0 requires PHP 8.3 or later, `league/flysystem` now installs as 3.36 or later by default.
 
 If you use a custom storage adapter, a custom [`local:` IO handler](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler), or a cloud adapter such as `league/flysystem-aws-s3-v3`, review the [Flysystem 3 support notes](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#flysystem-3-support) before updating.
+
+### Infrastructure
+
+#### Updated Node.js requirement
+
+Node.js 24 or higher is now required for asset building.
+
+For more information, see [Requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager).
 
 ### Full changelog
 
