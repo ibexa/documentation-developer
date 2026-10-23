@@ -738,6 +738,37 @@ No additional steps needed.
 
 No additional steps needed.
 
+## v4.6.33
+
+### Database update
+
+With v4.6.33, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
+The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+Run the following command to apply all database migrations present in your currently installed code:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository.
+Running the command more than once is safe.
+It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
+
+[[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+    Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
