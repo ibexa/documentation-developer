@@ -58,6 +58,7 @@ The configuration declares a metadata handler and a binary data handler, both la
     Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
     To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom:` adapter pointing to that service instead of `local:`.
     [[= product_name =]]'s own adapters already do this.
+
 ``` yaml
 ibexa_io:
     binarydata_handlers:
