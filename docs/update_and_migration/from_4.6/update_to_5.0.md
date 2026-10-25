@@ -1117,6 +1117,14 @@ Depending on your reverse proxy, you'll find them in the following directories:
 - Varnish: `vendor/ibexa/http-cache/docs/varnish/vcl/`
 - Fastly: `vendor/ibexa/fastly/fastly/`
 
+!!! note "Fastly considerations"
+
+    Version updates may introduce changes (for example, to cookies or caching behavior) that could require modifications in Fastly/VCL configuration.
+
+    If you are using Fastly, review your configuration carefully during the update.
+
+    For more information, see [Best practices for testing and updating Fastly](best_practices_fastly.md).
+
 #### Ibexa Cloud
 
 Generate the Ibexa Cloud Platform.sh configuration files, review the changes with your own version, and merge your customizations.
