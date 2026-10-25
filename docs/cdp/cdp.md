@@ -1,6 +1,7 @@
 ---
 description: Ibexa CDP is a software system designed to collect and organize customer data from multiple sources to build comprehensive customer profiles.
 edition: experience
+month_change: true
 ---
 
 # Customer Data Platform (CDP)
@@ -20,3 +21,6 @@ With defined audiences you can target your user segments at the right time, thro
 
 The customer data are collected through the system of trackers embedded in different parts of your page.
 For more information on activation and trackers, see [CDP activation documentation](cdp_activation.md).
+
+Audience metadata, such as size, description, tags, and last update timestamp, is synced from [[= product_name_cdp =]] and persisted on the [[= product_name =]] side.
+For more information, see [Audience metadata](cdp_audience_metadata.md).
