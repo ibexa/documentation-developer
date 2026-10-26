@@ -32,7 +32,7 @@ php bin/console ibexa:doctrine:migrations:migrate
 The command safely detects which changes are already applied to your database and only runs what's missing.
 You can run it at any time, even on an already up-to-date or freshly installed database.
 
-For more information, see [Database update](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#database-update).
+For more information, see [Database update](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#database-update).
 
 ### Flysystem 3 support
 
