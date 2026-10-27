@@ -747,16 +747,18 @@ Depending on a [PHP version](requirements.md#php), your [[= product_name =]] sup
 - On PHP 8.x, `league/flysystem` installs version 3.36 by default, and Flysystem 2.5 is also supported.
 - On PHP 7.4, only Flysystem 2.5 is supported.
 
-If you have a custom adapter, any class that implements `League\Flysystem\FilesystemAdapter` must add `directoryExists(string $path): bool`.
-Otherwise, Flysystem 3 throws a fatal error.
+!!! note "Custom and local adapters"
 
-If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
-If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
+    - If you have a custom adapter, any class that implements `League\Flysystem\FilesystemAdapter` must add `directoryExists(string $path): bool`.
+    Otherwise, Flysystem 3 throws a fatal error.
 
-If you use Flysystem's `local:` adapter type as an IO handler, it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly.
-Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
-To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom:` adapter pointing to that service instead of `local:`.
-[[= product_name =]]'s own adapters already do this.
+    - If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
+    If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
+
+    - If you use Flysystem's `local` adapter type as an IO handler, it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly.
+    Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
+    To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom` adapter pointing to that service instead of `local`.
+    [[= product_name =]]'s own adapters already do this.
 
 ## LTS Updates
 
