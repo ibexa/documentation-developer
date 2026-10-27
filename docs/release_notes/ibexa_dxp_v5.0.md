@@ -99,6 +99,13 @@ Node.js 24 or higher is now required for asset building.
 
 For more information, see [Requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager).
 
+#### Fastly on [[= product_name_cloud =]]
+
+[[= product_name =]] now automatically trusts the proxy headers set by the [[= product_name_cloud =]] router for requests coming from Fastly.
+Therefore, you don't need to add Fastly's IP ranges to `trusted_proxies`, as long as `framework.trusted_proxies` isn't empty.
+
+For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
