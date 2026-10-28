@@ -497,6 +497,14 @@ The `ibexa/doctrine-migrations` package is installed automatically as a dependen
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
+To preview the migrations before you apply them, run:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
 Run the following command to apply all database migrations present in your currently installed code:
 
 ```bash
@@ -516,6 +524,17 @@ Your custom tables are not affected, even if you manage them with standard Doctr
     If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
 
     Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
+
+!!! note "Resolving conflicts with customizations"
+
+    If a migration fails because you already modified the affected table yourself, for example, as
+    part of a customization, check what the migration does, and ensure that your schema reflects the changes from the migration.
+    
+    Then, mark such migration as executed without actually running it:
+
+    ```bash
+    php bin/console ibexa:doctrine:migrations:version --add <version>
+    ```
 
 ## LTS Updates and additional packages
 

@@ -7,12 +7,12 @@ month_change: true
 
 ## Update from v4.6.x to v4.6.latest
 
-Before you update to v5.0, you need to [update to the latest maintenance release of v4.6 (v[[= latest_tag_4_6 =]])](update_from_4.6.md).
+Before you update to v5.0, you must [update to the latest maintenance release of v4.6 (v[[= latest_tag_4_6 =]])](update_from_4.6.md).
 
 !!! caution "Database migration sequence"
 
     Before you update the database, make sure that you run `ibexa:doctrine:migrations:migrate` when your project is on the latest v4.6.x patch version.
-    See [Database update](update_from_4.6.md#database-update).
+    See [Database update](update_from_4.6.md#database-update_6).
 
     Running v5.0 migrations on a database when v4.6 migrations are not applied can cause schema inconsistencies.
 
@@ -315,7 +315,16 @@ composer run-script post-update-cmd
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
-Doctrine migrations manage the database schema updates.
+[[= product_name_base =]] Doctrine migrations manage the database schema updates.
+
+To preview the migrations before you apply them, run:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
 The following command migrates your database from the v4.6 schema to the v5.0 schema:
 
 ```bash
@@ -334,6 +343,17 @@ Your custom tables are not affected, even if you also manage them with standard 
     This command isn't a full schema conformity checker.
     It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
     If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+!!! note "Resolving conflicts with customizations"
+
+    If a migration fails because you already modified the affected table yourself, for example, as
+    part of a customization, check what the migration does, and ensure that your schema reflects the changes from the migration.
+    
+    Then, mark such migration as executed without actually running it:
+
+    ```bash
+    php bin/console ibexa:doctrine:migrations:version --add <version>
+    ```
 
 Many tables and columns are renamed between v4.6 and v5.0.
 If you have custom code that directly queries those, you need to update them.

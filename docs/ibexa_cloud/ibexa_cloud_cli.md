@@ -57,13 +57,27 @@ To execute an SQL upgrade script on a [[= product_name_cloud =]] environment, pa
 
 ### Run database migration
 
-To run [[= product_name_base =]] Doctrine migrations on a [[= product_name_cloud =]] environment, connect via SSH and run the command directly:
+To apply [[= product_name_base =]] Doctrine migrations on a [[= product_name_cloud =]] environment, connect with SSH:
 
 ```bash
 ibexa_cloud ssh
 ```
 
-and
+You can preview the changes before you apply them:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+!!! caution "Preview only"
+
+    This generates an SQL file that is only intended for review.
+    More recent migrations can be unaware of changes made by earlier migrations in the same run, so the file may be incomplete.
+    Do not run the SQL file against your database.
+    
+    Always apply changes by running the command without `--dry-run`.
+
+Then you run the command directly:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate

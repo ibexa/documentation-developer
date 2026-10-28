@@ -38,16 +38,33 @@ ibexa.rest.shopping_list:
 
 ## Modify database schema
 
-Check which database migrations the bundle needs, then apply them:
+[[= product_name_base =]] Doctrine migrations manage the database schema for this package.
 
-```bash
-php bin/console ibexa:doctrine:migrations:status
-php bin/console ibexa:doctrine:migrations:migrate
-```
+- To see a list of known migrations, and find out which ones are pending for the whole project, run:
 
-The command creates the required data structures, but doesn't add any data to the database.
+    ```bash
+    php bin/console ibexa:doctrine:migrations:versions
+    ```
 
-The users don't have any shopping lists, not even the default “My Wishlist” list.
+- To preview the changes before you apply them, use `--dry-run` with `--write-sql`:
+
+    ```bash
+    php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+    ```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
+- To apply pending migrations:
+
+    ```bash
+    php bin/console ibexa:doctrine:migrations:migrate
+    ```
+
+    This command does more than create the Shopping list tables - it applies all pending migration for the project.
+
+    The `migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
+
+Initially, users don't have any shopping lists, not even the default “My Wishlist” list.
 The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
 
 ## Configure

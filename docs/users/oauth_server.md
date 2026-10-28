@@ -18,12 +18,21 @@ You can install it with the following command:
 composer require ibexa/oauth2-server --with-all-dependencies
 ```
 
-Add the tables needed by the bundle by running [[= product_name_base =]] Doctrine migrations:
+Add the tables required by the package by running [[= product_name_base =]] Doctrine migrations:
 
 ```bash
-php bin/console ibexa:doctrine:migrations:status
 php bin/console ibexa:doctrine:migrations:migrate
 ```
+
+This command does more than create the OAuth2 server tables - it applies all pending migration for the project.
+
+To preview the changes before you apply them, use `--dry-run` with `--write-sql`:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
