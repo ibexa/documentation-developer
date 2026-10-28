@@ -9,6 +9,7 @@ ibexa:
                     tools:
                         - Ibexa\Mcp\Tool\TranslationTools
                         - Ibexa\Mcp\Tool\SeoTools
+                        - Ibexa\Workflow\Mcp\Tool\WorkflowTools
                     discovery_cache: <cache_pool_service>
                     session:
                         type: <psr16|file>

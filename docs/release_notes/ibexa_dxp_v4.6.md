@@ -10,6 +10,44 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.33' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-10-27', ['Headless', 'Experience', 'Commerce']) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories).
+
+### [[= product_name_base =]] Doctrine migrations
+
+Applying database schema upgrades no longer requires that you find and run SQL scripts manually.
+[[= product_name_base =]] Doctrine migrations ships with every Ibexa package and allows you to manages schema changes through a single console command:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+The command safely detects which changes are already applied to your database and only runs what's missing.
+You can run it at any time, even on an already up-to-date or freshly installed database.
+
+For more information, see [Database update](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#database-update).
+
+### Flysystem 3 support
+
+[[= product_name =]] now supports Flysystem 3.x for file storage adapters, in addition to Flysystem 2.x.
+On PHP 8, `league/flysystem` now installs as 3.36 or later.
+Projects on PHP 7.4 stay on Flysystem 2.5.
+
+If you use a custom storage adapter, a [custom `local:` IO handler](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler), or a cloud adapter such as `league/flysystem-aws-s3-v3`, review the [Flysystem 3 support notes](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#flysystem-3-support) before updating.
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.32' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-08-20', ['Headless', 'Experience', 'Commerce']) =]]

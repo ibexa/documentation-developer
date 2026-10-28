@@ -60,8 +60,8 @@ You define MCP servers within a repository configuration and then assign those s
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 1, 8) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 17) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 31, 35) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 13, 18) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 32, 36) =]]
 ```
 
 Servers are automatically registered as services with an ID following the pattern `ibexa.mcp.server.<repository_identifier>.<server_identifier>`.
@@ -118,30 +118,59 @@ There are two ways to associate tools with a server:
 
 MCP Servers LTS Update comes with the following **experimental** built-in tools:
 
-- `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
-    - `get_content_type` - gets a content type by its ID.
-    - `get_content_type_by_identifier` - gets a content type by its identifier.
-    - `get_content_type_list` - gets content types by their IDs.
-    - `create_content_type` - creates a draft for a new content type.
-    - `create_content_type_draft` - creates a draft for an existing content type.
-    - `get_content_type_draft` - gets a content type draft by content type ID.
-    - `publish_content_type_draft` - publishes a content type draft by content type ID.
-- `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
-    - `add_field_definition` - adds a field definition to a content type draft.
-    - `update_field_definition` - updates a field definition in a content type draft.
-    - `remove_field_definition` - removes a field definition from a content type draft.
+- `Ibexa\Mcp\Tool\Content\ContentTools`
+    - `get_content_info` - gets version-independent metadata of a content item
+    - `get_content_version_info` - gets metadata of a specific version of a content item (current by default)
+    - `get_content` - gets a content item with its metadata, a version and the field values of that version
+    - `create_content` - creates an unpublished draft
+    - `create_content_draft` - creates a new draft from the published or archived version
+    - `update_content` - sets field values on a draft, in the draft's initial language (unless `initialLanguageCode` is given)
+    - `publish_version` - publishes a draft
 - `Ibexa\Mcp\Tool\ContentType\ContentTypeGroupTools`
-    - `get_content_type_groups` - gets all content type groups.
-- `Ibexa\Mcp\Tool\TranslationTools`
-    - `list_languages` - lists all languages in the current SiteAccess.
-    - `list_content_languages` - lists languages which have translations for a given content item.
-    - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code.
+    - `get_content_type_groups` - gets all content type groups
+- `Ibexa\Mcp\Tool\ContentType\ContentTypeTools`
+    - `get_content_type` - gets a content type by its ID or identifier
+    - `get_content_type_list` - gets content types by their IDs
+    - `create_content_type` - creates a draft for a new content type
+    - `create_content_type_draft` - creates a draft for an existing content type
+    - `get_content_type_draft` - gets a content type draft by content type ID
+    - `publish_content_type_draft` - publishes a content type draft by content type ID
+- `Ibexa\Mcp\Tool\ContentType\FieldDefinitionTools`
+    - `add_field_definition` - adds a field definition to a content type draft
+    - `update_field_definition` - updates a field definition in a content type draft
+    - `remove_field_definition` - removes a field definition from a content type draft
+    - `get_field_type_list` - lists all available field types with identifiers, empty value structure, settings, and validator configuration
+- `Ibexa\Mcp\Tool\Language\LanguageTools`
+    - `get_language` - gets a language by its language code, together with information whether it is enabled
+    - `get_default_language_code` - gets the first configured language of the current SiteAccess
+- `Ibexa\Mcp\Tool\Location\LocationTools`
+    - `list_locations` - lists direct children of a parent location, and/or locations that match a pattern, paginated
+    - `get_root_location` - gets the root location of the content tree of a SiteAccess (current if no SiteAccess name is given)
+- `Ibexa\Mcp\Tool\RichText\RichTextTools`
+    - `convert_to_richtext_xml` - converts plain text, HTML fragments or complete DocBook / XHTML5 edit documents into the DocBook XML stored in RichText fields
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
+    - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag). You can use it to identify content that needs SEO attention
+- `Ibexa\Mcp\Tool\TranslationTools`
+    - `list_languages` - lists all languages in the current SiteAccess
+    - `list_content_languages` - lists languages which have translations for a given content item
+    - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code
 
-``` yaml hl_lines="5-7"
+The following tools are included with their respective packages, [Taxonomy](taxonomy.md) and [Workflow](workflow.md):
+
+- `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
+    - `list_taxonomies` - lists the taxonomies
+    - `list_taxonomy_entries` - lists entries of a taxonomy, paginated and ordered by entry ID
+    - `assign_to_taxonomy_entry` - assigns up to 100 content items to a taxonomy entry
+    - `list_taxonomy_entry_content` - lists the content items assigned to a taxonomy entry
+    - `unassign_from_taxonomy_entry` - removes the assignment of content items to a taxonomy entry
+- `Ibexa\Workflow\Mcp\Tool\WorkflowTools`
+    - `list_workflows` - lists the editorial workflows
+    - `get_content_workflow_status` - gets the workflow status of a content version
+    - `apply_workflow_transition` - applies a workflow transition to a content version
+
+``` yaml hl_lines="5-8"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 12) =]]
                     # …
 ```
 
@@ -162,7 +191,7 @@ You must provide a PSR-6 or PSR-16 cache pool for this caching.
 For example, you could set up a dedicated Redis/Valkey:
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 19, 19) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 20, 20) =]]
 ```
 
 For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
@@ -205,8 +234,8 @@ Optionally, you could use a more specific `prefix` option than the default `mcp_
 Such setup is suitable for production environments.
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 20, 23) =]]
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 36, 45) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 21, 24) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 37, 46) =]]
 ```
 
 #### File
@@ -218,7 +247,7 @@ Such setup is suitable for development environments.
 In this example, sessions are stored in the `var/cache/<environment>/mcp/sessions/` directory (for example, `var/cache/dev/mcp/session/` for the `dev` environment, and `var/cache/prod/mcp/sessions/` for the `prod` environment):
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 25, 27) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 26, 28) =]]
 ```
 
 ### Allowed hosts
@@ -232,7 +261,7 @@ IPv6 addresses must be bracketed, for example `[::1]`.
 In this example, only requests from `admin.example.com` domain, `my-ddev-project.ddev.site` domain, or from 127.0.0.1 IP are accepted:
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 16, 16) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
                         - 'www.example.com'
                         - 'my-ddev-project.ddev.site'
                         - '127.0.0.1'
