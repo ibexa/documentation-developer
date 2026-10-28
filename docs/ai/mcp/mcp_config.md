@@ -159,6 +159,7 @@ The following tools are included with their respective packages, [Taxonomy](taxo
 
 - `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
     - `list_taxonomies` - lists the taxonomies
+    - `list_taxonomy_entries` - lists entries of a taxonomy, paginated and ordered by entry ID
     - `assign_to_taxonomy_entry` - assigns up to 100 content items to a taxonomy entry
     - `list_taxonomy_entry_content` - lists the content items assigned to a taxonomy entry
     - `unassign_from_taxonomy_entry` - removes the assignment of content items to a taxonomy entry
