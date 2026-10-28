@@ -106,6 +106,10 @@ Therefore, you don't need to add Fastly's IP ranges to `trusted_proxies`, as lon
 
 For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
 
+### Developer experience
+
+You can now use the [`TaxonomyServiceInterface::findEntries()`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#methods) method to list the entries of a taxonomy, or the direct children of an entry, paginated and ordered by ID.
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
