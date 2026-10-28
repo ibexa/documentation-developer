@@ -58,6 +58,30 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | v5.0.9 | <nobr>`\Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp`</nobr>                                     | Moved to `\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`. Covered by [[[= product_name_base =]] Rector](../resources/rector.md) refactoring rules. |
 | v5.0.10 | <nobr>[`\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html)</nobr>                               | Replaced in v6.0 with [`\Symfony\Component\Messenger\Stamp\DeduplicateStamp`]([[= symfony_doc =]]/messenger.html#message-deduplication). A Rector rule will be available for the Cohesivo 6.0 upgrade. Until then, keep using the deprecated `\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`, as Ibexa DXP 5.0 doesn't handle the native Symfony stamp. |
 
+### ibexa/shipping
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v4.6 | `\Ibexa\Bundle\Shipping\Form\Data\DateRangeData`, `\Ibexa\Bundle\Shipping\Form\Type\DateRangeType` | Removed. Use `\Ibexa\AdminUi\Form\Data\DateRangeData` and `\Ibexa\AdminUi\Form\Type\DateRangeType` instead. |
+
+### ibexa/solr
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v3.2 | `ibexa.solr.result_extractor`, `ibexa.solr.result_extractor.native` services | Removed. Use `ibexa.solr.result_extractor.content` or `ibexa.solr.result_extractor.location` instead. |
+
+### ibexa/storefront
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| N/A | `ibexa/storefront` package | Requires `ibexa/discounts`. Installing the storefront without discounts is no longer supported. |
+
+### ibexa/taxonomy
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v4.5 | [`\Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyEntryId`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyEntryId.html) | The `$taxonomyIdentifier` constructor argument is required. See [TaxonomyEntryId Criterion](taxonomy_entry_id.md). |
+
 ### ibexa/user
 
 | Deprecated since | Entity                                                    | Change                                                                                                                       |
