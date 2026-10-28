@@ -106,9 +106,11 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
 
 !!! tip "Fastly on [[= product_name_cloud =]]"
 
-    You don't have to set `trusted_proxies` according to the IP ranges used by Fastly when using Fastly on [[= product_name_cloud =]].
+    When you use Fastly on [[= product_name_cloud =]], you don't have to set `trusted_proxies` according to the IP ranges used by Fastly.
     The Upsun router replaces the source IP of requests coming from Fastly with the actual client IP before they reach [[= product_name =]].
-    As of [[= product_name =]] v4.6.33 and v5.0.11, [[= product_name =]] detects requests that come from Fastly on [[= product_name_cloud =]] and trusts the proxy headers set by the router automatically, as long as `framework.trusted_proxies` isn't empty (`TRUSTED_PROXIES` defaults to `127.0.0.1` in `.env`).
+
+    As of v5.0.11, [[= product_name =]] detects requests that come from Fastly on [[= product_name_cloud =]] and automatically trusts the proxy headers set by the router.
+    This works only if `framework.trusted_proxies` isn't empty (`TRUSTED_PROXIES` defaults to `127.0.0.1` in `.env`).
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
