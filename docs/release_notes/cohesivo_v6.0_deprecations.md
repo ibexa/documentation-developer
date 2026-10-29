@@ -43,6 +43,12 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | --- |---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | v5.0.10 | `\Ibexa\Contracts\AutomatedTranslation`  | The `ibexa/automated-translation` package is replaced by `ibexa/translations-management`. For Translations management API, see [`Ibexa\Contracts\TranslationsManagement`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-translationsmanagement.html). |
 
+### ibexa/content-forms
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v4.6 | `\Ibexa\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProvider` | Removed. `\Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface::getGroupedFields()` now returns field identifiers keyed by field group identifier instead of the translated field group name. In custom templates, render the group name with `ibexa_field_group_name(key)`. |
+
 ### ibexa/http-cache
 
 | Deprecated since | Entity                                                                   | Change                                                                                                                                                                                                    |
