@@ -64,6 +64,13 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | v5.0.9 | <nobr>`\Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp`</nobr>                                     | Moved to `\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`. Covered by [[[= product_name_base =]] Rector](../resources/rector.md) refactoring rules. |
 | v5.0.10 | <nobr>[`\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Stamp-DeduplicateStamp.html)</nobr>                               | Replaced in v6.0 with [`\Symfony\Component\Messenger\Stamp\DeduplicateStamp`]([[= symfony_doc =]]/messenger.html#message-deduplication). A Rector rule will be available for the Cohesivo 6.0 upgrade. Until then, keep using the deprecated `\Ibexa\Contracts\Messenger\Stamp\DeduplicateStamp`, as Ibexa DXP 5.0 doesn't handle the native Symfony stamp. |
 
+### ibexa/product-catalog
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v4.6 | `\Ibexa\Contracts\ProductCatalog\Values\Availability\AvailabilityInterface::isAvailable()` | Removed. Use `getComputedAvailability()` instead. |
+| v5.0 | `\Ibexa\Bundle\ProductCatalog\UI\ProductSelector\BaseProduct::getBasePrice()`, `setBasePrice()` | Removed. Use `getPrice()` and `setPrice()` instead. |
+
 ### ibexa/shipping
 
 | Deprecated since | Entity | Change |
