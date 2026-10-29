@@ -5,23 +5,19 @@ page_type: reference
 
 # User Twig functions
 
-## `ibexa_user_get_current()`
+## `ibexa_current_user()`
 
-`ibexa_user_get_current()` returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current user.
+`ibexa_current_user()` returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current user.
 
 ``` html+twig
-{{ ibexa_user_get_current().login }}
+{{ ibexa_current_user().login }}
 ```
 
 You can get the underlying content item, for example to display the user's last name, by accessing the `content` property:
 
 ``` html+twig
-{{ ibexa_render_field(ibexa_user_get_current().content, 'last_name') }}
+{{ ibexa_render_field(ibexa_current_user().content, 'last_name') }}
 ```
-
-## `ibexa_current_user()`
-
-`ibexa_current_user()` is a deprecated alias of `ibexa_user_get_current()`.
 
 ## `ibexa_is_current_user()`
 

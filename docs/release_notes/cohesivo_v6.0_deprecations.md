@@ -31,6 +31,12 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 
 ## PHP API changes
 
+### ibexa/admin-ui
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v4.6 | `ez_icon_path()` Twig function | Removed. Use `ibexa_icon_path()` instead. |
+
 ### ibexa/automated-translations
 
 | Deprecated since | Entity                                                                   | Change                                                                                                                                                                                                    |
@@ -82,11 +88,19 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | --- | --- | --- |
 | v4.5 | [`\Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyEntryId`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyEntryId.html) | The `$taxonomyIdentifier` constructor argument is required. See [TaxonomyEntryId Criterion](taxonomy_entry_id.md). |
 
+### ibexa/translations-management
+
+| Deprecated since | Entity | Change |
+| --- | --- | --- |
+| v5.0.11 | `\Ibexa\Contracts\TranslationsManagement\AutoTranslate\DependencyInjection\AutoTranslateServiceTags::PROVIDER_LANGUAGE_NORMALIZER`, `PROVIDER_AI_TRANSLATION_STRATEGY`, `REVIEW_STATUS_CONTEXT_RESOLVER` | Removed. Implementations are tagged automatically. Use the `SERVICE_TAG` constant of `LanguageNormalizerInterface`, `AiTranslationStrategyInterface` or `ContextResolverInterface` if you need the tag name. |
+
 ### ibexa/user
 
 | Deprecated since | Entity                                                    | Change                                                                                                                       |
 | --- |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | N/A | `\Ibexa\User\UserSetting\Group\LocationGroup`                   | Renamed to `\Ibexa\User\UserSetting\Group\LocaleGroup`. The [user setting](add_user_setting.md) group identifier `location` is renamed to `locale`. Custom settings registered under the `location` identifier must be updated to use `locale` instead. |
+| v4.6 | `ibexa_user_get_current()` Twig function | Removed. Use [`ibexa_current_user()`](user_twig_functions.md#ibexa_current_user) instead. |
+| N/A | `\Ibexa\User\Form\Data\UserPasswordResetData` | The content type constructor argument, `getContentType()` and `setContentType()` are removed. Pass the content type to `\Ibexa\User\Form\Factory\FormFactory::resetUserPassword()`, which now requires it, or as the `content_type` option of `UserPasswordResetType`. |
 
 ## Configuration keys
 
