@@ -164,7 +164,7 @@ If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please 
 
 !!! note "Invalidating Varnish cache by using tokens"
 
-    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ibexa_purge_acl`](https://github.com/ibexa/http-cache/blob/6.0/docs/varnish/vcl/varnish5.vcl#L174).
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ibexa_purge_acl`](https://github.com/ibexa/http-cache/blob/6.0/docs/varnish/vcl/varnish6.vcl#L180).
 
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
