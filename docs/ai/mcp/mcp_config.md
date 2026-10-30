@@ -76,7 +76,7 @@ Those routes are identified as `ibexa.mcp.<server_identifier>`.
 You can list them by running the following command:
 
 ```bash
-php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp`
+php bin/console debug:router --siteaccess=<siteaccess> ibexa.mcp
 ```
 
 ### MCP server options
@@ -182,6 +182,79 @@ The following tools are included with their respective packages, [Taxonomy](taxo
     If you use them, be prepared to update your MCP server configuration and tool usage when upgrading to a new version of [[= product_name =]].
 
     See how to build your own tools in [Work with MCP servers](mcp_usage.md).
+
+#### List available tools
+
+To see which MCP tools are available and which MCP servers expose them, use the `ibexa:debug:mcp-tools` command.
+It lists the tools provided by the installed packages, together with the MCP servers that expose them, in every repository and SiteAccess.
+You can also use it to discover whether a tool is exposed through the server's `tools` configuration or the `servers` argument of its [`McpTool` attribute](mcp_usage.md#tools).
+
+!!! note "Ignoring discovery cache"
+
+    Until the server's cache pool is cleared, it may serve a cached tool list.
+    Therefore, to avoid errors, the command reads tools directly from the code, and ignores the [discovery cache](#discovery-cache).
+
+To list tools exposed on all MCP servers, use:
+
+```bash
+php bin/console ibexa:debug:mcp-tools
+```
+
+You can modify the command's behavior with the following optional arguments:
+
+|<div style="width:200px">Argument</div>| Description |
+|------------------|-------------|
+| `--all` | Lists all tools, including those that aren't exposed on any MCP server or shadowed by other tool of the same name on that server |
+| `<tool_name>` | Shows the details of a specific tool, including its input and output schema, based on a tool name, or a part of it |
+| `--package=<package_name>` | Lists tools provided by a specific package. Repeatable |
+| `--repository` | Shows only tools exposed on MCP servers of the given repository |
+| `--siteacces=<siteaccess>` | Shows only tools exposed by MCP servers that a specific SiteAccess serves. If you don't use argument, the command covers every SiteAccess and repository |
+| `--server=<server name>` | Lists tools exposed by a specific MCP server, in any repository. Repeatable |
+| `--show-handler` | Shows the class and method that handle each tool |
+| `--format=<format>` | Returns output as text (`txt`) or JSON (`json`). The default format is text |
+
+By default, the command lists only tools that are actually served by an MCP server.
+Here is an example of a JSON response:
+
+```json
+{
+    "tools": [
+        {
+            "name": "get_content_type",
+            "title": "Get content type",
+            "description": "Gets a content type by its ID (integer) or identifier (string).",
+            "handler": {
+                "class": "Ibexa\\Mcp\\Tool\\ContentType\\ContentTypeTools",
+                "method": "getContentType"
+            },
+            "package": "ibexa/mcp",
+            "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+            },
+            "attributeServers": [],
+            "exposures": [
+                {
+                    "repository": "default",
+                    "server": "admin",
+                    "enabled": true,
+                    "via": ["config"],
+                    "siteAccesses": ["admin"],
+                    "shadowedBy": null,
+                    "shadows": []
+                }
+            ]
+        }
+    ]
+}
+```
+
+!!! note "Shadowed tools"
+
+    An MCP server can only serve one tool per name.
+    If two tool definitions share the same name on the server, only one is served, the others are shadowed, and a warning is returned that lists the shadowed tools.
 
 ### Discovery cache
 

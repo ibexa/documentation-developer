@@ -152,13 +152,15 @@ php bin/console cache:pool:clear cache.tagaware.filesystem
     php bin/console cache:pool:clear --all
     ```
 
-### Create MCP server list command
+### Check results
 
-To check the MCP server configuration, create a small command that uses the MCP server configuration registry injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring:
+Check if the tool is exposed on the `example` server:
 
-``` php
-[[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
+```bash
+php bin/console ibexa:debug:mcp-tools greet --server=example
 ```
+
+For more information about the `ibexa:debug:mcp-tools` command, see [List available tools](mcp_config.md#list-available-tools).
 
 ### Perform `curl` test
 
