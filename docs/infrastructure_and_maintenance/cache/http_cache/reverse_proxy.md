@@ -50,7 +50,7 @@ For reverse proxies to work properly with your installation, you need to add the
 - Varnish config can be found in `vendor/ibexa/http-cache/docs/varnish/vcl`:
     - use [parameters.vcl](https://github.com/ibexa/http-cache/blob/6.0/docs/varnish/vcl/parameters.vcl) for installation specific settings
     - plus one of the `varnish*.vcl` corresponding to your Varnish version
-        - For example, [varnish7.vcl](https://github.com/ibexa/http-cache/blob/6.0/docs/varnish/vcl/varnish7.vcl) when using Varnish 7
+        - For example, [varnish9.vcl](https://github.com/ibexa/http-cache/blob/6.0/docs/varnish/vcl/varnish9.vcl) when using Varnish 9
 - Fastly config can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
     - `ibexa_main.vcl` as the **main** custom VCL
     - `ibexa_user_hash.vcl` as another custom VCL

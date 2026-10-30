@@ -36,12 +36,12 @@ A reverse proxy can be added to the cluster to enable [HTTP caching](http_cache.
 
 The following sequence of commands:
 
-1. Sets a variable with the desired Varnish version, here Varnish 7.1
+1. Sets a variable with the desired Varnish version, here Varnish 9.0
 2. Copies and customizes `parameters.vcl` file in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container):
     - sets `web` container as the backend host and an invalidator (so back office can purge cache)
     - adds "all IPs" CIDR notation to `debuggers` list to allow debugging from any IP
-    - on Varnish 7, enable logging of access control list matching for both `invalidators` and `debuggers` lists
-      (new Varnish 7 syntax, it was enabled by default on previous versions)
+    - on Varnish 9, enable logging of access control list matching for both `invalidators` and `debuggers` lists
+      (new Varnish 7+ syntax, it was enabled by default on previous versions)
 3. Sets main `varnish*.vcl` file to use and "path to VCL directory" argument name depending on Varnish version
 4. Copies the main VCL file to `.ddev/varnish/`
 5. Sets the Varnish version to use and its demon starting parameters to use the files
@@ -50,16 +50,16 @@ The following sequence of commands:
 8. Restarts the DDEV cluster and clear the [[= product_name =]] cache
 
 ```bash
-VARNISH_VERSION=7.1
+VARNISH_VERSION=9.0
 mkdir -p .ddev/varnish
 sed 's/.host = "127.0.0.1";/.host = "web";/' vendor/ibexa/http-cache/docs/varnish/vcl/parameters.vcl > .ddev/varnish/parameters.vcl
 sed -i '/^acl invalidators {$/a \\    "web";' .ddev/varnish/parameters.vcl
 sed -i '/^acl debuggers {$/a \\    "0.0.0.0"/0; \/\/ debug from any IP' .ddev/varnish/parameters.vcl
-if [[ $VARNISH_VERSION == 7.* ]]; then
+if [[ $VARNISH_VERSION == 9.* ]]; then
   sed -i 's/acl invalidators {/acl invalidators +log {/' .ddev/varnish/parameters.vcl
   sed -i 's/acl debuggers {/acl debuggers +log {/' .ddev/varnish/parameters.vcl
   vcl_path=vcl_path
-  vcl_file=varnish7.vcl
+  vcl_file=varnish9.vcl
 elif [[ $VARNISH_VERSION == 6.* ]]; then
   vcl_path=vcl_dir
   vcl_file=varnish6.vcl
@@ -103,7 +103,7 @@ You can see Varnish headers in HTTP responses, for example:
 HTTP/2 200 
 server: Apache/2.4.65 (Debian)
 vary: Origin,X-Editorial-Mode
-via: 1.1 varnish (Varnish/7.1)
+via: 1.1 varnish (Varnish/9.0)
 x-cache: HIT
 x-cache-debug: 1
 x-cache-hits: 5
