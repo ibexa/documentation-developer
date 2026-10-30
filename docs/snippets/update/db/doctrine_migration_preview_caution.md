@@ -5,5 +5,3 @@
     Do not run the SQL file against your database.
     
     Always apply changes by running the command without the `--dry-run` flag.
-    
-    If a migration conflicts with your own customizations, resolve the conflict in your schema first, then let `migrations:migrate` continue.

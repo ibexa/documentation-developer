@@ -60,9 +60,9 @@ ibexa.rest.shopping_list:
     php bin/console ibexa:doctrine:migrations:migrate
     ```
 
-    This command does more than create the Shopping list tables - it applies all pending migration for the project.
+    This command does more than create the Shopping list tables - it applies all pending migrations for the project.
 
-    The `migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
+    The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
 
 Initially, users don't have any shopping lists, not even the default “My Wishlist” list.
 The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
@@ -106,5 +106,5 @@ On a clean install, you can, for example, assign this "Shopping List User" role 
 After placing the migration content in `src/Migrations/Ibexa/migrations/shopping_list_user.yaml`, you can import and execute it with:
 
 ```bash
-php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
+php bin/console ibexa:doctrine:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
 ```

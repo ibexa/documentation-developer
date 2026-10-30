@@ -746,6 +746,9 @@ With v4.6.33, [[= product_name_base =]] introduces Doctrine migrations to manage
 With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
 The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
 
+[[= product_name_base =]] Doctrine migrations cover every SQL upgrade script previously listed in this guide.
+The only exception is [the activity log character set fix](#set-character-set-for-activity-log-tables), which you still need to run manually, but only if your installation was originally upgraded from v4.5.
+
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
 To preview the migrations before you apply them, run:
@@ -762,9 +765,7 @@ Run the following command to apply all database migrations present in your curre
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
-If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository.
-Running the command more than once is safe.
-It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
 
 [[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
 Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
@@ -777,16 +778,7 @@ Your custom tables are not affected, even if you manage them with standard Doctr
 
     Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
 
-!!! note "Resolving conflicts with customizations"
-
-    If a migration fails because you already modified the affected table yourself, for example, as
-    part of a customization, check what the migration does, and ensure that your schema reflects the changes from the migration.
-    
-    Then, mark such migration as executed without actually running it:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:version --add <version>
-    ```
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
 
 ## LTS Updates
 

@@ -14,7 +14,7 @@ Before you update to v5.0, you must [update to the latest maintenance release of
     Before you update the database, make sure that you run `ibexa:doctrine:migrations:migrate` when your project is on the latest v4.6.x patch version.
     See [Database update](update_from_4.6.md#database-update_6).
 
-    Running v5.0 migrations on a database when v4.6 migrations are not applied can cause schema inconsistencies.
+    If you fail to do so, `ibexa:doctrine:migrations:migrate` fails on v5.0, for example, with `Table 'ibexa_setting' already exists`.
 
 ### Move from old to new Commerce
 
@@ -23,7 +23,7 @@ you have to move to [new Commerce ones](update_from_4.3_new_commerce.md).
 
 ## Update from v4.6.latest to v5.0.latest
 
-When you have the last version of 4.6, you can update to last version of 5.0 (v[[= latest_tag_5_0 =]]).
+When you have the latest version of 4.6, you can update to the latest version of 5.0 (v[[= latest_tag_5_0 =]]).
 
 ### Requirements
 
@@ -331,9 +331,7 @@ The following command migrates your database from the v4.6 schema to the v5.0 sc
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
-If your project uses [multiple repositories](repository_configuration.md#defining-custom-connection) with separate databases, run the command once per repository.
-Running the command more than once is safe.
-It has no effect if you apply it to a SiteAccess whose repository has already been migrated.
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
 
 Doctrine migrations only manage [[= product_name =]]'s own database tables.
 Your custom tables are not affected, even if you also manage them with standard Doctrine migrations.
@@ -344,16 +342,7 @@ Your custom tables are not affected, even if you also manage them with standard 
     It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
     If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
 
-!!! note "Resolving conflicts with customizations"
-
-    If a migration fails because you already modified the affected table yourself, for example, as
-    part of a customization, check what the migration does, and ensure that your schema reflects the changes from the migration.
-    
-    Then, mark such migration as executed without actually running it:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:version --add <version>
-    ```
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
 
 Many tables and columns are renamed between v4.6 and v5.0.
 If you have custom code that directly queries those, you need to update them.

@@ -69,15 +69,9 @@ You can preview the changes before you apply them:
 php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
 ```
 
-!!! caution "Preview only"
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
 
-    This generates an SQL file that is only intended for review.
-    More recent migrations can be unaware of changes made by earlier migrations in the same run, so the file may be incomplete.
-    Do not run the SQL file against your database.
-    
-    Always apply changes by running the command without `--dry-run`.
-
-Then you run the command directly:
+Then apply the migrations:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate

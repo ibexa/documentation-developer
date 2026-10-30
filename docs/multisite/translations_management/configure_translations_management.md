@@ -61,9 +61,9 @@ To add the Translations management LTS Update to an existing [[= product_name =]
     php bin/console ibexa:doctrine:migrations:migrate
     ```
 
-    This command does more than create the Translations management tables - it applies all pending migration for the project.
+    This command does more than create the Translations management tables - it applies all pending migrations for the project.
 
-    The `migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
+    The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
 
 #### Add action configurations
 
