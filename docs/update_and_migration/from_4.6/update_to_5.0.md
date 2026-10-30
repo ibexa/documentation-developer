@@ -11,10 +11,11 @@ Before you update to v5.0, you must [update to the latest maintenance release of
 
 !!! caution "Database migration sequence"
 
-    Before you update the database, make sure that you run `ibexa:doctrine:migrations:migrate` when your project is on the latest v4.6.x patch version.
+    For certain migrations, protection mechanisms differ between v4.6.x and v.5.0.x.
+    Therefore, before you update the database, make sure that you run `ibexa:doctrine:migrations:migrate` when your project is on the latest v4.6.x patch version.
     See [Database update](update_from_4.6.md#database-update_6).
 
-    If you fail to do so, `ibexa:doctrine:migrations:migrate` fails on v5.0, for example, with `Table 'ibexa_setting' already exists`.
+    Otherwise `ibexa:doctrine:migrations:migrate` will fail on v5.0, for example, with the `Table 'ibexa_setting' already exists` error.
 
 ### Move from old to new Commerce
 
