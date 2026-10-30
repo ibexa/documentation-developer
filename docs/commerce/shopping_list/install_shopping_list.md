@@ -38,23 +38,33 @@ ibexa.rest.shopping_list:
 
 ## Modify database schema
 
-Add the tables needed by the bundle:
+[[= product_name_base =]] Doctrine migrations manage the database schema for this package.
 
-=== "MySQL"
+- To see a list of known migrations, and find out which ones are pending for the whole project, run:
 
-    ```sql
-    [[= include_file('code_samples/shopping_list/install/schema.mysql.sql', 0, None, '    ') =]]
+    ```bash
+    php bin/console ibexa:doctrine:migrations:versions
     ```
 
-=== "PostgreSQL"
+- To preview the changes before you apply them, use `--dry-run` with `--write-sql`:
 
-    ```sql
-    [[= include_file('code_samples/shopping_list/install/schema.postgresql.sql', 0, None, '    ') =]]
+    ```bash
+    php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
     ```
 
-The script creates the required data structures, but doesn't add any data to the database.
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
 
-The users don't have any shopping lists, not even the default “My Wishlist” list.
+- To apply pending migrations:
+
+    ```bash
+    php bin/console ibexa:doctrine:migrations:migrate
+    ```
+
+    This command does more than create the Shopping list tables - it applies all pending migrations for the project.
+
+    The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
+
+Initially, users don't have any shopping lists, not even the default “My Wishlist” list.
 The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
 
 ## Configure
@@ -96,5 +106,5 @@ On a clean install, you can, for example, assign this "Shopping List User" role 
 After placing the migration content in `src/Migrations/Ibexa/migrations/shopping_list_user.yaml`, you can import and execute it with:
 
 ```bash
-php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
+php bin/console ibexa:doctrine:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
 ```

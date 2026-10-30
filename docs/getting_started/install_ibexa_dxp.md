@@ -270,6 +270,22 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
 ### Create a database
 
+!!! note "Installing with Doctrine migrations"
+
+    By default, `ibexa:install` creates the database schema directly, without tracking individual changes.
+    To have [[= product_name_base =]] [Doctrine migrations](../update_and_migration/from_5.0/update_from_5.0.md#database-update_6) manage your schema from the moment of product installation, so that you can install future upgrades with a single command, enable it before you run `ibexa:install`.
+    Create `config/packages/ibexa_installer.yaml`:
+
+    ```yaml
+    ibexa:
+        installer:
+            doctrine_migrations: true
+    ```
+
+    Both methods, direct and Doctrine-based, produce the same database.
+    However, with [[= product_name_base =]] Doctrine migrations enabled, each migration is recorded as already applied.
+    This way, every applied migration is tracked, so future updates bring your database to the expected schema with a single command, and you don't have to work out which upgrade scripts to run.
+
 Install [[= product_name =]] and create a database with:
 
 === "PHP 8.4"

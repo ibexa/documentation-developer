@@ -39,21 +39,31 @@ To add the Translations management LTS Update to an existing [[= product_name =]
 
 #### Modify database schema
 
-Add the tables needed by the bundle:
+[[= product_name_base =]] Doctrine migrations manage the database schema for this package.
 
-=== "MySQL"
+- To see a list of known migrations, and find out which ones are pending for the whole project, run:
 
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.mysql.sql', indent_level=1) =]]
+    ```bash
+    php bin/console ibexa:doctrine:migrations:versions
     ```
 
-=== "PostgreSQL"
+- To preview the changes before you apply them, use `--dry-run` with `--write-sql`:
 
-    ```sql
-    [[= include_code('code_samples/translations_management/install/schema.postgresql.sql', indent_level=1) =]]
+    ```bash
+    php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
     ```
 
-The script creates the required data structures, but doesn't add any data to the database.
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
+- To apply pending migrations:
+
+    ```bash
+    php bin/console ibexa:doctrine:migrations:migrate
+    ```
+
+    This command does more than create the Translations management tables - it applies all pending migrations for the project.
+
+    The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
 
 #### Add action configurations
 
