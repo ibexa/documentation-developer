@@ -89,7 +89,6 @@ security:
             security: false
 ```
 
-
 ### Database tables
 
 Preview the changes to the database before you apply them:
