@@ -496,7 +496,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 ### Raptor connector
 
-The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://raptorservices.com/en/platform/website-recommendations).
 
 For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
 
