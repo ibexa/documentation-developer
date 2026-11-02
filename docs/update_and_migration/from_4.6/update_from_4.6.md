@@ -765,6 +765,8 @@ Run the following command to apply all database migrations present in your curre
 php bin/console ibexa:doctrine:migrations:migrate
 ```
 
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
 [[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
 
 [[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.

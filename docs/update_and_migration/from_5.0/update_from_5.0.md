@@ -491,7 +491,7 @@ No additional steps needed for [[= product_name =]].
 
 ## v5.0.11
 
-## Database update
+### Database update
 
 With v5.0.11, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
 With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
@@ -514,6 +514,8 @@ Run the following command to apply all database migrations present in your curre
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate
 ```
+
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
 
 [[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
 

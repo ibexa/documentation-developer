@@ -65,6 +65,8 @@ To add the Translations management LTS Update to an existing [[= product_name =]
 
     The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
 
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
 #### Add action configurations
 
 To complete the setup, import and run the AI Action Configuration migrations required by the [AI connectors](configure_ai_actions.md) that you use:

@@ -64,6 +64,8 @@ ibexa.rest.shopping_list:
 
     The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
 
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
 Initially, users don't have any shopping lists, not even the default “My Wishlist” list.
 The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
 
