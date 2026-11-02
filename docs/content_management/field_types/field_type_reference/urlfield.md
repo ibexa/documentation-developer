@@ -11,10 +11,10 @@ It's formed by the combination of a link and the respective text.
 
 ### Input expectations
 
-| Type     | Description                                   | Example                |
-|----------|-----------------------------------------------|------------------------|
-| `string` | Link content provided to the value.           | "https://www.ibexa.co" |
-| `string` | Text content that represents the stored link. | "Ibexa"                |
+| Type     | Description                                   | Example               |
+|----------|-----------------------------------------------|-----------------------|
+| `string` | Link content provided to the value.           | "https://ibexa.ai/en" |
+| `string` | Text content that represents the stored link. | "Ibexa"               |
 
 ### Value object
 
@@ -45,15 +45,15 @@ It expects two comma-separated strings, corresponding to the link and text.
 use Ibexa\Core\FieldType\Url;
 
 // Instantiates an Url Value object
-$UrlValue = new Url\Value('https://www.ibexa.co/', 'Ibexa');
+$UrlValue = new Url\Value('https://ibexa.ai/en', 'Ibexa');
 ```
 
 ### Hash format
 
-| Key    | Type     | Description   | Example                 |
-|--------|----------|---------------|-------------------------|
-| `link` | `string` | Link content. | "https://www.ibexa.co/" |
-| `text` | `string` | Text content. | "Ibexa"                 |
+| Key    | Type     | Description   | Example               |
+|--------|----------|---------------|-----------------------|
+| `link` | `string` | Link content. | "https://ibexa.ai/en" |
+| `text` | `string` | Text content. | "Ibexa"               |
 
 ``` php
 // Example of the hash value in PHP
