@@ -37,7 +37,6 @@ Several new tools have been added to the [MCP package](https://doc.ibexa.co/en/5
 - `get_default_language_code`
 - `get_language`
 - `convert_to_richtext_xml`
-- `get_user`
 - `list_user_groups`
 - `list_users`
 - `get_user`
