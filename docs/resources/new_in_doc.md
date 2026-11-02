@@ -542,7 +542,7 @@ We want to thank
 ### v5.0.0
 
 [Ibexa DXP v5.0.0](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v500) is now available, accompanied by [v5.0 documentation](https://doc.ibexa.co/en/5.0/).
-Ibexa DXP 5.0 LTS benefits of the [Long-Term Support](https://www.ibexa.co/blog/continuous-innovation-how-ibexa-dxp-s-lifecycle-enhances-feature-delivery).
+Ibexa DXP 5.0 LTS benefits of the [Long-Term Support](https://ibexa.ai/en/blog/continuous-innovation-how-ibexa-dxp-s-lifecycle-enhances-feature-delivery).
 
 See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/).
 
@@ -819,7 +819,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Trainings
 
-- The Content Editor Training has been released. Learn more in the [announcement blog post](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
+- The Content Editor Training has been released. Learn more in the [announcement blog post](https://ibexa.ai/en/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
 
 ### Infrastructure and maintenance
 
