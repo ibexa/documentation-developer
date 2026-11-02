@@ -16,7 +16,7 @@ jwtToken=$(curl -s -X 'POST' \
         }
       }' | jq -r .JWT.token)
 
-exec npx -y supergateway \
+exec npx -y supergateway@v3.4.3 \
   --streamableHttp "$mcpServer" \
   --oauth2Bearer "$jwtToken" \
   --logLevel none
