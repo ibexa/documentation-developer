@@ -204,8 +204,8 @@ You can modify the command's behavior with the following optional arguments:
 
 |<div style="width:200px">Argument</div>| Description |
 |------------------|-------------|
-| `--all` | Lists all tools, including those that aren't exposed on any MCP server or shadowed by other tool of the same name on that server |
 | `<tool_name>` | Shows the details of a specific tool, including its input and output schema, based on a tool name, or a part of it |
+| `--all` | Lists all tools, including those that aren't exposed on any MCP server or shadowed by other tool of the same name on that server |
 | `--package=<package_name>` | Lists tools provided by a specific package. Repeatable |
 | `--repository` | Shows only tools exposed on MCP servers of the given repository |
 | `--siteacces=<siteaccess>` | Shows only tools exposed by MCP servers that a specific SiteAccess serves. If you don't use argument, the command covers every SiteAccess and repository |
