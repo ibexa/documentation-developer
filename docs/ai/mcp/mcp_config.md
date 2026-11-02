@@ -200,17 +200,18 @@ To list tools exposed on all MCP servers, use:
 php bin/console ibexa:debug:mcp-tools
 ```
 
+Pass a tool name as an argument to get the details of this specific tool, including input and output schemas.
+
 You can modify the command's behavior with the following optional arguments:
 
 |<div style="width:200px">Argument</div>| Description |
 |------------------|-------------|
-| `<tool_name>` | Shows the details of a specific tool, including its input and output schema, based on a tool name, or a part of it |
 | `--all` | Lists all tools, including those that aren't exposed on any MCP server or shadowed by other tool of the same name on that server |
 | `--package=<package_name>` | Lists tools provided by a specific package. Repeatable |
 | `--repository` | Shows only tools exposed on MCP servers of the given repository |
 | `--siteacces=<siteaccess>` | Shows only tools exposed by MCP servers that a specific SiteAccess serves. If you don't use argument, the command covers every SiteAccess and repository |
 | `--server=<server name>` | Lists tools exposed by a specific MCP server, in any repository. Repeatable |
-| `--show-handler` | Shows the class and method that handle each tool |
+| `--show-handler` | In text format, shows the class and method that handle each tool |
 | `--format=<format>` | Returns output as text (`txt`) or JSON (`json`). The default format is text |
 
 By default, the command lists only tools that are actually served by an MCP server.

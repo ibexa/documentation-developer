@@ -154,10 +154,16 @@ php bin/console cache:pool:clear cache.tagaware.filesystem
 
 ### Check results
 
-Check if the tool is exposed on the `example` server:
+Check what tools are exposed on the `example` server:
 
 ```bash
-php bin/console ibexa:debug:mcp-tools greet --server=example
+php bin/console ibexa:debug:mcp-tools --server=example
+```
+
+Check the details of the `greet` tool:
+
+```bash
+php bin/console ibexa:debug:mcp-tools greet
 ```
 
 For more information about the `ibexa:debug:mcp-tools` command, see [List available tools](mcp_config.md#list-available-tools).
