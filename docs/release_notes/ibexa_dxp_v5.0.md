@@ -103,7 +103,7 @@ For more information, see [Requirements](https://doc.ibexa.co/en/5.0/getting_sta
 
 Online Editor now uses version v48.5.1 of CKEditor 5 as its base.
 
-If you [extended the Online Editor](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#add-ckeditor-plugins), ensure that ypu use the updated version of CKEditor dependencies.
+If you [extended the Online Editor](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#add-ckeditor-plugins), ensure that you use the updated version of CKEditor dependencies.
 
 #### Fastly on [[= product_name_cloud =]]
 
