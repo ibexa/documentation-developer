@@ -99,6 +99,12 @@ Node.js 24 or higher is now required for asset building.
 
 For more information, see [Requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager).
 
+#### CKEditor 5 update
+
+Online Editor now uses version v48.5.1 of CKEditor 5 as its base.
+
+If you [extended the Online Editor](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#add-ckeditor-plugins), ensure that ypu use the updated version of CKEditor dependencies.
+
 #### Fastly on [[= product_name_cloud =]]
 
 [[= product_name =]] now automatically trusts the proxy headers set by the [[= product_name_cloud =]] router for requests coming from Fastly.
