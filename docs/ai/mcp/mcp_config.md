@@ -202,9 +202,9 @@ php bin/console ibexa:debug:mcp-tools
 
 Pass a tool name as an argument to get the details of this specific tool, including input and output schemas.
 
-You can modify the command's behavior with the following optional arguments:
+You can modify the command's behavior with the following options:
 
-|<div style="width:200px">Argument</div>| Description |
+|<div style="width:200px">Options</div>| Description |
 |------------------|-------------|
 | `--all` | Lists all tools, including those that aren't exposed on any MCP server or shadowed by other tool of the same name on that server |
 | `--package=<package_name>` | Lists tools provided by a specific package. Repeatable |
