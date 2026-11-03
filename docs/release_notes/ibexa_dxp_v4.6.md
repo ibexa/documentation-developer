@@ -281,7 +281,7 @@ ibexa_cdp:
     bulk_async_threshold: 100
 ```
 
-When the number of [audience](https://content.raptorservices.com/help-center/how-to-build-audiences-in-the-customer-data-platform) changes coming from [Raptor](https://www.raptorservices.com/) exceeds this number, the changes are sent to the queue and processed in the background.
+When the number of [audience](https://content.raptorservices.com/help-center/how-to-build-audiences-in-the-customer-data-platform) changes coming from [Raptor](https://raptorservices.com/en) exceeds this number, the changes are sent to the queue and processed in the background.
 Otherwise, they are processed synchronously.
 
 ### Improved HTTP caching for Page Builder and dashboard blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
