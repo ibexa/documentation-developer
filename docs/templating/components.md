@@ -86,8 +86,8 @@ For the menu component, the following properties are available:
 | template  | string               | no       | Template used to render menu   |
 | depth     | int                  | no       | Menu depth limit               |
 
-The menu component, same as [back office menus](back_office_menus.md), relies on the [KnpMenuBundle](https://symfony.com/bundles/KnpMenuBundle/current/index.html).
-For more information about the available properties, refer to the [official documentation of the bundle](https://symfony.com/bundles/KnpMenuBundle/current/index.html#create-your-first-menu).
+The menu component, same as [back office menus](back_office_menus.md), relies on the [KnpMenuBundle](https://symfony.com/bundles/KnpMenuBundle).
+For more information about the available properties, refer to the [official documentation of the bundle](https://symfony.com/bundles/KnpMenuBundle#create-your-first-menu).
 
 ## Example
 
