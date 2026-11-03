@@ -76,7 +76,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 ### [[= product_name_base =]] Doctrine migrations
 
 Applying database schema upgrades no longer requires that you find and run SQL scripts manually.
-[[= product_name_base =]] Doctrine migrations ships with every [[= product_name =]] package and allows you to manages schema changes through a single console command:
+[[= product_name_base =]] Doctrine migrations ship with every [[= product_name =]] package and allows you to manage schema changes through a single console command:
 
 ```bash
 php bin/console ibexa:doctrine:migrations:migrate
@@ -111,7 +111,7 @@ If your system uses [custom CKEditor plugins](https://doc.ibexa.co/en/5.0/conten
 #### Fastly on [[= product_name_cloud =]]
 
 [[= product_name =]] now automatically trusts the proxy headers set by the [[= product_name_cloud =]] router for requests coming from Fastly.
-Therefore, you don't need to add Fastly's IP ranges to `trusted_proxies`, as long as `framework.trusted_proxies` isn't empty.
+Therefore, you don't need to add Fastly's IP ranges to `framework.trusted_proxies`, as long as `framework.trusted_proxies` isn't empty. (By default, `TRUSTED_PROXIES` is set to 127.0.0.1 in `.env`).
 
 For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
 
