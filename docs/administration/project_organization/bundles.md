@@ -69,7 +69,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |Bundle|Description|
 |---------|-----------|
 |ibexa/oss|Core packages|
-|ibexa/app-switcher|Integration with the [QNTM group](https://qntmgroup.com/solutions/)|
+|ibexa/app-switcher|Integration with the [QNTM group](https://ibexa.ai/en/about-ibexa/governance)|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/collaboration|Collaboration functionality|
 |ibexa/connect|[[[= product_name_connect =]]]([[= connect_doc =]]/)|

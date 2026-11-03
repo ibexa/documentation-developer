@@ -505,7 +505,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 ### Raptor connector
 
-The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://raptorservices.com/en/platform/website-recommendations).
 
 For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
 
@@ -526,7 +526,7 @@ For more information about Recommendation blocks in Page Builder, see the releva
 
 ### [[= pim_product_name =]] PIM
 
-The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
+The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]] Product Information Management (PIM)](https://quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
 
 [[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 Ibexa DXP consumes this data and makes it available for use in content and digital experiences.

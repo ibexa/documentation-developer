@@ -256,7 +256,7 @@ To get the service ID, log in to https://www.fastly.com/.
 In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/user-and-account-management/using-api-tokens/).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/organizations-and-accounts/account-members-and-permissions/managing-account-level-api-tokens/).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples
