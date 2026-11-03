@@ -42,6 +42,15 @@ Projects on PHP 7.4 stay on Flysystem 2.5.
 
 If you use a custom storage adapter, a [custom `local:` IO handler](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler), or a cloud adapter such as `league/flysystem-aws-s3-v3`, review the [Flysystem 3 support notes](https://doc.ibexa.co/en/4.6/update_and_migration/from_4.6/update_from_4.6/#flysystem-3-support) before updating.
 
+### Infrastructure
+
+#### Fastly on [[= product_name_cloud =]]
+
+[[= product_name =]] now automatically trusts the proxy headers set by the [[= product_name_cloud =]] router for requests coming from Fastly.
+Therefore, you don't need to add Fastly's IP ranges to `trusted_proxies`, as long as `framework.trusted_proxies` isn't empty.
+
+For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
