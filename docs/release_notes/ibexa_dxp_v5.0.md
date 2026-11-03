@@ -111,7 +111,7 @@ If your system uses [custom CKEditor plugins](https://doc.ibexa.co/en/5.0/conten
 #### Fastly on [[= product_name_cloud =]]
 
 [[= product_name =]] now automatically trusts the proxy headers set by the [[= product_name_cloud =]] router for requests coming from Fastly.
-Therefore, you don't need to add Fastly's IP ranges to `trusted_proxies`, as long as `framework.trusted_proxies` isn't empty (TRUSTED_PROXIES defaults to 127.0.0.1 in .env).
+Therefore, you don't need to add Fastly's IP ranges to `framework.trusted_proxies`, as long as `framework.trusted_proxies` isn't empty. (By default, `TRUSTED_PROXIES` is set to 127.0.0.1 in `.env`).
 
 For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
 
