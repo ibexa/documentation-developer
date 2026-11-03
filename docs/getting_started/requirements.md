@@ -267,7 +267,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis/Valkey
 
 === "[[= product_name =]] v5.0"
 
-    - `Node.js` 22+
+    - `Node.js` 24+
     - `yarn` 1.15.2+
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
