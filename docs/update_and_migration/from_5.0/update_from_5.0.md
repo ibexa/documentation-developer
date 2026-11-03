@@ -491,6 +491,47 @@ No additional steps needed for [[= product_name =]].
 
 ## v5.0.11
 
+### Database update
+
+With v5.0.11, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
+The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
+
+[[= product_name_base =]] Doctrine migrations cover every SQL upgrade script previously listed in this guide.
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+To preview the migrations before you apply them, run:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
+Run the following command to apply all database migrations present in your currently installed code:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
+
+[[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+    Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
+
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
+
 ### Flysystem 3 support
 
 [[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later by default.
