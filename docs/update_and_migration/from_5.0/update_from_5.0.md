@@ -199,7 +199,7 @@ If you choose to upgrade to Elasticsearch 8, follow these steps:
 Upgrade your Elasticsearch server to version 8.19 or higher.
 For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://developer.upsun.com/docs/add-services/elasticsearch) for a list of supported versions.
 
 #### Update configuration
 
@@ -228,7 +228,7 @@ ibexa_elasticsearch:
             node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
 ```
 
-For more information, see [Node pool settings](https://doc.ibexa.co/en/latest/search/search_engines/elasticsearch/configure_elasticsearch/#node-pool-settings).
+For more information, see [Node pool settings](configure_elasticsearch.md#node-pool-settings).
 
 ##### Remove trace option
 
@@ -359,11 +359,27 @@ Update Symfony constraints in `composer.json` before updating the packages.
     For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
     Key changes include:
 
-
     - Independent application cache directory
 
         Symfony 7.4 introduces a new [share directory](https://symfony.com/blog/new-in-symfony-7-4-share-directory), dedicated for storing application cache on the file system.
         If you decide to configure it (for example, by setting the `APP_SHARE_DIR` environment variable), review your existing scripts for explicit `var/cache` usage (for example, `rm -rf var/cache`) and decide whether to include `var/share` in the script.
+
+        If you use [[= product_name_cloud =]], add a mount for the `var/share` directory to your `.platform.app.yaml` file, next to the existing `var/cache` and `var/log` mounts:
+
+        ```yaml hl_lines="5-7"
+        mounts:
+            'var/cache':
+                source: local
+                source_path: cache
+            'var/share':
+                source: local
+                source_path: share
+            'var/log':
+                source: local
+                source_path: log
+        ```
+
+        Without this mount, the `var/share` directory is read-only and all writes to the `cache.app` cache pool fail.
 
         !!! caution "Always clear the persistence cache with `cache:pool:clear` command"
 
@@ -467,6 +483,73 @@ No additional steps needed for [[= product_name =]], but the [MCP Servers LTS Up
 
 No additional steps needed for [[= product_name =]].
 
+!!! note "Database upgrade scripts"
+
+    The `vendor/ibexa/installer/upgrade/db` contains the `ibexa-5.0.9-to-5.0.10.sql` database update script.
+    You don't need to run it.
+    The tables added by the script are required only by the [Translation Management LTS update](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management/) and adding them is part of its [configuration procedure](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/#modify-database-schema).
+
+## v5.0.11
+
+### Database update
+
+With v5.0.11, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
+The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
+
+[[= product_name_base =]] Doctrine migrations cover every SQL upgrade script previously listed in this guide.
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+To preview the migrations before you apply them, run:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
+Run the following command to apply all database migrations present in your currently installed code:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
+
+[[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+    Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
+
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
+
+### Flysystem 3 support
+
+[[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later by default.
+However, Flysystem 2.5 is also supported to provide backward compatibility.
+
+!!! note "Custom and local adapters"
+
+    - If you have a custom adapter, any class that implements `League\Flysystem\FilesystemAdapter` must add `directoryExists(string $path): bool`.
+    Otherwise, Flysystem 3 throws a fatal error.
+
+    - If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
+    If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
+
+    - If you use Flysystem's `local` adapter type as an IO handler, it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly.
+    Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
+    To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom` adapter pointing to that service instead of `local`.
+    [[= product_name =]]'s own adapters already do this.
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
@@ -488,7 +571,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](configure_ai_actions.md#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -500,7 +583,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Real-time collaborative editing
 
-    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
+    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -512,7 +595,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### MCP Servers
 
-    To learn more about the [MCP Servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/).
+    To learn more about the [MCP Servers](mcp_guide.md), see the [installation and configuration instructions](mcp_config.md).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -524,5 +607,5 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     Between v5.0.8 and v5.0.9, the following changes were made to the MCP Servers feature:
 
-    - An [`allowed_hosts`](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
-    - The [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
+    - An [`allowed_hosts`](mcp_config.md#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
+    - The [built-in tool](mcp_config.md#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
