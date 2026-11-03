@@ -7,16 +7,24 @@ month_change: true
 
 ## Update from v4.6.x to v4.6.latest
 
-Before you update to v5.0, you need to [update to the latest maintenance release of v4.6 (v[[= latest_tag_4_6 =]])](update_from_4.6.md).
+Before you update to v5.0, you must [update to the latest maintenance release of v4.6 (v[[= latest_tag_4_6 =]])](update_from_4.6.md).
+
+!!! caution "Database migration sequence"
+
+    For certain migrations, protection mechanisms differ between v4.6.x and v.5.0.x.
+    Therefore, before you update the database, make sure that you run `ibexa:doctrine:migrations:migrate` when your project is on the latest v4.6.x patch version.
+    See [Database update](update_from_4.6.md#database-update_6).
+
+    Otherwise `ibexa:doctrine:migrations:migrate` will fail on v5.0, for example, with the `Table 'ibexa_setting' already exists` error.
 
 ### Move from old to new Commerce
 
 If you've chosen to use the [deprecated Commerce packages](update_from_4.3_old_commerce.md) during the update to 4.4,
 you have to move to [new Commerce ones](update_from_4.3_new_commerce.md).
 
-## Update from v4.6.latest to v5.0.0
+## Update from v4.6.latest to v5.0.latest
 
-When you have the last version of 4.6, you can update to v5.0.0.
+When you have the latest version of 4.6, you can update to the latest version of 5.0 (v[[= latest_tag_5_0 =]]).
 
 ### Requirements
 
@@ -110,7 +118,7 @@ rm -r config/graphql
 
 #### Update package requirements
 
-[[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
+[[= product_name =]] 5.0 is based on Symfony 7.4 (since v5.0.7) and both must be updated.
 Your development packages must be updated as well.
 The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/debug-pack) and `ibexa/rector` are installed.
 Adjust the list based on your project requirements.
@@ -122,22 +130,22 @@ Notice the use of the `--no-update` option to only edit the `composer.json` entr
     # Update required PHP version
     composer require --no-update 'php:>=8.3';
     # Update required Symfony version
-    composer config extra.symfony.require '7.3.*'
+    composer config extra.symfony.require '7.4.*'
     # Upgrade Ibexa and Symfony packages: application
     composer require --no-update \
         ibexa/headless:[[= latest_tag_5_0 =]] \
-        symfony/console:^7.3 \
-        symfony/dotenv:^7.3 \
-        symfony/framework-bundle:^7.3 \
-        symfony/runtime:^7.3 \
-        symfony/yaml:^7.3 \
+        symfony/console:^7.4 \
+        symfony/dotenv:^7.4 \
+        symfony/framework-bundle:^7.4 \
+        symfony/runtime:^7.4 \
+        symfony/yaml:^7.4 \
     ;
     # Upgrade Ibexa and Symfony packages: development tools
     composer require --dev --no-update \
         ibexa/rector:[[= latest_tag_5_0 =]] \
-        symfony/debug-bundle:^7.3 \
-        symfony/stopwatch:^7.3 \
-        symfony/web-profiler-bundle:^7.3 \
+        symfony/debug-bundle:^7.4 \
+        symfony/stopwatch:^7.4 \
+        symfony/web-profiler-bundle:^7.4 \
     ;
     ```
 
@@ -147,22 +155,22 @@ Notice the use of the `--no-update` option to only edit the `composer.json` entr
     # Update required PHP version
     composer require --no-update 'php:>=8.3';
     # Update required Symfony version
-    composer config extra.symfony.require '7.3.*'
+    composer config extra.symfony.require '7.4.*'
     # Upgrade Ibexa and Symfony packages: application
     composer require --no-update \
         ibexa/experience:[[= latest_tag_5_0 =]] \
-        symfony/console:^7.3 \
-        symfony/dotenv:^7.3 \
-        symfony/framework-bundle:^7.3 \
-        symfony/runtime:^7.3 \
-        symfony/yaml:^7.3 \
+        symfony/console:^7.4 \
+        symfony/dotenv:^7.4 \
+        symfony/framework-bundle:^7.4 \
+        symfony/runtime:^7.4 \
+        symfony/yaml:^7.4 \
     ;
     # Upgrade Ibexa and Symfony packages: development tools
     composer require --dev --no-update \
         ibexa/rector:[[= latest_tag_5_0 =]] \
-        symfony/debug-bundle:^7.3 \
-        symfony/stopwatch:^7.3 \
-        symfony/web-profiler-bundle:^7.3 \
+        symfony/debug-bundle:^7.4 \
+        symfony/stopwatch:^7.4 \
+        symfony/web-profiler-bundle:^7.4 \
     ;
     ```
 
@@ -172,22 +180,22 @@ Notice the use of the `--no-update` option to only edit the `composer.json` entr
     # Update required PHP version
     composer require --no-update 'php:>=8.3';
     # Update required Symfony version
-    composer config extra.symfony.require '7.3.*'
+    composer config extra.symfony.require '7.4.*'
     # Upgrade Ibexa and Symfony packages: application
     composer require --no-update \
         ibexa/commerce:[[= latest_tag_5_0 =]] \
-        symfony/console:^7.3 \
-        symfony/dotenv:^7.3 \
-        symfony/framework-bundle:^7.3 \
-        symfony/runtime:^7.3 \
-        symfony/yaml:^7.3 \
+        symfony/console:^7.4 \
+        symfony/dotenv:^7.4 \
+        symfony/framework-bundle:^7.4 \
+        symfony/runtime:^7.4 \
+        symfony/yaml:^7.4 \
     ;
     # Upgrade Ibexa and Symfony packages: development tools
     composer require --dev --no-update \
         ibexa/rector:[[= latest_tag_5_0 =]] \
-        symfony/debug-bundle:^7.3 \
-        symfony/stopwatch:^7.3 \
-        symfony/web-profiler-bundle:^7.3 \
+        symfony/debug-bundle:^7.4 \
+        symfony/stopwatch:^7.4 \
+        symfony/web-profiler-bundle:^7.4 \
     ;
     ```
 
@@ -308,42 +316,38 @@ composer run-script post-update-cmd
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
-The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0.sql` updates it:
+[[= product_name_base =]] Doctrine migrations manage the database schema updates.
 
-=== "MySQL"
+To preview the migrations before you apply them, run:
 
-    ```bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.latest-to-5.0.0.sql
-    ```
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
 
-=== "PostgreSQL"
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
 
-    ```bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
-    ```
+The following command migrates your database from the v4.6 schema to the v5.0 schema:
 
-??? note "Ibexa Open Source"
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
 
-    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
 
-    === "MySQL"
+Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you also manage them with standard Doctrine migrations.
 
-        ``` sql
-        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_mysql.sql', glue="        ") =]]
-        ```
+!!! caution "Command scope"
 
-    === "PostgreSQL"
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
 
-        ``` sql
-        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_postgresql.sql', glue="        ") =]]
-        ```
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
 
-As this script targets all editions, on editions lower than Commerce you may encounter errors about missing tables which can safely be ignored.
-
-Many tables and columns are renamed.
-If you have custom code directly querying those, you will need to update them.
-
-You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
+Many tables and columns are renamed between v4.6 and v5.0.
+If you have custom code that directly queries those, you need to update them.
+You can track the renaming below.
 
 ??? note "Tables and columns renaming map"
 
@@ -432,7 +436,7 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 ??? note "DFS (Distributed File System)"
 
     If [DFS IO handler](clustering.md#dfs-io-handler) is used and, as recommended, its table is on its own database, you'll have to rename table and columns there.
-    Here are the DFS renaming queries (extracted from `ibexa-4.6.latest-to-5.0.0.sql`):
+    Here are the DFS renaming queries:
 
     ```sql
     ALTER TABLE ezdfsfile RENAME TO ibexa_dfs_file;
@@ -487,6 +491,7 @@ return RectorConfig::configure()
            SymfonySetList::SYMFONY_71, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-71
            SymfonySetList::SYMFONY_72, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-72
            SymfonySetList::SYMFONY_73, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-73
+           SymfonySetList::SYMFONY_74, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-74
            SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
    )
@@ -1127,5 +1132,6 @@ composer ibexa:setup --platformsh
 
 #### Conclusion
 
-Your project is now running the latest major version of [[= product_name =]].
-To reach the last patch version, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md)
+Your project is now running [[= product_name =]] v5.0, with packages and database schema both up to date.
+
+To learn about configuration updates, PHP API changes, or other changes introduced between v5.0.0 and v[[= latest_tag_5_0 =]] that aren't related to the database, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md).

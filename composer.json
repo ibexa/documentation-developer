@@ -86,7 +86,7 @@
         "ibexa/messenger": "~5.0.x-dev",
         "ibexa/collaboration": "~5.0.x-dev",
         "ibexa/share": "~5.0.x-dev",
-        "ibexa/phpstan": "~5.0.-dev",
+        "ibexa/phpstan": "~5.0.x-dev",
         "ibexa/connector-quable": "5.0.x-dev",
         "ibexa/shopping-list": "~5.0.x-dev",
         "deptrac/deptrac": "^3.0",
@@ -103,7 +103,8 @@
         "ibexa/connector-actito": "~5.0.x-dev",
         "ibexa/fastly": "~5.0.x-dev",
         "ibexa/connect": "~5.0.x-dev",
-        "ibexa/connector-qualifio": "~5.0.x-dev"
+        "ibexa/connector-qualifio": "~5.0.x-dev",
+        "ibexa/doctrine-migrations": "~5.0.x-dev"
     },
     "scripts": {
         "fix-cs": [
