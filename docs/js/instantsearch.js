@@ -5,7 +5,7 @@
     const search_page = (match = doc.location.search.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
     const parsed_search_page = parseInt(search_page);
     let version = doc.location.pathname.split('/')[2];
-    if (!/^\d+\.\d+$/.test(version) && version !== 'latest') {
+    if (!/^\d+\.\d+$/.test(version) && version !== 'saas' && version !== 'latest') {
         version = 'latest';
     }
     const hitsContainer = '#hits';
