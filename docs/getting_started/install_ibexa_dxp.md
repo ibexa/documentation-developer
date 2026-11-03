@@ -273,7 +273,7 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 !!! note "Installing with Doctrine migrations"
 
     By default, `ibexa:install` creates the database schema directly, without tracking individual changes.
-    To have [[= product_name_base =]] [Doctrine migrations](../update_and_migration/from_5.0/update_from_5.0.md#database-update_6) manage your schema from the moment of product installation, so that you can install future upgrades with a single command, enable it before you run `ibexa:install`.
+    To have [[= product_name_base =]] [Doctrine migrations](update_from_5.0.md#database-update_5) manage your schema from the moment of product installation, so that you can install future upgrades with a single command, enable it before you run `ibexa:install`.
     Create `config/packages/ibexa_installer.yaml`:
 
     ```yaml
