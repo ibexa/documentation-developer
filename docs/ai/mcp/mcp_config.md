@@ -154,6 +154,10 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `list_languages` - lists all languages in the current SiteAccess
     - `list_content_languages` - lists languages which have translations for a given content item
     - `list_non_translated_content_ids` - lists IDs of content which have missing translations for a given language code
+- `Ibexa\Mcp\Tool\User\UserTools`
+    - `list_user_groups` - lists user groups, paginated
+    - `list_users` - lists user accounts, paginated
+    - `get_user` - gets one user account by `id` or `login`
 
 The following tools are included with their respective packages, [Taxonomy](taxonomy.md) and [Workflow](workflow.md):
 

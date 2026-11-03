@@ -37,6 +37,9 @@ Several new tools have been added to the [MCP package](https://doc.ibexa.co/en/5
 - `get_default_language_code`
 - `get_language`
 - `convert_to_richtext_xml`
+- `list_user_groups`
+- `list_users`
+- `get_user`
 
 The following tools were added to their respective packages: [Taxonomy](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) and [Workflow](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow/):
 
