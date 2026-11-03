@@ -795,6 +795,19 @@ Depending on a [PHP version](requirements.md#php), your [[= product_name =]] sup
     To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom` adapter pointing to that service instead of `local`.
     [[= product_name =]]'s own adapters already do this.
 
+### [[= product_name_cloud =]] VCL update
+
+On [[= product_name_cloud =]], [[= product_name =]] now detects requests that come from Fastly and automatically trusts the proxy headers set by the router.
+This works only if `framework.trusted_proxies` isn't empty (`TRUSTED_PROXIES` defaults to `127.0.0.1` in `.env`).
+
+If you're using [[= product_name_cloud =]], regenerate your cloud configuration to get the latest VCL files:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
