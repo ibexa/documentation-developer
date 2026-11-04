@@ -241,7 +241,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 20">20</span>
+        <span title="at line 22">22</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
             <div class="content-header__subheader">Interface</div>
@@ -269,7 +269,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 22">22</span>
+        <span title="at line 24">24</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -301,7 +301,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 23">23</span>
+        <span title="at line 25">25</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -339,7 +339,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 140">140</span>
+        <span title="at line 142">142</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -417,7 +417,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 155">155</span>
+        <span title="at line 157">157</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -481,7 +481,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 77">77</span>
+        <span title="at line 79">79</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -573,6 +573,94 @@
                                                                                     </dl>
     
                 <div class="content-header">
+        <h3 id="method_findEntries">
+                <img src="./images/public.svg" alt="public" title="public" />findEntries()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_findEntries" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
+        <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
+                :
+        <span title="at line 167">167</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Finds the entries matching the query which the current user can read.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">findEntries</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryQuery">TaxonomyEntryQuery</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryList">TaxonomyEntryList</abbr></a></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>Both the returned page and the total count include only entries the current user can read,
+ordered by entry ID.</p>
+
+    </section>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $query
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryQuery">TaxonomyEntryQuery</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryList">TaxonomyEntryList</abbr></a></p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_findEntries_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>if the taxonomy does not exist</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
         <h3 id="method_getPath">
                 <img src="./images/public.svg" alt="public" title="public" />getPath()
             <a class="headerlink" href="classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_getPath" title="Permanent link">¶</a>
@@ -580,7 +668,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 162">162</span>
+        <span title="at line 174">174</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -658,7 +746,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 131">131</span>
+        <span title="at line 133">133</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -785,7 +873,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 42">42</span>
+        <span title="at line 44">44</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -877,7 +965,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 69">69</span>
+        <span title="at line 71">71</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -976,7 +1064,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 31">31</span>
+        <span title="at line 33">33</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1075,7 +1163,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 50">50</span>
+        <span title="at line 52">52</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1188,7 +1276,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 149">149</span>
+        <span title="at line 151">151</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1308,7 +1396,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 61">61</span>
+        <span title="at line 63">63</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1407,7 +1495,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 104">104</span>
+        <span title="at line 106">106</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1518,7 +1606,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 117">117</span>
+        <span title="at line 119">119</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1643,7 +1731,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 96">96</span>
+        <span title="at line 98">98</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1740,7 +1828,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">
         <abbr title="vendor/ibexa/taxonomy/src/contracts/Service/TaxonomyServiceInterface.php">TaxonomyServiceInterface.php</abbr>
                 :
-        <span title="at line 85">85</span>
+        <span title="at line 87">87</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1897,6 +1985,11 @@
                                                     <li class="md-nav__item level-2">
                                 <a href="classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_createEntry" title="createEntry" class="md-nav__link">
                                     createEntry()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_findEntries" title="findEntries" class="md-nav__link">
+                                    findEntries()
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">
