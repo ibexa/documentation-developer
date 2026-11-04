@@ -1,21 +1,24 @@
 #!/bin/bash
 set -e
 
-baseUrl='http://ddev-ibexa-tmp.ddev.site:8080' # Adapt to your test case
+# Adapt to your test case
+baseUrl='http://localhost'
 serverUrl="$baseUrl/mcp/example"
 serverName='ibexa-example'
+username='ibexa-example'
+password='Ibexa-3xample'
 
 jwtToken=$(curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
   -H 'Content-Type: application/vnd.ibexa.api.JWTInput+json' \
   -H 'Accept: application/vnd.ibexa.api.JWT+json' \
-  -d '{
-        "JWTInput": {
-          "_media-type": "application/vnd.ibexa.api.JWTInput+json",
-          "username": "admin",
-          "password": "publish"
+  -d "{
+        \"JWTInput\": {
+          \"_media-type\": \"application/vnd.ibexa.api.JWTInput+json\",
+          \"username\": \"$username\",
+          \"password\": \"$password\"
         }
-      }' | jq -r .JWT.token)
+      }" | jq -r .JWT.token)
 
 if [[ -n $(copilot mcp list | grep "  $serverName (http)") ]]
 then
