@@ -17,7 +17,7 @@ jwtToken=$(curl -s -X 'POST' \
         }
       }' | jq -r .JWT.token)
 
-if [[ -n $(copilot mcp list | grep $serverName) ]]
+if [[ -n $(copilot mcp list | grep "  $serverName (http)") ]]
 then
   copilot mcp remove $serverName
 fi
