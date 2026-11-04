@@ -22,9 +22,9 @@ jwtToken=$(curl -s -X 'POST' \
         }
       }" | jq -r .JWT.token)
 
-if [[ -n $(copilot mcp list | grep "  $serverName (http)") ]]
+if [[ -n $($agentCli mcp list | grep -E "(^| )$serverName\W") ]]
 then
-  copilot mcp remove "$serverName"
+  $agentCli mcp remove "$serverName"
 fi
 
 $agentCli mcp add --transport http \
