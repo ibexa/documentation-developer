@@ -298,87 +298,28 @@ You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copil
 
 #### Add MCP server to agent CLI
 
-For the sake of the agent test, in this example, you configure the MCP server in an `.mcp.json` file at the [[= product_name =]] project root.
-This way, it is only available for a session opened from there.
+To add an MCP server to your agent, you need to request a JWT token, then configure the MCP server in your agent as a [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#streamable-http) with a `Authentication: Bearer <token>` header.
 
-You can handle the JWT token for this test in the following ways:
+You can request a JWT token manually like [for the MCP Inspector](#perform-mcp-inspector-test), or automize.
 
-- [Hard-code the JWT token](#hard-coded-variant) into the configuration and update it at every expiration.
-- [Wrap a JWT token request and an MCP server call into a script](#fully-scripted-variant).
+The following script requests a JWT token through `curl`, then creates or refreshes an MCP server configuration.
+It works for, at least, Copilot and Claude.
 
-##### Hard-coded variant
+You can place it at project root (without commiting it as it contains credentials).
 
-The hard-coded JWT token configuration in `.mcp.json` looks as follows:
-
-``` json
-[[= include_code('code_samples/mcp/http.mcp.json') =]]
+```bash
+[[= include_code('code_samples/mcp/mcp-ibexa-example-installer.sh') =]]
 ```
-
-The `.mcp.json` file must be edited to update the JWT token each time it expires.
-You can request a token by using the GraphiQL web interface or a `curl` command, and then edit the file manually.
-Alternatively, you can configure a shell script to request the JWT token, extract it from the response, and replace it in the file.
-
-When Copilot or Claude Code complains that it can't communicate with the MCP server:
-
-=== "Copilot CLI"
-
-    - Update the JWT token in the `.mcp.json` file.
-    - Reload the MCP servers in Copilot CLI with one of these methods:
-        - Run `/mcp reload` command to reload all MCP servers.
-        - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
-
-    !!! note "Reloading multiple MCP servers"
-
-        If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming.
-        Consider reloading them one by one.
-
-=== "Claude Code CLI"
-
-    - Update the JWT token in the `.mcp.json` file.
-    - Run `/mcp reconnect ibexa-example` command to reconnect the `ibexa-example` MCP server.
-
-##### Fully scripted variant
-
-The wrapping script configuration in `.mcp.json` looks as follows:
-
-``` json
-[[= include_code('code_samples/mcp/stdio.mcp.json') =]]
-```
-
-`mcp-ibexa-example-wrapper.sh` is a script that requests a JWT token and establishes a connection with the MCP server.
-
-For example, thanks to [`npx`](https://www.npmjs.com/package/npx), you can do it with [Supergateway](https://www.npmjs.com/package/supergateway) without a local installation:
-
-``` bash
-[[= include_code('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
-```
-
-When the agent complains that it can't communicate with the MCP server, reload it:
-
-=== "Copilot CLI"
-
-    Reload the MCP servers in Copilot CLI with one of these methods:
-
-    - Run `/mcp reload` command to reload all MCP servers.
-    - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
-
-    !!! note "Reloading multiple MCP servers"
-
-        If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming.
-        Consider reloading them one by one.
-
-=== "Claude Code CLI"
-
-    Run `/mcp reconnect ibexa-example` command to reconnect the `ibexa-example` MCP server.
 
 #### Run MCP server test with Copilot CLI or Claude Code CLI
 
-Launch the agent CLI at the project root, where the `.mcp.json` file is located:
+Launch the agent CLI at the project root:
 
 === "Copilot CLI"
 
     ```bash
     cd /path/to/project
+    bash mcp-ibexa-example-installer.sh
     copilot
     ```
 
@@ -386,6 +327,7 @@ Launch the agent CLI at the project root, where the `.mcp.json` file is located:
 
     ```bash
     cd /path/to/project
+    bash mcp-ibexa-example-installer.sh
     claude
     ```
 
@@ -399,16 +341,35 @@ You can check the MCP server status and details with the `/mcp` command:
     Run the `/mcp show ibexa-example` command to check the MCP server status and details:
 
     ``` text
-    MCP Server: ibexa-example
+    MCP · ibexa-example
 
-    Type:     stdio
-    Command:  bash
-    Status:   ✓ Connected
-    Source:   /path/to/project/.mcp.json
+    id: ibexa-example                                                                                                                                                                                                
+    kind: mcp                                                                                                                                                                                                      
+    name: ibexa-example                                                                                                                                                                                              
+    scope: User                                                                                                                                                                                                    
+    enabled: ✓ yes                                                                                                                                                                                                 
+    trust: {                                                                                                                                                                                                       
+      "origin": {                                                                                                                                                                                                  
+      "kind": "user"                                                                                                                                                                                             
+      },                                                                                                                                                                                                           
+      "capabilities": {},                                                                                                                                                                                          
+      "permissions": {}                                                                                                                                                                                            
+    }
 
-    Tools (1/1 enabled):
-     ✓ greet: Greet a user by name (70 tokens)
-    ```
+    tools (1)                                                                                                                                                                                                      
+    greet: Greet a user by name
+
+    data                                                                                                                                                                                                           
+    {                                                                                                                                                                                                              
+      "name": "ibexa-example",                                                                                                                                                                                       
+      "status": "connected",                                                                                                                                                                                       
+      "serverMetadata": {                                                                                                                                                                                          
+        "instructions": "Use this server to greet someone."                                                                                                                                                        
+      },                                                                                                                                                                                                           
+      "url": "http://localhost/mcp/example",                                                                                                                                                   
+      "source": "user"                                                                                                                                                                                             
+    }
+```
 
 === "Claude Code CLI"
 
@@ -417,13 +378,15 @@ You can check the MCP server status and details with the `/mcp` command:
     ``` text
     Ibexa-example MCP Server                                                                                                                                                                                    
 
-    Status:           ✔ connected                                                                                                                                                                               
-    Command:          bash                                                                                                                                                                                      
-    Args:             mcp-ibexa-example-wrapper.sh                                                                                                                                                              
-    Config location:  /path/to/project/.mcp.json                                                                                                                                          
-    Capabilities: tools                                                                                                                                                                                         
-    Tools: 1 tool
+   Status:           ✔ connected
+   Auth:             ✔ authenticated
+   URL:              http
+   Config location:  ~/.claude.json [project: /path/to/project]
+   Capabilities: tools · prompts
+   Tools: 1 tool
     ```
+
+If a server appears as disconected, re-run the installer (`bash mcp-ibexa-example-installer.sh`) so a fresh JWT token is generated and set.
 
 You can prompt the agent to greet you.
 It should use the `greet` tool to do so.
