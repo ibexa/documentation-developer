@@ -51,6 +51,50 @@ Therefore, you don't need to add Fastly's IP ranges to `framework.trusted_proxie
 
 For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
 
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+##### Automated translation
+
+- [`Ibexa\Contracts\AutomatedTranslation\Encoder\MarkupEncoderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-MarkupEncoderInterface.html)
+
+##### Core
+
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Bookmark`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-location-bookmark.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Bookmark\Id`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html)
+
+##### [[= product_name_base =]] Doctrine migrations
+
+- [`Ibexa\Contracts\DoctrineMigrations`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations-migrations.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationInterface`](https://doapi/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationTag`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.
+html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyDependencyFactory`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnly
+DependencyFactory.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyMigrationsRepository`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\SqlPlatform`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html)
+
+##### RichText field type
+
+- [`Ibexa\Contracts\FieldTypeRichText\RichText\DOMDocumentLoaderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoad
+erInterface.html)
+
+##### Data migration
+
+- [`Ibexa\Contracts\Migration\Bootstrapper`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-migration-bootstrapper.html)
+- [`Ibexa\Contracts\Migration\Bootstrapper\MigrationFilesProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProv
+iderInterface.html)
+- [`Ibexa\Contracts\Migration\Bootstrapper\MigrationHook`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html)
+
+##### Product catalog
+
+- [`Ibexa\Contracts\ProductCatalog\Iterator\BatchIteratorAdapter\CustomerGroupFetchAdapter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\UpdatedAt`](https:/hp_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html)
+
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]

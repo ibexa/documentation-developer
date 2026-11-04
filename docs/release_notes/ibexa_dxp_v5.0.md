@@ -117,7 +117,101 @@ For more information, see [Configure Symfony front controller](https://doc.ibexa
 
 ### Developer experience
 
+#### Taxonomy search
+
 You can now use the [`TaxonomyServiceInterface::findEntries()`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#methods) method to list the entries of a taxonomy, or the direct children of an entry, paginated and ordered by ID.
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+##### Automated translation
+
+- [`Ibexa\Contracts\AutomatedTranslation\Encoder\MarkupEncoderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-MarkupEncoderInterface.html)
+
+##### AI model
+
+- [`Ibexa\Contracts\ConnectorAi\AiModel`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-exception.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\AiModelExceptionInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-AiModelExceptionInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\InvalidAiModelException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidAiModelException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\InvalidModelOptionsException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidModelOptionsException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\NoAiModelsException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoAiModelsException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\NoDefaultAiModelException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoDefaultAiModelException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\UnsupportedAiModelException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-UnsupportedAiModelException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModel`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModelCatalogInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModelProviderFactoryInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderFactoryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModelProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options-exception.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\DuplicatedOptionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-DuplicatedOptionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\InvalidOptionDefinitionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\InvalidOptionValueException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionValueException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\MissingRequiredOptionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-MissingRequiredOptionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\UndefinedOptionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-UndefinedOptionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\AiModelOptionsResolverInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-AiModelOptionsResolverInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options-form.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options-form-exception.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form\Exception\NoOptionFieldFactoryException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-Exception-NoOptionFieldFactoryException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form\OptionFieldFactoryInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-OptionFieldFactoryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionDefinition`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionDefinitionCollection`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionDefinitionProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionProviderInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionType`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionTypeInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionTypeInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\ReasoningEffort`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\ResolvedAiModelOptions`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\StandardOptionDefinitions`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html)
+
+##### Core
+
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Bookmark`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-location-bookmark.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Bookmark\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html)
+- [`Ibexa\Contracts\Core\Repository\Values\User\UserGroupList`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupList.html)
+- [`Ibexa\Contracts\Core\Repository\Values\User\UserList`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-UserList.html)
+
+##### [[= product_name_base =]] Doctrine migrations
+
+- [`Ibexa\Contracts\DoctrineMigrations`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations-migrations.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationTag`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyDependencyFactory`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyDependencyFactory.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyMigrationsRepository`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\SqlPlatform`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html)
+
+##### Page field type
+
+- [`Ibexa\Contracts\FieldTypePage\PageStructure`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-fieldtypepage-pagestructure.html)
+- [`Ibexa\Contracts\FieldTypePage\PageStructure\Event`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-fieldtypepage-pagestructure-event.html)
+- [`Ibexa\Contracts\FieldTypePage\PageStructure\Event\PageStructureResolveEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html)
+
+##### RichText field type
+
+- [`Ibexa\Contracts\FieldTypeRichText\RichText\DOMDocumentLoaderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoaderInterface.html)
+
+##### MCP
+
+- [`Ibexa\Contracts\Mcp\Pagination`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-pagination.html)
+- [`Ibexa\Contracts\Mcp\Pagination\AbstractPaginatedResult`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Pagination-AbstractPaginatedResult.html)
+- [`Ibexa\Contracts\Mcp\Pagination\PaginationInput`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html)
+
+##### Data migration
+
+- [`Ibexa\Contracts\Migration\Bootstrapper`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-migration-bootstrapper.html)
+- [`Ibexa\Contracts\Migration\Bootstrapper\MigrationFilesProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html)
+- [`Ibexa\Contracts\Migration\Bootstrapper\MigrationHook`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html)
+
+##### Product catalog
+
+- [`Ibexa\Contracts\ProductCatalog\Iterator\BatchIteratorAdapter\CustomerGroupFetchAdapter`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\UpdatedAt`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html)
+
+##### Taxonomy
+
+- [`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryList`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html)
+- [`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryQuery`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html)
 
 ### Full changelog
 
