@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 baseUrl='http://ddev-ibexa-tmp.ddev.site:8080' # Adapt to your test case
 serverUrl="$baseUrl/mcp/example"
@@ -16,7 +17,10 @@ jwtToken=$(curl -s -X 'POST' \
         }
       }' | jq -r .JWT.token)
 
-copilot mcp remove $serverName
+if [[ -n $(copilot mcp list | grep $serverName) ]]
+then
+  copilot mcp remove $serverName
+fi
 
 copilot mcp add --transport http \
   --header "Authorization: Bearer $jwtToken" \
