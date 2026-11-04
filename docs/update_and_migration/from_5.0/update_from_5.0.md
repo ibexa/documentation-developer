@@ -228,7 +228,7 @@ ibexa_elasticsearch:
             node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
 ```
 
-For more information, see [Node pool settings](configure_elasticsearch.md#node-pool-settings).
+For more information, see [Node pool settings](https://doc.ibexa.co/en/5.0/search/search_engines/elasticsearch/configure_elasticsearch/#node-pool-settings).
 
 ##### Remove trace option
 
@@ -270,7 +270,7 @@ After upgrading to Elasticsearch 8 and updating your configuration, reindex the 
 
 ### Database update
 
-Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](background_tasks.md) exist in your database:
+Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/) exist in your database:
 
 === "MySQL"
 
@@ -288,7 +288,7 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](https://doc.ibexa.co/en/5.0/content_management/forms/form_builder_guide/)'s `max_length` validator behavior:
 
 === "MySQL"
 
@@ -385,7 +385,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
             Starting with Symfony 7.4, running `php bin/console cache:clear` doesn't clear the [[= product_name =]] persistence cache, even when using a filesystem-based cache pool.
 
-            To clear the persistence cache, for example after adding a [custom Page Builder block](create_custom_page_block.md), you must always run:
+            To clear the persistence cache, for example after adding a [custom Page Builder block](https://doc.ibexa.co/en/5.0/content_management/pages/create_custom_page_block/), you must always run:
 
             ```bash
             php bin/console cache:pool:clear <cache-pool>
@@ -395,7 +395,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
             The default cache pool when running Redis or Valkey is named `cache.redis`.
             If you have customized the persistence cache configuration, the name of your cache pool might be different.
 
-            For more information about persistence cache, see [Persistence cache](persistence_cache.md).
+            For more information about persistence cache, see [Persistence cache](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/persistence_cache/).
 
     - Array-based PHP configuration format
 
@@ -565,14 +565,14 @@ For more information, see [Configure Symfony front controller](https://doc.ibexa
 
 ## LTS Updates and additional packages
 
-[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
-To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separately with the following commands:
+[LTS Updates](https://doc.ibexa.co/en/5.0/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/) added to them, update them separately with the following commands:
 
 === "Integrated help"
 
     ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [Integrated help](integrated_help.md) for more information.
+    See [Integrated help](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -584,7 +584,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](configure_ai_actions.md#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -596,7 +596,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Real-time collaborative editing
 
-    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
+    To learn more about the [Real-time editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -608,7 +608,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### MCP Servers
 
-    To learn more about the [MCP Servers](mcp_guide.md), see the [installation and configuration instructions](mcp_config.md).
+    To learn more about the [MCP Servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -620,5 +620,5 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     Between v5.0.8 and v5.0.9, the following changes were made to the MCP Servers feature:
 
-    - An [`allowed_hosts`](mcp_config.md#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
-    - The [built-in tool](mcp_config.md#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
+    - An [`allowed_hosts`](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
+    - The [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
