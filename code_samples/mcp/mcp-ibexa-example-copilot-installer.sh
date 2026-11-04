@@ -22,9 +22,9 @@ jwtToken=$(curl -s -X 'POST' \
 
 if [[ -n $(copilot mcp list | grep "  $serverName (http)") ]]
 then
-  copilot mcp remove $serverName
+  copilot mcp remove "$serverName"
 fi
 
 copilot mcp add --transport http \
   --header "Authorization: Bearer $jwtToken" \
-  $serverName "$serverUrl"
+  "$serverName" "$serverUrl"
