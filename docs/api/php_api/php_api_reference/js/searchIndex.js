@@ -1901,11 +1901,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_decode"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\MarkupEncoderInterface",
-            "name": "MarkupEncoderInterface",
-            "summary": "Marks\u0020an\u0020encoder\u0020whose\u0020encoded\u0020value\u0020is\u0020itself\u0020XML,\u0020so\u0020that\u0020its\u0020CDATA\u0020has\u0020to\u0020survive\u0020encoding\ninstead\u0020of\u0020being\u0020escaped\u0020as\u0020plain\u0020text.",
-            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-MarkupEncoderInterface.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Exception\\ClientNotConfiguredException",
             "name": "ClientNotConfiguredException",
             "summary": "",
@@ -10485,736 +10480,6 @@ Search.appendIndex(
             "name": "getAdapter",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorAi-AdapterAwareActionInterface.html#method_getAdapter"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModel",
-            "name": "AiModel",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModel\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModel\u003A\u003A\u0024identifier",
-            "name": "identifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html#property_identifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModel\u003A\u003A\u0024label",
-            "name": "label",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html#property_label"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModel\u003A\u003A\u0024optionDefinitions",
-            "name": "optionDefinitions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html#property_optionDefinitions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelCatalogInterface",
-            "name": "AiModelCatalogInterface",
-            "summary": "Instantiated\u0020by\u0020the\u0020bundle\u0020configuration,\u0020so\u0020it\u0020must\u0020not\u0020depend\u0020on\u0020services.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelCatalogInterface\u003A\u003AgetOptionDefinitions\u0028\u0029",
-            "name": "getOptionDefinitions",
-            "summary": "The\u0020configured\u0020default\u0020max_tokens\u0020and\u0020temperature\u0020are\u0020applied\u0020on\u0020top\u0020of\u0020these\u0020definitions.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html#method_getOptionDefinitions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelCatalogInterface\u003A\u003AgetModelOptions\u0028\u0029",
-            "name": "getModelOptions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html#method_getModelOptions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelCatalogInterface\u003A\u003AgetInheritedAdjustments\u0028\u0029",
-            "name": "getInheritedAdjustments",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html#method_getInheritedAdjustments"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelCatalogInterface\u003A\u003AvalidateModelOptions\u0028\u0029",
-            "name": "validateModelOptions",
-            "summary": "Checks\u0020the\u0020provider\u0020API\u0020rules\u0020the\u0020option\u0020definitions\u0020cannot\u0020express.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html#method_validateModelOptions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderFactoryInterface",
-            "name": "AiModelProviderFactoryInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderFactoryInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderFactoryInterface\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderFactoryInterface.html#method_create"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderInterface",
-            "name": "AiModelProviderInterface",
-            "summary": "Declares\u0020the\u0020AI\u0020models\u0020an\u0020action\u0020handler\u0020can\u0020use.\u0020Models\u0020of\u0020all\u0020providers\u0020supporting\u0020a\u0020handler\u0020are\u0020combined,\nso\u0020a\u0020model\u0020identifier\u0020must\u0020be\u0020unique\u0020across\u0020them.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderInterface\u003A\u003AsupportsActionHandler\u0028\u0029",
-            "name": "supportsActionHandler",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html#method_supportsActionHandler"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderInterface\u003A\u003AgetModels\u0028\u0029",
-            "name": "getModels",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html#method_getModels"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderInterface\u003A\u003AgetHandlerOptionDefinitions\u0028\u0029",
-            "name": "getHandlerOptionDefinitions",
-            "summary": "Options\u0020the\u0020handler\u0020accepts\u0020whichever\u0020model\u0020is\u0020selected\u0020\u0028e.g.\u0020a\u0020prompt\u0029.\u0020They\u0020are\u0020merged\u0020with\n\u007B\u0040see\u0020AiModel\u003A\u003A\u0024optionDefinitions\u007D\u0020of\u0020the\u0020selected\u0020model.\u0020Defining\u0020the\u0020same\u0020option\u0020in\u0020both\u0020is\u0020an\u0020error.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html#method_getHandlerOptionDefinitions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderInterface\u003A\u003AgetDefaultModel\u0028\u0029",
-            "name": "getDefaultModel",
-            "summary": "Identifier\u0020of\u0020the\u0020model\u0020used\u0020when\u0020none\u0020is\u0020selected,\u0020or\u0020null\u0020to\u0020leave\u0020the\u0020choice\u0020to\u0020other\u0020providers.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html#method_getDefaultModel"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\AiModelProviderInterface\u003A\u003ASERVICE_TAG",
-            "name": "SERVICE_TAG",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html#constant_SERVICE_TAG"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\AiModelExceptionInterface",
-            "name": "AiModelExceptionInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-AiModelExceptionInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\InvalidAiModelException",
-            "name": "InvalidAiModelException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidAiModelException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\InvalidAiModelException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidAiModelException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\InvalidModelOptionsException",
-            "name": "InvalidModelOptionsException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidModelOptionsException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\NoAiModelsException",
-            "name": "NoAiModelsException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoAiModelsException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\NoAiModelsException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoAiModelsException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\NoDefaultAiModelException",
-            "name": "NoDefaultAiModelException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoDefaultAiModelException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\NoDefaultAiModelException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoDefaultAiModelException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\UnsupportedAiModelException",
-            "name": "UnsupportedAiModelException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-UnsupportedAiModelException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception\\UnsupportedAiModelException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-UnsupportedAiModelException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\AiModelOptionsResolverInterface",
-            "name": "AiModelOptionsResolverInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-AiModelOptionsResolverInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\AiModelOptionsResolverInterface\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-AiModelOptionsResolverInterface.html#method_resolve"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\AiModelOptionsResolverInterface\u003A\u003AMODEL_OPTION",
-            "name": "MODEL_OPTION",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-AiModelOptionsResolverInterface.html#constant_MODEL_OPTION"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\DuplicatedOptionException",
-            "name": "DuplicatedOptionException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-DuplicatedOptionException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\DuplicatedOptionException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-DuplicatedOptionException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException",
-            "name": "InvalidOptionDefinitionException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AinvalidName\u0028\u0029",
-            "name": "invalidName",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_invalidName"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AminGreaterThanMax\u0028\u0029",
-            "name": "minGreaterThanMax",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_minGreaterThanMax"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AnumericChoiceKey\u0028\u0029",
-            "name": "numericChoiceKey",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_numericChoiceKey"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AnonFiniteBound\u0028\u0029",
-            "name": "nonFiniteBound",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_nonFiniteBound"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AnegativeScale\u0028\u0029",
-            "name": "negativeScale",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_negativeScale"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AchoicesRequired\u0028\u0029",
-            "name": "choicesRequired",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_choicesRequired"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AdefaultNotSatisfied\u0028\u0029",
-            "name": "defaultNotSatisfied",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_defaultNotSatisfied"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003ArangeOnNonNumericType\u0028\u0029",
-            "name": "rangeOnNonNumericType",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_rangeOnNonNumericType"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AintegerBoundsMustBeIntegers\u0028\u0029",
-            "name": "integerBoundsMustBeIntegers",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_integerBoundsMustBeIntegers"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AchoicesOnNonChoiceType\u0028\u0029",
-            "name": "choicesOnNonChoiceType",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_choicesOnNonChoiceType"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AunknownChoices\u0028\u0029",
-            "name": "unknownChoices",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_unknownChoices"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AscaleOnNonFloatType\u0028\u0029",
-            "name": "scaleOnNonFloatType",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_scaleOnNonFloatType"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionDefinitionException\u003A\u003AinvalidPayloadField\u0028\u0029",
-            "name": "invalidPayloadField",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html#method_invalidPayloadField"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionValueException",
-            "name": "InvalidOptionValueException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionValueException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionValueException\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionValueException.html#method_create"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionValueException\u003A\u003AnotCoercible\u0028\u0029",
-            "name": "notCoercible",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionValueException.html#method_notCoercible"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\InvalidOptionValueException\u003A\u003A\u0024option",
-            "name": "option",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionValueException.html#property_option"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\MissingRequiredOptionException",
-            "name": "MissingRequiredOptionException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-MissingRequiredOptionException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\MissingRequiredOptionException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-MissingRequiredOptionException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\UndefinedOptionException",
-            "name": "UndefinedOptionException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-UndefinedOptionException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception\\UndefinedOptionException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-UndefinedOptionException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\Exception\\NoOptionFieldFactoryException",
-            "name": "NoOptionFieldFactoryException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-Exception-NoOptionFieldFactoryException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\Exception\\NoOptionFieldFactoryException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-Exception-NoOptionFieldFactoryException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\OptionFieldFactoryInterface",
-            "name": "OptionFieldFactoryInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-OptionFieldFactoryInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\OptionFieldFactoryInterface\u003A\u003Asupports\u0028\u0029",
-            "name": "supports",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-OptionFieldFactoryInterface.html#method_supports"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\OptionFieldFactoryInterface\u003A\u003AaddField\u0028\u0029",
-            "name": "addField",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-OptionFieldFactoryInterface.html#method_addField"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\OptionFieldFactoryInterface\u003A\u003ASERVICE_TAG",
-            "name": "SERVICE_TAG",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-OptionFieldFactoryInterface.html#constant_SERVICE_TAG"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition",
-            "name": "OptionDefinition",
-            "summary": "The\u0020\u007B\u0040see\u0020self\u003A\u003Awith\u002A\u0028\u0029\u007D\u0020methods\u0020return\u0020a\u0020new\u0020instance\u0020validated\u0020as\u0020a\u0020whole,\u0020against\u0020the\u0020current\u0020default\u003A\nto\u0020narrow\u0020the\u0020range\u0020or\u0020choices\u0020so\u0020that\u0020they\u0020exclude\u0020the\u0020default,\u0020clear\u0020it\u0020first,\ne.g.\u0020\u0060\u0024definition\u002D\u003EwithDefault\u0028null\u0029\u002D\u003EwithChoices\u0028\u005B\u0027low\u0027,\u0020\u0027high\u0027\u005D\u0029\u002D\u003EwithDefault\u0028\u0027low\u0027\u0029\u0060.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Aof\u0028\u0029",
-            "name": "of",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_of"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Ainteger\u0028\u0029",
-            "name": "integer",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_integer"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Afloat\u0028\u0029",
-            "name": "float",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_float"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Aboolean\u0028\u0029",
-            "name": "boolean",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_boolean"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Astring\u0028\u0029",
-            "name": "string",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_string"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Atext\u0028\u0029",
-            "name": "text",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_text"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Achoice\u0028\u0029",
-            "name": "choice",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_choice"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Acoerce\u0028\u0029",
-            "name": "coerce",
-            "summary": "Converts\u0020a\u0020value\u0020to\u0020the\u0020option\u0020type,\u0020\u007B\u0040see\u0020self\u003A\u003Aallows\u0028\u0029\u007D\u0020checks\u0020its\u0020range\u0020and\u0020choices.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_coerce"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Aallows\u0028\u0029",
-            "name": "allows",
-            "summary": "Whether\u0020a\u0020coerced\u0020value\u0020is\u0020within\u0020the\u0020range\u0020and\u0020among\u0020the\u0020choices\u0020of\u0020the\u0020option.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_allows"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003Aaccepts\u0028\u0029",
-            "name": "accepts",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_accepts"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003AhasDefault\u0028\u0029",
-            "name": "hasDefault",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_hasDefault"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003AgetPayloadField\u0028\u0029",
-            "name": "getPayloadField",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_getPayloadField"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003AwithDefault\u0028\u0029",
-            "name": "withDefault",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_withDefault"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003AwithRange\u0028\u0029",
-            "name": "withRange",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_withRange"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003AwithChoices\u0028\u0029",
-            "name": "withChoices",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_withChoices"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003AwithPayloadField\u0028\u0029",
-            "name": "withPayloadField",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#method_withPayloadField"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003ADEFAULT_TRANSLATION_DOMAIN",
-            "name": "DEFAULT_TRANSLATION_DOMAIN",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#constant_DEFAULT_TRANSLATION_DOMAIN"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_name"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024type",
-            "name": "type",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_type"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024label",
-            "name": "label",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_label"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024translationDomain",
-            "name": "translationDomain",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_translationDomain"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024help",
-            "name": "help",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_help"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024default",
-            "name": "default",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_default"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024required",
-            "name": "required",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_required"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024min",
-            "name": "min",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_min"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024max",
-            "name": "max",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_max"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024scale",
-            "name": "scale",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_scale"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024choices",
-            "name": "choices",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_choices"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024position",
-            "name": "position",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_position"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinition\u003A\u003A\u0024payloadField",
-            "name": "payloadField",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html#property_payloadField"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection",
-            "name": "OptionDefinitionCollection",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Ahas\u0028\u0029",
-            "name": "has",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_has"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_get"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Anames\u0028\u0029",
-            "name": "names",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_names"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Aonly\u0028\u0029",
-            "name": "only",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_only"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Amerge\u0028\u0029",
-            "name": "merge",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_merge"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Asorted\u0028\u0029",
-            "name": "sorted",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_sorted"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003AisEmpty\u0028\u0029",
-            "name": "isEmpty",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_isEmpty"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_count"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionCollection\u003A\u003AgetIterator\u0028\u0029",
-            "name": "getIterator",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html#method_getIterator"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionProviderInterface",
-            "name": "OptionDefinitionProviderInterface",
-            "summary": "Adds\u0020options\u0020to\u0020the\u0020catalog\u0020an\u0020action\u0020handler\u0027s\u0020models\u0020pick\u0020their\u0020options\u0020from,\u0020e.g.\u0020a\u0020project\u002Dspecific\n\u0060top_p\u0060,\u0020without\u0020changing\u0020the\u0020connector.\u0020A\u0020model\u0020uses\u0020an\u0020added\u0020option\u0020once\u0020its\u0020configuration\u0020selects\u0020it,\nor\u0020when\u0020it\u0020selects\u0020no\u0020options\u0020and\u0020takes\u0020the\u0020whole\u0020catalog.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionProviderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionProviderInterface\u003A\u003AsupportsActionHandler\u0028\u0029",
-            "name": "supportsActionHandler",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionProviderInterface.html#method_supportsActionHandler"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionProviderInterface\u003A\u003AgetOptionDefinitions\u0028\u0029",
-            "name": "getOptionDefinitions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionProviderInterface.html#method_getOptionDefinitions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionDefinitionProviderInterface\u003A\u003ASERVICE_TAG",
-            "name": "SERVICE_TAG",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionProviderInterface.html#constant_SERVICE_TAG"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType",
-            "name": "OptionType",
-            "summary": "Built\u002Din\u0020option\u0020types.\u0020New\u0020cases\u0020may\u0020be\u0020added\u0020in\u0020minor\u0020releases,\u0020so\u0020code\u0020matching\u0020on\u0020them\u0020needs\u0020a\u0020default\u0020arm.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AgetIdentifier\u0028\u0029",
-            "name": "getIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#method_getIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AisNumberType\u0028\u0029",
-            "name": "isNumberType",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#method_isNumberType"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AvalidateDefinition\u0028\u0029",
-            "name": "validateDefinition",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#method_validateDefinition"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003Acoerce\u0028\u0029",
-            "name": "coerce",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#method_coerce"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AInteger",
-            "name": "Integer",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#enumcase_Integer"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AFloat",
-            "name": "Float",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#enumcase_Float"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003ABoolean",
-            "name": "Boolean",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#enumcase_Boolean"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AString",
-            "name": "String",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#enumcase_String"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AText",
-            "name": "Text",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#enumcase_Text"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionType\u003A\u003AChoice",
-            "name": "Choice",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html#enumcase_Choice"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionTypeInterface",
-            "name": "OptionTypeInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionTypeInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionTypeInterface\u003A\u003AgetIdentifier\u0028\u0029",
-            "name": "getIdentifier",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionTypeInterface.html#method_getIdentifier"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionTypeInterface\u003A\u003AvalidateDefinition\u0028\u0029",
-            "name": "validateDefinition",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionTypeInterface.html#method_validateDefinition"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\OptionTypeInterface\u003A\u003Acoerce\u0028\u0029",
-            "name": "coerce",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionTypeInterface.html#method_coerce"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort",
-            "name": "ReasoningEffort",
-            "summary": "Provider\u002Dneutral\u0020reasoning\u0020effort\u0020levels.\u0020Not\u0020every\u0020model\u0020supports\u0020every\u0020level\u003A\u0020a\u0020connector\u0020restricts\u0020them\nper\u0020model\u0020\u0028\u007B\u0040see\u0020OptionDefinition\u003A\u003AwithChoices\u0028\u0029\u007D\u0029\u0020and\u0020appends\u0020vendor\u0020levels\u0020to\u0020\u007B\u0040see\u0020self\u003A\u003Achoices\u0028\u0029\u007D.",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003AgetLabelTranslationKey\u0028\u0029",
-            "name": "getLabelTranslationKey",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#method_getLabelTranslationKey"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003Achoices\u0028\u0029",
-            "name": "choices",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#method_choices"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003AoptionDefinition\u0028\u0029",
-            "name": "optionDefinition",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#method_optionDefinition"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003ANone",
-            "name": "None",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#enumcase_None"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003AMinimal",
-            "name": "Minimal",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#enumcase_Minimal"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003ALow",
-            "name": "Low",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#enumcase_Low"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003AMedium",
-            "name": "Medium",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#enumcase_Medium"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ReasoningEffort\u003A\u003AHigh",
-            "name": "High",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html#enumcase_High"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions",
-            "name": "ResolvedAiModelOptions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003AgetDefinition\u0028\u0029",
-            "name": "getDefinition",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#method_getDefinition"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003Ahas\u0028\u0029",
-            "name": "has",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#method_has"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#method_get"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003A\u0024model",
-            "name": "model",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#property_model"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003A\u0024values",
-            "name": "values",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#property_values"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\ResolvedAiModelOptions\u003A\u003A\u0024definitions",
-            "name": "definitions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html#property_definitions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions",
-            "name": "StandardOptionDefinitions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions\u003A\u003Aprompt\u0028\u0029",
-            "name": "prompt",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html#method_prompt"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions\u003A\u003AmaxTokens\u0028\u0029",
-            "name": "maxTokens",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html#method_maxTokens"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions\u003A\u003Atemperature\u0028\u0029",
-            "name": "temperature",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html#method_temperature"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions\u003A\u003APROMPT",
-            "name": "PROMPT",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html#constant_PROMPT"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions\u003A\u003AMAX_TOKENS",
-            "name": "MAX_TOKENS",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html#constant_MAX_TOKENS"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\StandardOptionDefinitions\u003A\u003ATEMPERATURE",
-            "name": "TEMPERATURE",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html#constant_TEMPERATURE"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\DataType",
             "name": "DataType",
@@ -19976,16 +19241,6 @@ Search.appendIndex(
             "summary": "Loads\u0020the\u0020users\u0020of\u0020a\u0020user\u0020group.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-UserServiceDecorator.html#method_loadUsersOfUserGroup"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\UserServiceDecorator\u003A\u003AfindUsers\u0028\u0029",
-            "name": "findUsers",
-            "summary": "Finds\u0020users\u0020matching\u0020the\u0020given\u0020filter,\u0020using\u0020Location\u0020filtering\u0020\u0028\u007B\u0040see\u0020LocationService\u003A\u003Afind\u0028\u0029\u007D\u0029.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-UserServiceDecorator.html#method_findUsers"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\UserServiceDecorator\u003A\u003AfindUserGroups\u0028\u0029",
-            "name": "findUserGroups",
-            "summary": "Finds\u0020user\u0020groups\u0020matching\u0020the\u0020given\u0020filter,\u0020using\u0020content\u0020filtering\u0020\u0028\u007B\u0040see\u0020ContentService\u003A\u003Afind\u0028\u0029\u007D\u0029.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-UserServiceDecorator.html#method_findUserGroups"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\UserServiceDecorator\u003A\u003AisUser\u0028\u0029",
             "name": "isUser",
             "summary": "Checks\u0020if\u0020Content\u0020is\u0020a\u0020user.",
@@ -27026,16 +26281,6 @@ Search.appendIndex(
             "summary": "Loads\u0020the\u0020users\u0020of\u0020a\u0020user\u0020group.",
             "url": "classes/Ibexa-Contracts-Core-Repository-UserService.html#method_loadUsersOfUserGroup"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\UserService\u003A\u003AfindUsers\u0028\u0029",
-            "name": "findUsers",
-            "summary": "Finds\u0020users\u0020matching\u0020the\u0020given\u0020filter,\u0020using\u0020Location\u0020filtering\u0020\u0028\u007B\u0040see\u0020LocationService\u003A\u003Afind\u0028\u0029\u007D\u0029.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-UserService.html#method_findUsers"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\UserService\u003A\u003AfindUserGroups\u0028\u0029",
-            "name": "findUserGroups",
-            "summary": "Finds\u0020user\u0020groups\u0020matching\u0020the\u0020given\u0020filter,\u0020using\u0020content\u0020filtering\u0020\u0028\u007B\u0040see\u0020ContentService\u003A\u003Afind\u0028\u0029\u007D\u0029.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-UserService.html#method_findUserGroups"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\UserService\u003A\u003AisUser\u0028\u0029",
             "name": "isUser",
             "summary": "Checks\u0020if\u0020Content\u0020is\u0020a\u0020user.",
@@ -30120,16 +29365,6 @@ Search.appendIndex(
             "name": "customFields",
             "summary": "Custom\u0020fields\u0020to\u0020sort\u0020by\u0020instead\u0020of\u0020the\u0020default\u0020field.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Field.html#property_customFields"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Bookmark\\Id",
-            "name": "Id",
-            "summary": "Sets\u0020sort\u0020direction\u0020on\u0020the\u0020bookmark\u0020id\u0020for\u0020a\u0020location\u0020query\u0020containing\u0020IsBookmarked\u0020criterion.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Bookmark\\Id\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructs\u0020a\u0020new\u0020SortClause\u0020on\u0020\u0024sortTarget\u0020in\u0020direction\u0020\u0024sortDirection.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html#method___construct"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Depth",
             "name": "Depth",
@@ -34356,26 +33591,6 @@ Search.appendIndex(
             "summary": "This\u0020class\u0020is\u0020used\u0020to\u0020create\u0020a\u0020new\u0020user\u0020group\u0020in\u0020the\u0020repository.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupCreateStruct.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserGroupList",
-            "name": "UserGroupList",
-            "summary": "A\u0020page\u0020of\u0020user\u0020groups\u0020returned\u0020by\u0020\u007B\u0040see\u0020UserService\u003A\u003AfindUserGroups\u0028\u0029\u007D.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupList.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserGroupList\u003A\u003AgetTotalCount\u0028\u0029",
-            "name": "getTotalCount",
-            "summary": "Get\u0020a\u0020total\u0020number\u0020of\u0020items\u0020matched\u0020by\u0020criteria,\u0020regardless\u0020of\u0020slice\u0020\u0028page,\u0020collection\u0029\u0020size.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupList.html#method_getTotalCount"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserGroupList\u003A\u003AgetUserGroups\u0028\u0029",
-            "name": "getUserGroups",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupList.html#method_getUserGroups"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserGroupList\u003A\u003AgetIterator\u0028\u0029",
-            "name": "getIterator",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupList.html#method_getIterator"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserGroupRoleAssignment",
             "name": "UserGroupRoleAssignment",
             "summary": "This\u0020class\u0020represents\u0020a\u0020user\u0020group\u0020to\u0020role\u0020assignment.",
@@ -34400,26 +33615,6 @@ Search.appendIndex(
             "name": "contentMetadataUpdateStruct",
             "summary": "The\u0020update\u0020structure\u0020for\u0020the\u0020profile\u0020meta\u0020data.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupUpdateStruct.html#property_contentMetadataUpdateStruct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserList",
-            "name": "UserList",
-            "summary": "A\u0020page\u0020of\u0020users\u0020returned\u0020by\u0020\u007B\u0040see\u0020UserService\u003A\u003AfindUsers\u0028\u0029\u007D.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserList.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserList\u003A\u003AgetTotalCount\u0028\u0029",
-            "name": "getTotalCount",
-            "summary": "Get\u0020a\u0020total\u0020number\u0020of\u0020items\u0020matched\u0020by\u0020criteria,\u0020regardless\u0020of\u0020slice\u0020\u0028page,\u0020collection\u0029\u0020size.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserList.html#method_getTotalCount"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserList\u003A\u003AgetUsers\u0028\u0029",
-            "name": "getUsers",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserList.html#method_getUsers"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserList\u003A\u003AgetIterator\u0028\u0029",
-            "name": "getIterator",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-UserList.html#method_getIterator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\UserReference",
             "name": "UserReference",
@@ -41836,81 +41031,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeUpdateStruct.html#method_getCreatedAt"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationInterface",
-            "name": "IbexaMigrationInterface",
-            "summary": "Interface\u0020representing\u0020an\u0020Ibexa\u002Dinternal\u0020Doctrine\u0020migration.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationInterface\u003A\u003AgetTargetVersion\u0028\u0029",
-            "name": "getTargetVersion",
-            "summary": "Returns\u0020the\u0020target\u0020Ibexa\u0020version\u0020this\u0020migration\u0020is\u0020for\u0020\u0028e.g.\u0020\u00275.0.0\u0027\u0029.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html#method_getTargetVersion"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationInterface\u003A\u003AgetCreationDate\u0028\u0029",
-            "name": "getCreationDate",
-            "summary": "Returns\u0020the\u0020creation\u0020date\u0020of\u0020this\u0020migration.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html#method_getCreationDate"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationTag",
-            "name": "IbexaMigrationTag",
-            "summary": "Holds\u0020the\u0020Symfony\u0020service\u0020tag\u0020used\u0020to\u0020register\u0020Ibexa\u002Dinternal\u0020Doctrine\u0020migrations.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationTag\u003A\u003ATAG",
-            "name": "TAG",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.html#constant_TAG"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyDependencyFactory",
-            "name": "IbexaOnlyDependencyFactory",
-            "summary": "Holds\u0020the\u0020service\u0020ID\u0020of\u0020a\u0020\u007B\u0040see\u0020DependencyFactory\u007D\u0020that\u0020behaves\u0020like\u0020the\u0020application\u0027s\u0020own\n\u0022doctrine.migrations.dependency_factory\u0022\u0020\u2014\u0020a\u0020clone\u0020of\u0020its\u0020\u007B\u0040see\u0020Configuration\u007D\u0020\u0028carrying\u0020an\nIbexa\u002Dspecific\u0020migration\u0020template,\u0020so\u0020\u0022ibexa\u003Adoctrine\u003Amigrations\u003Agenerate\u0022\/\u0022...\u003Adiff\u0022\u0020scaffold\nclasses\u0020shaped\u0020like\u0020real\u0020Ibexa\u0020migrations,\u0020never\u0020the\u0020application\u0027s\u0020own\u0020default\u0020stub\u0029\u0020and\u0020the\nsame\u0020logger\u0020\u2014\u0020except\u0020it\u0020always\u0020runs\u0020against\u0020the\u0020\u0022ibexa.persistence.connection\u0022\n\u007B\u0040see\u0020Connection\u007D,\u0020and\u0020its\u0020\u007B\u0040see\u0020MigrationsRepository\u007D\u0020is\u0020always\u0020the\u0020one\u0020identified\u0020by\n\u007B\u0040see\u0020IbexaOnlyMigrationsRepository\u003A\u003ASERVICE_ID\u007D.\u0020Every\u0020other\u0020dependency\u0020it\u0020lazily\u0020builds\n\u0028metadata\u0020storage,\u0020migrator,\u0020plan\u0020calculator,\u0020version\u0020comparator,\u0020...\u0029\u0020is\u0020a\u0020fresh\u0020instance,\nbuilt\u0020from\u0020those,\u0020and\u0020shared\u0020by\u0020nothing\u0020else.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyDependencyFactory.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyDependencyFactory\u003A\u003ASERVICE_ID",
-            "name": "SERVICE_ID",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyDependencyFactory.html#constant_SERVICE_ID"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyMigrationsRepository",
-            "name": "IbexaOnlyMigrationsRepository",
-            "summary": "Holds\u0020the\u0020service\u0020ID\u0020of\u0020the\u0020\u007B\u0040see\u0020MigrationsRepository\u007D\u0020that\u0020exposes\nONLY\u0020migrations\u0020tagged\u0020with\u0020\u007B\u0040see\u0020IbexaMigrationTag\u003A\u003ATAG\u007D,\u0020without\u0020decorating\u0020any\u0020inner\n\u0028e.g.\u0020project\u002Dlevel\u0029\u0020repository\u0020\u2014\u0020unlike\u0020the\u0020default\u0020repository,\u0020which\u0020combines\u0020both.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyMigrationsRepository\u003A\u003ASERVICE_ID",
-            "name": "SERVICE_ID",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html#constant_SERVICE_ID"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform",
-            "name": "SqlPlatform",
-            "summary": "Database\u0020platforms\u0020an\u0020\u007B\u0040see\u0020AbstractSqlMigration\u007D\u0020can\u0020target.",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003Aall\u0028\u0029",
-            "name": "all",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#method_all"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003AMYSQL",
-            "name": "MYSQL",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#enumcase_MYSQL"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003AMARIADB",
-            "name": "MARIADB",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#enumcase_MARIADB"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003APOSTGRESQL",
-            "name": "POSTGRESQL",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#enumcase_POSTGRESQL"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003ASQLITE",
-            "name": "SQLITE",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#enumcase_SQLITE"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface",
             "name": "SchemaBuilderInterface",
             "summary": "Doctrine\\DBAL\\Schema\u0020event\u002Ddriven\u0020builder.",
@@ -42676,16 +41796,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockAttributeDefinition.html#method_setName"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockAttributeDefinition\u003A\u003AgetNameHelp\u0028\u0029",
-            "name": "getNameHelp",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockAttributeDefinition.html#method_getNameHelp"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockAttributeDefinition\u003A\u003AsetNameHelp\u0028\u0029",
-            "name": "setNameHelp",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockAttributeDefinition.html#method_setNameHelp"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockAttributeDefinition\u003A\u003AgetConstraints\u0028\u0029",
             "name": "getConstraints",
             "summary": "",
@@ -42741,11 +41851,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockAttributeDefinition.html#property_name"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockAttributeDefinition\u003A\u003A\u0024nameHelp",
-            "name": "nameHelp",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockAttributeDefinition.html#property_nameHelp"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockAttributeDefinition\u003A\u003A\u0024options",
             "name": "options",
             "summary": "",
@@ -42790,16 +41895,6 @@ Search.appendIndex(
             "name": "setName",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setName"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetDescription\u0028\u0029",
-            "name": "getDescription",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_getDescription"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AsetDescription\u0028\u0029",
-            "name": "setDescription",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setDescription"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetNameHelp\u0028\u0029",
             "name": "getNameHelp",
@@ -42895,11 +41990,6 @@ Search.appendIndex(
             "name": "name",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_name"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024description",
-            "name": "description",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_description"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024nameHelp",
             "name": "nameHelp",
@@ -43010,31 +42100,6 @@ Search.appendIndex(
             "name": "BLOCK_NAME_MAX_LENGTH",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Service-BlockServiceInterface.html#constant_BLOCK_NAME_MAX_LENGTH"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent",
-            "name": "PageStructureResolveEvent",
-            "summary": "Allows\u0020amending\u0020the\u0020resolved\u0020Page\u0020structure\u0020before\u0020it\u0020is\u0020returned.",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003AgetPageStructure\u0028\u0029",
-            "name": "getPageStructure",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method_getPageStructure"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003AsetPageStructure\u0028\u0029",
-            "name": "setPageStructure",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method_setPageStructure"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event\\PageStructureResolveEvent\u003A\u003AgetContentType\u0028\u0029",
-            "name": "getContentType",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html#method_getContentType"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\ScheduleBlock\\Timeline\\Event\\EventInterface",
             "name": "EventInterface",
@@ -43160,16 +42225,6 @@ Search.appendIndex(
             "name": "convert",
             "summary": "Converts\u0020a\u0020given\u0020\u0024xmlDoc\u0020into\u0020another\u0020\\DOMDocument\u0020object.",
             "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-Converter.html#method_convert"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichText\\RichText\\DOMDocumentLoaderInterface",
-            "name": "DOMDocumentLoaderInterface",
-            "summary": "Loads\u0020already\u0020stored\u0020RichText\u0020XML\u0020documents.\u0020Never\u0020throws,\u0020libxml\u0020errors\u0020are\u0020logged\u0020instead.",
-            "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoaderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichText\\RichText\\DOMDocumentLoaderInterface\u003A\u003AloadXML\u0028\u0029",
-            "name": "loadXML",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoaderInterface.html#method_loadXML"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichText\\RichText\\InputHandlerInterface",
             "name": "InputHandlerInterface",
@@ -44371,61 +43426,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_hasServerConfiguration"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\AbstractPaginatedResult",
-            "name": "AbstractPaginatedResult",
-            "summary": "Base\u0020of\u0020the\u0020results\u0020returned\u0020by\u0020paginated\u0020tools,\u0020see\u0020\u007B\u0040see\u0020PaginationInput\u007D.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-AbstractPaginatedResult.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\AbstractPaginatedResult\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-AbstractPaginatedResult.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\AbstractPaginatedResult\u003A\u003A\u0024items",
-            "name": "items",
-            "summary": "Items\u0020on\u0020the\u0020requested\u0020page,\u0020in\u0020the\u0020order\u0020of\u0020the\u0020full\u0020result.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-AbstractPaginatedResult.html#property_items"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\AbstractPaginatedResult\u003A\u003A\u0024totalCount",
-            "name": "totalCount",
-            "summary": "Total\u0020number\u0020of\u0020items\u0020across\u0020all\u0020pages,\u0020regardless\u0020of\u0020the\u0020requested\u0020limit\u0020and\u0020offset.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-AbstractPaginatedResult.html#property_totalCount"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput",
-            "name": "PaginationInput",
-            "summary": "Page\u0020of\u0020a\u0020list\u0020tool\u0027s\u0020result\u0020to\u0020return,\u0020shared\u0020by\u0020all\u0020paginated\u0020tools.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput\u003A\u003AgetMaxLimit\u0028\u0029",
-            "name": "getMaxLimit",
-            "summary": "Upper\u0020bound\u0020of\u0020the\u0020limit.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html#method_getMaxLimit"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput\u003A\u003ADEFAULT_LIMIT",
-            "name": "DEFAULT_LIMIT",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html#constant_DEFAULT_LIMIT"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput\u003A\u003AMAX_LIMIT",
-            "name": "MAX_LIMIT",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html#constant_MAX_LIMIT"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput\u003A\u003A\u0024limit",
-            "name": "limit",
-            "summary": "Maximum\u0020number\u0020of\u0020items\u0020to\u0020return.\u0020Every\u0020page\u0020except\u0020the\u0020last\u0020one\u0020holds\u0020exactly\u0020this\u0020number\u0020of\u0020items.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html#property_limit"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination\\PaginationInput\u003A\u003A\u0024offset",
-            "name": "offset",
-            "summary": "Number\u0020of\u0020items\u0020to\u0020skip\u0020from\u0020the\u0020start\u0020of\u0020the\u0020full\u0020result.\u00200\u0020returns\u0020the\u0020first\u0020page.",
-            "url": "classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html#property_offset"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter\\UnitConverterInterface",
             "name": "UnitConverterInterface",
             "summary": "",
@@ -44495,6 +43495,11 @@ Search.appendIndex(
             "name": "getValue",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Measurement-Product-Query-Criterion-AbstractMeasurementAttribute.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Measurement\\Product\\Query\\Criterion\\AbstractMeasurementAttribute\u003A\u003A\u0024identifier",
+            "name": "identifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Measurement-Product-Query-Criterion-AbstractMeasurementAttribute.html#property_identifier"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Product\\Query\\Criterion\\RangeMeasurementAttributeMaximum",
             "name": "RangeMeasurementAttributeMaximum",
@@ -44745,51 +43750,6 @@ Search.appendIndex(
             "name": "getHandledClasses",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html#method_getHandledClasses"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationFilesProviderInterface",
-            "name": "MigrationFilesProviderInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationFilesProviderInterface\u003A\u003AgetMigrationFiles\u0028\u0029",
-            "name": "getMigrationFiles",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html#method_getMigrationFiles"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationFilesProviderInterface\u003A\u003ATAG",
-            "name": "TAG",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html#constant_TAG"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook",
-            "name": "MigrationHook",
-            "summary": "Executes\u0020the\u0020migration\u0020files\u0020exposed\u0020by\u0020\u007B\u0040see\u0020MigrationFilesProviderInterface\u007D.",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003AconfigureOptions\u0028\u0029",
-            "name": "configureOptions",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#method_configureOptions"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003A__invoke\u0028\u0029",
-            "name": "__invoke",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#method___invoke"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003APRIORITY",
-            "name": "PRIORITY",
-            "summary": "Fixed\u0020tag\u0020priority\u0020this\u0020hook\u0020is\u0020registered\u0020at\u0020\u2014\u0020after\u0020ibexa\/test\u002Dcore\u0027s\u0020FixtureHook\u0020\u0028900\u0029,\nbefore\u0020its\u0020PurgeSearchIndexHook\u0020\u0028\u002D100\u0029.",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#constant_PRIORITY"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003AOPTION_RUN_MIGRATIONS",
-            "name": "OPTION_RUN_MIGRATIONS",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#constant_OPTION_RUN_MIGRATIONS"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\AbstractMigrationEvent",
             "name": "AbstractMigrationEvent",
@@ -49870,21 +48830,6 @@ Search.appendIndex(
             "name": "fetch",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CurrencyFetchAdapter.html#method_fetch"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\CustomerGroupFetchAdapter",
-            "name": "CustomerGroupFetchAdapter",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\CustomerGroupFetchAdapter\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\CustomerGroupFetchAdapter\u003A\u003Afetch\u0028\u0029",
-            "name": "fetch",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html#method_fetch"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\ProductFetchAdapter",
             "name": "ProductFetchAdapter",
@@ -56521,11 +55466,6 @@ Search.appendIndex(
             "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-ProductStock.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\SortClause\\UpdatedAt",
-            "name": "UpdatedAt",
-            "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\SortClause",
             "name": "SortClause",
             "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
@@ -57615,11 +56555,6 @@ Search.appendIndex(
             "name": "setHeader",
             "summary": "Set\u0020HTTP\u0020response\u0020header.",
             "url": "classes/Ibexa-Contracts-Rest-Output-Visitor.html#method_setHeader"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Rest\\Output\\Visitor\u003A\u003AsuppressHeader\u0028\u0029",
-            "name": "suppressHeader",
-            "summary": "Leaves\u0020the\u0020header\u0020out\u0020of\u0020the\u0020response,\u0020also\u0020when\u0020inner\u0020visitors\u0020set\u0020it.",
-            "url": "classes/Ibexa-Contracts-Rest-Output-Visitor.html#method_suppressHeader"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Output\\Visitor\u003A\u003AsetStatus\u0028\u0029",
             "name": "setStatus",
@@ -63641,11 +62576,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Service-Decorator-TaxonomyServiceDecorator.html#method_countEntryChildren"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\Decorator\\TaxonomyServiceDecorator\u003A\u003AfindEntries\u0028\u0029",
-            "name": "findEntries",
-            "summary": "Finds\u0020the\u0020entries\u0020matching\u0020the\u0020query\u0020which\u0020the\u0020current\u0020user\u0020can\u0020read.",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Service-Decorator-TaxonomyServiceDecorator.html#method_findEntries"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\Decorator\\TaxonomyServiceDecorator\u003A\u003AgetPath\u0028\u0029",
             "name": "getPath",
             "summary": "",
@@ -63765,11 +62695,6 @@ Search.appendIndex(
             "name": "countEntryChildren",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_countEntryChildren"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\TaxonomyServiceInterface\u003A\u003AfindEntries\u0028\u0029",
-            "name": "findEntries",
-            "summary": "Finds\u0020the\u0020entries\u0020matching\u0020the\u0020query\u0020which\u0020the\u0020current\u0020user\u0020can\u0020read.",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_findEntries"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\TaxonomyServiceInterface\u003A\u003AgetPath\u0028\u0029",
             "name": "getPath",
@@ -63970,66 +62895,6 @@ Search.appendIndex(
             "name": "content",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryCreateStruct.html#property_content"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryList",
-            "name": "TaxonomyEntryList",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryList\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryList\u003A\u003AgetEntries\u0028\u0029",
-            "name": "getEntries",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html#method_getEntries"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryList\u003A\u003AgetTotalCount\u0028\u0029",
-            "name": "getTotalCount",
-            "summary": "Number\u0020of\u0020all\u0020entries\u0020matching\u0020the\u0020query,\u0020regardless\u0020of\u0020its\u0020limit\u0020and\u0020offset.",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html#method_getTotalCount"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryList\u003A\u003AgetIterator\u0028\u0029",
-            "name": "getIterator",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html#method_getIterator"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryList\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html#method_count"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryQuery",
-            "name": "TaxonomyEntryQuery",
-            "summary": "Query\u0020for\u0020\u007B\u0040see\u0020TaxonomyServiceInterface\u003A\u003AfindEntries\u0028\u0029\u007D.",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryQuery\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryQuery\u003A\u003AgetTaxonomy\u0028\u0029",
-            "name": "getTaxonomy",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html#method_getTaxonomy"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryQuery\u003A\u003AgetParent\u0028\u0029",
-            "name": "getParent",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html#method_getParent"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryQuery\u003A\u003AgetLimit\u0028\u0029",
-            "name": "getLimit",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html#method_getLimit"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryQuery\u003A\u003AgetOffset\u0028\u0029",
-            "name": "getOffset",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html#method_getOffset"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntryUpdateStruct",
             "name": "TaxonomyEntryUpdateStruct",
@@ -64501,11 +63366,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Policy-MetadataValidation-MetadataValidationRetryPolicyInterface.html#method_decideHandling"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Policy\\MetadataValidation\\MetadataValidationRetryPolicyInterface\u003A\u003ASERVICE_TAG",
-            "name": "SERVICE_TAG",
-            "summary": "Auto\u002Dconfigured\u0020by\u0020the\u0020bundle\u0020on\u0020every\u0020implementation.\u0020Order\u0020with\u0020\u0023\u005BAsTaggedItem\u0028priority\u003A\u0020\u2026\u0029\u005D.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Policy-MetadataValidation-MetadataValidationRetryPolicyInterface.html#constant_SERVICE_TAG"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\AiTranslationProviderInterface",
             "name": "AiTranslationProviderInterface",
             "summary": "",
@@ -64540,11 +63400,6 @@ Search.appendIndex(
             "name": "normalize",
             "summary": "Normalizes\u0020a\u0020language\u0020code\u0020to\u0020the\u0020provider\u0027s\u0020expected\u0020format.",
             "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html#method_normalize"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\LanguageNormalizer\\LanguageNormalizerInterface\u003A\u003ASERVICE_TAG",
-            "name": "SERVICE_TAG",
-            "summary": "Auto\u002Dconfigured\u0020by\u0020the\u0020bundle\u0020on\u0020every\u0020implementation.\u0020Order\u0020with\u0020\u0023\u005BAsTaggedItem\u0028priority\u003A\u0020\u2026\u0029\u005D.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-AutoTranslate-Provider-LanguageNormalizer-LanguageNormalizerInterface.html#constant_SERVICE_TAG"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\AutoTranslate\\Provider\\ProviderListInterface",
             "name": "ProviderListInterface",
@@ -65025,11 +63880,6 @@ Search.appendIndex(
             "name": "isExcluded",
             "summary": "",
             "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html#method_isExcluded"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideExclusionRuleInterface\u003A\u003ASERVICE_TAG",
-            "name": "SERVICE_TAG",
-            "summary": "Auto\u002Dconfigured\u0020by\u0020the\u0020bundle\u0020on\u0020every\u0020implementation.\u0020Order\u0020with\u0020\u0023\u005BAsTaggedItem\u0028priority\u003A\u0020\u2026\u0029\u005D.",
-            "url": "classes/Ibexa-Contracts-TranslationsManagement-SideBySide-Service-SideBySideExclusionRuleInterface.html#constant_SERVICE_TAG"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\TranslationsManagement\\SideBySide\\Service\\SideBySideSupportCheckerInterface",
             "name": "SideBySideSupportCheckerInterface",
@@ -66781,15 +65631,15 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-blockattribute.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field",
-            "name": "Field",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-field.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder",
             "name": "Encoder",
             "summary": "",
             "url": "namespaces/ibexa-contracts-automatedtranslation-encoder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field",
+            "name": "Field",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-field.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Exception",
             "name": "Exception",
@@ -67300,36 +66150,6 @@ Search.appendIndex(
             "name": "ActionType",
             "summary": "",
             "url": "namespaces/ibexa-contracts-connectorai-actiontype.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel",
-            "name": "AiModel",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-connectorai-aimodel.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-connectorai-aimodel-exception.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options",
-            "name": "Options",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-connectorai-aimodel-options.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-connectorai-aimodel-options-exception.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-connectorai-aimodel-options-form-exception.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\AiModel\\Options\\Form",
-            "name": "Form",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-connectorai-aimodel-options-form.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Events",
             "name": "Events",
@@ -67981,11 +66801,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-repository-values-content-query-sortclause.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Bookmark",
-            "name": "Bookmark",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-location-bookmark.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location",
             "name": "Location",
             "summary": "",
@@ -68501,16 +67316,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-discountscodes-value-struct.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations",
-            "name": "Migrations",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-doctrinemigrations-migrations.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations",
-            "name": "DoctrineMigrations",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-doctrinemigrations.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder",
             "name": "Builder",
             "summary": "",
@@ -68665,16 +67470,6 @@ Search.appendIndex(
             "name": "Service",
             "summary": "",
             "url": "namespaces/ibexa-contracts-fieldtypepage-fieldtype-page-service.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure\\Event",
-            "name": "Event",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-fieldtypepage-pagestructure-event.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\PageStructure",
-            "name": "PageStructure",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-fieldtypepage-pagestructure.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\ScheduleBlock\\Timeline\\Event",
             "name": "Event",
@@ -68886,11 +67681,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-mcp.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Mcp\\Pagination",
-            "name": "Pagination",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-mcp-pagination.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter",
             "name": "Converter",
             "summary": "",
@@ -68940,11 +67730,6 @@ Search.appendIndex(
             "name": "Transport",
             "summary": "",
             "url": "namespaces/ibexa-contracts-messenger-transport.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper",
-            "name": "Bootstrapper",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-migration-bootstrapper.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Event",
             "name": "Event",
