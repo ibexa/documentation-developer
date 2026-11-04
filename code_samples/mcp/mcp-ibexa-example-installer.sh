@@ -7,6 +7,8 @@ serverUrl="$baseUrl/mcp/example"
 serverName='ibexa-example'
 username='ibexa-example'
 password='Ibexa-3xample'
+agentCli='copilot'
+#agentCli='claude'
 
 jwtToken=$(curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
@@ -25,6 +27,6 @@ then
   copilot mcp remove "$serverName"
 fi
 
-copilot mcp add --transport http \
-  --header "Authorization: Bearer $jwtToken" \
-  "$serverName" "$serverUrl"
+$agentCli mcp add --transport http \
+  "$serverName" "$serverUrl" \
+  --header "Authorization: Bearer $jwtToken"
