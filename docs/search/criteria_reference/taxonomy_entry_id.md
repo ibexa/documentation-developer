@@ -9,6 +9,7 @@ The [`TaxonomyEntryId` Search Criterion](/api/php_api/php_api_reference/classes/
 ## Arguments
 
 - `value` - int(s) representing the IDs of the Tag(s)
+- `taxonomyIdentifier` - string representing the identifier of the taxonomy the entries belong to, for example, `tags` or `product_categories`
 
 ## Example
 
@@ -19,7 +20,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Taxonomy\Search\Query\Criterion;
 
 $query = new Query();
-$query->query = new Criterion\TaxonomyEntryId(1);
+$query->query = new Criterion\TaxonomyEntryId(1, 'tags');
 ```
 
 Add an array of ID's to find Content tagged with at least one of the tags (OR).
@@ -29,5 +30,5 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Taxonomy\Search\Query\Criterion;
 
 $query = new Query();
-$query->query = new Criterion\TaxonomyEntryId([1, 2, 3]);
+$query->query = new Criterion\TaxonomyEntryId([1, 2, 3], 'tags');
 ```

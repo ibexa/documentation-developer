@@ -88,7 +88,7 @@ The following example shows how you pass that value, assuming a custom Twig func
 ``` html+twig
 {# Section rendered only for logged-in users #}
 {{ ibexa_tracking_track_event('visit', product, {
-    websiteId: get_custom_crm_identifier(ibexa_user_get_current().login)
+    websiteId: get_custom_crm_identifier(ibexa_current_user().login)
 }) }}
 ```
 
