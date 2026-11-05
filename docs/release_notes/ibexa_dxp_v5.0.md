@@ -71,7 +71,7 @@ If you have prompts, skill files, or other resources to help your agents produce
 ### Security
 
 This release includes security fixes.
-To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories).
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-005-vulnerabilities-in-rest-api-image-download-cke-and-flysystem).
 
 ### [[= product_name_base =]] Doctrine migrations
 
