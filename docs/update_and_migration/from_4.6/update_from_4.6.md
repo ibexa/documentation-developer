@@ -731,6 +731,83 @@ No additional steps needed.
 
 No additional steps needed.
 
+## v4.6.33
+
+### Database update
+
+With v4.6.33, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
+The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
+
+[[= product_name_base =]] Doctrine migrations cover every SQL upgrade script previously listed in this guide.
+The only exception is [the activity log character set fix](#set-character-set-for-activity-log-tables), which you still need to run manually, but only if your installation was originally upgraded from v4.5.
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+To preview the migrations before you apply them, run:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
+Run the following command to apply all database migrations present in your currently installed code:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
+
+[[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+    Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
+
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
+
+### Flysystem 3 support
+
+Depending on a [PHP version](requirements.md#php), your [[= product_name =]] supports different Flysystem versions:
+
+- On PHP 8.x, `league/flysystem` installs version 3.36 by default, and Flysystem 2.5 is also supported.
+- On PHP 7.4, only Flysystem 2.5 is supported.
+
+!!! note "Custom and local adapters"
+
+    - If you have a custom adapter, any class that implements `League\Flysystem\FilesystemAdapter` must add `directoryExists(string $path): bool`.
+    Otherwise, Flysystem 3 throws a fatal error.
+
+    - If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
+    If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
+
+    - If you use Flysystem's `local` adapter type as an IO handler, it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly.
+    Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
+    To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom` adapter pointing to that service instead of `local`.
+    [[= product_name =]]'s own adapters already do this.
+
+### [[= product_name_cloud =]] VCL update
+
+On [[= product_name_cloud =]], [[= product_name =]] now detects requests that come from Fastly and automatically trusts the proxy headers set by the router.
+This works only if `framework.trusted_proxies` isn't empty (`TRUSTED_PROXIES` defaults to `127.0.0.1` in `.env`).
+
+If you're using [[= product_name_cloud =]], regenerate your cloud configuration to get the latest VCL files:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.

@@ -19,7 +19,7 @@ simplified navigation and more streamlined workflows.
 
 !!! tip
 
-    Read more about the rationale and process for the redesign on [Ibexa blog](https://www.ibexa.co/blog/ibexa-dxp-v4.0-preview-redesigned-user-interface-elevates-the-user-experience).
+    Read more about the rationale and process for the redesign on [Ibexa blog](https://ibexa.ai/en/blog/ibexa-dxp-v4.0-preview-redesigned-user-interface-elevates-the-user-experience).
 
 ### New product catalog
 
