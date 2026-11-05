@@ -16,7 +16,7 @@ month_change: true
 
     As the work on Cohesivo 6.0 is in progress, this page **isn't exhaustive and will evolve with time**.
 
-As announced during Ibexa Summit 2026, [Ibexa DXP will be renamed to Cohesivo](https://www.ibexa.co/blog/redefining-the-dxp-from-execution-to-orchestration) to support the new [orchestration platform approach](https://www.ibexa.co/blog/the-orchestration-era).
+As announced during Ibexa Summit 2026, [Ibexa DXP will be renamed to Cohesivo](https://ibexa.ai/en/blog/redefining-the-dxp-from-execution-to-orchestration) to support the new [orchestration platform approach](https://ibexa.ai/en/blog/the-orchestration-era).
 
 To learn more about the new brand, visit the [Cohesivo official site](https://cohesivo.com).
 
