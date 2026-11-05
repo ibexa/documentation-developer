@@ -228,7 +228,7 @@ ibexa_elasticsearch:
             node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
 ```
 
-For more information, see [Node pool settings](configure_elasticsearch.md#node-pool-settings).
+For more information, see [Node pool settings](https://doc.ibexa.co/en/5.0/search/search_engines/elasticsearch/configure_elasticsearch/#node-pool-settings).
 
 ##### Remove trace option
 
@@ -270,7 +270,7 @@ After upgrading to Elasticsearch 8 and updating your configuration, reindex the 
 
 ### Database update
 
-Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](background_tasks.md) exist in your database:
+Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/background_tasks/) exist in your database:
 
 === "MySQL"
 
@@ -288,7 +288,7 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](https://doc.ibexa.co/en/5.0/content_management/forms/form_builder_guide/)'s `max_length` validator behavior:
 
 === "MySQL"
 
@@ -385,7 +385,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
             Starting with Symfony 7.4, running `php bin/console cache:clear` doesn't clear the Ibexa DXP's persistence cache, even when using a filesystem-based cache pool.
 
-            To clear the persistence cache, for example after adding a [custom Page Builder block](create_custom_page_block.md), you must always run:
+            To clear the persistence cache, for example after adding a [custom Page Builder block](https://doc.ibexa.co/en/5.0/content_management/pages/create_custom_page_block/), you must always run:
 
             ```bash
             php bin/console cache:pool:clear <cache-pool>
@@ -395,7 +395,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
             The default cache pool when running Redis or Valkey is named `cache.redis`.
             If you have customized the persistence cache configuration, the name of your cache pool might be different.
 
-            For more information about persistence cache, see [Persistence cache](persistence_cache.md).
+            For more information about persistence cache, see [Persistence cache](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/persistence_cache/).
 
     - Array-based PHP configuration format
 
@@ -483,16 +483,96 @@ No additional steps needed for Ibexa DXP, but the [MCP Servers LTS Update requir
 
 No additional steps needed for [[= product_name =]].
 
+!!! note "Database upgrade scripts"
+
+    The `vendor/ibexa/installer/upgrade/db` contains the `ibexa-5.0.9-to-5.0.10.sql` database update script.
+    You don't need to run it.
+    The tables added by the script are required only by the [Translation Management LTS update](https://doc.ibexa.co/en/5.0/multisite/translations_management/translations_management/) and adding them is part of its [configuration procedure](https://doc.ibexa.co/en/5.0/multisite/translations_management/configure_translations_management/#modify-database-schema).
+
+## v5.0.11
+
+### Database update
+
+With v5.0.11, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
+With [[= product_name_base =]] Doctrine migrations, you no longer have to manually run the SQL upgrade scripts.
+The `ibexa/doctrine-migrations` package is installed automatically as a dependency of [[= product_name =]]'s packages, so no separate installation step is required.
+
+[[= product_name_base =]] Doctrine migrations cover every SQL upgrade script previously listed in this guide.
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+To preview the migrations before you apply them, run:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
+
+Run the following command to apply all database migrations present in your currently installed code:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
+
+[[% include 'snippets/update/db/doctrine_migration_multi_repository.md' %]]
+
+[[= product_name_base =]] Doctrine migrations only manage [[= product_name =]]'s own database tables.
+Your custom tables are not affected, even if you manage them with standard Doctrine migrations.
+
+!!! caution "Command scope"
+
+    This command isn't a full schema conformity checker.
+    It checks for the presence of key elements (such as a column or table) to determine whether a change has already been applied.
+    If a past upgrade was partially applied to your database, Doctrine migrations can be misled into marking the migration as complete when it isn't.
+
+    Always back up your database and test the `ibexa:doctrine:migrations:migrate` command in a non-production environment first.
+
+[[% include 'snippets/update/db/doctrine_migration_resolving_conflicts.md' %]]
+
+### Flysystem 3 support
+
+[[= product_name =]] 5.0 requires PHP 8.3 or later, therefore, as of v.5.0.11, `league/flysystem` installs as 3.36 or later by default.
+However, Flysystem 2.5 is also supported to provide backward compatibility.
+
+!!! note "Custom and local adapters"
+
+    - If you have a custom adapter, any class that implements `League\Flysystem\FilesystemAdapter` must add `directoryExists(string $path): bool`.
+    Otherwise, Flysystem 3 throws a fatal error.
+
+    - If you use `league/flysystem-aws-s3-v3`, `-azure-blob-storage`, `-google-cloud-storage`, `-sftp-v3`, or a similar cloud adapter, these are versioned together with Flysystem.
+    If your project still requires a `2.x` adapter, Composer silently keeps Flysystem on 2.5, and you must bump the adapter requirement manually to `^3.0` to get Flysystem 3.x.
+
+    - If you use Flysystem's `local` adapter type as an IO handler, it only accepts `mimeTypeDetector` as a string, so a detector service can't be configured through it directly.
+    Flysystem 3.x's default detector returns no MIME type for ambiguous files, such as extensionless text or empty files, which can cause downloads to fail.
+    To preserve the previous behavior, define your own service for `League\Flysystem\Local\LocalFilesystemAdapter` with `$mimeTypeDetector` set to `League\MimeTypeDetection\FinfoMimeTypeDetector`, then configure it as a `custom` adapter pointing to that service instead of `local`.
+    [[= product_name =]]'s own adapters already do this.
+
+### [[= product_name_cloud =]] VCL update
+
+On [[= product_name_cloud =]], [[= product_name =]] now detects requests that come from Fastly and automatically trusts the proxy headers set by the router.
+This works only if `framework.trusted_proxies` isn't empty (`TRUSTED_PROXIES` defaults to `127.0.0.1` in `.env`).
+
+If you're using [[= product_name_cloud =]], regenerate your cloud configuration to get the latest VCL files:
+
+```bash
+php bin/console ibexa:cloud:setup --upsun
+```
+
+For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
 ## LTS Updates and additional packages
 
-[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
-To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separately with the following commands:
+[LTS Updates](https://doc.ibexa.co/en/5.0/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/) added to them, update them separately with the following commands:
 
 === "Integrated help"
 
     ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [Integrated help](integrated_help.md) for more information.
+    See [Integrated help](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -504,7 +584,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](configure_ai_actions.md#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -516,7 +596,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Real-time collaborative editing
 
-    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
+    To learn more about the [Real-time editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -528,7 +608,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### MCP Servers
 
-    To learn more about the [MCP Servers](mcp_guide.md), see the [installation and configuration instructions](mcp_config.md).
+    To learn more about the [MCP Servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -540,5 +620,5 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     Between v5.0.8 and v5.0.9, the following changes were made to the MCP Servers feature:
 
-    - An [`allowed_hosts`](mcp_config.md#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
-    - The [built-in tool](mcp_config.md#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.
+    - An [`allowed_hosts`](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#allowed-hosts) setting has been added, restricting usage to localhost by default. Customize this value to allow more hosts.
+    - The [built-in tool](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools) `list_content_translations` is now renamed to `list_content_languages`.

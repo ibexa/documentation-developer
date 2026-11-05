@@ -21,7 +21,7 @@ You can completely revamp your online stores and give your consumers exceptional
 To start using [[= product_name_com =]], you need to purchase a product license.
 
 For more information, see [Ibexa Commerce license pricing](https://www.ibexa.co/products/pricing?tab=3).
-You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one of our partners](https://www.ibexa.co/partners).
+You can also [contact us](https://cohesivo.com/en/about-us/contact-us) or [one of our partners](https://cohesivo.com/en/partners).
 
 ## How it works
 

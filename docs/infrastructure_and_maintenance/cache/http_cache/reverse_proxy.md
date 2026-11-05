@@ -104,10 +104,13 @@ framework:
 
 When using Fastly, you need to set `trusted_proxies` according to the [IP ranges used by Fastly](https://api.fastly.com/public-ip-list).
 
-!!! tip
+!!! tip "Fastly on [[= product_name_cloud =]]"
 
-    You don't have to set `trusted_proxies` when using Fastly on Upsun.
-    The Upsun router automatically changes the source IP of requests coming from Fastly, replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
+    When you use Fastly on [[= product_name_cloud =]], you don't have to set `trusted_proxies` according to the IP ranges used by Fastly.
+    The Upsun router replaces the source IP of requests coming from Fastly with the actual client IP before they reach [[= product_name =]].
+
+    As of v5.0.11, [[= product_name =]] detects requests that come from Fastly on [[= product_name_cloud =]] and automatically trusts the proxy headers set by the router.
+    This works only if `framework.trusted_proxies` isn't empty (`TRUSTED_PROXIES` defaults to `127.0.0.1` in `.env`).
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
@@ -253,7 +256,7 @@ To get the service ID, log in to https://www.fastly.com/.
 In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/user-and-account-management/using-api-tokens/).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/organizations-and-accounts/account-members-and-permissions/managing-account-level-api-tokens/).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples

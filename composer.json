@@ -104,7 +104,8 @@
         "ibexa/fastly": "~6.0.x-dev",
         "ibexa/connect": "~6.0.x-dev",
         "ibexa/connector-qualifio": "~6.0.x-dev",
-        "ibexa/design-system-twig": "~6.0.x-dev"
+        "ibexa/design-system-twig": "~6.0.x-dev",
+        "ibexa/doctrine-migrations": "~6.0.x-dev"
     },
     "scripts": {
         "fix-cs": [

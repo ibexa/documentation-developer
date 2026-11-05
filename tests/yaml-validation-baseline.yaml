@@ -15,7 +15,7 @@ ignoreErrors:
     -
         path: code_samples/mcp/mcp.matrix.yaml
         line: 0
-        hash: 5fba465c96608f7f32ea4dc052b72ab2c0db3d2e975ff394f179ad421b163945
+        hash: a175941a4e4cbbe79f633b159475487bc5afa6f345afe7f9aaac81ff4d9eae95
         message: '~The value "\<psr16\|file\>" is not allowed for path "ibexa\.repositories\.\<repository_identifier\>\.mcp\.\<server_identifier\>\.session\.type"\. Permissible values\: "file", "psr16"\.~'
     -
         path: code_samples/workflow/custom_workflow/config/packages/workflows.yaml
@@ -46,17 +46,17 @@ ignoreErrors:
         path: docs/commerce/payment/enable_paypal_payments.md
         line: 40
         hash: bc714d63a541c63d24e2a882cc8c67b685fcee24feb0d80a327f02a4c3b0bef8
-        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
+        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "installer", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
     -
         path: docs/commerce/payment/enable_stripe_payments.md
         line: 41
         hash: 09750e5c042fe1d6abc20d4088674195d78ca70ce113f8869818a76de1a8023a
-        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
+        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "installer", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
     -
         path: docs/commerce/payment/payum_integration.md
         line: 55
         hash: c3f14ff441a95545c360aaab308050a2629a81f07d76d4fb65133ab89a6ad30d
-        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
+        message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "installer", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
     -
         path: docs/commerce/transactional_emails/extend_transactional_emails.md
         line: 17
@@ -214,7 +214,7 @@ ignoreErrors:
         message: '~The child config "fastly" under "ibexa\.system\.my_siteaccess_group\.http_cache" must be configured\.~'
     -
         path: docs/infrastructure_and_maintenance/security/development_security.md
-        line: 20
+        line: 22
         hash: 0521cbcc27827c7ee2160a512158a19c89f1d51eb64a69d1b4600eb45a2505dd
         message: '~Unrecognized option "require_previous_session" under "security\.firewalls\.ibexa_front\.form_login"\. Available options are "always_use_default_target_path", "check_path", "csrf_parameter", "csrf_token_id", "default_target_path", "enable_csrf", "failure_forward", "failure_handler", "failure_path", "failure_path_parameter", "form_only", "login_path", "password_parameter", "post_only", "provider", "remember_me", "success_handler", "target_path_parameter", "use_forward", "use_referer", "username_parameter"\.~'
     -
@@ -339,7 +339,7 @@ ignoreErrors:
         message: '~Unrecognized option "require_previous_session" under "security\.firewalls\.ezpublish_front\.form_login"\. Available options are "always_use_default_target_path", "check_path", "csrf_parameter", "csrf_token_id", "default_target_path", "enable_csrf", "failure_forward", "failure_handler", "failure_path", "failure_path_parameter", "form_only", "login_path", "password_parameter", "post_only", "provider", "remember_me", "success_handler", "target_path_parameter", "use_forward", "use_referer", "username_parameter"\.~'
     -
         path: docs/release_notes/ibexa_dxp_v5.0.md
-        line: 84
+        line: 190
         hash: 7d4a5637a3e036ebcdc5a4be8282aebe2bfcbaee3222981b81f739ae773111d0
         message: '~The child config "path" under "ibexa\.repositories\.\<repository\>\.mcp\.\<server\>" must be configured\: MCP server path~'
     -

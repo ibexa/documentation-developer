@@ -40,7 +40,7 @@ Symfony Flex installs and activates the package.
 
 ### Configure Actito integration
 
-Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://actito.com/en/pricing/).
+Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://actito.com/en/pricing).
 
 Once you gain access to the Actito dashboard:
 

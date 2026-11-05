@@ -294,7 +294,7 @@ You can select and test it in the right column.
 
 ### Perform Copilot or Claude Code test
 
-You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) or [Claude Code CLI](https://code.claude.com/docs/en/overview), as illustrated here, or with any other agent or interface.
+You can test your MCP server with [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli) or [Claude Code CLI](https://code.claude.com/docs/en/overview), as illustrated here, or with any other agent or interface.
 
 #### Add MCP server to agent CLI
 

@@ -316,7 +316,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 32">32</span>
+        <span title="at line 39">39</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -434,7 +434,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 182">182</span>
+        <span title="at line 211">211</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -471,7 +471,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 172">172</span>
+        <span title="at line 201">201</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -550,7 +550,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 177">177</span>
+        <span title="at line 206">206</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -587,7 +587,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 48">48</span>
+        <span title="at line 55">55</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -669,7 +669,7 @@ a header will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 69">69</span>
+        <span title="at line 105">105</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -729,6 +729,75 @@ a header will be used.</p>
                     
     
                 <div class="content-header">
+        <h3 id="method_suppressHeader">
+                <img src="./images/public.svg" alt="public" title="public" />suppressHeader()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Rest-Output-Visitor.html#method_suppressHeader" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
+        <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
+                :
+        <span title="at line 90">90</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Leaves the header out of the response, also when inner visitors set it.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">suppressHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>For example, a list of resources suppresses the Accept-Patch header,
+which is valid for a single resource only.
+A header which is already set stays in the response.</p>
+
+    </section>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $name
+                    </td>
+                    <td>
+                        string
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+                    
+    
+                <div class="content-header">
         <h3 id="method_visit">
                 <img src="./images/public.svg" alt="public" title="public" />visit()
             <a class="headerlink" href="classes/Ibexa-Contracts-Rest-Output-Visitor.html#method_visit" title="Permanent link">¶</a>
@@ -736,7 +805,7 @@ a header will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 80">80</span>
+        <span title="at line 116">116</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -801,7 +870,7 @@ a header will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/rest/src/contracts/Output/Visitor.php">
         <abbr title="vendor/ibexa/rest/src/contracts/Output/Visitor.php">Visitor.php</abbr>
                 :
-        <span title="at line 148">148</span>
+        <span title="at line 177">177</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -922,6 +991,11 @@ a header will be used.</p>
                                                     <li class="md-nav__item level-2">
                                 <a href="classes/Ibexa-Contracts-Rest-Output-Visitor.html#method_setStatus" title="setStatus" class="md-nav__link">
                                     setStatus()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Rest-Output-Visitor.html#method_suppressHeader" title="suppressHeader" class="md-nav__link">
+                                    suppressHeader()
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">

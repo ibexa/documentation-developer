@@ -10,6 +10,215 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.11' %]]
+[[% set date = '2026-10-27' %]]
+
+[[= release_note_entry_begin(
+    'MCP Servers ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'LTS Update']
+) =]]
+
+<!-- markdownlint-disable-next-line heading-increment -->
+### Tools
+
+Several new tools have been added to the [MCP package](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_config/#built-in-tools):
+
+- `get_field_type_list`
+- `get_content_info`
+- `get_content_version_info`
+- `get_content`
+- `create_content`
+- `create_content_draft`
+- `update_content`
+- `publish_version`
+- `list_locations`
+- `get_root_location`
+- `get_default_language_code`
+- `get_language`
+- `convert_to_richtext_xml`
+- `list_user_groups`
+- `list_users`
+- `get_user`
+
+The following tools were added to their respective packages: [Taxonomy](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) and [Workflow](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow/):
+
+- `list_taxonomies`
+- `assign_to_taxonomy_entry`
+- `list_taxonomy_entry_content`
+- `unassign_from_taxonomy_entry`
+- `list_workflows`
+- `get_content_workflow_status`
+- `apply_workflow_transition`
+
+### Removed tools
+
+- `get_content_type_by_identifier` is removed. Use `get_content_type` instead, which now accepts a content type ID or identifier
+
+### Schemas
+
+Input and output formats have been optimized for several tools.
+If you have prompts, skill files, or other resources to help your agents produce inputs or interpret outputs, you must adapt them to those format changes.
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-005-vulnerabilities-in-rest-api-image-download-cke-and-flysystem).
+
+### [[= product_name_base =]] Doctrine migrations
+
+Applying database schema upgrades no longer requires that you find and run SQL scripts manually.
+[[= product_name_base =]] Doctrine migrations ship with every [[= product_name =]] package and allows you to manage schema changes through a single console command:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+The command safely detects which changes are already applied to your database and only runs what's missing.
+You can run it at any time, even on an already up-to-date or freshly installed database.
+
+For more information, see [Database update](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#database-update).
+
+### Flysystem 3 support
+
+[[= product_name =]] now supports Flysystem 3.x for file storage adapters, in addition to Flysystem 2.x.
+Since [[= product_name =]] 5.0 requires PHP 8.3 or later, `league/flysystem` now installs as 3.36 or later by default.
+
+If you use a custom storage adapter, a custom [`local:` IO handler](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler), or a cloud adapter such as `league/flysystem-aws-s3-v3`, review the [Flysystem 3 support notes](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#flysystem-3-support) before updating.
+
+### Infrastructure
+
+#### Updated Node.js requirement
+
+Node.js 24 or higher is now required for asset building.
+
+For more information, see [Requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager).
+
+#### CKEditor 5 update
+
+Online Editor now uses version v48.5.1 of CKEditor 5 as its base.
+
+If your system uses [custom CKEditor plugins](https://doc.ibexa.co/en/5.0/content_management/rich_text/extend_online_editor/#add-ckeditor-plugins), ensure that they use the updated version of CKEditor dependencies.
+
+#### Fastly on [[= product_name_cloud =]]
+
+[[= product_name =]] now automatically trusts the proxy headers set by the [[= product_name_cloud =]] router for requests coming from Fastly.
+Therefore, you don't need to add Fastly's IP ranges to `framework.trusted_proxies`, as long as `framework.trusted_proxies` isn't empty. (By default, `TRUSTED_PROXIES` is set to 127.0.0.1 in `.env`).
+
+For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
+### Developer experience
+
+#### Taxonomy search
+
+You can now use the [`TaxonomyServiceInterface::findEntries()`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#methods) method to list the entries of a taxonomy, or the direct children of an entry, paginated and ordered by ID.
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+##### Automated translation
+
+- [`Ibexa\Contracts\AutomatedTranslation\Encoder\MarkupEncoderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-MarkupEncoderInterface.html)
+
+##### AI model
+
+- [`Ibexa\Contracts\ConnectorAi\AiModel`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-exception.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\AiModelExceptionInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-AiModelExceptionInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\InvalidAiModelException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidAiModelException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\InvalidModelOptionsException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-InvalidModelOptionsException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\NoAiModelsException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoAiModelsException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\NoDefaultAiModelException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-NoDefaultAiModelException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Exception\UnsupportedAiModelException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Exception-UnsupportedAiModelException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModel`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModel.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModelCatalogInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelCatalogInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModelProviderFactoryInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderFactoryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\AiModelProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-AiModelProviderInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options-exception.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\DuplicatedOptionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-DuplicatedOptionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\InvalidOptionDefinitionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionDefinitionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\InvalidOptionValueException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-InvalidOptionValueException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\MissingRequiredOptionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-MissingRequiredOptionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Exception\UndefinedOptionException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Exception-UndefinedOptionException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\AiModelOptionsResolverInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-AiModelOptionsResolverInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options-form.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-aimodel-options-form-exception.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form\Exception\NoOptionFieldFactoryException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-Exception-NoOptionFieldFactoryException.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\Form\OptionFieldFactoryInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-Form-OptionFieldFactoryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionDefinition`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinition.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionDefinitionCollection`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionCollection.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionDefinitionProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionDefinitionProviderInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionType`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionType.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\OptionTypeInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-OptionTypeInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\ReasoningEffort`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ReasoningEffort.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\ResolvedAiModelOptions`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-ResolvedAiModelOptions.html)
+- [`Ibexa\Contracts\ConnectorAi\AiModel\Options\StandardOptionDefinitions`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-AiModel-Options-StandardOptionDefinitions.html)
+
+##### Core
+
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Bookmark`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-location-bookmark.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Bookmark\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html)
+- [`Ibexa\Contracts\Core\Repository\Values\User\UserGroupList`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupList.html)
+- [`Ibexa\Contracts\Core\Repository\Values\User\UserList`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-UserList.html)
+
+##### [[= product_name_base =]] Doctrine migrations
+
+- [`Ibexa\Contracts\DoctrineMigrations`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations-migrations.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationTag`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyDependencyFactory`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyDependencyFactory.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyMigrationsRepository`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\SqlPlatform`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html)
+
+##### Page field type
+
+- [`Ibexa\Contracts\FieldTypePage\PageStructure`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-fieldtypepage-pagestructure.html)
+- [`Ibexa\Contracts\FieldTypePage\PageStructure\Event`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-fieldtypepage-pagestructure-event.html)
+- [`Ibexa\Contracts\FieldTypePage\PageStructure\Event\PageStructureResolveEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypePage-PageStructure-Event-PageStructureResolveEvent.html)
+
+##### RichText field type
+
+- [`Ibexa\Contracts\FieldTypeRichText\RichText\DOMDocumentLoaderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoaderInterface.html)
+
+##### MCP
+
+- [`Ibexa\Contracts\Mcp\Pagination`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-pagination.html)
+- [`Ibexa\Contracts\Mcp\Pagination\AbstractPaginatedResult`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Pagination-AbstractPaginatedResult.html)
+- [`Ibexa\Contracts\Mcp\Pagination\PaginationInput`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Pagination-PaginationInput.html)
+
+##### Data migration
+
+- [`Ibexa\Contracts\Migration\Bootstrapper`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-migration-bootstrapper.html)
+- [`Ibexa\Contracts\Migration\Bootstrapper\MigrationFilesProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html)
+- [`Ibexa\Contracts\Migration\Bootstrapper\MigrationHook`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html)
+
+##### Product catalog
+
+- [`Ibexa\Contracts\ProductCatalog\Iterator\BatchIteratorAdapter\CustomerGroupFetchAdapter`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\UpdatedAt`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html)
+
+##### Taxonomy
+
+- [`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryList`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryList.html)
+- [`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryQuery`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryQuery.html)
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.10' %]]
 [[% set date = '2026-08-20' %]]
 
@@ -390,7 +599,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 ### Raptor connector
 
-The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+The Raptor connector provides a seamless integration between Ibexa DXP and [Raptor Recommendation Engine](https://raptorservices.com/en/platform/website-recommendations).
 
 For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
 
@@ -411,7 +620,7 @@ For more information about Recommendation blocks in Page Builder, see the releva
 
 ### [[= pim_product_name =]]
 
-The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
+The [[= pim_product_name =]] integration add-on allows you to connect Ibexa DXP with [[[= pim_product_name =]] Product Information Management (PIM)](https://quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by Ibexa DXP.
 
 [[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations.
 Ibexa DXP consumes this data and makes it available for use in content and digital experiences.

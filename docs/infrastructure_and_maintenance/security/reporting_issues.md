@@ -6,7 +6,7 @@ description: Learn how to report security issues in Cohesivo.
 
 The security of [[= product_name_base =]] software is a primary concern and is taken seriously.
 
-For more information on security in [[= product_name_base =]] products, see [Ibexa Security Policy](https://www.ibexa.co/software-information/security).
+For more information on security in [[= product_name_base =]] products, see [Ibexa Security Policy](https://ibexa.ai/en/legal-pages/security).
 
 No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
 
