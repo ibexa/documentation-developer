@@ -300,12 +300,12 @@ You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copil
 
 To add an MCP server to your agent, you need to request a JWT token, then configure the MCP server in your agent as a [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#streamable-http) with a `Authentication: Bearer <token>` header.
 
-You can request a JWT token manually like [for the MCP Inspector](#perform-mcp-inspector-test), or automize.
+You can request a JWT token manually, as described in [Testing with MCP Inspector](#perform-mcp-inspector-test), or automate the process.
 
-The following script requests a JWT token through `curl`, then creates or refreshes an MCP server configuration.
-It works for, at least, Copilot and Claude.
+The following script uses `curl` to request a JWT token, then creates or updates the MCP server configuration.
+It works with Copilot CLI and Claude Code CLI.
 
-You can place it at project root (without commiting it as it contains credentials).
+You can save the script in the project root, but do not commit it because it contains credentials.
 
 ```bash
 [[= include_code('code_samples/mcp/mcp-ibexa-example-installer.sh') =]]
