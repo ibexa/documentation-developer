@@ -491,6 +491,11 @@ No additional steps needed for [[= product_name =]].
 
 ## v5.0.11
 
+### node.js update
+
+Node.js [requirement](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager) has changed.
+Update node.js to version 24 or higher to avoid issues with asset management. 
+
 ### Database update
 
 With v5.0.11, [[= product_name_base =]] introduces Doctrine migrations to manage database schema changes.
@@ -562,6 +567,12 @@ php bin/console ibexa:cloud:setup --upsun
 ```
 
 For more information, see [Configure Symfony front controller](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#configure-symfony-front-controller).
+
+### CKEditor 5 update
+
+[Online Editor](https://doc.ibexa.co/en/5.0/content_management/rich_text/online_editor_guide/) now uses version v48.5.1 of CKEditor 5 as its base.
+
+If your system uses custom CKEditor plugins, ensure that they use the updated version of CKEditor dependencies.
 
 ## LTS Updates and additional packages
 
