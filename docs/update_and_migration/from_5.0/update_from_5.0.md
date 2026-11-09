@@ -595,7 +595,7 @@ To use the [latest features](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
