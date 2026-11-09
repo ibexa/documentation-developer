@@ -57,105 +57,47 @@ You can test your MCP server with [Copilot CLI](https://docs.github.com/en/copil
 
 ### Add MCP server to agent CLI
 
-You can handle the access token for this test in the following ways:
+To add an MCP server to your agent, you need to request a JWT token, then configure the MCP server in your agent as a [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#streamable-http) with a `Authentication: Bearer <token>` header.
 
-- [Hard-code the access token](#hard-coded-variant) into the configuration and update it every time it expires, which happens after 15 minutes.
-- [Wrap the token request and the MCP server connection into a script](#fully-scripted-variant).
-
-#### Hard-coded variant
-
-The configuration with a hard-coded access token in `.mcp.json` looks as follows:
-
-```json
-{
-  "mcpServers": {
-    "cohesivo-example": {
-      "type": "http",
-      "url": "https://example.cohesivo.app/mcp/management",
-      "headers": {
-        "Authorization": "Bearer <access_token>"
-      },
-      "tools": ["*"]
-    }
-  }
-}
-```
-
-In this approach, you must edit the `.mcp.json` file every time the access token expires.
-
-When the agent can't connect to the MCP server:
-
-=== "Copilot CLI"
-
-    1. Update the access token in the `.mcp.json` file.
-    2. Reload the MCP servers in Copilot CLI with one of these methods:
-        - Run the `/mcp reload` command to reload all MCP servers.
-        - Run the `/mcp disable cohesivo-example` and `/mcp enable cohesivo-example` commands to reload only the `cohesivo-example` server.
-
-    !!! note "Reloading multiple MCP servers"
-
-        If you have several MCP servers enabled globally, reloading all of them at the same time can be time-consuming.
-        Consider reloading them one by one.
-
-=== "Claude Code"
-
-    1. Update the access token in the `.mcp.json` file.
-    2. Run the `/mcp reconnect cohesivo-example` command to reconnect the `cohesivo-example` MCP server.
-
-#### Fully scripted variant
-
-The configuration with a wrapper script in `.mcp.json` looks as follows:
-
-```json
-{
-  "mcpServers": {
-    "cohesivo-example": {
-      "type": "stdio",
-      "command": "bash",
-      "args": ["mcp-cohesivo-example-wrapper.sh"],
-      "tools": ["*"]
-    }
-  }
-}
-```
-
-`mcp-cohesivo-example-wrapper.sh` is a script that [requests an access token](rest_api_authentication.md#client-credentials) and connects to the MCP server.
-
-For example, you can use [Supergateway](https://www.npmjs.com/package/supergateway), run through [`npx`](https://www.npmjs.com/package/npx).
-The script below requires Node.js, `jq`, and the `TOKEN_ENDPOINT`, `CLIENT_ID`, and `CLIENT_SECRET` environment variables:
+The following script uses `curl` to request a JWT token, then creates or updates the MCP server configuration.
+It works with Copilot CLI and Claude Code CLI.
 
 ```bash
 #!/bin/bash
 set -e
 
-mcpServer="https://example.cohesivo.app/mcp/management"
-token=$(curl --silent --fail --request POST "$TOKEN_ENDPOINT" \
-    --user "$CLIENT_ID:$CLIENT_SECRET" \
-    --data 'grant_type=client_credentials' | jq -r .access_token)
+# Adapt to your test case
+baseUrl='http://localhost'
+serverUrl="$baseUrl/mcp/example"
+serverName='ibexa-example'
+username='ibexa-example'
+password='Ibexa-3xample'
+agentCli='copilot'
+#agentCli='claude'
 
-if [ -z "$token" ] || [ "$token" = "null" ]; then
-    echo "Token request failed" >&2
-    exit 1
+jwtToken=$(curl -s -X 'POST' \
+  "$baseUrl/api/ibexa/v2/user/token/jwt" \
+  -H 'Content-Type: application/vnd.ibexa.api.JWTInput+json' \
+  -H 'Accept: application/vnd.ibexa.api.JWT+json' \
+  -d "{
+        \"JWTInput\": {
+          \"_media-type\": \"application/vnd.ibexa.api.JWTInput+json\",
+          \"username\": \"$username\",
+          \"password\": \"$password\"
+        }
+      }" | jq -r .JWT.token)
+
+if [[ -n $($agentCli mcp list | grep -E "(^| )$serverName\W") ]]
+then
+  $agentCli mcp remove "$serverName"
 fi
 
-exec npx -y supergateway \
-  --streamableHttp "$mcpServer" \
-  --oauth2Bearer "$token" \
-  --logLevel none
+$agentCli mcp add --transport http \
+  "$serverName" "$serverUrl" \
+  --header "Authorization: Bearer $jwtToken"
 ```
 
-When the agent can't connect to the MCP server, reload it:
-
-=== "Copilot CLI"
-
-    Reload the MCP servers in Copilot CLI with one of these methods:
-
-    - Run the `/mcp reload` command to reload all MCP servers.
-    - Run the `/mcp disable cohesivo-example` and `/mcp enable cohesivo-example` commands to reload only the `cohesivo-example` server.
-
-=== "Claude Code"
-
-    Run the `/mcp reconnect cohesivo-example` command to reconnect the `cohesivo-example` MCP server.
+When the agent can't connect to the MCP server, re-run the script.
 
 ## Rate limits
 
