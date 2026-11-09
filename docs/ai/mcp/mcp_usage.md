@@ -305,7 +305,7 @@ You can request a JWT token manually, as described in [Testing with MCP Inspecto
 The following script uses `curl` to request a JWT token, then creates or updates the MCP server configuration.
 It works with Copilot CLI and Claude Code CLI.
 
-You can save the script in the project root, but do not commit it because it contains credentials.
+You can save the script in the project root, but don't commit it because it contains credentials.
 
 ```bash
 [[= include_code('code_samples/mcp/mcp-ibexa-example-installer.sh') =]]
