@@ -494,7 +494,7 @@ No additional steps needed for [[= product_name =]].
 ### node.js update
 
 Node.js [requirement](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager) has changed.
-Update node.js to version 24 or higher to avoid issues with asset management. 
+Update node.js to version 24 or higher to avoid issues with asset management.
 
 ### Database update
 
