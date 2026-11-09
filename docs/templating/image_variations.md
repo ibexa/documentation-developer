@@ -43,7 +43,7 @@ If set to `null` or `~`, the variation takes the original image for reference.
 
 ## Available variation filters
 
-In addition to [filters exposed by LiipImagineBundle](https://symfony.com/bundles/LiipImagineBundle/2.x/filters.html), the following ones are available:
+In addition to [filters exposed by LiipImagineBundle](https://symfony.com/bundles/LiipImagineBundle/current/filters.html), the following ones are available:
 
 | Filter name | Parameters | Description |
 |--------|------|----------|

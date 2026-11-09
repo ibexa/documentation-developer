@@ -56,7 +56,7 @@ For Varnish users be aware thus change implies new VCL and requirement for varni
 - [Customers: eZ Enterprise subscription (BUL License)](https://support.ibexa.co/)
 - Partners: Test & Trial software access (TTL License)
 
-If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
+If you would like to become familiar with the products, [request a demo](https://cohesivo.com/en/demo).
 
 ### Updating
 

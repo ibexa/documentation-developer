@@ -5,7 +5,7 @@ month_change: false
 
 # Raptor integration guide
 
-Discover [Raptor](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations and tracking customer behaviors.
+Discover [Raptor](https://raptorservices.com/en) integration - an add-on that is focused on recommendations and tracking customer behaviors.
 It includes Raptor connector with tracking scripts and events, used to track and analyze customer behaviors, and a set of Recommendation blocks.
 
 ## What is Raptor connector

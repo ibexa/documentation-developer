@@ -6,7 +6,7 @@ month_change: false
 
 # Raptor connector
 
-The [Raptor](https://www.raptorservices.com/) connector is an add-on that provides a seamless integration between [[= product_name =]] and Raptor recommendation engine.
+The [Raptor](https://raptorservices.com/en) connector is an add-on that provides a seamless integration between [[= product_name =]] and Raptor recommendation engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps increase conversion rates, drive sales, and improve user engagement.
 

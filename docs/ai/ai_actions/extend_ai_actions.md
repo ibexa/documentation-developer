@@ -390,7 +390,7 @@ Extend the models map by defining:
 - a `max_tokens` limit
 
 Optionally, you can set the default model that would be used for the action type that you're modifying, the default allowed tokens limit and the default temperature.
-Default values must stay within the limits supported by the [Gemini API](https://ai.google.dev/gemini-api/docs/models).
+Default values must stay within the limits supported by the [Gemini API]( https://aistudio.google.com/docs/models).
 
 ### Add a custom Action Handler
 
