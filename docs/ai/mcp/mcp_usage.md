@@ -369,7 +369,7 @@ You can check the MCP server status and details with the `/mcp` command:
       "url": "http://localhost/mcp/example",                                                                                                                                                   
       "source": "user"                                                                                                                                                                                             
     }
-```
+    ```
 
 === "Claude Code CLI"
 
