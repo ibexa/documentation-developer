@@ -272,3 +272,6 @@ https://content.raptorservices.com/help-center/user-tracking-understanding-soft-
 
 # Anchor not visible on the page, hidden in an expendable section
 https://packagist.org/packages/twig/twig#v3.11.3
+
+# REST API Ref / Redocly: anchor not visible in code, hidden in JS
+.*/rest_api_reference.html#.*
