@@ -34,7 +34,6 @@
           el.classList.forEach(className => {
             if (/^tag-#[0-9A-F]{6}$/.test(className)) {
               color = className.substring(4);
-              return;
             }
           });
           if (null === color) { return; }
@@ -54,7 +53,7 @@
           document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
         };
         logo.setAttribute('style', 'cursor: pointer; margin: 0 auto; width: 50%;');
-      }, 500);
+      }, 1000);
     });
   </script>
 </body>

@@ -447,7 +447,7 @@ data-styled.g658[id="sc-hHttOM"]{content:"dKSNwp,"}/*!sc*/
     window.addEventListener('load', () => {
       window.setTimeout(() => {
         // Remove servers panel
-        document.querySelector('[data-testid="panel-servers"]').remove();
+        //document.querySelector('[data-testid="panel-servers"]').remove();
 
         // Remove badges from TOC
         document.querySelectorAll('[data-component-name="Menu/Menu"] .tag-variant-filled').forEach(el => el.remove());
@@ -458,7 +458,6 @@ data-styled.g658[id="sc-hHttOM"]{content:"dKSNwp,"}/*!sc*/
           el.classList.forEach(className => {
             if (/^tag-#[0-9A-F]{6}$/.test(className)) {
               color = className.substring(4);
-              return;
             }
           });
           if (null === color) { return; }
@@ -478,7 +477,7 @@ data-styled.g658[id="sc-hHttOM"]{content:"dKSNwp,"}/*!sc*/
           document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
         };
         logo.setAttribute('style', 'cursor: pointer; margin: 0 auto; width: 50%;');
-      }, 500);
+      }, 1000);
     });
   </script>
 </body>
