@@ -40,7 +40,7 @@ To configure the Raptor connector, use the `ibexa.system.<scope>.connector_rapto
 - `cookie_id_lifetime_days` (optional) - the lifetime in days of the server-side tracking identifier cookies. Default value: `365` days. Minimum value: `1` day.
 
 By default, `tracking_type` is set to `client` as client-side tracking is the standard Raptor mode.
-To understand the differences between client and server tracking types, including their advantages and disadvantages, refer to the [Raptor documentation](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking).
+To understand the differences between client and server tracking types, including their advantages and disadvantages, refer to the [Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-raptor-tracking#:~:text=Compare%20the%20tracking%20methods).
 
 !!! note
 
