@@ -494,7 +494,7 @@ No additional steps needed for [[= product_name =]].
 ### node.js update
 
 Node.js [requirement](https://doc.ibexa.co/en/5.0/getting_started/requirements/#asset-manager) has changed.
-Update node.js to version 24 or higher to avoid issues with asset management. 
+Update node.js to version 24 or higher to avoid issues with asset management.
 
 ### Database update
 
@@ -595,7 +595,7 @@ To use the [latest features](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 

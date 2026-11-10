@@ -90,7 +90,7 @@ For more information, see [data customization](raptor_cdp_data_customization.md)
 ### Client-side Tracking
 
 The final step is setting up a tracking script.
-For more information, see [CDP add client-side tracking](raptor_cdp_add_tracking.md) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
+For more information, see [CDP add client-side tracking](raptor_cdp_add_tracking.md) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-raptor-tracking).
 
 ### Audience Builder
 
