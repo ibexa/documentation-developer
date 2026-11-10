@@ -386,7 +386,7 @@ You can check the MCP server status and details with the `/mcp` command:
    Tools: 1 tool
     ```
 
-If a server appears as disconected, re-run the installer (`bash mcp-ibexa-example-installer.sh`) so a fresh JWT token is generated and set.
+If a server appears as disconnected, re-run the installer (`bash mcp-ibexa-example-installer.sh`) so a fresh JWT token is generated and set.
 
 You can prompt the agent to greet you.
 It should use the `greet` tool to do so.

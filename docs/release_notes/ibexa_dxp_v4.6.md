@@ -70,7 +70,7 @@ The following additions were made to the PHP API:
 
 - [`Ibexa\Contracts\DoctrineMigrations`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations.html)
 - [`Ibexa\Contracts\DoctrineMigrations\Migrations`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-doctrinemigrations-migrations.html)
-- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationInterface`](https://doapi/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html)
+- [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html)
 - [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaMigrationTag`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.
 html)
 - [`Ibexa\Contracts\DoctrineMigrations\Migrations\IbexaOnlyDependencyFactory`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnly
@@ -93,7 +93,7 @@ iderInterface.html)
 ##### Product catalog
 
 - [`Ibexa\Contracts\ProductCatalog\Iterator\BatchIteratorAdapter\CustomerGroupFetchAdapter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\UpdatedAt`](https:/hp_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\UpdatedAt`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html)
 
 ### Full changelog
 
