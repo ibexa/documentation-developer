@@ -23,7 +23,7 @@
     window.addEventListener('load', () => {
       window.setTimeout(() => {
         // Remove badges from TOC
-        document.querySelectorAll('.menu-content [role="menuitem"] [type="badge"]').forEach(el => el.remove());
+        document.querySelectorAll('[data-component-name="Menu/Menu"] .tag-variant-filled').forEach(el => el.remove());
 
         // Apply badge styling
         document.querySelectorAll('.tag-variant-filled').forEach(el => {
