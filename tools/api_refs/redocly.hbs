@@ -27,12 +27,14 @@
 
         // Apply badge styling
         document.querySelectorAll('.tag-variant-filled').forEach(el => {
-          let color = 'transparent';
+          let color = null;
           el.classList.forEach(className => {
             if (/^tag-#[0-9A-F]{6}$/.test(className)) {
               color = className.substring(4);
+              return;
             }
           });
+          if (null === color) { return; }
           el.style.backgroundColor = "#FFF";
           el.style.border = "1px solid " + color;
           el.style.padding = "1px 8px";
