@@ -446,12 +446,21 @@ data-styled.g658[id="sc-hHttOM"]{content:"dKSNwp,"}/*!sc*/
   <script>
     window.addEventListener('load', () => {
       window.setTimeout(() => {
+        // Remove servers panel
+        //document.querySelector('[data-testid="panel-servers"]').remove();
+
         // Remove badges from TOC
-        document.querySelectorAll('.menu-content [role="menuitem"] [type="badge"]').forEach(el => el.remove());
+        document.querySelectorAll('[data-component-name="Menu/Menu"] .tag-variant-filled').forEach(el => el.remove());
 
         // Apply badge styling
-        document.querySelectorAll('.api-content [data-section-id] h2 [type="primary"]').forEach(el => {
-          const color = el.getAttribute('color');
+        document.querySelectorAll('.tag-variant-filled').forEach(el => {
+          let color = null;
+          el.classList.forEach(className => {
+            if (/^tag-#[0-9A-F]{6}$/.test(className)) {
+              color = className.substring(4);
+            }
+          });
+          if (null === color) { return; }
           el.style.backgroundColor = "#FFF";
           el.style.border = "1px solid " + color;
           el.style.padding = "1px 8px";
@@ -467,8 +476,8 @@ data-styled.g658[id="sc-hHttOM"]{content:"dKSNwp,"}/*!sc*/
           let pathParts = document.location.pathname.split('/').slice(0, 3);
           document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
         };
-        logo.setAttribute('style', 'cursor: pointer; margin: 13px;');
-      }, 500);
+        logo.setAttribute('style', 'cursor: pointer; margin: 0 auto; width: 50%;');
+      }, 1000);
     });
   </script>
 </body>
