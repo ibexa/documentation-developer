@@ -6,6 +6,12 @@ month_change: false
 
 # Limitation reference
 
+The name of each limitation is followed by its identifier, for example, `Class` for the content type limitation.
+Use this identifier to refer to the limitation in [data migrations](importing_data.md#roles).
+Unless stated otherwise, data migrations accept the same limitation values as listed in the "Possible values" tables.
+
+To check how the limitations of an existing role are represented in a migration file, [export the role](exporting_data.md).
+
 ## Blocking limitation
 
 A generic limitation type to use when no other limitation has been implemented.
@@ -38,7 +44,7 @@ services:
 
 ## Activity log Owner limitation
 
-The Activity log Owner (`ActivityLogOwner`) limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
+The Activity log Owner (`activity_log_owner`) limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
 
 | Value | UI value        | Description                                                  |
 |-------|-----------------|--------------------------------------------------------------|
@@ -71,7 +77,7 @@ The Collaborative editing limitations specify how the user can use the [Collabor
 
 ### Collaborative editing Owner limitation
 
-The Owner limitation specifies whose drafts the user can share.
+The Owner (`share_owner`) limitation specifies whose drafts the user can share.
 If not specified, user can share:
 
 - their drafts
@@ -85,7 +91,7 @@ If not specified, user can share:
 
 ### Collaborative editing Scope limitation
 
-The Scope limitation specifies whether the user can share the preview and editing view with other users.
+The Scope (`share_scope`) limitation specifies whether the user can share the preview and editing view with other users.
 
 #### Possible values
 
@@ -96,14 +102,14 @@ The Scope limitation specifies whether the user can share the preview and editin
 
 ### Collaborative editing PublicLink limitation
 
-The Public Link (`PublicLink`) limitation specifies whether the user can manage the settings of the shareable preview link.
+The Public Link (`share_public_link`) limitation specifies whether the user can manage the settings of the shareable preview link.
 
 #### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|"Off"|"off"| User can't manage the settings|
-|"On"|"on"| User can manage the settings|
+|"off"|"off"| User can't manage the settings|
+|"on"|"on"| User can manage the settings|
 
 ## Discount Owner limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -117,7 +123,7 @@ The Discount Owner (`DiscountOwner`) limitation specifies whether the user can i
 
 ## Content type Group limitation
 
-The Content Type Group (`UserGroup`) limitation specifies that only users with at least one common *direct* user group with the owner of content get the selected access right.
+The Content Type Group (`Group`) limitation specifies that only users with at least one common *direct* user group with the owner of content get the selected access right.
 
 ### Possible values
 
@@ -127,7 +133,7 @@ The Content Type Group (`UserGroup`) limitation specifies that only users with a
 
 ## Content type Group of Parent limitation
 
-The Content Type Group of Parent (`ParentUserGroupLimitation`) limitation specifies that only Users with at least one common *direct* user group with the owner of the parent location of a content item get a certain access right, used by `content/create` permission.
+The Content Type Group of Parent (`ParentGroup`) limitation specifies that only Users with at least one common *direct* user group with the owner of the parent location of a content item get a certain access right, used by `content/create` permission.
 
 ### Possible values
 
@@ -137,7 +143,7 @@ The Content Type Group of Parent (`ParentUserGroupLimitation`) limitation specif
 
 ## Content type limitation
 
-The Content Type (`ContentType`) limitation specifies whether the user has access to content with a specific content type.
+The Content Type (`Class`) limitation specifies whether the user has access to content with a specific content type.
 
 ### Possible values
 
@@ -145,11 +151,22 @@ The Content Type (`ContentType`) limitation specifies whether the user has acces
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
+### Data migrations
+
+In [data migrations](importing_data.md#roles), use content type identifiers instead of IDs, for example:
+
+``` yaml
+limitations:
+    -
+        identifier: Class
+        values: [folder, article]
+```
+
 ## Content type of Parent limitation
 
-The Content Type of Parent (`ParentContentType`) limitation specifies whether the user has access to content whose parent location contains a specific content type, used by `content/create`.
+The Content Type of Parent (`ParentClass`) limitation specifies whether the user has access to content whose parent location contains a specific content type, used by `content/create`.
 
-This limitation combined with `ContentType` limitation allows you to define business rules like allowing users to create "Blog Post" within a "Blog."
+This limitation combined with `Class` limitation allows you to define business rules like allowing users to create "Blog Post" within a "Blog."
 If you also combine it with `Owner of Parent` limitation, you effectively limit access to create Blog Posts in the users' own Blogs.
 
 ### Possible values
@@ -157,6 +174,17 @@ If you also combine it with `Owner of Parent` limitation, you effectively limit 
 |Value|UI value|Description|
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
+
+### Data migrations
+
+In [data migrations](importing_data.md#roles), you can use content type identifiers or IDs, for example:
+
+``` yaml
+limitations:
+    -
+        identifier: ParentClass
+        values: [folder, article]
+```
 
 ## Field Group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -189,7 +217,7 @@ A user with this limitation is allowed to:
 
 ## Location limitation
 
-A location (`Location`) limitation specifies whether the user has access to content with a specific location, in case of `content/create` the parent location is evaluated.
+A location (`Node`) limitation specifies whether the user has access to content with a specific location, in case of `content/create` the parent location is evaluated.
 
 ### Possible values
 
@@ -207,11 +235,11 @@ In the `section/assign` policy you can combine this with section limitation to l
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
+|`<Section_id>`|`<Section_name>`|All valid section IDs can be set as value(s)|
 
 ## New State limitation
 
-A New State (`NewObjectState`) limitation specifies whether the user has access to (assigning) a given object state to content.
+A New State (`NewState`) limitation specifies whether the user has access to (assigning) a given object state to content.
 
 In the `state/assign` policy you can combine this with State limitation to limit both from and to values.
 
@@ -223,7 +251,7 @@ In the `state/assign` policy you can combine this with State limitation to limit
 
 ## Object State limitation
 
-The Object State (`ObjectState`) limitation specifies whether the user has access to content with a specific object state.
+The Object State (`State`) limitation specifies whether the user has access to content with a specific object state.
 
 ### Possible values
 
@@ -292,7 +320,7 @@ The Product Type (`ProductType`) limitation specifies whether the user has acces
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
+|`<ProductType_identifier>`|`<ProductType_name>`|All valid product type identifiers can be set as value(s)|
 
 ## Section limitation
 
@@ -304,7 +332,18 @@ This limitation can be used as a role limitation.
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
+|`<Section_id>`|`<Section_name>`|All valid section IDs can be set as value(s)|
+
+### Data migrations
+
+In [data migrations](importing_data.md#roles), you can use section identifiers or IDs, for example:
+
+``` yaml
+limitations:
+    -
+        identifier: Section
+        values: [standard, media]
+```
 
 ## Segment group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -327,6 +366,17 @@ The SiteAccess (`SiteAccess`) limitation specifies to which SiteAccesses a certa
 |Value|UI value|Description|
 |------|------|------|
 |`<siteaccess_hash>`|`<siteaccess_name>`|Hash is calculated in the following way in legacy in default 64bit mode: `sprintf( '%u', crc32( $siteAccessName ) )`|
+
+### Data migrations
+
+In [data migrations](importing_data.md#roles), use SiteAccess names instead of hashes, for example:
+
+``` yaml
+limitations:
+    -
+        identifier: SiteAccess
+        values: [site]
+```
 
 ### Legacy compatibility notes
 
