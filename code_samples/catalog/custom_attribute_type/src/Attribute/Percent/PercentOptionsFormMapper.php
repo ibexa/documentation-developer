@@ -14,7 +14,7 @@ final class PercentOptionsFormMapper implements OptionsFormMapperInterface
     {
         $builder->add($name, PercentAttributeOptionsType::class, [
             'constraints' => [
-                new AttributeDefinitionOptions(['type' => $context['type']]),
+                new AttributeDefinitionOptions($context['type']),
             ],
             'translation_mode' => $context['translation_mode'],
         ]);
