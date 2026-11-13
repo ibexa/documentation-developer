@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^11.0",
-        "symfony/yaml": "^7.0",
+        "symfony/yaml": "^8.1",
         "ibexa/api-platform": "~6.0.x-dev",
         "ibexa/connector-gemini": "6.0.x-dev",
         "ibexa/code-style": "~2.0.0",
@@ -47,7 +47,6 @@
         "ibexa/installer": "6.0.x-dev",
         "ibexa/product-catalog": "6.0.x-dev",
         "ibexa/graphql": "6.0.x-dev",
-        "ibexa/personalization": "6.0.x-dev",
         "ibexa/taxonomy": "6.0.x-dev",
         "ibexa/scheduler": "6.0.x-dev",
         "ibexa/cron": "6.0.x-dev",
