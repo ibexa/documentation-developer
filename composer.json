@@ -65,6 +65,7 @@
         "ibexa/seo": "6.0.x-dev",
         "ibexa/core": "6.0.x-dev",
         "ibexa/admin-ui": "6.0.x-dev",
+        "ibexa/admin-ui-extras": "6.0.x-dev",
         "ibexa/activity-log": "6.0.x-dev",
         "ibexa/workflow": "6.0.x-dev",
         "ibexa/checkout": "6.0.x-dev",
