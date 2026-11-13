@@ -26,7 +26,7 @@ class PaginationController extends Controller
             new ContentSearchAdapter($query, $this->searchService)
         );
         $pager->setMaxPerPage(3);
-        $pager->setCurrentPage($request->get('page', 1));
+        $pager->setCurrentPage($request->query->get('page', 1));
 
         return $this->render(
             '@ibexadesign/full/custom_pagination.html.twig',
