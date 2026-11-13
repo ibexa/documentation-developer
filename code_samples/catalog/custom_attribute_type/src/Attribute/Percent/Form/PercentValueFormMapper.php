@@ -27,9 +27,7 @@ final class PercentValueFormMapper implements ValueFormMapperInterface
             'block_prefix' => 'percentage_attribute_value',
             'required' => $assignment->isRequired(),
             'constraints' => [
-                new AttributeValue([
-                    'definition' => $definition,
-                ]),
+                new AttributeValue($definition),
             ],
         ];
 
