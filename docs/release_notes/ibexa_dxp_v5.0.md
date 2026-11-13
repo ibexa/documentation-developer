@@ -868,7 +868,7 @@ when@prod:
 
 #### Added OpenAPI support for Collaborative editing REST API
 
-The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
+The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#/collaboration-sessions).
 
 ### Full changelog
 

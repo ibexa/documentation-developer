@@ -5,9 +5,9 @@ edition: commerce
 
 # Payum integration
 
-[Payum](https://docs.payum.dev/v2#symfony-payum-bundle) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
+[Payum](https://payum.dev/docs#symfony-payum-bundle) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
 These services provide security of online transactions, and allow you to accept multiple payment methods while ensuring a seamless experience for the customers.
-By configuring service [gateways](https://docs.payum.dev/v2/supported-gateways), mapping workflow actions and translating payment service names, you streamline the online payment process, and can offer a diverse payment experience.
+By configuring service [gateways](https://payum.dev/docs/supported-gateways), mapping workflow actions and translating payment service names, you streamline the online payment process, and can offer a diverse payment experience.
 
 ## General Payum configuration
 
@@ -69,9 +69,9 @@ ibexa:
 When you implement the online payment solution, take the following consideration into account:
 
 - To learn what credentials must be provided and what specific settings must be made, refer to the each payment service gateway's specific documentation.
-- To customize the online payment UI, see [Creating custom views](https://docs.payum.dev/v2/symfony/custom-payment-page) in Payum documentation.
+- To customize the online payment UI, see [Creating custom views](https://payum.dev/docs/symfony/custom-payment-page) in Payum documentation.
 - When you modify the payment process, you may need to subscribe to events dispatched by Payum.
-For a list of events, see [Event dispatcher](https://docs.payum.dev/v2/event-dispatcher) in Payum documentation.
+For a list of events, see [Event dispatcher](https://payum.dev/docs/event-dispatcher) in Payum documentation.
 
 !!! caution
 

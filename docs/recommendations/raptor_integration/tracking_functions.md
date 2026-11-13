@@ -5,7 +5,7 @@ month_change: false
 
 # Tracking functions
 
-[[[= product_name_cdp_base =]] connector](raptor_connector.md) introduces [visit tracking functionality](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) for collecting user interactions with products and content.
+[[[= product_name_cdp_base =]] connector](raptor_connector.md) introduces [visit tracking functionality](https://content.raptorservices.com/help-center/introduction-to-raptor-tracking) for collecting user interactions with products and content.
 The implementation includes product visit tracking with mapping to tracking parameters, and Twig functions for straightforward integration.
 
 [[= product_name_cdp_base =]] integration introduces two Twig functions:
@@ -53,7 +53,7 @@ For more information on Tracking modes, see documentation:
 
 - [Client-side tracking](https://content.raptorservices.com/help-center/client-side-tracking)
 - [Server-side tracking](https://content.raptorservices.com/help-center/server-side-tracking)
-- [Client-side vs. Server-side tracking](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking)
+- [Introduction to Raptor Tracking > Compare the tracking methods](https://content.raptorservices.com/help-center/introduction-to-raptor-tracking#:~:text=Compare%20the%20tracking%20methods)
 - [Hybrid tracking](hybrid_tracking.md)
 
 ## Complex integration

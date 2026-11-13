@@ -79,7 +79,7 @@ ibexa_tracking_track_event(
 
 ### `websiteId` parameter
 
-The `websiteId`, also known as a **Login ID**, (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
+The `websiteId`, also known as a **Login ID**, (`p7`) parameter for [Raptor tracking](https://content.raptorservices.com/help-center/introduction-to-raptor-tracking) can be optionally provided as a **context** to `ibexa_tracking_track_event()` function.
 
 When storing customer data in an external Customer Relationship Management (CRM) system, set the `websiteId` to an identifier of the customer stored there.
 
