@@ -50,6 +50,7 @@
         "ibexa/taxonomy": "6.0.x-dev",
         "ibexa/scheduler": "6.0.x-dev",
         "ibexa/cron": "6.0.x-dev",
+        "cron/cron": "dev-master",
         "ibexa/dashboard": "6.0.x-dev",
         "ibexa/corporate-account": "6.0.x-dev",
         "ibexa/fieldtype-address": "6.0.x-dev",
