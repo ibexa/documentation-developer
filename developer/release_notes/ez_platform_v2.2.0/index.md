@@ -1,0 +1,129 @@
+# eZ Platform v2.2.0
+
+**Version number**: v2.2.0
+
+**Release date**: June 29, 2018
+
+**Release type**: Fast Track
+
+## Notable changes
+
+### Page Builder
+
+This version introduces the **Page Builder** which replaces the landing page editor from earlier versions.
+
+![Page Builder](https://doc.ibexa.co/en/5.0/release_notes/img/2.2_page_builder.png)
+
+> **Note: Note**
+>
+> The Page Builder doesn't offer all blocks that landing page editor did. The removed blocks include Schedule and Form blocks. They will be included again in a future release.
+>
+> The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/2.2/app/config/blocks.yml).
+
+#### Modifying the Page content type
+
+You can edit the new Page content type by adding Fields and create new content types with the Page field type.
+
+![Editing Fields in Page Builder](https://doc.ibexa.co/en/5.0/release_notes/img/2.2_page_builder_edit_fields.png)
+
+#### Page block design
+
+In the Page block config you can now specify the CSS class with its own style for the specific block:
+
+![Setting the styling in Block configuration](https://doc.ibexa.co/en/5.0/release_notes/img/2.2_block_settings_styling.png)
+
+> **Caution: Updating to 2.2**
+>
+> Refer to [Updating eZ Platform](https://doc.ibexa.co/en/2.2/releases/updating_ez_platform/) for a database update script.
+>
+> To update to 2.2 with existing Content you need a [dedicated script for converting the landing page into the new Page](https://doc.ibexa.co/en/2.2/releases/updating_ez_platform/#migrate-landing-pages).
+
+### Bookmarks
+
+Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the content type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location cause an error.
+
+![Bookmark](https://doc.ibexa.co/en/5.0/release_notes/img/bookmark.png)
+
+You can find the list of all bookmarks in *Browse content* section. There, you can manage bookmarks by deleting them or by checking if specific Location has been bookmarked.
+
+### Image placeholders
+
+[Placeholder generator](https://doc.ibexa.co/en/2.5/guide/images/#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you're working on an existing database and you're not able to download uploaded images to your local development environment because of their large size.
+
+![Placeholder GenericProvider](https://doc.ibexa.co/en/5.0/release_notes/img/2.2_placeholder_generic_provider.png)
+
+### Standard design
+
+eZ Platform now comes with two designs that use the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine/): `standard` for content view and `admin` for the back office. For more information, see [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs).
+
+> **Caution: Caution**
+>
+> If you encounter problems during upgrading, disable the override by setting `ez_platform_standard_design.override_kernel_templates` to `false`.
+
+### Previewing user and user group permissions
+
+When viewing user or user group content items you can now preview what permissions are assigned to them.
+
+![Preview of permissions assigned to a User](https://doc.ibexa.co/en/5.0/release_notes/img/2.2_permissions_in_user_view.png)
+
+You can also [select which content types are treated the same way as user of user group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
+
+### Change from UTF8 to UTF8MB4
+
+Database charset is changed from UTF8 to UTF8MB4, to support 4-byte characters.
+
+> **Caution: Caution**
+>
+> To cover this change when upgrading, follow the instructions in the [update guide](https://doc.ibexa.co/en/2.5/update_and_migration/from_1.x_2.x/update_db_to_2.5/#a-update-to-v22).
+
+### URL generation pattern
+
+You can now select the pattern that is used to generate URL patterns.
+
+For more information about the available settings, see [URL alias patterns](https://doc.ibexa.co/en/2.5/guide/url_management/#url-alias-patterns).
+
+> **Caution: Default URL generation pattern**
+>
+> The default URL generation pattern changes from `urlalias` to `urlalias_lowercase`. This change only applies to new Content. Pay attention to the new `url_alias.slug_converter.transformation` setting in the meta-repository when updating your installation.
+
+### Choosing installation types
+
+Installation types used with the `ezplatform:install` command are now more consistent:
+
+- `ezplatform-clean`
+- `ezplatform-demo`
+- `ezplatform-ee-clean`
+- `ezplatform-ee-demo`
+
+You can also use the new `composer ezplatform-install` command which automatically chooses a correct installation type for the given meta-repository.
+
+## API changes
+
+### Notifications
+
+Notification Bundle is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel). This allows whole community to get access to eZ notification system.
+
+### Bookmarks
+
+New Bookmark service had been added. Bookmark operations are now available via the REST API.
+
+### Simplified use of Content and languages in API
+
+This release introduces a few notable simplifications to API use. Here are some highlights:
+
+- [Location object now gives access to Content](https://doc.ibexa.co/en/2.5/api/public_php_api_browsing/#getting-content-from-a-location)
+- [Optional SiteAccessAware Repository](https://doc.ibexa.co/en/2.5/api/public_php_api_browsing/#siteaccess-aware-repository)
+
+## Full list of new features, improvements and bug fixes since v2.1.0
+
+| eZ Platform                                                                                                                    | eZ Enterprise                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [List of changes for final of eZ Platform v2.2.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.2.0)       | [List of changes for final for eZ Platform Enterprise Edition v2.2.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.2.0)      |
+| [List of changes for rc1 of eZ Platform v2.2.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.2.0-rc1)     | [List of changes for rc1 for eZ Platform Enterprise Edition v2.2.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.2.0-rc1)    |
+| [List of changes for beta1 of eZ Platform v2.2.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.2.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.2.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.2.0-beta1) |
+
+## Installation
+
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform/)
+
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements/)
