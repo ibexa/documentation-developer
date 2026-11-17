@@ -38,7 +38,8 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
             $contentTypeService,
             $languageService,
             $formBuilderType,
-            $configResolver
+            $configResolver,
+            $permissionResolver
         );
     }
 
