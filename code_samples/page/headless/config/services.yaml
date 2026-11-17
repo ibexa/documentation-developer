@@ -1,0 +1,5 @@
+services:
+# …
+    App\Controller\RichTextController:
+        arguments:
+            $richTextOutputConverter: '@ibexa.richtext.converter.output.xhtml5'

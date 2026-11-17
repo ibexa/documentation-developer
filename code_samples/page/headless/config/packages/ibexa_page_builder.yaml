@@ -1,0 +1,37 @@
+jms_translation:
+    configs:
+        page_builder:
+            dirs:
+                - '%kernel.project_dir%/vendor/ibexa/page-builder/src'
+            output_dir: '%kernel.project_dir%/vendor/ibexa/page-builder/src/bundle/Resources/translations/'
+            excluded_dirs: [Behat, Tests]
+            output_format: "xlf"
+
+ibexa:
+    system:
+        admin_group:
+            headless:
+                enabled: true
+                page_builder:
+                    preview_url: 'http://localhost:8081/page.html'
+
+ibexa_fieldtype_page:
+    layouts:
+        2_columns:
+            identifier: '2-columns'
+            name: '2 Columns'
+            description: 'Two columns layout'
+            thumbnail: '/bundles/ibexafieldtypepage/images/layouts/default.svg'
+            template: '@ibexadesign/layouts/2_columns.html.twig'
+            zones:
+                left:
+                    name: Left
+                right:
+                    name: Right
+    blocks:
+        tag:
+            views:
+                source_code:
+                    template: '@ibexadesign/blocks/tag/source_code.html.twig'
+                    name: 'See source code'
+                    priority: -256
