@@ -30,7 +30,16 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
         private readonly SubmissionsTab $innerTab,
         private readonly PermissionResolver $permissionResolver
     ) {
-        parent::__construct($twig, $translator, $formSubmissionService, $formFactory, $contentTypeService, $languageService, $formBuilderType, $configResolver);
+        parent::__construct(
+            $twig,
+            $translator,
+            $formSubmissionService,
+            $formFactory,
+            $contentTypeService,
+            $languageService,
+            $formBuilderType,
+            $configResolver
+        );
     }
 
     #[\Override]
