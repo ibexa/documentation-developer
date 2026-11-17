@@ -59,9 +59,6 @@ deptrac:
       - Ibexa\ProductCatalog\Money\IntlMoneyFactory
     App\Command\PaymentMethodCommand:
       - Ibexa\Payment\Values\PaymentMethodType
-    App\Command\SegmentCommand:
-      - Ibexa\Segmentation\Value\SegmentCreateStruct
-      - Ibexa\Segmentation\Value\SegmentGroupCreateStruct
     App\Command\ShippingMethodCommand:
       - Ibexa\ProductCatalog\Local\Repository\Values\Region
       - Ibexa\Shipping\Value\ShippingMethodType
