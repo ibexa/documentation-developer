@@ -37,7 +37,7 @@ Ensure that the `publishable_key` and `secret_key` fields contain the Stripe API
 You can now provide language translations for the Stripe payment platform name.
 To do it, within the `ibexa_payment_type` namespace in your translation files, use the provided translation key structure within your translation files:
 
-```yaml
+```yaml {skip-validation}
 ibexa:
     payment_method:
         type:
