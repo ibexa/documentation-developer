@@ -53,7 +53,7 @@ security:
                     # You will then be able to login with username "user" and password "userpass"
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
     # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
-    encoders:
+    password_hashers:
         Symfony\Component\Security\Core\User\User: plaintext
 ```
 
