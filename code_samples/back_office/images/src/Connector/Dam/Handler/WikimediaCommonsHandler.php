@@ -80,7 +80,7 @@ class WikimediaCommonsHandler implements HandlerInterface
             throw new \RuntimeException('Couldn\'t parse asset metadata');
         }
 
-        $pageData = array_values($response['query']['pages'])[0] ?? null;
+        $pageData = array_first($response['query']['pages']) ?? null;
         if (!isset($pageData['imageinfo'][0]['extmetadata'])) {
             throw new \RuntimeException('Couldn\'t parse image asset metadata');
         }
