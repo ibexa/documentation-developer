@@ -90,6 +90,7 @@ deptrac:
       - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\RideController:
       - Ibexa\Bundle\Core\Controller
+      - Ibexa\Core\FieldType\RelationList\Value
       - Ibexa\Core\MVC\Symfony\View\ContentView
     App\Controller\SvgController:
       - Ibexa\Core\Helper\TranslationHelper
@@ -270,3 +271,5 @@ deptrac:
       - Ibexa\AdminUi\UniversalDiscovery\Event\ConfigResolveEvent
     MyMapper:
       - Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType
+    NavigationController:
+      - Ibexa\Bundle\Core\Controller
