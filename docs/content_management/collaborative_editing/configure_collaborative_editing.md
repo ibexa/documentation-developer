@@ -26,11 +26,13 @@ Then, if not using Symfony Flex, add the following code to the `config/bundles.p
 
 ``` php
 <?php
+use Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle;
+use Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle;
 
 return [
     // A lot of bundles…
-    Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
-    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => ['all' => true],
+    IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
+    IbexaCkeditorPremiumBundle::class => ['all' => true],
 ];
 ```
 

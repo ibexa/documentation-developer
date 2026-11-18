@@ -68,17 +68,16 @@ class NavigationController extends Controller
     public function breadcrumbsAction(): Response
     {
         $locationId = 12345;
-        
+
         $query = new LocationQuery();
         $query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);
-        
-        /** @var SearchService $searchService */
+
         $results = $this->searchService->findLocations($query);
         $breadcrumbs = [];
         foreach ($results->searchHits as $searchHit) {
             $breadcrumbs[] = $searchHit;
         }
-        
+
         return $this->render('parts/breadcrumbs.html.twig', [
             'breadcrumbs' => $breadcrumbs,
         ]);

@@ -17,8 +17,7 @@ class ListRenderer implements NotificationRenderer, TypedNotificationRendererInt
         protected Environment $twig,
         protected RouterInterface $router,
         protected RequestStack $requestStack
-    ) {
-    }
+    ) {}
 
     public function render(Notification $notification): string
     {

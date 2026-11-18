@@ -3,6 +3,7 @@
 use Ibexa\Contracts\Collaboration\Session\Query\Criterion;
 use Ibexa\Contracts\Collaboration\Session\Query\SortClause;
 use Ibexa\Contracts\Collaboration\Session\SessionQuery;
+use Ibexa\Contracts\Collaboration\SessionServiceInterface;
 use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion;
 use Ibexa\Contracts\CoreSearch\Values\Query\SortClause\FieldValueSortClause;
 
@@ -17,5 +18,5 @@ $query = new SessionQuery(
         new SortClause\CreatedAt(FieldValueSortClause::SORT_DESC),
     ]
 );
-/** @var \Ibexa\Contracts\Collaboration\SessionServiceInterface $sessionService */
+/** @var SessionServiceInterface $sessionService */
 $sessionList = $sessionService->findSessions($query);

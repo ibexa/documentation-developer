@@ -10,12 +10,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
 {
     /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $formBuilder
-     * @param \Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinition $blockDefinition
-     * @param \Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeDefinition $blockAttributeDefinition
+     * @param FormBuilderInterface $formBuilder
+     * @param BlockDefinition $blockDefinition
+     * @param BlockAttributeDefinition $blockAttributeDefinition
      * @param array $constraints
      *
-     * @return \Symfony\Component\Form\FormBuilderInterface
+     * @return FormBuilderInterface
      *
      * @throws \Exception
      */

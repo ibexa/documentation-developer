@@ -31,8 +31,7 @@ class CartShoppingListTransferController extends AbstractController
         private readonly ShoppingListServiceInterface $shoppingListService,
         private readonly CartShoppingListTransferServiceInterface $cartShoppingListTransferService,
         private readonly LocalProductServiceInterface $productService
-    ) {
-    }
+    ) {}
 
     #[Route(
         path: '/app-shopping-list-cart',

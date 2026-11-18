@@ -11,9 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ProductNameFilterFormMapper implements FilterFormMapperInterface
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function createFilterForm(
         FilterDefinitionInterface $filterDefinition,

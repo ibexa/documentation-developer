@@ -165,7 +165,7 @@ merge with your custom settings if needed, and commit them to Git.
 
 If the new bundle `ibexa/core-search` has not been added by the recipes, enable it by adding the following line in `config/bundles.php`:
 
-``` php
+``` php {skip-validation}
 return [
     // ...
     Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],

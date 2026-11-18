@@ -65,19 +65,19 @@ class NavigationController extends Controller
     public function blogAction(): Response
     {
         $locationId = 12345;
-        
+
         $query = new LocationQuery();
         $query->query = new Criterion\LogicalAnd([
             new Criterion\Visibility(Criterion\Visibility::VISIBLE),
             new Criterion\ParentLocationId($locationId),
         ]);
-        
+
         $results = $this->searchService->findLocations($query);
         $posts = [];
         foreach ($results->searchHits as $searchHit) {
             $posts[] = $searchHit;
         }
-        
+
         return $this->render('full/blog.html.twig', [
             'posts' => $posts,
         ]);

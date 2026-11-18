@@ -11,9 +11,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private readonly MyFeatureService $myFeatureService)
-    {
-    }
+    public function __construct(private readonly MyFeatureService $myFeatureService) {}
 
     public static function getSubscribedEvents(): array
     {

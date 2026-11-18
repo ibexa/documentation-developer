@@ -19,9 +19,11 @@ The associated Symfony Flex recipe configures the bundle and its routes.
 Check that the following line has been added by the recipe to `config/bundles.php` file's array:
 
 ``` php
+use Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle;
+
 return [
     // ...
-    Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle::class => ['all' => true],
+    IbexaShoppingListBundle::class => ['all' => true],
 ];
 ```
 

@@ -16,8 +16,7 @@ final readonly class MyCustomAiProvider implements AiTranslationProviderInterfac
     public function __construct(
         private MyApiClient $apiClient,
         private string $actionConfigurationIdentifier,
-    ) {
-    }
+    ) {}
 
     public function getIdentifier(): string
     {

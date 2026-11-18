@@ -26,11 +26,14 @@ The Value class of this field type contains the following properties:
 | `$destinationContentId` | `string`, `int`, or `null` | This property is used to store the value provided, which represents the related content.  |
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
+use Ibexa\Core\FieldType\Relation\Value;
+
 /**
  * Value object content example.
  *
- * @var \Ibexa\Core\FieldType\Relation\Value $relation
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ * @var Value $relation
+ * @var ContentInfo $contentInfo
  */
 $relation->destinationContentId = $contentInfo->id;
 ```
