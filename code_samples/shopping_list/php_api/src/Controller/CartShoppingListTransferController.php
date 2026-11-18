@@ -5,6 +5,7 @@ namespace App\Controller;
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface;
 use Ibexa\Contracts\Cart\Value\CartCreateStruct;
+use Ibexa\Contracts\Cart\Value\CartInterface;
 use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
@@ -49,7 +50,7 @@ class CartShoppingListTransferController extends AbstractController
         $cartQuery = new CartQuery();
         $cartQuery->setOwnerId($user->getId());
         $cartsList = $this->cartService->findCarts($cartQuery);
-        $cart = array_find($cartsList->getCarts(), static fn ($cartItem): bool => $cartItem->getName() === $name);
+        $cart = array_find($cartsList->getCarts(), static fn (CartInterface $cartItem): bool => $cartItem->getName() === $name);
         if (null === $cart) {
             $cart = $this->cartService->createCart(new CartCreateStruct($name, $this->currencyService->getCurrencyByCode($currency), $user));
         }
