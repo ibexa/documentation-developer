@@ -60,8 +60,8 @@ It requires that you implement the `getFieldTypeIdentifier` method to tell which
 Add `MyFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 
 ``` php
-[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 1, 17) =]]
-[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 38, 39) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 1, 16) =]]
+}
 ```
 
 The `FieldDefinitionMapper` interface defines following methods:
@@ -76,7 +76,7 @@ When a mapper method is decorated, you need to call the decorated service method
 To do that, you need to replace `mapXXX` by the method it's in:
 
 ``` php
-[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 21, 24, remove_indent=True) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 23, 25, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
