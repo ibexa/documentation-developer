@@ -22,7 +22,8 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
         private readonly PermissionResolverInterface $innerPermissionResolver,
         private readonly SessionServiceInterface $sessionService,
         private readonly RequestStack $requestStack,
-    ) {}
+    ) {
+    }
 
     public function canUser(PolicyInterface $policy): bool
     {

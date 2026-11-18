@@ -9,7 +9,9 @@ use Ibexa\VersionComparison\Result\Value\StringComparisonResult;
 
 final readonly class HelloWorldComparisonResult implements ComparisonResult
 {
-    public function __construct(private StringComparisonResult $stringDiff) {}
+    public function __construct(private StringComparisonResult $stringDiff)
+    {
+    }
 
     public function getHelloWorldDiff(): StringComparisonResult
     {

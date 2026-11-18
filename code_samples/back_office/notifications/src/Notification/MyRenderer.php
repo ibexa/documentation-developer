@@ -15,7 +15,8 @@ class MyRenderer implements NotificationRenderer, TypedNotificationRendererInter
     public function __construct(
         protected Environment $twig,
         protected RouterInterface $router
-    ) {}
+    ) {
+    }
 
     public function render(Notification $notification): string
     {

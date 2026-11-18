@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Ibexa\Contracts\ConnectorAi\ActionConfiguration\ActionConfigurationQuery;
 use Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\Criterion;
 use Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\SortClause;
-use Ibexa\Contracts\ConnectorAi\ActionConfigurationServiceInterface;
 use Ibexa\Contracts\CoreSearch\Values\Query\AbstractSortClause;
 use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion;
 
@@ -22,5 +21,5 @@ $query = new ActionConfigurationQuery(
         new SortClause\Identifier(AbstractSortClause::SORT_ASC),
     ]
 );
-/** @var ActionConfigurationServiceInterface $actionConfigurationService */
+/** @var \Ibexa\Contracts\ConnectorAi\ActionConfigurationServiceInterface $actionConfigurationService */
 $results = $actionConfigurationService->findActionConfigurations($query);

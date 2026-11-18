@@ -12,7 +12,6 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RandomBlockListener implements EventSubscriberInterface
@@ -21,7 +20,8 @@ class RandomBlockListener implements EventSubscriberInterface
         private readonly ContentService $contentService,
         private readonly LocationService $locationService,
         private readonly SearchService $searchService
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {
@@ -33,7 +33,7 @@ class RandomBlockListener implements EventSubscriberInterface
     public function onBlockPreRender(PreRenderEvent $event): void
     {
         $blockValue = $event->getBlockValue();
-        /** @var TwigRenderRequest $renderRequest */
+        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
 
         $parameters = $renderRequest->getParameters();

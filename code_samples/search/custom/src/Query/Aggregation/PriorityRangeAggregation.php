@@ -12,4 +12,6 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAgg
  *
  * @phpstan-extends \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation<TValue>
  */
-final class PriorityRangeAggregation extends AbstractRangeAggregation implements LocationAggregation {}
+final class PriorityRangeAggregation extends AbstractRangeAggregation implements LocationAggregation
+{
+}

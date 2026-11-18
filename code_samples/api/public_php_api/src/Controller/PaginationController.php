@@ -13,7 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PaginationController extends Controller
 {
-    public function __construct(private readonly SearchService $searchService) {}
+    public function __construct(private readonly SearchService $searchService)
+    {
+    }
 
     public function showContentAction(
         Request $request,

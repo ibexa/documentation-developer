@@ -21,7 +21,7 @@ final class AnniversaryConditionStepEventSubscriber implements EventSubscriberIn
     }
 
     /**
-     * @param CreateFormDataEvent|MapDiscountToFormDataEvent $event
+     * @param \Ibexa\Contracts\Discounts\Event\CreateFormDataEvent|\Ibexa\Contracts\Discounts\Event\MapDiscountToFormDataEvent $event
      */
     public function addAnniversaryConditionStep(Event $event): void
     {
@@ -30,7 +30,7 @@ final class AnniversaryConditionStepEventSubscriber implements EventSubscriberIn
             return;
         }
 
-        /** @var IsAccountAnniversary $discount */
+        /** @var \App\Discounts\Condition\IsAccountAnniversary $discount */
         $discount = $event instanceof MapDiscountToFormDataEvent ?
                     $event->getDiscount()->getConditionByIdentifier(IsAccountAnniversary::IDENTIFIER) :
                     null;

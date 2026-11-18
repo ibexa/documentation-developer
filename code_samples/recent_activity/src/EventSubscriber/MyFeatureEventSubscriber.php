@@ -3,13 +3,14 @@
 namespace App\EventSubscriber;
 
 use App\Event\MyFeatureEvent;
-use App\MyFeature\MyFeature;
 use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyFeatureEventSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private readonly ActivityLogServiceInterface $activityLogService) {}
+    public function __construct(private readonly ActivityLogServiceInterface $activityLogService)
+    {
+    }
 
     public static function getSubscribedEvents(): array
     {
@@ -20,7 +21,7 @@ class MyFeatureEventSubscriber implements EventSubscriberInterface
 
     public function onMyFeatureEvent(MyFeatureEvent $event): void
     {
-        /** @var MyFeature $object */
+        /** @var \App\MyFeature\MyFeature $object */
         $object = $event->getObject();
         $className = $object::class;
         $id = (string)$object->id;

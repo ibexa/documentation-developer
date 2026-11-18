@@ -15,7 +15,8 @@ final readonly class MyCustomProvider implements TranslationProviderInterface
      */
     public function __construct(
         private MyApiClient $apiClient,
-    ) {}
+    ) {
+    }
 
     public function getIdentifier(): string
     {

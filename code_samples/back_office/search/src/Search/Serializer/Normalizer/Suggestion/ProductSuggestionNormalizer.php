@@ -21,7 +21,7 @@ class ProductSuggestionNormalizer implements
         ?string $format = null,
         array $context = []
     ): array {
-        /** @var ProductSuggestion $object */
+        /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
         return [
             'type' => 'product',
             'name' => $object->getName(),

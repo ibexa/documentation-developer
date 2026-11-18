@@ -16,7 +16,8 @@ final readonly class CartResolverDecorator implements CartResolverInterface
         private CartResolverInterface $innerCartResolver,
         private SessionServiceInterface $sessionService,
         private RequestStack $requestStack
-    ) {}
+    ) {
+    }
 
     public function resolveCart(?User $user = null): CartInterface
     {

@@ -7,8 +7,6 @@ use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent;
-use Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion;
-use Ibexa\ProductCatalog\Local\Repository\Values\Product;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -17,7 +15,9 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
 {
     use LoggerAwareTrait;
 
-    public function __construct(private ProductServiceInterface $productService) {}
+    public function __construct(private ProductServiceInterface $productService)
+    {
+    }
 
     public static function getSubscribedEvents(): array
     {
@@ -46,13 +46,13 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
             if ($searchResult->getTotalCount()) {
                 $maxScore = 0.0;
                 $suggestionsByContentIds = [];
-                /** @var ContentSuggestion $suggestion */
+                /** @var \Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion $suggestion */
                 foreach ($suggestionCollection as $suggestion) {
                     $maxScore = max($suggestion->getScore(), $maxScore);
                     $suggestionsByContentIds[$suggestion->getContent()->id] = $suggestion;
                 }
 
-                /** @var Product $product */
+                /** @var \Ibexa\ProductCatalog\Local\Repository\Values\Product $product */
                 foreach ($searchResult as $product) {
                     $contentId = $product->getContent()->id;
                     if (array_key_exists($contentId, $suggestionsByContentIds)) {

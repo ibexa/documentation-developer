@@ -23,7 +23,8 @@ final readonly class VerifyStateEventSubscriber implements EventSubscriberInterf
         private FormFactoryInterface $formFactory,
         private HandlerInterface $applicationStateHandler,
         private TranslatableNotificationHandlerInterface $notificationHandler
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {

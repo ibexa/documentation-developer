@@ -13,9 +13,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class RichTextBlockSubscriber implements EventSubscriberInterface
 {
     /**
-     * @param DOMDocumentFactory $domDocumentFactory
+     * @param \Ibexa\FieldTypeRichText\RichText\DOMDocumentFactory $domDocumentFactory
      */
-    public function __construct(private readonly DOMDocumentFactory $domDocumentFactory) {}
+    public function __construct(private readonly DOMDocumentFactory $domDocumentFactory)
+    {
+    }
 
     /**
      * {@inheritdoc}
@@ -28,7 +30,7 @@ class RichTextBlockSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param PreRenderEvent $event
+     * @param \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent $event
      */
     public function onBlockPreRender(PreRenderEvent $event): void
     {

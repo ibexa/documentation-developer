@@ -14,7 +14,8 @@ final readonly class CartProxyMapper implements CartProxyMapperInterface
         private Repository $repository,
         private CartServiceInterface $cartService,
         private ProxyGeneratorInterface $proxyGenerator
-    ) {}
+    ) {
+    }
 
     public function createCartProxy(string $identifier): CartInterface
     {
