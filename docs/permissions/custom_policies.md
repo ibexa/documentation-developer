@@ -125,10 +125,10 @@ class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerI
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('role.policy.custom_module', 'forms'))->setDesc('Custom module'),
-            (new Message('role.policy.custom_module.all_functions', 'forms'))->setDesc('Custom module / All functions'),
-            (new Message('role.policy.custom_module.custom_function_1', 'forms'))->setDesc('Custom module / Function #1'),
-            (new Message('role.policy.custom_module.custom_function_2', 'forms'))->setDesc('Custom module / Function #2'),
+            new Message('role.policy.custom_module', 'forms')->setDesc('Custom module'),
+            new Message('role.policy.custom_module.all_functions', 'forms')->setDesc('Custom module / All functions'),
+            new Message('role.policy.custom_module.custom_function_1', 'forms')->setDesc('Custom module / Function #1'),
+            new Message('role.policy.custom_module.custom_function_2', 'forms')->setDesc('Custom module / Function #2'),
         ];
     }
 }
