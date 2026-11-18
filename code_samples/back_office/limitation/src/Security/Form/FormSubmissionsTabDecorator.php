@@ -75,6 +75,6 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
     #[\Override]
     public function getOrder(): int
     {
-        return  $this->innerTab->getOrder();
+        return $this->innerTab->getOrder();
     }
 }
