@@ -65,12 +65,12 @@ use Rector\Config\RectorConfig;
 return RectorConfig::configure()
     ->withPaths(
         [
-           __DIR__ . '/src',
+            __DIR__ . '/src',
         ]
     )
     ->withSets(
         [
-           IbexaSetList::IBEXA_46->value,
+            IbexaSetList::IBEXA_46->value,
         ]
     )
     ->withPhpSets(php83: true)

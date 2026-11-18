@@ -27,7 +27,7 @@ The Value class of this field type contains the following properties:
 ``` php
 // Value object content examples
 
-/** @var \Ibexa\Core\FieldType\Selection\Value $value */
+/** @var Value $value */
 // Single selection
 $value->selection = [1];
 

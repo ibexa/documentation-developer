@@ -31,7 +31,6 @@ class MyService
     public function __construct(
         private readonly SiteAccessServiceInterface $siteAccessService,
         private readonly ContentService $contentService
-    ) {
-    }
+    ) {}
 }
 ```

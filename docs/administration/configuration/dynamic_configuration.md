@@ -84,9 +84,7 @@ use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 
 class Service
 {
-    public function __construct(private readonly ConfigResolverInterface $configResolver)
-    {
-    }
+    public function __construct(private readonly ConfigResolverInterface $configResolver) {}
 
     public function someMethodThatNeedConfig(): void
     {

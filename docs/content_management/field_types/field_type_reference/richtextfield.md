@@ -72,8 +72,8 @@ The following example shows how to pass DocBook content to a [create struct](cre
 
 ``` php
 /**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType $contentType
+ * @var ContentService $contentService
+ * @var ContentType $contentType
  */
 $contentCreateStruct = $contentService->newContentCreateStruct($contentType, 'eng-GB');
 

@@ -22,16 +22,16 @@ Example:
 use Ibexa\Core\FieldType\Author;
 
 $authorList = new Author\Value([
-   new Author\Author([
-       'id' => 1,
-       'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com',
-   ]),
-   new Author\Author([
-       'id' => 2,
-       'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com',
-   ]),
+    new Author\Author([
+        'id' => 1,
+        'name' => 'Boba Fett',
+        'email' => 'boba.fett@example.com',
+    ]),
+    new Author\Author([
+        'id' => 2,
+        'name' => 'Darth Vader',
+        'email' => 'darth.vader@example.com',
+    ]),
 ]);
 ```
 
@@ -44,14 +44,14 @@ Example
 ``` php
 [
     [
-       'id' => 1,
-       'name' => 'Boba Fett',
-       'email' => 'boba.fett@example.com',
+        'id' => 1,
+        'name' => 'Boba Fett',
+        'email' => 'boba.fett@example.com',
     ],
     [
-       'id' => 2,
-       'name' => 'Darth Vader',
-       'email' => 'darth.vader@example.com',
+        'id' => 2,
+        'name' => 'Darth Vader',
+        'email' => 'darth.vader@example.com',
     ],
 ];
 ```

@@ -74,7 +74,7 @@ class RideQueryType implements QueryType
     }
 
     /** @param array<string, mixed> $parameters */
-    public function getQuery(array $parameters = []): \Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery
+    public function getQuery(array $parameters = []): LocationQuery
     {
         return new LocationQuery([
             'filter' => new Criterion\LogicalAnd(

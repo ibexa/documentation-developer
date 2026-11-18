@@ -19,10 +19,10 @@ The `IsBasePrice` Criterion isn't available in Solr or Elasticsearch engines.
 ### PHP
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsBasePrice;
 
 $query = new PriceQuery(
-    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsBasePrice()
+    new IsBasePrice()
 );
 ```

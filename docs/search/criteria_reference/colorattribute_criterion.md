@@ -17,11 +17,11 @@ The `ColorAttribute` Search Criterion searches for products by the value of thei
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ColorAttribute;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ColorAttribute('color', ['#FF0000'])
+    new ColorAttribute('color', ['#FF0000'])
 );
 ```
 

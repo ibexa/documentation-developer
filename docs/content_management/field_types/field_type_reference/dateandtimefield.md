@@ -91,6 +91,7 @@ Following `defaultType` default value options are available as constants in the 
 ``` php
 // DateAndTime FieldType example settings
 
+use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Core\FieldType\DateAndTime\Type;
 
 $settings = [
@@ -99,7 +100,7 @@ $settings = [
     'dateInterval' => null,
 ];
 
-/** @var \Ibexa\Contracts\Core\Repository\ContentTypeService $contentTypeService */
+/** @var ContentTypeService $contentTypeService */
 $dateAndTimeFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct(
     'my_date_and_time_field',
     'ibexa_datetime'

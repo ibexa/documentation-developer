@@ -17,10 +17,10 @@ The `UpdatedAt` Search Criterion searches for payments based on the date when th
 ### PHP
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+use Ibexa\Contracts\Payment\Payment\Query\Criterion\UpdatedAt;
 
-$criteria = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\UpdatedAt(
+$criteria = new UpdatedAt(
     new DateTime('2023-03-01')
 );
 $query = new PaymentQuery($criteria);

@@ -37,9 +37,9 @@ To set the validation properties, the `validateValidatorConfiguration()` method 
 
 ``` php
 [
-  'StringLengthValidator' => [
-    'maxStringLength' => 60,
-    'minStringLength' => 1,
-  ],
+    'StringLengthValidator' => [
+        'maxStringLength' => 60,
+        'minStringLength' => 1,
+    ],
 ];
 ```

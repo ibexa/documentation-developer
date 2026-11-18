@@ -15,14 +15,15 @@ The `Identifier` Sort Clause sorts search results by payment identifier.
 
 ``` php
 use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+use Ibexa\Contracts\Payment\Payment\Query\SortClause\Identifier;
 
 $criteria = null;
 
 $paymentQuery = new PaymentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Payment\Payment\Query\SortClause\Identifier(
-            \Ibexa\Contracts\Payment\Payment\Query\SortClause\Identifier::SORT_ASC
+        new Identifier(
+            Identifier::SORT_ASC
         ),
     ]
 );

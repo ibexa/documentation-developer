@@ -30,8 +30,8 @@ $query->aggregations[] = new Aggregation\Field\TimeRangeAggregation(
     'event',
     'event_time',
     [
-    Range::ofInt(null, $timestamp),
-    Range::ofInt($timestamp, null),
-]
+        Range::ofInt(null, $timestamp),
+        Range::ofInt($timestamp, null),
+    ]
 );
 ```

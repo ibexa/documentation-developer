@@ -50,6 +50,7 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
 You can use the `ParentLocationId` Search Criterion to list blog posts contained in a blog:
 
 ``` php hl_lines="9"
+use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
@@ -61,7 +62,7 @@ $query->query = new Criterion\LogicalAnd([
     new Criterion\ParentLocationId($locationId),
 ]);
 
-/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
+/** @var SearchService $searchService */
 $results = $searchService->findLocations($query);
 $posts = [];
 foreach ($results->searchHits as $searchHit) {

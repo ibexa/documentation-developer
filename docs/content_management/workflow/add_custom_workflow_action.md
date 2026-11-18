@@ -83,7 +83,7 @@ For example, you can override the message typed by the user:
 ``` php
 /**
  * @var array<string, mixed> $context
- * @var \Symfony\Component\Workflow\Event\TransitionEvent<object> $event
+ * @var TransitionEvent<object> $event
  */
 $new_context = $context;
 $new_context['message'] = 'This article went through proofreading';

@@ -17,11 +17,11 @@ The `FloatAttribute` Search Criterion searches for products by the value of thei
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\FloatAttribute;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\FloatAttribute(
+    new FloatAttribute(
         'length',
         16.5
     )

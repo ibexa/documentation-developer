@@ -173,9 +173,9 @@ Examples for adding specific content tags using the autowireable `ContentTagInte
 
 ``` php
 /**
- * @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
+ * @var ContentTagInterface $tagHandler
+ * @var Content $content
+ * @var Location $location
  */
 
 // Example for tagging everything needed for Content:
@@ -196,9 +196,10 @@ In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` s
 The following example adds minimal tags when ID 33 and 34 are rendered in ESI, but parent response needs these tags to get refreshed if they're deleted:
 
 ``` php
+use FOS\HttpCacheBundle\Http\SymfonyResponseTagger;
 use Ibexa\Contracts\HttpCache\Handler\ContentTagInterface;
 
-/** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
+/** @var SymfonyResponseTagger $responseTagger */
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
 
@@ -210,7 +211,7 @@ For custom or built-in controllers (for example, REST) that still use `X-Locatio
 It supports singular and comma-separated location ID value(s):
 
 ``` php
-/** @var \Symfony\Component\HttpFoundation\Response $response */
+/** @var Response $response */
 $response->headers->set('X-Location-Id', '123');
 
 // Alternatively using several Location ID values
@@ -342,8 +343,7 @@ class MyCustomCacheCommand
     public function __construct(
         #[Autowire(service: 'ibexa.http_cache.purge_client')]
         private readonly PurgeClientInterface $purgeClient
-    ) {
-    }
+    ) {}
 
     public function __invoke(SymfonyStyle $io): int
     {

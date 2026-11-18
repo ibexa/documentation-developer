@@ -21,7 +21,7 @@ Check that the following line has been added by the recipe to `config/bundles.ph
 ``` php
 return [
     // ...
-    Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle::class => ['all' => true],
+    IbexaShoppingListBundle::class => ['all' => true],
 ];
 ```
 

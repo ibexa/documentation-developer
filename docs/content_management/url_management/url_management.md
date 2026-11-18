@@ -213,7 +213,7 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
+/** @var Repository $repository */
 $source = 'pictures/*/*';
 $destination = 'media/images/{1}/{2}';
 $redirect = true;

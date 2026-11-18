@@ -21,8 +21,9 @@ The `IsCurrencyEnabledCriterion` Criterion isn't available in Solr or Elasticsea
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Currency\Query\Criterion\IsCurrencyEnabledCriterion;
 
 $query = new CurrencyQuery(
-    new \Ibexa\Contracts\ProductCatalog\Values\Currency\Query\Criterion\IsCurrencyEnabledCriterion()
+    new IsCurrencyEnabledCriterion()
 );
 ```

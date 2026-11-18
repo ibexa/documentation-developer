@@ -22,11 +22,11 @@ For more information, see [Availability and computed availability](products.md#a
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductAvailability;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductAvailability(true)
+    new ProductAvailability(true)
 );
 ```
 

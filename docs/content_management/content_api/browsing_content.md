@@ -115,8 +115,8 @@ You can also specify the version number as the second argument to get Relations 
 
 ``` php
 /**
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var ContentInfo $contentInfo
+ * @var ContentService $contentService
  */
 $versionInfo = $contentService->loadVersionInfo($contentInfo, 2);
 ```
@@ -187,7 +187,7 @@ To load a specific language, provide its language code when loading the content 
 ``` php
 /**
  * @var int $contentId
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
+ * @var ContentService $contentService
  */
 $content = $contentService->loadContent($contentId, ['ger-DE']);
 ```
@@ -195,11 +195,13 @@ $content = $contentService->loadContent($contentId, ['ger-DE']);
 To load all languages as a prioritized list, use `Language::ALL`:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\Language;
 
 /**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+ * @var ContentService $contentService
+ * @var Content $content
  */
 $contentService->loadContent($content->id, Language::ALL);
 ```
@@ -228,7 +230,7 @@ You can do it through the `getMainLocation` method of the ContentInfo object.
 Next, use the `getParentLocation` method of the location object to access the parent location:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo */
+/** @var ContentInfo $contentInfo */
 $mainLocation = $contentInfo->getMainLocation();
 $parentLocation = $mainLocation?->getParentLocation();
 if ($parentLocation !== null) {
@@ -253,11 +255,11 @@ For example, to get the comparison between the `name` field of two versions:
 
 ``` php
 /**
- * @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo $contentInfo
+ * @var ContentInfo $contentInfo
  * @var int $versionFromId
  * @var int $versionToId
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\VersionComparison\Service\VersionComparisonServiceInterface $comparisonService
+ * @var ContentService $contentService
+ * @var VersionComparisonServiceInterface $comparisonService
  */
 $versionFrom = $contentService->loadVersionInfo($contentInfo, $versionFromId);
 $versionTo = $contentService->loadVersionInfo($contentInfo, $versionToId);

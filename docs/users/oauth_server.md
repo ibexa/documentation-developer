@@ -25,8 +25,8 @@ Then, in `config/bundles.php`, at the end of an array with a list of bundles, ad
 
 return [
     // A lot of bundles…
-    Ibexa\Bundle\OAuth2Server\IbexaOAuth2ServerBundle::class => ['all' => true],
-    League\Bundle\OAuth2ServerBundle\LeagueOAuth2ServerBundle::class => ['all' => true],
+    IbexaOAuth2ServerBundle::class => ['all' => true],
+    LeagueOAuth2ServerBundle::class => ['all' => true],
 ];
 ```
 

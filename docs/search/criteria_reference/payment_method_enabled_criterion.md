@@ -17,8 +17,9 @@ The `Enabled` Search Criterion searches for payment methods based on whether the
 
 ``` php
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Enabled;
 
 $query = new PaymentMethodQuery(
-    new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Enabled(true)
+    new Enabled(true)
 );
 ```

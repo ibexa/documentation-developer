@@ -25,9 +25,9 @@ $query->aggregations[] = new Aggregation\Field\DateRangeAggregation(
     'event',
     'event_date',
     [
-    Range::ofDateTime(null, new DateTime('2020-06-01')),
-    Range::ofDateTime(new DateTime('2020-06-01'), new DateTime('2020-12-31')),
-    Range::ofDateTime(new DateTime('2020-12-31'), null),
-]
+        Range::ofDateTime(null, new DateTime('2020-06-01')),
+        Range::ofDateTime(new DateTime('2020-06-01'), new DateTime('2020-12-31')),
+        Range::ofDateTime(new DateTime('2020-12-31'), null),
+    ]
 );
 ```
