@@ -14,7 +14,7 @@ For example, you can create a handler that connects to a translation model and u
 You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
 ``` php
-[[= include_code('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 87, 105, remove_indent=True) =]]
+[[= include_code('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 92, 110, remove_indent=True) =]]
 ```
 
 The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.
@@ -77,7 +77,7 @@ See [Action Configuration Search Criteria reference](action_configuration_criter
 The following example creates a new Action Configuration:
 
 ``` php hl_lines="3 17"
-[[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 47, 63, remove_indent=True) =]]
+[[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 49, 65, remove_indent=True) =]]
 ```
 
 Actions Configurations are tied to a specific Action Type and are translatable.
@@ -88,7 +88,7 @@ Reuse existing Action Configurations to simplify the execution of AI Actions.
 You can pass one directly to the `ActionServiceInterface::execute()` method:
 
 ``` php hl_lines="7-8"
-[[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 65, 72, remove_indent=True) =]]
+[[= include_code('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 67, 74, remove_indent=True) =]]
 ```
 
 The passed Action Configuration is only taken into account if the Action Context was not passed to the Action directly using the [ActionInterface::setActionContext()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html#method_hasActionContext) method.
