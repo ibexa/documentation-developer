@@ -20,7 +20,7 @@ class NotificationSenderController extends AbstractController
     public function index(): Response
     {
         $this->notificationService->send(
-            new SymfonyNotificationAdapter((new ControllerFeedback('Message sent from controller'))->emoji('👍')),
+            new SymfonyNotificationAdapter(new ControllerFeedback('Message sent from controller')->emoji('👍')),
         );
 
         return $this->render('@ibexadesign/notification-sender-controller.html.twig');
