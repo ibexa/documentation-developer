@@ -22,6 +22,7 @@ $configFactory->withRules(array_merge($commonRules, [
 
 return $configFactory
     ->buildConfig()
+    ->setUnsupportedPhpVersionAllowed(true)
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->in(__DIR__ . '/code_samples/_inline_php')
