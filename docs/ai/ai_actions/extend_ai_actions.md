@@ -43,7 +43,7 @@ You can influence the execution of an Action with two events:
 Below you can find the full example of a Symfony Command, together with a matching service definition.
 The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
 
-``` php hl_lines="72 85-110"
+``` php hl_lines="75 88-115"
 [[= include_code('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php') =]]
 ```
 
@@ -116,7 +116,7 @@ Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_re
 
 See the code sample below, together with a matching service definition:
 
-``` php hl_lines="17 25-28 30-65 67-70"
+``` php hl_lines="17 24-27 29-66 68-71"
 [[= include_code('code_samples/ai_actions/src/AI/Handler/LLaVaTextToTextActionHandler.php') =]]
 ```
 
@@ -136,7 +136,7 @@ The built-in Action Types use service tags to find Action Handlers capable of ha
 Form configuration makes the Handler configurable by using the back office.
 The example handler uses the `system_prompt` option, which becomes part of the Action Configuration UI thanks to the following code:
 
-``` php hl_lines="16-20"
+``` php hl_lines="18-22"
 [[= include_code('code_samples/ai_actions/src/Form/Type/TextToTextOptionsType.php') =]]
 ```
 
@@ -216,7 +216,7 @@ The `TranscribeAudio` Action Type requires adding two data classes that exist in
 Custom Form Type is needed if the Action Type requires additional options configurable in the UI.
 The following example adds a checkbox field that indicates to the Action Handler whether the transcription should include the timestamps.
 
-``` php hl_lines="16-20"
+``` php hl_lines="18-22"
 [[= include_code('code_samples/ai_actions/src/Form/Type/TranscribeAudioOptionsType.php') =]]
 ```
 
@@ -232,7 +232,7 @@ An example Action Handler combines the input data and the Action Type options an
 The language of the transcribed data is extracted from the Runtime Context for better results.
 The Action Type options provided in the Action Context dictate whether the timestamps will be removed before returning the result.
 
-``` php hl_lines="34-37 52-55"
+``` php hl_lines="37-40 55-58"
 [[= include_code('code_samples/ai_actions/src/AI/Handler/WhisperAudioToTextActionHandler.php') =]]
 ```
 
