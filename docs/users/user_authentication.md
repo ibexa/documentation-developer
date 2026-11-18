@@ -56,7 +56,8 @@ security:
     password_hashers:
         Symfony\Component\Security\Core\User\User: plaintext
     firewalls:
-        # …
+        dev:
+            # …
 ```
 
 ### Implement the listener
