@@ -55,7 +55,7 @@ $repoRoot = dirname(__DIR__);
 $entries = [];
 
 // Collect all failures/errors at any nesting depth using XPath
-/** @var \SimpleXMLElement[] $testcases */
+/** @var SimpleXMLElement[] $testcases */
 $testcases = $xml->xpath('//testcase[failure or error]') ?: [];
 
 foreach ($testcases as $testcase) {

@@ -143,8 +143,12 @@ final class InlinePhpWriterTest extends TestCase
      * @param string $expectedBody Expected body section after the blank separator
      */
     #[DataProvider('provideExactContent')]
-    public function testExactFileContent(string $sourcePath, int $line, string $body, string $expectedBody): void
-    {
+    public function testExactFileContent(
+        string $sourcePath,
+        int $line,
+        string $body,
+        string $expectedBody
+    ): void {
         $expected = sprintf(InlinePhpWriter::FILE_TEMPLATE, $sourcePath, $line, $expectedBody);
         self::assertSame($expected, $this->writer->build($sourcePath, $line, $body));
     }

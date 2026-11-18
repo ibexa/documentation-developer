@@ -37,8 +37,11 @@ final class InlinePhpSyncerTest extends TestCase
      * Delegates to InlinePhpWriter::build() — the production class — so syncer tests
      * always use the canonical file format.
      */
-    private function buildPhpFile(string $sourcePath, int $bodyLine, string $mdBody): string
-    {
+    private function buildPhpFile(
+        string $sourcePath,
+        int $bodyLine,
+        string $mdBody
+    ): string {
         return $this->writer->build($sourcePath, $bodyLine, $mdBody);
     }
 

@@ -45,8 +45,11 @@ final class InlinePhpWriter
      * @param string $body        Snippet body as returned by MarkdownExtractor::extract():
      *                            admonition indentation already stripped, may start with <?php.
      */
-    public function build(string $sourcePath, int $bodyLine, string $body): string
-    {
+    public function build(
+        string $sourcePath,
+        int $bodyLine,
+        string $body
+    ): string {
         $hasOpenTag = str_starts_with(ltrim($body), '<?php');
         $bodyWithoutTag = $hasOpenTag
             ? ltrim(substr($body, strpos($body, '<?php') + 5))

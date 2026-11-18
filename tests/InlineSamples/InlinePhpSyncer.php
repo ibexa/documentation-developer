@@ -56,8 +56,10 @@ final class InlinePhpSyncer
      * @return string|null Updated Markdown content, or null if nothing changed or the source
      *                     location cannot be mapped.
      */
-    public function sync(string $phpFileContent, string $mdContent): ?string
-    {
+    public function sync(
+        string $phpFileContent,
+        string $mdContent
+    ): ?string {
         $location = $this->parseSourceLocation($phpFileContent);
         if ($location === null) {
             return null;
@@ -117,8 +119,11 @@ final class InlinePhpSyncer
      *                           without the <?php tag and without admonition indentation.
      * @param int    $bodyLine   1-based line number of the first body line in the Markdown.
      */
-    private function applyToMarkdown(string $fixedBody, int $bodyLine, string $mdContent): ?string
-    {
+    private function applyToMarkdown(
+        string $fixedBody,
+        int $bodyLine,
+        string $mdContent
+    ): ?string {
         $mdLines = explode("\n", $mdContent);
 
         // $bodyLine (1-based) is the first body line; the opening fence is one line above it.
