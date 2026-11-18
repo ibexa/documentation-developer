@@ -24,8 +24,10 @@ class ShoppingListFilterCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $login = 'admin';
         $desiredProductCodes = ['TODO', 'TODO'];
         $name = 'shopping-list-test-filtering';
@@ -56,8 +58,10 @@ class ShoppingListFilterCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function displayList(OutputInterface $output, ShoppingListInterface $list): void
-    {
+    private function displayList(
+        OutputInterface $output,
+        ShoppingListInterface $list
+    ): void {
         $output->writeln("{$list->getOwner()->getName()} ({$list->getOwner()->getLogin()})");
         $output->writeln("{$list->getName()} ({$list->getIdentifier()})" . ($list->isDefault() ? ' [default]' : ''));
         $entries = $list->getEntries();

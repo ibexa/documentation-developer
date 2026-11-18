@@ -17,8 +17,10 @@ final class TranscribeAudio extends BaseParser
     public const string BASE64_KEY = 'base64';
 
     /** @param array<mixed> $data */
-    public function parse(array $data, ParsingDispatcher $parsingDispatcher): TranscribeAudioAction
-    {
+    public function parse(
+        array $data,
+        ParsingDispatcher $parsingDispatcher
+    ): TranscribeAudioAction {
         $this->assertInputIsValid($data);
         $runtimeContext = $this->getRuntimeContext($data);
 

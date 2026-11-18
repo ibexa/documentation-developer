@@ -36,8 +36,11 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
         $resolver->setAllowedTypes('richtext_description', ['null', 'string']);
     }
 
-    public function buildView(FormView $view, FormInterface $form, array $options): void
-    {
+    public function buildView(
+        FormView $view,
+        FormInterface $form,
+        array $options
+    ): void {
         // pass the Dom object of the richtext doc to the template
         $dom = new \DOMDocument();
         if (!empty($options['richtext_description'])) {

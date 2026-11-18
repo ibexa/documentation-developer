@@ -29,8 +29,11 @@ class BrowseLocationsCommand extends Command
             ]);
     }
 
-    private function browseLocation(Location $location, OutputInterface $output, int $depth = 0): void
-    {
+    private function browseLocation(
+        Location $location,
+        OutputInterface $output,
+        int $depth = 0
+    ): void {
         $output->writeln($location->contentInfo->name);
 
         $children = $this->locationService->loadLocationChildren($location);
@@ -39,8 +42,10 @@ class BrowseLocationsCommand extends Command
         }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $locationId = (int) $input->getArgument('locationId');
 
         $location = $this->locationService->loadLocation($locationId);

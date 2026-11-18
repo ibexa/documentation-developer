@@ -20,11 +20,14 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         private readonly PermissionResolver $permissionResolver,
         private readonly ContentService $contentService,
         private readonly FormSubmissionGateway $gateway,
-    ) {
-    }
+    ) {}
 
-    public function create(ContentInfo $content, string $languageCode, Form $form, array $data): FormSubmission
-    {
+    public function create(
+        ContentInfo $content,
+        string $languageCode,
+        Form $form,
+        array $data
+    ): FormSubmission {
         return $this->innerService->create($content, $languageCode, $form, $data);
     }
 
@@ -63,8 +66,12 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         $this->innerService->delete($submission);
     }
 
-    public function loadByContent(ContentInfo $content, ?string $languageCode = null, int $offset = 0, int $limit = 25): FormSubmissionList
-    {
+    public function loadByContent(
+        ContentInfo $content,
+        ?string $languageCode = null,
+        int $offset = 0,
+        int $limit = 25
+    ): FormSubmissionList {
         if (!$this->permissionResolver->canUser('form', 'read_submissions', $content)) {
             throw new UnauthorizedException('form', 'read_submissions', ['contentId' => $content->getId()]);
         }
@@ -72,8 +79,10 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         return $this->innerService->loadByContent($content, $languageCode, $offset, $limit);
     }
 
-    public function loadAllByContentForExport(ContentInfo $content, ?string $languageCode = null): array
-    {
+    public function loadAllByContentForExport(
+        ContentInfo $content,
+        ?string $languageCode = null
+    ): array {
         if (!$this->permissionResolver->canUser('form', 'read_submissions', $content)) {
             throw new UnauthorizedException('form', 'read_submissions', ['contentId' => $content->getId()]);
         }
@@ -81,8 +90,10 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         return $this->innerService->loadAllByContentForExport($content, $languageCode);
     }
 
-    public function loadHeaders(ContentInfo $content, ?string $languageCode = null): array
-    {
+    public function loadHeaders(
+        ContentInfo $content,
+        ?string $languageCode = null
+    ): array {
         if (!$this->permissionResolver->canUser('form', 'read_submissions', $content)) {
             throw new UnauthorizedException('form', 'read_submissions', ['contentId' => $content->getId()]);
         }
@@ -90,8 +101,10 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         return $this->innerService->loadHeaders($content, $languageCode);
     }
 
-    public function getCount(ContentInfo $content, ?string $languageCode = null): int
-    {
+    public function getCount(
+        ContentInfo $content,
+        ?string $languageCode = null
+    ): int {
         if (!$this->permissionResolver->canUser('form', 'read_submissions', $content)) {
             throw new UnauthorizedException('form', 'read_submissions', ['contentId' => $content->getId()]);
         }

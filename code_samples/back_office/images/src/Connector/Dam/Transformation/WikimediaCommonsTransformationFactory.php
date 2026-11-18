@@ -8,8 +8,10 @@ use Ibexa\Contracts\Connector\Dam\Variation\TransformationFactory as Transformat
 class WikimediaCommonsTransformationFactory implements TransformationFactoryInterface
 {
     /** @param array<string, scalar> $transformationParameters */
-    public function build(?string $transformationName = null, array $transformationParameters = []): Transformation
-    {
+    public function build(
+        ?string $transformationName = null,
+        array $transformationParameters = []
+    ): Transformation {
         if (null === $transformationName) {
             return new Transformation(null, array_map(strval(...), $transformationParameters));
         }

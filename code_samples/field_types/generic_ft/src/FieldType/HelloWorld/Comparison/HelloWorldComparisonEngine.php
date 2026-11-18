@@ -7,30 +7,33 @@ namespace App\FieldType\HelloWorld\Comparison;
 use Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine;
 use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
+use Ibexa\VersionComparison\Engine\Value\StringComparisonEngine;
 
 final readonly class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
 {
-    public function __construct(private \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine $stringValueComparisonEngine)
-    {
-    }
+    public function __construct(private StringComparisonEngine $stringValueComparisonEngine) {}
 
     /**
-     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataA
-     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataB
+     * @param Value $comparisonDataA
+     * @param Value $comparisonDataB
      */
-    public function compareFieldsTypeValues(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): ComparisonResult
-    {
+    public function compareFieldsTypeValues(
+        FieldTypeComparisonValue $comparisonDataA,
+        FieldTypeComparisonValue $comparisonDataB
+    ): ComparisonResult {
         return new HelloWorldComparisonResult(
             $this->stringValueComparisonEngine->compareValues($comparisonDataA->name, $comparisonDataB->name)
         );
     }
 
     /**
-     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataA
-     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataB
+     * @param Value $comparisonDataA
+     * @param Value $comparisonDataB
      */
-    public function shouldRunComparison(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): bool
-    {
+    public function shouldRunComparison(
+        FieldTypeComparisonValue $comparisonDataA,
+        FieldTypeComparisonValue $comparisonDataB
+    ): bool {
         return $comparisonDataA->name->value !== $comparisonDataB->name->value;
     }
 }

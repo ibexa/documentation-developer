@@ -11,16 +11,21 @@ use Ibexa\Contracts\Elasticsearch\Query\LanguageFilter;
 
 final class CameraManufacturerVisitor implements CriterionVisitor
 {
-    public function supports(CriterionInterface $criterion, LanguageFilter $languageFilter): bool
-    {
+    public function supports(
+        CriterionInterface $criterion,
+        LanguageFilter $languageFilter
+    ): bool {
         return $criterion instanceof CameraManufacturerCriterion;
     }
 
     /**
-     * @param \App\Query\Criterion\CameraManufacturerCriterion $criterion
+     * @param CameraManufacturerCriterion $criterion
      */
-    public function visit(CriterionVisitor $dispatcher, CriterionInterface $criterion, LanguageFilter $languageFilter): array
-    {
+    public function visit(
+        CriterionVisitor $dispatcher,
+        CriterionInterface $criterion,
+        LanguageFilter $languageFilter
+    ): array {
         return [
             'terms' => [
                 'exif_camera_manufacturer_id' => (array)$criterion->value,

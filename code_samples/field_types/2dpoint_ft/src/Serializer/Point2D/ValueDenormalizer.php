@@ -8,8 +8,12 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 final class ValueDenormalizer implements DenormalizerInterface
 {
-    public function denormalize($data, string $class, ?string $format = null, array $context = []): mixed
-    {
+    public function denormalize(
+        $data,
+        string $class,
+        ?string $format = null,
+        array $context = []
+    ): mixed {
         if (isset($data['x']) && isset($data['y'])) {
             // Support for old format
             $data = [$data['x'], $data['y']];
@@ -18,8 +22,12 @@ final class ValueDenormalizer implements DenormalizerInterface
         return new $class($data);
     }
 
-    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
-    {
+    public function supportsDenormalization(
+        mixed $data,
+        string $type,
+        ?string $format = null,
+        array $context = []
+    ): bool {
         return $type === Value::class;
     }
 

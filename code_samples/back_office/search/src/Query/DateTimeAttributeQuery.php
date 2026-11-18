@@ -2,6 +2,7 @@
 
 use DateTimeImmutable;
 use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion;
+use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttribute;
 
@@ -9,5 +10,5 @@ $query = new ProductQuery();
 $filter = new DateTimeAttribute('event_date', new DateTimeImmutable('2025-07-06'));
 $filter->setOperator(FieldValueCriterion::COMPARISON_EQ);
 $query->setFilter($filter);
-/** @var \Ibexa\Contracts\ProductCatalog\ProductServiceInterface $productService */
+/** @var ProductServiceInterface $productService */
 $results = $productService->findProducts($query);

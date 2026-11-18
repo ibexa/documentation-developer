@@ -11,8 +11,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class Point2DType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add('x', NumberType::class);
         $builder->add('y', NumberType::class);
     }

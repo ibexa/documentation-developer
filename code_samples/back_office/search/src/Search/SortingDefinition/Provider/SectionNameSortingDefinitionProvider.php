@@ -12,9 +12,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class SectionNameSortingDefinitionProvider implements SortingDefinitionProviderInterface, TranslationContainerInterface
 {
-    public function __construct(private TranslatorInterface $translator)
-    {
-    }
+    public function __construct(private TranslatorInterface $translator) {}
 
     public function getSortingDefinitions(): array
     {

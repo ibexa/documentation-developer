@@ -19,11 +19,12 @@ use Ibexa\Discounts\Value\DiscountCondition\IsInRegions;
 use Ibexa\Discounts\Value\DiscountCondition\IsProductInArray;
 use Ibexa\Discounts\Value\DiscountRule\FixedAmount;
 use Ibexa\DiscountsCodes\Value\DiscountCondition\IsValidDiscountCode;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[\Symfony\Component\Console\Attribute\AsCommand(name: 'discounts:manage')]
+#[AsCommand(name: 'discounts:manage')]
 final class ManageDiscountsCommand extends Command
 {
     public function __construct(
@@ -35,8 +36,10 @@ final class ManageDiscountsCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $this->permissionResolver->setCurrentUserReference(
             $this->userService->loadUserByLogin('admin')
         );

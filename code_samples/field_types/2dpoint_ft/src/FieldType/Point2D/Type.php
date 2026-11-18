@@ -30,8 +30,10 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
         ];
     }
 
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
-    {
+    public function mapFieldValueForm(
+        FormInterface $fieldForm,
+        FieldData $data
+    ): void {
         $definition = $data->getFieldDefinition();
         $fieldForm->add('value', Point2DType::class, [
             'required' => $definition->isRequired,
@@ -39,8 +41,10 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
         ]);
     }
 
-    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
-    {
+    public function mapFieldDefinitionForm(
+        FormInterface $fieldDefinitionForm,
+        FieldDefinitionData $data
+    ): void {
         $fieldDefinitionForm->add('fieldSettings', Point2DSettingsType::class, [
             'label' => false,
         ]);

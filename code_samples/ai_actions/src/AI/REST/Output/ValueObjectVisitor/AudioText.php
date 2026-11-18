@@ -15,8 +15,11 @@ final class AudioText extends ValueObjectVisitor
     /**
      * @param \App\AI\REST\Value\AudioText $data
      */
-    public function visit(Visitor $visitor, Generator $generator, $data): void
-    {
+    public function visit(
+        Visitor $visitor,
+        Generator $generator,
+        $data
+    ): void {
         $mediaType = 'ai.' . self::OBJECT_IDENTIFIER;
         $text = $data->getOutput();
 

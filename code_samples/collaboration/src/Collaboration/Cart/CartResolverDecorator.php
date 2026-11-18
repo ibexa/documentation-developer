@@ -16,8 +16,7 @@ final readonly class CartResolverDecorator implements CartResolverInterface
         private CartResolverInterface $innerCartResolver,
         private SessionServiceInterface $sessionService,
         private RequestStack $requestStack
-    ) {
-    }
+    ) {}
 
     public function resolveCart(?User $user = null): CartInterface
     {
@@ -40,7 +39,7 @@ final readonly class CartResolverDecorator implements CartResolverInterface
             }
 
             return $session->getCart();
-        } catch (NotFoundException|UnauthorizedException) {
+        } catch (NotFoundException | UnauthorizedException) {
             return null;
         }
     }

@@ -18,15 +18,22 @@ class SectionIdentifierNormalizer extends AbstractCriterionNormalizer
      * @param array<mixed> $data
      * @param array<mixed> $context
      */
-    protected function createCriterion(array $data, string $type, ?string $format, array $context): FilteringCriterion
-    {
+    protected function createCriterion(
+        array $data,
+        string $type,
+        ?string $format,
+        array $context
+    ): FilteringCriterion {
         Assert::keyExists($data, 'value');
 
         return new Criterion\SectionIdentifier($data['value']);
     }
 
-    public function supportsNormalization($data, ?string $format = null, array $context = []): bool
-    {
+    public function supportsNormalization(
+        $data,
+        ?string $format = null,
+        array $context = []
+    ): bool {
         return $data instanceof Criterion\SectionIdentifier;
     }
 }

@@ -40,8 +40,10 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
         return 'metric';
     }
 
-    public function mapFieldForm(FormBuilderInterface $formBuilder, ValueDefinitionInterface $value): FormBuilderInterface
-    {
+    public function mapFieldForm(
+        FormBuilderInterface $formBuilder,
+        ValueDefinitionInterface $value
+    ): FormBuilderInterface {
         $choices = [
             'Metric' => self::METRIC_OPTION,
             'Imperial' => self::IMPERIAL_OPTION,

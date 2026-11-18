@@ -29,13 +29,15 @@ class MoveContentCommand extends Command
     {
         $this
             ->setDefinition([
-            new InputArgument('locationId', InputArgument::REQUIRED, 'Location to copy'),
-            new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to'),
+                new InputArgument('locationId', InputArgument::REQUIRED, 'Location to copy'),
+                new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 

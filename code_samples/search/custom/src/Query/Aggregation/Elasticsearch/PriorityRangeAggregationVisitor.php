@@ -14,18 +14,23 @@ use Ibexa\Contracts\Elasticsearch\Query\LanguageFilter;
  */
 final class PriorityRangeAggregationVisitor implements AggregationVisitor
 {
-    public function supports(Aggregation $aggregation, LanguageFilter $languageFilter): bool
-    {
+    public function supports(
+        Aggregation $aggregation,
+        LanguageFilter $languageFilter
+    ): bool {
         return $aggregation instanceof PriorityRangeAggregation;
     }
 
     /**
-     * @param \App\Query\Aggregation\PriorityRangeAggregation<TRangeAggregation> $aggregation
+     * @param PriorityRangeAggregation<TRangeAggregation> $aggregation
      *
      * @return array<string, array<string, mixed>>
      */
-    public function visit(AggregationVisitor $dispatcher, Aggregation $aggregation, LanguageFilter $languageFilter): array
-    {
+    public function visit(
+        AggregationVisitor $dispatcher,
+        Aggregation $aggregation,
+        LanguageFilter $languageFilter
+    ): array {
         $ranges = [];
 
         foreach ($aggregation->getRanges() as $range) {

@@ -13,8 +13,7 @@ class NotificationSenderController extends AbstractController
 {
     public function __construct(
         private readonly NotificationServiceInterface $notificationService,
-    ) {
-    }
+    ) {}
 
     #[Route('/notification-sender')]
     public function index(): Response

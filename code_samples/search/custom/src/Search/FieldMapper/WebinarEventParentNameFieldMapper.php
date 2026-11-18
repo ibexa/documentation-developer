@@ -6,6 +6,7 @@ use Ibexa\Contracts\Core\Persistence\Content;
 use Ibexa\Contracts\Core\Persistence\Content\Handler as ContentHandler;
 use Ibexa\Contracts\Core\Persistence\Content\Location\Handler as LocationHandler;
 use Ibexa\Contracts\Core\Search;
+use Ibexa\Contracts\Core\Search\Field;
 use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
 
 class WebinarEventParentNameFieldMapper extends ContentFieldMapper
@@ -13,8 +14,7 @@ class WebinarEventParentNameFieldMapper extends ContentFieldMapper
     public function __construct(
         protected ContentHandler $contentHandler,
         protected LocationHandler $locationHandler
-    ) {
-    }
+    ) {}
 
     public function accept(Content $content): bool
     {
@@ -23,7 +23,7 @@ class WebinarEventParentNameFieldMapper extends ContentFieldMapper
     }
 
     /**
-     * @return \Ibexa\Contracts\Core\Search\Field[]
+     * @return Field[]
      */
     public function mapFields(Content $content): array
     {
@@ -33,7 +33,7 @@ class WebinarEventParentNameFieldMapper extends ContentFieldMapper
         $parentContentInfo = $this->contentHandler->loadContentInfo($parentLocation->contentId);
 
         return [
-            new Search\Field(
+            new Field(
                 'parent_name',
                 $parentContentInfo->name,
                 new Search\FieldType\StringField()

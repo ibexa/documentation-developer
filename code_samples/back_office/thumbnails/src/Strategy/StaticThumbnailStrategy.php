@@ -11,12 +11,13 @@ use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 
 final readonly class StaticThumbnailStrategy implements ThumbnailStrategy
 {
-    public function __construct(private string $staticThumbnail)
-    {
-    }
+    public function __construct(private string $staticThumbnail) {}
 
-    public function getThumbnail(ContentType $contentType, array $fields, ?VersionInfo $versionInfo = null): Thumbnail
-    {
+    public function getThumbnail(
+        ContentType $contentType,
+        array $fields,
+        ?VersionInfo $versionInfo = null
+    ): Thumbnail {
         return new Thumbnail([
             'resource' => $this->staticThumbnail,
         ]);

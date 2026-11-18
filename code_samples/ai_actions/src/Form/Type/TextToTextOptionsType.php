@@ -11,8 +11,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TextToTextOptionsType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add('system_prompt', TextareaType::class, [
             'required' => true,
             'disabled' => $options['translation_mode'],

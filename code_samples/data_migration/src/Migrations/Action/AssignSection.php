@@ -10,9 +10,7 @@ final readonly class AssignSection implements Action
 {
     public const string TYPE = 'assign_section';
 
-    public function __construct(private string $sectionIdentifier)
-    {
-    }
+    public function __construct(private string $sectionIdentifier) {}
 
     /**
      * @return string

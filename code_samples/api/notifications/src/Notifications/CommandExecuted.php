@@ -25,8 +25,10 @@ class CommandExecuted extends Notification implements SystemNotificationInterfac
         $this->importance(Command::SUCCESS === $this->exitCode ? Notification::IMPORTANCE_LOW : Notification::IMPORTANCE_HIGH);
     }
 
-    public function asEmailMessage(EmailRecipientInterface $recipient, ?string $transport = null): ?EmailMessage
-    {
+    public function asEmailMessage(
+        EmailRecipientInterface $recipient,
+        ?string $transport = null
+    ): ?EmailMessage {
         $body = '';
         foreach ($this->exceptions as $exception) {
             $body .= $exception->getMessage() . '<br>';
@@ -40,8 +42,10 @@ class CommandExecuted extends Notification implements SystemNotificationInterfac
         return new EmailMessage($email);
     }
 
-    public function asSystemNotification(UserRecipientInterface $recipient, ?string $transport = null): ?SystemMessage
-    {
+    public function asSystemNotification(
+        UserRecipientInterface $recipient,
+        ?string $transport = null
+    ): ?SystemMessage {
         $message = new SystemMessage($recipient->getUser());
         $message->setContext([
             'icon' => Command::SUCCESS === $this->exitCode ? 'check-circle' : 'discard-circle',

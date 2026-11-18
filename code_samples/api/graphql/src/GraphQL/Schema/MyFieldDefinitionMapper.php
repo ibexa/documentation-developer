@@ -16,8 +16,10 @@ class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements
     }
 
     #[\Override]
-    public function mapToFieldValueInputType(ContentType $contentType, FieldDefinition $fieldDefinition): ?string
-    {
+    public function mapToFieldValueInputType(
+        ContentType $contentType,
+        FieldDefinition $fieldDefinition
+    ): ?string {
         if (!$this->canMap($fieldDefinition)) {
             return parent::mapToFieldValueInputType($contentType, $fieldDefinition);
         }
@@ -25,8 +27,10 @@ class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements
         return $this->nameMyFieldInputType($contentType, $fieldDefinition);
     }
 
-    private function nameMyFieldInputType(ContentType $contentType, FieldDefinition $fieldDefinition): string
-    {
+    private function nameMyFieldInputType(
+        ContentType $contentType,
+        FieldDefinition $fieldDefinition
+    ): string {
         $converter = new CamelCaseToSnakeCaseNameConverter(null, false);
 
         return sprintf(

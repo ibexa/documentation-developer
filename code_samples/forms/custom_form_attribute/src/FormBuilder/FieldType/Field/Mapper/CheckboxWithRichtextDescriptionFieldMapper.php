@@ -11,8 +11,10 @@ class CheckboxWithRichtextDescriptionFieldMapper extends GenericFieldMapper
      * {@inheritdoc}
      */
     #[\Override]
-    protected function mapFormOptions(Field $field, array $constraints): array
-    {
+    protected function mapFormOptions(
+        Field $field,
+        array $constraints
+    ): array {
         $options = parent::mapFormOptions($field, $constraints);
         $options['label'] = $field->getAttributeValue('label');
         $options['richtext_description'] = $field->getAttributeValue('richtext_description');

@@ -32,8 +32,10 @@ class BookmarkCommand extends Command
             ->addOption('delete', 'd', InputOption::VALUE_NONE, 'Delete the created Favourites entry?', null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $locationId = (int) $input->getArgument('locationId');
         $location = $this->locationService->loadLocation($locationId);
 

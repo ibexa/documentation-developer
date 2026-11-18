@@ -31,8 +31,10 @@ class ViewCommand extends Command
             ->addOption('view-type', 't', InputOption::VALUE_OPTIONAL, 'View Type', 'line');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $contentId = $input->getOption('content-id');
         $locationId = $input->getOption('location-id');
         if (empty($contentId) && empty($locationId)) {

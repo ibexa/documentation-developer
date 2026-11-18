@@ -28,8 +28,10 @@ class NotificationSenderCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         /** @var array<int, \Throwable> $exceptions */
         $exceptions = [];
 

@@ -13,9 +13,11 @@ use Twig\Environment;
 
 class ListRenderer implements NotificationRenderer, TypedNotificationRendererInterface
 {
-    public function __construct(protected Environment $twig, protected RouterInterface $router, protected RequestStack $requestStack)
-    {
-    }
+    public function __construct(
+        protected Environment $twig,
+        protected RouterInterface $router,
+        protected RequestStack $requestStack
+    ) {}
 
     public function render(Notification $notification): string
     {

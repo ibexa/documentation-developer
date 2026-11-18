@@ -29,8 +29,10 @@ class MonitorRecentContentCreationCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $query = new Query([
             new Criterion\ObjectCriterion(Content::class),
             new Criterion\ActionCriterion([ActivityLogServiceInterface::ACTION_CREATE]),

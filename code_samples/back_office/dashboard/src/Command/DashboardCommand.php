@@ -20,7 +20,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class DashboardCommand extends Command
 {
-    private readonly Locationservice $locationService;
+    private readonly LocationService $locationService;
 
     private readonly ContentService $contentService;
 
@@ -47,8 +47,10 @@ class DashboardCommand extends Command
             ->addArgument('group', InputArgument::REQUIRED | InputArgument::IS_ARRAY, 'User Group Content ID(s)');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $dashboardModelLocationId = (int)$input->getArgument('dashboard');
         $userGroupLocationIdList = array_map(intval(...), $input->getArgument('group'));
 

@@ -10,8 +10,10 @@ use NumberFormatter;
 
 final class PercentValueFormatter implements ValueFormatterInterface
 {
-    public function formatValue(AttributeInterface $attribute, array $parameters = []): ?string
-    {
+    public function formatValue(
+        AttributeInterface $attribute,
+        array $parameters = []
+    ): ?string {
         $value = $attribute->getValue();
         if ($value === null) {
             return null;

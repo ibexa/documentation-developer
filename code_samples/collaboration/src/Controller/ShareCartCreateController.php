@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Collaboration\Cart\CartSessionCreateStruct;
 use App\Collaboration\Cart\CartSessionType;
+use App\Form\Data\ShareCartData;
 use App\Form\Type\ShareCartType;
 use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Collaboration\Participant\ExternalParticipantCreateStruct;
@@ -22,8 +23,7 @@ final class ShareCartCreateController extends AbstractController
     public function __construct(
         private readonly SessionServiceInterface $sessionService,
         private readonly CartResolverInterface $cartResolver
-    ) {
-    }
+    ) {}
 
     public function __invoke(Request $request): Response
     {
@@ -37,7 +37,7 @@ final class ShareCartCreateController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var \App\Form\Data\ShareCartData $data */
+            /** @var ShareCartData $data */
             $data = $form->getData();
 
             // Handle the form submission

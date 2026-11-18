@@ -11,8 +11,8 @@ $query = new NotificationQuery([], 0, 25);
 $query->addCriterion(new Type('Workflow:Review'));
 $query->addCriterion(new Status(['unread']));
 
-$from = new \DateTimeImmutable('-7 days');
-$to = new \DateTimeImmutable();
+$from = new DateTimeImmutable('-7 days');
+$to = new DateTimeImmutable();
 
 $query->addCriterion(new DateCreated($from, $to));
 
