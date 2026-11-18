@@ -496,7 +496,7 @@ Update your configuration in `config/packages/ibexa_elasticsearch.yaml` as descr
 The `connection_pool` and `connection_selector` settings are ignored when using Elasticsearch 8.
 Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
 
-``` yaml
+``` yaml {skip-validation}
 # Elasticsearch 7 configuration
 ibexa_elasticsearch:
     connections:
@@ -520,7 +520,7 @@ For more information, see [Connection pool and node pool settings](https://doc.i
 
 The `trace` debugging option is no longer available in Elasticsearch 8:
 
-``` yaml
+``` yaml {skip-validation}
 # Elasticsearch 7 configuration
 ibexa_elasticsearch:
     connections:
