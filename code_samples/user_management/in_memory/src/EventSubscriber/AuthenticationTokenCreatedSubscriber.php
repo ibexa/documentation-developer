@@ -16,7 +16,8 @@ final readonly class AuthenticationTokenCreatedSubscriber implements EventSubscr
         private readonly ConfigResolverInterface $configResolver,
         private readonly UserService $userService,
         private readonly array $userMap = [],
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {

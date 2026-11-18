@@ -14,7 +14,8 @@ class BreadcrumbController extends Controller
     public function __construct(
         private readonly LocationService $locationService,
         private readonly SearchService $searchService
-    ) {}
+    ) {
+    }
 
     public function showBreadcrumbsAction($locationId): Response
     {

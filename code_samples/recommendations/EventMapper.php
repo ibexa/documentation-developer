@@ -13,7 +13,8 @@ class EventMapper
     public function __construct(
         private readonly EventMapperInterface $eventMapper,
         private readonly ServerSideTrackingDispatcherInterface $trackingDispatcher,
-    ) {}
+    ) {
+    }
 
     public function trackProductView(ProductInterface $product): void
     {

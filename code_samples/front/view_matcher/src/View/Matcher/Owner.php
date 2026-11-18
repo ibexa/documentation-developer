@@ -2,7 +2,6 @@
 
 namespace App\View\Matcher;
 
-use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
@@ -17,10 +16,12 @@ class Owner implements MatcherInterface
     /** @var string[] */
     private array $matchingUserLogins;
 
-    public function __construct(private readonly UserService $userService) {}
+    public function __construct(private readonly UserService $userService)
+    {
+    }
 
     /**
-     * @throws NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      */
     public function matchLocation(Location $location): bool
     {
@@ -28,7 +29,7 @@ class Owner implements MatcherInterface
     }
 
     /**
-     * @throws NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      */
     public function matchContentInfo(ContentInfo $contentInfo): bool
     {
@@ -36,7 +37,7 @@ class Owner implements MatcherInterface
     }
 
     /**
-     * @throws NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      */
     public function match(View $view): ?bool
     {
@@ -52,7 +53,7 @@ class Owner implements MatcherInterface
     }
 
     /**
-     * @throws NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      */
     private function hasOwner(ContentInfo $contentInfo): bool
     {

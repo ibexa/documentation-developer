@@ -19,7 +19,8 @@ final readonly class LLaVaTextToTextActionHandler implements ActionHandlerInterf
     public function __construct(
         private HttpClientInterface $client,
         private string $host = 'http://localhost:8080'
-    ) {}
+    ) {
+    }
 
     public function supports(ActionInterface $action): bool
     {
@@ -30,7 +31,7 @@ final readonly class LLaVaTextToTextActionHandler implements ActionHandlerInterf
         ActionInterface $action,
         array $context = []
     ): ActionResponseInterface {
-        /** @var Text */
+        /** @var \Ibexa\Contracts\ConnectorAi\Action\DataType\Text */
         $input = $action->getInput();
         $text = $this->sanitizeInput($input->getText());
 

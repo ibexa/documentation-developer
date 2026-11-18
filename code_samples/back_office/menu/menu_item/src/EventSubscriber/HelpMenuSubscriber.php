@@ -11,7 +11,8 @@ final readonly class HelpMenuSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private bool $kernelDebug
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {

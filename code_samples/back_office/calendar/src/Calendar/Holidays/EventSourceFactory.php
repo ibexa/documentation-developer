@@ -10,7 +10,9 @@ use Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource;
 
 class EventSourceFactory
 {
-    public function __construct(private readonly EventType $eventType) {}
+    public function __construct(private readonly EventType $eventType)
+    {
+    }
 
     public function createEventSource(): EventSourceInterface
     {

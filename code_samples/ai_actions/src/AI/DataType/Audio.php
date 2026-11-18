@@ -14,7 +14,9 @@ final class Audio implements DataType
     /**
      * @param non-empty-array<string> $base64
      */
-    public function __construct(private array $base64) {}
+    public function __construct(private array $base64)
+    {
+    }
 
     public function getBase64(): string
     {

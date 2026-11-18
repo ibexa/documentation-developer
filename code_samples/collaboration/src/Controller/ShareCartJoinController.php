@@ -18,7 +18,8 @@ final class ShareCartJoinController extends AbstractController
 
     public function __construct(
         private readonly SessionServiceInterface $sessionService,
-    ) {}
+    ) {
+    }
 
     public function __invoke(
         Request $request,

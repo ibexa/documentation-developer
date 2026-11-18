@@ -29,5 +29,7 @@ class CustomLimitationFormMapper implements LimitationFormMapperInterface
         return '@ibexadesign/limitation/custom_limitation_form.html.twig';
     }
 
-    public function filterLimitationValues(Limitation $limitation): void {}
+    public function filterLimitationValues(Limitation $limitation): void
+    {
+    }
 }

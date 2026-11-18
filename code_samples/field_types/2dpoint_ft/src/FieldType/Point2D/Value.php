@@ -13,7 +13,8 @@ final class Value implements ValueInterface
         private ?float $x = null,
         #[Assert\NotBlank]
         private ?float $y = null
-    ) {}
+    ) {
+    }
 
     public function getX(): ?float
     {

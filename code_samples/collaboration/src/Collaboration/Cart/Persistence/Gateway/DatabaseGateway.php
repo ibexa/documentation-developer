@@ -2,7 +2,6 @@
 
 namespace App\Collaboration\Cart\Persistence\Gateway;
 
-use App\Collaboration\Cart\Persistence\Values\CartSessionCreateStruct;
 use App\Collaboration\Cart\Persistence\Values\CartSessionCreateStruct as CreateStruct;
 use App\Collaboration\Cart\Persistence\Values\CartSessionUpdateStruct as UpdateStruct;
 use Doctrine\DBAL\Types\Types;
@@ -52,7 +51,7 @@ final class DatabaseGateway extends AbstractDoctrineDatabase implements GatewayI
     }
 
     /**
-     * @param CartSessionCreateStruct $createStruct
+     * @param \App\Collaboration\Cart\Persistence\Values\CartSessionCreateStruct $createStruct
      */
     public function create(
         int $sessionId,
@@ -65,7 +64,7 @@ final class DatabaseGateway extends AbstractDoctrineDatabase implements GatewayI
     }
 
     /**
-     * @param AbstractSessionUpdateStruct $updateStruct
+     * @param \Ibexa\Collaboration\Persistence\Values\AbstractSessionUpdateStruct $updateStruct
      */
     public function update(AbstractSessionUpdateStruct $updateStruct): void
     {

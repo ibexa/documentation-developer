@@ -7,7 +7,9 @@ use Ibexa\Contracts\Discounts\Value\Query\SortClause\UpdatedAt;
 
 final readonly class RecentDiscountPrioritizationStrategy implements DiscountPrioritizationStrategyInterface
 {
-    public function __construct(private DiscountPrioritizationStrategyInterface $inner) {}
+    public function __construct(private DiscountPrioritizationStrategyInterface $inner)
+    {
+    }
 
     public function getOrder(): array
     {

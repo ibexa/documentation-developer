@@ -62,7 +62,7 @@ final class OrderPriceCommand extends Command
         $output->writeln(sprintf('Discounted price: %s', $this->formatPrice($resolvedPrice->getMoney())));
 
         if ($resolvedPrice instanceof PriceEnvelopeInterface) {
-            /** @var DiscountStamp $discountStamp */
+            /** @var \Ibexa\Discounts\Value\Price\Stamp\DiscountStamp $discountStamp */
             foreach ($resolvedPrice->all(DiscountStamp::class) as $discountStamp) {
                 $output->writeln(
                     sprintf(

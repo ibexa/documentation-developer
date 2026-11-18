@@ -16,7 +16,8 @@ class AllContentListController extends Controller
     public function __construct(
         private readonly SearchService $searchService,
         private readonly FormFactory $formFactory
-    ) {}
+    ) {
+    }
 
     public function listAction(int $page = 1): Response
     {

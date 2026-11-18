@@ -11,7 +11,9 @@ use Ibexa\VersionComparison\Engine\Value\StringComparisonEngine;
 
 final readonly class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
 {
-    public function __construct(private StringComparisonEngine $stringValueComparisonEngine) {}
+    public function __construct(private StringComparisonEngine $stringValueComparisonEngine)
+    {
+    }
 
     /**
      * @param Value $comparisonDataA

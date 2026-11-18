@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
-use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
 use Ibexa\Core\Helper\TranslationHelper;
 use Ibexa\Core\IO\IOServiceInterface;
@@ -24,11 +22,12 @@ class SvgController extends Controller
         private readonly ContentService $contentService,
         private readonly IOServiceInterface $ioService,
         private readonly TranslationHelper $translationHelper
-    ) {}
+    ) {
+    }
 
     /**
-     * @throws NotFoundException
-     * @throws UnauthorizedException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
      */
     public function downloadSvgAction(

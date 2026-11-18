@@ -5,12 +5,13 @@ namespace App\Event\Subscriber;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private readonly ContentService $contentService) {}
+    public function __construct(private readonly ContentService $contentService)
+    {
+    }
 
     public static function getSubscribedEvents(): array
     {
@@ -21,7 +22,7 @@ class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
 
     public function onBlockPreRender(PreRenderEvent $event): void
     {
-        /** @var TwigRenderRequest $renderRequest */
+        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
         $parameters = $event->getRenderRequest()->getParameters();
         $parameters['event_content'] = $this->contentService->loadContent($parameters['event']);

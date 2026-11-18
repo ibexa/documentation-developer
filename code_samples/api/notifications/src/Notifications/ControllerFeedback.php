@@ -4,4 +4,6 @@ namespace App\Notifications;
 
 use Symfony\Component\Notifier\Notification\Notification;
 
-class ControllerFeedback extends Notification {}
+class ControllerFeedback extends Notification
+{
+}

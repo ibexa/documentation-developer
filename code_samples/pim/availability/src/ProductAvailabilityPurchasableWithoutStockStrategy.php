@@ -11,7 +11,9 @@ use Ibexa\ProductCatalog\Local\Repository\Values\Availability;
 
 final readonly class ProductAvailabilityPurchasableWithoutStockStrategy implements ProductAvailabilityStrategyInterface
 {
-    public function __construct(private HandlerInterface $handler) {}
+    public function __construct(private HandlerInterface $handler)
+    {
+    }
 
     public function accept(AvailabilityContextInterface $context): bool
     {

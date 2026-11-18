@@ -12,7 +12,9 @@ class SvgExtension
     /**
      * SvgExtension constructor.
      */
-    public function __construct(protected RouterInterface $router) {}
+    public function __construct(protected RouterInterface $router)
+    {
+    }
 
     #[AsTwigFunction(name: 'ibexa_svg_link')]
     public function generateLink(

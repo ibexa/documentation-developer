@@ -20,7 +20,8 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         private readonly PermissionResolver $permissionResolver,
         private readonly ContentService $contentService,
         private readonly FormSubmissionGateway $gateway,
-    ) {}
+    ) {
+    }
 
     public function create(
         ContentInfo $content,

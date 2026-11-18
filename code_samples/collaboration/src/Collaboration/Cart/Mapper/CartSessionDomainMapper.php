@@ -20,7 +20,8 @@ final readonly class CartSessionDomainMapper implements SessionDomainMapperInter
         private CartProxyMapperInterface $cartProxyMapper,
         private UserProxyDomainMapperInterface $userDomainMapper,
         private ParticipantCollectionDomainMapperInterface $participantCollectionDomainMapper
-    ) {}
+    ) {
+    }
 
     /**
      * @param \App\Collaboration\Cart\Persistence\Values\CartSession $data

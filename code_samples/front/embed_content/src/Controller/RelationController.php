@@ -13,7 +13,8 @@ class RelationController
     public function __construct(
         private readonly ContentService $contentService,
         private readonly LocationService $locationService
-    ) {}
+    ) {
+    }
 
     public function showContentAction(
         View $view,

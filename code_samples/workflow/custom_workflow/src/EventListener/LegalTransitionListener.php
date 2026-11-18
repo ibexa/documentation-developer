@@ -14,7 +14,8 @@ class LegalTransitionListener extends AbstractTransitionWorkflowActionListener
     public function __construct(
         private readonly NotificationInterface $notificationHandler,
         protected WorkflowRegistryInterface $workflowRegistry
-    ) {}
+    ) {
+    }
 
     public function getIdentifier(): string
     {

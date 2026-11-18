@@ -12,7 +12,9 @@ use Ibexa\Migration\ValueObject\Step\StepInterface;
 
 final class ReplaceNameStepExecutor extends AbstractStepExecutor
 {
-    public function __construct(private readonly ContentService $contentService) {}
+    public function __construct(private readonly ContentService $contentService)
+    {
+    }
 
     protected function doHandle(StepInterface $step)
     {
