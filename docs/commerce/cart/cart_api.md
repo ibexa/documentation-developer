@@ -33,6 +33,7 @@ It follows the same search Query pattern as other APIs:
 
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 11, 11) =]]
+
 // ...
 
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 52, 59) =]]
@@ -44,6 +45,7 @@ To create a cart, use the `CartServiceInterface::createCart` method and provide 
 
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 9, 9) =]]
+
 // ...
 
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 73, 80) =]]
@@ -57,6 +59,7 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 10, 10) =]]
+
 // ...
 
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 85, 91) =]]
@@ -89,6 +92,7 @@ To delete a cart permanently, use the `CartServiceInterface::deleteCart` method 
 
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 66, 66) =]]
+
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 127, 127) =]]
 ```
 
@@ -98,6 +102,7 @@ To remove all products from the cart in a single operation, use the `CartService
 
 ``` php
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 66, 66) =]]
+
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 94, 94) =]]
 ```
 
@@ -153,7 +158,7 @@ To change entry metadata, use the `CartServiceInterface::updateEntry` method and
 
 [[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 112, 112) =]]
 
-[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 116, 124) =]]
+[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 117, 124) =]]
 ```
 
 ## Adding context data
@@ -220,5 +225,5 @@ To combine the contents of multiple shopping carts into a target cart, use the `
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 127, 139, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 129, 141, remove_indent=True) =]]
 ```
