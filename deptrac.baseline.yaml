@@ -36,9 +36,6 @@ deptrac:
       - Ibexa\Collaboration\Persistence\Values\AbstractSessionCreateStruct
     App\Collaboration\Cart\Persistence\Values\CartSessionUpdateStruct:
       - Ibexa\Collaboration\Persistence\Values\AbstractSessionUpdateStruct
-    App\Command\AddMissingAltTextCommand:
-      - Ibexa\Core\FieldType\Image\Value
-      - Ibexa\Core\IO\IOBinarydataHandler
     App\Command\CalendarCommand:
       - Ibexa\Scheduler\Calendar\EventAction\RescheduleEventActionContext
     App\Command\CatalogCommand:
@@ -224,9 +221,6 @@ deptrac:
       - Ibexa\Core\QueryType\QueryType
     App\Search\Model\Suggestion\ProductSuggestion:
       - Ibexa\ProductCatalog\Local\Repository\Values\Product
-    App\Security\FormPolicyProvider:
-      - Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface
-      - Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface
     App\Security\FormSubmissionServiceDecorator:
       - Ibexa\Core\Base\Exceptions\NotFoundException
       - Ibexa\Core\Base\Exceptions\UnauthorizedException
