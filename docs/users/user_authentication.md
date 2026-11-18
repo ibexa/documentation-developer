@@ -55,6 +55,8 @@ security:
     # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
     password_hashers:
         Symfony\Component\Security\Core\User\User: plaintext
+    firewalls:
+        # …
 ```
 
 ### Implement the listener
