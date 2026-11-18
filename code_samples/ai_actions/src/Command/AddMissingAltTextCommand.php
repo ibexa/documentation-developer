@@ -119,7 +119,7 @@ final class AddMissingAltTextCommand extends Command
 
     private function getModifiedImages(): ContentList
     {
-        $filter = (new Filter())
+        $filter = new Filter()
             ->withCriterion(
                 new DateMetadata(DateMetadata::MODIFIED, Operator::GTE, strtotime('-1 day'))
             )
