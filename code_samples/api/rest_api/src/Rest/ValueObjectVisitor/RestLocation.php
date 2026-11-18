@@ -21,7 +21,7 @@ class RestLocation extends BaseRestLocation
         $generator->startHashElement('Location');
         $generator->attribute(
             'media-type',
-            'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
+            'application/app.api.Location+' . strtolower(new \ReflectionClass($generator)->getShortName())
         );
         $generator->attribute(
             'href',
