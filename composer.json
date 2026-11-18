@@ -23,7 +23,7 @@
         "symfony/yaml": "^8.1",
         "ibexa/api-platform": "~6.0.x-dev",
         "ibexa/connector-gemini": "6.0.x-dev",
-        "ibexa/code-style": "~2.0.0",
+        "ibexa/code-style": "~2.0",
         "friendsofphp/php-cs-fixer": "^3.30",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
