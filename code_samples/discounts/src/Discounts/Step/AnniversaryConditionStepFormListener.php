@@ -31,7 +31,7 @@ final class AnniversaryConditionStepFormListener extends AbstractStepFormListene
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('discount.step.custom.label', 'discount'))->setDesc('Custom'),
+            new Message('discount.step.custom.label', 'discount')->setDesc('Custom'),
         ];
     }
 }
