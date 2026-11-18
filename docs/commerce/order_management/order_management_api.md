@@ -44,6 +44,7 @@ It follows the same search query pattern as other APIs:
 [[= include_code('code_samples/api/commerce/src/Command/OrderCommand.php', 11, 14) =]]
 
 // ...
+
 [[= include_code('code_samples/api/commerce/src/Command/OrderCommand.php', 109, 117) =]]
 ```
 
