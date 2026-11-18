@@ -1,13 +1,16 @@
 <?php declare(strict_types=1);
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger;
+use Ibexa\Core\MVC\Symfony\View\ContentValueView;
+use Ibexa\Core\MVC\Symfony\View\LocationValueView;
 
-/** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
-/** @var \Ibexa\Core\MVC\Symfony\View\ContentValueView|\Ibexa\Core\MVC\Symfony\View\LocationValueView $view */
+/** @var ResponseTagger $responseTagger */
+/** @var ContentValueView|LocationValueView $view */
 $responseTagger->tag($view); // When working with a view
 
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+/** @var Content $content */
 $responseTagger->tag($content->getContentInfo()); // When working with a content item
 
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Location $location */
+/** @var Location $location */
 $responseTagger->tag($location); // When working with a location

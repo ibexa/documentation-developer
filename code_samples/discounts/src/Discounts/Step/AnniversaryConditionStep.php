@@ -11,6 +11,5 @@ final class AnniversaryConditionStep extends AbstractDiscountStep
     public function __construct(
         public bool $enabled = false,
         public int $tolerance = 0
-    ) {
-    }
+    ) {}
 }

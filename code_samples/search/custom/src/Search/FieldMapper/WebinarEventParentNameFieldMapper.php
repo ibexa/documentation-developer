@@ -14,8 +14,7 @@ class WebinarEventParentNameFieldMapper extends ContentFieldMapper
     public function __construct(
         protected ContentHandler $contentHandler,
         protected LocationHandler $locationHandler
-    ) {
-    }
+    ) {}
 
     public function accept(Content $content): bool
     {
@@ -24,7 +23,7 @@ class WebinarEventParentNameFieldMapper extends ContentFieldMapper
     }
 
     /**
-     * @return \Ibexa\Contracts\Core\Search\Field[]
+     * @return Field[]
      */
     public function mapFields(Content $content): array
     {

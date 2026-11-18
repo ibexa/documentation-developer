@@ -50,7 +50,7 @@ final class PurchasingPowerParityValueMapper implements DiscountValueMapperInter
     }
 
     /**
-     * @param \Ibexa\Contracts\Discounts\Value\Struct\DiscountCreateStruct|\Ibexa\Contracts\Discounts\Value\Struct\DiscountUpdateStruct $struct
+     * @param DiscountCreateStruct|DiscountUpdateStruct $struct
      */
     private function addRuleToStruct(
         DiscountValueInterface $data,

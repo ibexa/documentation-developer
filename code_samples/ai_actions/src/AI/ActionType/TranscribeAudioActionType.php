@@ -18,9 +18,7 @@ final readonly class TranscribeAudioActionType implements ActionTypeInterface
     public const string IDENTIFIER = 'transcribe_audio';
 
     /** @param iterable<ActionHandlerInterface> $actionHandlers*/
-    public function __construct(private iterable $actionHandlers)
-    {
-    }
+    public function __construct(private iterable $actionHandlers) {}
 
     public function getIdentifier(): string
     {

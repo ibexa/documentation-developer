@@ -12,8 +12,7 @@ final readonly class CurrentUserRegistrationDateResolver implements DiscountVari
     public function __construct(
         private PermissionResolver $permissionResolver,
         private UserService $userService
-    ) {
-    }
+    ) {}
 
     /**
      * @return array{current_user_registration_date: \DateTimeInterface}

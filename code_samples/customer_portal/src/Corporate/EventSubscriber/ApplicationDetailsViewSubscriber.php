@@ -21,7 +21,7 @@ final class ApplicationDetailsViewSubscriber extends AbstractViewSubscriber
     }
 
     /**
-     * @param \Ibexa\CorporateAccount\View\ApplicationDetailsView $view
+     * @param ApplicationDetailsView $view
      */
     protected function configureView(View $view): void
     {

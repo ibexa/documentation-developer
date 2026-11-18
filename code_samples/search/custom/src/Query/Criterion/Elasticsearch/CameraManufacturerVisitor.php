@@ -19,7 +19,7 @@ final class CameraManufacturerVisitor implements CriterionVisitor
     }
 
     /**
-     * @param \App\Query\Criterion\CameraManufacturerCriterion $criterion
+     * @param CameraManufacturerCriterion $criterion
      */
     public function visit(
         CriterionVisitor $dispatcher,

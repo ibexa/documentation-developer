@@ -10,9 +10,7 @@ use Ibexa\Contracts\Elasticsearch\Mapping\BaseDocument;
 
 final readonly class ContentTypeGroupGroupResolver implements GroupResolverInterface
 {
-    public function __construct(private Handler $contentTypeHandler)
-    {
-    }
+    public function __construct(private Handler $contentTypeHandler) {}
 
     public function resolveDocumentGroup(BaseDocument $document): string
     {

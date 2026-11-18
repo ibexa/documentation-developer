@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion;
+use Ibexa\Contracts\Discounts\DiscountServiceInterface;
 use Ibexa\Contracts\Discounts\Value\Query\Criterion;
 use Ibexa\Contracts\Discounts\Value\Query\DiscountQuery;
 use Ibexa\Contracts\Discounts\Value\Query\SortClause;
@@ -25,5 +26,5 @@ $query = new DiscountQuery(
     ]
 );
 
-/** @var \Ibexa\Contracts\Discounts\DiscountServiceInterface $discountService */
+/** @var DiscountServiceInterface $discountService */
 $results = $discountService->findDiscounts($query);

@@ -9,6 +9,7 @@ use Ibexa\Contracts\Core\Repository\Exceptions\NotImplementedException;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface;
 use Ibexa\Contracts\Core\Repository\Values\User\Limitation;
 use Ibexa\Contracts\Core\Repository\Values\User\UserReference;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
 use Ibexa\Core\Base\Exceptions\InvalidArgumentType;
 use Ibexa\Core\FieldType\ValidationError;
@@ -52,7 +53,7 @@ class CustomLimitationType implements Type
     }
 
     /**
-     * @param \Ibexa\Contracts\Core\Repository\Values\ValueObject[]|null $targets
+     * @param ValueObject[]|null $targets
      *
      * @return bool|null
      */

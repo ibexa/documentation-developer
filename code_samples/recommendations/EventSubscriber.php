@@ -14,8 +14,7 @@ class EventSubscriber implements EventSubscriberInterface
     public function __construct(
         private readonly EventMapperInterface $eventMapper,
         private readonly ServerSideTrackingDispatcherInterface $trackingDispatcher,
-    ) {
-    }
+    ) {}
 
     public static function getSubscribedEvents(): array
     {

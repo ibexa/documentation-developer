@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
@@ -15,5 +16,5 @@ $query->query = new LogicalAnd(
     ]
 );
 
-/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
+/** @var SearchService $searchService */
 $results = $searchService->findContent($query);

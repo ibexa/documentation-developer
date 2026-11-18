@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 use Composer\Autoload\ClassLoader;
 
-/** @var \Composer\Autoload\ClassLoader $loader */
+/** @var ClassLoader $loader */
 $loader = require __DIR__ . '/../vendor/autoload.php';
 
 /**

@@ -17,8 +17,7 @@ class CustomLimitationController extends Controller
         // ...,
         private readonly PermissionResolver $permissionResolver,
         private readonly PermissionCheckerInterface $permissionChecker
-    ) {
-    }
+    ) {}
 
     // Controller actions...
     #[Route(

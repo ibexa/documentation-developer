@@ -28,8 +28,7 @@ final class ValidationBaseline
     public function __construct(
         private readonly string $baselineFile,
         private readonly string $repoRoot,
-    ) {
-    }
+    ) {}
 
     public function isInBaseline(
         string $relativePath,

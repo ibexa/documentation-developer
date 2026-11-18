@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
+use Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory;
 
 // Create an embedding field using the default embedding provider (type derived from configuration's field suffix)
 
-/** @var \Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory $factory */
+/** @var EmbeddingFieldFactory $factory */
 $embeddingField = $factory->create();
 echo $embeddingField->getType(); // for example, "ibexa_dense_vector_model_123"
 

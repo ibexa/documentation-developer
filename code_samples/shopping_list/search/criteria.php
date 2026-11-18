@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\ShoppingList\Value\Query;
 use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
 
-/** @var \Ibexa\Contracts\Core\Repository\PermissionResolver $permissionResolver */
+/** @var PermissionResolver $permissionResolver */
 $query = new ShoppingListQuery(
     new Query\Criterion\LogicalAnd(
         new Query\Criterion\OwnerCriterion($permissionResolver->getCurrentUserReference()),

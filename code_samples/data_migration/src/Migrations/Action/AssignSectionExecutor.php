@@ -4,6 +4,7 @@ namespace App\Migrations\Action;
 
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\SectionService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\ValueObject as APIValueObject;
 use Ibexa\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
 use Ibexa\Migration\ValueObject;
@@ -13,12 +14,11 @@ final readonly class AssignSectionExecutor implements ExecutorInterface
     public function __construct(
         private ContentService $contentService,
         private SectionService $sectionService
-    ) {
-    }
+    ) {}
 
     /**
      * @param AssignSection $action
-     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+     * @param Content $content
      */
     public function handle(
         ValueObject\Step\Action $action,

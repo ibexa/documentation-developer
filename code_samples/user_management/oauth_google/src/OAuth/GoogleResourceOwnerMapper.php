@@ -31,7 +31,7 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
     }
 
     /**
-     * @param \League\OAuth2\Client\Provider\GoogleUser $resourceOwner
+     * @param GoogleUser $resourceOwner
      */
     protected function loadUser(
         ResourceOwnerInterface $resourceOwner,
@@ -41,7 +41,7 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
     }
 
     /**
-     * @param \League\OAuth2\Client\Provider\GoogleUser $resourceOwner
+     * @param GoogleUser $resourceOwner
      */
     protected function createUser(
         ResourceOwnerInterface $resourceOwner,
