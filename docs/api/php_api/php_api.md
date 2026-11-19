@@ -138,7 +138,7 @@ This isn't required in template functions or controller code, as the HTTP layer 
 
 ## Exception handling
 
-PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors.
+PHP API uses [Exceptions](https://www.php.net/manual/en/language.error-handling.throwable.php) to handle errors.
 Each API method may throw different exceptions, depending on what it does.
 
 It's good practice to cover every exception you expect to happen.

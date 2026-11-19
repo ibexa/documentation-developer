@@ -1911,6 +1911,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_decode"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\MarkupEncoderInterface",
+            "name": "MarkupEncoderInterface",
+            "summary": "Marks\u0020an\u0020encoder\u0020whose\u0020encoded\u0020value\u0020is\u0020itself\u0020XML,\u0020so\u0020that\u0020its\u0020CDATA\u0020has\u0020to\u0020survive\u0020encoding\ninstead\u0020of\u0020being\u0020escaped\u0020as\u0020plain\u0020text.",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-MarkupEncoderInterface.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\CalendarServiceInterface",
             "name": "CalendarServiceInterface",
             "summary": "",
@@ -28561,6 +28566,16 @@ Search.appendIndex(
             "summary": "Custom\u0020fields\u0020to\u0020sort\u0020by\u0020instead\u0020of\u0020the\u0020default\u0020field.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Field.html#property_customFields"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Bookmark\\Id",
+            "name": "Id",
+            "summary": "Sets\u0020sort\u0020direction\u0020on\u0020the\u0020bookmark\u0020id\u0020for\u0020a\u0020location\u0020query\u0020containing\u0020IsBookmarked\u0020criterion.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Bookmark\\Id\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructs\u0020a\u0020new\u0020SortClause\u0020on\u0020\u0024sortTarget\u0020in\u0020direction\u0020\u0024sortDirection.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Bookmark-Id.html#method___construct"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Depth",
             "name": "Depth",
             "summary": "Sets\u0020sort\u0020direction\u0020on\u0020the\u0020Location\u0020depth\u0020for\u0020a\u0020Location\u0020query.",
@@ -40361,6 +40376,81 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeUpdateStruct.html#method_getCreatedAt"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationInterface",
+            "name": "IbexaMigrationInterface",
+            "summary": "Interface\u0020representing\u0020an\u0020Ibexa\u002Dinternal\u0020Doctrine\u0020migration.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationInterface\u003A\u003AgetTargetVersion\u0028\u0029",
+            "name": "getTargetVersion",
+            "summary": "Returns\u0020the\u0020target\u0020Ibexa\u0020version\u0020this\u0020migration\u0020is\u0020for\u0020\u0028e.g.\u0020\u00275.0.0\u0027\u0029.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html#method_getTargetVersion"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationInterface\u003A\u003AgetCreationDate\u0028\u0029",
+            "name": "getCreationDate",
+            "summary": "Returns\u0020the\u0020creation\u0020date\u0020of\u0020this\u0020migration.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationInterface.html#method_getCreationDate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationTag",
+            "name": "IbexaMigrationTag",
+            "summary": "Holds\u0020the\u0020Symfony\u0020service\u0020tag\u0020used\u0020to\u0020register\u0020Ibexa\u002Dinternal\u0020Doctrine\u0020migrations.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaMigrationTag\u003A\u003ATAG",
+            "name": "TAG",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaMigrationTag.html#constant_TAG"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyDependencyFactory",
+            "name": "IbexaOnlyDependencyFactory",
+            "summary": "Holds\u0020the\u0020service\u0020ID\u0020of\u0020a\u0020\u007B\u0040see\u0020DependencyFactory\u007D\u0020that\u0020behaves\u0020like\u0020the\u0020application\u0027s\u0020own\n\u0022doctrine.migrations.dependency_factory\u0022\u0020\u2014\u0020a\u0020clone\u0020of\u0020its\u0020\u007B\u0040see\u0020Configuration\u007D\u0020\u0028carrying\u0020an\nIbexa\u002Dspecific\u0020migration\u0020template,\u0020so\u0020\u0022ibexa\u003Adoctrine\u003Amigrations\u003Agenerate\u0022\/\u0022...\u003Adiff\u0022\u0020scaffold\nclasses\u0020shaped\u0020like\u0020real\u0020Ibexa\u0020migrations,\u0020never\u0020the\u0020application\u0027s\u0020own\u0020default\u0020stub\u0029\u0020and\u0020the\nsame\u0020logger\u0020\u2014\u0020except\u0020it\u0020always\u0020runs\u0020against\u0020the\u0020\u0022ibexa.persistence.connection\u0022\n\u007B\u0040see\u0020Connection\u007D,\u0020and\u0020its\u0020\u007B\u0040see\u0020MigrationsRepository\u007D\u0020is\u0020always\u0020the\u0020one\u0020identified\u0020by\n\u007B\u0040see\u0020IbexaOnlyMigrationsRepository\u003A\u003ASERVICE_ID\u007D.\u0020Every\u0020other\u0020dependency\u0020it\u0020lazily\u0020builds\n\u0028metadata\u0020storage,\u0020migrator,\u0020plan\u0020calculator,\u0020version\u0020comparator,\u0020...\u0029\u0020is\u0020a\u0020fresh\u0020instance,\nbuilt\u0020from\u0020those,\u0020and\u0020shared\u0020by\u0020nothing\u0020else.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyDependencyFactory.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyDependencyFactory\u003A\u003ASERVICE_ID",
+            "name": "SERVICE_ID",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyDependencyFactory.html#constant_SERVICE_ID"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyMigrationsRepository",
+            "name": "IbexaOnlyMigrationsRepository",
+            "summary": "Holds\u0020the\u0020service\u0020ID\u0020of\u0020the\u0020\u007B\u0040see\u0020MigrationsRepository\u007D\u0020that\u0020exposes\nONLY\u0020migrations\u0020tagged\u0020with\u0020\u007B\u0040see\u0020IbexaMigrationTag\u003A\u003ATAG\u007D,\u0020without\u0020decorating\u0020any\u0020inner\n\u0028e.g.\u0020project\u002Dlevel\u0029\u0020repository\u0020\u2014\u0020unlike\u0020the\u0020default\u0020repository,\u0020which\u0020combines\u0020both.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\IbexaOnlyMigrationsRepository\u003A\u003ASERVICE_ID",
+            "name": "SERVICE_ID",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-IbexaOnlyMigrationsRepository.html#constant_SERVICE_ID"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform",
+            "name": "SqlPlatform",
+            "summary": "Database\u0020platforms\u0020an\u0020\u007B\u0040see\u0020AbstractSqlMigration\u007D\u0020can\u0020target.",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003Aall\u0028\u0029",
+            "name": "all",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#method_all"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003AMYSQL",
+            "name": "MYSQL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#constant_MYSQL"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003AMARIADB",
+            "name": "MARIADB",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#constant_MARIADB"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003APOSTGRESQL",
+            "name": "POSTGRESQL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#constant_POSTGRESQL"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations\\SqlPlatform\u003A\u003ASQLITE",
+            "name": "SQLITE",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineMigrations-Migrations-SqlPlatform.html#constant_SQLITE"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface",
             "name": "SchemaBuilderInterface",
             "summary": "Doctrine\\DBAL\\Schema\u0020event\u002Ddriven\u0020builder.",
@@ -41576,6 +41666,16 @@ Search.appendIndex(
             "summary": "Converts\u0020given\u0020\u0024xmlDoc\u0020into\u0020another\u0020\\DOMDocument\u0020object.",
             "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-Converter.html#method_convert"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichText\\RichText\\DOMDocumentLoaderInterface",
+            "name": "DOMDocumentLoaderInterface",
+            "summary": "Loads\u0020already\u0020stored\u0020RichText\u0020XML\u0020documents.\u0020Never\u0020throws,\u0020libxml\u0020errors\u0020are\u0020logged\u0020instead.",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoaderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichText\\RichText\\DOMDocumentLoaderInterface\u003A\u003AloadXML\u0028\u0029",
+            "name": "loadXML",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-DOMDocumentLoaderInterface.html#method_loadXML"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichText\\RichText\\InputHandlerInterface",
             "name": "InputHandlerInterface",
             "summary": "",
@@ -42740,6 +42840,51 @@ Search.appendIndex(
             "name": "getHandledClasses",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html#method_getHandledClasses"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationFilesProviderInterface",
+            "name": "MigrationFilesProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationFilesProviderInterface\u003A\u003AgetMigrationFiles\u0028\u0029",
+            "name": "getMigrationFiles",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html#method_getMigrationFiles"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationFilesProviderInterface\u003A\u003ATAG",
+            "name": "TAG",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationFilesProviderInterface.html#constant_TAG"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook",
+            "name": "MigrationHook",
+            "summary": "Executes\u0020the\u0020migration\u0020files\u0020exposed\u0020by\u0020\u007B\u0040see\u0020MigrationFilesProviderInterface\u007D.",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003AconfigureOptions\u0028\u0029",
+            "name": "configureOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#method_configureOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003A__invoke\u0028\u0029",
+            "name": "__invoke",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#method___invoke"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003APRIORITY",
+            "name": "PRIORITY",
+            "summary": "Fixed\u0020tag\u0020priority\u0020this\u0020hook\u0020is\u0020registered\u0020at\u0020\u2014\u0020after\u0020ibexa\/test\u002Dcore\u0027s\u0020FixtureHook\u0020\u0028900\u0029,\nbefore\u0020its\u0020PurgeSearchIndexHook\u0020\u0028\u002D100\u0029.",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#constant_PRIORITY"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper\\MigrationHook\u003A\u003AOPTION_RUN_MIGRATIONS",
+            "name": "OPTION_RUN_MIGRATIONS",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Bootstrapper-MigrationHook.html#constant_OPTION_RUN_MIGRATIONS"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\AbstractMigrationEvent",
             "name": "AbstractMigrationEvent",
@@ -47700,6 +47845,21 @@ Search.appendIndex(
             "name": "fetch",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CurrencyFetchAdapter.html#method_fetch"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\CustomerGroupFetchAdapter",
+            "name": "CustomerGroupFetchAdapter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\CustomerGroupFetchAdapter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\CustomerGroupFetchAdapter\u003A\u003Afetch\u0028\u0029",
+            "name": "fetch",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CustomerGroupFetchAdapter.html#method_fetch"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\ProductFetchAdapter",
             "name": "ProductFetchAdapter",
@@ -54320,6 +54480,11 @@ Search.appendIndex(
             "name": "ProductStock",
             "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-ProductStock.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\SortClause\\UpdatedAt",
+            "name": "UpdatedAt",
+            "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-UpdatedAt.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\SortClause",
             "name": "SortClause",
@@ -62076,15 +62241,15 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-blockattribute.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder",
-            "name": "Encoder",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field",
             "name": "Field",
             "summary": "",
             "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-field.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder",
+            "name": "Encoder",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar",
             "name": "Calendar",
@@ -63181,6 +63346,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-repository-values-content-query-sortclause.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location\\Bookmark",
+            "name": "Bookmark",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-location-bookmark.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\SortClause\\Location",
             "name": "Location",
             "summary": "",
@@ -63716,6 +63886,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-discountscodes-value-struct.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations\\Migrations",
+            "name": "Migrations",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrinemigrations-migrations.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineMigrations",
+            "name": "DoctrineMigrations",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrinemigrations.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder",
             "name": "Builder",
             "summary": "",
@@ -64115,6 +64295,11 @@ Search.appendIndex(
             "name": "Transport",
             "summary": "",
             "url": "namespaces/ibexa-contracts-messenger-transport.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Bootstrapper",
+            "name": "Bootstrapper",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-migration-bootstrapper.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Event",
             "name": "Event",

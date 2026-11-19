@@ -33,7 +33,7 @@ It shifts the focus away from fundamental operations and toward improving your d
 If you want to use [[= product_name_cloud =]], you need to check the [requirements](requirements.md#ibexa-cloud-requirements-and-setup) and follow [installation process](install_on_ibexa_cloud.md).
 
 To use [[= product_name_cloud =]], you must make arrangements with [[= product_name_base =]] to get and set up a user account.
-To do so, contact your Partner Manager, or Sales representatives team, or fill out the form available at this link: https://www.ibexa.co/about-ibexa/contact-us.
+To do so, contact your Partner Manager, or Sales representatives team, or fill out the form available at this link: https://cohesivo.com/en/about-us/contact-us.
 
 When you have an account, you can log in to https://console.ibexa.cloud.
 

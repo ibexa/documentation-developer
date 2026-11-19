@@ -97,7 +97,7 @@ full support, maintenance, and priority security patch handling as they're used 
 - [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
 - Partners: Test & Trial software access (TTL License)
 
-If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
+If you would like to become familiar with the products, [request a demo](https://cohesivo.com/en/demo).
 
 ### Updating
 
