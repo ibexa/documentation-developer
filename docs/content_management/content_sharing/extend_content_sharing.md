@@ -1,18 +1,18 @@
 ---
-description: Extend Collaborative editing
+description: Extend Content sharing
 month_change: false
 editions:
     - lts-update
 ---
 
-# Extend Collaborative editing
+# Extend Content sharing
 
-Thanks to the ability to extend the [Collaborative editing](collaborative_editing_guide.md) feature, you can introduce additional functionalities to enhance workflows not only in the context of content editing but also when working with products.
+Thanks to the ability to extend the [Content sharing](content_sharing_guide.md) feature, you can introduce additional functionalities to enhance workflows not only in the context of content items but also when working with products.
 The example below demonstrates how to extend the feature to enable a shared Cart functionality in the Commerce system.
 
 !!! tip
 
-    If you prefer learning from videos, watch the Ibexa Summit 2025 presentation that covers the Collaborative editing feature:
+    If you prefer learning from videos, watch the Ibexa Summit 2025 presentation that covers this feature, then called Collaborative editing:
 
     [_Collaboration: greater than the sum of the parts_](https://www.youtube.com/watch?v=dRB-SDlgX0I) by Marek Nocoń
 

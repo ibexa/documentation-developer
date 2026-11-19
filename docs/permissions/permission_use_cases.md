@@ -133,7 +133,7 @@ For example, to enable the user to edit only content in the "Design" stage and t
 - `content/edit` with `WorkflowStageLimitation` set to "Design".
 - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
-When using the [Collaborative editing LTS Update](collaborative_editing.md), refer to the [Collaborative editing policies](policies.md#content-collaborative-editing) for guidance on editing without a strict workflow.
+To let users share content drafts for preview outside of a workflow, use the [Content sharing policies](policies.md#content-sharing) that come with the [Content sharing LTS Update](content_sharing.md).
 
 ## Multi-file upload
 

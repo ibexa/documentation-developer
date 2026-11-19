@@ -71,17 +71,17 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 |------|------|------|
 |`1`|"Forbid"|The user cannot change owner of a content item|
 
-## Collaborative editing limitations [[% include 'snippets/lts-update_badge.md' %]]
+## Content sharing limitations [[% include 'snippets/lts-update_badge.md' %]]
 
-The Collaborative editing limitations specify how the user can use the [Collaborative editing](collaborative_editing.md) LTS Update.
+The Content sharing limitations specify how the user can use the [Content sharing](content_sharing.md) LTS Update.
 
-### Collaborative editing Owner limitation
+### Content sharing Owner limitation
 
 The Owner (`share_owner`) limitation specifies whose drafts the user can share.
 If not specified, user can share:
 
 - their drafts
-- drafts they have been invited to collaborate on
+- drafts they have been invited to preview
 
 #### Possible values
 
@@ -89,18 +89,17 @@ If not specified, user can share:
 |------|------|------|
 |"self"|"self"| User can only share drafts that they own |
 
-### Collaborative editing Scope limitation
+### Content sharing Scope limitation
 
-The Scope (`share_scope`) limitation specifies whether the user can share the preview and editing view with other users.
+The Scope (`share_scope`) limitation specifies whether the user can share the preview with other users.
 
 #### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|"edit"|"Edit"| User can invite other users to edit|
 |"view"|"View"| User can share the preview with other users|
 
-### Collaborative editing PublicLink limitation
+### Content sharing PublicLink limitation
 
 The Public Link (`share_public_link`) limitation specifies whether the user can manage the settings of the shareable preview link.
 
