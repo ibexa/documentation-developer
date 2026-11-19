@@ -209,7 +209,7 @@ You can modify the command's behavior with the following options:
 | `--all` | Lists all tools, including those that aren't exposed on any MCP server or shadowed by other tool of the same name on that server |
 | `--package=<package_name>` | Lists tools provided by a specific package. Repeatable |
 | `--repository` | Shows only tools exposed on MCP servers of the given repository |
-| `--siteacces=<siteaccess>` | Shows only tools exposed by MCP servers that a specific SiteAccess serves. If you don't use argument, the command covers every SiteAccess and repository |
+| `--siteaccess=<siteaccess>` | Shows only tools exposed by MCP servers that a specific SiteAccess serves. If you don't use argument, the command covers every SiteAccess and repository |
 | `--server=<server name>` | Lists tools exposed by a specific MCP server, in any repository. Repeatable |
 | `--show-handler` | In text format, shows the class and method that handle each tool |
 | `--format=<format>` | Returns output as text (`txt`) or JSON (`json`). The default format is text |
