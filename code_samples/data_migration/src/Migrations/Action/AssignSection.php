@@ -14,10 +14,7 @@ final readonly class AssignSection implements Action
     {
     }
 
-    /**
-     * @return string
-     */
-    public function getValue(): string
+    public function getSectionIdentifier(): string
     {
         return $this->sectionIdentifier;
     }
