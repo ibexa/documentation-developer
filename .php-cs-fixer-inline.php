@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 $configFactory->withRules(array_merge($commonRules, [
     'psr_autoloading' => false,
-    //'AdamWojs/phpdoc_force_fqcn_fixer' => false,
 ]));
 
 return $configFactory
