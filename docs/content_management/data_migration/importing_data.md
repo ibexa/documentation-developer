@@ -273,6 +273,7 @@ The following example shows how to create a role.
 A role requires the `identifier` metadata key.
 
 For each policy assigned to the role, you select the module and function, with optional limitations.
+For the identifiers and values of available limitations, see [Limitation reference](limitation_reference.md).
 
 The following example shows the creation of a `Contributor` role:
 
