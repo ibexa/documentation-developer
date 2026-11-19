@@ -1,13 +1,13 @@
 ---
-description: Use PHP API to manage invitations, sessions, and participants while using collaborative editing feature.
+description: Use PHP API to manage invitations, sessions, and participants while using Content sharing feature.
 editions:
     - lts-update
 month_change: false
 ---
 
-# Collaborative editing API
+# Content sharing API
 
-[[= product_name =]]'s Collaborative editing API provides two services for managing sessions and invitations, which differ in function:
+[[= product_name =]]'s Content sharing API provides two services for managing sessions and invitations, which differ in function:
 
 - [`InvitationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html) is used to manage collaboration sessions invitations
 
@@ -47,7 +47,7 @@ You can find an existing session with [`SessionService::findSessions()`](/api/ph
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 80, 82) =]]
 ```
 
-To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Collaborative editing.
+To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Content sharing.
 
 ### Update session
 
@@ -79,20 +79,24 @@ You can add internal participants - users who already have an account in the [[=
 External participant can only be invited using their email address.
 
 The `ContentSessionScope::VIEW` constant defines the type of access granted to a participant.
-Available scopes are:
+For content collaboration sessions, `VIEW` is the only available scope.
+It grants read-only access, used for preview purposes.
 
-- `VIEW` - read-only access, used for preview purposes
-- `EDIT` - grants editing capabilities
+!!! caution "Deprecated `EDIT` scope"
+
+    The `ContentSessionScope::EDIT` constant is deprecated and will be removed in [[= product_name =]] 6.0.
+    Adding or updating a participant of a content collaboration session with the `EDIT` scope results in an error.
 
 ### Get and update participant
 
 You can update participant added to the collaboration session with [`SessionService::updateParticipant()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateParticipant).
 
-The example below updates participant's permissions to allow for editing of shared content, not only previewing.
+The example below updates participant's scope.
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 111, 118) =]]
 ```
+
 ### Remove participant
 
 You can remove participant from the collaboration session with [`SessionService::removeParticipant()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_removeParticipant):
@@ -132,13 +136,13 @@ You can get an invitation with [`InvitationService::getInvitation()`](/api/php_a
 
 ### Create invitation
 
-You can create new invitation for the collaborative session using the [`InvitationService::createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_createInvitation) method:
+You can create new invitation for the collaboration session using the [`InvitationService::createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_createInvitation) method:
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 145, 151) =]]
 ```
 
-You can use it when [auto-inviting participants](install_collaborative_editing.md#configuration) is not enabled.
+You can use it when [auto-inviting participants](install_content_sharing.md#configuration) is not enabled.
 
 ### Update invitation
 
@@ -164,11 +168,11 @@ You can find an invitation with [`InvitationService::findInvitations()`](/api/ph
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 135, 141) =]]
 ```
 
-To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Collaborative editing.
+To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Content sharing.
 
 ## Example API usage
 
-Below you can see an example of API usage for Collaborative editing:
+Below you can see an example of API usage for Content sharing:
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php') =]]

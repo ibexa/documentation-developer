@@ -1,12 +1,12 @@
 ---
-description: Events that are triggered when working with collaborative editing feature.
+description: Events that are triggered when working with Content sharing feature.
 page_type: reference
 month_change: false
 ---
 
-# Collaboration events
+# Content sharing events
 
-You can use the following events to extend the [Collaborative editing LTS Update](collaborative_editing.md):
+You can use the following events to extend the [Content sharing LTS Update](content_sharing.md):
 
 ## Invitation events
 
@@ -48,4 +48,4 @@ You can use the following events to extend the [Collaborative editing LTS Update
 
 | Event | Dispatched by | Description |
 |---|---|---|
-|<nobr>[`UsersWithPermissionInfoMappedEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html)</nobr>|`Ibexa\Share\Permission\Mapper\`<br>`UsersWithPermissionInfoMapper` | Allows further filtering of users with permissions for Collaborative editing |
+|<nobr>[`UsersWithPermissionInfoMappedEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html)</nobr>|`Ibexa\Share\Permission\Mapper\`<br>`UsersWithPermissionInfoMapper` | Allows further filtering of users with permissions for Content sharing |

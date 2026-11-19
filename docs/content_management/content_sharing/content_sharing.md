@@ -1,39 +1,35 @@
 ---
-description: Collaborative editing enables multiple users to work on the same content simultaneously.
+description: Content sharing enables users to share content drafts with other users for preview and review.
 page_type: landing_page
 editions:
     - lts-update
 month_change: false
 ---
 
-# Collaborative editing
+# Content sharing
 
-With Collaborative editing [LTS update](editions.md#lts-updates) multiple users can work on the same content created in [[= product_name =]] simultaneously, streamlining the content creation and review process.
+With Content sharing [LTS update](editions.md#lts-updates) users can share content drafts created in [[= product_name =]] with other users, streamlining the content review process.
 
-Users can invite both internal and external collaborators to a session, giving them access for editing or previewing.
-
-Additionally, they can collaborate using a Real-time collaboration, an advanced part of the collaboration feature, to write and review content in a live mode thanks to CKEditor.
-Real-time collaboration syncs changes instantly and shows user avatars and colored tags to indicate who is editing specific part of the Rich Text field.
+Users can invite both internal and external users to a collaboration session, giving them access for previewing the draft.
 
 This feature also introduces new dashboard tabs for managing shared drafts and joining collaboration sessions easily.
 
 ## Getting started
 
 [[= cards([
-"content_management/collaborative_editing/collaborative_editing_guide",
-"content_management/collaborative_editing/install_collaborative_editing",
-("permissions/policies#collaborative-editing", "Policies", "Learn about the available Collaborative editing policies"),
-("https://doc.ibexa.co/projects/userguide/en/4.6/content_management/collaborative_editing/", "Collaborative editing", "Learn about Collaborative editing feature and its capabilities."),
+"content_management/content_sharing/content_sharing_guide",
+"content_management/content_sharing/install_content_sharing",
+("permissions/policies#content-sharing", "Policies", "Learn about the available Content sharing policies"),
+("https://doc.ibexa.co/projects/userguide/en/4.6/content_management/collaborative_editing/", "Content sharing", "Learn about Content sharing feature and its capabilities."),
 ], columns=2) =]]
 
 ## Development
 
 [[= cards([
-"content_management/collaborative_editing/collaborative_editing_api",
+"content_management/content_sharing/content_sharing_api",
 "api/event_reference/collaboration_events",
-("https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#collaborative-editing", "REST API Reference", "See the available endpoints for Collaborative editing"),
-"content_management/collaborative_editing/extend_collaborative_editing",
+("https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#collaborative-editing", "REST API Reference", "See the available endpoints for Content sharing"),
+"content_management/content_sharing/extend_content_sharing",
 "search/collaboration_search_reference/collaboration_criteria",
 "search/collaboration_search_reference/collaboration_sort_clauses",
 ], columns=4) =]]
-

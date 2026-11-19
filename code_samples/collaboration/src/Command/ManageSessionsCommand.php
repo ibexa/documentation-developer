@@ -114,7 +114,7 @@ final class ManageSessionsCommand extends Command
             ->getParticipants()
             ->getByEmail($user->email);
 
-        $internalParticipantUpdateStruct = new InternalParticipantUpdateStruct(ContentSessionScope::EDIT);
+        $internalParticipantUpdateStruct = new InternalParticipantUpdateStruct(ContentSessionScope::VIEW);
         $this->sessionService->updateParticipant($session, $participant, $internalParticipantUpdateStruct);
 
         // Remove participant
