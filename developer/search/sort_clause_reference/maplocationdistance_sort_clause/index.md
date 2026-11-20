@@ -1,0 +1,26 @@
+# MapLocationDistance Sort Clause
+
+MapLocationDistance Sort Clause
+
+The [`MapLocationDistance` Sort Clause](../../../../../../ibexa/core/src/contracts/Repository/Values/Content/Query/SortClause/MapLocationDistance.php) sorts search results by the distance of the indicated MapLocation field to the provided location.
+
+## Arguments
+
+- `typeIdentifier` - string representing the identifier of the content type to which the MapLocation field belongs
+- `fieldIdentifier` - string representing the identifier of the MapLocation field to sort by
+- `latitude` - float representing the latitude of the location to calculate distance to
+- `longitude`- float representing the longitude of the location to calculate distance to - (optional) `sortDirection` - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`
+
+## Limitations
+
+The `MapLocationDistance` Sort Clause isn't available in [Repository filtering](../../search_api/index.md#repository-filtering).
+
+## Example
+
+```php
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
+$query = new LocationQuery();
+$query->sortClauses = [new SortClause\MapLocationDistance('place', 'location', 49.542889, 20.111349)];
+```

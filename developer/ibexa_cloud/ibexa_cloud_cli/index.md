@@ -1,0 +1,99 @@
+# Ibexa Cloud CLI
+
+Use the Ibexa Cloud CLI to manage your IIbexa Cloud projects from the command line.
+
+The Ibexa Cloud CLI (`ibexa_cloud`) is a command-line tool for managing your Ibexa Cloud projects. It's based on the [Upsun CLI](https://developer.upsun.com/cli) and shares the same commands.
+
+## Installation
+
+Follow the installation instructions at [cli.ibexa.cloud](https://cli.ibexa.cloud/).
+
+After installation, authenticate with your Ibexa Cloud account:
+
+```bash
+ibexa_cloud auth:browser-login
+```
+
+## Command reference
+
+To get started, try the following commands:
+
+- `ibexa_cloud list` lists all available commands
+- `ibexa_cloud ssh` opens an SSH session to the current environment, or executes a command remotely
+- `ibexa_cloud log` reads an environment's logs
+- `ibexa_cloud rel` shows an environment's service relationships
+- `ibexa_cloud var` lists environment variables
+
+To get help and see usage examples for any command, run:
+
+```bash
+ibexa_cloud <command> --help
+```
+
+For the full list of available commands, run `ibexa_cloud list` or see the [Upsun CLI reference](https://developer.upsun.com/cli/reference). In all examples, replace `upsun` with `ibexa_cloud`.
+
+## Examples
+
+### Run SQL script
+
+To execute an SQL upgrade script on a Ibexa Cloud environment, pass it to `ibexa_cloud sql`:
+
+**MySQL**
+
+```bash
+ibexa_cloud sql < vendor/ibexa/installer/upgrade/db/mysql/ibexa-x.x.x-to-x.x.y.sql
+```
+
+**PostgreSQL**
+
+```bash
+ibexa_cloud sql < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-x.x.x-to-x.x.y.sql
+```
+
+### Run database migration
+
+To apply Ibexa Doctrine migrations on a Ibexa Cloud environment, connect with SSH:
+
+```bash
+ibexa_cloud ssh
+```
+
+You can preview the changes before you apply them:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
+```
+
+> **Caution: Preview only**
+>
+> This generates an SQL file that is only intended for review. More recent migrations can be unaware of changes made by earlier migrations in the same run, so the file may be incomplete. Do not run the SQL file against your database.
+>
+> Always apply changes by running the command without the `--dry-run` flag.
+
+Then apply the migrations:
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+### Connect with SQL client
+
+To connect to the database using any SQL client, start SSH tunnels to all services (database, Redis, Solr, and others except Varnish) by running the following command in the project directory:
+
+```bash
+ibexa_cloud tunnel:open
+```
+
+The command outputs connection details for each service, for example:
+
+```shell-session
+SSH tunnel opened to database at: mysql://user:<PASSWORD>@127.0.0.1:30000/main
+```
+
+Use the displayed host, port, database name, username, and password to configure your SQL client.
+
+When you're done, close the tunnels:
+
+```bash
+ibexa_cloud tunnel:close
+```
