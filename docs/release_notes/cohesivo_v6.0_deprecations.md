@@ -70,6 +70,12 @@ This page lists backwards compatibility breaks introduced in Cohesivo v6.0.
 | --- | --- |
 | `ibexa_system_info.system_info.powered_by.release` | Removed. See [X-Powered-By header](devops.md#x-powered-by-header) for how the header works in Cohesivo v6.0. |
 
+## Console commands
+
+| Command | Comment |
+| --- | --- |
+| `ibexa:migrate:flex-workflow` | Removed. The command migrated Flex Workflow data from eZ Platform v2.5 to the Quick Review workflow. If you still have Flex Workflow data, migrate it as described in [Update workflow](6_update_workflow.md) before you upgrade to v6.0. |
+
 ## Back office label renames
 
 ### Bookmarks
