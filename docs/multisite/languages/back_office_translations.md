@@ -64,9 +64,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class MyService
 {
-    public function __construct(private TranslatorInterface $translator)
-    {
-    }
+    public function __construct(private TranslatorInterface $translator) {}
 
     public function getTranslatedDescription(): string
     {

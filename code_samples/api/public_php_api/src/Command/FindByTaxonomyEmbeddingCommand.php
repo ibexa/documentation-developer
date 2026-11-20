@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchHit;
@@ -53,7 +54,7 @@ final class FindByTaxonomyEmbeddingCommand extends Command
         foreach ($result->searchHits as $searchHit) {
             assert($searchHit instanceof SearchHit);
 
-            /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+            /** @var Content $content */
             $content = $searchHit->valueObject;
             $contentInfo = $content->versionInfo->contentInfo;
 

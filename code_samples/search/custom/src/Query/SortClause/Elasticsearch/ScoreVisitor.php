@@ -12,13 +12,18 @@ use Ibexa\Contracts\Elasticsearch\Query\SortClauseVisitor;
 
 final class ScoreVisitor implements SortClauseVisitor
 {
-    public function supports(SortClause $sortClause, LanguageFilter $languageFilter): bool
-    {
+    public function supports(
+        SortClause $sortClause,
+        LanguageFilter $languageFilter
+    ): bool {
         return $sortClause instanceof ScoreSortClause;
     }
 
-    public function visit(SortClauseVisitor $visitor, SortClause $sortClause, LanguageFilter $languageFilter): array
-    {
+    public function visit(
+        SortClauseVisitor $visitor,
+        SortClause $sortClause,
+        LanguageFilter $languageFilter
+    ): array {
         $order = $sortClause->direction === Query::SORT_ASC ? 'asc' : 'desc';
 
         return [

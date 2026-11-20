@@ -104,8 +104,11 @@ You can delete a single translation from a content item's version using [`Conten
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo $versionInfo */
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
+
+/** @var VersionInfo $versionInfo */
 $languageCode = 'ger-DE';
-/** @var \Ibexa\Contracts\Core\Repository\ContentService $contentService */
+/** @var ContentService $contentService */
 $contentService->deleteTranslationFromDraft($versionInfo, $languageCode);
 ```

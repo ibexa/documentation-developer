@@ -47,8 +47,11 @@ The hash format mostly matches the value object. It has the following keys:
 Example:
 
 ``` php
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct $fileContentCreateStruct */
-$fileContentCreateStruct->setField('file', new Ibexa\Core\FieldType\BinaryFile\Value([
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct;
+use Ibexa\Core\FieldType\BinaryFile\Value;
+
+/** @var ContentCreateStruct $fileContentCreateStruct */
+$fileContentCreateStruct->setField('file', new Value([
     'fileName' => 'example.pdf',
     'inputUri' => '/tmp/example_for_website.pdf',
 ]));

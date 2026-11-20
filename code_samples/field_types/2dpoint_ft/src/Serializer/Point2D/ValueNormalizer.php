@@ -11,16 +11,22 @@ final class ValueNormalizer implements NormalizerInterface
     /**
      * @return array<?float, ?float>
      */
-    public function normalize($object, ?string $format = null, array $context = []): array
-    {
+    public function normalize(
+        $object,
+        ?string $format = null,
+        array $context = []
+    ): array {
         return [
             $object->getX(),
             $object->getY(),
         ];
     }
 
-    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
-    {
+    public function supportsNormalization(
+        mixed $data,
+        ?string $format = null,
+        array $context = []
+    ): bool {
         return $data instanceof Value;
     }
 

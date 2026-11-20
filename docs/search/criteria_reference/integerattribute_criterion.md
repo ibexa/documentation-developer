@@ -17,11 +17,11 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IntegerAttribute;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IntegerAttribute(
+    new IntegerAttribute(
         'size',
         38
     )

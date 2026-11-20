@@ -16,11 +16,11 @@ The `ProductType` Search Criterion searches for products by their codes.
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductType;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductType(['dress'])
+    new ProductType(['dress'])
 );
 ```
 

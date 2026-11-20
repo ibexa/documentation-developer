@@ -125,8 +125,7 @@ final readonly class SomeClassThatSchedulesExecutionInTheBackground
 {
     public function __construct(
         private MessageBusInterface $bus
-    ) {
-    }
+    ) {}
 
     public function schedule(): void
     {

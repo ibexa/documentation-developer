@@ -26,11 +26,12 @@ Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value` object
 
 ``` php
 use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
+use Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value;
 
 /** @var TaxonomyServiceInterface $taxonomyService */
 $taxonomyEntry1 = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
 $taxonomyEntry2 = $taxonomyService->loadEntryByIdentifier('example_entry_2', 'tags');
-new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
+new Value(
     [
         $taxonomyEntry1,
         $taxonomyEntry2,

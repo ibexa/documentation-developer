@@ -15,8 +15,10 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class OnePageCheckoutType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add(
             'payment_method',
             PaymentMethodChoiceType::class,

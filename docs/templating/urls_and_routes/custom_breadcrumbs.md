@@ -50,7 +50,7 @@ custom_blog_index:
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-    /** @var \Symfony\Component\HttpFoundation\Request $request */
+    /** @var Request $request */
     if ($request->getMethod() != Request::METHOD_POST) {
         throw new NotFoundHttpException();
     }

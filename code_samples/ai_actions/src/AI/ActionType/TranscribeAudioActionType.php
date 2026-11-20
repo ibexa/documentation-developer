@@ -6,6 +6,7 @@ namespace App\AI\ActionType;
 
 use App\AI\Action\TranscribeAudioAction;
 use App\AI\DataType\Audio;
+use Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
 use Ibexa\Contracts\ConnectorAi\ActionInterface;
 use Ibexa\Contracts\ConnectorAi\ActionType\ActionTypeInterface;
@@ -16,10 +17,8 @@ final readonly class TranscribeAudioActionType implements ActionTypeInterface
 {
     public const string IDENTIFIER = 'transcribe_audio';
 
-    /** @param iterable<\Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface> $actionHandlers*/
-    public function __construct(private iterable $actionHandlers)
-    {
-    }
+    /** @param iterable<ActionHandlerInterface> $actionHandlers*/
+    public function __construct(private iterable $actionHandlers) {}
 
     public function getIdentifier(): string
     {
@@ -46,8 +45,10 @@ final readonly class TranscribeAudioActionType implements ActionTypeInterface
         return [];
     }
 
-    public function createAction(DataType $input, array $parameters = []): ActionInterface
-    {
+    public function createAction(
+        DataType $input,
+        array $parameters = []
+    ): ActionInterface {
         if (!$input instanceof Audio) {
             throw new InvalidArgumentException(
                 'audio',

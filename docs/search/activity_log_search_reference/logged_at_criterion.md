@@ -24,6 +24,6 @@ The following example is to match all activity log groups that aren't older than
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog as ActivityLog;
 
 $query = new ActivityLog\Query([
-    new ActivityLog\Criterion\LoggedAtCriterion(new \DateTime('- 1 day'), ActivityLog\Criterion\LoggedAtCriterion::GTE),
+    new ActivityLog\Criterion\LoggedAtCriterion(new DateTime('- 1 day'), ActivityLog\Criterion\LoggedAtCriterion::GTE),
 ]);
 ```

@@ -9,8 +9,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class Point2DSettingsType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add('format', TextType::class);
     }
 }

@@ -12,8 +12,11 @@ class LogChannel implements ChannelInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    public function notify(Notification $notification, RecipientInterface $recipient, ?string $transportName = null): void
-    {
+    public function notify(
+        Notification $notification,
+        RecipientInterface $recipient,
+        ?string $transportName = null
+    ): void {
         if (isset($this->logger)) {
             $this->logger->info($notification->getSubject(), [
                 'class' => $notification::class,
@@ -23,8 +26,10 @@ class LogChannel implements ChannelInterface, LoggerAwareInterface
         }
     }
 
-    public function supports(Notification $notification, RecipientInterface $recipient): bool
-    {
+    public function supports(
+        Notification $notification,
+        RecipientInterface $recipient
+    ): bool {
         return true;
     }
 }

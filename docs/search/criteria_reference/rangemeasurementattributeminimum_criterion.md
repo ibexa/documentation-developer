@@ -16,15 +16,16 @@ The `RangeMeasurementAttributeMinimum` Search Criterion searches for products by
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Measurement\MeasurementServiceInterface;
+use Ibexa\Contracts\Measurement\Product\Query\Criterion\RangeMeasurementAttributeMinimum;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
+/** @var MeasurementServiceInterface $measurementService */
 $value = $measurementService->buildSimpleValue('length', 100, 'centimeter');
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\Measurement\Product\Query\Criterion\RangeMeasurementAttributeMinimum(
+    new RangeMeasurementAttributeMinimum(
         'length',
         $value
     )

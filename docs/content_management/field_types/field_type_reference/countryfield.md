@@ -50,8 +50,10 @@ The format used for serialization is simpler than the full format.
 It's also available when setting value on the content field, by setting the value to an array instead of the value object. Example of that shown below:
 
 ``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
+
 // Value object content example
-/** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+/** @var Content $content */
 $content->fields['countries'] = ['JP', 'NO'];
 ```
 
@@ -69,7 +71,9 @@ The Value class of this field type contains the following properties:
 
 ``` php
 // Value object content example
-/** @var \Ibexa\Core\FieldType\Country\Value $value */
+use Ibexa\Core\FieldType\Country\Value;
+
+/** @var Value $value */
 $value->countries = [
     'JP' => [
         'Name' => 'Japan',

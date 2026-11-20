@@ -17,11 +17,12 @@ The `CreatedAt` Search Criterion searches for products based on the date when th
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAt;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator;
 
-$criteria = new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAt(
+$criteria = new CreatedAt(
     new DateTime('2023-03-01'),
-    \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator::GTE,
+    Operator::GTE,
 );
 
 $productQuery = new ProductQuery(null, $criteria);

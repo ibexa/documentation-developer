@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\AI\Handler;
 
 use App\AI\ActionType\TranscribeAudioActionType;
+use App\AI\DataType\Audio;
 use Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
 use Ibexa\Contracts\ConnectorAi\Action\Response\TextResponse;
@@ -22,9 +23,11 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
         return $action->getActionTypeIdentifier() === TranscribeAudioActionType::IDENTIFIER;
     }
 
-    public function handle(ActionInterface $action, array $context = []): ActionResponseInterface
-    {
-        /** @var \App\AI\DataType\Audio $input */
+    public function handle(
+        ActionInterface $action,
+        array $context = []
+    ): ActionResponseInterface {
+        /** @var Audio $input */
         $input = $action->getInput();
 
         $path = $this->saveInputToFile($input->getBase64());

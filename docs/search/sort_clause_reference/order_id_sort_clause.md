@@ -15,14 +15,15 @@ The `Id` Sort Clause sorts search results by order Id.
 
 ``` php
 use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Id;
 
 $criteria = null;
 
 $orderQuery = new OrderQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Id(
-            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Id::SORT_ASC
+        new Id(
+            Id::SORT_ASC
         ),
     ]
 );

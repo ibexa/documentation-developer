@@ -15,13 +15,18 @@ use stdClass;
 
 final class PriorityRangeAggregationResultExtractor implements AggregationResultExtractor
 {
-    public function canVisit(Aggregation $aggregation, array $languageFilter): bool
-    {
+    public function canVisit(
+        Aggregation $aggregation,
+        array $languageFilter
+    ): bool {
         return $aggregation instanceof PriorityRangeAggregation;
     }
 
-    public function extract(Aggregation $aggregation, array $languageFilter, stdClass $data): AggregationResult
-    {
+    public function extract(
+        Aggregation $aggregation,
+        array $languageFilter,
+        stdClass $data
+    ): AggregationResult {
         $entries = [];
         foreach ($data as $key => $bucket) {
             if ($key === 'count' || !str_contains($key, '_')) {

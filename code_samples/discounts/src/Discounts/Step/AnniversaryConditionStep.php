@@ -8,7 +8,8 @@ final class AnniversaryConditionStep extends AbstractDiscountStep
 {
     public const string IDENTIFIER = 'anniversary_condition_step';
 
-    public function __construct(public bool $enabled = false, public int $tolerance = 0)
-    {
-    }
+    public function __construct(
+        public bool $enabled = false,
+        public int $tolerance = 0
+    ) {}
 }

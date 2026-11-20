@@ -45,9 +45,10 @@ Depending on the selected input type, the object resembles the following example
 ``` php
 // Simple input (single value) example
 
+use Ibexa\Contracts\Measurement\MeasurementServiceInterface;
 use Ibexa\Measurement\FieldType\MeasurementValue;
 
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
+/** @var MeasurementServiceInterface $measurementService */
 
 // Instantiates a Measurement Value object
 $measurementValue = new MeasurementValue(
@@ -62,9 +63,10 @@ $measurementValue = new MeasurementValue(
 ``` php
 // Range input value example
 
+use Ibexa\Contracts\Measurement\MeasurementServiceInterface;
 use Ibexa\Measurement\FieldType\MeasurementValue;
 
-/** @var \Ibexa\Contracts\Measurement\MeasurementServiceInterface $measurementService */
+/** @var MeasurementServiceInterface $measurementService */
 
 // Instantiates a Measurement Value object
 $measurementValue = new MeasurementValue(

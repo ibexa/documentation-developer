@@ -16,10 +16,12 @@ final class CameraManufacturerVisitor extends CriterionVisitor
     }
 
     /**
-     * @param \App\Query\Criterion\CameraManufacturerCriterion $criterion
+     * @param CameraManufacturerCriterion $criterion
      */
-    public function visit(CriterionInterface $criterion, ?CriterionVisitor $subVisitor = null): string
-    {
+    public function visit(
+        CriterionInterface $criterion,
+        ?CriterionVisitor $subVisitor = null
+    ): string {
         $expressions = array_map(
             fn ($value): string => 'exif_camera_manufacturer_id:"' . $this->escapeQuote((string) $value) . '"',
             $criterion->value

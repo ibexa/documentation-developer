@@ -12,8 +12,10 @@ use Symfony\Component\Form\FormInterface;
 
 class CustomLimitationFormMapper implements LimitationFormMapperInterface
 {
-    public function mapLimitationForm(FormInterface $form, Limitation $data): void
-    {
+    public function mapLimitationForm(
+        FormInterface $form,
+        Limitation $data
+    ): void {
         $form->add('limitationValues', CheckboxType::class, [
             'label' => LimitationIdentifierToLabelConverter::convert($data->getIdentifier()),
             'required' => false,
@@ -27,7 +29,5 @@ class CustomLimitationFormMapper implements LimitationFormMapperInterface
         return '@ibexadesign/limitation/custom_limitation_form.html.twig';
     }
 
-    public function filterLimitationValues(Limitation $limitation): void
-    {
-    }
+    public function filterLimitationValues(Limitation $limitation): void {}
 }

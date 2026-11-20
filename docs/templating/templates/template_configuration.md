@@ -95,7 +95,7 @@ In the example above, content which is either an article or a blog post is match
 When you use no matcher in a rule, this rule always match.
 Several values are available to declare no matcher:
 
-``` yaml
+``` yaml {skip-validation}
 match: ~
 match: true
 match: []

@@ -39,8 +39,10 @@ class ActivityLogContextTestCommand extends Command
         $this->addArgument('id', InputArgument::REQUIRED, 'A test number');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $id = $input->getArgument('id');
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 

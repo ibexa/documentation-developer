@@ -36,8 +36,10 @@ class CreateContentTypeCommand extends Command
             ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy of the content type?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 

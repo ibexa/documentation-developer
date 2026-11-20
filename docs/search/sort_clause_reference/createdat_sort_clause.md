@@ -14,13 +14,14 @@ The `CreatedAt` Sort Clause sorts search results by the date and time of the cre
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt;
 
 $productQuery = new ProductQuery(
     null,
     null,
     [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt(
-            \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt::SORT_ASC
+        new CreatedAt(
+            CreatedAt::SORT_ASC
         ),
     ]
 );

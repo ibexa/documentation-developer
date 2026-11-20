@@ -8,7 +8,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 class Configuration extends SiteAccessConfiguration
 {
     /**
-     * @phpstan-return \Symfony\Component\Config\Definition\Builder\TreeBuilder<'array'> The tree builder
+     * @phpstan-return TreeBuilder<'array'> The tree builder
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {

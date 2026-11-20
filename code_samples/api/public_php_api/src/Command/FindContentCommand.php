@@ -30,8 +30,10 @@ class FindContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
 
         $query = new LocationQuery();

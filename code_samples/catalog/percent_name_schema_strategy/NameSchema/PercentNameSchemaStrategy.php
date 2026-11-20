@@ -7,13 +7,18 @@ use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
 
 final class PercentNameSchemaStrategy implements NameSchemaStrategyInterface
 {
-    public function resolve(AttributeDefinitionInterface $attributeDefinition, $value, string $languageCode): string
-    {
+    public function resolve(
+        AttributeDefinitionInterface $attributeDefinition,
+        $value,
+        string $languageCode
+    ): string {
         return ($value * 100) . '%';
     }
 
-    public function supports(AttributeDefinitionInterface $attributeDefinition, $value): bool
-    {
+    public function supports(
+        AttributeDefinitionInterface $attributeDefinition,
+        $value
+    ): bool {
         return $attributeDefinition->getType()->getIdentifier() === 'percent';
     }
 }

@@ -10,8 +10,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class PercentOptionsFormMapper implements OptionsFormMapperInterface
 {
-    public function createOptionsForm(string $name, FormBuilderInterface $builder, array $context = []): void
-    {
+    public function createOptionsForm(
+        string $name,
+        FormBuilderInterface $builder,
+        array $context = []
+    ): void {
         $builder->add($name, PercentAttributeOptionsType::class, [
             'constraints' => [
                 new AttributeDefinitionOptions($context['type']),

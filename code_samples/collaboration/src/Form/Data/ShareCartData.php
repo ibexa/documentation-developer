@@ -6,8 +6,7 @@ final class ShareCartData
 {
     public function __construct(
         private ?string $email = null
-    ) {
-    }
+    ) {}
 
     public function getEmail(): ?string
     {

@@ -10,8 +10,10 @@ use Ibexa\Contracts\Payment\PaymentMethod\Voter\AbstractVoter;
 
 final class NewPaymentMethodTypeVoter extends AbstractVoter
 {
-    protected function getVote(PaymentMethodInterface $method, CartInterface $cart): bool
-    {
+    protected function getVote(
+        PaymentMethodInterface $method,
+        CartInterface $cart
+    ): bool {
         // Add custom logic if method should not always be visible
 
         return true;

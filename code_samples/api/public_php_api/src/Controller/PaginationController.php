@@ -13,12 +13,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PaginationController extends Controller
 {
-    public function __construct(private readonly SearchService $searchService)
-    {
-    }
+    public function __construct(private readonly SearchService $searchService) {}
 
-    public function showContentAction(Request $request, int $locationId): Response
-    {
+    public function showContentAction(
+        Request $request,
+        int $locationId
+    ): Response {
         $query = new LocationQuery();
         $query->filter = new Criterion\ParentLocationId($locationId);
 

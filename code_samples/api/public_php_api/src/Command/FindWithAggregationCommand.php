@@ -23,8 +23,10 @@ class FindWithAggregationCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $query = new LocationQuery();
         $query->query = new Criterion\ParentLocationId(2);
 

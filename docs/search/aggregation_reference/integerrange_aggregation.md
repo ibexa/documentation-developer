@@ -25,9 +25,9 @@ $query->aggregations[] = new Aggregation\Field\IntegerRangeAggregation(
     'product',
     'amount',
     [
-    Range::ofInt(null, 12),
-    Range::ofInt(12, 24),
-    Range::ofInt(24, null),
-]
+        Range::ofInt(null, 12),
+        Range::ofInt(12, 24),
+        Range::ofInt(24, null),
+    ]
 );
 ```

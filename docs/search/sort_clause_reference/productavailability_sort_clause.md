@@ -14,12 +14,13 @@ The `ProductAvailability` Sort Clause sorts search results by whether they have 
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability;
 
 $query = new ProductQuery(
     null,
     null,
     [
-        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability(),
+        new ProductAvailability(),
     ]
 );
 ```

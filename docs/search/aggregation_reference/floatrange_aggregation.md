@@ -25,9 +25,9 @@ $query->aggregations[] = new Aggregation\Field\FloatRangeAggregation(
     'product',
     'weight',
     [
-    Range::ofFloat(null, 0.25),
-    Range::ofFloat(0.25, 0.75),
-    Range::ofFloat(0.75, null),
-]
+        Range::ofFloat(null, 0.25),
+        Range::ofFloat(0.25, 0.75),
+        Range::ofFloat(0.75, null),
+    ]
 );
 ```

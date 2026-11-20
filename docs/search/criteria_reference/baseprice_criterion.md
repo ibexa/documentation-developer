@@ -21,13 +21,15 @@ The `BasePrice` Criterion isn't available in the Legacy Search engine.
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\BasePrice;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator;
+use Money\Money;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\BasePrice(
-        \Money\Money::EUR(12900),
-        \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator::GTE
+    new BasePrice(
+        Money::EUR(12900),
+        Operator::GTE
     )
 );
 ```

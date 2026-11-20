@@ -17,7 +17,7 @@ class MyFeatureNameMapper implements ClassNameMapperInterface, TranslationContai
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('ibexa.activity_log.search_form.object_class.my_feature', 'ibexa_activity_log'))
+            new Message('ibexa.activity_log.search_form.object_class.my_feature', 'ibexa_activity_log')
                 ->setDesc('My Feature'),
         ];
     }

@@ -130,17 +130,17 @@ namespace App\Controller;
 
 use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Core\FieldType\RelationList\Value;
 use Ibexa\Core\MVC\Symfony\View\ContentView;
 
 class RideController extends Controller
 {
-    public function __construct(private readonly ContentService $contentService)
-    {
-    }
+    public function __construct(private readonly ContentService $contentService) {}
 
     public function viewRideWithLandmarksAction(ContentView $view): ContentView
     {
         $currentContent = $view->getContent();
+        /** @var Value $landmarksListId */
         $landmarksListId = $currentContent->getFieldValue('landmarks');
         $landmarksList = [];
 

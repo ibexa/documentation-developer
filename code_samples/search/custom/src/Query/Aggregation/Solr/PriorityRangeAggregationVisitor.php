@@ -13,13 +13,15 @@ use Ibexa\Contracts\Solr\Query\AggregationVisitor;
  */
 final class PriorityRangeAggregationVisitor implements AggregationVisitor
 {
-    public function canVisit(Aggregation $aggregation, array $languageFilter): bool
-    {
+    public function canVisit(
+        Aggregation $aggregation,
+        array $languageFilter
+    ): bool {
         return $aggregation instanceof PriorityRangeAggregation;
     }
 
     /**
-     * @param \App\Query\Aggregation\PriorityRangeAggregation<TRangeAggregation> $aggregation
+     * @param PriorityRangeAggregation<TRangeAggregation> $aggregation
      */
     public function visit(
         AggregationVisitor $dispatcherVisitor,

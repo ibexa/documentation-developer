@@ -16,9 +16,12 @@ class ProductSuggestionNormalizer implements
     /**
      * @return array<string, string|null>
      */
-    public function normalize($object, ?string $format = null, array $context = []): array
-    {
-        /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
+    public function normalize(
+        $object,
+        ?string $format = null,
+        array $context = []
+    ): array {
+        /** @var ProductSuggestion $object */
         return [
             'type' => 'product',
             'name' => $object->getName(),
@@ -28,8 +31,11 @@ class ProductSuggestionNormalizer implements
         ];
     }
 
-    public function supportsNormalization($data, ?string $format = null, array $context = []): bool
-    {
+    public function supportsNormalization(
+        $data,
+        ?string $format = null,
+        array $context = []
+    ): bool {
         return $data instanceof ProductSuggestion;
     }
 

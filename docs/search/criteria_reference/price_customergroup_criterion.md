@@ -15,13 +15,14 @@ The `CustomerGroup` Search Criterion searches for prices based on the customer g
 ### PHP
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\CustomerGroupServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup;
 
-/** @var \Ibexa\Contracts\ProductCatalog\CustomerGroupServiceInterface $customerGroupService */
+/** @var CustomerGroupServiceInterface $customerGroupService */
 $customerGroup = $customerGroupService->getCustomerGroup(123);
 
 $query = new PriceQuery(
-    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup($customerGroup)
+    new CustomerGroup($customerGroup)
 );
 ```

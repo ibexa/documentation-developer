@@ -10,18 +10,19 @@ use Ibexa\Rest\Server\Values\URLAliasRefList;
 
 class RestLocation extends BaseRestLocation
 {
-    public function __construct(private readonly URLAliasService $urlAliasService)
-    {
-    }
+    public function __construct(private readonly URLAliasService $urlAliasService) {}
 
     #[\Override]
-    public function visit(Visitor $visitor, Generator $generator, $data): void
-    {
+    public function visit(
+        Visitor $visitor,
+        Generator $generator,
+        $data
+    ): void {
         // Not using $generator->startObjectElement to not have the XML Generator adding its own media-type attribute with the default vendor
         $generator->startHashElement('Location');
         $generator->attribute(
             'media-type',
-            'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
+            'application/app.api.Location+' . strtolower(new \ReflectionClass($generator)->getShortName())
         );
         $generator->attribute(
             'href',

@@ -36,8 +36,10 @@ class FindComplexCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $locationId = (int) $input->getArgument('locationId');
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
         $text = $input->getArgument('text');

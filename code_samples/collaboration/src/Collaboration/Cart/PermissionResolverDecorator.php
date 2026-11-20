@@ -22,8 +22,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
         private readonly PermissionResolverInterface $innerPermissionResolver,
         private readonly SessionServiceInterface $sessionService,
         private readonly RequestStack $requestStack,
-    ) {
-    }
+    ) {}
 
     public function canUser(PolicyInterface $policy): bool
     {
@@ -59,7 +58,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
         try {
             $this->nested = true;
 
-            /** @var \App\Collaboration\Cart\CartSession $session */
+            /** @var CartSession $session */
             $session = $this->getCurrentCartCollaborationSession();
             if ($session !== null) {
                 try {
@@ -86,7 +85,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
             if ($session instanceof CartSession) {
                 return $session;
             }
-        } catch (NotFoundException|UnauthorizedException) {
+        } catch (NotFoundException | UnauthorizedException) {
         }
 
         return null;

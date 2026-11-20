@@ -14,14 +14,16 @@ The `CreatedAt` Sort Clause sorts search results by the date and time when the s
 ## Example
 
 ``` php
+use Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface;
+use Ibexa\Contracts\Shipping\Shipment\Query\SortClause\CreatedAt;
 use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
 
-/** @var \Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface $criteria */
+/** @var CriterionInterface $criteria */
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\CreatedAt(
-            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\CreatedAt::SORT_ASC
+        new CreatedAt(
+            CreatedAt::SORT_ASC
         ),
     ]
 );

@@ -14,14 +14,15 @@ The `OwnerCriterion` Criterion searches for orders based on the user reference.
 ## Example
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\OwnerCriterion;
 
-/** @var \Ibexa\Contracts\Core\Repository\UserService $userService */
+/** @var UserService $userService */
 $user = $userService->loadUserByLogin('user');
 
 $query = new OrderQuery(
-    new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\OwnerCriterion(
+    new OwnerCriterion(
         $user
     )
 );
@@ -30,18 +31,19 @@ $query = new OrderQuery(
 `OwnerCriterion` Criterion accepts also multiple values:
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\OwnerCriterion;
 
-/** @var \Ibexa\Contracts\Core\Repository\UserService $userService */
+/** @var UserService $userService */
 $user1 = $userService->loadUser(12345);
 $user2 = $userService->loadUserByLogin('user');
 
 $query = new OrderQuery(
-    new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\OwnerCriterion(
+    new OwnerCriterion(
         [
-           $user1,
-           $user2,
+            $user1,
+            $user2,
         ]
     )
 );

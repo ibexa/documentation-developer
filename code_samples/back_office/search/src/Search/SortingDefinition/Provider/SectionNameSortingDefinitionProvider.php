@@ -12,9 +12,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class SectionNameSortingDefinitionProvider implements SortingDefinitionProviderInterface, TranslationContainerInterface
 {
-    public function __construct(private TranslatorInterface $translator)
-    {
-    }
+    public function __construct(private TranslatorInterface $translator) {}
 
     public function getSortingDefinitions(): array
     {
@@ -41,8 +39,8 @@ final readonly class SectionNameSortingDefinitionProvider implements SortingDefi
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('sort_definition.section_name_asc.label'))->setDesc('Sort by section A-Z'),
-            (new Message('sort_definition.section_name_desc.label'))->setDesc('Sort by section Z-A'),
+            new Message('sort_definition.section_name_asc.label')->setDesc('Sort by section A-Z'),
+            new Message('sort_definition.section_name_desc.label')->setDesc('Sort by section Z-A'),
         ];
     }
 }

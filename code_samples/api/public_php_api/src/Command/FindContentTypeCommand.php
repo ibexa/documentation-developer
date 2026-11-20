@@ -22,8 +22,10 @@ class FindContentTypeCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         // Find content types from the "Content" group that contains a specific field definition (in this case, a "Body" field).
         $query = new ContentTypeQuery(
             new Criterion\LogicalAnd([

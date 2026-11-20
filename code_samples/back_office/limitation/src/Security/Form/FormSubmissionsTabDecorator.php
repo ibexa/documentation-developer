@@ -8,6 +8,7 @@ use Ibexa\Contracts\AdminUi\Tab\TabInterface;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\LanguageService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
 use Ibexa\FormBuilder\FieldType\FormFactory;
@@ -30,7 +31,17 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
         private readonly SubmissionsTab $innerTab,
         private readonly PermissionResolver $permissionResolver
     ) {
-        parent::__construct($twig, $translator, $formSubmissionService, $formFactory, $contentTypeService, $languageService, $formBuilderType, $configResolver);
+        parent::__construct(
+            $twig,
+            $translator,
+            $formSubmissionService,
+            $formFactory,
+            $contentTypeService,
+            $languageService,
+            $formBuilderType,
+            $configResolver,
+            $permissionResolver
+        );
     }
 
     #[\Override]
@@ -54,7 +65,7 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
     #[\Override]
     public function evaluate(array $parameters): bool
     {
-        /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+        /** @var Content $content */
         $content = $parameters['content'];
 
         return $this->innerTab->evaluate($parameters) &&
@@ -64,6 +75,6 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
     #[\Override]
     public function getOrder(): int
     {
-        return  $this->innerTab->getOrder();
+        return $this->innerTab->getOrder();
     }
 }

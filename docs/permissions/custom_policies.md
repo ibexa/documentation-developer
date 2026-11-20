@@ -53,11 +53,11 @@ class MyPolicyProvider implements PolicyProviderInterface
     public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-             'custom_module' => [
-                 'custom_function_1' => null,
-                 'custom_function_2' => ['CustomLimitation'],
-             ],
-         ]);
+            'custom_module' => [
+                'custom_function_1' => null,
+                'custom_function_2' => ['CustomLimitation'],
+            ],
+        ]);
     }
 }
 ```
@@ -114,21 +114,21 @@ class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerI
     public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-             'custom_module' => [
-                 'custom_function_1' => null,
-                 'custom_function_2' => ['CustomLimitation'],
-             ],
-         ]);
+            'custom_module' => [
+                'custom_function_1' => null,
+                'custom_function_2' => ['CustomLimitation'],
+            ],
+        ]);
     }
 
-    /** @return array<\JMS\TranslationBundle\Model\Message> */
+    /** @return array<Message> */
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('role.policy.custom_module', 'forms'))->setDesc('Custom module'),
-            (new Message('role.policy.custom_module.all_functions', 'forms'))->setDesc('Custom module / All functions'),
-            (new Message('role.policy.custom_module.custom_function_1', 'forms'))->setDesc('Custom module / Function #1'),
-            (new Message('role.policy.custom_module.custom_function_2', 'forms'))->setDesc('Custom module / Function #2'),
+            new Message('role.policy.custom_module', 'forms')->setDesc('Custom module'),
+            new Message('role.policy.custom_module.all_functions', 'forms')->setDesc('Custom module / All functions'),
+            new Message('role.policy.custom_module.custom_function_1', 'forms')->setDesc('Custom module / Function #1'),
+            new Message('role.policy.custom_module.custom_function_2', 'forms')->setDesc('Custom module / Function #2'),
         ];
     }
 }

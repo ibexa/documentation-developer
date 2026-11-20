@@ -5,6 +5,11 @@ require __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\Exception as HttpException;
 
+if (!isset($argv) || !isset($argc) || PHP_SAPI !== 'cli') {
+    echo "This script must be run from the command line.\n";
+    exit(9);
+}
+
 if ($argc < 2) {
     // Print script usage
     echo "Usage: php {$argv[0]} <FILE_PATH> [<IMAGE_NAME>]\n";

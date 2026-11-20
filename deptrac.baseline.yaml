@@ -36,9 +36,6 @@ deptrac:
       - Ibexa\Collaboration\Persistence\Values\AbstractSessionCreateStruct
     App\Collaboration\Cart\Persistence\Values\CartSessionUpdateStruct:
       - Ibexa\Collaboration\Persistence\Values\AbstractSessionUpdateStruct
-    App\Command\AddMissingAltTextCommand:
-      - Ibexa\Core\FieldType\Image\Value
-      - Ibexa\Core\IO\IOBinarydataHandler
     App\Command\CalendarCommand:
       - Ibexa\Scheduler\Calendar\EventAction\RescheduleEventActionContext
     App\Command\CatalogCommand:
@@ -59,9 +56,6 @@ deptrac:
       - Ibexa\ProductCatalog\Money\IntlMoneyFactory
     App\Command\PaymentMethodCommand:
       - Ibexa\Payment\Values\PaymentMethodType
-    App\Command\SegmentCommand:
-      - Ibexa\Segmentation\Value\SegmentCreateStruct
-      - Ibexa\Segmentation\Value\SegmentGroupCreateStruct
     App\Command\ShippingMethodCommand:
       - Ibexa\ProductCatalog\Local\Repository\Values\Region
       - Ibexa\Shipping\Value\ShippingMethodType
@@ -96,6 +90,7 @@ deptrac:
       - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\RideController:
       - Ibexa\Bundle\Core\Controller
+      - Ibexa\Core\FieldType\RelationList\Value
       - Ibexa\Core\MVC\Symfony\View\ContentView
     App\Controller\SvgController:
       - Ibexa\Core\Helper\TranslationHelper
@@ -227,9 +222,6 @@ deptrac:
       - Ibexa\Core\QueryType\QueryType
     App\Search\Model\Suggestion\ProductSuggestion:
       - Ibexa\ProductCatalog\Local\Repository\Values\Product
-    App\Security\FormPolicyProvider:
-      - Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface
-      - Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface
     App\Security\FormSubmissionServiceDecorator:
       - Ibexa\Core\Base\Exceptions\NotFoundException
       - Ibexa\Core\Base\Exceptions\UnauthorizedException
@@ -279,3 +271,5 @@ deptrac:
       - Ibexa\AdminUi\UniversalDiscovery\Event\ConfigResolveEvent
     MyMapper:
       - Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType
+    NavigationController:
+      - Ibexa\Bundle\Core\Controller

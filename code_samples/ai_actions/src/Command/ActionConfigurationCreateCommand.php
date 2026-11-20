@@ -39,8 +39,10 @@ final class ActionConfigurationCreateCommand extends Command
         $this->addArgument('user', InputArgument::OPTIONAL, 'Login of the user executing the actions', 'admin');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $user = $input->getArgument('user');
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin($user));
 
@@ -63,7 +65,7 @@ final class ActionConfigurationCreateCommand extends Command
         $this->actionConfigurationService->createActionConfiguration($actionConfigurationCreateStruct);
 
         $action = new RefineTextAction(new Text([
-<<<TEXT
+            <<<TEXT
 Proteins differ from one another primarily in their sequence of amino acids, which is dictated by the nucleotide sequence of their genes, 
 and which usually results in protein folding into a specific 3D structure that determines its activity.
 TEXT

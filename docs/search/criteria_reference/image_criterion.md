@@ -21,10 +21,10 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
 $imageCriteriaData = [
     'mimeTypes' => [
-       'image/png',
+        'image/png',
     ],
     'orientation' => [
-       'image/png',
+        'image/png',
     ],
     'width' => [
         'min' => 0, // (default: 0, optional)

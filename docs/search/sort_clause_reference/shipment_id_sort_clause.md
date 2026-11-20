@@ -14,14 +14,16 @@ The `Id` Sort Clause sorts search results by shipment Id.
 ## Example
 
 ``` php
+use Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface;
+use Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Id;
 use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
 
-/** @var \Ibexa\Contracts\Shipping\Shipment\Query\CriterionInterface $criteria */
+/** @var CriterionInterface $criteria */
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Id(
-            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Id::SORT_ASC
+        new Id(
+            Id::SORT_ASC
         ),
     ]
 );

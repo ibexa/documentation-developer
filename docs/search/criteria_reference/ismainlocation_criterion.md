@@ -19,9 +19,8 @@ representing whether to search for a main or not main location
 
 ``` php
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsMainLocation;
 
 $query = new Query();
-$query->query = new Criterion\Location\IsMainLocation(IsMainLocation::MAIN);
+$query->query = new IsMainLocation(IsMainLocation::MAIN);
 ```

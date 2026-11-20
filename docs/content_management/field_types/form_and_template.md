@@ -32,8 +32,10 @@ use Symfony\Component\Form\FormInterface;
 class MyMapper implements FieldValueFormMapperInterface
 {
     /** @param FormInterface<mixed> $fieldForm */
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
-    {
+    public function mapFieldValueForm(
+        FormInterface $fieldForm,
+        FieldData $data
+    ): void {
         $fieldDefinition = $data->getFieldDefinition();
         $formConfig = $fieldForm->getConfig();
 
@@ -78,8 +80,10 @@ use Symfony\Component\Form\FormInterface;
 class MyMapper implements FieldDefinitionFormMapperInterface
 {
     /** @param FormInterface<mixed> $fieldDefinitionForm */
-    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
-    {
+    public function mapFieldDefinitionForm(
+        FormInterface $fieldDefinitionForm,
+        FieldDefinitionData $data
+    ): void {
         $fieldDefinitionForm
             ->add(
                 'isMultiple',

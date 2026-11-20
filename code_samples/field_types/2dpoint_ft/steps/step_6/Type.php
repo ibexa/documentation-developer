@@ -26,8 +26,10 @@ final class Type extends GenericType
         ];
     }
 
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
-    {
+    public function mapFieldValueForm(
+        FormInterface $fieldForm,
+        FieldData $data
+    ): void {
         $definition = $data->getFieldDefinition();
         $fieldForm->add('value', Point2DType::class, [
             'required' => $definition->isRequired,

@@ -12,13 +12,18 @@ use Ibexa\Contracts\Elasticsearch\Query\LanguageFilter;
 
 final class PriorityRangeAggregationResultExtractor implements AggregationResultExtractor
 {
-    public function supports(Aggregation $aggregation, LanguageFilter $languageFilter): bool
-    {
+    public function supports(
+        Aggregation $aggregation,
+        LanguageFilter $languageFilter
+    ): bool {
         return $aggregation instanceof PriorityRangeAggregation;
     }
 
-    public function extract(Aggregation $aggregation, LanguageFilter $languageFilter, array $data): AggregationResult
-    {
+    public function extract(
+        Aggregation $aggregation,
+        LanguageFilter $languageFilter,
+        array $data
+    ): AggregationResult {
         $entries = [];
 
         foreach ($data['buckets'] as $bucket) {

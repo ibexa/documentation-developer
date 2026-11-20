@@ -10,8 +10,7 @@ class EventData
 {
     public function __construct(
         private readonly ServerSideTrackingDispatcherInterface $trackingDispatcher,
-    ) {
-    }
+    ) {}
 
     public function dispatchVisitEvent(ProductInterface $product): void
     {

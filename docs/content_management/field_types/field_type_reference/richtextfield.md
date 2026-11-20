@@ -71,9 +71,12 @@ You can use the [[= product_name_base =]] flavor of the DocBook format in PHP AP
 The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
 
 ``` php
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
+
 /**
- * @var \Ibexa\Contracts\Core\Repository\ContentService $contentService
- * @var \Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType $contentType
+ * @var ContentService $contentService
+ * @var ContentType $contentType
  */
 $contentCreateStruct = $contentService->newContentCreateStruct($contentType, 'eng-GB');
 

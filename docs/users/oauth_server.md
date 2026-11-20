@@ -20,13 +20,13 @@ composer require ibexa/oauth2-server --with-all-dependencies
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines:
 
-``` php
+``` php {skip-validation}
 <?php
 
 return [
     // A lot of bundles…
-    Ibexa\Bundle\OAuth2Server\IbexaOAuth2ServerBundle::class => ['all' => true],
-    League\Bundle\OAuth2ServerBundle\LeagueOAuth2ServerBundle::class => ['all' => true],
+    IbexaOAuth2ServerBundle::class => ['all' => true],
+    LeagueOAuth2ServerBundle::class => ['all' => true],
 ];
 ```
 

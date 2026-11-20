@@ -10,9 +10,7 @@ use Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource;
 
 class EventSourceFactory
 {
-    public function __construct(private readonly EventType $eventType)
-    {
-    }
+    public function __construct(private readonly EventType $eventType) {}
 
     public function createEventSource(): EventSourceInterface
     {
@@ -29,8 +27,10 @@ class EventSourceFactory
         return new InMemoryEventSource($collection);
     }
 
-    private function createEvent(string $id, DateTimeInterface $dateTime): Event
-    {
+    private function createEvent(
+        string $id,
+        DateTimeInterface $dateTime
+    ): Event {
         return new Event($id, $dateTime, $this->eventType);
     }
 }

@@ -17,8 +17,9 @@ The `Id` Search Criterion searches for payments based on the payment ID.
 
 ``` php
 use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+use Ibexa\Contracts\Payment\Payment\Query\Criterion\Id;
 
 $query = new PaymentQuery(
-    new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Id(2)
+    new Id(2)
 );
 ```

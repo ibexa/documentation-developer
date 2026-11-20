@@ -13,9 +13,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final readonly class NotificationScenarioSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private NotificationService $notificationService)
-    {
-    }
+    public function __construct(private NotificationService $notificationService) {}
 
     public static function getSubscribedEvents(): array
     {
