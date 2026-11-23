@@ -868,7 +868,7 @@ when@prod:
 
 #### Added OpenAPI support for Collaborative editing REST API
 
-The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#/collaboration-sessions).
+The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/content_sharing/content_sharing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#/collaboration-sessions).
 
 ### Full changelog
 
@@ -908,7 +908,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 ### Real-time collaborative editing
 
-Real-time editing is now part of the [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) feature.
+Real-time editing is now part of the [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/content_sharing/content_sharing/) feature.
 
 By using it, users can edit and review content in real time, making teamwork faster, more efficient, and streamlining the content review process.
 The system automatically tracks changes, allowing seamless collaboration within a single content item.
@@ -917,7 +917,7 @@ This extends the already existing capabilities allowing editors to work on the s
 
 ![Participants list](img/participants_list.png)
 
-For more information, see how to [configure Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
+For more information, see how to [configure Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/content_sharing/configure_content_sharing/).
 
 ### Taxonomy suggestions for faster content classification
 
@@ -1057,7 +1057,7 @@ The PHP API has been expanded with the following:
 
 ### Collaboration
 
-The new [Collaborative editing feature](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing_guide/) allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
+The new [Collaborative editing feature](https://doc.ibexa.co/en/5.0/content_management/content_sharing/content_sharing_guide/) allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
 Internal and external users can be invited to a collaboration session, through different sharing options.
 
 With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.

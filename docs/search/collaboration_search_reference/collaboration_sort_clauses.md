@@ -6,7 +6,7 @@ description: Sort Clauses available for Collaboration search
 # Collaboration Search Sort Clauses reference
 
 Sort Clauses are found in the [`Ibexa\Contracts\Collaboration\Value\Query\SortClause`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration-invitation-query-sortclause.html) namespace.
-Use them to work with objects related to [Collaborative editing API](collaborative_editing_api.md).
+Use them to work with objects related to [Collaborative editing API](content_sharing_api.md).
 
 ## Invitation Search Sort Clauses
 

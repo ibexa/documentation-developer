@@ -1067,7 +1067,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
 
-    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/content_sharing/content_sharing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/content_sharing/install_content_sharing).
 
     If you're already using it, run the following command to get the latest version of this feature:
 

@@ -214,7 +214,7 @@ Combined, these changes make the documentation easier to use with AI Agents.
 
 ### Collaborative editing
 
-- Documented [how to extend collaboration](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/extend_collaborative_editing/) with a shared cart example
+- Documented [how to extend collaboration](https://doc.ibexa.co/en/5.0/content_management/content_sharing/extend_content_sharing/) with a shared cart example
 
 ### Search
 
@@ -329,7 +329,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 ### Collaborative editing
 
 - Improved Collaborative editing:
-    - Added [real-time editing configuration](configure_collaborative_editing.md#configure-real-time-editing)
+    - Added [real-time editing configuration](configure_content_sharing.md#configure-real-time-editing)
     - Added Collaborative editing policies for [content items](policies.md#content-collaborative-editing) and [products](policies.md#product-collaborative-editing)
     - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
 
@@ -408,8 +408,8 @@ We want to thank
 ### Collaborative editing
 
 - Described:
-    - [installation and configuration](configure_collaborative_editing.md) in more detail
-    - [search criteria](collaboration_criteria.md) and [sort clauses](collaboration_sort_clauses.md) for [Collaborative editing](collaborative_editing.md)
+    - [installation and configuration](configure_content_sharing.md) in more detail
+    - [search criteria](collaboration_criteria.md) and [sort clauses](collaboration_sort_clauses.md) for [Collaborative editing](content_sharing.md)
     - [events](collaboration_events.md)
 
 ### Extending Page Builder and Form builder
@@ -463,7 +463,7 @@ We want to thank
 
 ### Collaborative editing
 
-- Added the [Collaborative editing product guide](collaborative_editing_guide.md), describing the high-level overview of this feature
+- Added the [Collaborative editing product guide](content_sharing_guide.md), describing the high-level overview of this feature
 - Described collaborative editing endpoints to the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#collaborative-editing) for [[= product_name =]] v4.6
 
 ### Infrastructure
