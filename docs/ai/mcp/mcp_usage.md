@@ -1,6 +1,5 @@
 ---
 description: Create custom capabilities for your MCP servers and test them.
-edition: lts-update
 month_change: true
 ---
 

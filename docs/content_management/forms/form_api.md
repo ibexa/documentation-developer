@@ -1,6 +1,5 @@
 ---
 description: You can use PHP API to get, create and delete form submissions.
-edition: experience
 ---
 
 # Form API

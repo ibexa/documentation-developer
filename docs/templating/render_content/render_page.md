@@ -1,6 +1,5 @@
 ---
 description: Prepare templates for page layouts and render page blocks.
-edition: experience
 ---
 
 # Render a page

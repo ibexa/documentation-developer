@@ -1,6 +1,5 @@
 ---
 description: Add custom classes, exclude custom content types and add support for custom fields.
-edition: lts-update
 month_change: true
 ---
 

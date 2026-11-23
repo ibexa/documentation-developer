@@ -1,6 +1,5 @@
 ---
 description: You can use PHP API to get segment information, create and manage segments, and assign users to them.
-edition: experience
 ---
 
 # Segment API

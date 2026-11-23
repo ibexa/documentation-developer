@@ -1,7 +1,7 @@
 ---
 description: Shopping list allows users to save potential purchases, recurring product sets, and other items for future use in the cart.
 page_type: landing_page
-editions: lts-update commerce
+edition: commerce
 ---
 
 # Shopping list

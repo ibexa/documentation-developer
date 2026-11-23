@@ -1,6 +1,5 @@
 ---
 description: Check all the capabilities and advantages that the Customer Portal offers to the clients by reading the Customer Portal product guide.
-edition: experience
 ---
 
 # Customer Portal product guide

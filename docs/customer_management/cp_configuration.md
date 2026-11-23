@@ -1,6 +1,5 @@
 ---
 description: Configure Customer Portal to fit the needs of your business.
-edition: experience
 ---
 
 # Customer Portal configuration

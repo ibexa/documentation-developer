@@ -1,6 +1,5 @@
 ---
 description: Create a campaign with Qualifio.
-edition: experience
 ---
 
 # Create [[= product_name_engage =]] campaign

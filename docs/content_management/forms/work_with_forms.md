@@ -1,6 +1,5 @@
 ---
 description: Form Builder enables creating dynamic forms to use in surveys, questionnaires, sign-up forms and others.
-edition: experience
 ---
 
 # Forms

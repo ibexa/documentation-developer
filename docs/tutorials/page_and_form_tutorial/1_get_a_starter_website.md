@@ -1,6 +1,5 @@
 ---
 description: Start the tutorial by getting a clean installation of Ibexa Experience and preparing initial content.
-edition: experience
 ---
 
 # Step 1 — Get a starter website

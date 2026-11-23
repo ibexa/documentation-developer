@@ -1,6 +1,6 @@
 ---
 description: A shopping list allows users to save potential purchases, recurring product sets, and other items for future use in the cart.
-editions: lts-update commerce
+edition: commerce
 month_change: false
 ---
 

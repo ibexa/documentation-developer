@@ -585,7 +585,7 @@ The following example shows how to create a currency:
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
 ```
 
-### Commerce [[% include 'snippets/commerce_badge.md' %]]
+### Commerce [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 #### Payment methods
 
@@ -603,7 +603,7 @@ The following example shows how to create a shipping method:
 [[= include_file('code_samples/data_migration/examples/create_shipping_method.yaml') =]]
 ```
 
-### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Segments
 
 The following example shows how to create a segment group and add segments in it:
 

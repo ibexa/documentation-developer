@@ -1,6 +1,5 @@
 ---
 description: Customization of an approval process for new companies applications.
-edition: experience
 ---
 
 # Customer Portal applications

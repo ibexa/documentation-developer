@@ -75,8 +75,8 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest Cohesivo is v5.0 LTS</h2>
-                    <div>The latest v5.0 LTS release is [[= latest_tag_5_0 =]]. You can now update your application.</div>
+                    <h2>The latest Cohesivo is v6.0 LTS</h2>
+                    <div>The latest v6.0 LTS release is [[= latest_tag_6_0 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>

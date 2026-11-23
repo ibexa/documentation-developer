@@ -1,6 +1,5 @@
 ---
 description: The Raptor CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
-edition: experience
 ---
 
 # [[= product_name_cdp =]] product guide

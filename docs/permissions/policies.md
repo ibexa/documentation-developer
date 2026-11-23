@@ -60,7 +60,7 @@ To limit access granted to users through policies, you can use [limitations](lim
 |                     | <nobr>`read`</nobr>   | view the roles list in Admin. Required for all other role-related policies |                      |
 |                     | <nobr>`update`</nobr> | modify existing roles                                                      |                      |
 
-#### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Segments
 
 | Module                 | Function                      | Effect                   | Possible limitations                                              |
 |------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
@@ -70,7 +70,7 @@ To limit access granted to users through policies, you can use [limitations](lim
 |                        | <nobr>`remove`</nobr>         | remove segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
 |                        | <nobr>`update`</nobr>         | update segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
 
-#### Segment groups [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Segment groups
 
 | Module                       | Function              | Effect                         | Possible limitations |
 |------------------------------|-----------------------|--------------------------------|----------------------|
@@ -88,7 +88,7 @@ To limit access granted to users through policies, you can use [limitations](lim
 |                      | <nobr>`setup`</nobr>        | unused                                       |                      |
 |                      | <nobr>`system_info`</nobr>  | view the **System Information** tab in Admin |                      |
 
-#### Sites [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Sites
 
 | Module              | Function                     | Effect                                                                                                | Possible limitations |
 |---------------------|------------------------------|-------------------------------------------------------------------------------------------------------|----------------------|
@@ -113,7 +113,7 @@ To limit access granted to users through policies, you can use [limitations](lim
 
 ### Commerce
 
-#### Cart [[% include 'snippets/commerce_badge.md' %]]
+#### Cart [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module              | Function              | Effect                                                              | Possible limitations                                      |
 |---------------------|-----------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
@@ -122,7 +122,7 @@ To limit access granted to users through policies, you can use [limitations](lim
 |                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cart-owner-limitation) |
 |                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cart-owner-limitation) |
 
-#### Checkout [[% include 'snippets/commerce_badge.md' %]]
+#### Checkout [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module                  | Function              | Effect                                                              | Possible limitations |
 |-------------------------|-----------------------|---------------------------------------------------------------------|----------------------|
@@ -138,7 +138,7 @@ To limit access granted to users through policies, you can use [limitations](lim
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |                      |
 |                         | <nobr>`region`</nobr>   | manage regions    |                      |
 
-#### Discounts [[% include 'snippets/commerce_badge.md' %]]
+#### Discounts [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 The [discount](discounts.md) policies decide which actions can be executed by given user or user group.
 
@@ -156,7 +156,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                      | <nobr>`enable`</nobr>    | enable a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
 |                      | <nobr>`disable`</nobr>   | disable a discount          | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
 
-#### Orders [[% include 'snippets/commerce_badge.md' %]]
+#### Orders [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module               | Function              | Effect                    | Possible limitations                                         |
 |----------------------|-----------------------|---------------------------|--------------------------------------------------------------|
@@ -165,7 +165,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                      | <nobr>`update`</nobr> | change status of an order | [OrderOwner](limitation_reference.md#order-owner-limitation) |
 |                      | <nobr>`view`</nobr>   | view orders               | [OrderOwner](limitation_reference.md#order-owner-limitation) |
 
-#### Payments [[% include 'snippets/commerce_badge.md' %]]
+#### Payments [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module                 | Function              | Effect           | Possible limitations                                            |
 |------------------------|-----------------------|------------------|-----------------------------------------------------------------|
@@ -174,7 +174,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                        | <nobr>`edit`</nobr>   | modify a payment | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
 |                        | <nobr>`view`</nobr>   | view payments    | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
 
-#### Payment methods [[% include 'snippets/commerce_badge.md' %]]
+#### Payment methods [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module                        | Function              | Effect                  | Possible limitations |
 |-------------------------------|-----------------------|-------------------------|----------------------|
@@ -183,7 +183,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                               | <nobr>`edit`</nobr>   | modify a payment method |                      |
 |                               | <nobr>`view`</nobr>   | view payment methods    |                      |
 
-#### Shipments [[% include 'snippets/commerce_badge.md' %]]
+#### Shipments [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module                  | Function              | Effect                      | Possible limitations                                               |
 |-------------------------|-----------------------|-----------------------------|--------------------------------------------------------------------|
@@ -192,7 +192,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                         | <nobr>`update`</nobr> | change status of a shipment | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
 |                         | <nobr>`view`</nobr>   | view shipments              | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
 
-#### Shipping methods [[% include 'snippets/commerce_badge.md' %]]
+#### Shipping methods [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module                         | Function              | Effect                   | Possible limitations |
 |--------------------------------|-----------------------|--------------------------|----------------------|
@@ -201,7 +201,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                                | <nobr>`update`</nobr> | modify a shipping method |                      |
 |                                | <nobr>`view`</nobr>   | view shipping methods    |                      |
 
-#### Shopping lists [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Shopping lists [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Module                       | Function              | Effect                 | Possible limitations                                                  |
 |------------------------------|-----------------------|------------------------|-----------------------------------------------------------------------|

@@ -1,7 +1,3 @@
----
-edition: experience
----
-
 # Page field type
 
 Page field type represents a page with a layout consisting of multiple zones.

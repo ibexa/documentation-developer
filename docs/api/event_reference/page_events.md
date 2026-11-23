@@ -1,6 +1,5 @@
 ---
 description: Events that are triggered when working with pages and page blocks.
-edition: experience
 page_type: reference
 ---
 

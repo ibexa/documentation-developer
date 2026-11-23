@@ -1,6 +1,5 @@
 ---
 description: Data customization in Raptor CDP.
-edition: experience
 ---
 
 # Customize [[= product_name_cdp =]] data

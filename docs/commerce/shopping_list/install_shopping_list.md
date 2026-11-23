@@ -1,6 +1,6 @@
 ---
 description: Install the Shopping list LTS update.
-editions: lts-update commerce
+edition: commerce
 month_change: false
 ---
 

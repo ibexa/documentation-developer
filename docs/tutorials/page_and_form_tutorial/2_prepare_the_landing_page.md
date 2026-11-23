@@ -1,6 +1,5 @@
 ---
 description: Learn how to build a Page with a custom layout.
-edition: experience
 ---
 
 # Step 2 — Prepare the Page

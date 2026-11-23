@@ -1,6 +1,5 @@
 ---
 description: Go through a Page and Form tutorial to learn how to create modular Sites and how to manage forms and their submissions.
-edition: experience
 ---
 
 # Page and Form tutorial

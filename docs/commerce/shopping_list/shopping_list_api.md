@@ -1,6 +1,6 @@
 ---
 description: Manage shopping lists from PHP API or REST API.
-editions: lts-update commerce
+edition: commerce
 month_change: false
 ---
 
