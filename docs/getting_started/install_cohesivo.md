@@ -11,11 +11,6 @@ month_change: false
 
     To install [[= product_name =]] for development on macOS or Windows, see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
 
-!!! note "Installing [[= product_name_oss =]]"
-
-    This installation guide shows in detail how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
-    If you want to install [[= product_name_oss =]], you don't need authentication tokens or an account on updates.ibexa.co, but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
-
 ## Prepare work environment
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL or MariaDB, and PHP.
@@ -115,48 +110,9 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-=== "[[= product_name_headless =]]"
-
-    ``` bash
-    composer create-project ibexa/headless-skeleton .
-    ```
-
-=== "[[= product_name_exp =]]"
-
-    ``` bash
-    composer create-project ibexa/experience-skeleton .
-    ```
-
-=== "[[= product_name_com =]]"
-
-    ``` bash
-    composer create-project ibexa/commerce-skeleton .
-    ```
-
-??? note "Using PHP versions other than 8.3"
-
-    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
-
-    === "[[= product_name_headless =]]"
-
-        ``` bash
-        composer create-project ibexa/headless-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_exp =]]"
-
-        ``` bash
-        composer create-project ibexa/experience-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project ibexa/commerce-skeleton --no-install .
-        composer update
-        ```
+``` bash
+composer create-project ibexa/cohesivo-skeleton .
+```
 
 !!! tip "Authentication token"
 
@@ -168,10 +124,10 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip "Version constraint"
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_6_0 =]]`), version range (`~6.0.0`), or stability (`^6.0@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
+    composer create-project ibexa/cohesivo-skeleton:[[= latest_tag_6_0 =]] .
     ```
 
 !!! note "[[= product_name_cloud =]]"
@@ -185,6 +141,10 @@ To use Composer to instantly create a project in the current folder with all the
 
     These commands add the necessary package and provide the required configuration for using Upsun.
     For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md).
+
+!!! tip "[[= product_name_commerce_sdk =]]"
+
+    To add e-commerce capabilities to your project, [install [[= product_name_commerce_sdk =]]](../commerce/install_commerce_sdk.md) after you install [[= product_name =]].
 
 #### Add project to version control
 
@@ -288,20 +248,10 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
 Install [[= product_name =]] and create a database with:
 
-=== "PHP 8.4"
-
-    Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation fails due to errors such as "headers have already been sent".
-
-    ``` bash
-    php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
-    php bin/console ibexa:graphql:generate-schema
-    ```
-
-=== "PHP 8.3 and older"
-
-    ``` bash
-    php bin/console ibexa:install
-    ```
+``` bash
+php bin/console ibexa:install
+php bin/console ibexa:graphql:generate-schema
+```
 
 Before executing the command, make sure that the database user has sufficient permissions.
 
