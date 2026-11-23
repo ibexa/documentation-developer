@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<View media-type="application/vnd.ibexa.api.View+xml" href="/api/ibexa/v2/views/TitleView">
+ <identifier>TitleView</identifier>
+ <Query media-type="application/vnd.ibexa.api.Query+xml"/>
+ <Result media-type="application/vnd.ibexa.api.ViewResult+xml" href="/api/ibexa/v2/views/TitleView/results">
+  <count>2</count>
+  <time>0.002</time>
+  <timedOut>false</timedOut>
+  <maxScore>1</maxScore>
+  <searchHits>
+   <searchHit media-type="application/vnd.ibexa.api.searchHit+xml" score="1" index="solr:8983/solr/collection1">
+    <value media-type="application/vnd.ibexa.api.value+xml">
+     <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2">
+      <id>2</id>
+      <priority>0</priority>
+      <hidden>false</hidden>
+      <invisible>false</invisible>
+      <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1"/>
+      <pathString>/1/2/</pathString>
+      <depth>1</depth>
+      <childCount>1</childCount>
+      <remoteId>f3e90596361e31d496d4026eb624c983</remoteId>
+      <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/locations/1/2/children"/>
+      <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/52"/>
+      <sortField>PRIORITY</sortField>
+      <sortOrder>ASC</sortOrder>
+      <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/urlaliases"/>
+      <ContentInfo media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/52">
+       <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/52" remoteId="34720ff636e1d4ce512f762dc638e4ac" id="52">
+        <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/42"/>
+        <Name>Ibexa Digital Experience Platform</Name>
+        <TranslatedName>Ibexa Digital Experience Platform</TranslatedName>
+        <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/52/versions"/>
+        <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/52/currentversion">
+         <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/52/versions/1">
+          <VersionInfo>
+           <id>512</id>
+           <versionNo>1</versionNo>
+           <status>PUBLISHED</status>
+           <modificationDate>2015-09-17T09:22:23+00:00</modificationDate>
+           <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+           <creationDate>2015-09-17T09:22:22+00:00</creationDate>
+           <initialLanguageCode>eng-GB</initialLanguageCode>
+           <languageCodes>eng-GB</languageCodes>
+           <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+            <Language>
+             <languageCode>eng-GB</languageCode>
+            </Language>
+           </VersionTranslationInfo>
+           <names>
+            <value languageCode="eng-GB">Ibexa Digital Experience Platform</value>
+           </names>
+           <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/52"/>
+          </VersionInfo>
+          <Fields>
+           <field>
+            <id>242</id>
+            <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Ibexa Digital Experience Platform</fieldValue>
+           </field>
+           <field>
+            <id>243</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>You are now ready to start your project.</fieldValue>
+           </field>
+           <field>
+            <id>244</id>
+            <fieldDefinitionIdentifier>page</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezlandingpage</fieldTypeIdentifier>
+            <fieldValue>
+             <value key="layout">default</value>
+             <value key="zones">
+              <value>
+               <value key="id">1</value>
+               <value key="name">default</value>
+               <value key="blocks"/>
+              </value>
+             </value>
+            </fieldValue>
+           </field>
+          </Fields>
+          <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/52/versions/1/relations"/>
+          <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+           <resource>/placeholder</resource>
+           <width></width>
+           <height></height>
+           <mimeType>image/svg+xml</mimeType>
+          </Thumbnail>
+         </Version>
+        </CurrentVersion>
+        <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+        <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2"/>
+        <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/52/locations"/>
+        <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <lastModificationDate>2015-09-17T09:22:23+00:00</lastModificationDate>
+        <publishedDate>2015-09-17T09:22:23+00:00</publishedDate>
+        <mainLanguageCode>eng-GB</mainLanguageCode>
+        <currentVersionNo>1</currentVersionNo>
+        <alwaysAvailable>true</alwaysAvailable>
+        <isHidden>false</isHidden>
+        <status>PUBLISHED</status>
+        <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/52/objectstates"/>
+       </Content>
+      </ContentInfo>
+     </Location>
+    </value>
+   </searchHit>
+   <searchHit media-type="application/vnd.ibexa.api.searchHit+xml" score="1" index="solr:8983/solr/collection1">
+    <value media-type="application/vnd.ibexa.api.value+xml">
+     <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/42">
+      <id>42</id>
+      <priority>0</priority>
+      <hidden>false</hidden>
+      <invisible>false</invisible>
+      <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2"/>
+      <pathString>/1/2/42/</pathString>
+      <depth>2</depth>
+      <childCount>0</childCount>
+      <remoteId>581da01017b80b1afb1e5e2a3081c724</remoteId>
+      <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/locations/1/2/42/children"/>
+      <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/1"/>
+      <sortField>PATH</sortField>
+      <sortOrder>ASC</sortOrder>
+      <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/42/urlaliases"/>
+      <ContentInfo media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/1">
+       <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/1" remoteId="9459d3c29e15006e45197295722c7ade" id="1">
+        <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/1"/>
+        <Name>Ibexa Platform</Name>
+        <TranslatedName>Ibexa Platform</TranslatedName>
+        <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/1/versions"/>
+        <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/1/currentversion">
+         <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/1/versions/9">
+          <VersionInfo>
+           <id>506</id>
+           <versionNo>9</versionNo>
+           <status>PUBLISHED</status>
+           <modificationDate>2015-11-30T13:10:46+00:00</modificationDate>
+           <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+           <creationDate>2015-11-30T13:10:45+00:00</creationDate>
+           <initialLanguageCode>eng-GB</initialLanguageCode>
+           <languageCodes>eng-GB</languageCodes>
+           <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+            <Language>
+             <languageCode>eng-GB</languageCode>
+            </Language>
+           </VersionTranslationInfo>
+           <names>
+            <value languageCode="eng-GB">Ibexa Platform</value>
+           </names>
+           <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/1"/>
+          </VersionInfo>
+          <Fields>
+           <field>
+            <id>1</id>
+            <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Ibexa Platform</fieldValue>
+           </field>
+           <field>
+            <id>102</id>
+            <fieldDefinitionIdentifier>short_name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Ibexa Platform</fieldValue>
+           </field>
+           <field>
+            <id>2</id>
+            <fieldDefinitionIdentifier>short_description</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+             <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ibexa.co/xmlns/dxp/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ibexa.co/xmlns/dxp/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;&lt;emphasis role=&quot;strong&quot;&gt;You are now ready to start your project.&lt;/emphasis&gt;&lt;/para&gt;&lt;/section&gt;
+</value>
+             <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;&lt;strong&gt;You are now ready to start your project.&lt;/strong&gt;&lt;/p&gt;&lt;/section&gt;
+</value>
+            </fieldValue>
+           </field>
+           <field>
+            <id>104</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+             <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ibexa.co/xmlns/dxp/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ibexa.co/xmlns/dxp/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;This is the clean installation coming with Ibexa Platform.&lt;/para&gt;&lt;para&gt;It's a bare-bones setup of the Platform, an excellent foundation to build upon if you want to start your project from scratch.&lt;/para&gt;&lt;/section&gt;
+</value>
+             <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;This is the clean installation coming with Ibexa Platform.&lt;/p&gt;&lt;p&gt;It's a bare-bones setup of the Platform, an excellent foundation to build upon if you want to start your project from scratch.&lt;/p&gt;&lt;/section&gt;
+</value>
+            </fieldValue>
+           </field>
+          </Fields>
+          <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/1/versions/9/relations"/>
+          <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+           <resource>/placeholder</resource>
+           <width></width>
+           <height></height>
+           <mimeType>image/svg+xml</mimeType>
+          </Thumbnail>
+         </Version>
+        </CurrentVersion>
+        <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+        <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/42"/>
+        <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/1/locations"/>
+        <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <lastModificationDate>2015-11-30T13:10:46+00:00</lastModificationDate>
+        <publishedDate>2015-11-30T13:10:46+00:00</publishedDate>
+        <mainLanguageCode>eng-GB</mainLanguageCode>
+        <currentVersionNo>9</currentVersionNo>
+        <alwaysAvailable>true</alwaysAvailable>
+        <isHidden>false</isHidden>
+        <status>PUBLISHED</status>
+        <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/1/objectstates"/>
+       </Content>
+      </ContentInfo>
+     </Location>
+    </value>
+   </searchHit>
+  </searchHits>
+  <TermAggregationResult media-type="application/vnd.ibexa.api.TermAggregationResult+xml">
+   <name>some name</name>
+   <TermAggregationResultEntry media-type="application/vnd.ibexa.api.TermAggregationResultEntry+xml">
+    <key>
+     <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/1">
+      <id>1</id>
+      <status>DEFINED</status>
+      <identifier>folder</identifier>
+      <names>
+       <value languageCode="eng-GB">Folder</value>
+      </names>
+      <descriptions/>
+      <creationDate>2002-06-18T09:21:38+00:00</creationDate>
+      <modificationDate>2015-11-29T21:14:32+00:00</modificationDate>
+      <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+      <Modifier media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+      <Groups media-type="application/vnd.ibexa.api.ContentTypeGroupRefList+xml" href="/api/ibexa/v2/content/types/1/groups"/>
+      <Draft media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/1/draft"/>
+      <remoteId>a3d405b81be900468eb153d774f4f0d2</remoteId>
+      <urlAliasSchema></urlAliasSchema>
+      <nameSchema>&lt;short_name|name&gt;</nameSchema>
+      <isContainer>true</isContainer>
+      <mainLanguageCode>eng-GB</mainLanguageCode>
+      <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
+      <defaultSortField>PATH</defaultSortField>
+      <defaultSortOrder>ASC</defaultSortOrder>
+      <FieldDefinitions media-type="application/vnd.ibexa.api.FieldDefinitionList+xml" href="/api/ibexa/v2/content/types/1/fieldDefinitions">
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/1/fieldDefinitions/4">
+        <id>4</id>
+        <identifier>name</identifier>
+        <fieldType>ezstring</fieldType>
+        <fieldGroup></fieldGroup>
+        <position>1</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>true</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue>Folder</defaultValue>
+        <isSearchable>true</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Name</value>
+        </names>
+        <descriptions/>
+        <fieldSettings/>
+        <validatorConfiguration>
+         <value key="StringLengthValidator">
+          <value key="maxStringLength">255</value>
+          <value key="minStringLength"/>
+         </value>
+        </validatorConfiguration>
+       </FieldDefinition>
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/1/fieldDefinitions/155">
+        <id>155</id>
+        <identifier>short_name</identifier>
+        <fieldType>ezstring</fieldType>
+        <fieldGroup></fieldGroup>
+        <position>2</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>false</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue/>
+        <isSearchable>true</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Short name</value>
+        </names>
+        <descriptions/>
+        <fieldSettings/>
+        <validatorConfiguration>
+         <value key="StringLengthValidator">
+          <value key="maxStringLength">100</value>
+          <value key="minStringLength"/>
+         </value>
+        </validatorConfiguration>
+       </FieldDefinition>
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/1/fieldDefinitions/119">
+        <id>119</id>
+        <identifier>short_description</identifier>
+        <fieldType>ezrichtext</fieldType>
+        <fieldGroup></fieldGroup>
+        <position>3</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>false</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue>
+         <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
+</value>
+         <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+</value>
+        </defaultValue>
+        <isSearchable>true</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Short description</value>
+        </names>
+        <descriptions/>
+        <fieldSettings/>
+        <validatorConfiguration/>
+       </FieldDefinition>
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/1/fieldDefinitions/156">
+        <id>156</id>
+        <identifier>description</identifier>
+        <fieldType>ezrichtext</fieldType>
+        <fieldGroup></fieldGroup>
+        <position>4</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>false</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue>
+         <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
+</value>
+         <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+</value>
+        </defaultValue>
+        <isSearchable>true</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Description</value>
+        </names>
+        <descriptions/>
+        <fieldSettings/>
+        <validatorConfiguration/>
+       </FieldDefinition>
+      </FieldDefinitions>
+     </ContentType>
+    </key>
+    <count>1</count>
+   </TermAggregationResultEntry>
+   <TermAggregationResultEntry media-type="application/vnd.ibexa.api.TermAggregationResultEntry+xml">
+    <key>
+     <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/42">
+      <id>42</id>
+      <status>DEFINED</status>
+      <identifier>landing_page</identifier>
+      <names>
+       <value languageCode="eng-GB">Landing page</value>
+      </names>
+      <descriptions>
+       <value languageCode="eng-GB"></value>
+      </descriptions>
+      <creationDate>2015-07-03T12:00:26+00:00</creationDate>
+      <modificationDate>2015-07-03T12:00:26+00:00</modificationDate>
+      <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+      <Modifier media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+      <Groups media-type="application/vnd.ibexa.api.ContentTypeGroupRefList+xml" href="/api/ibexa/v2/content/types/42/groups"/>
+      <Draft media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/42/draft"/>
+      <remoteId>60c03e9758465eb69d56b3afb6adf18e</remoteId>
+      <urlAliasSchema></urlAliasSchema>
+      <nameSchema>&lt;name&gt;</nameSchema>
+      <isContainer>true</isContainer>
+      <mainLanguageCode>eng-GB</mainLanguageCode>
+      <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
+      <defaultSortField>PUBLISHED</defaultSortField>
+      <defaultSortOrder>DESC</defaultSortOrder>
+      <FieldDefinitions media-type="application/vnd.ibexa.api.FieldDefinitionList+xml" href="/api/ibexa/v2/content/types/42/fieldDefinitions">
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/42/fieldDefinitions/185">
+        <id>185</id>
+        <identifier>name</identifier>
+        <fieldType>ezstring</fieldType>
+        <fieldGroup>content</fieldGroup>
+        <position>10</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>true</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue/>
+        <isSearchable>true</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Title</value>
+        </names>
+        <descriptions>
+         <value languageCode="eng-GB">Title</value>
+        </descriptions>
+        <fieldSettings/>
+        <validatorConfiguration>
+         <value key="StringLengthValidator">
+          <value key="maxStringLength"/>
+          <value key="minStringLength"/>
+         </value>
+        </validatorConfiguration>
+       </FieldDefinition>
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/42/fieldDefinitions/186">
+        <id>186</id>
+        <identifier>description</identifier>
+        <fieldType>ezstring</fieldType>
+        <fieldGroup>content</fieldGroup>
+        <position>20</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>true</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue/>
+        <isSearchable>true</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Description</value>
+        </names>
+        <descriptions>
+         <value languageCode="eng-GB">Landing page description</value>
+        </descriptions>
+        <fieldSettings/>
+        <validatorConfiguration>
+         <value key="StringLengthValidator">
+          <value key="maxStringLength"/>
+          <value key="minStringLength"/>
+         </value>
+        </validatorConfiguration>
+       </FieldDefinition>
+       <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/42/fieldDefinitions/187">
+        <id>187</id>
+        <identifier>page</identifier>
+        <fieldType>ezlandingpage</fieldType>
+        <fieldGroup>content</fieldGroup>
+        <position>30</position>
+        <isTranslatable>true</isTranslatable>
+        <isRequired>false</isRequired>
+        <isInfoCollector>false</isInfoCollector>
+        <defaultValue>
+         <value key="layout">default</value>
+         <value key="zones">
+          <value>
+           <value key="id">default_id</value>
+           <value key="name">default</value>
+           <value key="blocks"/>
+          </value>
+         </value>
+        </defaultValue>
+        <isSearchable>false</isSearchable>
+        <names>
+         <value languageCode="eng-GB">Landing page</value>
+        </names>
+        <descriptions>
+         <value languageCode="eng-GB">Landing page</value>
+        </descriptions>
+        <fieldSettings>
+         <value key="availableBlocks"/>
+         <value key="availableLayouts"/>
+         <value key="editorMode">page_view_mode</value>
+        </fieldSettings>
+        <validatorConfiguration/>
+       </FieldDefinition>
+      </FieldDefinitions>
+     </ContentType>
+    </key>
+    <count>1</count>
+   </TermAggregationResultEntry>
+  </TermAggregationResult>
+ </Result>
+</View>
