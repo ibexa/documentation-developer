@@ -28,17 +28,15 @@ The basic option provided by Content sharing is the ability to preview content.
 This allows the user to grant preview access to logged-in users, as well as share a public link with external users.
 
 You can share a direct link to the collaboration session using the **Copy link** button.
-Link is copied to the clipboard and you can share it with the users through communication channels.
+Link is copied to the clipboard and you can share it with the users through various communication channels.
 
 ### Collaboration session
 
-Content sharing works through a collaboration session.
-
-When you create a new draft of a content item, you can invite other users to preview it.
+Content sharing works through a collaboration session. When you create a new draft of a content item, you can invite other users to preview it.
 This action generates a unique session for that draft.
-Collaboration session begins when first invited user accepts the invitation and joins the session.
+Collaboration session begins when the first invited user accepts the invitation and joins the session.
 
-To start sharing a draft, invite users with the **Share** button.
+To create a new collaboration session, you either click the **Share** icon in the editing screen of a content item draft, or the **Share** button in the details screen of an existing content item. This creates a new draft and opens it in the editing screen. If the content item has more than one translation, you have to select the language first.
 
 The owner of the draft can invite other users to join the session, both internal and external:
 
@@ -51,7 +49,7 @@ Once the invitation is accepted, internal users can invite further users if thei
 To do so, they must be a part of an active collaboration session.
 Gaining access to the draft through other methods, for example by [workflow](workflow.md), doesn't allow you to invite other users.
 
-![Content sharing - invitation](img/collaboration_invitation.png)
+![Inviting external users](img/invite_external_user.png)
 
 You can remove the users' access at any time.
 
@@ -59,7 +57,7 @@ After inviting users to a collaboration session, they receive a notification vis
 
 Users can also join a collaboration session using the **Join** button, available:
 
-- in the *My shared drafts* and *Drafts shared with me* tabs of the **My content** block on the dashboard
+- in the **My shared drafts** and **Drafts shared with me** tabs of the **My content** block on the dashboard
 - in the **Drafts** menu
 - in the **Versions** tab of the content item
 
@@ -68,9 +66,7 @@ The owner of the draft is taken to the editing screen instead.
 
 ### Editing shared drafts
 
-Sharing a draft doesn't lock it.
-Other users with permissions to edit the content item can open and edit the shared draft in the usual way, for example, from the **Drafts** menu or the **Versions** tab.
-Changes aren't synchronized between users who edit the same draft at the same time, so coordinate the editing work to avoid conflicting changes.
+Other users with access to the shared content item can edit the content item and create new drafts, share them with other users, or delete their draft, but they can't access or preview drafts that are associated with your collaboration session.
 
 ## Benefits
 
