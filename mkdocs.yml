@@ -1019,6 +1019,7 @@ extra:
   product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
+  product_name_commerce_sdk: 'Commerce SDK'
   product_name_cdp: 'Raptor CDP'
   product_name_cdp_base: 'Raptor'
   product_name_connect: 'Ibexa Connect'
