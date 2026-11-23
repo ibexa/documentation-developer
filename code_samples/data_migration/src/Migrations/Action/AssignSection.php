@@ -12,10 +12,7 @@ final readonly class AssignSection implements Action
 
     public function __construct(private string $sectionIdentifier) {}
 
-    /**
-     * @return string
-     */
-    public function getValue(): string
+    public function getSectionIdentifier(): string
     {
         return $this->sectionIdentifier;
     }
