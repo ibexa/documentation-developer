@@ -4,7 +4,7 @@ page_type: reference
 month_change: false
 ---
 
-# Content sharing events
+# Collaboration events
 
 You can use the following events to extend the [Content sharing LTS Update](content_sharing.md):
 

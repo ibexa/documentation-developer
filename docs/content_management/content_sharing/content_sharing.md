@@ -20,7 +20,7 @@ This feature also introduces new dashboard tabs for managing shared drafts and j
 "content_management/content_sharing/content_sharing_guide",
 "content_management/content_sharing/install_content_sharing",
 ("permissions/policies#content-sharing", "Policies", "Learn about the available Content sharing policies"),
-("https://doc.ibexa.co/projects/userguide/en/4.6/content_management/collaborative_editing/", "Content sharing", "Learn about Content sharing feature and its capabilities."),
+("https://doc.ibexa.co/projects/userguide/en/4.6/content_management/content_sharing/", "Content sharing", "Learn about Content sharing feature and its capabilities."),
 ], columns=2) =]]
 
 ## Development

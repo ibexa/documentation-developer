@@ -17,7 +17,7 @@ month_change: false
 
 ### Create session
 
-You can create new content collaboration session with [`SessionService::createSession()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_createSession):
+You can create a new content collaboration session with [`SessionService::createSession()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_createSession):
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 63, 74) =]]
@@ -82,10 +82,9 @@ The `ContentSessionScope::VIEW` constant defines the type of access granted to a
 For content collaboration sessions, `VIEW` is the only available scope.
 It grants read-only access, used for preview purposes.
 
-!!! caution "Deprecated `EDIT` scope"
+!!! caution "Removed `EDIT` scope"
 
-    The `ContentSessionScope::EDIT` constant is deprecated and will be removed in [[= product_name =]] 6.0.
-    Adding or updating a participant of a content collaboration session with the `EDIT` scope results in an error.
+    The `ContentSessionScope::EDIT` constant is removed in [[= product_name =]] v4.6.34.
 
 ### Get and update participant
 
