@@ -24,6 +24,9 @@ Similarly, you can load a segment by using `SegmentationService::loadSegmentById
 [[= include_code('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 57, 57, remove_indent=True) =]]
 ```
 
+The returned `Segment` includes [audience metadata](cdp_audience_metadata.md) synced from your CDP: the number of profiles in the audience, its description, tags, and the timestamp of the last update.
+This metadata is read-only through the API, as it's kept up to date by the synchronization process rather than by manual updates.
+
 ## Checking assignment
 
 You can check whether a user is assigned to a segment with `SegmentationService::isUserAssignedToSegment()`:
