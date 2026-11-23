@@ -29,5 +29,4 @@
                     values: [self]
     actions:
         -   action: assign_role_to_user_group
-            value:
-                id: 'reference:ref__checkout__customers_user_group__content_id'
+            id: 'reference:ref__checkout__customers_user_group__content_id'
