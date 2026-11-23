@@ -1,0 +1,16 @@
+services:
+    mkdocs:
+        build: .
+        environment:
+            - MKDOCS_PORT=8000
+        ports:
+            - "${MKDOCS_PORT}:8000"
+        volumes:
+            - .:/docs
+        develop:
+            watch:
+                -
+                    action: restart
+                    path: ./docs
+                    target: /docs
+                    initial_sync: true
