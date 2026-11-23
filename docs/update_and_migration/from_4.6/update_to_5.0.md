@@ -1104,9 +1104,9 @@ Ensure your search index is up to date with the following command:
 php bin/console ibexa:reindex
 ```
 
-### Finalizing
+## Finalizing
 
-#### Clear cache and rebuild
+### Clear cache and rebuild
 
 Finish the update process:
 
@@ -1114,7 +1114,7 @@ Finish the update process:
 composer run-script post-update-cmd
 ```
 
-#### HTTP Cache
+### HTTP Cache
 
 Use the newer VCL files.
 Depending on your reverse proxy, you'll find them in the following directories:
@@ -1122,7 +1122,7 @@ Depending on your reverse proxy, you'll find them in the following directories:
 - Varnish: `vendor/ibexa/http-cache/docs/varnish/vcl/`
 - Fastly: `vendor/ibexa/fastly/fastly/`
 
-#### Ibexa Cloud
+### Ibexa Cloud
 
 Generate the Ibexa Cloud Platform.sh configuration files, review the changes with your own version, and merge your customizations.
 
@@ -1130,7 +1130,7 @@ Generate the Ibexa Cloud Platform.sh configuration files, review the changes wit
 composer ibexa:setup --platformsh
 ```
 
-#### Conclusion
+### Conclusion
 
 Your project is now running [[= product_name =]] v5.0, with packages and database schema both up to date.
 
