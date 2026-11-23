@@ -1,0 +1,17 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+    location:
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Training
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: training_content_type_container
