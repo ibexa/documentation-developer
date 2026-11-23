@@ -32,22 +32,100 @@ It can consist of letters, digits, spaces, and special characters (it's mandator
 
     Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), don't confuse it with this Name, which is a piece of metadata, not a field.
 
-**Identifier** – an identifier for internal use in configuration, for example, files, templates, or PHP code.
-It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).
+**Identifier** –
+an identifier for internal use in, for example, configuration files, templates, or PHP code.
+It must be unique, can only contain lowercase letters, digits, and underscores
+(it's mandatory and the maximum length is 50 characters).
 
-**Description** – a detailed description of the content type (optional).
+**Description** –
+a detailed description of the content type (optional).
 
-<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets.
-The pattern usually consists of field identifiers that tell the system which fields it should use when generating the name of a content item.
+<a id="content-name-pattern"></a>
+**Content name pattern** –
+a pattern that defines what name a new content item based on this content type gets (optional).
+The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item.
 Each field identifier has to be surrounded with angle brackets.
 Text outside the angle brackets is included literally.
-If no pattern is provided, the system automatically uses the first field (optional).
+If no pattern is provided, the system automatically uses the first field.
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the locations are generated when content items are created based on this content type.
+??? note "Pattern examples"
+
+    The following pattern takes the value of the field with the identifier `title` (which should be required):
+    ```
+    <title>
+    ```
+
+    The following pattern combines several field values:
+    ```
+    <firstname> <lastname>
+    ```
+
+    The following pattern takes the value of the field with the identifier `seo_title` (which is optional) if not empty,
+    else the value of the field with the identifier `short_title` (which is optional),
+    else it takes the one with identifier `title` (which is required):
+    ```
+    <seo_title|short_title|title>
+    ```
+
+    The following pattern takes the value of the field with the identifier `nickname` if not empty,
+    else it takes the ones with identifiers `firstname` and `lastname` with a space inbetween:
+    ```
+    <nickname|(<firstname> <lastname>)>
+    ```
+
+    - Input-output example:
+        - `fistname`: "*Alice*"
+        - `lastname`: "*Doe*"
+        - `nickname`: "" (empty)
+        - Generated content name: "*Alice Doe*"
+    - Input-output example:
+        - `fistname`: "*Robert*"
+        - `lastname`: "*Doe*"
+        - `nickname`: "*Bob*"
+        - Generated content name: "*Bob*"
+    - Input-output example:
+        - `fistname`: "" (empty)
+        - `lastname`: "*Doe*"
+        - `nickname`: "" (empty)
+        - Generated content name: " *Doe*" (notice the space before the last name, which is included literally in the pattern)
+
+    **Notice that the group in parenthesis is always final, it's used even if outputing an empty string and any other piped optional patern after it is always ignored.**
+
+    The following pattern combines several field values and literal text,
+    showing that you can use any characters outside the angle brackets:
+    ```
+    <event_name> (<event_city>) | <event_begin> - <event_end>
+    ```
+    
+     - Input-output example:
+        - `event_name`: "*Ibexa Summit 2026*"
+        - `event_location`: "*Lisbon*"
+        - `event_begin`: "2026-02-05T09:00:00"
+        - `event_end`: "2026-02-06T16:30:00"
+        - Generated content name: "*Ibexa Summit 2026 (Lisbon) | Thu 2026-05-02 08:00:00 - Fri 2026-06-02 15:30:00*" (notice that the date and time where moved from GMT+1 to GMT)
+
+**URL alias name pattern** –
+a pattern which controls how the virtual URLs of the locations are generated when content items are created based on this content type (optional).
 Only the last part of the virtual URL is affected.
 The pattern works in the same way as the content name pattern.
-Text outside the angle brackets is converted with the selected method of URL transformation.
-If no pattern is provided, the system automatically uses the name of the content item itself (optional).
+If no pattern is provided, the system automatically uses the name of the content item itself.
+The resulting name is then [transformed using the slug converter to be part of the final URL alias (System URL)](url_management.md#url-alias-pattern-configuration).
+
+??? note "Pattern examples"
+
+    The following pattern combine several mandatory field values.
+    The slug converter use the out-of-the-box default `urlalias_lowercase` transformation.
+    ```
+    <event_name> (<event_city>) | <event_begin> - <event_end>
+    ```
+    
+     - Input-output example:
+        - `event_name`: "*Ibexa Summit 2026*"
+        - `event_location`: "*Lisbon*"
+        - `event_begin`: "2026-02-05T09:00:00"
+        - `event_end`: "2026-02-06T16:30:00"
+        - Generated URL alias name: "*Ibexa Summit 2026 (Lisbon) | Thu 2026-05-02 08:00:00 - Fri 2026-06-02 15:30:00*"
+        - Generated URL alias slug: `ibexa-summit-2026-lisbon-thu-2026-05-02-08-00-00-fri-2026-06-02-15-30-00`
 
 !!! tip "Changing URL alias and content name patterns"
 
@@ -56,20 +134,28 @@ If no pattern is provided, the system automatically uses the name of the content
 
     The old URL aliases continue to redirect to the same content items.
 
-**Container** – a flag which indicates if content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
+**Container** –
+a flag which indicates if content items based on this content type are allowed to have sub-items or not
+(mainly relevant for actions via the UI, not validated by every PHP API).
 
 !!! note
 
     This flag was added for convenience and only affects the interface.
-    In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
+    In other words, it doesn't control any actual low-level logic,
+    it simply controls the way the graphical user interface behaves.
 
-**Sort children by default by** – rule for sorting sub-items.
-If the instances of this content type can serve as containers, their children are sorted according to what is selected here.
+**Sort children by default by** –
+rule for sorting sub-items.
+If the instances of this content type can serve as containers,
+their children are sorted according to what is selected here.
 
-**Sort children by default in order** – another rule for sorting sub-items.
+**Sort children by default in order** –
+another rule for sorting sub-items.
 This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if content items of this content type should be available even without a corresponding language version.
+<a id="default-content-availability"></a>
+**Make content available even with missing translations** –
+a flag which indicates if content items of this content type should be available even without a corresponding language version.
 See [Content availability](content_availability.md).
 
 ![Creating a new content type](admin_panel_new_content_type.png)
