@@ -18,19 +18,19 @@ This feature also introduces new dashboard tabs for managing shared drafts and j
 ## Getting started
 
 [[= cards([
-"content_management/collaborative_editing/collaborative_editing_guide",
-"content_management/collaborative_editing/configure_collaborative_editing",
+"content_management/content_sharing/content_sharing_guide",
+"content_management/content_sharing/configure_content_sharing",
 ("permissions/policies#collaborative-editing", "Policies", "Learn about the available Collaborative editing policies"),
-("https://doc.ibexa.co/projects/userguide/en/5.0/content_management/collaborative_editing/", "Collaborative editing", "Learn about Collaborative editing feature and its capabilities."),
+("https://doc.ibexa.co/projects/userguide/en/5.0/content_management/content_sharing/", "Collaborative editing", "Learn about Collaborative editing feature and its capabilities."),
 ], columns=2) =]]
 
 ## Development
 
 [[= cards([
-"content_management/collaborative_editing/collaborative_editing_api",
+"content_management/content_sharing/content_sharing_api",
 "api/event_reference/collaboration_events",
 ("https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions", "REST API Reference", "See the available endpoints for Collaborative editing"),
-"content_management/collaborative_editing/extend_collaborative_editing",
+"content_management/content_sharing/extend_content_sharing",
 "search/collaboration_search_reference/collaboration_criteria",
 "search/collaboration_search_reference/collaboration_sort_clauses",
 ], columns=4) =]]

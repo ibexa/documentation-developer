@@ -296,11 +296,11 @@ nav:
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
                 - User field type: content_management/field_types/field_type_reference/userfield.md
         - Collaborative editing:
-            - Collaborative editing: content_management/collaborative_editing/collaborative_editing.md
-            - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
-            - Configure Collaborative editing: content_management/collaborative_editing/configure_collaborative_editing.md
-            - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
-            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
+            - Collaborative editing: content_management/content_sharing/content_sharing.md
+            - Collaborative editing product guide: content_management/content_sharing/content_sharing_guide.md
+            - Configure Collaborative editing: content_management/content_sharing/configure_content_sharing.md
+            - Collaborative editing API: content_management/content_sharing/content_sharing_api.md
+            - Extend Collaborative editing: content_management/content_sharing/extend_content_sharing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:

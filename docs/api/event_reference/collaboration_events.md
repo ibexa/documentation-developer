@@ -6,7 +6,7 @@ month_change: false
 
 # Collaboration events
 
-You can use the following events to extend the [Collaborative editing feature](collaborative_editing.md):
+You can use the following events to extend the [Collaborative editing feature](content_sharing.md):
 
 ## Invitation events
 

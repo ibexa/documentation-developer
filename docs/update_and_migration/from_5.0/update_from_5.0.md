@@ -574,6 +574,121 @@ For more information, see [Configure Symfony front controller](https://doc.ibexa
 
 If your system uses custom CKEditor plugins, ensure that they use the updated version of CKEditor dependencies.
 
+## v5.0.12
+
+### Real-time collaborative editing removed
+
+Real-time collaborative editing is discontinued.
+The `ibexa/fieldtype-richtext-rte` and `ibexa/ckeditor-premium` packages are abandoned and no longer receive updates.
+If you have installed those LTS Update packages, please follow those instructions.
+
+The Collaborative editing feature is now called [Content sharing](content_sharing_guide.md).
+Users can still invite internal and external users to a collaboration session to preview a content draft, but they can no longer edit the draft together.
+Shared drafts are no longer locked, and the `edit` scope of content collaboration sessions is no longer available.
+
+#### Remove real-time editing packages
+
+If you installed real-time collaborative editing, remove it from your project.
+
+1\. In the back office, go to **Admin** -> **Roles** and delete the `rte/edit` policies from all roles.
+Do it before you remove the packages, because afterwards the `rte` module is no longer recognized.
+
+2\. In `composer.json`, remove the following line from the `auto-scripts` section:
+
+```json
+"yarn --cwd vendor/ibexa/ckeditor-premium install": "script",
+```
+
+3\. Remove the packages:
+
+```bash
+composer remove ibexa/fieldtype-richtext-rte ibexa/ckeditor-premium
+```
+
+4\. Make sure that Composer removed the following elements, and remove the remaining ones manually:
+
+- the `Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle` and `Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle` entries in `config/bundles.php`
+- the `config/packages/ibexa_fieldtype_richtext_rte.yaml` and `config/routes/ibexa_fieldtype_richtext_rte.yaml` files
+- the `CKEDITOR_ENVIRONMENT_ID`, `CKEDITOR_ENVIRONMENT_SECRET`, and `CKEDITOR_WEB_SOCKET_URL` environment variables, from the `.env` files and from your hosting environment
+
+Also remove any `fieldtype_richtext_rte` configuration, for example, the `enabled` setting for SiteAccesses, from your other configuration files.
+
+5\. Delete the real-time editing settings from the database:
+
+=== "MySQL"
+
+    ```sql
+    DELETE FROM ibexa_setting WHERE `group` = 'rte';
+    ```
+
+=== "PostgreSQL"
+
+    ```sql
+    DELETE FROM ibexa_setting WHERE "group" = 'rte';
+    ```
+
+6\. Clear the cache and rebuild the assets:
+
+```bash
+php bin/console cache:clear
+composer run post-install-cmd
+```
+
+#### Update database
+
+Run the Doctrine migrations as described in [v5.0.11 database update](#database-update_5):
+
+```bash
+php bin/console ibexa:doctrine:migrations:migrate
+```
+
+The `ReplaceEditScopeWithViewMigration` migration replaces the `edit` scope with `view`:
+
+- for participants of existing collaboration sessions
+- in the [Content sharing Scope limitation](limitation_reference.md#content-sharing-scope-limitation) of role policies
+
+#### Update custom code
+
+If your custom code uses the Content sharing API, adjust it:
+
+- The `Ibexa\Contracts\Share\Collaboration\ContentSessionScope::EDIT` constant is deprecated and will be removed in [[= product_name =]] 6.0.
+  Adding a participant to a content collaboration session, or updating a participant, with the `edit` scope throws `Ibexa\Contracts\Core\Validation\ValidationFailedException`.
+  Use `ContentSessionScope::VIEW` instead.
+- The `Ibexa\Contracts\Collaboration\RealTimeEditing\HandlerInterface` interface is deprecated, will be removed in [[= product_name =]] 6.0, and no longer has any effect.
+
+### Gemini configuration update
+
+Gemini connector configuration has changed, the previous syntax is deprecated and will be unsupported in v6.0.0.
+You should update it now.
+`ibexa_connector_gemini.<text_to_text|image_to_text>.models.<model_name>.max_tokens` is now nested under `options.max_tokens.max`.
+For example:
+
+<table>
+<thead><tr><th scope="col">Deprecated 5.0.11</th><th scope="col">New 5.0.12</th></tr></thead>
+<tbody>
+<tr><td class="compare">
+```yaml
+ibexa_connector_gemini:
+    text_to_text:
+        models:
+            gemini-pro-latest:
+                label: 'Gemini Pro Latest'
+                max_tokens: 4096
+```
+</td><td class="compare">
+```yaml
+ibexa_connector_gemini:
+    text_to_text:
+        models:
+            gemini-pro-latest:
+                label: 'Gemini Pro Latest'
+                options:
+                    max_tokens:
+                        max: 4096
+```
+</td></tr>
+</tbody></table>
+
 ## LTS Updates and additional packages
 
 [LTS Updates](https://doc.ibexa.co/en/5.0/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
@@ -607,13 +722,7 @@ To use the [latest features](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp
 
     ### Real-time collaborative editing
 
-    To learn more about the [Real-time editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
-
-    If you're already using it, run the following command to get the latest version of this feature:
-
-    ```bash
-    composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
-    ```
+    Real time collaborative editing is discontinued. See [Real-time collaborative editing removed](#real-time-collaborative-editing-removed) for removal instructions.
 
 === "MCP Servers"
 

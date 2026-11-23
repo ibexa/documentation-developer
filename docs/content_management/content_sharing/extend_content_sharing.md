@@ -5,7 +5,7 @@ month_change: false
 
 # Extend Collaborative editing
 
-Thanks to the ability to extend the [Collaborative editing](collaborative_editing_guide.md) feature, you can introduce additional functionalities to enhance workflows not only in the context of content editing but also when working with products.
+Thanks to the ability to extend the [Collaborative editing](content_sharing_guide.md) feature, you can introduce additional functionalities to enhance workflows not only in the context of content editing but also when working with products.
 The example below demonstrates how to extend the feature to enable a shared Cart functionality in the Commerce system.
 
 !!! tip

@@ -73,7 +73,7 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 
 ## Collaborative editing limitations
 
-The Collaborative editing limitations specify how the user can use the [Collaborative editing](collaborative_editing.md) feature.
+The Collaborative editing limitations specify how the user can use the [Collaborative editing](content_sharing.md) feature.
 
 ### Collaborative editing Owner limitation
 
@@ -89,7 +89,7 @@ If not specified, user can share:
 |------|------|------|
 |"self"|"self"| User can only share drafts that they own |
 
-### Collaborative editing Scope limitation
+### Content sharing Scope limitation
 
 The Scope (`share_scope`) limitation specifies whether the user can share the preview and editing view with other users.
 
