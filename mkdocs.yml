@@ -20,11 +20,10 @@ not_in_nav: |
     /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
-    - Cohesivo editions:
-        - Editions: ibexa_products/editions.md
-        - Cohesivo Headless: ibexa_products/ibexa_headless.md
-        - Cohesivo Experience: ibexa_products/ibexa_experience.md
-        - Cohesivo Commerce: ibexa_products/ibexa_commerce.md
+    - Cohesivo products:
+        - Cohesivo products: ibexa_products/cohesivo_products.md
+        - Cohesivo: ibexa_products/cohesivo.md
+        - Commerce SDK: ibexa_products/commerce_sdk.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
@@ -401,8 +400,9 @@ nav:
             - Customize product attribute templates: product_catalog/customize_product_attribute_templates.md
             - Customize product embed templates: product_catalog/customize_product_embed_templates.md
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
-    - Commerce:
-        - Commerce: commerce/commerce.md
+    - Commerce SDK:
+        - Commerce SDK: commerce/commerce.md
+        - Install Commerce SDK: commerce/install_commerce_sdk.md
         - Cart:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
@@ -448,13 +448,13 @@ nav:
             - Transactional emails: commerce/transactional_emails/transactional_emails.md
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
-    - Discounts:
-        - Discounts: discounts/discounts.md
-        - Discounts guide: discounts/discounts_guide.md
-        - Customize Discounts: discounts/configure_discounts.md
-        - Discounts API: discounts/discounts_api.md
-        - Extend Discounts: discounts/extend_discounts.md
-        - Extend Discounts wizard: discounts/extend_discounts_wizard.md
+        - Discounts:
+            - Discounts: discounts/discounts.md
+            - Discounts guide: discounts/discounts_guide.md
+            - Customize Discounts: discounts/configure_discounts.md
+            - Discounts API: discounts/discounts_api.md
+            - Extend Discounts: discounts/extend_discounts.md
+            - Extend Discounts wizard: discounts/extend_discounts_wizard.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md

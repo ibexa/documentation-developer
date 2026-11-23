@@ -26,7 +26,7 @@ An MCP server allows the agent to discover available tools, inspect their parame
 
 ## Availability
 
-MCP Servers feature is an [LTS Update package](editions.md#lts-updates) available starting with the v5.0.8 in all [[= product_name =]] editions.
+MCP Servers feature is an [LTS Update package](cohesivo_products.md#lts-updates) available starting with the v5.0.8 in all [[= product_name =]] editions.
 
 ## Capabilities
 

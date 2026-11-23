@@ -11,7 +11,7 @@ They can use it to save potential purchases, recurring product sets, and other i
 
 ## Availability
 
-The shopping list feature is available for [Commerce edition](ibexa_commerce.md) as an [LTS update](editions.md#lts-updates) since v5.0.6.
+The shopping list feature is available for [Commerce edition](commerce_sdk.md) as an [LTS update](cohesivo_products.md#lts-updates) since v5.0.6.
 
 ## Use cases
 
