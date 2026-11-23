@@ -1,0 +1,22 @@
+<div class="ibexa-blog-post-line">
+    <div class="ibexa-blog-post-line__image">
+        {{ ibexa_render_field(content, 'image', { parameters: { alias: 'medium' } }) }}
+    </div>
+
+    <div class="ibexa-blog-post-line__body">
+        <h3 class="ibexa-blog-post-line__name">
+            <a href="{{ ibexa_path(location) }}">
+                {{ ibexa_content_name(content) }}
+            </a>
+        </h3>
+
+        <div class="ibexa-blog-post-line__categories">
+            {% set categories = ibexa_field_value(content, 'categories') %}
+            {% for category in categories.getTaxonomyEntries() %}
+                <a href="{{ ibexa_path(category) }}" class="ibexa-blog-post-line__category">
+                    {{ category.getName() }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

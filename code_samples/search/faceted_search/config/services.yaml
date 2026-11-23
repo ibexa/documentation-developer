@@ -1,0 +1,13 @@
+    App\Menu\Builder\CategoriesMenuBuilder:
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: app.menu.categories_facets
+
+    App\Menu\Builder\PublicationDateMenuBuilder:
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: app.menu.publication_date_facets

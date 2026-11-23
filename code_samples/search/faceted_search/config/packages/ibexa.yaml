@@ -1,0 +1,6 @@
+        site:
+            image_variations:
+                cover:
+                    reference: original
+                    filters:
+                        geometry/scalewidth: [ 1024 ]
