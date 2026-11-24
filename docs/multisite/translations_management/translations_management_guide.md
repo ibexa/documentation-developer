@@ -1,6 +1,5 @@
 ---
 description: Translations management helps managers, developers and localization teams with multilingual content delivery.
-edition: lts-update
 month_change: true
 ---
 
@@ -23,7 +22,7 @@ Administrators can manage providers and configure default provider-to-language-p
 
 ## Availability
 
-Translations management is an opt-in capability available as an [LTS Update](editions.md#lts-updates) for all [[= product_name =]] editions, starting with the v5.0.10 version.
+Translations management is part of [[= product_name =]].
 
 ## How it works
 

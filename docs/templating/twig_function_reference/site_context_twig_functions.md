@@ -1,6 +1,5 @@
 ---
 description: Site context Twig function determines if given location is site context-aware.
-edition: experience
 page_type: reference
 ---
 

@@ -1,23 +1,17 @@
 ---
-description: Cohesivo releases new versions periodically in different flavors - Headless, Experience and Commerce, plus open-source OSS.
+description: Cohesivo releases new versions periodically, following a Long Term Support release model.
 ---
 
 # [[= product_name =]] release process and roadmap
 
 ## Release process
 
-### Distributions
+### Products
 
-[[= product_name =]] has three distributions:
+[[= product_name =]] is a multichannel content management system that you can use in a headful or headless way.
+You can extend it with the [[= product_name_commerce_sdk =]], which adds commerce capabilities, and with optional LTS Updates and add-ons.
 
-- [[= product_name_headless =]] is a multichannel and headless content management system.
-- [[= product_name_exp =]] is a modern modular Digital Experience Platform to build outstanding customer experiences
-- [[= product_name_com =]] is a commerce-ready B2B platform designed to digitalize your business from customer awareness to purchase and beyond.
-
-Additionally, [[= product_name =]] also has an open-source version called [[= product_name_oss =]].
-[[= product_name_oss =]] is developed by [[= product_name_base =]] together with the open source community.
-The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
-It comes with no commercial support and maintenance services.
+For more information, see [[[= product_name =]] products](../ibexa_products/cohesivo_products.md).
 
 ### Long Term Support releases
 
@@ -43,7 +37,7 @@ You won't have to manually install or configure them after upgrading, so you can
 
 ## Versioning conventions
 
-All [[= product_name =]] editions use [semantic versioning](https://semver.org/).
+[[= product_name =]], the [[= product_name_commerce_sdk =]] and all other opt-in packages use [semantic versioning](https://semver.org/).
 
 The version number of [[= product_name =]] and all its internal components follows the semantic versioning conventions: vX.Y.Z.
 
@@ -51,11 +45,9 @@ The version number of [[= product_name =]] and all its internal components follo
 - Y represents new features and functionalities.
 - Z represents patches, bug fixes, or smaller improvements.
 
-Distribution files of [[= product_name_base =]] three editions are as follows:
+The distribution file of [[= product_name =]] is as follows:
 
-- for [[= product_name_headless =]]: ibexa-headless-vX.Y.Z.tgz
-- for [[= product_name_exp =]]: ibexa-experience-vX.Y.Z.tgz
-- for [[= product_name_com =]]: ibexa-commerce-vX.Y.Z.tgz
+- `ibexa-cohesivo-vX.Y.Z.tar.gz`
 
 [[= product_name_base =]]'s support and maintenance services specific to each release are only available from a given start date until an end date.
 The time in between the start and end dates is what [[= product_name_base =]] calls the product's **Service Life**.

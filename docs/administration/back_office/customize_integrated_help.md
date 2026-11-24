@@ -1,12 +1,11 @@
 ---
 description: Customize the integrated help menu.
-edition: lts-update
 month_change: false
 ---
 
 # Customize integrated help
 
-The integrated help menu is part of the Integrated help introduced as an [LTS Update](editions.md#lts-updates).
+The integrated help menu is part of the [Integrated help](integrated_help.md) feature.
 By default, it provides editors and developers with convenient access to documentation, training and other resources directly from the back office.
 
 You can extend or modify the integrated menu in the following ways:
@@ -17,7 +16,7 @@ You can extend or modify the integrated menu in the following ways:
 
 ## Disable integrated help functionalities
 
-After you have installed the integrated help package, you can disable the entire feature or specific functionalities on the system level.
+You can disable the entire feature or specific functionalities on the system level.
 
 ### Disable all functionalities
 

@@ -93,26 +93,26 @@ For more information, see [this example using few of those components](component
 |---|---|
 |`admin-ui-location-view-tab-groups`| `vendor/ibexa/taxonomy/src/bundle/Resources/views/themes/admin/ibexa/taxonomy/taxonomy_entry/show.html.twig` |
 
-## Page Builder [[% include 'snippets/experience_badge.md' %]]
+## Page Builder
 
 | Group name | Template file |
 |---|---|
 |`admin-ui-infobar-options-before`| `vendor/ibexa/page-builder/src/bundle/Resources/views/page_builder/infobar/base.html.twig` |
 
-## Order Management [[% include 'snippets/commerce_badge.md' %]]
+## Order Management [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Group name | Template file |
 |---|---|
 |`admin-ui-order-details-summary-stats`| `vendor/ibexa/order-management/src/bundle/Resources/views/themes/admin/order_management/order/details_summary.html.twig` |
 |`admin-ui-order-details-summary-grid`| `vendor/ibexa/order-management/src/bundle/Resources/views/themes/admin/order_management/order/details_summary.html.twig` |
 
-## Payments [[% include 'snippets/commerce_badge.md' %]]
+## Payments [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Group name | Template file |
 |---|---|
 |`admin-ui-payment-method-tabs`| `vendor/ibexa/payment/src/bundle/Resources/views/themes/admin/payment_method/view.html.twig` |
 
-## Shipping [[% include 'snippets/commerce_badge.md' %]]
+## Shipping [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Group name | Template file |
 |---|---|
@@ -125,7 +125,7 @@ For more information, see [this example using few of those components](component
 |---|---|
 |`admin-ui-action-configuration-tabs`| `vendor/ibexa/connector-ai/src/bundle/Resources/views/themes/admin/connector_ai/action_configuration/view.html.twig` |
 
-## Discounts [[% include 'snippets/commerce_badge.md' %]]
+## Discounts [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 | Group name | Template file |
 |---|---|
@@ -135,7 +135,7 @@ For more information, see [this example using few of those components](component
 |`admin-ui-discount-condition-code-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
 |`admin-ui-discount-condition-code-usage-limit-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
 
-## Translations management [[% include 'snippets/lts-update_badge.md' %]]
+## Translations management
 
 | Group name | Template file |
 |---|---|

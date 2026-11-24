@@ -5,7 +5,7 @@ edition: commerce
 
 # Checkout
 
-Checkout is a crucial component of the Commerce offering delivered as part of [[= product_name_com =]].
+Checkout is a crucial component of the commerce offering delivered as part of the [[= product_name_commerce_sdk =]].
 In a course of a multi-step process, it collects necessary transaction data, such as billing and shipping addresses, payment and shipping information.
 
 From the front-end perspective, it's a reusable component that provides access to the workflow and allows buyers to place an order for cart items.

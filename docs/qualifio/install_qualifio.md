@@ -1,6 +1,5 @@
 ---
 description: Install and configure Qualifio.
-edition: experience
 ---
 
 # Install [[= product_name_engage =]]
@@ -20,8 +19,8 @@ For more information, see [[[= product_name_engage =]] in User Documentation]([[
 
 ## Install [[= product_name_engage =]]
 
-[[= product_name_engage =]] comes from v4.6.6 of [[= product_name_exp=]].
-If you have different version, run the following command to install the bundle:
+[[= product_name_engage =]] is an [add-on](cohesivo_products.md#add-ons).
+Run the following command to install the bundle:
 
 ``` bash
 composer require ibexa/engage

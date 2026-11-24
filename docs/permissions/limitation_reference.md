@@ -111,7 +111,7 @@ The Public Link (`share_public_link`) limitation specifies whether the user can 
 |"off"|"off"| User can't manage the settings|
 |"on"|"on"| User can manage the settings|
 
-## Discount Owner limitation [[% include 'snippets/commerce_badge.md' %]]
+## Discount Owner limitation [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 The Discount Owner (`DiscountOwner`) limitation specifies whether the user can interact with a [discount](discounts.md).
 
@@ -186,7 +186,7 @@ limitations:
         values: [folder, article]
 ```
 
-## Field Group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Field Group limitation
 
 A Field Group (`FieldGroup`) limitation specifies whether the user can work with content fields belonging to a specific group.
 A user with this limitation is allowed to edit fields belonging to the indicated group.
@@ -349,7 +349,7 @@ limitations:
         values: [standard, media]
 ```
 
-## Segment group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Segment group limitation
 
 The segment group (`SegmentGroup`) limitation specifies whether the user has access segments within a specific segment group.
 
@@ -361,7 +361,7 @@ This limitation can be used as a role limitation.
 |------|------|------|
 |`<Segment_group_id>`|`<Segment_group_name>`|All valid segment group IDs can be set as value(s).|
 
-## Shopping list limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Shopping list limitation [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 The Shopping List Owner (`ShoppingListOwner`) limitation specifies whether the user can modify a [shopping list](shopping_list.md).
 

@@ -1,6 +1,6 @@
 ---
 description: Learn how to integrate the shopping list features to your own online store design.
-editions: lts-update commerce
+edition: commerce
 month_change: false
 ---
 

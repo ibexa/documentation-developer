@@ -1,6 +1,5 @@
 ---
 description: Try creating a custom page block with specific logic.
-edition: experience
 ---
 
 # Step 4 — Create a custom block

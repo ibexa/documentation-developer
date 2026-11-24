@@ -1,6 +1,5 @@
 ---
 description: Read about the Page Builder - a powerful tool for creating and modifying pages in Cohesivo.
-edition: experience
 month_change: false
 ---
 
@@ -48,7 +47,7 @@ It's also important to choose a layout - it determines the arrangement of drop z
 
 ### Availability
 
-Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
+Page Builder is part of [[= product_name =]].
 
 ### How does Page Builder work
 

@@ -1,6 +1,5 @@
 ---
 description: Work with Ibexa Connect scenario block that retrieves and displays data from an Ibexa Connect webhook.
-edition: experience
 ---
 
 # [[= product_name_connect =]] scenario block

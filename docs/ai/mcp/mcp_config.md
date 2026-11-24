@@ -1,20 +1,11 @@
 ---
 description: Configure an MCP server that exposes built-in and custom tools, prompts, and resources.
-edition: lts-update
 month_change: true
 ---
 
-# Install and configure MCP Servers
+# Configure MCP Servers
 
-With [[= product_name =]]'s MCP Servers LTS Update package, you can expose [MCP servers](mcp_guide.md) to external AI agents.
-
-## Installation
-
-Run the following command to install the package:
-
-```bash
-composer require ibexa/mcp
-```
+With [[= product_name =]]'s MCP Servers feature, you can expose [MCP servers](mcp_guide.md) to external AI agents.
 
 MCP Servers feature comes with [built-in tools](#built-in-tools) but doesn't come with a default configuration.
 You have to create your own MCP servers by providing [their configuration](#mcp-server-configuration) and [enable JWT authentication for them](#jwt-mcp-firewall).
@@ -116,7 +107,7 @@ There are two ways to associate tools with a server:
 
 #### Built-in tools
 
-MCP Servers LTS Update comes with the following **experimental** built-in tools:
+MCP Servers feature comes with the following **experimental** built-in tools:
 
 - `Ibexa\Mcp\Tool\Content\ContentTools`
     - `get_content_info` - gets version-independent metadata of a content item

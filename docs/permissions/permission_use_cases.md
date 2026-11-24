@@ -18,16 +18,14 @@ To allow the user to enter the back office interface and view all content, set t
 
 These policies are necessary for all other cases below that require access to the content structure.
 
-## Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Create content without publishing
 
-You can use this option together with [[= product_name_exp =]]'s content review options.
+You can use this option together with [[= product_name =]]'s content review options.
 Users assigned with these policies can create content, but cannot publish it.
 To publish, they must send the content for review to another User with proper permissions (for example, senior editor or proofreader).
 
 - `content/create`
 - `content/edit`
-
-Use this setup with [[= product_name_exp =]] or [[= product_name_com =]] only, as [[= product_name_headless =]] doesn't allow the User to continue working with their content.
 
 ## Create and publish content
 
@@ -232,11 +230,11 @@ Permissions for the product catalog override permissions for content, therefore,
 - `product/view`
 - `product/edit`
 
-## Commerce [[% include 'snippets/commerce_badge.md' %]]
+## Commerce [[% include 'snippets/commerce_sdk_badge.md' %]]
 
 To control which commerce functionalities are available to store users, you can grant or prevent them access to individual components.
 
-Out of the box, [[= product_name_com =]] comes with the *Storefront User* role that is assigned to anonymous users and grants them the following permissions:
+Out of the box, the [[= product_name_commerce_sdk =]] comes with the *Storefront User* role that is assigned to anonymous users and grants them the following permissions:
 
 - `product/view`, `product_type/view` and `catalog/view`, to allow them to view a product list and product details
 - `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` limitation set to `self`, to allow them to add items to their own shopping cart, modify their cart, and delete it

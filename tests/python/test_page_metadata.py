@@ -58,7 +58,7 @@ def test_llms_txt_url_respects_nested_site_path():
 
 
 def test_frontmatter_edition_string():
-    assert editions_from_frontmatter({"edition": "commerce experience"}) == ["Commerce", "Experience"]
+    assert editions_from_frontmatter({"edition": "commerce experience"}) == ["Commerce SDK", "Experience"]
 
 
 def test_frontmatter_editions_list():
@@ -67,7 +67,7 @@ def test_frontmatter_editions_list():
 
 def test_frontmatter_edition_and_editions_merged():
     result = editions_from_frontmatter({"edition": "commerce", "editions": ["headless"]})
-    assert result == ["Commerce", "Headless"]
+    assert result == ["Commerce SDK", "Headless"]
 
 
 def test_unknown_edition_passes_through():

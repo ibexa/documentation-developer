@@ -12,7 +12,7 @@ It lets you create, configure, and manage products, their specifications, assets
 
 ## Availability
 
-Product catalog capabilities are available in all [[= product_name =]] editions.
+Product catalog capabilities are part of [[= product_name =]].
 
 ## How does product catalog work
 
@@ -117,7 +117,7 @@ Each customer group can have a default price discount that applies to all produc
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 You can also set different prices for specific products or product variants for different customer groups.
 
-You can extend these capabilities even further by using [Discounts](discounts_guide.md) that are available for [[= product_name_com =]].
+You can extend these capabilities even further by using [Discounts](discounts_guide.md) that are part of the [[= product_name_commerce_sdk =]].
 
 ### Product completeness
 

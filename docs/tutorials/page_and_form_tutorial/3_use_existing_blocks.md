@@ -1,6 +1,5 @@
 ---
 description: Learn how to use and customize built-in Page blocks.
-edition: experience
 ---
 
 # Step 3 — Use existing blocks

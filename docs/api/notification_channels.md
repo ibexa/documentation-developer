@@ -277,7 +277,7 @@ The `ControllerFeedback` notification is sent in a controller action:
 [[= include_code('code_samples/api/notifications/src/Controller/NotificationSenderController.php') =]]
 ```
 
-For the example, the notification is sent in a back office context for all editions and on the front end for Commerce edition.
+For the example, the notification is sent in a back office context, and, if you installed the [[= product_name_commerce_sdk =]], on the storefront.
 An empty template only extending the page layout is used for the demonstration.
 
 `templates/themes/admin/notification-sender-controller.html.twig`:
@@ -314,7 +314,7 @@ This class already has a default style applied.
 Subscribe to this new notification type in `config/packages/notifications.yaml`:
 
 - In the `admin_group` scope with the `browser` channel
-- For Commerce edition, in the `storefront_group` scope with the `browser` channel
+- If you installed the [[= product_name_commerce_sdk =]], in the `storefront_group` scope with the `browser` channel
 
 ``` yaml hl_lines="13-15 43-45"
 [[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 5, 6) =]]
@@ -326,7 +326,7 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
 
 !!! note "Subscriptions for `storefront_group`"
 
-    Note that when introducing subscriptions configuration for the `storefront_group` scope that comes with Commerce edition,
+    Note that when introducing subscriptions configuration for the `storefront_group` scope that comes with the [[= product_name_commerce_sdk =]],
     several subscriptions had to be copy-pasted into this SiteAccess group to have the same subscriptions as before
     when it was configured only by the `default` scope.
     For example, the subscriptions for the `site` SiteAccess belonging to this group
@@ -339,7 +339,7 @@ Visiting this controller's route in the back office (at `/admin/notification-sen
 
 ![Notification in back office](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
 
-Visiting the controller's route in the default SiteAccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
+Visiting the controller's route in the default SiteAccess with the [[= product_name_commerce_sdk =]] installed (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
 
 ![Notification in storefront](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
 

@@ -29,6 +29,7 @@ PILL_CLASS_TO_EDITION = {
     "pill--lts-update": "LTS Update",
     "pill--experience": "Experience",
     "pill--commerce": "Commerce",
+    "pill--commerce-sdk": "Commerce SDK",
     "pill--headless": "Headless",
     "pill--new-feature": "New feature",
     "pill--first-release": "First release",
@@ -37,7 +38,7 @@ PILL_CLASS_TO_EDITION = {
 FRONTMATTER_EDITION_DISPLAY = {
     "lts-update": "LTS Update",
     "experience": "Experience",
-    "commerce": "Commerce",
+    "commerce": "Commerce SDK",
     "headless": "Headless",
 }
 

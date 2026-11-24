@@ -1,77 +1,12 @@
 ---
-description: Install the Shopping list LTS update.
-editions: lts-update commerce
+description: Configure shopping list limits and the shopping list user role.
+edition: commerce
 month_change: false
 ---
 
-# Install shopping list
+# Configure shopping list
 
-## Install framework
-
-Run the following command to install the package:
-
-``` bash
-composer require ibexa/shopping-list
-```
-
-The associated Symfony Flex recipe configures the bundle and its routes.
-
-Check that the following line has been added by the recipe to `config/bundles.php` file's array:
-
-``` php
-use Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle;
-
-return [
-    // ...
-    IbexaShoppingListBundle::class => ['all' => true],
-];
-```
-
-And that you have a `config/routes/ibexa_shopping_list.yaml` file configuring the following routes:
-
-```yaml
-ibexa.shopping_list:
-    resource: '@IbexaShoppingListBundle/Resources/config/routing.php'
-
-ibexa.rest.shopping_list:
-    resource: '@IbexaShoppingListBundle/Resources/config/routing_rest.php'
-    prefix: '%ibexa.rest.path_prefix%'
-```
-
-## Modify database schema
-
-[[= product_name_base =]] Doctrine migrations manage the database schema for this package.
-
-- To see a list of known migrations, and find out which ones are pending for the whole project, run:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:versions
-    ```
-
-- To preview the changes before you apply them, use `--dry-run` with `--write-sql`:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
-    ```
-
-[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
-
-- To apply pending migrations:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:migrate
-    ```
-
-    This command does more than create the Shopping list tables - it applies all pending migrations for the project.
-
-    The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
-
-[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
-
-Initially, users don't have any shopping lists, not even the default “My Wishlist” list.
-The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
-
-## Configure
+## Configure limits
 
 By default, the maximum shopping list count per user is 10 and the maximum entries per list is 100.
 When listing their shopping lists, the user see 25 lists per page
@@ -92,7 +27,7 @@ parameters:
     So, for 10 as the default limit, the user may have 11 lists if the user created 10 custom lists before creating the default one.
     If you want to restrict users to only the default shopping list, you can set `max_lists_per_user` to 0.
 
-### Shopping list user role
+## Shopping list user role
 
 To allow customers to use the shopping list feature, create a new role and assign it to registered customer groups.
 To restrict authenticated users access to only their own lists, you must grant the four functions from the Shopping List module with the limitation 'Shopping List Owner: Self'.

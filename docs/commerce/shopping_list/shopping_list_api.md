@@ -1,6 +1,6 @@
 ---
 description: Manage shopping lists from PHP API or REST API.
-editions: lts-update commerce
+edition: commerce
 month_change: false
 ---
 
@@ -21,7 +21,7 @@ or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_refe
 Note that `default` isn't the default shopping list identifier. Each user's default shopping list has a unique identifier, a hash string like `01234567-89ab-cdef-0123-456789abcdef`.
 
 When a user has permissions to create shopping lists [`shopping_list/create`](policies.md#shopping-lists),
-they can always create a default shopping list, regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
+they can always create a default shopping list, regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](configure_shopping_list.md#configure-limits).
 
 ## PHP API
 

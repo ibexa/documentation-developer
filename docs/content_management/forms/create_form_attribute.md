@@ -1,6 +1,5 @@
 ---
 description: Create Form Builder Form attribute.
-edition: experience
 ---
 
 # Create Form Builder Form attribute

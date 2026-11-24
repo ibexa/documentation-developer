@@ -1,12 +1,11 @@
 ---
 description: Create custom capabilities for your MCP servers and test them.
-edition: lts-update
 month_change: true
 ---
 
 # Work with MCP servers
 
-The MCP Servers [LTS Update](editions.md#lts-updates) includes several [built-in tools](mcp_config.md#built-in-tools).
+The MCP Servers feature includes several [built-in tools](mcp_config.md#built-in-tools).
 Additionally, you can create your own capabilities (tools, prompts, and resources) to expose custom features to AI agents through your MCP servers.
 
 ## MCP server capabilities

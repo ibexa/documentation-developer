@@ -1,6 +1,5 @@
 ---
 description: You can use segments to display specific content to specific users.
-edition: experience
 ---
 
 # Segments

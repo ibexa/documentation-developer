@@ -1,6 +1,5 @@
 ---
 description: Set up rules for validating Page block content.
-edition: experience
 ---
 
 # Page block validators

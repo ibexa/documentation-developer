@@ -1,7 +1,6 @@
 ---
 description: Page field and page block Twig functions provide access to configuration.
 page_type: reference
-edition: experience
 month_change: false
 ---
 

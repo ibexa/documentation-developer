@@ -1,6 +1,5 @@
 ---
 description: Create a custom Page block containing rich text.
-edition: experience
 ---
 
 # Create custom RichText block

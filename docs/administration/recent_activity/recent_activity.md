@@ -1,6 +1,5 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
-edition: experience
 month_change: false
 ---
 

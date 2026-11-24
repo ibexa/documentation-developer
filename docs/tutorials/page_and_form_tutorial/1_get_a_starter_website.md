@@ -1,6 +1,5 @@
 ---
 description: Start the tutorial by getting a clean installation of Ibexa Experience and preparing initial content.
-edition: experience
 ---
 
 # Step 1 — Get a starter website
@@ -9,7 +8,7 @@ To set up the starter website, you need to follow these steps:
 
 ## Get a clean [[= product_name =]] installation
 
-To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
+To begin the tutorial, you need a clean installation of [[= product_name =]].
 
 Get it by following the [Install [[= product_name =]]](../../getting_started/install_cohesivo.md) guide.
 

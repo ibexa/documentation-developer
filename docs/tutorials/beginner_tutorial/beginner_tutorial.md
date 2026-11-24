@@ -6,8 +6,6 @@ description: Go through a beginner tutorial which presents the Cohesivo content 
 
 This tutorial is a step-by-step guide to building a [[= product_name =]] website.
 
-You can use it with both [[= product_name_headless =]] and [[= product_name_exp =]].
-
 ## Intended audience
 
 The tutorial is intended for users who have little or no previous experience with [[= product_name =]].

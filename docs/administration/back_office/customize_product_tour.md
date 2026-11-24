@@ -1,6 +1,5 @@
 ---
 description: Customize product tour scenarios with custom event listeners
-edition: lts-update
 month_change: false
 ---
 

@@ -32,10 +32,10 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.4 --nodejs-version 24 --docroot=public
+ddev config --project-type=php --php-version 8.5 --nodejs-version 24 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.4, the document root to `public` directory, and creates the document root if it doesn't exist.
+This command sets the project type to PHP, the PHP version to 8.5, the document root to `public` directory, and creates the document root if it doesn't exist.
 
 #### Use another database type (optional)
 
@@ -189,10 +189,10 @@ If you want to reuse an existing `auth.json` file, see [Using `auth.json`](#usin
 ### 5. Create project
 
 Once DDEV is running, use Composer to create a new [[= product_name =]] project.
-Remember to replace `<edition>` and `<version>` with your desired edition and version.
+Remember to replace `<version>` with your desired version.
 
 ```bash
-ddev composer create-project ibexa/<edition>-skeleton:<version>
+ddev composer create-project ibexa/cohesivo-skeleton:<version>
 ```
 
 !!! tip
@@ -271,7 +271,7 @@ The following example shows the use of `.env.local` with database configuration:
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
 
   ```bash
-  ddev composer create-project ibexa/commerce-skeleton --no-install;
+  ddev composer create-project ibexa/cohesivo-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
@@ -433,7 +433,7 @@ git clone <repository> my-ddev-project && cd my-ddev-project
 # Exclude the whole `.ddev/` directory from version control (some DDEV config could have been committed and shared, see notice below)
 .ddev/ >> .gitignore
 # Configure the DDEV project then start it
-ddev config --project-type=php --php-version 8.3 \
+ddev config --project-type=php --php-version 8.5 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443

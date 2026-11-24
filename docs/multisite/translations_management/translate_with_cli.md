@@ -1,6 +1,5 @@
 ---
 description: Use CLI command to translate content items.
-edition: lts-update
 month_change: true
 ---
 

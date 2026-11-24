@@ -13,7 +13,7 @@ A system that relies on roles and permissions controls access to content items a
 
 ## Availability
 
-Content management capabilities are available in all [[= product_name =]] editions.
+Content management capabilities are part of [[= product_name =]].
 
 ## How does it work
 
@@ -100,7 +100,7 @@ For example, articles might have for example, a title, an author, a body, and an
 Forms could be seen as a special kind of content items, because their role is to gather information from website users and not present it.
 You create them from basic form fields available in [[= product_name =]].
 By adding forms to the website, you can increase the website’s functionality and improve user experience.
-Certain editions of [[= product_name =]] come with a visual [Form Builder]([[= user_doc =]]/content_management/work_with_forms/).
+[[= product_name =]] comes with a visual [Form Builder]([[= user_doc =]]/content_management/work_with_forms/).
 
 ## Content management capabilities
 

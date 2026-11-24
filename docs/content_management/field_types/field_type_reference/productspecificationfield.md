@@ -1,5 +1,4 @@
 ---
-edition: headless
 month_change: false
 ---
 

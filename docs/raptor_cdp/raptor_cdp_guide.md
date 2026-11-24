@@ -1,6 +1,5 @@
 ---
 description: The Raptor CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
-edition: experience
 ---
 
 # [[= product_name_cdp =]] product guide
@@ -18,7 +17,7 @@ It includes first, second, and third-party data from multiple sources such as tr
 
 ## Availability
 
-[[= product_name_cdp =]] is available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
+[[= product_name_cdp =]] is an [add-on](cohesivo_products.md#add-ons) that you can install in [[= product_name =]].
 
 ## How does [[= product_name_cdp =]] work
 
