@@ -133,9 +133,9 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/commerce-skeleton .
     ```
 
-??? note "Using PHP versions other than 8.3"
+??? note "Using PHP versions other than 8.5"
 
-    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
+    If you aren't using PHP 8.5 but are using PHP 8.6… TODO: Less than 8.5 isn't accepted. What about above 8.5?
 
     === "[[= product_name_headless =]]"
 
