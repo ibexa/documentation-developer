@@ -21,7 +21,7 @@ Cohesivo 6.0 isn't distributed in various editions like Ibexa DXP used to be.
 - Ibexa DXP 5.0 Headless is included in Cohesivo 6.0 too.
 - Ibexa DXP 5.0 Commerce is covered by Cohesivo 6.0 with the Commerce SDK package.
 
-![](editions-mapping.png)
+![Mapping Ibexa DXP 5.0 editions to Cohesivo 6.0 and Commerce SDK](editions-mapping.png)
 
 ### Update custom code for Cohesivo v6.0
 
