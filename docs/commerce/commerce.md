@@ -8,6 +8,7 @@ month_change: false
 # [[= product_name_commerce_sdk =]]
 
 The [[= product_name_commerce_sdk =]] adds e-commerce capabilities to [[= product_name =]].
+It doesn't come with [[= product_name =]] out of the box, you install it separately on top of an existing [[= product_name =]] installation.
 It covers various areas of managing an e-commerce presence: from configuring payment and shipping methods, through processing a transaction (adding products to a cart, processing checkout, and sending confirmation), all the way to order management.
 
 ## Getting started

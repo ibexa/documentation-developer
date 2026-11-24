@@ -6,7 +6,7 @@ page_type: landing_page
 # [[= product_name =]] products
 
 [[= product_name =]] is a content management system (CMS) that combines content management, customer experience, and product catalog capabilities in one package.
-You can extend it with the [[= product_name_commerce_sdk =]] to build a complete e-commerce presence, and with optional [LTS Updates](#lts-updates) and [add-ons](#add-ons).
+You can extend it with the [[= product_name_commerce_sdk =]], which you [install separately](install_commerce_sdk.md), to build a complete e-commerce presence, and with optional [LTS Updates](#lts-updates) and [add-ons](#add-ons).
 
 [[= cards([
     "ibexa_products/cohesivo",
