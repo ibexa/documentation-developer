@@ -70,14 +70,14 @@ Users can also enable or disable payment methods, change payment details, and ca
 
 #### Shipping management
 
-With the [Shipping](shipping_management.md) component users can create and manage shipments, search for shipments, filter search results, and define and manage various shipping methods.
+With the [Shipping](shipping_management.md) component, users can create and manage shipments, search for shipments, filter search results, and define and manage various shipping methods.
 Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
 
 ![Shipping management](shipping_management.png)
 
 #### Storefront
 
-The [Storefront](storefront.md) package includes a starter kit for developers.
+The [Storefront](storefront.md) component includes a starter kit for developers.
 It's a foundational set of components that developers can customize and extend to create their own web store implementations.
 It contains default UI components and widgets that can be modified to [create a customized web store](customize_storefront_layout.md).
 

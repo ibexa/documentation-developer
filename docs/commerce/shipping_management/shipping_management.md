@@ -1,27 +1,33 @@
 ---
-description: The shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
+description: The Shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
+page_type: landing_page
 edition: commerce
+month_change: false
 ---
 
 # Shipping
 
-The shipping component enables users to define and manage shipping methods of different types, create and manage shipments, search for shipments, and filter search results.
-Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
+The Shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
 
-!!! note "Shipping method types"
+## Getting started
 
-    Two types of shipping methods are available by default: `flat rate` and `free`.
+[[= cards([
+    "commerce/shipping_management/shipping_overview",
+    "commerce/shipping_management/configure_shipment",
+    ("permissions/policies#shipments", "Policies", "Learn about the available shipment policies"),
+    ("https://doc.ibexa.co/projects/userguide/en/6.0/commerce/shipping_management/work_with_shipping_methods/", "Work with shipping methods", "Create, edit, delete, and filter shipping methods."),
+    ("https://doc.ibexa.co/projects/userguide/en/6.0/commerce/shipping_management/work_with_shipments/", "Work with shipments", "Filter shipments, view shipment details, and change shipment status."),
+    ("content_management/data_migration/importing_data#shipping-methods", "Importing shipping methods", "Learn how to create shipping methods by using data migrations"),
+], columns=3) =]]
 
-From the development perspective, the component enables customization of the shipment workflow.
+## Development
 
-The component exposes the following:
-
-- [Shipping method PHP API](shipping_method_api.md) that allows for managing shipping methods
-- [Shipment PHP API](shipment_api.md) that allows for managing shipments
-
-## Services
-
-The Shipping package provides the following services, which are entry points for calling backend APIs:
-
-- `Ibexa\Contracts\Shipping\ShippingMethodServiceInterface`
-- `Ibexa\Contracts\Shipping\ShipmentServiceInterface`
+[[= cards([
+    "commerce/shipping_management/extend_shipping",
+    "commerce/shipping_management/shipping_method_api",
+    "commerce/shipping_management/shipment_api",
+    ("api/php_api/php_api_reference/namespaces/ibexa-contracts-shipping.html", "PHP API Reference", "<code>Ibexa\\Contracts\\Shipping</code>"),
+    ("https://doc.ibexa.co/en/6.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shipping", "REST API Reference", "See the available endpoints for shipping"),
+    "search/criteria_reference/shipment_search_criteria",
+    "search/sort_clause_reference/shipment_sort_clauses",
+], columns=3) =]]

@@ -63,7 +63,7 @@ In this case, you want users to select seats in the audience.
 In the `src/Controller/Checkout/Step` folder, create a file that resembles the following example.
 
 The controller contains a Symfony form that collects user selections.
-It can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
+It can reuse fields and functions that come from the Checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 ``` php hl_lines="23 24"
 [[= include_code('code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php') =]]
@@ -166,7 +166,7 @@ In the `src/Controller/Checkout` folder, create a file that resembles the follow
 [[= include_code('code_samples/front/shop/checkout/src/Controller/Checkout/OnePageCheckout.php') =]]
 ```
 
-The controller can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
+The controller can reuse fields and functions that come from the Checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 #### Create a form
 

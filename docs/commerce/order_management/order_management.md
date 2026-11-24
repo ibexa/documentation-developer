@@ -1,20 +1,31 @@
 ---
-description: The order management component covers creating orders and managing their lifecycle.
+description: The Order management component covers creating orders and managing their lifecycle.
+page_type: landing_page
 edition: commerce
+month_change: false
 ---
 
 # Order management
 
-The order management component enables users to search for orders and filter search results.
-Depending on their role, users can also track the status of their orders, review order details, and cancel orders.
+The Order management component covers creating orders and managing their lifecycle.
+Users can search for orders, track their status, review order details, and cancel orders, depending on their role.
 
-From the development perspective, the component enables customization of the order management workflow and integration with external systems to exchange order information.
+## Getting started
 
-The component exposes the following:
+[[= cards([
+    "commerce/order_management/order_management_overview",
+    "commerce/order_management/configure_order_management",
+    ("permissions/policies#orders", "Policies", "Learn about the available order policies"),
+    ("https://doc.ibexa.co/projects/userguide/en/6.0/commerce/order_management/work_with_orders/", "Work with orders", "Filter orders, view order details, and change order status."),
+], columns=2) =]]
 
-- [PHP API](order_management_api.md) that allows for managing orders
-- [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Orders) that helps get order information over HTTP
+## Development
 
-## Order management service
-
-The Order Management package provides the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` service, which is the entrypoint for calling the [backend API](order_management_api.md).
+[[= cards([
+    "commerce/order_management/order_management_api",
+    ("api/php_api/php_api_reference/namespaces/ibexa-contracts-ordermanagement.html", "PHP API Reference", "<code>Ibexa\\Contracts\\OrderManagement</code>"),
+    ("https://doc.ibexa.co/en/6.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Orders", "REST API Reference", "See the available endpoints for orders"),
+    "api/event_reference/order_management_events",
+    "search/criteria_reference/order_search_criteria",
+    "search/sort_clause_reference/order_sort_clauses",
+], columns=3) =]]
