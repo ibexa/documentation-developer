@@ -5,7 +5,7 @@ edition: commerce
 
 # Cart
 
-The cart component is a foundation of the Commerce offering delivered as part of [[= product_name_com =]].
+The cart component is a foundation of the commerce offering delivered as part of the [[= product_name_commerce_sdk =]].
 It covers actions related to the creation and handling of a list of products that the buyer intends to purchase.
 
 The component exposes the following:

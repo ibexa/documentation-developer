@@ -4,7 +4,7 @@ description: Go through a Page and Form tutorial to learn how to create modular 
 
 # Page and Form tutorial
 
-This tutorial is a step-by-step guide to building an advanced website with [[= product_name_exp =]].
+This tutorial is a step-by-step guide to building an advanced website with [[= product_name =]].
 It focuses on creating a front page using a feature called **Page Builder**.
 
 ## Intended audience

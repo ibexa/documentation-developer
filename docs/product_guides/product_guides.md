@@ -6,7 +6,7 @@ month_change: false
 
 # Product guides
 
-[[= product_name =]] product editions come with a variety of features.
+[[= product_name =]] and the [[= product_name_commerce_sdk =]] come with a variety of features.
 Discover the primary ones with the help of product guides. Condensed content allows you to quickly learn about their availability, capabilities, and benefits.
 
 [[= cards([

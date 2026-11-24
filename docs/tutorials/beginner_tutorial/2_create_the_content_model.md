@@ -68,7 +68,7 @@ Confirm the creation of the content type by clicking **Save and close**.
 
 !!! note
 
-    If you're using [[= product_name_exp =]], the root content item in your installation is a Page called "Ibexa Digital Experience Platform".
+    The root content item in your installation is a Page called "Ibexa Digital Experience Platform".
 
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
 

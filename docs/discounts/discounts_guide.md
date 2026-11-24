@@ -34,7 +34,7 @@ The conditions used to limit the applicability of a discount include, for exampl
 
 ## Availability
 
-Discounts are available as part of the [[[= product_name_com =]]](../ibexa_products/commerce_sdk.md) edition.
+Discounts are part of the [[[= product_name_commerce_sdk =]]](../ibexa_products/commerce_sdk.md).
 
 ## How it works
 

@@ -31,7 +31,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-[[= product_name_cloud =]] is available in all [[= product_name =]] editions.
+AI Actions are part of [[= product_name =]].
 To begin using AI Actions, you must first [perform the initial configuration](configure_ai_actions.md).
 
 ### Prerequisites

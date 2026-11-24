@@ -5,7 +5,7 @@ month_change: false
 
 # Twig Components
 
-Twig Components are widgets (for example, **My dashboard** blocks from Headless edition) and HTML code (for example, a tag for loading JS or CSS files) that you can inject into the existing templates to customize and extend the user interface.
+Twig Components are widgets (for example, **My dashboard** blocks) and HTML code (for example, a tag for loading JS or CSS files) that you can inject into the existing templates to customize and extend the user interface.
 They are combined into groups that are rendered in designated templates.
 
 Twig Component groups are available for:

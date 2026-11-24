@@ -14,7 +14,8 @@ With this feature, your customers can self-register, edit their organization inf
 
 ## Availability
 
-Customer Portal is available in [[= product_name_exp =]]. It's also compatible with Product catalog, Commerce and [[= product_name_connect =]].
+Customer Portal is part of [[= product_name =]].
+It's also compatible with Product catalog, the [[= product_name_commerce_sdk =]], and [[= product_name_connect =]].
 
 ## How does Customer Portal work?
 
