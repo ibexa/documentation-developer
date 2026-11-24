@@ -13,7 +13,7 @@ A user can have several shopping lists, including a default one named "My Wishli
 
 [[= cards([
 "commerce/shopping_list/shopping_list_guide",
-"commerce/shopping_list/install_shopping_list",
+"commerce/shopping_list/configure_shopping_list",
 ], columns=2) =]]
 
 ## Development

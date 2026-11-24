@@ -11,7 +11,7 @@ They can use it to save potential purchases, recurring product sets, and other i
 
 ## Availability
 
-The shopping list feature is available for [Commerce edition](commerce_sdk.md) as an [LTS update](cohesivo_products.md#lts-updates) since v5.0.6.
+The shopping list feature is part of the [[[= product_name_commerce_sdk =]]](../../ibexa_products/commerce_sdk.md).
 
 ## Use cases
 
@@ -33,14 +33,14 @@ even several products fulfilling the same purpose to decide later which ones to 
 
 Use policies to control rights to create, view, edit, and delete shopping lists.
 Authenticated customers can be granted with these rights, and additionally restricted to interact only with their own shopping lists.
-For more information, see [Shopping list user role](install_shopping_list.md#shopping-list-user-role).
+For more information, see [Shopping list user role](configure_shopping_list.md#shopping-list-user-role).
 
 A customer always have a default shopping list named “My Wishlist”
 which is created automatically on first use.
 It can't be renamed and can't be deleted.
 
 You can configure how many shopping lists a customer can have, and how much products they can contain.
-For more information, see [Configure shopping list](install_shopping_list.md#configure).
+For more information, see [Configure shopping list](configure_shopping_list.md#configure-limits).
 
 A shopping list only stores product codes.
 A shopping list doesn't store quantities.

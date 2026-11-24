@@ -59,7 +59,7 @@ Some [[= product_name_commerce_sdk =]] features require additional configuration
 - [Configure storefront](configure_storefront.md)
 - [Configure order management](configure_order_management.md)
 - [Configure discounts](configure_discounts.md)
-- [Configure shopping list](install_shopping_list.md#configure)
+- [Configure shopping list](configure_shopping_list.md)
 
 ## Add transactional emails
 

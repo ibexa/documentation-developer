@@ -368,7 +368,7 @@ nav:
         - MCP Servers:
             - MCP Servers: ai/mcp/mcp.md
             - MCP Servers guide: ai/mcp/mcp_guide.md
-            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Configure MCP Servers: ai/mcp/mcp_config.md
             - Work with MCP servers: ai/mcp/mcp_usage.md
     - Product catalog:
         - Product catalog: product_catalog/product_catalog.md
@@ -410,7 +410,7 @@ nav:
         - Shopping list:
             - Shopping list: commerce/shopping_list/shopping_list.md
             - Shopping list guide: commerce/shopping_list/shopping_list_guide.md
-            - Install shopping list: commerce/shopping_list/install_shopping_list.md
+            - Configure shopping list: commerce/shopping_list/configure_shopping_list.md
             - Shopping list design: commerce/shopping_list/shopping_list_design.md
             - Shopping list API: commerce/shopping_list/shopping_list_api.md
         - Checkout:

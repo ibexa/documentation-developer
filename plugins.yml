@@ -114,6 +114,7 @@ plugins:
             'ibexa_products/ibexa_headless.md': 'ibexa_products/cohesivo.md'
             'ibexa_products/ibexa_experience.md': 'ibexa_products/cohesivo.md'
             'ibexa_products/ibexa_commerce.md': 'ibexa_products/commerce_sdk.md'
+            'commerce/shopping_list/install_shopping_list.md': 'commerce/shopping_list/configure_shopping_list.md'
             'personalization/personalization_brochure.md': 'recommendations/raptor_integration/raptor_connector_guide.md'
             'guide/form_builder/create_custom_form_field.md': 'content_management/forms/create_custom_form_field.md'
             'guide/form_builder/customize_email_notifications.md': 'content_management/forms/customize_email_notifications.md'

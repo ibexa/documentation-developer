@@ -1,5 +1,5 @@
 ---
-description: Install translations management and configure translation providers, language pairs, and more.
+description: Configure translation providers, language pairs, and more for translations management.
 month_change: true
 ---
 
@@ -19,63 +19,6 @@ There are multiple extension points that you can use to [customize different are
     - The value of `ibexa_form` field type is not translated.
 
     Also, [product attributes](products.md#product-attributes) remain non-translatable and are inactive in the side-by-side translation view.
-
-## Install package
-
-To install the Translations management [LTS Update](cohesivo_products.md#lts-updates), run the following command:
-
-```bash
-composer require ibexa/translations-management
-```
-
-If you're installing Translations management LTS Update as part of the installation process of a fresh [[= product_name =]] instance, this step copies the migration files into the project's migrations directory.
-It also creates the database tables required for the review workflow, and adds the default action configurations in the database.
-Otherwise follow the steps below.
-
-### Existing installations
-
-To add the Translations management LTS Update to an existing [[= product_name =]] instance, after installation, you must create database tables and action configurations yourself.
-
-#### Modify database schema
-
-[[= product_name_base =]] Doctrine migrations manage the database schema for this package.
-
-- To see a list of known migrations, and find out which ones are pending for the whole project, run:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:versions
-    ```
-
-- To preview the changes before you apply them, use `--dry-run` with `--write-sql`:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:migrate --dry-run --write-sql=var/migration-preview.sql
-    ```
-
-[[% include 'snippets/update/db/doctrine_migration_preview_caution.md' %]]
-
-- To apply pending migrations:
-
-    ```bash
-    php bin/console ibexa:doctrine:migrations:migrate
-    ```
-
-    This command does more than create the Translations management tables - it applies all pending migrations for the project.
-
-    The `ibexa:doctrine:migrations:migrate` command creates the required data structures, but doesn't add any data to the database.
-
-[[% include 'snippets/update/db/doctrine_migration_one_by_one.md' %]]
-
-#### Add action configurations
-
-To complete the setup, import and run the AI Action Configuration migrations required by the [AI connectors](configure_ai_actions.md) that you use:
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_06_15_00_auto_translate_openai_action_configuration.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_11_10_00_auto_translate_gemini_action_configuration.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/translations-management/src/bundle/Resources/migrations/2026_05_12_08_30_auto_translate_anthropic_action_configuration.yaml
-php bin/console ibexa:migrations:migrate
-```
 
 ## Configure translation providers
 
@@ -106,7 +49,7 @@ Out of the box, Translations management can support the following translation pr
 
 ### Built-in AI providers
 
-If you meet the above prerequisites, and you install the Translations management package, the installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
+If you meet the above prerequisites, the [[= product_name =]] installation process automatically creates AI [Action Configurations](extend_ai_actions.md#action-configurations) for OpenAI (`auto_translate_openai`), Google Gemini (`auto_translate_gemini`), and Anthropic Claude (`auto_translate_anthropic`).
 
 You can use them directly in provider configuration:
 
