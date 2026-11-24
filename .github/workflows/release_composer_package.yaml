@@ -44,7 +44,7 @@ jobs:
                       # Scheduled runs always execute in the default branch's context, so they must
                       # explicitly check out each maintained version branch instead of relying on
                       # GITHUB_REF. Extend this list as new branches become active / drop EOL ones.
-                      branches='["5.0"]'
+                      branches='["5.0", "6.0"]'
                       devdoc_branch=""
                       userdoc_branch=""
                   fi
