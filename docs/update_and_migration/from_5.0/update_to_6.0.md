@@ -9,7 +9,19 @@ month_change: false
 
 Before you update to v6.0, you need to [update to the latest maintenance release of v5.0 (v[[= latest_tag_5_0 =]])](update_from_5.0.md).
 
+TODO: Do Ibexa DXP 5.0 Headless to Ibexa DXP 5.0 Experience should be done first or Ibexa DXP 5.0 Headless to Cohesivo 6.0 can be done directly?
+
 ## Update from v5.0.latest to v6.0.0
+
+### Rebranding and repackaging
+
+Cohesivo 6.0 isn't distributed in various editions like Ibexa DXP used to be.
+
+- Ibexa DXP 5.0 Experience evolved into Cohesivo 6.0.
+- Ibexa DXP 5.0 Headless is included in Cohesivo 6.0 too.
+- Ibexa DXP 5.0 Commerce is covered by Cohesivo 6.0 with the Commerce SDK package.
+
+![](editions-mapping.png)
 
 ### Update custom code for Cohesivo v6.0
 
