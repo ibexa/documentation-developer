@@ -13,53 +13,32 @@ You can extend it with the [[= product_name_commerce_sdk =]] to build a complete
     "ibexa_products/commerce_sdk",
 ], columns=2) =]]
 
-## Feature list
+## Cohesivo feature list
 
-The following table lists features available in [[= product_name =]] and the features that the [[= product_name_commerce_sdk =]] adds to it:
+[[= product_name =]] includes the following features.
 
-| Feature | [[= product_name =]] | [[= product_name_commerce_sdk =]] |
-|-----------------|-----------------|-----------------|
-| [Content model](content_model.md) | &#10004; | |
-| [AI Actions](ai_actions_guide.md) | &#10004; | |
-| [MCP servers](mcp_guide.md) | &#10004; | |
-| [User management](user_management_guide.md) | &#10004; | |
-| [Focus Mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode) | &#10004; | |
-| [Integrated help](integrated_help.md) | &#10004; | |
-| [Image editor]([[= user_doc =]]/image_management/edit_images/) | &#10004; | |
-| [Content scheduler]([[= user_doc =]]/content_management/schedule_publishing/) | &#10004; | |
-| [SEO]([[= user_doc =]]/search_engine_optimization/seo/) | &#10004; | |
-| [Content translation]([[= user_doc =]]/content_management/translate_content/) | &#10004; | |
-| [Translations management](translations_management_guide.md) | &#10004; | |
-| [Search]([[= user_doc =]]/search/search_for_content/) | &#10004; | |
-| [Editorial workflow]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/) | &#10004; | |
-| [Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/) | &#10004; | |
-| [Product catalog capabilities]([[= user_doc =]]/product_catalog/product_catalog/) | &#10004; | |
-| [Date and time attribute type](date_and_time.md) | &#10004; | |
-| [Symbol attribute type](symbol_attribute_type.md) | &#10004; | |
-| [Migrations](managing_migrations.md) | &#10004; | |
-| [[[= product_name_connect =]]]([[= connect_doc =]]/) | &#10004; | |
-| [OAuth client](oauth_client.md) | &#10004; | |
-| [Site Factory](site_factory.md) | &#10004; | |
-| [Customizable Dashboard]([[= user_doc =]]/getting_started/dashboard/work_with_dashboard/#customize-dashboard) | &#10004; | |
-| [Page Builder](page_builder_guide.md) | &#10004; | |
-| [Form Builder](form_builder_guide.md) | &#10004; | |
-| [Scheduler tab]([[= user_doc =]]/content_management/schedule_publishing/#scheduler-tab) | &#10004; | |
-| [Content Scheduler block]([[= user_doc =]]/content_management/schedule_publishing/#content-scheduler-block) | &#10004; | |
-| [Corporate account management]([[= user_doc =]]/customer_management/manage_customers/) | &#10004; | |
-| [Customer Portal](customer_portal_guide.md) | &#10004; | |
-| [Segments](segments_admin_panel.md) | &#10004; | |
-| [Recent activity](recent_activity.md) | &#10004; | |
-| [Cart](cart.md) | | &#10004; |
-| [Quick order](quick_order.md) | | &#10004; |
-| [Checkout](checkout.md) | | &#10004; |
-| [Reorder](reorder.md) | | &#10004; |
-| [Order management](order_management.md) | | &#10004; |
-| [Payment management](payment.md) | | &#10004; |
-| [Shipping management](shipping_management.md) | | &#10004; |
-| [Storefront](storefront.md) | | &#10004; |
-| [Discounts](discounts.md) | | &#10004; |
-| [Shopping list](shopping_list_guide.md) | | &#10004; |
-| [Transactional emails](transactional_emails.md) | | With the [Actito connector add-on](#add-ons) |
+| Area | Features |
+|---|---|
+| Content management | <ul><li>[Content model](content_model.md)</li><li>[Content translation]([[= user_doc =]]/content_management/translate_content/)</li><li>[Translations management](translations_management_guide.md)</li><li>[Editorial workflow]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/)</li><li>[Content scheduling]([[= user_doc =]]/content_management/schedule_publishing/), including the [Scheduler tab]([[= user_doc =]]/content_management/schedule_publishing/#scheduler-tab) and the [Content Scheduler block]([[= user_doc =]]/content_management/schedule_publishing/#content-scheduler-block)</li><li>[Migrations](managing_migrations.md)</li><li>[Recent activity](recent_activity.md)</li></ul> |
+| Page and form building | <ul><li>[Page Builder](page_builder_guide.md)</li><li>[Form Builder](form_builder_guide.md)</li><li>[Site Factory](site_factory.md)</li></ul> |
+| Editorial experience | <ul><li>[Customizable Dashboard]([[= user_doc =]]/getting_started/dashboard/work_with_dashboard/#customize-dashboard)</li><li>[Focus Mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode)</li><li>[Image editor]([[= user_doc =]]/image_management/edit_images/)</li><li>[Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/)</li><li>[Integrated help](integrated_help.md)</li><li>[SEO]([[= user_doc =]]/search_engine_optimization/seo/)</li><li>[Search]([[= user_doc =]]/search/search_for_content/)</li></ul> |
+| AI | <ul><li>[AI Actions](ai_actions_guide.md)</li><li>[MCP servers](mcp_guide.md)</li></ul> |
+| Product catalog and customers | <ul><li>[Product catalog]([[= user_doc =]]/product_catalog/product_catalog/), including the [date and time](date_and_time.md) and [symbol](symbol_attribute_type.md) attribute types</li><li>[Corporate account management]([[= user_doc =]]/customer_management/manage_customers/)</li><li>[Customer Portal](customer_portal_guide.md)</li><li>[Segments](segments_admin_panel.md)</li></ul> |
+| Users and integrations | <ul><li>[User management](user_management_guide.md)</li><li>[OAuth client](oauth_client.md)</li><li>[[[= product_name_connect =]]]([[= connect_doc =]]/)</li></ul> |
+
+## [[= product_name_commerce_sdk =]] feature list
+
+The [[= product_name_commerce_sdk =]] adds the following features to [[= product_name =]].
+
+- [Cart](cart.md), including [Quick order](quick_order.md)
+- [Checkout](checkout.md), including [Reorder](reorder.md)
+- [Order management](order_management.md)
+- [Payment](payment.md)
+- [Shipping](shipping_management.md)
+- [Storefront](storefront.md)
+- [Discounts](discounts.md)
+- [Shopping list](shopping_list.md)
+- [Transactional emails](transactional_emails.md), with the [Actito connector add-on](#add-ons)
 
 ## LTS Updates
 

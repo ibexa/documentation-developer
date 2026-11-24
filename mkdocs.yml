@@ -23,7 +23,6 @@ nav:
     - Cohesivo products:
         - Cohesivo products: ibexa_products/cohesivo_products.md
         - Cohesivo: ibexa_products/cohesivo.md
-        - Commerce SDK: ibexa_products/commerce_sdk.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
@@ -402,6 +401,7 @@ nav:
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Commerce SDK:
         - Commerce SDK: commerce/commerce.md
+        - Commerce SDK guide: ibexa_products/commerce_sdk.md
         - Install Commerce SDK: commerce/install_commerce_sdk.md
         - Cart:
             - Cart: commerce/cart/cart.md
