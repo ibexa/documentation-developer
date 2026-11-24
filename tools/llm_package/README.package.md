@@ -7,7 +7,7 @@ Official Ibexa DXP documentation as plain Markdown files.
 Run the following command:
 
 ```bash
-composer require --dev ibexa/documentation-developer:~5.0 --no-scripts
+composer require --dev ibexa/documentation-developer:~6.0 --no-scripts
 ```
 
 ## Content
