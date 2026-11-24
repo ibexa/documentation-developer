@@ -11,8 +11,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class PercentAttributeOptionsType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add('min', PercentType::class, [
             'disabled' => $options['translation_mode'],
             'label' => 'Minimum Value',

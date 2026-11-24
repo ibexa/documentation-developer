@@ -9,8 +9,10 @@ use Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface;
 
 final class LuhnChecksum implements ChecksumInterface
 {
-    public function validate(AttributeDefinitionInterface $attributeDefinition, string $value): bool
-    {
+    public function validate(
+        AttributeDefinitionInterface $attributeDefinition,
+        string $value
+    ): bool {
         $digits = $this->getDigits($value);
 
         $count = count($digits);

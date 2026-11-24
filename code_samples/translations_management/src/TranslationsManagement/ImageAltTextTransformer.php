@@ -34,8 +34,11 @@ final class ImageAltTextTransformer implements FieldValueTransformerInterface
     /**
      * @param array<string, mixed> $metadata
      */
-    public function decode(string $value, mixed $previousFieldValue, array $metadata): Value
-    {
+    public function decode(
+        string $value,
+        mixed $previousFieldValue,
+        array $metadata
+    ): Value {
         if (!$previousFieldValue instanceof ImageValue) {
             throw new InvalidArgumentException(
                 '$previousFieldValue',

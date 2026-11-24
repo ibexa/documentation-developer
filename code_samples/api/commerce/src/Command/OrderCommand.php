@@ -39,8 +39,10 @@ final class OrderCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
 
@@ -73,7 +75,7 @@ final class OrderCommand extends Command
                     'Desk 1'
                 )
             ),
-            ];
+        ];
 
         $value = new OrderValue(
             new Money\Money(20, new Money\Currency('EUR')),

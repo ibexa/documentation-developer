@@ -19,8 +19,10 @@ final class CustomShippingMethodOptionsType extends AbstractType implements Tran
         return 'ibexa_shipping_method_custom';
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add('customer_identifier', TextType::class);
     }
 

@@ -10,13 +10,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 #[AsCommand(name: 'app:mcp:server_list', description: 'List MCP servers')]
 class McpServerListCommand
 {
-    public function __construct(private readonly McpServerConfigurationRegistryInterface $configRegistry)
-    {
-    }
+    public function __construct(private readonly McpServerConfigurationRegistryInterface $configRegistry) {}
 
     public function __invoke(SymfonyStyle $io): int
     {
-        foreach($this->configRegistry->getServerConfigurations() as $serverConfiguration) {
+        foreach ($this->configRegistry->getServerConfigurations() as $serverConfiguration) {
             $io->title($serverConfiguration->identifier);
             dump($serverConfiguration);
         }

@@ -16,8 +16,10 @@ final class DateOfBirthUserItemProcessor extends AbstractUserItemProcessor
         parent::__construct($userFieldTypeIdentifier);
     }
 
-    protected function doProcess(array $processedItemData, Content $userContent): array
-    {
+    protected function doProcess(
+        array $processedItemData,
+        Content $userContent
+    ): array {
         $userField = $this->getUserField($userContent);
 
         if (null === $userField) {

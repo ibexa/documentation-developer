@@ -14,8 +14,10 @@ final class PurchasingPowerParityFormMapper extends AbstractFormMapper implement
         return [PurchasingPowerParityRule::TYPE];
     }
 
-    public function supports(string $type, string $ruleType): bool
-    {
+    public function supports(
+        string $type,
+        string $ruleType
+    ): bool {
         return $ruleType === PurchasingPowerParityRule::TYPE;
     }
 

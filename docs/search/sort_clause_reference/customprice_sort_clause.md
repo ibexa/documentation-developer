@@ -23,13 +23,14 @@ The `CustomPrice` Sort Clause isn't available in the Legacy Search engine.
 use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
 use Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CustomPrice;
 
 /**
  * @var CurrencyInterface $currency
  * @var CustomerGroupInterface $customerGroup
  */
 $sortClauses = [
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CustomPrice(
+    new CustomPrice(
         $currency,
         ProductQuery::SORT_ASC,
         $customerGroup

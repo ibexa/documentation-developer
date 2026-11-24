@@ -16,11 +16,12 @@ The `ShippingMethod` Search Criterion searches for shipments based on a shipping
 ### PHP
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\ShippingMethod;
 use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodInterface;
 
-/** @var \Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodInterface $shippingMethod */
+/** @var ShippingMethodInterface $shippingMethod */
 $query = new ShipmentQuery(
-    new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\ShippingMethod($shippingMethod)
+    new ShippingMethod($shippingMethod)
 );
 ```

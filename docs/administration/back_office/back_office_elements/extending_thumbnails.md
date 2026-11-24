@@ -93,8 +93,10 @@ class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
         return 'ibexa_text';
     }
 
-    public function getThumbnail(Field $field, ?VersionInfo $versionInfo = null): ?Thumbnail
-    {
+    public function getThumbnail(
+        Field $field,
+        ?VersionInfo $versionInfo = null
+    ): ?Thumbnail {
         return new Thumbnail([
             'resource' => $field->value,
         ]);

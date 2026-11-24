@@ -16,11 +16,11 @@ The `ProductName` Search Criterion searches for products by their names.
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName('sofa*')
+    new ProductName('sofa*')
 );
 ```
 

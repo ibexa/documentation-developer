@@ -19,8 +19,10 @@ final class MigrationCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $string_with_migration_content = '';
         $this->migrationService->add(
             new Migration(

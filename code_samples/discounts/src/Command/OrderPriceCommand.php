@@ -16,11 +16,12 @@ use Ibexa\Discounts\Value\Price\Stamp\DiscountStamp;
 use Ibexa\OrderManagement\Discounts\Value\DiscountsData;
 use Ibexa\ProductCatalog\Money\IntlMoneyFactory;
 use Money\Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[\Symfony\Component\Console\Attribute\AsCommand(name: 'app:discounts:prices')]
+#[AsCommand(name: 'app:discounts:prices')]
 final class OrderPriceCommand extends Command
 {
     public function __construct(
@@ -36,8 +37,10 @@ final class OrderPriceCommand extends Command
         parent::__construct();
     }
 
-    public function execute(InputInterface $input, OutputInterface $output): int
-    {
+    public function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 
         $productCode = 'product_code_control_unit_0';
@@ -59,7 +62,7 @@ final class OrderPriceCommand extends Command
         $output->writeln(sprintf('Discounted price: %s', $this->formatPrice($resolvedPrice->getMoney())));
 
         if ($resolvedPrice instanceof PriceEnvelopeInterface) {
-            /** @var \Ibexa\Discounts\Value\Price\Stamp\DiscountStamp $discountStamp */
+            /** @var DiscountStamp $discountStamp */
             foreach ($resolvedPrice->all(DiscountStamp::class) as $discountStamp) {
                 $output->writeln(
                     sprintf(

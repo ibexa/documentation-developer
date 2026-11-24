@@ -23,15 +23,18 @@ declare(strict_types=1);
 
 namespace App;
 
-use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface;
 
 class MyService
 {
     public function __construct(
-        private readonly SiteAccessServiceInterface $siteAccessService,
-        private readonly ContentService $contentService
-    ) {
+        private readonly SiteAccessServiceInterface $siteAccessService
+    ) {}
+
+    public function doSomethingWithCurrentSiteAccess(): void
+    {
+        $currentSiteAccess = $this->siteAccessService->getCurrent();
+        // ...
     }
 }
 ```

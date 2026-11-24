@@ -29,8 +29,10 @@ class FindInTrashCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $contentTypeId = (int) $input->getArgument('contentTypeId');
 
         $query = new Query();

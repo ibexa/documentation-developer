@@ -30,7 +30,9 @@ The Value class of this field type contains the following properties:
 ``` php
 // Value object content example
 
-/** @var \Ibexa\Core\FieldType\Url\Value $url */
+use Ibexa\Core\FieldType\Url\Value;
+
+/** @var Value $url */
 $url->link = 'https://www.ibexa.co';
 $url->text = 'Ibexa';
 ```

@@ -4,6 +4,7 @@ namespace App\Block\Listener;
 
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyBlockListener implements EventSubscriberInterface
@@ -17,7 +18,7 @@ class MyBlockListener implements EventSubscriberInterface
 
     public function onBlockPreRender(PreRenderEvent $event): void
     {
-        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
+        /** @var TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
 
         $parameters = $event->getRenderRequest()->getParameters();

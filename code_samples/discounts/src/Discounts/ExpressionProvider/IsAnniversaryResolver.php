@@ -13,8 +13,10 @@ final class IsAnniversaryResolver
 
     private const int REFERENCE_YEAR = 2000;
 
-    public function __invoke(DateTimeInterface $date, int $tolerance = 0): bool
-    {
+    public function __invoke(
+        DateTimeInterface $date,
+        int $tolerance = 0
+    ): bool {
         $d1 = $this->unifyYear(new DateTimeImmutable());
         $d2 = $this->unifyYear($date);
 

@@ -17,10 +17,10 @@ The `CheckboxAttribute` Search Criterion searches for products by the value of t
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CheckboxAttribute;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CheckboxAttribute('automatic', true)
+    new CheckboxAttribute('automatic', true)
 );
 ```

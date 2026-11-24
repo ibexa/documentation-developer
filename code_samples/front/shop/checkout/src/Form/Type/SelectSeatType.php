@@ -11,8 +11,10 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class SelectSeatType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder->add(
             'selection',
             TextType::class,

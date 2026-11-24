@@ -18,11 +18,12 @@ final class ShareCartJoinController extends AbstractController
 
     public function __construct(
         private readonly SessionServiceInterface $sessionService,
-    ) {
-    }
+    ) {}
 
-    public function __invoke(Request $request, string $token): RedirectResponse
-    {
+    public function __invoke(
+        Request $request,
+        string $token
+    ): RedirectResponse {
         $session = $this->sessionService->getSessionByToken($token);
         if ($session instanceof CartSession) {
             $request->getSession()->set(self::CURRENT_COLLABORATION_SESSION, $session->getToken());

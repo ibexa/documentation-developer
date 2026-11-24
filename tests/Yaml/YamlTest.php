@@ -24,8 +24,12 @@ final class YamlTest extends TestCase
     private const string BASELINE_FILE = __DIR__ . '/../yaml-validation-baseline.yaml';
 
     #[DataProvider('provideYamlSources')]
-    public function testYamlIsSyntacticallyValid(string $filePath, int $line, string $body, string $bodyHash): void
-    {
+    public function testYamlIsSyntacticallyValid(
+        string $filePath,
+        int $line,
+        string $body,
+        string $bodyHash
+    ): void {
         $filePath = self::relativePath($filePath);
 
         try {
@@ -157,8 +161,10 @@ final class YamlTest extends TestCase
         return $baseline ??= new ValidationBaseline(self::BASELINE_FILE, realpath(self::REPO_ROOT));
     }
 
-    private static function makeLabel(string $absolutePath, int $lineNumber): string
-    {
+    private static function makeLabel(
+        string $absolutePath,
+        int $lineNumber
+    ): string {
         return ltrim(str_replace(realpath(self::REPO_ROOT), '', $absolutePath), '/') . ':' . $lineNumber;
     }
 

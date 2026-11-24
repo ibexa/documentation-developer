@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Ibexa\Tests\Documentation;
 
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Reads yaml-validation-baseline.yaml and answers whether a given failure is
  * a known, expected one that should be suppressed rather than reported.
@@ -26,11 +28,13 @@ final class ValidationBaseline
     public function __construct(
         private readonly string $baselineFile,
         private readonly string $repoRoot,
-    ) {
-    }
+    ) {}
 
-    public function isInBaseline(string $relativePath, ?string $bodyHash, string $errorMessage): bool
-    {
+    public function isInBaseline(
+        string $relativePath,
+        ?string $bodyHash,
+        string $errorMessage
+    ): bool {
         foreach ($this->getEntries() as $entry) {
             $entryPath = $entry['path'] ?? '';
 
@@ -68,7 +72,7 @@ final class ValidationBaseline
             return $this->entries = [];
         }
 
-        $parsed = \Symfony\Component\Yaml\Yaml::parseFile($this->baselineFile);
+        $parsed = Yaml::parseFile($this->baselineFile);
 
         return $this->entries = $parsed['ignoreErrors'] ?? [];
     }

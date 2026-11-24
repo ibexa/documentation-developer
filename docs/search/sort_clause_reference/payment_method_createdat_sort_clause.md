@@ -15,14 +15,15 @@ The `CreatedAt` Sort Clause sorts search results by the date and time when the p
 
 ``` php
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\CreatedAt;
 
 $criteria = null;
 
 $paymentMethodQuery = new PaymentMethodQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\CreatedAt(
-            \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\CreatedAt::SORT_ASC
+        new CreatedAt(
+            CreatedAt::SORT_ASC
         ),
     ]
 );

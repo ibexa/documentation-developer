@@ -79,8 +79,10 @@ final class MarkdownExtractor
         }
     }
 
-    private function stripIndentation(string $body, int $spaces): string
-    {
+    private function stripIndentation(
+        string $body,
+        int $spaces
+    ): string {
         $prefix = str_repeat(' ', $spaces);
         $lines = explode("\n", $body);
         $stripped = array_map(

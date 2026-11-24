@@ -49,28 +49,40 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
 
 You can use the `ParentLocationId` Search Criterion to list blog posts contained in a blog:
 
-``` php hl_lines="9"
+``` php hl_lines="20"
+use Ibexa\Bundle\Core\Controller;
+use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\HttpFoundation\Response;
 
-$locationId = 12345;
+class NavigationController extends Controller
+{
+    public function __construct(
+        private readonly SearchService $searchService
+    ) {}
 
-$query = new LocationQuery();
-$query->query = new Criterion\LogicalAnd([
-    new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-    new Criterion\ParentLocationId($locationId),
-]);
+    public function blogAction(): Response
+    {
+        $locationId = 12345;
 
-/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
-$results = $searchService->findLocations($query);
-$posts = [];
-foreach ($results->searchHits as $searchHit) {
-    $posts[] = $searchHit;
+        $query = new LocationQuery();
+        $query->query = new Criterion\LogicalAnd([
+            new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+            new Criterion\ParentLocationId($locationId),
+        ]);
+
+        $results = $this->searchService->findLocations($query);
+        $posts = [];
+        foreach ($results->searchHits as $searchHit) {
+            $posts[] = $searchHit;
+        }
+
+        return $this->render('full/blog.html.twig', [
+            'posts' => $posts,
+        ]);
+    }
 }
-
-return $this->render('full/blog.html.twig', [
-    'posts' => $posts,
-]);
 ```
 
 ``` html+twig

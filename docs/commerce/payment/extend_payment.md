@@ -94,11 +94,11 @@ When you create a payment, you can attach custom data to it, for example, you ca
 You add custom data by using the `setContext` method:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 78, 89, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 80, 91, remove_indent=True) =]]
 ```
 
 Then, you retrieve it with the `getContext` method:
 
 ``` php
-[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 51, 54, remove_indent=True) =]]
+[[= include_code('code_samples/api/commerce/src/Command/PaymentCommand.php', 53, 56, remove_indent=True) =]]
 ```

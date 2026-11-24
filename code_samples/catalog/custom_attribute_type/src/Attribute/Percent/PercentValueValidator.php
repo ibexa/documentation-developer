@@ -10,8 +10,10 @@ use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
 
 final class PercentValueValidator implements ValueValidatorInterface
 {
-    public function validateValue(AttributeDefinitionInterface $attributeDefinition, $value): iterable
-    {
+    public function validateValue(
+        AttributeDefinitionInterface $attributeDefinition,
+        $value
+    ): iterable {
         if ($value === null) {
             return [];
         }

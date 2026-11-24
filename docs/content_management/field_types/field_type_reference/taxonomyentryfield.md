@@ -20,10 +20,11 @@ Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
 
 ``` php
 use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
+use Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value;
 
 /** @var TaxonomyServiceInterface $taxonomyService */
 $taxonomyEntry = $taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
-$taxonomyEntryField = new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value($taxonomyEntry);
+$taxonomyEntryField = new Value($taxonomyEntry);
 ```
 
 Example using array:

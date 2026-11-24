@@ -21,9 +21,9 @@ class FormPolicyProvider implements PolicyProviderInterface, TranslationContaine
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('role.policy.form', 'forms'))->setDesc('Forms'),
-            (new Message('role.policy.form.all_functions', 'forms'))->setDesc('Forms / All functions'),
-            (new Message('role.policy.form.read_submissions', 'forms'))->setDesc('Forms / Read submissions'),
+            new Message('role.policy.form', 'forms')->setDesc('Forms'),
+            new Message('role.policy.form.all_functions', 'forms')->setDesc('Forms / All functions'),
+            new Message('role.policy.form.read_submissions', 'forms')->setDesc('Forms / Read submissions'),
         ];
     }
 }

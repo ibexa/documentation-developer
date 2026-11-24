@@ -17,10 +17,10 @@ The `PriceCriterion` searches for orders by their total net value.
 ### PHP
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\PriceCriterion;
 
-$criteria = new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\PriceCriterion(
+$criteria = new PriceCriterion(
     12900,
     'GTE'
 );

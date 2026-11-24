@@ -17,8 +17,9 @@ The `Name` Search Criterion searches for payment methods based on the existing p
 
 ``` php
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Name;
 
 $query = new PaymentMethodQuery(
-    new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Name('Credit Card')
+    new Name('Credit Card')
 );
 ```

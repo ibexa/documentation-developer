@@ -15,11 +15,12 @@ The [`Ancestor` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 ### PHP
 
 ``` php
+use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
 $query = new Query();
-/** @var \Ibexa\Contracts\Core\Repository\LocationService $locationService */
+/** @var LocationService $locationService */
 $query->query = new Criterion\Ancestor([$locationService->loadLocation(62)->pathString]);
 ```
 
@@ -49,26 +50,39 @@ $query->query = new Criterion\Ancestor([$locationService->loadLocation(62)->path
 
 You can use the Ancestor Search Criterion to create a list of breadcrumbs leading to the Location:
 
-``` php hl_lines="8"
+``` php hl_lines="20"
+use Ibexa\Bundle\Core\Controller;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\HttpFoundation\Response;
 
-$locationId = 12345;
+class NavigationController extends Controller
+{
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly SearchService $searchService
+    ) {}
 
-$query = new LocationQuery();
-/** @var \Ibexa\Contracts\Core\Repository\LocationService $locationService */
-$query->query = new Criterion\Ancestor([$locationService->loadLocation($locationId)->pathString]);
+    public function breadcrumbsAction(): Response
+    {
+        $locationId = 12345;
 
-/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
-$results = $searchService->findLocations($query);
-$breadcrumbs = [];
-foreach ($results->searchHits as $searchHit) {
-    $breadcrumbs[] = $searchHit;
+        $query = new LocationQuery();
+        $query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);
+
+        $results = $this->searchService->findLocations($query);
+        $breadcrumbs = [];
+        foreach ($results->searchHits as $searchHit) {
+            $breadcrumbs[] = $searchHit;
+        }
+
+        return $this->render('parts/breadcrumbs.html.twig', [
+            'breadcrumbs' => $breadcrumbs,
+        ]);
+    }
 }
-
-return $this->render('parts/breadcrumbs.html.twig', [
-    'breadcrumbs' => $breadcrumbs,
-]);
 ```
 
 ``` html+twig

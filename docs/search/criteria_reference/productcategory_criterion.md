@@ -16,11 +16,11 @@ The `ProductCategory` Search Criterion searches for products by the category the
 
 ``` php
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCategory;
 
 $query = new ProductQuery(
     null,
-    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCategory([2, 3])
+    new ProductCategory([2, 3])
 );
 ```
 

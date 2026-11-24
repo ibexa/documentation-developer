@@ -106,9 +106,11 @@ composer require ibexa/connector-gemini
 Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
 ``` php
+use Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle;
+
 return [
     // ...
-    Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
+    IbexaConnectorGeminiBundle::class => ['all' => true],
 ];
 ```
 

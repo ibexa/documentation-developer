@@ -17,8 +17,9 @@ The `Id` Search Criterion searches for payment methods based on the payment meth
 
 ``` php
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Id;
 
 $query = new PaymentMethodQuery(
-    new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Id(2)
+    new Id(2)
 );
 ```

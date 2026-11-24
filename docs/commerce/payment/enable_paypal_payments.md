@@ -36,7 +36,7 @@ Ensure that the `username`, `password,` and `signature` fields contain the PayPa
 You can now provide language translations for the PayPal payment service name.
 To do it, within the `ibexa_payment_type` namespace in your translation files, use the provided translation key structure for each of your supported languages:
 
-```yaml
+```yaml {skip-validation}
 ibexa:
     payment_method:
         type:

@@ -9,9 +9,10 @@ use Ibexa\Contracts\ProductCatalog\Values\Price\PriceContextInterface;
 
 final readonly class CurrentUserRegistrationDateResolver implements DiscountVariablesResolverInterface
 {
-    public function __construct(private PermissionResolver $permissionResolver, private UserService $userService)
-    {
-    }
+    public function __construct(
+        private PermissionResolver $permissionResolver,
+        private UserService $userService
+    ) {}
 
     /**
      * @return array{current_user_registration_date: \DateTimeInterface}

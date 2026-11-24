@@ -52,8 +52,10 @@ final class InlinePhpPipelineTest extends TestCase
      *
      * @return string|null Updated Markdown, or null when the pipeline produced no change.
      */
-    private function pipeline(string $md, array $fixerReplacements = []): ?string
-    {
+    private function pipeline(
+        string $md,
+        array $fixerReplacements = []
+    ): ?string {
         $blocks = iterator_to_array($this->extractor->extract($md));
         self::assertNotEmpty($blocks, 'No PHP blocks found in Markdown');
 
@@ -74,8 +76,10 @@ final class InlinePhpPipelineTest extends TestCase
      *
      * @param array<string, string> $fixerReplacements
      */
-    private function pipelineAll(string $md, array $fixerReplacements = []): string
-    {
+    private function pipelineAll(
+        string $md,
+        array $fixerReplacements = []
+    ): string {
         $blocks = iterator_to_array($this->extractor->extract($md));
         self::assertNotEmpty($blocks);
 
@@ -211,8 +215,10 @@ final class InlinePhpPipelineTest extends TestCase
      * @param array<string, string> $fixerReplacements
      */
     #[DataProvider('provideIdempotencyCases')]
-    public function testPipelineIsIdempotent(string $md, array $fixerReplacements): void
-    {
+    public function testPipelineIsIdempotent(
+        string $md,
+        array $fixerReplacements
+    ): void {
         // First pass (may or may not change the Markdown).
         $updated = $this->pipeline($md, $fixerReplacements) ?? $md;
 

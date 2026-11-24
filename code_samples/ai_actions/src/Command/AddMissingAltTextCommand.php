@@ -15,6 +15,7 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\FieldTypeService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\ContentList;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\DateMetadata;
@@ -51,16 +52,18 @@ final class AddMissingAltTextCommand extends Command
         $this->addArgument('user', InputArgument::OPTIONAL, 'Login of the user executing the actions', 'admin');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $this->setUser($input->getArgument('user'));
 
         $modifiedImages = $this->getModifiedImages();
         $output->writeln(sprintf('Found %d modified image in the last 24h', $modifiedImages->getTotalCount()));
 
-        /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+        /** @var Content $content */
         foreach ($modifiedImages as $content) {
-            /** @var \Ibexa\Core\FieldType\Image\Value $value */
+            /** @var Value $value */
             $value = $content->getFieldValue(self::IMAGE_FIELD_IDENTIFIER);
 
             if ($value === null || !$this->shouldGenerateAltText($value)) {
@@ -82,8 +85,10 @@ final class AddMissingAltTextCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function getSuggestedAltText(string $imageEncodedInBase64, string $languageCode): string
-    {
+    private function getSuggestedAltText(
+        string $imageEncodedInBase64,
+        string $languageCode
+    ): string {
         $action = new GenerateAltTextAction(new Image([$imageEncodedInBase64]));
 
         $action->setRuntimeContext(new RuntimeContext(['languageCode' => $languageCode]));
@@ -119,7 +124,7 @@ final class AddMissingAltTextCommand extends Command
 
     private function getModifiedImages(): ContentList
     {
-        $filter = (new Filter())
+        $filter = new Filter()
             ->withCriterion(
                 new DateMetadata(DateMetadata::MODIFIED, Operator::GTE, strtotime('-1 day'))
             )

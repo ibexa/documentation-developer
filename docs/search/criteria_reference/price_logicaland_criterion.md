@@ -16,13 +16,17 @@ The `LogicalAnd` Search Criterion matches prices if all provided Criteria match.
 ### PHP
 
 ``` php
+use Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalAnd;
 
-/** @var \Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface $currencyUSD */
+/** @var CurrencyInterface $currencyUSD */
 $query = new PriceQuery(
-    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalAnd(
-        new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency($currencyUSD),
-        new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice()
+    new LogicalAnd(
+        new Currency($currencyUSD),
+        new IsCustomPrice()
     )
 );
 ```

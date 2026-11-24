@@ -16,12 +16,14 @@ The `Order` Search Criterion searches for payments based on an ID of an associat
 ### PHP
 
 ``` php
+use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\Payment\Payment\PaymentQuery;
+use Ibexa\Contracts\Payment\Payment\Query\Criterion\Order;
 
-/** @var \Ibexa\Contracts\OrderManagement\OrderServiceInterface $orderService */
+/** @var OrderServiceInterface $orderService */
 $order = $orderService->getOrder(4);
 
 $query = new PaymentQuery(
-    new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Order($order)
+    new Order($order)
 );
 ```

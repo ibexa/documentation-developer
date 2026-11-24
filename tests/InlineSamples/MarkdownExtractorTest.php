@@ -187,8 +187,10 @@ final class MarkdownExtractorTest extends TestCase
      * @param array<array{body: string, line: int}> $expected
      */
     #[DataProvider('provideMultilineBlocks')]
-    public function testExtractsMultilineBody(string $content, array $expected): void
-    {
+    public function testExtractsMultilineBody(
+        string $content,
+        array $expected
+    ): void {
         $blocks = iterator_to_array($this->extractor->extract($content));
 
         self::assertCount(count($expected), $blocks);

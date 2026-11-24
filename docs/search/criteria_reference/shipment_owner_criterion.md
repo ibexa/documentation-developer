@@ -14,12 +14,13 @@ The `Owner` Criterion searches for shipments based on the user reference.
 ## Example
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Owner;
 use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+use Ibexa\Core\Repository\Values\User\UserReference;
 
 $query = new ShipmentQuery(
-    new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Owner(
-        new \Ibexa\Core\Repository\Values\User\UserReference(14)
+    new Owner(
+        new UserReference(14)
     )
 );
 ```
@@ -27,18 +28,19 @@ $query = new ShipmentQuery(
 `Owner` Criterion accepts also multiple values:
 
 ``` php
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Owner;
 use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
 
-/** @var \Ibexa\Contracts\Core\Repository\UserService $userService */
+/** @var UserService $userService */
 $user1 = $userService->loadUser(12345);
 $user2 = $userService->loadUserByLogin('user');
 
 $query = new ShipmentQuery(
-    new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Owner(
+    new Owner(
         [
-           $user1,
-           $user2,
+            $user1,
+            $user2,
         ]
     )
 );

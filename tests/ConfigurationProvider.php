@@ -72,8 +72,10 @@ final class ConfigurationProvider
         return $result;
     }
 
-    private function resolveValue(ParameterBagInterface $bag, mixed $value): mixed
-    {
+    private function resolveValue(
+        ParameterBagInterface $bag,
+        mixed $value
+    ): mixed {
         if (is_array($value)) {
             return array_map(fn (mixed $v): mixed => $this->resolveValue($bag, $v), $value);
         }

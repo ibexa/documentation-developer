@@ -21,9 +21,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 final class PurchasingPowerParityValueType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $availableRegionHandler = static function (FormInterface $form, PurchasingPowerParityValue $data): void {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
+        $availableRegionHandler = static function (
+            FormInterface $form,
+            PurchasingPowerParityValue $data
+        ): void {
             $regions = $data->getDiscountData()->getGeneralProperties()->getRegions();
             $regionNames = implode(', ', array_map(static fn (RegionInterface $region): string => $region->getIdentifier(), $regions));
 

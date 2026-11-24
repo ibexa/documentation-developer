@@ -10,8 +10,10 @@ use Money\Money;
 
 final class PurchaseParityValueFormatter implements DiscountValueFormatterInterface
 {
-    public function format(DiscountRuleInterface $discountRule, ?Money $money = null): string
-    {
+    public function format(
+        DiscountRuleInterface $discountRule,
+        ?Money $money = null
+    ): string {
         return 'Regional discount';
     }
 }

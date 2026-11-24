@@ -118,8 +118,7 @@ final readonly class MyCrmWebsiteUserIdProvider implements WebsiteIdContextProvi
     public function __construct(
         private ConfigResolverInterface $configResolver,
         private PermissionResolver $permissionResolver,
-    ) {
-    }
+    ) {}
 
     public function getWebsiteId(): ?string
     {

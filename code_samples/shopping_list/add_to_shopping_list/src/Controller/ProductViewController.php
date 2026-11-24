@@ -13,12 +13,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProductViewController extends AbstractController
 {
-    public function __construct(private readonly LocalProductServiceInterface $productService)
-    {
-    }
+    public function __construct(private readonly LocalProductServiceInterface $productService) {}
 
-    public function viewAction(Request $request, ContentView $view): View
-    {
+    public function viewAction(
+        Request $request,
+        ContentView $view
+    ): View {
         $product = $this->productService->getProductFromContent($view->getContent());
         if ($product->isBaseProduct()) {
             $view->addParameters([

@@ -74,9 +74,10 @@ The field type supports `FileSizeValidator`, defining maximum size of media file
 ``` php
 // Example of using Media field type validator in PHP
 
+use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Core\FieldType\Media\Type;
 
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
+/** @var Repository $repository */
 $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('media', 'ibexa_media');
 
@@ -111,9 +112,10 @@ List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldT
 ``` php
 // Example of using Media field type settings in PHP
 
+use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Core\FieldType\Media\Type;
 
-/** @var \Ibexa\Contracts\Core\Repository\Repository $repository */
+/** @var Repository $repository */
 $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct('media', 'ibexa_media');
 

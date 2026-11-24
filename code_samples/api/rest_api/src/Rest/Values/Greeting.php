@@ -7,6 +7,5 @@ class Greeting
     public function __construct(
         public string $salutation = 'Hello',
         public string $recipient = 'World'
-    ) {
-    }
+    ) {}
 }

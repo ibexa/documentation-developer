@@ -35,8 +35,10 @@ class WorkflowCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $contentId = (int) $input->getArgument('contentId');
         $workflowName = $input->getArgument('workflowName');
         $transitionName = $input->getArgument('transitionName');

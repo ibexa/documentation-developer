@@ -24,8 +24,10 @@ class ShoppingListMoveCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $login = 'admin';
         $productCodes = ['TODO', 'TODO'];
         $movedProductCodes = $productCodes;
@@ -62,8 +64,10 @@ class ShoppingListMoveCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function displayList(OutputInterface $output, ShoppingListInterface $list): void
-    {
+    private function displayList(
+        OutputInterface $output,
+        ShoppingListInterface $list
+    ): void {
         $output->writeln("{$list->getOwner()->getName()} ({$list->getOwner()->getLogin()})");
         $output->writeln("{$list->getName()} ({$list->getIdentifier()})" . ($list->isDefault() ? ' [default]' : ''));
         $entries = $list->getEntries();

@@ -51,7 +51,7 @@ ibexa_connector_payum:
 Within the `ibexa_payment_type` namespace in your translation files, add translations for each payment service that you configure.
 For language translations of payment service names, structure the translation files as follows:
 
-```yaml
+```yaml {skip-validation}
 ibexa:
     payment_method:
         type:

@@ -13,8 +13,10 @@ use LogicException;
 
 final class PurchasingPowerParityValueMapper implements DiscountValueMapperInterface
 {
-    public function createFormData(string $type, string $ruleType): DiscountValueInterface
-    {
+    public function createFormData(
+        string $type,
+        string $ruleType
+    ): DiscountValueInterface {
         if ($ruleType !== PurchasingPowerParityRule::TYPE) {
             throw new LogicException('Not implemented');
         }
@@ -48,10 +50,12 @@ final class PurchasingPowerParityValueMapper implements DiscountValueMapperInter
     }
 
     /**
-     * @param \Ibexa\Contracts\Discounts\Value\Struct\DiscountCreateStruct|\Ibexa\Contracts\Discounts\Value\Struct\DiscountUpdateStruct $struct
+     * @param DiscountCreateStruct|DiscountUpdateStruct $struct
      */
-    private function addRuleToStruct(DiscountValueInterface $data, $struct): void
-    {
+    private function addRuleToStruct(
+        DiscountValueInterface $data,
+        $struct
+    ): void {
         if (!$data instanceof PurchasingPowerParityValue) {
             throw new LogicException('Not implemented');
         }

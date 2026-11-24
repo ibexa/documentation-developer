@@ -31,8 +31,10 @@ class FilterLocationCommand extends Command
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $parentLocationId = (int)$input->getArgument('parentLocationId');
 
         $filter = new Filter();

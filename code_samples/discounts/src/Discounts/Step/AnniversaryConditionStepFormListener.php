@@ -17,8 +17,11 @@ final class AnniversaryConditionStepFormListener extends AbstractStepFormListene
         return $data->getStepData() instanceof AnniversaryConditionStep;
     }
 
-    public function addFields(FormInterface $form, DiscountStepData $data, PreSetDataEvent $event): void
-    {
+    public function addFields(
+        FormInterface $form,
+        DiscountStepData $data,
+        PreSetDataEvent $event
+    ): void {
         $form->add(
             'stepData',
             AnniversaryConditionStepType::class,
@@ -31,7 +34,7 @@ final class AnniversaryConditionStepFormListener extends AbstractStepFormListene
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('discount.step.custom.label', 'discount'))->setDesc('Custom'),
+            new Message('discount.step.custom.label', 'discount')->setDesc('Custom'),
         ];
     }
 }
