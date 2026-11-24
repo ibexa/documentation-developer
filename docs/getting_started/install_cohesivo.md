@@ -115,48 +115,11 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-=== "[[= product_name_headless =]]"
+``` bash
+composer create-project ibexa/cohesivo-skeleton .
+```
 
-    ``` bash
-    composer create-project ibexa/headless-skeleton .
-    ```
-
-=== "[[= product_name_exp =]]"
-
-    ``` bash
-    composer create-project ibexa/experience-skeleton .
-    ```
-
-=== "[[= product_name_com =]]"
-
-    ``` bash
-    composer create-project ibexa/commerce-skeleton .
-    ```
-
-??? note "Using PHP versions other than 8.3"
-
-    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
-
-    === "[[= product_name_headless =]]"
-
-        ``` bash
-        composer create-project ibexa/headless-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_exp =]]"
-
-        ``` bash
-        composer create-project ibexa/experience-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project ibexa/commerce-skeleton --no-install .
-        composer update
-        ```
+TODO: When to add the Commerce SDK `composer require ibexa/cohesivo-commerce-sdk`?
 
 !!! tip "Authentication token"
 
@@ -168,7 +131,7 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip "Version constraint"
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_6_0 =]]`), version range (`~6.0.1`), or stability (`^6.0@rc`):
 
     ``` bash
     composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
@@ -270,38 +233,10 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
 ### Create a database
 
-!!! note "Installing with Doctrine migrations"
 
-    By default, `ibexa:install` creates the database schema directly, without tracking individual changes.
-    To have [[= product_name_base =]] [Doctrine migrations](update_from_5.0.md#database-update_5) manage your schema from the moment of product installation, so that you can install future upgrades with a single command, enable it before you run `ibexa:install`.
-    Create `config/packages/ibexa_installer.yaml`:
-
-    ```yaml
-    ibexa:
-        installer:
-            doctrine_migrations: true
-    ```
-
-    Both methods, direct and Doctrine-based, produce the same database.
-    However, with [[= product_name_base =]] Doctrine migrations enabled, each migration is recorded as already applied.
-    This way, every applied migration is tracked, so future updates bring your database to the expected schema with a single command, and you don't have to work out which upgrade scripts to run.
-
-Install [[= product_name =]] and create a database with:
-
-=== "PHP 8.4"
-
-    Deprecation warnings must be suppressed when using PHP 8.4, otherwise the installation fails due to errors such as "headers have already been sent".
-
-    ``` bash
-    php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'` bin/console ibexa:install
-    php bin/console ibexa:graphql:generate-schema
-    ```
-
-=== "PHP 8.3 and older"
-
-    ``` bash
-    php bin/console ibexa:install
-    ```
+``` bash
+php bin/console ibexa:install
+```
 
 Before executing the command, make sure that the database user has sufficient permissions.
 
@@ -332,7 +267,7 @@ composer run post-install-cmd
 
 ## Use PHP's built-in server
 
-For development you can use the built-in PHP server.
+For development, you can use the built-in PHP server.
 
 ```bash
 php -S 127.0.0.1:8000 -t public
