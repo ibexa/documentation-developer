@@ -3,14 +3,14 @@ description: Storefront covers actions related to the purchase process.
 edition: commerce
 ---
 
-# Storefront
+# Storefront overview
 
-The Storefront package provides a starting kit for the developers.
+The storefront component provides a starting kit for the developers.
 It's a set of components that serves as a basis, which developers can customize and extend to create their own implementation of a web store.
 
 ## Default UI components
 
-The Storefront package contains the following default UI components and widgets.
+The storefront component contains the following default UI components and widgets.
 You can modify them when you build your own web store.
 
 | Component | Description |

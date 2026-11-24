@@ -3,7 +3,7 @@ description: The cart component covers adding items to the shopping cart, and pr
 edition: commerce
 ---
 
-# Cart
+# Cart overview
 
 The cart component is a foundation of the commerce offering delivered as part of the [[= product_name_commerce_sdk =]].
 It covers actions related to the creation and handling of a list of products that the buyer intends to purchase.
@@ -128,7 +128,7 @@ document.addEventListener(
 ### Widgets
 
 [[= product_name =]] comes with a number of components that are interfaces to various functionalities exposed by the Cart.
-For a list of default components available in the storefront, see [Default UI components](storefront.md#default-ui-components).
+For a list of default components available in the storefront, see [Default UI components](storefront_overview.md#default-ui-components).
 
 To customize your store, you can override the Twig templates and extend their logic.
 For more information, see [Customize storefront layout](customize_storefront_layout.md).

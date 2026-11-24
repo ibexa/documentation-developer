@@ -3,7 +3,7 @@ description: The checkout component covers providing shipping and billing addres
 edition: commerce
 ---
 
-# Checkout
+# Checkout overview
 
 Checkout is a crucial component of the commerce offering delivered as part of the [[= product_name_commerce_sdk =]].
 In a course of a multi-step process, it collects necessary transaction data, such as billing and shipping addresses, payment and shipping information.

@@ -405,6 +405,7 @@ nav:
         - Install Commerce SDK: commerce/install_commerce_sdk.md
         - Cart:
             - Cart: commerce/cart/cart.md
+            - Cart overview: commerce/cart/cart_overview.md
             - Cart API: commerce/cart/cart_api.md
             - Quick order: commerce/cart/quick_order.md
         - Shopping list:
@@ -415,16 +416,19 @@ nav:
             - Shopping list API: commerce/shopping_list/shopping_list_api.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
+            - Checkout overview: commerce/checkout/checkout_overview.md
             - Configure checkout: commerce/checkout/configure_checkout.md
             - Customize checkout: commerce/checkout/customize_checkout.md
             - Reorder: commerce/checkout/reorder.md
             - Checkout API: commerce/checkout/checkout_api.md
         - Order management:
             - Order management: commerce/order_management/order_management.md
+            - Order management overview: commerce/order_management/order_management_overview.md
             - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
         - Payment management:
-            - Payment: commerce/payment/payment.md 
+            - Payment: commerce/payment/payment.md
+            - Payment overview: commerce/payment/payment_overview.md
             - Configure Payment: commerce/payment/configure_payment.md 
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
@@ -435,17 +439,20 @@ nav:
                 - Enable PayPal payments: commerce/payment/enable_paypal_payments.md
                 - Enable Stripe payments: commerce/payment/enable_stripe_payments.md
         - Shipping management:
-            - Shipping management: commerce/shipping_management/shipping_management.md
+            - Shipping: commerce/shipping_management/shipping_management.md
+            - Shipping overview: commerce/shipping_management/shipping_overview.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
             - Extend shipping: commerce/shipping_management/extend_shipping.md
             - Shipping method API: commerce/shipping_management/shipping_method_api.md
             - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
+            - Storefront overview: commerce/storefront/storefront_overview.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
         - Transactional emails:
             - Transactional emails: commerce/transactional_emails/transactional_emails.md
+            - Transactional emails overview: commerce/transactional_emails/transactional_emails_overview.md
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
         - Discounts:

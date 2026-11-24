@@ -3,7 +3,7 @@ description: With transactional emails you can notify end users about changes in
 edition: commerce
 ---
 
-# Transactional emails
+# Transactional emails overview
 
 Transactional emails are messages that [[= product_name =]] can send through [Actito](https://actito.com/en) gateway to your end-users to notify them about changes in the status of various actions taken in relation to your commerce presence.
 

@@ -3,7 +3,7 @@ description: The order management component covers creating orders and managing 
 edition: commerce
 ---
 
-# Order management
+# Order management overview
 
 The order management component enables users to search for orders and filter search results.
 Depending on their role, users can also track the status of their orders, review order details, and cancel orders.
