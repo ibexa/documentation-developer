@@ -1,11 +1,11 @@
 ---
-description: The payment component covers defining and managing payment methods, together with managing payments and their lifecycle.
+description: The Payment component covers defining and managing payment methods, together with managing payments and their lifecycle.
 edition: commerce
 ---
 
 # Payment overview
 
-With the Payment component users can define and manage payment methods, create and manage payments, search for payment methods and payments, and filter payment search results.
+With the Payment component, users can define and manage payment methods, create and manage payments, search for payment methods and payments, and filter payment search results.
 Depending on their role, users can also enable or disable payment methods, modify payment information, and cancel payments.
 
 Available payment method types:

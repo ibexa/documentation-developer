@@ -70,7 +70,7 @@ Users can also enable or disable payment methods, change payment details, and ca
 
 #### Shipping management
 
-With the [Shipping](shipping_management.md) component users can create and manage shipments, search for shipments, filter search results, and define and manage various shipping methods.
+With the [Shipping](shipping_management.md) component, users can create and manage shipments, search for shipments, filter search results, and define and manage various shipping methods.
 Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
 
 ![Shipping management](shipping_management.png)

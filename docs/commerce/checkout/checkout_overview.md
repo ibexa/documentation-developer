@@ -1,5 +1,5 @@
 ---
-description: The checkout component covers providing shipping and billing addresses, and selecting payment and shipping methods.
+description: The Checkout component covers providing shipping and billing addresses, and selecting payment and shipping methods.
 edition: commerce
 ---
 

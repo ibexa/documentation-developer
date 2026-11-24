@@ -1,5 +1,5 @@
 ---
-description: The checkout component collects billing and shipping addresses, and payment and shipping information, to turn a cart into an order.
+description: The Checkout component collects billing and shipping addresses, and payment and shipping information, to turn a cart into an order.
 page_type: landing_page
 edition: commerce
 month_change: false

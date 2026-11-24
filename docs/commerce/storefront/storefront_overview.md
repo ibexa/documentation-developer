@@ -5,12 +5,12 @@ edition: commerce
 
 # Storefront overview
 
-The storefront component provides a starting kit for the developers.
+The Storefront component provides a starting kit for the developers.
 It's a set of components that serves as a basis, which developers can customize and extend to create their own implementation of a web store.
 
 ## Default UI components
 
-The storefront component contains the following default UI components and widgets.
+The Storefront component contains the following default UI components and widgets.
 You can modify them when you build your own web store.
 
 | Component | Description |

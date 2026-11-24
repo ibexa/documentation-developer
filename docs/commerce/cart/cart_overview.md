@@ -1,11 +1,11 @@
 ---
-description: The cart component covers adding items to the shopping cart, and previewing or modifying the cart information.
+description: The Cart component covers adding items to the shopping cart, and previewing or modifying the cart information.
 edition: commerce
 ---
 
 # Cart overview
 
-The cart component is a foundation of the commerce offering delivered as part of the [[= product_name_commerce_sdk =]].
+The Cart component is a foundation of the commerce offering delivered as part of the [[= product_name_commerce_sdk =]].
 It covers actions related to the creation and handling of a list of products that the buyer intends to purchase.
 
 The component exposes the following:
@@ -14,7 +14,7 @@ The component exposes the following:
 - [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart) that helps get cart and products information over HTTP
 - [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
-There is no specific configuration related to the cart component.
+There is no specific configuration related to the Cart component.
 All configuration is done at the checkout and storefront level.
 
 Cart constructor takes the following arguments:
@@ -43,7 +43,7 @@ If no previous cart data exists, a new cart is created.
 
 ### Cart data validation
 
-When a buyer tries to add products to the cart, increase cart item quantity, or proceed to checkout, the cart component performs cart item validation and checks whether:
+When a buyer tries to add products to the cart, increase cart item quantity, or proceed to checkout, the Cart component performs cart item validation and checks whether:
 
 - the product is available
 - the requested quantity of product is available

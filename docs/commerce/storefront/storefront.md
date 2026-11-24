@@ -1,5 +1,5 @@
 ---
-description: The storefront component is a starting kit that you can customize and extend to build your own web store.
+description: The Storefront component is a starting kit that you can customize and extend to build your own web store.
 page_type: landing_page
 edition: commerce
 month_change: false
@@ -7,7 +7,7 @@ month_change: false
 
 # Storefront
 
-The storefront component provides a starting kit for developers.
+The Storefront component provides a starting kit for developers.
 It's a set of UI components and widgets that serves as a basis, which developers can customize and extend to create their own implementation of a web store.
 
 ## Getting started

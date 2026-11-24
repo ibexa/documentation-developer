@@ -1,5 +1,5 @@
 ---
-description: The order management component covers creating orders and managing their lifecycle.
+description: The Order management component covers creating orders and managing their lifecycle.
 page_type: landing_page
 edition: commerce
 month_change: false
@@ -7,7 +7,7 @@ month_change: false
 
 # Order management
 
-The order management component covers creating orders and managing their lifecycle.
+The Order management component covers creating orders and managing their lifecycle.
 Users can search for orders, track their status, review order details, and cancel orders, depending on their role.
 
 ## Getting started

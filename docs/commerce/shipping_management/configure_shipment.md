@@ -9,7 +9,7 @@ When you work with your Commerce implementation, you can review and modify the s
 
 !!! note "Permissions"
 
-    When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the shipping component.
+    When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the Shipping component.
 
 ## Configure shipment workflow
 

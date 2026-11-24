@@ -1,5 +1,5 @@
 ---
-description: The shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
+description: The Shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
 page_type: landing_page
 edition: commerce
 month_change: false
@@ -7,7 +7,7 @@ month_change: false
 
 # Shipping
 
-The shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
+The Shipping component covers defining and managing shipping methods, together with managing shipments and their lifecycle.
 
 ## Getting started
 

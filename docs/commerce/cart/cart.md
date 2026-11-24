@@ -1,5 +1,5 @@
 ---
-description: The cart component covers adding products to the cart and handling the list of products that the buyer intends to purchase, also in bulk with quick order.
+description: The Cart component covers adding products to the cart and handling the list of products that the buyer intends to purchase, also in bulk with quick order.
 page_type: landing_page
 edition: commerce
 month_change: false
@@ -7,7 +7,7 @@ month_change: false
 
 # Cart
 
-The cart component covers the creation and handling of a list of products that the buyer intends to purchase.
+The Cart component covers the creation and handling of a list of products that the buyer intends to purchase.
 With the quick order form, buyers can add multiple products to the cart at once.
 
 ## Getting started

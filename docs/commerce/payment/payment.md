@@ -1,5 +1,5 @@
 ---
-description: The payment component covers defining and managing payment methods, together with managing payments and their lifecycle.
+description: The Payment component covers defining and managing payment methods, together with managing payments and their lifecycle.
 page_type: landing_page
 edition: commerce
 month_change: false
@@ -7,7 +7,7 @@ month_change: false
 
 # Payment
 
-The payment component covers defining and managing payment methods, together with managing payments and their lifecycle.
+The Payment component covers defining and managing payment methods, together with managing payments and their lifecycle.
 With the Payum integration, you can add online payment methods, such as Stripe or PayPal.
 
 ## Getting started
