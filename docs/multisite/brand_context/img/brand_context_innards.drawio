@@ -1,0 +1,77 @@
+<mxfile host="Electron" compressed="false" modified="2026-11-26T12:41:08.815Z" agent="5.0 (Macintosh; Intel Mac OS X 27_2_1) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/14.6.13 Chrome/89.0.4389.128 Electron/12.0.7 Safari/537.36" version="14.6.13" etag="hGwfnU6lf_UA6bijtVnk" type="device">
+  <diagram id="brand-context" name="Brand context">
+    <mxGraphModel dx="1346" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sites" value="Websites (SiteAccesses)" style="swimlane;rounded=1;fontStyle=1;fillColor=#EDDED1;swimlaneFillColor=#EDDED1;strokeColor=#2B1C4C;fontColor=#2B1C4C;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="40" y="60" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="Carotella" style="rounded=1;whiteSpace=wrap;fillColor=#F9F4EF;strokeColor=#2B1C4C;fontColor=#2B1C4C;" parent="sites" vertex="1">
+          <mxGeometry x="20" y="45" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="Carotella Pro" style="rounded=1;whiteSpace=wrap;fillColor=#F9F4EF;strokeColor=#2B1C4C;fontColor=#2B1C4C;" parent="sites" vertex="1">
+          <mxGeometry x="20" y="105" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="Carotella Trade" style="rounded=1;whiteSpace=wrap;fillColor=#F9F4EF;strokeColor=#2B1C4C;fontColor=#2B1C4C;" parent="sites" vertex="1">
+          <mxGeometry x="20" y="165" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bc" value="Brand context: Carotella" style="swimlane;rounded=1;fontStyle=1;fillColor=#480BA2;swimlaneFillColor=#EDE7F6;strokeColor=#480BA2;fontColor=#FFFFFF;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="380" y="40" width="300" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="bc1" value="Basic information&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;name, logo, primary color, region&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7742D5;fontColor=#2B1C4C;" parent="bc" vertex="1">
+          <mxGeometry x="20" y="45" width="260" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="bc2" value="Identity · Market · Channel&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;attribute groups&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7742D5;fontColor=#2B1C4C;" parent="bc" vertex="1">
+          <mxGeometry x="20" y="105" width="260" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="bc3" value="&lt;b&gt;AI Context&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;style guide, persona, constraints, forbidden topics&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE6CC;strokeColor=#FC8102;strokeWidth=2;fontColor=#2B1C4C;" parent="bc" vertex="1">
+          <mxGeometry x="20" y="165" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="bc4" value="Translations: eng-GB, ger-DE, ..." style="text;html=1;align=center;fontSize=10;fontColor=#2B1C4C;textOpacity=70;" parent="bc" vertex="1">
+          <mxGeometry x="20" y="240" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="" style="endArrow=classic;html=1;strokeColor=#480BA2;labelBackgroundColor=#F9F4EF;fontColor=#2B1C4C;" parent="1" source="s1" target="bc" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="assigned to" style="endArrow=classic;html=1;strokeColor=#480BA2;fontSize=10;labelBackgroundColor=#F9F4EF;fontColor=#2B1C4C;" parent="1" source="s2" target="bc" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="" style="endArrow=classic;html=1;strokeColor=#480BA2;labelBackgroundColor=#F9F4EF;fontColor=#2B1C4C;" parent="1" source="s3" target="bc" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sel" value="" style="endArrow=classic;dashed=1;html=1;strokeColor=#2B1C4C;" parent="1" target="sites" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="148" y="410" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ai" value="&lt;b&gt;AI action&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;for example, Refine text in the AI Assistant&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#480BA2;gradientColor=#7742D5;gradientDirection=east;strokeColor=none;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="380" y="420" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="run" value="runs" style="endArrow=classic;html=1;strokeColor=#7742D5;fontSize=10;labelBackgroundColor=#F9F4EF;fontColor=#2B1C4C;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="5DXX0YpAlWsbGrEO-VFK-2" target="ai" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="444" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pr" value="&lt;b&gt;Final prompt&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align:left;font-size:10px&quot;&gt;Action instructions&lt;br&gt;+ editor&#39;s input&lt;br&gt;+ Follow these guidelines:&lt;br&gt;&amp;nbsp;&amp;nbsp;- &amp;lt;attribute description&amp;gt;: &amp;lt;value&amp;gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;- ...&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#FFFFFF;strokeColor=#7742D5;fontColor=#2B1C4C;align=center;verticalAlign=top;spacingTop=6;" parent="1" vertex="1">
+          <mxGeometry x="790" y="300" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" value="AI Context attributes&lt;br&gt;in the language of the action" style="endArrow=classic;html=1;strokeColor=#FC8102;strokeWidth=2;fontSize=10;labelBackgroundColor=#F9F4EF;fontColor=#2B1C4C;" parent="1" source="bc3" target="pr" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g2" value="" style="endArrow=classic;html=1;strokeColor=#7742D5;" parent="1" source="ai" target="pr" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="svc" value="AI service&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;OpenAI, Anthropic, Gemini, ...&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#EDDED1;strokeColor=#2B1C4C;fontColor=#2B1C4C;" parent="1" vertex="1">
+          <mxGeometry x="820" y="480" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="g3" value="" style="endArrow=classic;html=1;strokeColor=#2B1C4C;" parent="1" source="pr" target="svc" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DXX0YpAlWsbGrEO-VFK-2" value="Editor selects&lt;br&gt;&lt;b&gt;Carotella Pro&lt;/b&gt;&lt;br&gt;in the &lt;b&gt;Context&lt;/b&gt;&lt;br&gt;drop-down list" style="text;whiteSpace=wrap;html=1;align=center;fontColor=#2B1C4C;" parent="1" vertex="1">
+          <mxGeometry x="105" y="420" width="90" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

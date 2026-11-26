@@ -44,6 +44,9 @@ The following rules apply:
 ### Website selection in back office
 
 In the top bar, editors select the website that they work with.
+
+![Context drop-down list in the top bar](img/brand_context_top_bar.png "Context drop-down list in the top bar")
+
 The **Context** drop-down list groups the websites by brand context, and the content tree shows a badge with the brand context name next to the root of each brand's content.
 
 ![Carotella content tree](img/carotella_content_tree.png "Brand context in a content tree")
@@ -103,6 +106,8 @@ Editors can see which brand context applies to their work:
 - the content editing form shows a message with the selected brand context
 - the **Final prompt** field in the AI action details shows the complete prompt, including the brand guidelines
 
+![Final prompt field in AI action details](img/ai_action_final_prompt.png "Final prompt field in AI action details")
+
 ## Capabilities
 
 ### Brand management
@@ -113,7 +118,7 @@ Editors and brand managers can [create and manage brand contexts]([[= user_doc =
 - assign websites to brand contexts
 - translate brand contexts into the languages of the brand's websites
 - track how complete each brand context is, and how many of its AI guidelines are filled in
-- see which brand context each website belongs to in the **Sites** list
+- see which brand context each website belongs to in the **Sites** list, and filter the list by brand context
 
 ![Brand context list](img/brand_context_list.png "Brand context list")
 
