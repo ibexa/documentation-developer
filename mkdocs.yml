@@ -490,6 +490,11 @@ nav:
                 - Configure translations management: multisite/translations_management/configure_translations_management.md
                 - Translate content items with CLI: multisite/translations_management/translate_with_cli.md
                 - Extend translations management: multisite/translations_management/extend_translations_management.md
+        - Brand context:
+            - Brand context: multisite/brand_context/brand_context.md
+            - Brand context product guide: multisite/brand_context/brand_context_guide.md
+            - Configure brand context: multisite/brand_context/configure_brand_context.md
+            - Brand context API: multisite/brand_context/brand_context_api.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
