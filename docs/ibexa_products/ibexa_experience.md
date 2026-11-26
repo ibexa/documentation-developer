@@ -90,15 +90,13 @@ Use the [Customer Portal](customer_portal.md) and customer management capabiliti
 With the help of this feature, you can create customized areas that give users a smooth, integrated experience and provide them with access to a variety of resources, apps, and services from a single point of entry.
 Using this tool, your customers can change their organization details, invite and see members, self-register, and more.
 
-#### Segments
+#### Audiences
 
-[Segmentation](segments_admin_panel.md) allows you to split up the user base into audiences with the metadata such as size, description, tags, and last update timestamp synced from the CDP.
-By assigning users to segments, you can display specific content to selected visitors and tailor the content that they can see.
-One of the tools that you can use right out of the box is the [Targeting block](targeting_block.md) that is available in the Page Builder, where you can assign multiple audiences to a single content item.
+[Audiences](../personalization/audiences.md) allow you to group users and display specific content to selected visitors.
+Audiences from CDP can include metadata such as size, description, tags, and last update timestamp.
+One of the tools that you can use right out of the box is the [Targeting block](../personalization/targeting.md) that is available in the Page Builder, where you can assign multiple audiences to a single content item.
 Segmentation is also useful with the [Recommendations](raptor_connector_guide.md).
 You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
-
-![Segments](segments.png)
 
 #### Customer Data Platform (CDP)
 

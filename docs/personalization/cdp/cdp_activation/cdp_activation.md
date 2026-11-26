@@ -11,7 +11,7 @@ Follow a step-by-step procedure that allows you to activate [[= product_name_cdp
 Activation includes configuration, data export and adding tracking.
 
 [[= cards([
-    "cdp/cdp_activation/cdp_configuration",
-    "cdp/cdp_activation/cdp_data_export",
-    "cdp/cdp_activation/cdp_add_tracking",
+    "personalization/cdp/cdp_activation/cdp_configuration",
+    "personalization/cdp/cdp_activation/cdp_data_export",
+    "personalization/cdp/cdp_activation/cdp_add_tracking",
 ], columns=3) =]]

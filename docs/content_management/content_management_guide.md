@@ -203,16 +203,14 @@ This setting isn't inherited.
 
 ![Object states in content item’s Details](img/object_states.png)
 
-### User segments
+### Audiences
 
-Although segments aren't meant to classify content, they could fall into this category, because their role is about targeting users, and not controlling their access to content.
-With segments, you can reach specific groups, or categories, of visitors with specific information about content or products that could be of their interest.
+Although audiences aren't meant to classify content, they could fall into this category, because their role is about targeting users, and not controlling their access to content.
+With audiences, you can reach specific groups of visitors with content or products that could be of interest to them.
 For example, you can build Pages that contain different recommendations, depending on who is visiting them.
 
-Each segment, also referred to as an audience, contains metadata such as size, description, tags, and last update timestamp, synced from your CDP.
-This metadata is available in the [Segments view](segments_admin_panel.md#segments-view), and while configuring the [Targeting block](targeting_block.md) in Page Builder.
-
-![A segment group with two user segments](img/user_segments.png)
+The [Audiences view](../personalization/audiences.md#audiences-view) displays audience details.
+Audiences from CDP can include additional [metadata](../personalization/cdp/cdp_audience_metadata.md), and you can use audiences in the [Targeting block](../personalization/targeting.md) in Page Builder.
 
 ## How to get started
 

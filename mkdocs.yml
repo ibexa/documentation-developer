@@ -128,7 +128,6 @@ nav:
             - Roles: administration/admin_panel/roles_admin_panel.md
             - URL Management: administration/admin_panel/url_management_admin_panel.md
             - Languages: administration/admin_panel/languages_admin_panel.md
-            - Segments: administration/admin_panel/segments_admin_panel.md
             - Corporate: administration/admin_panel/corporate_admin_panel.md
             - Workflow: administration/admin_panel/workflow_admin_panel.md
             - System Information: administration/admin_panel/system_information_admin_panel.md
@@ -211,7 +210,6 @@ nav:
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
             - Create custom Page block: content_management/pages/create_custom_page_block.md
-            - Targeting block: content_management/pages/targeting_block.md
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
@@ -509,28 +507,33 @@ nav:
         - User grouping:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
-    - Recommendations:
+    - Personalization:
+        - Audiences: personalization/audiences.md
+        - Targeting block: personalization/targeting.md
+        - Recommendations:
+            - Recommendations: personalization/recommendations/recommendations.md
+            - Recommendations blocks: personalization/recommendations/recommendation_blocks.md
+            - Custom recommendation rendering: personalization/recommendations/custom_recommendation_rendering.md
         - Integration with Raptor:
-            - Raptor connector: recommendations/raptor_integration/raptor_connector.md
-            - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
-            - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
-            - Tracking functions: recommendations/raptor_integration/tracking_functions.md
-            - Hybrid tracking: recommendations/raptor_integration/hybrid_tracking.md
-            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
-            - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
-            - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
-    - CDP (Customer Data Platform):
-        - Customer Data Platform: cdp/cdp.md
-        - CDP guide: cdp/cdp_guide.md
-        - CDP installation: cdp/cdp_installation.md
-        - CDP activation:
-            - CDP activation: cdp/cdp_activation/cdp_activation.md
-            - CDP configuration: cdp/cdp_activation/cdp_configuration.md
-            - CDP data export: cdp/cdp_activation/cdp_data_export.md
-            - CDP add tracking: cdp/cdp_activation/cdp_add_tracking.md
-        - CDP data export schedule: cdp/cdp_data_export_schedule.md
-        - CDP data customization: cdp/cdp_data_customization.md
-        - CDP audience metadata: cdp/cdp_audience_metadata.md
+            - Raptor integration: personalization/raptor_integration/raptor_integration.md
+            - Raptor connector: personalization/raptor_integration/raptor_connector.md
+            - Raptor connector guide: personalization/raptor_integration/raptor_connector_guide.md
+            - Installation and configuration: personalization/raptor_integration/connector_installation_configuration.md
+            - Tracking functions: personalization/raptor_integration/tracking_functions.md
+            - Hybrid tracking: personalization/raptor_integration/hybrid_tracking.md
+            - Tracking with PHP API: personalization/raptor_integration/tracking_php_api.md
+        - CDP (Customer Data Platform):
+            - Customer Data Platform: personalization/cdp/cdp.md
+            - CDP guide: personalization/cdp/cdp_guide.md
+            - CDP installation: personalization/cdp/cdp_installation.md
+            - CDP activation:
+                - CDP activation: personalization/cdp/cdp_activation/cdp_activation.md
+                - CDP configuration: personalization/cdp/cdp_activation/cdp_configuration.md
+                - CDP data export: personalization/cdp/cdp_activation/cdp_data_export.md
+                - CDP add tracking: personalization/cdp/cdp_activation/cdp_add_tracking.md
+            - CDP data export schedule: personalization/cdp/cdp_data_export_schedule.md
+            - CDP data customization: personalization/cdp/cdp_data_customization.md
+            - CDP audience metadata: personalization/cdp/cdp_audience_metadata.md
     - Search:
         - Search: search/search.md
         - Search engines: 

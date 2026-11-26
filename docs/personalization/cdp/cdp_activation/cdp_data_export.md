@@ -101,7 +101,7 @@ php bin/console ibexa:cdp:stream-user-data --no-draft
 
 Now you can run and activate the dataflow.
 
-## Build new Audience/Segment
+## Build a new audience
 
 Go to the **Audience Builder** and select **Build new audience**.
 When naming the audience remember, you need to find it in a drop-down list during activation.
@@ -115,7 +115,7 @@ In the Audience Builder, you can also connect created audiences to the activatio
 ## Activation
 
 Activation synchronises data from [[= product_name_cdp =]] to the [[= product_name =]].
-When you specify a segment, you can activate it on multiple communication channels, such as newsletters or commercials.
+When you specify an audience, you can activate it on multiple communication channels, such as newsletters or commercials.
 You can configure multiple activations based data flows.
 
 First, from the menu bar, select **Activations** and create a new **Ibexa** activation.
@@ -128,8 +128,8 @@ Next, you can fill in **Ibexa information** they must match the ones provided in
 - **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint.
 In the configuration they're taken from environment variables in `.env` file.
 
-- **Segment Group Identifier** - identifier of the segment group in [[= product_name =]].
-It points to a segment group where all the CDP audiences are stored.
+- **Segment Group Identifier** - identifier of the audience group in [[= product_name =]].
+It points to the group where the CDP audiences are stored.
 
 - **Base URL** - URL of your instance with added `/cdp/webhook` at the end.
 

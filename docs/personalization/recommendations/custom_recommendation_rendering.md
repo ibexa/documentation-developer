@@ -80,4 +80,4 @@ To fetch recommendations for the remaining modules, you need to [create a custom
 
 Use this method to display recommendations on any page, for example, on a specific product page, as shown below:
 
-![Custom rendering](custom_rendering.png)
+![Custom rendering](../raptor_integration/img/custom_rendering.png)

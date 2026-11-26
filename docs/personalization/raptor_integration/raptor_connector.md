@@ -26,11 +26,11 @@ Activation includes [configuration](connector_installation_configuration.md), ad
 For more information about tracking, check the Raptor documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
 
 [[= cards([
-    "recommendations/raptor_integration/connector_installation_configuration",
-    "recommendations/raptor_integration/tracking_functions",
-    "recommendations/raptor_integration/hybrid_tracking",
-    "recommendations/raptor_integration/tracking_php_api",
-    "recommendations/raptor_integration/recommendation_blocks",
-    "recommendations/raptor_integration/custom_recommendation_rendering",
+    "personalization/raptor_integration/connector_installation_configuration",
+    "personalization/raptor_integration/tracking_functions",
+    "personalization/raptor_integration/hybrid_tracking",
+    "personalization/raptor_integration/tracking_php_api",
+    "personalization/recommendations/recommendation_blocks",
+    "personalization/recommendations/custom_recommendation_rendering",
     "templating/twig_function_reference/recommendations_twig_functions",
 ], columns=3) =]]
