@@ -50,6 +50,16 @@ The Activity log Owner (`activity_log_owner`) limitation specifies if a user can
 |-------|-----------------|--------------------------------------------------------------|
 | `1`   | "Only own logs" | Current user can only access their own activity log entries. |
 
+## Brand Context limitation
+
+The Brand Context (`BrandContext`) limitation specifies whether the user has access to selected [brand contexts](brand_context_guide.md).
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`<BrandContext_id>`|`<BrandContext_name>`|All valid brand context IDs can be set as values.|
+
 ## Cart Owner limitation
 
 The Cart Owner (`CartOwner`) limitation specifies whether the user can modify a cart.
