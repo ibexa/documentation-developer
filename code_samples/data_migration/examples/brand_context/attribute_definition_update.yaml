@@ -1,0 +1,11 @@
+-
+    type: brand_context_attribute_definition
+    mode: update
+    criteria:
+        type: field_value
+        field: identifier
+        value: certifications
+        operator: '='
+    position: 20
+    descriptions:
+        eng-GB: Environmental and fair trade certifications held by the brand

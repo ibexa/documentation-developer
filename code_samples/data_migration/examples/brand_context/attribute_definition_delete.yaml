@@ -1,0 +1,8 @@
+-
+    type: brand_context_attribute_definition
+    mode: delete
+    criteria:
+        type: field_value
+        field: identifier
+        value: social_tiktok
+        operator: '='
