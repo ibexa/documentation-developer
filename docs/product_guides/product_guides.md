@@ -13,6 +13,7 @@ Discover the primary ones with the help of product guides. Condensed content all
     "users/user_management_guide",
     "content_management/content_management_guide",
     "multisite/translations_management/translations_management_guide",
+    "multisite/brand_context/brand_context_guide",
     "discounts/discounts_guide",
     "content_management/rich_text/online_editor_guide",
     "content_management/pages/page_builder_guide",
