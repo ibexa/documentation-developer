@@ -14,12 +14,12 @@ You provide a single URL for the frontend page and let it communicate with the P
 
 TODO: on-premise only, remove from SaaS documentation
 
-First, set up the feature, for example, in `config/packages/ibexa_page_builder.yaml`:
+First, set up the feature, for example, in `config/packages/ibexa_page_builder.yaml`, per front-end SiteAccesses or SiteAccess groups:
 
 ```yaml
 ibexa:
     system:
-        admin_group:
+        site_group:
               headless:
                   enabled: true
                   page_builder:
