@@ -28,8 +28,10 @@ final class ManageBrandContextCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $this->permissionResolver->setCurrentUserReference(
             $this->userService->loadUserByLogin('admin')
         );

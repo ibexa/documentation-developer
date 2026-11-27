@@ -22,8 +22,10 @@ final class BrandContextAiGuidelinesCommand extends Command
         parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         // Get the AI guidelines of the brand context that the carotella_pro website belongs to
         $aiContext = $this->aiContextResolver->resolveForSiteAccess('carotella_pro', 'eng-GB');
 
