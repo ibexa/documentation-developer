@@ -99,6 +99,12 @@ Pieces of PHP code that are responsible for resolving a model are called handler
 They may include hardcoded prompts for conversational AI services like ChatGPT, or operate without prompts in the case of other types of AI.
 Handlers take parameters defined in the AI action type and configuration, combine it with user input and any predefined settings or prompts, and pass this information to the AI service for processing.
 
+### Brand guidelines
+
+If the website that an editor selected in the back office top bar belongs to a [brand context](brand_context_guide.md), [[= product_name =]] adds the brand's AI guidelines to the prompt.
+This way, AI actions follow the writing style, persona, and other rules of the brand on all its websites.
+For more information, see [Brand context and AI](brand_context_guide.md#brand-context-and-ai).
+
 ### Triggering actions from the UI
 
 Among other elements, AI Actions include UI components that are used in:
