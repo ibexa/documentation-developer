@@ -72,3 +72,9 @@ As a whole a sample layout could look as follows:
 ``` html+twig
 [[= include_file('code_samples/page/pagefield_layout.html.twig') =]]
 ```
+
+### Headless rendering
+
+When used headless, the front-end have to fetch the page data and render the zones and blocks by itself.
+It's also possible for the front-end to provide a URL that can communicate with the Page Builder and display a preview in it.
+See [Headless front-end preview in Page Builder](headless_page_builder.md) for more information.
