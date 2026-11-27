@@ -10,16 +10,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class RichTextController extends AbstractController
 {
-    public function __construct(private readonly RichTextConverterInterface $richTextOutputConverter)
-    {
-    }
+    public function __construct(private readonly RichTextConverterInterface $richTextOutputConverter) {}
 
     /**
      * Convert RichText DocBook XML into HTML 5.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     #[Route('/richtext-to-html5')]
     public function richTextToHtml5(Request $request): Response
