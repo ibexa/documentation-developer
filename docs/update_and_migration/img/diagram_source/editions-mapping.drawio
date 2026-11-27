@@ -1,0 +1,49 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="4_AsmMF6I75vF21XxY45">
+    <mxGraphModel dx="1094" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NaXHiADQbeOICzvpCvLS-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;fontColor=#FFFFFF;fillColor=#AE1164;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Ibexa DXP 5.0&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Commerce&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="320" width="200" x="240" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#FF4713;fontColor=#FFFFFF;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Ibexa DXP 5.0&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Experience&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="240" width="160" x="260" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#DB0032;fontColor=#FFFFFF;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Ibexa DXP 5.0&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Headless&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="120" x="280" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#7742D5;fontColor=#FFFFFF;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;Cohesivo 6.0&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="240" width="200" x="520" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;fontColor=#FFFFFF;fillColor=#480BA2;arcSize=24;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Commerce SDK&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="520" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-8" edge="1" parent="1" source="NaXHiADQbeOICzvpCvLS-1" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" target="NaXHiADQbeOICzvpCvLS-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="400" as="sourcePoint" />
+            <mxPoint x="580" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-9" edge="1" parent="1" source="NaXHiADQbeOICzvpCvLS-2" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="450" as="sourcePoint" />
+            <mxPoint x="570" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-10" edge="1" parent="1" source="NaXHiADQbeOICzvpCvLS-2" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" target="NaXHiADQbeOICzvpCvLS-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="370" y="160" as="sourcePoint" />
+            <mxPoint x="650" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NaXHiADQbeOICzvpCvLS-11" edge="1" parent="1" source="NaXHiADQbeOICzvpCvLS-3" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;" target="NaXHiADQbeOICzvpCvLS-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="570" as="sourcePoint" />
+            <mxPoint x="600" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
