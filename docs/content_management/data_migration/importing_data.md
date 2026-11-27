@@ -50,6 +50,8 @@ The following data migration step modes are available:
 | `action_configuration` | &#10004; | &#10004; | &#10004; |          |          |
 | `attribute`            | &#10004; | &#10004; | &#10004; |          |          |
 | `attribute_group`      | &#10004; | &#10004; | &#10004; |          |          |
+| `brand_context_attribute_definition` | &#10004; | &#10004; | &#10004; |          |          |
+| `brand_context_attribute_group`      | &#10004; | &#10004; | &#10004; |          |          |
 | `company`              | &#10004; |          |          |          |          |
 | `content_type`         | &#10004; | &#10004; | &#10004; |          |          |
 | `content_type_group`   | &#10004; | &#10004; | &#10004; |          |          |
@@ -671,6 +673,33 @@ When updating a content type, use:
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
+
+### Brand context attributes
+
+You can create, update, and delete the attribute groups and attribute definitions of [brand contexts](brand_context_guide.md).
+
+- The following example creates an attribute group with an attribute definition, and adds an attribute definition to the AI Context group, so that AI actions follow it as a guideline.
+AI actions use values of all attribute types except the Content type, whose values aren't added to prompts:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/brand_context/attribute_group_definition_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing attribute definition.
+You only need to provide the properties that you want to change:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/brand_context/attribute_definition_update.yaml') =]]
+```
+
+- Use the `delete` mode to delete an existing attribute definition:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/brand_context/attribute_definition_delete.yaml') =]]
+```
+
+The attribute groups use the same `update` and `delete` steps, with the `brand_context_attribute_group` type.
+You can't change the identifier of the AI Context attribute group.
 
 ### Discounts
 

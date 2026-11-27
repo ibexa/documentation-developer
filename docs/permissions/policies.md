@@ -41,6 +41,17 @@ To limit access granted to users through policies, you can use [limitations](lim
 |                                     | <nobr>`delete`</nobr>  | delete an AI action    |                      |
 |                                     | <nobr>`execute`</nobr> | execute an AI action   |                      |
 
+#### Brand context
+
+| Module                                        | Function              | Effect                                              | Possible limitations                                              |
+|-----------------------------------------------|-----------------------|-----------------------------------------------------|-------------------------------------------------------------------|
+| <nobr>`brand_context`</nobr>                  | <nobr>`view`</nobr>   | view brand contexts                                 | [Brand Context](limitation_reference.md#brand-context-limitation) |
+|                                               | <nobr>`create`</nobr> | create brand contexts                               |                                                                   |
+|                                               | <nobr>`edit`</nobr>   | edit brand contexts and their translations          | [Brand Context](limitation_reference.md#brand-context-limitation) |
+|                                               | <nobr>`delete`</nobr> | delete brand contexts                               | [Brand Context](limitation_reference.md#brand-context-limitation) |
+|                                               | <nobr>`assign`</nobr> | assign websites to brand contexts and unassign them | [Brand Context](limitation_reference.md#brand-context-limitation) |
+| <nobr>`brand_context_attributes_config`</nobr> | <nobr>`manage`</nobr> | manage attribute groups and attribute definitions   |                                                                   |
+
 #### Customer groups
 
 | Module                        | Function              | Effect                  | Possible limitations |

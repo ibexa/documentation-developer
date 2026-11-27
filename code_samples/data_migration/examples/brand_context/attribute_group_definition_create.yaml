@@ -1,0 +1,30 @@
+-
+    type: brand_context_attribute_group
+    mode: create
+    identifier: sustainability
+    labels:
+        eng-GB: Sustainability
+
+-
+    type: brand_context_attribute_definition
+    mode: create
+    identifier: certifications
+    attribute_group_identifier: sustainability
+    type_identifier: text
+    position: 10
+    required: false
+    translatable: true
+    descriptions:
+        eng-GB: Environmental certifications held by the brand
+
+-
+    type: brand_context_attribute_definition
+    mode: create
+    identifier: preferred_terms
+    attribute_group_identifier: ai_context
+    type_identifier: text
+    position: 70
+    required: false
+    translatable: true
+    descriptions:
+        eng-GB: Terms to use when describing products

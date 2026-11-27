@@ -159,8 +159,11 @@ MCP Servers LTS Update comes with the following **experimental** built-in tools:
     - `list_users` - lists user accounts, paginated
     - `get_user` - gets one user account by `id` or `login`
 
-The following tools are included with their respective packages, [Taxonomy](taxonomy.md) and [Workflow](workflow.md):
+The following tools are included with their respective packages, [Brand context](brand_context_guide.md), [Taxonomy](taxonomy.md), and [Workflow](workflow.md):
 
+- `Ibexa\SiteContext\Mcp\Tool\BrandContextTools`
+    - `list_brand_contexts` - lists the brand contexts that the current user can view, with the SiteAccesses assigned to them, paginated and sorted by identifier
+    - `get_brand_context` - gets a brand context with its SiteAccesses and attribute values
 - `Ibexa\Taxonomy\Mcp\Tool\TaxonomyTools`
     - `list_taxonomies` - lists the taxonomies
     - `list_taxonomy_entries` - lists entries of a taxonomy, paginated and ordered by entry ID

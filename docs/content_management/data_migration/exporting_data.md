@@ -155,6 +155,8 @@ The following types are available:
 - `location`
 - `attribute_group`
 - `attribute`
+- `brand_context_attribute_group`
+- `brand_context_attribute_definition`
 - `segment`
 - `segment_group`
 - `company`
@@ -189,6 +191,8 @@ The following combinations of types are modes are available:
 |`location`||&#10004;||
 |`attribute_group`|&#10004;|&#10004;|&#10004;|
 |`attribute`|&#10004;|&#10004;|&#10004;|
+|`brand_context_attribute_group`|&#10004;|&#10004;|&#10004;|
+|`brand_context_attribute_definition`|&#10004;|&#10004;|&#10004;|
 |`segment`|&#10004;|&#10004;|&#10004;|
 |`segment_group`|&#10004;|&#10004;|&#10004;|
 |`company`|&#10004;|||
@@ -261,6 +265,10 @@ The following properties are available (per type):
     - `position`
     - `options`
 - `attribute_group`
+    - `identifier`
+- `brand_context_attribute_group`
+    - `identifier`
+- `brand_context_attribute_definition`
     - `identifier`
 
 You can extend the list of available matchers by creating [a custom one](add_data_migration_matcher.md).
