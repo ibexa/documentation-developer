@@ -90,13 +90,15 @@ Use the [Customer Portal](customer_portal.md) and customer management capabiliti
 With the help of this feature, you can create customized areas that give users a smooth, integrated experience and provide them with access to a variety of resources, apps, and services from a single point of entry.
 Using this tool, your customers can change their organization details, invite and see members, self-register, and more.
 
-#### Segments
+#### Personalization
 
-[Segmentation](segments_admin_panel.md) allows you to split up the user base.
-By assigning users to segments, you can display specific content to selected visitors and tailor the content that they can see.
-One of the tools that you can use right out of the box is the Targeting block that is available in the Page Builder.
-Segmentation is also useful with the [Recommendations](raptor_connector_guide.md).
-You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
+The **Personalization** section contains **Overview** and **Audiences**.
+The Overview page shows Raptor's status as **Activated** or **Non active** and links to [Recommendations](raptor_connector_guide.md) and the [Targeting block documentation](../content_management/pages/page_builder_guide.md#increase-sales-with-highly-personalized-campaigns).
+Use **Visit Raptor** to open the [Raptor website](https://raptorservices.com/en) or **Manage personalisation** to open the [Raptor Control Panel](https://controlpanel.raptorsmartadvisor.com/).
+
+In [**Audiences**](../administration/admin_panel/segments_admin_panel.md), you can manage audiences groups and use them to display specific content to selected users.
+The Targeting block in Page Builder can display content based on a user's segment.
+You can also use segmentation with [Recommendations](raptor_connector_guide.md), assigning users to recommendation groups and creating advanced logic with operators.
 
 ![Segments](segments.png)
 
@@ -112,13 +114,15 @@ This central data storage supports business growth with a scalable infrastructur
 
 ![CDP](cdp.png)
 
-#### [[= product_name_engage =]]
+#### Engagement
 
-Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [Ibexa Engage](ibexa_engage.md).
+The **Engagement** area and shows whether connection with Raptor is set up and Engagement feature status is **Activated** or **Non active**.
+Another add-on available for Experience and [Commerce](ibexa_commerce.md) editions is [Ibexa Engage](ibexa_engage.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
 [[= product_name_engage =]] is a data collection tool.
 It gives you the ability to use the [Qualifio](https://qualifio.com/en) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
-To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
+Use **Manage campaigns** to open Qualifio Manager or **Visit Qualifio** to open the [Qualifio website](https://qualifio.com/en).
+To promote your campaign, use the [Campaign block](../ibexa_engage/create_campaign.md#use-campaign-block-in-page-builder) in Page Builder or embed it in Rich Text with a [Campaign custom tag](../ibexa_engage/create_campaign.md#embed-campaign-in-the-rich-text-field).
 
 ![Ibexa Engage](ibexa_engage.png)
 

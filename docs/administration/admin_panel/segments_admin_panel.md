@@ -1,10 +1,11 @@
 ---
-description: You can use segments to display specific content to specific users.
+description: Manage audiences and to display specific content to specific users.
 edition: experience
 ---
 
-# Segments
+# Audiences
 
+In the back office, find audiences under **Personalization**.
 You can use segments to display specific content to specific [users](users.md).
 They're used out of the box in the Targeting block in the page.
 
