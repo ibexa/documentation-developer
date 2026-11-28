@@ -112,6 +112,13 @@ nav:
             - Integrated help events: api/event_reference/integrated_help_events.md
             - Translations management events: api/event_reference/translations_management_events.md
             - Other events: api/event_reference/other_events.md
+        - Webhooks:
+            - Webhooks: api/webhooks/webhooks.md
+            - Webhooks guide: api/webhooks/webhooks_guide.md
+            - Configure webhooks: api/webhooks/configure_webhooks.md
+            - Webhook payload reference: api/webhooks/webhook_payload_reference.md
+            - Webhooks API: api/webhooks/webhooks_api.md
+            - Extend webhooks: api/webhooks/extend_webhooks.md
         - Notification channels: api/notification_channels.md
     - Administration:
         - Administration: administration/administration.md

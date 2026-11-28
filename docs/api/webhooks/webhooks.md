@@ -17,8 +17,8 @@ Deliveries are processed asynchronously, retried on failure, and recorded in a d
 ## Getting started
 
 [[= cards([
-"webhooks/webhooks_guide",
-"webhooks/configure_webhooks",
+"api/webhooks/webhooks_guide",
+"api/webhooks/configure_webhooks",
 ("permissions/policies#webhooks", "Policies", "Learn about the available Webhook policies"),
 ("https://doc.ibexa.co/projects/userguide/en/5.0/webhooks/work_with_webhooks/", "Work with webhooks", "Learn how to manage webhooks in the back office."),
 ], columns=2) =]]
@@ -26,8 +26,8 @@ Deliveries are processed asynchronously, retried on failure, and recorded in a d
 ## Development
 
 [[= cards([
-"webhooks/webhook_payload_reference",
-"webhooks/webhooks_api",
+"api/webhooks/webhook_payload_reference",
+"api/webhooks/webhooks_api",
 ("https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Webhooks", "REST API Reference", "See the available endpoints for Webhooks"),
-"webhooks/extend_webhooks",
+"api/webhooks/extend_webhooks",
 ], columns=4) =]]
