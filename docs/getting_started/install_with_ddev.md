@@ -32,10 +32,10 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.4 --nodejs-version 24 --docroot=public
+ddev config --project-type=php --php-version 8.5 --nodejs-version 24 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.4, the document root to `public` directory, and creates the document root if it doesn't exist.
+This command sets the project type to PHP, the PHP version to 8.5, the document root to `public` directory, and creates the document root if it doesn't exist.
 
 #### Use another database type (optional)
 
@@ -271,7 +271,7 @@ The following example shows the use of `.env.local` with database configuration:
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
 
   ```bash
-  ddev composer create-project ibexa/commerce-skeleton --no-install;
+  ddev composer create-project ibexa/cohesivo-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
@@ -431,9 +431,9 @@ The following examples run an already [version-controlled project](install_cohes
 # Clone the version-controlled project and enter its local directory
 git clone <repository> my-ddev-project && cd my-ddev-project
 # Exclude the whole `.ddev/` directory from version control (some DDEV config could have been committed and shared, see notice below)
-.ddev/ >> .gitignore
+echo .ddev/ >> .gitignore
 # Configure the DDEV project then start it
-ddev config --project-type=php --php-version 8.3 \
+ddev config --project-type=php --php-version 8.5 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443
@@ -451,9 +451,16 @@ ddev launch
 ```
 
 Notice that the example adds the whole `.ddev/` directory to `.gitignore`, but you can also version parts of it.
-Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://docs.ddev.com/en/stable/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
+Some DDEV configs can be shared among developers.
+For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://docs.ddev.com/en/stable/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
+But be carful with sensitive information like credentials, authentication tokens, or API keys, that could be stored in `.ddev` directory.
+For example, be sure to not commit an `.auth.json`:
 
-Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
+```bash
+echo auth.json >> .gitignore
+```
+
+Compared to running a clean installation like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains a [[= product_name =]] project instead of creating an empty directory.
 - In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create-project`.
