@@ -177,14 +177,16 @@ Use the envelope `id` as an idempotency key to avoid processing the same event t
 
 ### How the signature is computed
 
-The signature is an HMAC of the timestamp and the raw request body, joined with a dot:
+The signature is an HMAC of the timestamp and the raw request body, joined with a dot, like illustrated in this pseudocode:
 
-```
-HMAC-SHA256(secret, timestamp + "." + rawBody)
+``` text
+HMAC(algo, secret, timestamp + "." + rawBody)
 ```
 
 Where:
 
+- `HMAC` is the hashing function (like [`hash_hmac` in PHP](https://www.php.net/manual/en/function.hash-hmac.php), [`crypto.createHmac` in Node.js](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options))
+- `algo` is the name of the hashing algorithm (like, for example, the SHA-256 `"sha256"`) as `X-Cohesivo-Signature` header value prefix
 - `secret` is the signing secret of the webhook, displayed once after the webhook is created or its secret is regenerated
 - `timestamp` is the value of the `X-Cohesivo-Timestamp` header
 - `rawBody` is the request body exactly as received, before any JSON parsing
