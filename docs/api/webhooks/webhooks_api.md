@@ -8,6 +8,11 @@ month_change: false
 You can manage webhooks, browse their delivery log, send test deliveries, and re-send deliveries with the [PHP API](#php-api) and the [REST API](#rest-api).
 Both APIs check the [`webhook` policies](permissions/policies.md#webhooks) of the current user.
 
+!!! note
+
+    This page is about webhooks management.
+    To create a new webhook event type, see [Extend webhooks](extend_webhooks.md).
+
 ## PHP API
 
 ### Manage webhooks
